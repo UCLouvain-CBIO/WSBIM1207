@@ -18,18 +18,19 @@ biomédicales abordera les thèmes suivants:
 - Technologies and méthodologies utilisées en bioinformatique
 - Introduction aux technologies et données omiques.
 - Bases de données biologiques et données publiques.
-- Analyses de données haut-debit avec [R](https://www.r-project.org/),
-  [RStudio](https://www.rstudio.com/) et
-  [Bioconductor](https://bioconductor.org/).
 
 Dans sa partie sciences de données appliquées aux sciences
 biomédicales, les thèmes suivants seront abordés:
 
 - Gestion de projet d'analyse de données et recherche reproductible.
-- Notions pratiques de langages de programmation.
-- Introduction aux structures de données élémentaires.
-- Manipulation de fichiers et manipulation et visualisation de données
-  en R.
+- Organisation de données dans des tableurs.
+- Notions pratiques de programmation sous en [R](https://www.r-project.org/).
+- Introduction aux structures de données élémentaires sous R.
+- Utilisation de l'environnement de programmation
+  [RStudio](https://www.rstudio.com/).
+- Manipulation de fichiers et manipulation et visualisation de données.
+- Analyses de données haut-débit avec R et
+  [Bioconductor](https://bioconductor.org/).
 
 Des travaux pratiques seront organisés, au cours desquels l'étudiant
 sera amené à réaliser des exercices de programmation suivant des
