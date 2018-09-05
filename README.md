@@ -18,25 +18,29 @@ biomédicales abordera les thèmes suivants:
 - Technologies and méthodologies utilisées en bioinformatique
 - Introduction aux technologies et données omiques.
 - Bases de données biologiques et données publiques.
+- Formats et fichiers en bioinformatique.
 
 Dans sa partie sciences de données appliquées aux sciences
 biomédicales, les thèmes suivants seront abordés:
 
 - Gestion de projet d'analyse de données et recherche reproductible.
 - Organisation de données dans des tableurs.
-- Notions pratiques de programmation sous en [R](https://www.r-project.org/).
-- Introduction aux structures de données élémentaires sous R.
 - Utilisation de l'environnement de programmation
   [RStudio](https://www.rstudio.com/).
-- Manipulation de fichiers et manipulation et visualisation de données.
-- Analyses de données haut-débit avec R et
+- Notions pratiques d'analyse de données et de programmation sous en
+  [R](https://www.r-project.org/).
+- Introduction aux structures de données élémentaires sous R.
+- Manipulation et visualisation de données.
+- Analyses et structures de données haut-débit avec R et
   [Bioconductor](https://bioconductor.org/).
+- Introduction aux bases des données relationnelles et SQL (structured
+  query language).
 
-Des travaux pratiques seront organisés, au cours desquels l'étudiant
-sera amené à réaliser des exercices de programmation suivant des
-problèmes concrets rencontrés en sciences biomédicales, en utilisant
-le langage de programmation R et l'environnement de programmation
-RStudio.
+Des travaux pratiques seront organisés, au cours desquels les
+étudiants seront amenés à réaliser des exercices de programmation
+suivant des problèmes concrets rencontrés en sciences biomédicales, en
+utilisant le langage de programmation R et l'environnement de
+programmation RStudio.
 
 ## Acquis d'apprentissage
 
@@ -44,16 +48,21 @@ A l'issue de ce cours, les étudiants auront une comprehension que ce
 qu'est la bioinformatique et quand la bioinformatique leur sera
 requise. Les étudiants seront en mesure de :
 
-1. Analyser un problème bio-informatique simple, proposer une solution
+1. Analyser un problème bioinformatique simple, proposer une solution
    informatique pour le résoudre et la mettre en oeuvre.
 2. Décomposer un problème simple en sous-problèmes et les résoudre
-   sous forme d'algorithme.
+   sous forme de scripts d'analyse.
 3. Lire et comprendre des scripts d'analyse existants.
 4. Utiliser des outils informatiques de support à la programmation.
 5. Exploiter la documentation technique du langage informatique R et
    des vignettes Bioconductor.
-6. Réaliser un script d'analyse de petite taille en R.
+6. Réaliser des scripts et rapports d'analyse de petite taille en R et
+   Rmd.
 
+La contribution de cette UE au développement et à la maîtrise des
+compétences et acquis du (des) programme(s) est accessible à la fin de
+cette fiche, dans la partie « Programmes/formations proposant cette
+unité d’enseignement (UE) ».
 
 ## Recommended reading
 
