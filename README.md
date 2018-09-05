@@ -8,7 +8,6 @@
 - [Course page](https://uclouvain.be/cours-2018-wsbim1207.html) (in French)
 - Teaching assistant: Kevin Missault
 
-
 ## Thèmes abordés
 
 Ce cours introductif à la bioinformatique relative aux sciences
@@ -37,17 +36,18 @@ biomédicales, les thèmes suivants seront abordés:
 - Introduction aux bases des données relationnelles et SQL (structured
   query language).
 
-Des travaux pratiques seront organisés, au cours desquels les
-étudiants seront amenés à réaliser des exercices de programmation
-suivant des problèmes concrets rencontrés en sciences biomédicales, en
-utilisant le langage de programmation R et l'environnement de
-programmation RStudio.
+
+La majorité du cours sera dispensé sous forme de travaux pratiques, au
+cours desquels les étudiants seront amenés à réaliser des exercices de
+programmation suivant des problèmes concrets rencontrés en sciences
+biomédicales, en utilisant le langage de programmation R et
+l'environnement de programmation RStudio.
 
 ## Acquis d'apprentissage
 
 A l'issue de ce cours, les étudiants auront une comprehension que ce
 qu'est la bioinformatique et quand la bioinformatique leur sera
-requise. Les étudiants seront en mesure de :
+requise. Ils seront également en mesure de
 
 1. Analyser un problème bioinformatique simple, proposer une solution
    informatique pour le résoudre et la mettre en oeuvre.
@@ -69,6 +69,8 @@ unité d’enseignement (UE) ».
 
 - [Scientific computing: Code alert](https://www.nature.com/naturejobs/science/articles/10.1038/nj7638-563a)
 - [La recherche reproductible : une communication scientifique explicite](http://www.publications-sfds.fr/index.php/stat_soc/article/view/448)
+- [Data Organization in Spreadsheets](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989)
+
 
 ## References
 
