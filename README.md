@@ -6,6 +6,7 @@
 - Thursday mornings, 8.30 - 12.30
 - From 7 Februray to 4 April 2019
 - [Course page](https://uclouvain.be/cours-2018-wsbim1207.html) (in French)
+- Teaching assistant: Kevin Missault
 
 
 ## Thèmes abordés
