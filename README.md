@@ -8,9 +8,54 @@
 - [Course page](https://uclouvain.be/cours-2018-wsbim1207.html) (in French)
 - Teaching assistant: Kevin Missault
 
+
 ## Thèmes abordés
 
-Ce cours introductif à la bioinformatique relative aux sciences biomédicales abordera les thèmes suivants:
+Ce cours introductif à la bioinformatique et sciences des données
+appliquées aux sciences biomédicales introduira les méthodologies et
+technologies utilisées en bioinformatique. Les étudiants apprendront
+comment gérer un projets bioinformatique et comment manipuler et
+visualiser des jeux de données de tailles moyennes.
+
+## Acquis d'apprentissage
+
+A l'issue de ce cours, les étudiants auront une comprehension que ce
+qu'est la bioinformatique et quand la bioinformatique leur sera
+requise. Ils seront également en mesure de
+
+1. Analyser un problème bioinformatique simple, proposer une solution
+   informatique pour le résoudre et la mettre en oeuvre.
+2. Décomposer un problème simple en sous-problèmes et les résoudre
+   sous forme de scripts d'analyse.
+3. Lire et comprendre des scripts d'analyse existants.
+4. Utiliser des outils informatiques de support à la programmation.
+5. Exploiter la documentation technique du langage informatique R et
+   des vignettes Bioconductor.
+6. Réaliser des scripts R et rapports d'analyse de petite taille en Rmd.
+
+## Méthodes d'enseignement
+
+Le cours sera dispensé sous forme de travaux pratiques, au cours
+desquels les étudiants seront amenés à réaliser des exercices de
+programmation suivant des problèmes concrets rencontrés en sciences
+biomédicales, en utilisant le langage de programmation R et
+l'environnement de programmation RStudio.
+
+La présence des étudiants à l'ensemble des cours (volumes 1 et 2) est
+obligatoire. Les présences seront comptabilisées. En case de trois
+absences non justifiées, l'étudiant(e) pourra se voir refuser la
+participation à l'examen de fin de cours.
+
+## Mode d'évaluation
+
+L'évaluation comprendra se fera sur ordinateur; les étudiants
+prépareront un rapport reproductible en Rmd sous RStudio, répondant à
+des exercices et préparant des analyses de petites taille tels que
+présentés et pratiqués durant le cours.
+
+## Contenu
+
+Ce cours introductif à la bioinformatique abordera les thèmes suivants:
 
 - Qu'est ce que la bioinformatique et quelles sont ses domaines d'applications.
 - Technologies and méthodologies utilisées en bioinformatique
@@ -29,32 +74,6 @@ Dans sa partie sciences de données appliquées aux sciences biomédicales, les 
 - Analyses et structures de données haut-débit avec R et [Bioconductor](https://bioconductor.org/).
 - Introduction aux bases des données relationnelles et SQL (structured query language).
 
-Le cours sera dispensés sous forme de travaux pratiques, au cours
-desquels les étudiants seront amenés à réaliser des exercices de
-programmation suivant des problèmes concrets rencontrés en sciences
-biomédicales, en utilisant le langage de programmation R et
-l'environnement de programmation RStudio.
-
-## Acquis d'apprentissage
-
-A l'issue de ce cours, les étudiants auront une comprehension que ce
-qu'est la bioinformatique et quand la bioinformatique leur sera
-requise. Ils seront également en mesure de
-
-1. Analyser un problème bioinformatique simple, proposer une solution informatique pour le résoudre et la mettre en oeuvre.
-2. Décomposer un problème simple en sous-problèmes et les résoudre sous forme de scripts d'analyse.
-3. Lire et comprendre des scripts d'analyse existants.
-4. Utiliser des outils informatiques de support à la programmation.
-5. Exploiter la documentation technique du langage informatique R et des vignettes Bioconductor.
-6. Réaliser des scripts R et rapports d'analyse de petite taille en Rmd.
-
-
-## Mode d'évaluation
-
-L'évaluation comprendra une se fera sur ordinateur; les étudiants
-prépareront un rapport reproductible en Rmd sous RStudio, répondant à
-des exercices et petites analyses tels que présentes et pratiqués
-durant le cours.
 
 ## Recommended reading
 
