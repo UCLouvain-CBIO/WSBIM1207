@@ -48,10 +48,10 @@ participation à l'examen de fin de cours.
 
 ## Mode d'évaluation
 
-L'évaluation comprendra se fera sur ordinateur; les étudiants
-prépareront un rapport reproductible en Rmd sous RStudio, répondant à
-des exercices et préparant des analyses de petites taille tels que
-présentés et pratiqués durant le cours.
+L'évaluation se fera sur ordinateur; les étudiants prépareront un
+rapport reproductible en Rmd sous RStudio, répondant à des exercices
+et préparant des analyses de petites taille tels que présentés et
+pratiqués durant le cours.
 
 ## Contenu
 
