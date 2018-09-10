@@ -33,6 +33,11 @@ requise. Ils seront également en mesure de
    des vignettes Bioconductor.
 6. Réaliser des scripts R et rapports d'analyse de petite taille en Rmd.
 
+Eu égards de référentiel des acquis d'apprentissage du programme de
+bachelier en sciences biomédicales, ce cours contribue au
+développement, à l'acquisition et a l'évaluation des acquis suivants:
+2a, 2c, 3c, 5a, 5b, 5c, 5d.
+
 ## Méthodes d'enseignement
 
 Le cours sera dispensé sous forme de travaux pratiques, au cours
