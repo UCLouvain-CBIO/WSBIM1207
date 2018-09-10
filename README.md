@@ -68,7 +68,8 @@ Ce cours introductif à la bioinformatique abordera les thèmes suivants:
 - Bases de données biologiques et données publiques.
 - Formats et fichiers en bioinformatique.
 
-Dans sa partie sciences de données appliquées aux sciences biomédicales, les thèmes suivants seront abordés:
+Dans sa partie sciences de données appliquées aux sciences
+biomédicales, les thèmes suivants seront abordés:
 
 - Gestion de projet d'analyse de données et recherche reproductible.
 - Organisation de données dans des tableurs.
@@ -78,7 +79,6 @@ Dans sa partie sciences de données appliquées aux sciences biomédicales, les 
 - Manipulation et visualisation de données.
 - Analyses et structures de données haut-débit avec R et [Bioconductor](https://bioconductor.org/).
 - Introduction aux bases des données relationnelles et SQL (structured query language).
-
 
 ## Recommended reading
 
