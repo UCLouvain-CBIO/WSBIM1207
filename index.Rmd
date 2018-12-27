@@ -16,9 +16,40 @@ link-citations: yes
 bibliography: [refs.bib, packages.bib]
 ---
 
+
+```{r setup}
+knitr::knit_hooks$set(answer = function(before, options, envir) {
+    if (before) {
+        paste(
+            "<div class=\"accordion\">",
+              "<h3 class=\"toc-ignore\">Answer</h3>",
+              "<div style=\"background: #fff;\">",  sep = "\n")
+    } else {
+        paste("</div>", "</div>", sep = "\n")
+    }
+})
+
+
+eng_text_answer <- knitr:::eng_html_asset(
+                               paste(
+                                   "<div class=\"accordion\">",
+                                   "<h3 class=\"toc-ignore\">Answer</h3>",
+                                   "<div style=\"background: #fff;\">",
+                                   "<p>",  sep = "\n"),
+                               paste(
+                                   "</div>", "</div>", "</p>", sep = "\n"
+                               )
+                           )
+
+knitr::knit_engines$set(text_answer = eng_text_answer)
+```
+
+
 # Preamble {-}
 
-### Course information {-}
+
+
+## Course information
 
 - Language: course material in English, course taught in French
 - Thursday mornings, 8.30 - 12.30
@@ -105,9 +136,15 @@ knitr::write_bib(c(
 ), 'packages.bib')
 ```
 
+## References
+
 The material for the first chapters, covering the *Introduction to
 data science with R*, is based on the [Data Carpentry Ecology
 curiculum](https://datacarpentry.org/lessons/#ecology-workshop).
 
 General references for this course are *R for Data Science*
 [@r4ds:2015] and *Bioinformatics Data Skills* [@Buffalo:2015].
+
+## Setup
+
+TODO
