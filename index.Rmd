@@ -17,7 +17,7 @@ bibliography: [refs.bib, packages.bib]
 ---
 
 
-```{r setup}
+```{r setup00}
 knitr::knit_hooks$set(answer = function(before, options, envir) {
     if (before) {
         paste(
