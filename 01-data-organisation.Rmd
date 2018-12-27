@@ -1,4 +1,4 @@
-# Data organisation in Spreadsheets {#dataorg}
+# Data organisation with Spreadsheets {#dataorg}
 
 ## Introduction
 
