@@ -1,0 +1,3 @@
+# Joining tables
+
+A chapter about table joins.

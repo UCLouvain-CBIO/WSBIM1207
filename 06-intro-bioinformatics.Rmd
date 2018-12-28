@@ -1,0 +1,16 @@
+# Introduction to bioinformatics
+
+## Introduction
+
+- What is bioinformatics
+- Omics data
+
+## Objects
+
+Data in bioinformatics is often more complex than the basic data types
+we have seen so far. Give a short introduction and example to some
+relevant object.
+
+## The Bioconductor project
+
+The [Bioconductor](http://www.bioconductor.org) ...
