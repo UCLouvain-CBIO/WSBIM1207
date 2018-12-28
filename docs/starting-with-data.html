@@ -147,6 +147,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#factors"> Factors</a></li>
 <li class="toc"><a href="#matrices"> Matrices</a></li>
 <li class="toc"><a href="#formatting-dates"> Formatting Dates</a></li>
+<li class="toc"><a href="#summary-of-r-objects"> Summary of R objects</a></li>
+<li class="toc"><a href="#lists"> Lists</a></li>
 </ul>
 <a href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a>
 <a href="data-visualization-with-ggplot2.html2"><span class="toc-section-number">5</span> Data visualization with ggplot2</a>
@@ -1000,6 +1002,65 @@ missing_dates &lt;-<span class="st"> </span>surveys[is_missing_date,  date_colum
 ## 3856 2000     9  31</code></pre>
 <p>Why did these dates fail to parse? If you had to use these data for your
 analyses, how would you deal with this situation?</p>
+</div>
+<div id="summary-of-r-objects" class="section level2">
+<h2><span class="header-section-number">3.8</span> Summary of R objects</h2>
+<p>So far, we have seen several types of R object varying in the number
+of dimensions and whether they could store a single of multiple data
+types:</p>
+<ul>
+<li><strong><code>vector</code></strong>: one dimension (they have a length), single type of data.</li>
+<li><strong><code>matrix</code></strong>: two dimensions, single type of data.</li>
+<li><strong><code>data.frame</code></strong>: two dimensions, one type per column.</li>
+</ul>
+</div>
+<div id="lists" class="section level2">
+<h2><span class="header-section-number">3.9</span> Lists</h2>
+<p>A data type that we haven’t seen yet, but that is useful to know, and
+follows from the summary that we have just seen are lists:</p>
+<ul>
+<li><strong><code>list</code></strong>: one dimension, every item can be of a different data
+type.</li>
+</ul>
+<p>Below, let’s create a list containing a vector of numbers, characters,
+a matrix, a dataframe and another list:</p>
+<pre class="sourceCode r"><code class="sourceCode r">l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="co">## numeric</span>
+          letters, <span class="co">## character</span>
+          <span class="kw">installed.packages</span>(), <span class="co">## a matric</span>
+          cars, <span class="co">## a data.frame</span>
+          <span class="kw">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)) <span class="co">## a list</span>
+<span class="kw">length</span>(l)</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(l)</code></pre>
+<pre><code>## List of 5
+##  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
+##  $ : chr [1:26] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
+##  $ : chr [1:718, 1:16] &quot;abind&quot; &quot;acepack&quot; &quot;ada&quot; &quot;addinexamples&quot; ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. ..$ : chr [1:718] &quot;abind&quot; &quot;acepack&quot; &quot;ada&quot; &quot;addinexamples&quot; ...
+##   .. ..$ : chr [1:16] &quot;Package&quot; &quot;LibPath&quot; &quot;Version&quot; &quot;Priority&quot; ...
+##  $ :&#39;data.frame&#39;:    50 obs. of  2 variables:
+##   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...
+##   ..$ dist : num [1:50] 2 10 4 22 16 10 18 26 34 17 ...
+##  $ :List of 3
+##   ..$ : num 1
+##   ..$ : num 2
+##   ..$ : num 3</code></pre>
+<p>List subsetting is done using <code>[]</code> to subset a new sub-list or <code>[[]]</code>
+to extract a single element of that list (using indices or names, of
+the list is named).</p>
+<pre class="sourceCode r"><code class="sourceCode r">l[[<span class="dv">1</span>]] <span class="co">## first element</span></code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">l[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] <span class="co">## a list of length 2</span></code></pre>
+<pre><code>## [[1]]
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## [[2]]
+##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot;
+## [18] &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">l[<span class="dv">1</span>]   <span class="co">## a list of length 1</span></code></pre>
+<pre><code>## [[1]]
+##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 
 </div>
 </div>
