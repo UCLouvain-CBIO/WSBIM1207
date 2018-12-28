@@ -1,4 +1,4 @@
-# Introduction to bioinformatics
+# Introduction to bioinformatics {#sec:bioinfo}
 
 ## Introduction
 
@@ -11,6 +11,6 @@ Data in bioinformatics is often more complex than the basic data types
 we have seen so far. Give a short introduction and example to some
 relevant object.
 
-## The Bioconductor project
+## The Bioconductor project {#sec:bioconductor}
 
 The [Bioconductor](http://www.bioconductor.org) ...
