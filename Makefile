@@ -1,2 +1,2 @@
 book:
-	R -e 'bookdown::render_book(".")'
+	R -e 'bookdown::render_book(".", output_dir = "docs")'
