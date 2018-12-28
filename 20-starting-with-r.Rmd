@@ -1,8 +1,6 @@
 # Starting with R
 
 
-## Before we start
-
 **Learning Objectives**
 
 - Describe the purpose of the RStudio Script, Console, Environment, and Plots
@@ -467,6 +465,50 @@ sessionInfo()
   link](https://github.com/ropensci/commcalls/issues/14) and [video
   recording](https://vimeo.com/208749032) includes a presentation of
   the reprex package and of its philosophy.
+
+## R packages
+
+### Loading packages
+
+As we have seen above, R packages play a fundamental role in R. The
+make use of a package's functionality, assuming it is installed, we
+first need to load it to be able to use it. This is done with the
+`library()` function. Below, we load `ggplot2`.
+
+```{r loadp, eval=FALSE, purl=FALSE}
+library("ggplot2")
+```
+
+### Installing packages
+
+The default package repository is The *Comprehensive R Archive
+Network* (CRAN), and any package that is available on CRAN can be
+installed with the `install.packages()` function. Below, for example,
+we install the `dplyr` package that we will learn about late.
+
+```{r craninstall, eval=FALSE, purl=FALSE}
+install.packages("dplyr")
+```
+
+This command will install the `dplyr` package as well as all its
+dependencies, i.e. all the packages that it relies on to function.
+
+[Github](https://github.com/) is an general-pupose online softare
+project repository and is well suited for R package development. To
+install a package from Gtihub, one can use the `install_github()`
+function from the `devtools` package. Below we first install the
+latter from CRAN (as show above), then we install `msmbstyle` directly
+from the user `lgatto`'s github repository.
+
+```{r ghinstall, eval=FALSE, purl=FALSE}
+install.packages("devtools")
+library("devtools")
+install_github("lgatto/msmbstyle")
+```
+
+In section \@ref(sec:bioconductor), we will see how to install
+[Bioconductor](http://www.bioconductor.org), a project dedicated to
+bioinformatics and omics packages.
 
 ## Introduction to R
 
