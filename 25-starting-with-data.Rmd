@@ -601,7 +601,7 @@ msmbstyle::question(text = "Construct a matrix of dimension 1000 by 3 of normall
 
 `r msmbstyle::solution_begin()`
 
-```{r rnormmat_sln, purl=FALSE, eval=FALSE}
+```{r rnormmat_sln, purl=FALSE}
 set.seed(123)
 m <- matrix(rnorm(3000), ncol = 3)
 dim(m)

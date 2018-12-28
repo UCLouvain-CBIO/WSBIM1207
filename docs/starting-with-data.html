@@ -906,8 +906,16 @@ Construct a matrix of dimension 1000 by 3 of normally distributed data (mean 0, 
 <div id="sol-body-2" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
 m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">3000</span>), <span class="dt">ncol =</span> <span class="dv">3</span>)
-<span class="kw">dim</span>(m)
-<span class="kw">head</span>(m)</code></pre>
+<span class="kw">dim</span>(m)</code></pre>
+<pre><code>## [1] 1000    3</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(m)</code></pre>
+<pre><code>##             [,1]        [,2]       [,3]
+## [1,] -0.56047565 -0.99579872 -0.5116037
+## [2,] -0.23017749 -1.03995504  0.2369379
+## [3,]  1.55870831 -0.01798024 -0.5415892
+## [4,]  0.07050839 -0.13217513  1.2192276
+## [5,]  0.12928774 -2.54934277  0.1741359
+## [6,]  1.71506499  1.04057346 -0.6152683</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
