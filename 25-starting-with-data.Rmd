@@ -556,15 +556,13 @@ head(rownames(ip)) ## these are the package names
 ## View(ip)
 ```
 
-```{r pkgqst, purl=FALSE, echo=FALSE}
+```{r pkg_qst, purl=FALSE, echo=FALSE}
 msmbstyle::question(text = "Using the function `installed.packages()`, verify if the `lubridate` package is installed. If not, install it from CRAN.")
 ```
 
 `r msmbstyle::solution_begin()`
 
-We first create a vector containing the
-
-```{r pkgsln, purl=FALSE, eval=FALSE}
+```{r pkg_sln, purl=FALSE, eval=FALSE}
 ## 1. get the names of all installed packages
 ip <- rownames(installed.packages())
 ## 2. TRUE if installed, FALSE otherwise
@@ -574,6 +572,44 @@ install.package("lubridate")
 ```
 
 `r msmbstyle::solution_end()`
+
+
+The default constructor for a matrix is `matrix`. It takes a vector of
+values to populate the matrix and the number of row and/or
+columns[^ncol]. The values are sorted along the columns, as illustrated
+below.
+
+```{r mat1}
+m <- matrix(1:9, ncol = 3, nrow = 3)
+m
+```
+
+[^ncol]: Either the number of rows or columns are enough, as the other
+one can be deduced from the length of the values. Try out what happens
+if the values and number of rows/columns don't add up.
+
+
+It is often useful to create large random data matrices as test
+data. The exercise below asks you to create such a matrix with random
+data drawn from a normal distribution of mean 0 and standard deviation
+1, which can be done with the `rnorm()` function.
+
+```{r rnormmat_qst, purl=FALSE, echo=FALSE}
+msmbstyle::question(text = "Construct a matrix of dimension 1000 by 3 of normally distributed data (mean 0, standard deviation 1).")
+```
+
+
+`r msmbstyle::solution_begin()`
+
+```{r rnormmat_sln, purl=FALSE, eval=FALSE}
+set.seed(123)
+m <- matrix(rnorm(3000), ncol = 3)
+dim(m)
+head(m)
+```
+
+`r msmbstyle::solution_end()`
+
 
 ## Formatting Dates
 

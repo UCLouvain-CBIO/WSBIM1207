@@ -859,13 +859,55 @@ Using the function <code>installed.packages()</code>, verify if the <code>lubrid
 ► Solution<span id="sol-start-1" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-1&#39;, &#39;sol-start-1&#39;)"></span>
 </p>
 <div id="sol-body-1" class="solution-body" style="display: none;">
-<p>We first create a vector containing the</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">## 1. get the names of all installed packages</span>
 ip &lt;-<span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())
 <span class="co">## 2. TRUE if installed, FALSE otherwise</span>
 <span class="st">&quot;lubridate&quot;</span> <span class="op">%in%</span><span class="st"> </span>ip
 <span class="co">## 3. install the package</span>
 <span class="kw">install.package</span>(<span class="st">&quot;lubridate&quot;</span>)</code></pre>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>The default constructor for a matrix is <code>matrix</code>. It takes a vector of
+values to populate the matrix and the number of row and/or
+columns<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> Either the number of rows or columns are enough, as the other
+one can be deduced from the length of the values. Try out what happens
+if the values and number of rows/columns don’t add up.</span>. The values are sorted along the columns, as illustrated
+below.</p>
+<pre class="sourceCode r"><code class="sourceCode r">m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">ncol =</span> <span class="dv">3</span>, <span class="dt">nrow =</span> <span class="dv">3</span>)
+m</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<p>It is often useful to create large random data matrices as test
+data. The exercise below asks you to create such a matrix with random
+data drawn from a normal distribution of mean 0 and standard deviation
+1, which can be done with the <code>rnorm()</code> function.</p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>
+Construct a matrix of dimension 1000 by 3 of normally distributed data (mean 0, standard deviation 1).
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-2" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-2&#39;, &#39;sol-start-2&#39;)"></span>
+</p>
+<div id="sol-body-2" class="solution-body" style="display: none;">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
+m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">3000</span>), <span class="dt">ncol =</span> <span class="dv">3</span>)
+<span class="kw">dim</span>(m)
+<span class="kw">head</span>(m)</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
