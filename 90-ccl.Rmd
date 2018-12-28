@@ -1,5 +1,8 @@
 # Conclusions
 
+We started the course by asking
+
+> What is bioinformatics?
 
 
 ```{r include=FALSE}
