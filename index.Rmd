@@ -130,13 +130,6 @@ biomédicales, les thèmes suivants seront abordés:
 
 ## References
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
-
 The material for the first chapters, covering the *Introduction to
 data science with R*, is based on the [Data Carpentry Ecology
 curiculum](https://datacarpentry.org/lessons/#ecology-workshop).
