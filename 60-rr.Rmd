@@ -49,7 +49,8 @@ document.
   directly from R, as show below.
 
 ```{r dtexample}
-DT::datatable(cars)
+ip <- installed.packages()
+DT::datatable(ip)
 ```
 
 - It is always useful to finish a Rmarkdown report with a section
