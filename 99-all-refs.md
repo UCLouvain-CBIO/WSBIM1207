@@ -1,5 +1,5 @@
 ---
-bibliography: refs.bib packages.bib
+bibliography: refs.bib
 nocite: '@*'
 ...
 
