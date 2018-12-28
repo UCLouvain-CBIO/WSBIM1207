@@ -78,9 +78,13 @@ defines](https://en.wikipedia.org/wiki/Bioinformatics) it as
 
 this course will focus on the doing, rather than on knowing
 definitions. Hence, the material and how it is taught will be focused
-on exercises.
+on practice.
 
 ## References
+
+References are provided throughout the course. Several stand out
+however, as they cover large parts of the material or provide
+complementary resources.
 
 The material for the first chapters, covering the *Introduction to
 data science with R*, is based on the [Data Carpentry Ecology
