@@ -189,14 +189,14 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
 Then, we start modifying this plot to extract more information from it. For
 instance, we can add transparency (`alpha`) to avoid overplotting:
 
-```{r adding-transparency, purl=FALSE}
+```{r adding-transparency, purl=FALSE, cache=TRUE}
 ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) +
     geom_point(alpha = 0.1)
 ```
 
 We can also add colors for all the points:
 
-```{r adding-colors, purl=FALSE}
+```{r adding-colors, purl=FALSE, cache=TRUE}
 ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) +
     geom_point(alpha = 0.1, color = "blue")
 ```
@@ -363,7 +363,7 @@ measured. To do that we need to make counts in the data frame grouped by `year`,
 
 We can now make the faceted plot by splitting further by sex using `color` (within a single plot):
 
-```{r facet-by-species-and-sex, purl=FALSE}
+```{r facet-by-species-and-sex, purl=FALSE, cache=TRUE}
  ggplot(data = yearly_sex_counts, mapping = aes(x = year, y = n, color = sex)) +
      geom_line() +
      facet_wrap(~ species_id)
@@ -373,7 +373,7 @@ Usually plots with white background look more readable when printed.  We can set
 the background to white using the function `theme_bw()`. Additionally, you can remove
 the grid:
 
-```{r facet-by-species-and-sex-white-bg, purl=FALSE}
+```{r facet-by-species-and-sex-white-bg, purl=FALSE, cache=TRUE}
  ggplot(data = yearly_sex_counts, mapping = aes(x = year, y = n, color = sex)) +
      geom_line() +
      facet_wrap(~ species_id) +
