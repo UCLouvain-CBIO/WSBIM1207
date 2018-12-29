@@ -1,5 +1,32 @@
 # Session information {-}
 
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
 ```{r si}
 sessionInfo()
+```
+
+## R package setup {#sec:setup2}
+
+To install all necessary packages to run all the code, please execute
+the following code:
+
+```{r pkgs, eval=TRUE, echo=FALSE, results='markup', comment=''}
+cmd <- paste(sort(.packages()), collapse = ", ")
+cmd <- paste0("pkgs <- c(", cmd, ")")
+cmd <- strwrap(cmd)
+for (i in 2:length(cmd))
+    cmd[i] <- paste0("          ", cmd[i])
+cat(cmd, sep = "\n")
+```
+
+```{r setup, eval=FALSE}
+if (!require("BiocManager"))
+   install.packages("BiocManager")
+BiocManager::install(pkgs)
 ```

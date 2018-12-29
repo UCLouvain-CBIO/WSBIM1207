@@ -3,11 +3,3 @@
 We started the course by asking
 
 > What is bioinformatics?
-
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
