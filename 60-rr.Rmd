@@ -31,7 +31,7 @@ documentation, support and integrates into the RStudio editor.
 
 ![](./figs/rmd.png)
 
-RStudio now also support *R Notebook* documents[*jupyter] that execute
+RStudio now also support *R Notebook* documents[^jupyter] that execute
 individual code chunks that are displayed directly in the source
 document.
 
