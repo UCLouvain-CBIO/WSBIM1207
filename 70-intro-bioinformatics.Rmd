@@ -48,10 +48,14 @@ protein, lipids or smaller metabolites is mass spectrometry.
 
 Important concepts
 
+- high throughput
 - raw data
 - processed data
-- high throughput
-- experimental design (see also stats course)
+- metadata, including experimental design (see also stats course)
+
+Reminder about reproducible research, and need for raw data and
+complete processing script to reproduce the processed data and
+results.
 
 ## Objects
 
