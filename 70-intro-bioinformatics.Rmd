@@ -46,8 +46,12 @@ molecules or lipids can also be assayed under the umbrella terms of
 **metabolomics** and **lipidomics**. The technology of choice for
 protein, lipids or smaller metabolites is mass spectrometry.
 
-An important concept in bioinformatics is the
+Important concepts
 
+- raw data
+- processed data
+- high throughput
+- experimental design (see also stats course)
 
 ## Objects
 
@@ -58,3 +62,7 @@ relevant object.
 ## The Bioconductor project {#sec:bioconductor}
 
 The [Bioconductor](http://www.bioconductor.org) ...
+
+## Exercises
+
+More exercises, framed in the context of bioinformatics.
