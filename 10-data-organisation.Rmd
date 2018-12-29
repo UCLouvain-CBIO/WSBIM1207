@@ -1192,16 +1192,16 @@ page](http://www.datacarpentry.org/spreadsheet-ecology-lesson/discuss/).
 
 ## Summary
 
+```{r analysis, results='asis', fig.margin=TRUE, fig.cap="A typical data analysis workflow.", fig.width=7, fig.height=4, echo=FALSE, purl=FALSE}
+knitr::include_graphics("./figs/analysis.png")
+```
+
 A typical data analysis worflow is illustrated in figure
 \@ref(fig:analysis)), where data is repeatedly tranformed, visualised,
 modelled. This iteration is repeated multiple times until the data is
 understood. In many real-life cases, however, most time is spend in
 clearning up and preparing the data, rather than actually analysing
 and understanding it.
-
-```{r analysis, results='markup', fig.margin=TRUE, fig.cap="A typical data analysis workflow.", fig.width=7, fig.height=4, echo=FALSE, purl=FALSE}
-knitr::include_graphics("./figs/analysis.png")
-```
 
 An agile data analysis workflow, with several fast iteration of the
 transform/visualise/model cycle are only feasible is the data is
