@@ -137,9 +137,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="javascript:void(0)" class="dropbtn">&#x25BE; Chapters</a>
 <div class="dropdown-content">
 <a id="active-page" href="index.html">Preamble</a><ul class="toc-sections">
-<li class="toc"><a href="#motivation">NA</a></li>
-<li class="toc"><a href="#references"> References</a></li>
-<li class="toc"><a href="#setup"> Setup</a></li>
+<li class="toc"><a href="#motivation">Motivation</a></li>
+<li class="toc"><a href="#references-and-credits">References and credits</a></li>
+<li class="toc"><a href="#setup">Setup</a></li>
+<li class="toc"><a href="#about-this-course-material">About this course material</a></li>
+<li class="toc"><a href="#license">License</a></li>
 </ul>
 <a href="dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
 <a href="starting-with-r.html"><span class="toc-section-number">2</span> Starting with R</a>
@@ -176,8 +178,6 @@ data in a tidy tabular format.</p>
 (<a href="https://github.com/UCLouvain-CBIO/WSBIM1322">WSBIM1322</a>) and <em>Omics
 data analysis</em>
 (<a href="https://github.com/UCLouvain-CBIO/WSBIM2122">WSBIM2122</a>).</p>
-<div id="motivation" class="section level2 unnumbered">
-<h2>Motivation</h2>
 <p>It is interesting to start this course by asking the students<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> The same question will be asked at the very end of the course.</span>, who
 have likely not yet been exposed to bioinformatics</p>
 <blockquote>
@@ -192,21 +192,89 @@ and software tools for understanding biological data.</p>
 <p>this course will focus on the doing, rather than on knowing
 definitions. Hence, the material and how it is taught will be focused
 on practice.</p>
+<div id="motivation" class="section level2 unnumbered">
+<h2>Motivation</h2>
+<p>Although bioinformatics is playing a central role in bio-medical
+research, bioinformatics skills aren’t well integrated in life science
+curricula, limiting students in their career prospects and research
+horizon <span class="citation">(Wilson Sayres et al. <label for="tufte-mn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle">2018<span class="marginnote">Wilson Sayres, M A, C Hauser, M Sierk, S Robic, A G Rosenwald, T M Smith, E W Triplett, et al. 2018. “Bioinformatics Core Competencies for Undergraduate Life Sciences Education.” <em>PLoS One</em> 13 (6): e0196878. <a href="https://doi.org/10.1371/journal.pone.0196878">https://doi.org/10.1371/journal.pone.0196878</a>.</span>)</span>. It is important for young researchers to
+acquire quantitative, computational and data skills to address the
+challenges that lie ahead.</p>
+<p>This first course will focus on the data skills. It will not teach to
+use any specific piece of bioinformatics software. Once one has
+identified a relevant piece of software, running it shouldn’t be a
+major problem<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> Although, in all fairness, some bioinformatics software
+are notoriously difficult to install and run.</span>. The important part will be to understand
+what it does, why it does it and how to assess if the output one’s
+data can be trusted. The latter requires to explore and understand the
+data and the results, i.e. data skills. As described by <span class="citation">Buffalo (<label for="tufte-mn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle">2015<span class="marginnote">Buffalo, Vince. 2015. <em>Bioinformatics Data Skills</em>. O’Reilly Media, Inc.</span>)</span>,
+equating learning a piece of bioinformatics software to learning
+bioinformatics is like learning pipetting as a means to learn
+molecular biology.</p>
+<p>Critical thinking is essential in any aspect of research, and
+bioinformatics and data analysis doesn’t escape that rule. Teaching
+critical thinking is however very difficult, and arguably impossible
+without first possessing the tools to be critical. Rather that
+teaching a limited set of software tools, the course aims at teaching
+the skills that will allow to interrogate and visualise data, and hence
+be in a position to be critical with respect to ones data. In
+addition, while specific software become obsolete and are replaced, or
+are specific to one specific field of research, critical investigation
+of data will always be required and will never be replaced.</p>
+<p>A final reason why the focus of the course ought to be on data skills
+is that an essential difficulty in modern, multidisciplinary research
+is communication. Wetlab biomedical scientists aren’t required to
+become bioinformaticians, statisticians, programmers, … to be
+outstanding researchers, but they will need to communicate efficiency
+with these experts (and vice versa). What most often unites all these
+experts is data, and communication around data is critical. The
+importance of critical thinking and communication around data becomes
+more evident when one realises that, when tracking work in
+bioinformatics core facilities, only a minority of projects were
+purely routine and that most researchers came to the bioinformatics
+core seeking customized analysis, rather than a standardized package
+<span class="citation">(Chang <label for="tufte-mn-3" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle">2015<span class="marginnote">Chang, J. 2015. “Core Services: Reward Bioinformaticians.” <em>Nature</em> 520 (7546): 151–2. <a href="https://doi.org/10.1038/520151a">https://doi.org/10.1038/520151a</a>.</span>)</span>.</p>
 </div>
-<div id="references" class="section level2">
-<h2><span class="header-section-number">0.1</span> References</h2>
+<div id="references-and-credits" class="section level2 unnumbered">
+<h2>References and credits</h2>
 <p>References are provided throughout the course. Several stand out
 however, as they cover large parts of the material or provide
 complementary resources.</p>
 <p>The material for the first chapters, covering the <em>Introduction to
-data science with R</em>, is based on the <a href="https://datacarpentry.org/lessons/#ecology-workshop">Data Carpentry Ecology
+data science with R</em>, is based on the <a href="https://datacarpentry.org/lessons/#ecology-workshop"><strong>Data Carpentry</strong> Ecology
 curiculum</a>.</p>
 <p>General references for this course are <em>R for Data Science</em>
-<span class="citation">(Grolemund and Wickham <label for="tufte-mn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle">2017<span class="marginnote">Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. O’Reilly Media. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.</span>)</span> and <em>Bioinformatics Data Skills</em> <span class="citation">(Buffalo <label for="tufte-mn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle">2015<span class="marginnote">Buffalo, Vince. 2015. <em>Bioinformatics Data Skills</em>. O’Reilly Media, Inc.</span>)</span>.</p>
+<span class="citation">(Grolemund and Wickham <label for="tufte-mn-4" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle">2017<span class="marginnote">Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. O’Reilly Media. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.</span>)</span> and <em>Bioinformatics Data Skills</em> <span class="citation">(Buffalo <label for="tufte-mn-5" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-5" class="margin-toggle">2015<span class="marginnote">Buffalo, Vince. 2015. <em>Bioinformatics Data Skills</em>. O’Reilly Media, Inc.</span>)</span>.</p>
 </div>
-<div id="setup" class="section level2">
-<h2><span class="header-section-number">0.2</span> Setup</h2>
-<p>TODO</p>
+<div id="setup" class="section level2 unnumbered">
+<h2>Setup</h2>
+<p>We will be using the <a href="https://www.r-project.org/">R environment for statistical
+computing</a> as main data science language.
+We will also use the
+<a href="https://www.rstudio.com/products/RStudio/">RStudio</a> interface to
+interact with R and write scripts and reports. Both R and RStudio are
+easy to install and works on all major operating systems.</p>
+<p>Once R and RStudio are installed, a set of packages will need to be
+installed. See section <a href="session-information.html#sec:setup2">9.1</a> for details.</p>
+</div>
+<div id="about-this-course-material" class="section level2 unnumbered">
+<h2>About this course material</h2>
+<p>This material is written in R markdown <span class="citation">(Allaire et al. <label for="tufte-mn-6" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-6" class="margin-toggle">2018<span class="marginnote">Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2018. <em>Rmarkdown: Dynamic Documents for R</em>. <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a>.</span>)</span> and compiled as a
+book using <code>knitr</code> <span class="citation">(Xie <label for="tufte-mn-7" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-7" class="margin-toggle">2018b<span class="marginnote">Xie, Yihui. 2018b. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in R</em>. <a href="https://CRAN.R-project.org/package=knitr">https://CRAN.R-project.org/package=knitr</a>.</span>)</span> <code>bookdown</code> <span class="citation">(Xie <label for="tufte-mn-8" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-8" class="margin-toggle">2018a<span class="marginnote">Xie, Yihui. 2018a. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</span>)</span>. The source
+code is publicly available in a Github repository
+<a href="https://github.com/uclouvain-cbio/WSBIM1207">https://github.com/uclouvain-cbio/WSBIM1207</a>
+and the compiled material can be read at <a href="http://bit.ly/WSBIM1207" class="uri">http://bit.ly/WSBIM1207</a>.</p>
+<p>Contributions to this material are welcome. The best way to contribute
+or contact the maintainers is by means of pull requests and
+issues. Please familiarise yourself with the <a href="https://github.com/UCLouvain-CBIO/WSBIM1207/blob/master/CONDUCT.md">code of
+conduct</a>. By
+participating in this project you agree to abide by its terms.</p>
+</div>
+<div id="license" class="section level2 unnumbered">
+<h2>License</h2>
+<p>This material is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
+Attribution-ShareAlike 4.0
+License</a>/</p>
 
 </div>
 </div>

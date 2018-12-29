@@ -148,6 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#dates"> Dates as data</a></li>
 <li class="toc"><a href="#data-integrity"> Data integrity</a></li>
 <li class="toc"><a href="#exporting-data"> Exporting data</a></li>
+<li class="toc"><a href="#summary"> Summary</a></li>
 </ul>
 <a href="starting-with-r.html"><span class="toc-section-number">2</span> Starting with R</a>
 <a href="starting-with-data.html"><span class="toc-section-number">3</span> Starting with data</a>
@@ -188,21 +189,22 @@ the best use of data sets.</li>
 project. Most researchers have data or do data entry in
 spreadsheets. Spreadsheet programs are very useful graphical
 interfaces for designing data tables and handling very basic data
-quality control functions. See also <span class="citation">Broman and Woo (<label for="tufte-mn-3" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle">2018<span class="marginnote">Broman, Karl W., and Kara H. Woo. 2018. “Data Organization in Spreadsheets.” <em>The American Statistician</em> 72 (1): 2–10. <a href="https://doi.org/10.1080/00031305.2017.1375989">https://doi.org/10.1080/00031305.2017.1375989</a>.</span>)</span>.</p>
+quality control functions. See also <span class="citation">Broman and Woo (<label for="tufte-mn-9" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-9" class="margin-toggle">2018<span class="marginnote">Broman, Karl W., and Kara H. Woo. 2018. “Data Organization in Spreadsheets.” <em>The American Statistician</em> 72 (1): 2–10. <a href="https://doi.org/10.1080/00031305.2017.1375989">https://doi.org/10.1080/00031305.2017.1375989</a>.</span>)</span>.</p>
 <div id="spreadsheet-outline" class="section level3">
 <h3><span class="header-section-number">1.1.1</span> Spreadsheet outline</h3>
-<p>After this lesson, you will be able to:
-- Implement best practices in data table formatting
-- Identify and address common formatting mistakes
-- Understand approaches for handling dates in spreadsheets
-- Utilize basic quality control features and data manipulation practices
-- Effectively export data from spreadsheet programs</p>
-<p><em>Overall good data practices</em></p>
+<p>After this lesson, you will be able to:</p>
+<ul>
+<li>Implement best practices in data table formatting</li>
+<li>Identify and address common formatting mistakes</li>
+<li>Understand approaches for handling dates in spreadsheets</li>
+<li>Utilize basic quality control features and data manipulation practices</li>
+<li>Effectively export data from spreadsheet programs</li>
+</ul>
 <p>Spreadsheets are good for data entry. Therefore we have a lot of data
-in spreadsheets.
-Much of your time as a researcher will be spent in this ‘data wrangling’ stage.
-It’s not the most fun, but it’s necessary. We’ll teach you how to think
-about data organization and some practices for more effective data wrangling.</p>
+in spreadsheets. Much of your time as a researcher will be spent in
+this ‘data wrangling’ stage. It’s not the most fun, but it’s
+necessary. We’ll teach you how to think about data organization and
+some practices for more effective data wrangling.</p>
 </div>
 <div id="what-this-lesson-will-not-teach-you" class="section level3">
 <h3><span class="header-section-number">1.1.2</span> What this lesson will not teach you</h3>
@@ -211,9 +213,9 @@ about data organization and some practices for more effective data wrangling.</p
 <li>How to do <em>plotting</em> in a spreadsheet</li>
 <li>How to <em>write code</em> in spreadsheet programs</li>
 </ul>
-<p>If you’re looking to do this, a good reference is
-<a href="https://www.amazon.com/Head-First-Excel-learners-spreadsheets/dp/0596807694/">Head First Excel</a>, published by O’Reilly</p>
-<hr />
+<p>If you’re looking to do this, a good reference is <a href="https://www.amazon.com/Head-First-Excel-learners-spreadsheets/dp/0596807694/">Head First
+Excel</a>,
+published by O’Reilly</p>
 </div>
 <div id="why-arent-we-teaching-data-analysis-in-spreadsheets" class="section level3">
 <h3><span class="header-section-number">1.1.3</span> Why aren’t we teaching data analysis in spreadsheets</h3>
@@ -355,7 +357,9 @@ folder as the data file.</p></li>
 <p><img src="figs/spreadsheet-setup-updated.png" /></p>
 <p>Put these principles in to practice today during your Exercises.</p>
 <blockquote>
-<p>Note: This is out of scope for this lesson, but for information on how to maintain version control over your data, look at our lesson on <a href="http://swcarpentry.github.io/git-novice/">‘Git’</a>.</p>
+<p>Note: This is out of scope for this lesson, but for information on
+how to maintain version control over your data, look at our lesson
+on <a href="http://swcarpentry.github.io/git-novice/">‘Git’</a>.</p>
 </blockquote>
 </div>
 <div id="structuring-data-in-spreadsheets" class="section level3">
@@ -369,9 +373,9 @@ like ‘weight’ or ‘temperature’.</li>
 cell. Sometimes it just seems like one thing, but think if that’s
 the only way you’ll want to be able to use or sort that data.</li>
 <li>Leave the raw data raw - don’t change it!</li>
-<li>Export the cleaned data to a text-based format like CSV (comma-separated values) format. This
-ensures that anyone can use the data, and is required by
-most data repositories.</li>
+<li>Export the cleaned data to a text-based format like CSV
+(comma-separated values) format. This ensures that anyone can use
+the data, and is required by most data repositories.</li>
 </ol>
 <p>For instance, we have data from a survey of small mammals in a desert
 ecosystem. Different people have gone to the field and entered data
@@ -411,28 +415,38 @@ using exactly the same tools we’ll learn about today.</p>
 <p><strong>Exercise</strong></p>
 <p>We’re going to take a messy version of the survey data and describe how we would clean it up.</p>
 <ol style="list-style-type: decimal">
-<li>Download the data by clicking <a href="https://ndownloader.figshare.com/files/2252083">here</a> to get it from FigShare.</li>
+<li>Download the data by clicking
+<a href="https://ndownloader.figshare.com/files/2252083">here</a> to get it
+from FigShare.</li>
 <li>Open up the data in a spreadsheet program.</li>
-<li>You can see that there are two tabs. Two field assistants conducted the surveys, one
-in 2013 and one in 2014, and they both kept track of the data in their own way. Now
-you’re the person in charge of this project and you want to be able to
-start analyzing the data.</li>
-<li>With the person next to you, identify what is wrong with this spreadsheet. Also discuss the steps you would need to take to clean up the 2013 and 2014 tabs, and to put them all together in one spreadsheet.</li>
+<li>You can see that there are two tabs. Two field assistants
+conducted the surveys, one in 2013 and one in 2014, and they both
+kept track of the data in their own way. Now you’re the person in
+charge of this project and you want to be able to start analyzing
+the data.</li>
+<li>With the person next to you, identify what is wrong with this
+spreadsheet. Also discuss the steps you would need to take to clean
+up the 2013 and 2014 tabs, and to put them all together in one
+spreadsheet.</li>
 </ol>
 <p><strong>Important</strong> Do not forget our first piece of advice: to
 create a new file (or tab) for the cleaned data, never
 modify your original (raw) data.</p>
 <p>After you go through this exercise, we’ll discuss as a group what was wrong
 with this data and how you would fix it.</p>
-<blockquote>
-<p><strong>Solution</strong>
-- Take about 10 minutes to work on this exercise.
-- All the mistakes in <a href="../02-common-mistakes">02-common-mistakes</a> are present in the messy dataset. If the
-exercise is done during a workshop, ask people what they saw as wrong with
-the data. As they bring up different points, you can refer to <a href="../02-common-mistakes">02-common-mistakes</a>
-or expand a bit on the point they brought up.
-- If you get a response where they’ve fixed the date, you can pause and go to the <a href="../03-dates-as-data">03-dates-as-data</a> lesson. Or you can say you’ll come back to dates at the end.</p>
-</blockquote>
+<p><strong>Solution</strong></p>
+<ul>
+<li>Take about 10 minutes to work on this exercise.</li>
+<li>All the mistakes in <a href="../02-common-mistakes">02-common-mistakes</a>
+are present in the messy dataset. If the exercise is done during a
+workshop, ask people what they saw as wrong with the data. As they
+bring up different points, you can refer to
+<a href="../02-common-mistakes">02-common-mistakes</a> or expand a bit on the
+point they brought up.</li>
+<li>If you get a response where they’ve fixed the date, you can pause
+and go to the <a href="../03-dates-as-data">03-dates-as-data</a> lesson. Or
+you can say you’ll come back to dates at the end.</li>
+</ul>
 </blockquote>
 <p>An excellent reference, in particular with regard to R scripting is</p>
 <blockquote>
@@ -465,9 +479,18 @@ and how can we avoid them?</li>
 <li>Avoid special characters in your data.</li>
 <li>Record metadata in a separate plain text file.</li>
 </ul>
-<p>This lesson is meant to be used as a reference for discussion as learners identify issues with the messy dataset discussed in the
-previous lesson. Instructors: don’t go through this lesson except to refer to responses to the exercise in the previous lesson.</p>
-<p>There are a few potential errors to be on the lookout for in your own data as well as data from collaborators or the Internet. If you are aware of the errors and the possible negative effect on downstream data analysis and result interpretation, it might motivate yourself and your project members to try and avoid them. Making small changes to the way you format your data in spreadsheets, can have a great impact on efficiency and reliability when it comes to data cleaning and analysis.</p>
+<p>This lesson is meant to be used as a reference for discussion as
+learners identify issues with the messy dataset discussed in the
+previous lesson. Instructors: don’t go through this lesson except to
+refer to responses to the exercise in the previous lesson.</p>
+<p>There are a few potential errors to be on the lookout for in your own
+data as well as data from collaborators or the Internet. If you are
+aware of the errors and the possible negative effect on downstream
+data analysis and result interpretation, it might motivate yourself
+and your project members to try and avoid them. Making small changes
+to the way you format your data in spreadsheets, can have a great
+impact on efficiency and reliability when it comes to data cleaning
+and analysis.</p>
 <ul>
 <li><a href="dataorg.html#tables">Using multiple tables</a></li>
 <li><a href="dataorg.html#tabs">Using multiple tabs</a></li>
@@ -1263,8 +1286,30 @@ files. TSV files can be exported from spreadsheet programs in the same
 way as CSV files. For more of a discussion on data formats and
 potential issues with commas within datasets see <a href="http://www.datacarpentry.org/spreadsheet-ecology-lesson/discuss/">the discussion
 page</a>.</p>
-
 </div>
+</div>
+<div id="summary" class="section level2">
+<h2><span class="header-section-number">1.11</span> Summary</h2>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:analysis"></span>
+<img src="figs/analysis.png" alt="A typical data analysis workflow." width="362"  />
+<!--
+<p class="caption marginnote">-->Figure 1.1: A typical data analysis workflow.<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>A typical data analysis worflow is illustrated in figure
+<a href="dataorg.html#fig:analysis">1.1</a>), where data is repeatedly tranformed, visualised,
+modelled. This iteration is repeated multiple times until the data is
+understood. In many real-life cases, however, most time is spend in
+clearning up and preparing the data, rather than actually analysing
+and understanding it.</p>
+<p>An agile data analysis workflow, with several fast iteration of the
+transform/visualise/model cycle are only feasible is the data is
+formatted in a predictable way and one can reason on the data without
+having to look at it and/or fix it.</p>
+
 </div>
 </div>
 <p style="text-align: center;">

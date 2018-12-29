@@ -61,8 +61,6 @@ The course will be followed by *Bioinformatics*
 data analysis*
 ([WSBIM2122](https://github.com/UCLouvain-CBIO/WSBIM2122)).
 
-## Motivation {-}
-
 It is interesting to start this course by asking the students[^qst], who
 have likely not yet been exposed to bioinformatics
 
@@ -80,19 +78,95 @@ this course will focus on the doing, rather than on knowing
 definitions. Hence, the material and how it is taught will be focused
 on practice.
 
-## References
+## Motivation {-}
+
+Although bioinformatics is playing a central role in bio-medical
+research, bioinformatics skills aren't well integrated in life science
+curricula, limiting students in their career prospects and research
+horizon [@WilsonSayres:2018]. It is important for young researchers to
+acquire quantitative, computational and data skills to address the
+challenges that lie ahead.
+
+This first course will focus on the data skills. It will not teach to
+use any specific piece of bioinformatics software. Once one has
+identified a relevant piece of software, running it shouldn't be a
+major problem[^runningsw]. The important part will be to understand
+what it does, why it does it and how to assess if the output one's
+data can be trusted. The latter requires to explore and understand the
+data and the results, i.e. data skills. As described by @Buffalo:2015,
+equating learning a piece of bioinformatics software to learning
+bioinformatics is like learning pipetting as a means to learn
+molecular biology.
+
+[^runningsw]: Although, in all fairness, some bioinformatics software
+are notoriously difficult to install and run.
+
+Critical thinking is essential in any aspect of research, and
+bioinformatics and data analysis doesn't escape that rule. Teaching
+critical thinking is however very difficult, and arguably impossible
+without first possessing the tools to be critical. Rather that
+teaching a limited set of software tools, the course aims at teaching
+the skills that will allow to interrogate and visualise data, and hence
+be in a position to be critical with respect to ones data. In
+addition, while specific software become obsolete and are replaced, or
+are specific to one specific field of research, critical investigation
+of data will always be required and will never be replaced.
+
+A final reason why the focus of the course ought to be on data skills
+is that an essential difficulty in modern, multidisciplinary research
+is communication. Wetlab biomedical scientists aren't required to
+become bioinformaticians, statisticians, programmers, ... to be
+outstanding researchers, but they will need to communicate efficiency
+with these experts (and vice versa). What most often unites all these
+experts is data, and communication around data is critical. The
+importance of critical thinking and communication around data becomes
+more evident when one realises that, when tracking work in
+bioinformatics core facilities, only a minority of projects were
+purely routine and that most researchers came to the bioinformatics
+core seeking customized analysis, rather than a standardized package
+[@Chang:2015].
+
+## References and credits {-}
 
 References are provided throughout the course. Several stand out
 however, as they cover large parts of the material or provide
 complementary resources.
 
 The material for the first chapters, covering the *Introduction to
-data science with R*, is based on the [Data Carpentry Ecology
+data science with R*, is based on the [**Data Carpentry** Ecology
 curiculum](https://datacarpentry.org/lessons/#ecology-workshop).
 
 General references for this course are *R for Data Science*
 [@r4ds:2015] and *Bioinformatics Data Skills* [@Buffalo:2015].
 
-## Setup
+## Setup {-}
 
-TODO
+We will be using the [R environment for statistical
+computing](https://www.r-project.org/) as main data science language.
+We will also use the
+[RStudio](https://www.rstudio.com/products/RStudio/) interface to
+interact with R and write scripts and reports. Both R and RStudio are
+easy to install and works on all major operating systems.
+
+Once R and RStudio are installed, a set of packages will need to be
+installed. See section \@ref(sec:setup2) for details.
+
+## About this course material {-}
+
+This material is written in R markdown [@R-rmarkdown] and compiled as a
+book using `knitr` [@R-knitr] `bookdown` [@R-bookdown]. The source
+code is publicly available in a Github repository
+[https://github.com/uclouvain-cbio/WSBIM1207](https://github.com/uclouvain-cbio/WSBIM1207)
+and the compiled material can be read at http://bit.ly/WSBIM1207.
+
+Contributions to this material are welcome. The best way to contribute
+or contact the maintainers is by means of pull requests and
+issues. Please familiarise yourself with the [code of
+conduct](https://github.com/UCLouvain-CBIO/WSBIM1207/blob/master/CONDUCT.md). By
+participating in this project you agree to abide by its terms.
+
+## License {-}
+
+This material is licensed under the [Creative Commons
+Attribution-ShareAlike 4.0
+License](https://creativecommons.org/licenses/by-sa/4.0/)/

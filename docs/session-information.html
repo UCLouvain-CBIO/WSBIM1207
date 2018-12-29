@@ -146,7 +146,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="reproducible-research.html"><span class="toc-section-number">7</span> Reproducible research</a>
 <a href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a>
 <a href="conclusions.html"><span class="toc-section-number">9</span> Conclusions</a>
-<a id="active-page" href="session-information.html">Session information</a>
+<a id="active-page" href="session-information.html">Session information</a><ul class="toc-sections">
+<li class="toc"><a href="#sec:setup2"> R package setup</a></li>
+</ul>
 </div>
 </li>
 </ul>
@@ -191,15 +193,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [21] DT_0.5           rmarkdown_1.11   labeling_0.3     htmlwidgets_1.3 
 ## [25] munsell_0.5.0    shiny_1.2.0      broom_0.5.0      compiler_3.6.0  
 ## [29] httpuv_1.4.5     modelr_0.1.2     xfun_0.4         pkgconfig_2.0.2 
-## [33] htmltools_0.3.6  tidyselect_0.2.5 bookdown_0.9     codetools_0.2-15
-## [37] fansi_0.4.0      crayon_1.3.4     withr_2.1.2      later_0.7.5     
-## [41] grid_3.6.0       xtable_1.8-3     nlme_3.1-137     jsonlite_1.6    
-## [45] gtable_0.2.0     magrittr_1.5     scales_1.0.0     cli_1.0.1       
-## [49] stringi_1.2.4    reshape2_1.4.3   promises_1.0.1   xml2_1.2.0      
-## [53] tools_3.6.0      glue_1.3.0       hms_0.4.2        crosstalk_1.0.0 
-## [57] yaml_2.2.0       colorspace_1.3-2 rvest_0.3.2      knitr_1.21      
-## [61] bindr_0.1.1      haven_2.0.0</code></pre>
+## [33] htmltools_0.3.6  tidyselect_0.2.5 bookdown_0.9     fansi_0.4.0     
+## [37] crayon_1.3.4     withr_2.1.2      later_0.7.5      grid_3.6.0      
+## [41] xtable_1.8-3     nlme_3.1-137     jsonlite_1.6     gtable_0.2.0    
+## [45] magrittr_1.5     scales_1.0.0     cli_1.0.1        stringi_1.2.4   
+## [49] reshape2_1.4.3   promises_1.0.1   xml2_1.2.0       tools_3.6.0     
+## [53] glue_1.3.0       hms_0.4.2        crosstalk_1.0.0  yaml_2.2.0      
+## [57] colorspace_1.3-2 rvest_0.3.2      knitr_1.21       bindr_0.1.1     
+## [61] haven_2.0.0</code></pre>
+<div id="sec:setup2" class="section level2">
+<h2><span class="header-section-number">9.1</span> R package setup</h2>
+<p>To install all necessary packages to run all the code, please execute
+the following code:</p>
+<pre><code>pkgs &lt;- c(base, bindrcpp, datasets, dplyr, forcats, ggplot2,
+          graphics, grDevices, gridExtra, lubridate, methods, purrr, readr,
+          stats, stringr, tibble, tidyr, tidyverse, utils)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&quot;BiocManager&quot;</span>))
+   <span class="kw">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)
+BiocManager<span class="op">::</span><span class="kw">install</span>(pkgs)</code></pre>
 
+</div>
 </div>
 <p style="text-align: center;">
 <a href="conclusions.html"><button class="btn btn-default">Previous</button></a>
