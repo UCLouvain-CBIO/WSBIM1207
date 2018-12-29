@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:title" content="Chapter 8 Introduction to bioinformatics | Introduction to bioinformatics" />
+<meta property="og:title" content="Chapter 8 Bioinformatics | Introduction to bioinformatics" />
 <meta property="og:type" content="book" />
 
 
@@ -17,12 +17,12 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2018-12-28" />
+<meta name="date" content="2018-12-29" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
-<title>Chapter 8 Introduction to bioinformatics | Introduction to bioinformatics</title>
+<title>Chapter 8 Bioinformatics | Introduction to bioinformatics</title>
 
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
@@ -144,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="data-visualization-with-ggplot2.html2"><span class="toc-section-number">5</span> Data visualization with ggplot2</a>
 <a href="joining-tables.html"><span class="toc-section-number">6</span> Joining tables</a>
 <a href="reproducible-research.html"><span class="toc-section-number">7</span> Reproducible research</a>
-<a id="active-page" href="sec-bioinfo.html"><span class="toc-section-number">8</span> Introduction to bioinformatics</a><ul class="toc-sections">
-<li class="toc"><a href="#introduction-1"> Introduction</a></li>
+<a id="active-page" href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a><ul class="toc-sections">
+<li class="toc"><a href="#omics-data"> Omics data</a></li>
 <li class="toc"><a href="#objects"> Objects</a></li>
 <li class="toc"><a href="#sec:bioconductor"> The Bioconductor project</a></li>
 </ul>
@@ -160,13 +160,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="row">
 <div class="col-sm-12">
 <div id="sec:bioinfo" class="section level1">
-<h1><span class="header-section-number">Chapter 8</span> Introduction to bioinformatics</h1>
-<div id="introduction-1" class="section level2">
-<h2><span class="header-section-number">8.1</span> Introduction</h2>
-<ul>
-<li>What is bioinformatics</li>
-<li>Omics data</li>
-</ul>
+<h1><span class="header-section-number">Chapter 8</span> Bioinformatics</h1>
+<p>As already alluded to ealier, <a href="https://en.wikipedia.org/wiki/Bioinformatics">Wikipedia
+defines</a> bioinformatics
+as</p>
+<blockquote>
+<p>Bioinformatics is an interdisciplinary field that develops methods
+and software tools for understanding biological data.</p>
+</blockquote>
+<p>Bioinformatics is as varied as biology itself, and ranges from data
+analysis, to software development, computational or statistical
+methodological development, more theoretical work, as well as any
+combination of these.</p>
+<div id="omics-data" class="section level2">
+<h2><span class="header-section-number">8.1</span> Omics data</h2>
+<p>So far, we have explored broad data science techniques in R. A
+widespread and successful area of bioinfomatics, and one that you, as
+a biology or biomedical science student are likely to be confronted
+with, is the analysis and interpretation of omics data.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:infoflow"></span>
+<img src="figs/Centraldogma_nodetails.png" alt="Information flow in biological systems (Source [Wikipedia](https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology))." width="368"  />
+<!--
+<p class="caption marginnote">-->Figure 8.1: Information flow in biological systems (Source <a href="https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology">Wikipedia</a>).<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>It is useful to define these omics data along the flow of information
+in biology (Figure <a href="sec-bioinfo.html#fig:infoflow">8.1</a>), and define the different
+application domains. The technologies that focus on DNA, and the
+genome in particular (either whole or parts thereof) are termed
+<strong>genomics</strong>, and are currently based on sequencing, in particular
+high throughput sequencing (HTS). The domain focusing on the study of
+any DNA modification (such as for example methylation) is termed
+<strong>epigenetics</strong>. The study of RNA, and more specifically the
+quantitation of RNA levels in biological samples is termed
+<strong>transcriptomics</strong>, as it assays the transcription of DNA into RNA
+molecules. Without further specification, transcriptomics refers to
+the quantitation of messanger RNA, although one could also focus on
+non-coding RNAs such as micro RNAs. HTS is currently the technology of
+choice for any transcriptomics study, while a decade ago, prior to the
+development of RNA sequencing (called <strong>RNAseq</strong>), microarrays were
+widely used. <strong>Proteomics</strong> focuses on the identification and
+quantitation of proteins, and can also expand into the study of
+protein interactions, post-translational modifications or sub-cellular
+localisation of proteins. Further downstreams of proteins, small
+molecules or lipids can also be assayed under the umbrella terms of
+<strong>metabolomics</strong> and <strong>lipidomics</strong>. The technology of choice for
+protein, lipids or smaller metabolites is mass spectrometry.</p>
+<p>An important concept in bioinformatics is the</p>
 </div>
 <div id="objects" class="section level2">
 <h2><span class="header-section-number">8.2</span> Objects</h2>
@@ -185,7 +228,7 @@ relevant object.</p>
 <a href="conclusions.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2018-12-28
+2018-12-29
 </p>
 </div>
 </div>

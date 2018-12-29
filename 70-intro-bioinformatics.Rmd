@@ -1,9 +1,53 @@
-# Introduction to bioinformatics {#sec:bioinfo}
+# Bioinformatics {#sec:bioinfo}
 
-## Introduction
+As already alluded to ealier, [Wikipedia
+defines](https://en.wikipedia.org/wiki/Bioinformatics) bioinformatics
+as
 
-- What is bioinformatics
-- Omics data
+> Bioinformatics is an interdisciplinary field that develops methods
+  and software tools for understanding biological data.
+
+Bioinformatics is as varied as biology itself, and ranges from data
+analysis, to software development, computational or statistical
+methodological development, more theoretical work, as well as any
+combination of these.
+
+## Omics data
+
+So far, we have explored broad data science techniques in R. A
+widespread and successful area of bioinfomatics, and one that you, as
+a biology or biomedical science student are likely to be confronted
+with, is the analysis and interpretation of omics data.
+
+```{r infoflow, results='markup', fig.margin=TRUE, fig.cap="Information flow in biological systems (Source [Wikipedia](https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology)).", fig.width=7, fig.height=7, echo=FALSE, purl=FALSE}
+knitr::include_graphics("./figs/Centraldogma_nodetails.png")
+```
+
+It is useful to define these omics data along the flow of information
+in biology (Figure \@ref(fig:infoflow)), and define the different
+application domains. The technologies that focus on DNA, and the
+genome in particular (either whole or parts thereof) are termed
+**genomics**, and are currently based on sequencing, in particular
+high throughput sequencing (HTS). The domain focusing on the study of
+any DNA modification (such as for example methylation) is termed
+**epigenetics**. The study of RNA, and more specifically the
+quantitation of RNA levels in biological samples is termed
+**transcriptomics**, as it assays the transcription of DNA into RNA
+molecules. Without further specification, transcriptomics refers to
+the quantitation of messanger RNA, although one could also focus on
+non-coding RNAs such as micro RNAs. HTS is currently the technology of
+choice for any transcriptomics study, while a decade ago, prior to the
+development of RNA sequencing (called **RNAseq**), microarrays were
+widely used. **Proteomics** focuses on the identification and
+quantitation of proteins, and can also expand into the study of
+protein interactions, post-translational modifications or sub-cellular
+localisation of proteins. Further downstreams of proteins, small
+molecules or lipids can also be assayed under the umbrella terms of
+**metabolomics** and **lipidomics**. The technology of choice for
+protein, lipids or smaller metabolites is mass spectrometry.
+
+An important concept in bioinformatics is the
+
 
 ## Objects
 
