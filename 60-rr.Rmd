@@ -31,11 +31,14 @@ documentation, support and integrates into the RStudio editor.
 
 ![](./figs/rmd.png)
 
-RStudio now also support *R Notebook* documents that execute
+RStudio now also support *R Notebook* documents[*jupyter] that execute
 individual code chunks that are displayed directly in the source
 document.
 
 ![](./figs/rnb.png)
+
+[^jupyter]: See also [Jupyter notebooks](https://jupyter.org/)
+initially developed for Python, but that can run R code as well.
 
 ## Additional features
 
@@ -68,5 +71,6 @@ DT::datatable(ip)
 > values are filtered out, and a *Visualisation* section where one or
 > two plots are rendered. Finish your report with a *Session
 > information* section.
+
 
 ## Docker containers
