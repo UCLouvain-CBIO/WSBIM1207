@@ -3,3 +3,13 @@
 We started the course by asking
 
 > What is bioinformatics?
+
+
+## Next steps
+
+- Statistics and machine learning (your statis courses and some of it
+  in [WSBIM1322](https://github.com/UCLouvain-CBIO/WSBIM1322)).
+- getting better at programming and data analysis (Advanced R).
+- evolving scripts into tools/packages (R packages).
+- other tools: unix command line and git (provide refs)
+- omics data analysis ([WSBIM2122](https://github.com/UCLouvain-CBIO/WSBIM2122)).
