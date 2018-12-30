@@ -4,7 +4,7 @@ For a general introduction on the topic in French, see @Pouzat:2015.
 
 ## Working reproducibly
 
-
+Possibly explain briefly the different types of preproducibility.
 
 ## `knitr` and `rmarkdown`
 

@@ -139,8 +139,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a id="active-page" href="index.html">Preamble</a><ul class="toc-sections">
 <li class="toc"><a href="#motivation">Motivation</a></li>
 <li class="toc"><a href="#references-and-credits">References and credits</a></li>
-<li class="toc"><a href="#setup">Setup</a></li>
 <li class="toc"><a href="#about-this-course-material">About this course material</a></li>
+<li class="toc"><a href="#setup">Setup</a></li>
 <li class="toc"><a href="#license">License</a></li>
 </ul>
 <a href="dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
@@ -248,17 +248,6 @@ curiculum</a>.</p>
 <p>General references for this course are <em>R for Data Science</em>
 <span class="citation">(Grolemund and Wickham <label for="tufte-mn-4" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle">2017<span class="marginnote">Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. O’Reilly Media. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.</span>)</span> and <em>Bioinformatics Data Skills</em> <span class="citation">(Buffalo <label for="tufte-mn-5" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-5" class="margin-toggle">2015<span class="marginnote">Buffalo, Vince. 2015. <em>Bioinformatics Data Skills</em>. O’Reilly Media, Inc.</span>)</span>.</p>
 </div>
-<div id="setup" class="section level2 unnumbered">
-<h2>Setup</h2>
-<p>We will be using the <a href="https://www.r-project.org/">R environment for statistical
-computing</a> as main data science language.
-We will also use the
-<a href="https://www.rstudio.com/products/RStudio/">RStudio</a> interface to
-interact with R and write scripts and reports. Both R and RStudio are
-easy to install and works on all major operating systems.</p>
-<p>Once R and RStudio are installed, a set of packages will need to be
-installed. See section <a href="session-information.html#sec:setup2">9.1</a> for details.</p>
-</div>
 <div id="about-this-course-material" class="section level2 unnumbered">
 <h2>About this course material</h2>
 <p>This material is written in R markdown <span class="citation">(Allaire et al. <label for="tufte-mn-6" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-6" class="margin-toggle">2018<span class="marginnote">Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2018. <em>Rmarkdown: Dynamic Documents for R</em>. <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a>.</span>)</span> and compiled as a
@@ -271,6 +260,24 @@ or contact the maintainers is by means of pull requests and
 issues. Please familiarise yourself with the <a href="https://github.com/UCLouvain-CBIO/WSBIM1207/blob/master/CONDUCT.md">code of
 conduct</a>. By
 participating in this project you agree to abide by its terms.</p>
+</div>
+<div id="setup" class="section level2 unnumbered">
+<h2>Setup</h2>
+<p>We will be using the <a href="https://www.r-project.org/">R environment for statistical
+computing</a> as main data science language.
+We will also use the
+<a href="https://www.rstudio.com/products/RStudio/">RStudio</a> interface to
+interact with R and write scripts and reports. Both R and RStudio are
+easy to install and works on all major operating systems.</p>
+<p>Once R and RStudio are installed, a set of packages will need to be
+installed. See section <a href="session-information.html#sec:setup2">9.1</a> for details.</p>
+<p>To build this book, you’ll need <code>bookdown</code> <span class="citation">(Xie <label for="tufte-mn-9" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-9" class="margin-toggle">2018a<span class="marginnote">Xie, Yihui. 2018a. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</span>)</span> and a
+fork<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> <a href="https://github.com/lgatto/msmbstyle" class="uri">https://github.com/lgatto/msmbstyle</a></span> of <a href="https://github.com/grimbough/msmbstyle/"><code>msmbstyle</code>
+style</a> <span class="citation">(Smith <label for="tufte-mn-10" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-10" class="margin-toggle">2018<span class="marginnote">Smith, Mike. 2018. <em>Msmbstyle: MSMB Styles for R Markdown Documents</em>.</span>)</span>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;lgatto/msmbstyle&quot;</span>)</code></pre>
+<p>In the course’s work directory, simply type</p>
+<pre class="sourceCode r"><code class="sourceCode r">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;.&quot;</span>)</code></pre>
 </div>
 <div id="license" class="section level2 unnumbered">
 <h2>License</h2>

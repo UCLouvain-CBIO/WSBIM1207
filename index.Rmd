@@ -141,18 +141,6 @@ curiculum](https://datacarpentry.org/lessons/#ecology-workshop).
 General references for this course are *R for Data Science*
 [@r4ds:2015] and *Bioinformatics Data Skills* [@Buffalo:2015].
 
-## Setup {-}
-
-We will be using the [R environment for statistical
-computing](https://www.r-project.org/) as main data science language.
-We will also use the
-[RStudio](https://www.rstudio.com/products/RStudio/) interface to
-interact with R and write scripts and reports. Both R and RStudio are
-easy to install and works on all major operating systems.
-
-Once R and RStudio are installed, a set of packages will need to be
-installed. See section \@ref(sec:setup2) for details.
-
 ## About this course material {-}
 
 This material is written in R markdown [@R-rmarkdown] and compiled as a
@@ -166,6 +154,37 @@ or contact the maintainers is by means of pull requests and
 issues. Please familiarise yourself with the [code of
 conduct](https://github.com/UCLouvain-CBIO/WSBIM1207/blob/master/CONDUCT.md). By
 participating in this project you agree to abide by its terms.
+
+
+## Setup {-}
+
+We will be using the [R environment for statistical
+computing](https://www.r-project.org/) as main data science language.
+We will also use the
+[RStudio](https://www.rstudio.com/products/RStudio/) interface to
+interact with R and write scripts and reports. Both R and RStudio are
+easy to install and works on all major operating systems.
+
+Once R and RStudio are installed, a set of packages will need to be
+installed. See section \@ref(sec:setup2) for details.
+
+To build this book, you'll need `bookdown` [@R-bookdown] and a
+fork[^msmbfork] of [`msmbstyle`
+style](https://github.com/grimbough/msmbstyle/) [@R-msmbstyle].
+
+[^msmbfork]: https://github.com/lgatto/msmbstyle
+
+```{r combilebook1, eval=FALSE}
+install.packages("bookdown")
+devtools::install_github("lgatto/msmbstyle")
+```
+
+In the course's work directory, simply type
+
+```{r combilebook2, eval=FALSE}
+bookdown::render_book(".")
+```
+
 
 ## License {-}
 
