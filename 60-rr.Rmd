@@ -2,6 +2,10 @@
 
 For a general introduction on the topic in French, see @Pouzat:2015.
 
+## Working reproducibly
+
+
+
 ## `knitr` and `rmarkdown`
 
 Reproducible research is an essential part of any data analysis. With

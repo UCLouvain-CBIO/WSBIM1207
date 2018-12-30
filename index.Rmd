@@ -66,7 +66,9 @@ have likely not yet been exposed to bioinformatics
 
 > What is bioinformatics?
 
-[^qst]: The same question will be asked at the very end of the course.
+[^qst]: The same question will be asked at the very end of the
+course. It will be interesting to assess how the students'
+appreciation of data science and bioinformatics has evolved.
 
 While [Wikipedia
 defines](https://en.wikipedia.org/wiki/Bioinformatics) it as

@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2018-12-29" />
+<meta name="date" content="2018-12-30" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -791,46 +791,93 @@ spreadsheet program (be it LibreOffice, Microsoft Excel, OpenOffice,
 Gnumeric, etc.) are usually guaranteed to be compatible only within the same
 family of products. If you will later need to export the data and need to
 conserve the timestamps, you are better off handling them using one of the solutions discussed below.</p>
-<p>Additionally, Excel can <a href="https://nsaunders.wordpress.com/2012/10/22/gene-name-errors-and-excel-lessons-not-learned/">turn things that aren’t dates into dates</a>,
-for example names or identifiers like MAR1, DEC1, OCT4. So if you’re avoiding the date format overall, it’s easier to identify these issues.</p>
-<blockquote>
-<p><strong>Exercise</strong></p>
+<p>Additionally, Excel can <a href="https://nsaunders.wordpress.com/2012/10/22/gene-name-errors-and-excel-lessons-not-learned/">turn things that aren’t dates into
+dates</a>,
+for example names or identifiers like MAR1, DEC1, OCT4. So if you’re
+avoiding the date format overall, it’s easier to identify these
+issues.</p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
 <p>Challenge: pulling month, day and year out of dates</p>
 <ul>
-<li>In the <code>dates</code> tab of your spreadsheet you have the data from 2014 plot 3.
-There’s a <code>Date collected</code> column.</li>
-<li>Let’s extract month, day and year from the dates to new columns. For this we
-can use the built in Excel functions</li>
+<li><p>In the <code>dates</code> tab of your spreadsheet you have the data from 2014
+plot 3. There’s a <code>Date collected</code> column.</p></li>
+<li><p>Let’s extract month, day and year from the dates to new columns. For
+this we can use the built in Excel functions</p></li>
 </ul>
-<p><code>YEAR()</code>
-<code>MONTH()</code>
-<code>DAY()</code></p>
+<pre><code>YEAR()
+MONTH()
+DAY()</code></pre>
 <p>(Make sure the new column is formatted as a number and not as a date.)</p>
-<p>You can see that even though you wanted the year to be 2014, your spreadsheet program
-automatically interpreted it as 2015, the year you entered the data.</p>
-<p><strong>Solution</strong>
-<img src="figs/solution_exercise_1_dates.png" /></p>
-</blockquote>
-<blockquote>
-<p><strong>Exercise</strong></p>
+<p>You can see that even though you wanted the year to be 2014, your
+spreadsheet program automatically interpreted it as 2015, the year you
+entered the data.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-1" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-1&#39;, &#39;sol-start-1&#39;)"></span>
+</p>
+<div id="sol-body-1" class="solution-body" style="display: none;">
+<p><img src="figs/solution_exercise_1_dates.png" /></p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
 <p>Challenge: pulling hour, minute and second out of the current time</p>
-<p>Current time and date are best retrieved using the functions <code>NOW()</code>, which
-returns the current date and time, and <code>TODAY()</code>, which returns the current
-date. The results will be formatted according to your computer’s settings.</p>
+<p>Current time and date are best retrieved using the functions <code>NOW()</code>,
+which returns the current date and time, and <code>TODAY()</code>, which returns
+the current date. The results will be formatted according to your
+computer’s settings.</p>
 <ol style="list-style-type: decimal">
-<li>Extract the year, month and day from the current date and time string
-returned by the <code>NOW()</code> function.</li>
-<li>Calculate the current time using <code>NOW()-TODAY()</code>.</li>
-<li>Extract the hour, minute and second from the current time using
-functions <code>HOUR()</code>, <code>MINUTE()</code> and <code>SECOND()</code>.</li>
-<li>Press <code>F9</code> to force the spreadsheet to recalculate the <code>NOW()</code> function,
-and check that it has been updated.</li>
+<li><p>Extract the year, month and day from the current date and time
+string returned by the <code>NOW()</code> function.</p></li>
+<li><p>Calculate the current time using <code>NOW()-TODAY()</code>.</p></li>
+<li><p>Extract the hour, minute and second from the current time using
+functions <code>HOUR()</code>, <code>MINUTE()</code> and <code>SECOND()</code>.</p></li>
 </ol>
-<p><strong>Solution</strong>
-1) To get the year, type <code>=YEAR(NOW())</code> into any cell in your spreadsheet. To get the month, type <code>=MONTH(NOW())</code>. To get the day, type <code>=DAY(NOW())</code>.
-2) Typing <code>=NOW()-TODAY()</code> will result in a decimal value that is not easily human parsable to a clock-based time. You will need to use the strategies in the third part of this challenge to convert this decimal value to readable time.
-3) To extract the hour, type <code>=HOUR(NOW()-TODAY())</code> and similarly for minute and second.</p>
-</blockquote>
+<ol start="4" style="list-style-type: decimal">
+<li>Press <code>F9</code> to force the spreadsheet to recalculate the <code>NOW()</code>
+function, and check that it has been updated.</li>
+</ol>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-2" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-2&#39;, &#39;sol-start-2&#39;)"></span>
+</p>
+<div id="sol-body-2" class="solution-body" style="display: none;">
+<ol style="list-style-type: decimal">
+<li><p>To get the year, type <code>=YEAR(NOW())</code> into any cell in your
+spreadsheet. To get the month, type <code>=MONTH(NOW())</code>. To get the
+day, type <code>=DAY(NOW())</code>.</p></li>
+<li><p>Typing <code>=NOW()-TODAY()</code> will result in a decimal value that is not
+easily human parsable to a clock-based time. You will need to use
+the strategies in the third part of this challenge to convert this
+decimal value to readable time.</p></li>
+<li><p>To extract the hour, type <code>=HOUR(NOW()-TODAY())</code> and similarly for
+minute and second.</p></li>
+</ol>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 <div id="preferred-date-format" class="section level3">
 <h3><span class="header-section-number">1.8.1</span> Preferred date format</h3>
 <p>It is much safer to store dates with <a href="#day">YEAR, MONTH, DAY</a> in
@@ -869,80 +916,125 @@ In another cell, you could type:</p>
 <pre><code>=B2+37</code></pre>
 <p>And it would return</p>
 <pre><code>8-Aug</code></pre>
-<p>because it understands the date as a number <code>41822</code>, and <code>41822 + 37 = 41859</code>
-which Excel interprets as August 8, 2014. It retains the format (for the most
-part) of the cell that is being operated upon, (unless you did some sort of
-formatting to the cell before, and then all bets are off). Month and year
-rollovers are internally tracked and applied.</p>
-<p><strong>Note</strong>
-Adding years and months and days is slightly trickier because we need to make
-sure that we are adding the amount to the correct entity.</p>
+<p>because it understands the date as a number <code>41822</code>, and <code>41822 + 37 = 41859</code> which Excel interprets as August 8, 2014. It retains the format
+(for the most part) of the cell that is being operated upon, (unless
+you did some sort of formatting to the cell before, and then all bets
+are off). Month and year rollovers are internally tracked and applied.</p>
+<p><strong>Note</strong> Adding years and months and days is slightly trickier because
+we need to make sure that we are adding the amount to the correct
+entity.</p>
 <ul>
 <li>First we extract the single entities (day, month or year)</li>
 <li>We can then add values to to that</li>
 <li>Finally the complete date string is reconstructed using the <code>DATE()</code> function.</li>
 </ul>
-<p>As for dates, times are handled in a similar way; seconds can be directly
-added but to add hour and minutes we need to make sure that we are adding
-the quantities to the correct entities.</p>
-<p>Which brings us to the many different ways Excel provides in how it displays dates. If you refer to the figure above, you’ll see that
-there are many ways that ambiguity creeps into your data depending on the format you chose when you enter your data, and if you’re not
-fully aware of which format you’re using, you can end up actually entering your data in a way that Excel will badly misinterpret.</p>
-<blockquote>
-<p><strong>Exercise</strong></p>
-<p>What happens to the dates in the “dates” tab of our workbook if we
-save this sheet in Excel (in <code>csv</code> format) and then open the file in
-a plain text editor (like TextEdit or Notepad)? What happens to the
+<p>As for dates, times are handled in a similar way; seconds can be
+directly added but to add hour and minutes we need to make sure that
+we are adding the quantities to the correct entities.</p>
+<p>Which brings us to the many different ways Excel provides in how it
+displays dates. If you refer to the figure above, you’ll see that
+there are many ways that ambiguity creeps into your data depending on
+the format you chose when you enter your data, and if you’re not fully
+aware of which format you’re using, you can end up actually entering
+your data in a way that Excel will badly misinterpret.</p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>What happens to the dates in the ‘dates’ tab of our workbook if we
+save this sheet in Excel (in <code>csv</code> format) and then open the file in a
+plain text editor (like TextEdit or Notepad)? What happens to the
 dates if we then open the <code>csv</code> file in Excel?</p>
-<p><strong>Solution</strong></p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-3" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-3&#39;, &#39;sol-start-3&#39;)"></span>
+</p>
+<div id="sol-body-3" class="solution-body" style="display: none;">
 <ul>
-<li>Click to the “dates” tab of the workbook and double-click on any of the values in the <code>Date collected</code> column. Notice that the dates display with the year 2015.</li>
-<li>Select <code>File -&gt; Save As</code> in Excel and in the drop down menu for file format select <code>CSV UTF-8 (Comma delimited) (.csv)</code>. Click <code>Save</code>.</li>
-<li>You will see a pop-up that says “This workbook cannot be saved in the selected file format because it contains multiple sheets.” Choose <code>Save Active Sheet</code>.</li>
-<li>Navigate to the file in your finder application. Right click and select <code>Open With</code>. Choose a plain text editor application and view the file. Notice that the dates display as month/day without any year information.</li>
-<li>Now right click on the file again and open with Excel. Notice that the dates display with the current year, not 2015.
-As you can see, exporting data from Excel and then importing it back into Excel fundamentally changed the data!</li>
+<li><p>Click to the “dates” tab of the workbook and double-click on any of
+the values in the <code>Date collected</code> column. Notice that the dates
+display with the year 2015.</p></li>
+<li><p>Select <code>File -&gt; Save As</code> in Excel and in the drop down menu for file
+format select <code>CSV UTF-8 (Comma delimited) (.csv)</code>. Click <code>Save</code>.</p></li>
+<li><p>You will see a pop-up that says “This workbook cannot be saved in
+the selected file format because it contains multiple sheets.”
+Choose <code>Save Active Sheet</code>.</p></li>
+<li>Navigate to the file in your finder application. Right click and
+select <code>Open With</code>. Choose a plain text editor application and view
+the file. Notice that the dates display as month/day without any
+year information. &gt; - Now right click on the file again and open
+with Excel. Notice that the dates display with the current year, not
+<ol start="2015" style="list-style-type: decimal">
+<li></li>
+</ol></li>
 </ul>
-</blockquote>
-<p><strong>Note</strong>
-You will notice that when exporting into a text-based format (such as CSV), Excel will export its internal date integer instead of a useful value (that is, the dates will be represented as integer numbers). This can potentially lead to problems if you use other software to manipulate the file.</p>
+<p>As you can see, exporting data from Excel and then importing it back into Excel fundamentally changed the data!</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p><strong>Note</strong> You will notice that when exporting into a text-based format
+(such as CSV), Excel will export its internal date integer instead of
+a useful value (that is, the dates will be represented as integer
+numbers). This can potentially lead to problems if you use other
+software to manipulate the file.</p>
 </div>
 </div>
 <div id="advantages-of-alternative-date-formatting" class="section level3">
 <h3><span class="header-section-number">1.8.3</span> Advantages of Alternative Date Formatting</h3>
 <div id="storing-dates-as-year-month-day" class="section level4 unnumbered">
 <h4>Storing dates as YEAR, MONTH, DAY</h4>
-<p>Storing dates in YEAR, MONTH, DAY format helps remove this ambiguity. Let’s look at this issue a bit closer.</p>
-<p>For instance this is a spreadsheet representing insect counts that were taken every few days over the summer, and things went something like this:</p>
-<div class="figure">
-<img src="figs/6_excel_dates_2.jpg" alt="So, so ambiguous, it’s even confusing Excel" />
-<p class="caption">So, so ambiguous, it’s even confusing Excel</p>
+<p>Storing dates in YEAR, MONTH, DAY format helps remove this
+ambiguity. Let’s look at this issue a bit closer.</p>
+<p>For instance this is a spreadsheet representing insect counts that
+were taken every few days over the summer, and things went something
+like this:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
+<p class="caption marginnote shownote">
+Figure 1.1: So, so ambiguous, it’s even confusing Excel.
+</p>
+<img src="figs/6_excel_dates_2.jpg" alt="So, so ambiguous, it's even confusing Excel." width="70%"  />
 </div>
-<p>If Excel was to be believed, this person had been collecting bugs <strong>in the future</strong>. Now, we have no doubt this person is highly capable,
-but I believe time travel was beyond even their grasp.</p>
-<p>Entering dates in one cell is helpful but due to the fact that the spreadsheet programs may interpret and save the data in different ways
+<p>If Excel was to be believed, this person had been collecting bugs <strong>in
+the future</strong>. Now, we have no doubt this person is highly capable, but
+I believe time travel was beyond even their grasp.</p>
+<p>Entering dates in one cell is helpful but due to the fact that the
+spreadsheet programs may interpret and save the data in different ways
 (doing that somewhat behind the scenes), there is a better practice.</p>
-<p>In dealing with dates in spreadsheets, separate date data into separate fields (day, month, year), which will eliminate any chance of
+<p>In dealing with dates in spreadsheets, separate date data into
+separate fields (day, month, year), which will eliminate any chance of
 ambiguity.</p>
 </div>
 <div id="storing-dates-as-year-day-of-year" class="section level4 unnumbered">
 <h4>Storing dates as YEAR, DAY-OF-YEAR</h4>
-<p>There is also another option. You can also store dates as year and day of year (DOY). Why? Because depending on your
-question, this might be what’s useful to you, and there is practically no possibility for ambiguity creeping in.</p>
-<p>Statistical models often incorporate year as a factor, or a categorical variable, rather than a numeric variable, to account for
-year-to-year variation, and DOY can be used to measure the passage of time within a year.</p>
-<p>So, can you convert all your dates into DOY format? Well, in Excel, here’s a useful guide:</p>
-<div class="figure">
-<img src="figs/7_excel_dates_3.jpg" alt="Kill that ambiguity before it bites you!" />
-<p class="caption">Kill that ambiguity before it bites you!</p>
+<p>There is also another option. You can also store dates as year and day
+of year (DOY). Why? Because depending on your question, this might be
+what’s useful to you, and there is practically no possibility for
+ambiguity creeping in.</p>
+<p>Statistical models often incorporate year as a factor, or a
+categorical variable, rather than a numeric variable, to account for
+year-to-year variation, and DOY can be used to measure the passage of
+time within a year.</p>
+<p>So, can you convert all your dates into DOY format? Well, in Excel,
+here’s a useful guide:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<p class="caption marginnote shownote">
+Figure 1.2: Kill that ambiguity before it bites you!
+</p>
+<img src="figs/7_excel_dates_3.jpg" alt="Kill that ambiguity before it bites you!" width="70%"  />
 </div>
 </div>
 <div id="storing-dates-as-a-single-string" class="section level4 unnumbered">
 <h4>Storing dates as a single string</h4>
-<p>Another alternative could be to convert the date string
-into a single string using the <code>YYYYMMDDhhmmss</code> format.
-For example the date <code>March 24, 2015 17:25:35</code> would
-become <code>20150324172535</code>, where:</p>
+<p>Another alternative could be to convert the date string into a single
+string using the <code>YYYYMMDDhhmmss</code> format. For example the date <code>March 24, 2015 17:25:35</code> would become <code>20150324172535</code>, where:</p>
 <pre><code>YYYY:   the full year, i.e. 2015
 MM:     the month, i.e. 03
 DD:     the day of month, i.e. 24
@@ -996,18 +1088,22 @@ in each data column.</p>
 <li><p>Select the cells or column you want to validate</p></li>
 <li><p>On the <code>Data</code> tab select <code>Data Validation</code></p></li>
 </ol>
-<div class="figure">
-<img src="figs/data_validation.png" alt="Image of Data Validation button on Data tab" />
-<p class="caption">Image of Data Validation button on Data tab</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<p class="caption marginnote shownote">
+Figure 1.3: Image of Data Validation button on Data tab.
+</p>
+<img src="figs/data_validation.png" alt="Image of Data Validation button on Data tab." width="50%"  />
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>In the <code>Allow</code> box select the kind of data that should be in the
 column. Options include whole numbers, decimals, lists of items, dates, and
 other values.</li>
 </ol>
-<div class="figure">
-<img src="figs/data_validation_window.png" alt="Image of Data Validation window" />
-<p class="caption">Image of Data Validation window</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<p class="caption marginnote shownote">
+Figure 1.4: Image of Data Validation window.
+</p>
+<img src="figs/data_validation_window.png" alt="Image of Data Validation window." width="50%"  />
 </div>
 <ol start="4" style="list-style-type: decimal">
 <li>After selecting an item enter any additional details. For example, if you’ve
@@ -1022,37 +1118,47 @@ plot values that are integers between 1 and 24.</p>
 <li>In the <code>Allow</code> box select <code>Whole number</code></li>
 <li>Set the minimum and maximum values to 1 and 24.</li>
 </ol>
-<div class="figure">
-<img src="figs/plot_validation.png" alt="Image of Data Validation window for validating plot values" />
-<p class="caption">Image of Data Validation window for validating plot values</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<p class="caption marginnote shownote">
+Figure 1.5: Image of Data Validation window for validating plot values.
+</p>
+<img src="figs/plot_validation.png" alt="Image of Data Validation window for validating plot values." width="50%"  />
 </div>
 <p>Now let’s try entering a new value in the plot column that isn’t a valid
 plot. The spreadsheet stops us from entering the wrong value and asks us if we
 would like to try again.</p>
-<div class="figure">
-<img src="figs/invalid_value.png" alt="Image of error when trying to enter invalid data" />
-<p class="caption">Image of error when trying to enter invalid data</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<p class="caption marginnote shownote">
+Figure 1.6: Image of error when trying to enter invalid data.
+</p>
+<img src="figs/invalid_value.png" alt="Image of error when trying to enter invalid data." width="50%"  />
 </div>
 <p>You can also customize the resulting message to be more informative by entering
 your own message in the <code>Input Message</code> tab</p>
-<div class="figure">
-<img src="figs/input_message.png" alt="Image of Input Message tab" />
-<p class="caption">Image of Input Message tab</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
+<p class="caption marginnote shownote">
+Figure 1.7: Image of Input Message tab.
+</p>
+<img src="figs/input_message.png" alt="Image of Input Message tab." width="50%"  />
 </div>
 <p>or allow invalid data to result in a warning rather than an error by modifying the <code>Style</code>
 option on the <code>Error Alert</code> tab.</p>
-<div class="figure">
-<img src="figs/error_alert.png" alt="Image of Error Alert tab" />
-<p class="caption">Image of Error Alert tab</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<p class="caption marginnote shownote">
+Figure 1.8: Image of Error Alert tab.
+</p>
+<img src="figs/error_alert.png" alt="Image of Error Alert tab." width="50%"  />
 </div>
 <p>Quality assurance can make data entry easier as well as more robust. For
 example, if you use a list of options to restrict data entry, the spreadsheet
 will provide you with a drop-downlist of the available items. So, instead of
 trying to remember how to spell <em>Dipodomys spectabilis</em>, you can select the
 right option from the list.</p>
-<div class="figure">
-<img src="figs/drop_down_list.png" alt="Image of drop-down menu" />
-<p class="caption">Image of drop-down menu</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
+<p class="caption marginnote shownote">
+Figure 1.9: Image of drop-down menu.
+</p>
+<img src="figs/drop_down_list.png" alt="Image of drop-down menu." width="50%"  />
 </div>
 </div>
 <div id="quality-control" class="section level3">
@@ -1089,41 +1195,86 @@ affect the integrity of your dataset.</p>
 <p><strong>Remember</strong> to expand your sort in order to prevent data
 corruption. Expanding your sort ensures that the all the data in one
 row move together instead of only sorting a single column in
-isolation. Sorting by only a single column will scramble your data -
-a single row will no longer represent an individual observation.</p>
-<blockquote>
-<p><strong>Exercise</strong></p>
-<p>We’ve combined all of the tables from the messy data into a single table in a single tab. Download this semi-cleaned data file to your computer: <a href="https://github.com/datacarpentry/spreadsheet-ecology-lesson/blob/gh-pages/data/survey_sorting_exercise.xlsx?raw=true">survey_sorting_exercise</a></p>
-<p>Once downloaded, sort the <code>Weight_grams</code> column in your spreadsheet program from <code>Largest to Smallest</code>.</p>
+isolation. Sorting by only a single column will scramble your data - a
+single row will no longer represent an individual observation.</p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>We’ve combined all of the tables from the messy data into a single
+table in a single tab. Download this semi-cleaned data file to your
+computer:
+<a href="https://github.com/datacarpentry/spreadsheet-ecology-lesson/blob/gh-pages/data/survey_sorting_exercise.xlsx?raw=true">survey_sorting_exercise</a></p>
+<p>Once downloaded, sort the <code>Weight_grams</code> column in your spreadsheet
+program from <code>Largest to Smallest</code>.</p>
 <p>What do you notice?</p>
-<p><strong>Solution</strong></p>
-<p>Click the Sort button on the data tab in Excel. A pop-up will appear. Make sure you select <code>Expand the selection</code>.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-4" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-4&#39;, &#39;sol-start-4&#39;)"></span>
+</p>
+<div id="sol-body-4" class="solution-body" style="display: none;">
+<p>Click the Sort button on the data tab in Excel. A pop-up will
+appear. Make sure you select <code>Expand the selection</code>.</p>
 <p><img src="figs/sorting_button.png" /></p>
 <p>The following window will display, choose the column you want to sort as well as the sort order.</p>
 <p><img src="figs/sorting_example.png" /></p>
-<p><strong>Note</strong> how the odd values sort to the top and bottom of the tabular data.
-The cells containing no data values sort to the bottom of the tabular data, while the cells where the letter “g” was included can be found towards the top. This is a powerful way to check your data for outliers and odd values.</p>
+<p><strong>Note</strong> how the odd values sort to the top and bottom of the tabular
+data. The cells containing no data values sort to the bottom of the
+tabular data, while the cells where the letter “g” was included can be
+found towards the top. This is a powerful way to check your data for
+outliers and odd values.</p>
 <p><img src="figs/sorting_solution_1.png" /></p>
 <p><img src="figs/sorting_solution_2.png" /></p>
-</blockquote>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 </div>
 </div>
 <div id="conditional-formatting" class="section level3">
 <h3><span class="header-section-number">1.9.3</span> Conditional formatting</h3>
-<p>Conditional formatting basically can do something like color code your values by some
-criteria or lowest to highest. This makes it easy to scan your data for outliers.</p>
-<p>Conditional formatting should be used with caution, but it can be a great way to flag inconsistent values when entering data.</p>
-<blockquote>
-<p><strong>Exercise</strong></p>
+<p>Conditional formatting basically can do something like color code your
+values by some criteria or lowest to highest. This makes it easy to
+scan your data for outliers.</p>
+<p>Conditional formatting should be used with caution, but it can be a
+great way to flag inconsistent values when entering data.</p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
 <ol style="list-style-type: decimal">
-<li>In the main Excel menu bar, click <code>Format</code> &gt; <code>Conditional Formating...</code> Click the <code>+</code> to add a formatting rule.</li>
-<li>Apply a <code>2-Color Scale</code> formatting rule with the lowest values set to orange and the highest values set to yellow.</li>
-<li>Now we can scan through and different colors will stand out. Do you notice any strange values?</li>
+<li><p>In the main Excel menu bar, click <code>Format</code> &gt; <code>Conditional Formating...</code> Click the <code>+</code> to add a formatting rule.</p></li>
+<li><p>Apply a <code>2-Color Scale</code> formatting rule with the lowest values set
+to orange and the highest values set to yellow.</p></li>
+<li><p>Now we can scan through and different colors will stand out. Do you
+notice any strange values?</p></li>
 </ol>
-<p><strong>Solution</strong></p>
-<p>Cells that contain non-numerical values are not colored. This includes both the cells where the letter “g” was included and the empty cells.
-<img src="figs/conditional_formating.png" /></p>
-</blockquote>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-5" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-5&#39;, &#39;sol-start-5&#39;)"></span>
+</p>
+<div id="sol-body-5" class="solution-body" style="display: none;">
+<p>Cells that contain non-numerical values are not colored. This includes
+both the cells where the letter “g” was included and the empty cells.</p>
+<p><img src="figs/conditional_formating.png" /></p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 <p>It is nice to do be able to do these scans in spreadsheets, but we
 also can do these checks in a programming language like R or SQL.</p>
 </div>
@@ -1203,9 +1354,11 @@ it and hit ‘Save’.</li>
 </ol>
 <p>An important note for backwards compatibility: you can open CSV files
 in Excel!</p>
-<div class="figure">
-<img src="figs/excel-to-csv.png" alt="Saving an Excel file to CSV" />
-<p class="caption">Saving an Excel file to CSV</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<p class="caption marginnote shownote">
+Figure 1.10: Saving an Excel file to CSV.
+</p>
+<img src="figs/excel-to-csv.png" alt="Saving an Excel file to CSV." width="70%"  />
 </div>
 <div id="a-note-on-cross-platform-operability" class="section level4 unnumbered">
 <h4>A Note on Cross-platform Operability</h4>
@@ -1215,22 +1368,20 @@ uses an alternate line ending signifier (<code>\r\n</code>) by default for legac
 compatibility with Teletype-based systems.</p>
 <p>As such, when exporting to CSV using Excel, your data in text format
 will look like this:</p>
-<blockquote>
-<p>data1,data21,24,5</p>
-</blockquote>
+<pre><code>data1,data2\r\n1,2\r\n4,5\r\n</code></pre>
 <p>When opening your CSV file in Excel again, it will parse it as
 follows:</p>
-<p><img width="307" alt="screen shot 2017-03-31 at 7 15 07 pm"
-src="https://cloud.githubusercontent.com/assets/13110354/24560663/db4a5786-1643-11e7-931a-ca2c72336878.png"></p>
+<p><img src="figs/db4a5786-1643-11e7-931a-ca2c72336878.png" width="40%"  style="display: block; margin: auto;" /></p>
 <p>However, if you open your CSV file on a different system that does not
-parse the " it will interpret your CSV file differently:</p>
+parse the <code>\r</code> it will interpret your CSV file differently:</p>
 <p>Your data in text format then look like this:</p>
-<blockquote>
-<p>data1 <br> data2br&gt; 1<br> 2br&gt; …</p>
-</blockquote>
+<pre><code>data1
+data2\r
+1
+2\r
+...</code></pre>
 <p>This will then in turn parse as:</p>
-<p><img width="308" alt="screen shot 2017-03-31 at 7 26 42 pm"
-src="https://cloud.githubusercontent.com/assets/13110354/24561066/a990327c-1645-11e7-90b5-35a44e90f8d9.png"></p>
+<p><img src="figs/a990327c-1645-11e7-90b5-35a44e90f8d9.png" width="40%"  style="display: block; margin: auto;" /></p>
 <p>thus causing terrible things to happen to your data. For example,
 <code>2\r</code> is not a valid integer, and thus will throw an error (if you’re
 lucky) when you attempt to operate on it in R or Python. Note that
@@ -1239,12 +1390,12 @@ Windows compatibility.</p>
 <p>There are a handful of solutions for enforcing uniform UNIX-style line
 endings on your exported CSV files:</p>
 <ol style="list-style-type: decimal">
-<li>When exporting from Excel, save as a “Windows comma separated
-(.csv)” file</li>
+<li><p>When exporting from Excel, save as a “Windows comma separated
+(.csv)” file</p></li>
 <li><p>If you store your data file under version control using Git, edit
-the <code>.git/config</code> file in your repository to automatically translate
-<code>\r\n</code> line endings into <code>\n</code>. Add the following to the file (<a href="http://nicercode.github.io/blog/2013-04-30-excel-and-line-endings">see
-the detailed
+the <code>.git/config</code> file in your repository to automatically
+translate <code>\r\n</code> line endings into <code>\n</code>. Add the following to the
+file (<a href="http://nicercode.github.io/blog/2013-04-30-excel-and-line-endings">see the detailed
 tutorial</a>):</p>
 <pre><code>         [filter &quot;cr&quot;]
          clean = LC_CTYPE=C awk &#39;{printf(\&quot;%s\\n\&quot;, $0)}&#39; | LC_CTYPE=C tr &#39;\\r&#39; &#39;\\n&#39;
@@ -1279,13 +1430,54 @@ adequate?</li>
 most likely incorrectly display the data in columns. This is because
 the commas which are a part of the data values will be interpreted as
 delimiters.</p>
-<p>If you are working with data that contains commas, you likely will
-need to use another delimiter when working in a spreadsheet. In this
-case, consider using tabs as your delimiter and working with TSV
-files. TSV files can be exported from spreadsheet programs in the same
-way as CSV files. For more of a discussion on data formats and
-potential issues with commas within datasets see <a href="http://www.datacarpentry.org/spreadsheet-ecology-lesson/discuss/">the discussion
-page</a>.</p>
+<p>For example, our data might look like this:</p>
+<pre><code>species_id,genus,species,taxa
+AB,Amphispiza,bilineata,Bird
+AH,Ammospermophilus,harrisi,Rodent-not,censused
+AS,Ammodramus,savannarum,Bird
+BA,Baiomys,taylori,Rodent</code></pre>
+<p>In the record <code>AH,Ammospermophilus,harrisi,Rodent-not,censused</code> the
+value for <code>taxa</code> includes a comma (<code>Rodent-not,censused</code>). If we try
+to read the above into Excel (or other spreadsheet program), we will
+get something like this:</p>
+<p><img src="../figs/csv-mistake.png" /></p>
+<p>The value for <code>taxa</code> was split into two columns (instead of being put
+in one column <code>D</code>). This can propagate to a number of further
+errors. For example, the extra column will be interpreted as a column
+with many missing values (and without a proper header). In addition to
+that, the value in column <code>D</code> for the record in row 3 (so the one
+where the value for ‘taxa’ contained the comma) is now incorrect.</p>
+<p>If you want to store your data in <code>csv</code> format and expect that your
+data values may contain commas, you can avoid the problem discussed
+above by putting the values in quotes (""). Applying this rule, our
+data might look like this:</p>
+<pre><code>species_id,genus,species,taxa
+&quot;AB&quot;,&quot;Amphispiza&quot;,&quot;bilineata&quot;,&quot;Bird&quot;
+&quot;AH&quot;,&quot;Ammospermophilus&quot;,&quot;harrisi&quot;,&quot;Rodent-not, censused&quot;
+&quot;AS&quot;,&quot;Ammodramus&quot;,&quot;savannarum&quot;,&quot;Bird&quot;
+&quot;BA&quot;,&quot;Baiomys&quot;,&quot;taylori&quot;,&quot;Rodent&quot;</code></pre>
+<p>Now opening this file as a <code>csv</code> in Excel will not lead to an extra
+column, because Excel will only use commas that fall outside of
+quotation marks as delimiting characters.</p>
+<p>Alternatively, if you are working with data that contains commas, you
+likely will need to use another delimiter when working in a
+spreadsheet. In this case, consider using tabs as your delimiter and
+working with TSV files. TSV files can be exported from spreadsheet
+programs in the same way as CSV files.</p>
+<p>If you are working with an already existing dataset in which the data
+values are not included in "" but which have commas as both delimiters
+and parts of data values, you are potentially facing a major problem
+with data cleaning. If the dataset you’re dealing with contains
+hundreds or thousands of records, cleaning them up manually (by either
+removing commas from the data values or putting the values into quotes
+- "") is not only going to take hours and hours but may potentially
+end up with you accidentally introducing many errors.</p>
+<p>Cleaning up datasets is one of the major problems in many scientific
+disciplines. The approach almost always depends on the particular
+context. However, it is a good practice to clean the data in an
+automated fashion, for example by writing and running a script. The
+Python and R lessons will give you the basis for developing skills to
+build relevant scripts.</p>
 </div>
 </div>
 <div id="summary" class="section level2">
@@ -1296,11 +1488,11 @@ page</a>.</p>
 <div class="figure">--><span id="fig:analysis"></span>
 <img src="figs/analysis.png" alt="A typical data analysis workflow." width="362"  />
 <!--
-<p class="caption marginnote">-->Figure 1.1: A typical data analysis workflow.<!--</p>-->
+<p class="caption marginnote">-->Figure 1.11: A typical data analysis workflow.<!--</p>-->
 <!--</div>--></span>
 </p>
 <p>A typical data analysis worflow is illustrated in figure
-<a href="dataorg.html#fig:analysis">1.1</a>), where data is repeatedly tranformed, visualised,
+<a href="dataorg.html#fig:analysis">1.11</a>), where data is repeatedly tranformed, visualised,
 modelled. This iteration is repeated multiple times until the data is
 understood. In many real-life cases, however, most time is spend in
 clearning up and preparing the data, rather than actually analysing
@@ -1317,7 +1509,7 @@ having to look at it and/or fix it.</p>
 <a href="starting-with-r.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2018-12-29
+2018-12-30
 </p>
 </div>
 </div>
