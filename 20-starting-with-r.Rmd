@@ -646,17 +646,17 @@ out one line, you can put the cursor at any location of that line (i.e. no need
 to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> +
 <kbd>C</kbd>.
 
-> **Challenge**
->
-> What are the values after each statement in the following?
->
-> ```{r, purl=FALSE}
-> mass <- 47.5            # mass?
-> age  <- 122             # age?
-> mass <- mass * 2.0      # mass?
-> age  <- age - 20        # age?
-> mass_index <- mass/age  # mass_index?
-> ```
+`r msmbstyle::question_begin()`
+What are the values after each statement in the following?
+
+```{r, purl=FALSE}
+mass <- 47.5            # mass?
+age  <- 122             # age?
+mass <- mass * 2.0      # mass?
+age  <- age - 20        # age?
+mass_index <- mass/age  # mass_index?
+```
+`r msmbstyle::question_end()`
 
 ### Functions and their arguments
 
@@ -797,19 +797,20 @@ weight_g <- c(30, weight_g) # add to the beginning of the vector
 weight_g
 ```
 
-In the first line, we take the original vector `weight_g`,
-add the value `90` to the end of it, and save the result back into
-`weight_g`. Then we add the value `30` to the beginning, again saving the result
-back into `weight_g`.
+In the first line, we take the original vector `weight_g`, add the
+value `90` to the end of it, and save the result back into
+`weight_g`. Then we add the value `30` to the beginning, again saving
+the result back into `weight_g`.
 
-We can do this over and over again to grow a vector, or assemble a dataset.
-As we program, this may be useful to add results that we are collecting or
-calculating.
+We can do this over and over again to grow a vector, or assemble a
+dataset.  As we program, this may be useful to add results that we are
+collecting or calculating.
 
-An **atomic vector** is the simplest R **data type** and is a linear vector of a single type. Above, we saw
-2 of the 6 main **atomic vector** types  that R
-uses: `"character"` and `"numeric"` (or `"double"`). These are the basic building blocks that
-all R objects are built from. The other 4 **atomic vector** types are:
+An **atomic vector** is the simplest R **data type** and is a linear
+vector of a single type. Above, we saw 2 of the 6 main **atomic
+vector** types that R uses: `"character"` and `"numeric"` (or
+`"double"`). These are the basic building blocks that all R objects
+are built from. The other 4 **atomic vector** types are:
 
 * `"logical"` for `TRUE` and `FALSE` (the boolean data type)
 * `"integer"` for integer numbers (e.g., `2L`, the `L` indicates to R that it's an integer)
@@ -817,69 +818,80 @@ all R objects are built from. The other 4 **atomic vector** types are:
   `1 + 4i`) and that's all we're going to say about them
 * `"raw"` for bitstreams that we won't discuss further
 
-You can check the type of your vector using the `typeof()` function and inputting your vector as the argument.
+You can check the type of your vector using the `typeof()` function
+and inputting your vector as the argument.
 
-Vectors are one of the many **data structures** that R uses. Other important
-ones are lists (`list`), matrices (`matrix`), data frames (`data.frame`),
-factors (`factor`) and arrays (`array`).
+Vectors are one of the many **data structures** that R uses. Other
+important ones are lists (`list`), matrices (`matrix`), data frames
+(`data.frame`), factors (`factor`) and arrays (`array`).
 
 
-> **Challenge**
->
->
-> * We’ve seen that atomic vectors can be of type character,
->   numeric (or double), integer, and logical. But what happens if we try to mix these types in
->   a single vector?
->
-> ```{text_answer, echo=FALSE, purl=FALSE}
-> R implicitly converts them to all be the same type
-> ```
->
-> * What will happen in each of these examples? (hint: use `class()`
->   to check the data type of your objects):
->
->     ```r
->     num_char <- c(1, 2, 3, "a")
->     num_logical <- c(1, 2, 3, TRUE)
->     char_logical <- c("a", "b", "c", TRUE)
->     tricky <- c(1, 2, 3, "4")
->     ```
->
-> * Why do you think it happens?
->
-> ```{text_answer, echo=FALSE, purl=FALSE}
-> Vectors can be of only one data type. R tries to
-> convert (coerce) the content of this vector to find a "common
-> denominator" that doesn't lose any information.
-> ```
->
-> * How many values in `combined_logical` are `"TRUE"` (as a character) in the
->   following example:
->
->     ```r
->     num_logical <- c(1, 2, 3, TRUE)
->     char_logical <- c("a", "b", "c", TRUE)
->     combined_logical <- c(num_logical, char_logical)
->     ```
->
-> ```{text_answer, echo=FALSE, purl=FALSE}
-> Only one. There is no memory of past data types, and the coercion happens the
-> first time the vector is evaluated. Therefore, the `TRUE` in `num_logical`
-> gets converted into a `1` before it gets converted into `"1"` in
-> `combined_logical`.
-> ```
->
-> * You've probably noticed that objects of different types get
->   converted into a single, shared type within a vector. In R, we
->   call converting objects from one class into another class
->   _coercion_. These conversions happen according to a hierarchy,
->   whereby some types get preferentially coerced into other
->   types. Can you draw a diagram that represents the hierarchy of how
->   these data types are coerced?
->
-> ```{text_answer, echo=FALSE, purl=FALSE}
-> logical &#8594; numeric &#8594; character &#8592; logical
-> ```
+`r msmbstyle::question(text = "We've seen that atomic vectors can be of type character, numeric (or double), integer, and logical. But what happens if we try to mix these types in a single vector?")`
+
+`r msmbstyle::solution(text = "R implicitly converts them to all be the same type")`
+
+`r msmbstyle::question_begin()`
+
+What will happen in each of these examples? (hint: use `class()` to
+check the data type of your objects):
+
+```{r, eval=TRUE}
+num_char <- c(1, 2, 3, "a")
+num_logical <- c(1, 2, 3, TRUE)
+char_logical <- c("a", "b", "c", TRUE)
+tricky <- c(1, 2, 3, "4")
+```
+
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+```{r}
+class(num_char)
+class(num_logical)
+class(char_logical)
+class(tricky)
+```
+`r msmbstyle::solution_end()`
+
+
+`r msmbstyle::question(text = "Why do you think it happens?")`
+
+`r msmbstyle::solution(text = "Vectors can be of only one data type. R tries to convert (coerce) the content of this vector to find a *common denominator* that doesn't lose any information.")`
+
+
+`r msmbstyle::question_begin()`
+
+How many values in `combined_logical` are `"TRUE"` (as a character) in
+the following example:
+
+
+```{r, eval=TRUE}
+num_logical <- c(1, 2, 3, TRUE)
+char_logical <- c("a", "b", "c", TRUE)
+combined_logical <- c(num_logical, char_logical)
+```
+
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+
+Only one. There is no memory of past data types, and the coercion
+happens the first time the vector is evaluated. Therefore, the `TRUE`
+in `num_logical` gets converted into a `1` before it gets converted
+into `"1"` in `combined_logical`.
+
+```{r}
+combined_logical
+```
+
+`r msmbstyle::solution_end()`
+
+
+`r msmbstyle::question(text = " In R, we call converting objects from one class into another class _coercion_. These conversions happen according to a hierarchy, whereby some types get preferentially coerced into other types. Can you draw a diagram that represents the hierarchy of how these data types are coerced?")`
+
+`r msmbstyle::solution(text = "logical &#8594; numeric &#8594; character &#8592; logical")`
+
+
 
 ```{r, echo=FALSE, eval=FALSE, purl=TRUE}
 ## We’ve seen that atomic vectors can be of type character, numeric, integer, and
@@ -979,15 +991,21 @@ animals %in% c("rat", "cat", "dog", "duck", "goat")
 animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 ```
 
-> **Challenge** (optional)
->
-> * Can you figure out why `"four" > "five"` returns `TRUE`?
->
-> ```{text_answer, echo=FALSE, purl=FALSE}
-> When using ">" or "<" on strings, R compares their alphabetical order.
-> Here "four" comes after "five", and therefore is "greater than" it.
-> ```
 
+`r msmbstyle::question_begin()`
+Can you figure out why `"four" > "five"` returns `TRUE`?
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+
+```{r}
+"four" > "five"
+```
+
+When using ">" or "<" on strings, R compares their alphabetical order.
+Here "four" comes after "five", and therefore is "greater than" it.
+
+`r msmbstyle::solution_end()`
 
 ### Missing data
 
@@ -1030,37 +1048,38 @@ heights[complete.cases(heights)]
 ```
 
 
+`r msmbstyle::question_begin()`
+
 Recall that you can use the `typeof()` function to find the type of
 your atomic vector.
 
-> **Challenge**
->
-> 1. Using this vector of heights in inches, create a new vector with the NAs removed.
->
->     ```r
->     heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
->     ```
-> 2. Use the function `median()` to calculate the median of the `heights` vector.
->
-> 3. Use R to figure out how many people in the set are taller than 67 inches.
->
-> ```{r, answer=TRUE}
-> heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
->
-> # 1.
-> heights_no_na <- heights[!is.na(heights)]
-> # or
-> heights_no_na <- na.omit(heights)
->
-> # 2.
-> median(heights, na.rm = TRUE)
->
-> # 3.
-> heights_above_67 <- heights_no_na[heights_no_na > 67]
-> length(heights_above_67)
-> ```
+1. Using this vector of heights in inches, create a new vector with the NAs removed.
+```{r}
+heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
+```
+2. Use the function `median()` to calculate the median of the `heights` vector.
+3. Use R to figure out how many people in the set are taller than 67 inches.
+`r msmbstyle::question_end()`
 
-```{r,echo=FALSE, purl=TRUE}
+`r msmbstyle::solution_begin()`
+```{r}
+heights_no_na <- heights[!is.na(heights)]
+## or
+heights_no_na <- na.omit(heights)
+```
+
+```{r}
+median(heights, na.rm = TRUE)
+```
+
+```{r}
+heights_above_67 <- heights_no_na[heights_no_na > 67]
+length(heights_above_67)
+```
+`r msmbstyle::solution_begin()`
+
+
+```{r, echo=FALSE, purl=TRUE}
 ## Challenge
 ## 1. Using this vector of heights in inches, create a new vector with the NAs removed.
 ##
@@ -1071,6 +1090,6 @@ your atomic vector.
 ## 3. Use R to figure out how many people in the set are taller than 67 inches.
 ```
 
-Now that we have learned how to write scripts, and the basics of R's data
-structures, we are ready to start working with the Portal dataset we have been
-using in the other lessons, and learn about data frames.
+Now that we have learned how to write scripts, and the basics of R's
+data structures, we are ready to start working with the Portal dataset
+we have been using in the other lessons, and learn about data frames.

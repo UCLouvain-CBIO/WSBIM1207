@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2018-12-30" />
+<meta name="date" content="2018-12-31" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -741,15 +741,22 @@ lines you want to comment, press at the same time on your keyboard
 out one line, you can put the cursor at any location of that line (i.e. no need
 to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> +
 <kbd>C</kbd>.</p>
-<blockquote>
-<p><strong>Challenge</strong></p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
 <p>What are the values after each statement in the following?</p>
 <pre class="sourceCode r"><code class="sourceCode r">mass &lt;-<span class="st"> </span><span class="fl">47.5</span>            <span class="co"># mass?</span>
 age  &lt;-<span class="st"> </span><span class="dv">122</span>             <span class="co"># age?</span>
 mass &lt;-<span class="st"> </span>mass <span class="op">*</span><span class="st"> </span><span class="fl">2.0</span>      <span class="co"># mass?</span>
 age  &lt;-<span class="st"> </span>age <span class="op">-</span><span class="st"> </span><span class="dv">20</span>        <span class="co"># age?</span>
 mass_index &lt;-<span class="st"> </span>mass<span class="op">/</span>age  <span class="co"># mass_index?</span></code></pre>
-</blockquote>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 </div>
 <div id="functions-and-their-arguments" class="section level3">
 <h3><span class="header-section-number">2.9.3</span> Functions and their arguments</h3>
@@ -846,17 +853,18 @@ objects:</p>
 weight_g &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">30</span>, weight_g) <span class="co"># add to the beginning of the vector</span>
 weight_g</code></pre>
 <pre><code>## [1] 30 50 60 65 82 90</code></pre>
-<p>In the first line, we take the original vector <code>weight_g</code>,
-add the value <code>90</code> to the end of it, and save the result back into
-<code>weight_g</code>. Then we add the value <code>30</code> to the beginning, again saving the result
-back into <code>weight_g</code>.</p>
-<p>We can do this over and over again to grow a vector, or assemble a dataset.
-As we program, this may be useful to add results that we are collecting or
-calculating.</p>
-<p>An <strong>atomic vector</strong> is the simplest R <strong>data type</strong> and is a linear vector of a single type. Above, we saw
-2 of the 6 main <strong>atomic vector</strong> types that R
-uses: <code>"character"</code> and <code>"numeric"</code> (or <code>"double"</code>). These are the basic building blocks that
-all R objects are built from. The other 4 <strong>atomic vector</strong> types are:</p>
+<p>In the first line, we take the original vector <code>weight_g</code>, add the
+value <code>90</code> to the end of it, and save the result back into
+<code>weight_g</code>. Then we add the value <code>30</code> to the beginning, again saving
+the result back into <code>weight_g</code>.</p>
+<p>We can do this over and over again to grow a vector, or assemble a
+dataset. As we program, this may be useful to add results that we are
+collecting or calculating.</p>
+<p>An <strong>atomic vector</strong> is the simplest R <strong>data type</strong> and is a linear
+vector of a single type. Above, we saw 2 of the 6 main <strong>atomic
+vector</strong> types that R uses: <code>"character"</code> and <code>"numeric"</code> (or
+<code>"double"</code>). These are the basic building blocks that all R objects
+are built from. The other 4 <strong>atomic vector</strong> types are:</p>
 <ul>
 <li><code>"logical"</code> for <code>TRUE</code> and <code>FALSE</code> (the boolean data type)</li>
 <li><code>"integer"</code> for integer numbers (e.g., <code>2L</code>, the <code>L</code> indicates to R that it’s an integer)</li>
@@ -864,88 +872,154 @@ all R objects are built from. The other 4 <strong>atomic vector</strong> types a
 <code>1 + 4i</code>) and that’s all we’re going to say about them</li>
 <li><code>"raw"</code> for bitstreams that we won’t discuss further</li>
 </ul>
-<p>You can check the type of your vector using the <code>typeof()</code> function and inputting your vector as the argument.</p>
-<p>Vectors are one of the many <strong>data structures</strong> that R uses. Other important
-ones are lists (<code>list</code>), matrices (<code>matrix</code>), data frames (<code>data.frame</code>),
-factors (<code>factor</code>) and arrays (<code>array</code>).</p>
-<blockquote>
-<p><strong>Challenge</strong></p>
-<ul>
-<li>We’ve seen that atomic vectors can be of type character,
-numeric (or double), integer, and logical. But what happens if we try to mix these types in
-a single vector?</li>
-</ul>
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
+<p>You can check the type of your vector using the <code>typeof()</code> function
+and inputting your vector as the argument.</p>
+<p>Vectors are one of the many <strong>data structures</strong> that R uses. Other
+important ones are lists (<code>list</code>), matrices (<code>matrix</code>), data frames
+(<code>data.frame</code>), factors (<code>factor</code>) and arrays (<code>array</code>).</p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>
+We’ve seen that atomic vectors can be of type character, numeric (or double), integer, and logical. But what happens if we try to mix these types in a single vector?
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-6" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-6&#39;, &#39;sol-start-6&#39;)"></span>
+</p>
+<div id="sol-body-6" class="solution-body" style="display: none;">
 <p>
 R implicitly converts them to all be the same type
-</div>
-</div>
 </p>
-<ul>
-<li><p>What will happen in each of these examples? (hint: use <code>class()</code>
-to check the data type of your objects):</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>What will happen in each of these examples? (hint: use <code>class()</code> to
+check the data type of your objects):</p>
 <pre class="sourceCode r"><code class="sourceCode r">num_char &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">&quot;a&quot;</span>)
 num_logical &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="ot">TRUE</span>)
 char_logical &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="ot">TRUE</span>)
-tricky &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">&quot;4&quot;</span>)</code></pre></li>
-<li><p>Why do you think it happens?</p></li>
-</ul>
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
-<p>
-Vectors can be of only one data type. R tries to
-convert (coerce) the content of this vector to find a “common
-denominator” that doesn’t lose any information.
-</div>
-</div>
+tricky &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">&quot;4&quot;</span>)</code></pre>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
 </p>
-<ul>
-<li><p>How many values in <code>combined_logical</code> are <code>"TRUE"</code> (as a character) in the
-following example:</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-7" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-7&#39;, &#39;sol-start-7&#39;)"></span>
+</p>
+<div id="sol-body-7" class="solution-body" style="display: none;">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(num_char)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(num_logical)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(char_logical)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(tricky)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>
+Why do you think it happens?
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-8" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-8&#39;, &#39;sol-start-8&#39;)"></span>
+</p>
+<div id="sol-body-8" class="solution-body" style="display: none;">
+<p>
+Vectors can be of only one data type. R tries to convert (coerce) the content of this vector to find a <em>common denominator</em> that doesn’t lose any information.
+</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>How many values in <code>combined_logical</code> are <code>"TRUE"</code> (as a character) in
+the following example:</p>
 <pre class="sourceCode r"><code class="sourceCode r">num_logical &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="ot">TRUE</span>)
 char_logical &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="ot">TRUE</span>)
-combined_logical &lt;-<span class="st"> </span><span class="kw">c</span>(num_logical, char_logical)</code></pre></li>
-</ul>
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
-<p>
-Only one. There is no memory of past data types, and the coercion happens the
-first time the vector is evaluated. Therefore, the <code>TRUE</code> in <code>num_logical</code>
-gets converted into a <code>1</code> before it gets converted into <code>"1"</code> in
-<code>combined_logical</code>.
-</div>
-</div>
+combined_logical &lt;-<span class="st"> </span><span class="kw">c</span>(num_logical, char_logical)</code></pre>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
 </p>
-<ul>
-<li>You’ve probably noticed that objects of different types get
-converted into a single, shared type within a vector. In R, we
-call converting objects from one class into another class
-<em>coercion</em>. These conversions happen according to a hierarchy,
-whereby some types get preferentially coerced into other
-types. Can you draw a diagram that represents the hierarchy of how
-these data types are coerced?</li>
-</ul>
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-9" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-9&#39;, &#39;sol-start-9&#39;)"></span>
+</p>
+<div id="sol-body-9" class="solution-body" style="display: none;">
+<p>Only one. There is no memory of past data types, and the coercion
+happens the first time the vector is evaluated. Therefore, the <code>TRUE</code>
+in <code>num_logical</code> gets converted into a <code>1</code> before it gets converted
+into <code>"1"</code> in <code>combined_logical</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r">combined_logical</code></pre>
+<pre><code>## [1] &quot;1&quot;    &quot;2&quot;    &quot;3&quot;    &quot;1&quot;    &quot;a&quot;    &quot;b&quot;    &quot;c&quot;    &quot;TRUE&quot;</code></pre>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>
+In R, we call converting objects from one class into another class <em>coercion</em>. These conversions happen according to a hierarchy, whereby some types get preferentially coerced into other types. Can you draw a diagram that represents the hierarchy of how these data types are coerced?
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-10" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-10&#39;, &#39;sol-start-10&#39;)"></span>
+</p>
+<div id="sol-body-10" class="solution-body" style="display: none;">
 <p>
 logical → numeric → character ← logical
-</div>
-</div>
 </p>
-</blockquote>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 </div>
 <div id="subsetting-vectors" class="section level3">
 <h3><span class="header-section-number">2.9.5</span> Subsetting vectors</h3>
@@ -1005,23 +1079,31 @@ animals[animals <span class="op">==</span><span class="st"> &quot;cat&quot;</spa
 <pre><code>## [1] FALSE  TRUE  TRUE  TRUE</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">animals[animals <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;rat&quot;</span>, <span class="st">&quot;cat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;duck&quot;</span>, <span class="st">&quot;goat&quot;</span>)]</code></pre>
 <pre><code>## [1] &quot;rat&quot; &quot;dog&quot; &quot;cat&quot;</code></pre>
-<blockquote>
-<p><strong>Challenge</strong> (optional)</p>
-<ul>
-<li>Can you figure out why <code>"four" &gt; "five"</code> returns <code>TRUE</code>?</li>
-</ul>
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
-<p>
-When using “&gt;” or “&lt;” on strings, R compares their alphabetical order.
-Here “four” comes after “five”, and therefore is “greater than” it.
-</div>
-</div>
+<div class="question">
+<p class="question-begin">
+► Question
 </p>
-</blockquote>
+<div class="question-body">
+<p>Can you figure out why <code>"four" &gt; "five"</code> returns <code>TRUE</code>?</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-11" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-11&#39;, &#39;sol-start-11&#39;)"></span>
+</p>
+<div id="sol-body-11" class="solution-body" style="display: none;">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;four&quot;</span> <span class="op">&gt;</span><span class="st"> &quot;five&quot;</span></code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>When using “&gt;” or “&lt;” on strings, R compares their alphabetical order.
+Here “four” comes after “five”, and therefore is “greater than” it.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 </div>
 <div id="missing-data" class="section level3">
 <h3><span class="header-section-number">2.9.7</span> Missing data</h3>
@@ -1062,41 +1144,56 @@ heights[<span class="op">!</span><span class="kw">is.na</span>(heights)]</code><
 <span class="co">## (or `&quot;double&quot;`).</span>
 heights[<span class="kw">complete.cases</span>(heights)]</code></pre>
 <pre><code>## [1] 2 4 4 6</code></pre>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
 <p>Recall that you can use the <code>typeof()</code> function to find the type of
 your atomic vector.</p>
-<blockquote>
-<p><strong>Challenge</strong></p>
 <ol style="list-style-type: decimal">
-<li><p>Using this vector of heights in inches, create a new vector with the NAs removed.</p>
-<pre class="sourceCode r"><code class="sourceCode r">heights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">63</span>, <span class="dv">69</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="ot">NA</span>, <span class="dv">68</span>, <span class="dv">61</span>, <span class="dv">70</span>, <span class="dv">61</span>, <span class="dv">59</span>, <span class="dv">64</span>, <span class="dv">69</span>, <span class="dv">63</span>, <span class="dv">63</span>, <span class="ot">NA</span>, <span class="dv">72</span>, <span class="dv">65</span>, <span class="dv">64</span>, <span class="dv">70</span>, <span class="dv">63</span>, <span class="dv">65</span>)</code></pre></li>
-<li><p>Use the function <code>median()</code> to calculate the median of the <code>heights</code> vector.</p></li>
-<li><p>Use R to figure out how many people in the set are taller than 67 inches.</p></li>
+<li>Using this vector of heights in inches, create a new vector with the NAs removed.</li>
 </ol>
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
-<pre class="sourceCode r"><code class="sourceCode r">heights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">63</span>, <span class="dv">69</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="ot">NA</span>, <span class="dv">68</span>, <span class="dv">61</span>, <span class="dv">70</span>, <span class="dv">61</span>, <span class="dv">59</span>, <span class="dv">64</span>, <span class="dv">69</span>, <span class="dv">63</span>, <span class="dv">63</span>, <span class="ot">NA</span>, <span class="dv">72</span>, <span class="dv">65</span>, <span class="dv">64</span>, <span class="dv">70</span>, <span class="dv">63</span>, <span class="dv">65</span>)
+<pre class="sourceCode r"><code class="sourceCode r">heights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">63</span>, <span class="dv">69</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="ot">NA</span>, <span class="dv">68</span>, <span class="dv">61</span>, <span class="dv">70</span>, <span class="dv">61</span>, <span class="dv">59</span>, <span class="dv">64</span>, <span class="dv">69</span>, <span class="dv">63</span>, <span class="dv">63</span>, <span class="ot">NA</span>, <span class="dv">72</span>, <span class="dv">65</span>, <span class="dv">64</span>, <span class="dv">70</span>, <span class="dv">63</span>, <span class="dv">65</span>)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Use the function <code>median()</code> to calculate the median of the <code>heights</code> vector.</li>
+<li>Use R to figure out how many people in the set are taller than 67 inches.</li>
+</ol>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class = "solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-12" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-12&#39;, &#39;sol-start-12&#39;)"></span>
+</p>
+<div class="solution-body" id = "sol-body-12" style="display: none;">
 
-<span class="co"># 1.</span>
-heights_no_na &lt;-<span class="st"> </span>heights[<span class="op">!</span><span class="kw">is.na</span>(heights)]
-<span class="co"># or</span>
-heights_no_na &lt;-<span class="st"> </span><span class="kw">na.omit</span>(heights)
 
-<span class="co"># 2.</span>
-<span class="kw">median</span>(heights, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre>
+
+<pre class="sourceCode r"><code class="sourceCode r">heights_no_na &lt;-<span class="st"> </span>heights[<span class="op">!</span><span class="kw">is.na</span>(heights)]
+<span class="co">## or</span>
+heights_no_na &lt;-<span class="st"> </span><span class="kw">na.omit</span>(heights)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(heights, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre>
 <pre><code>## [1] 64</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 3.</span>
-heights_above_<span class="dv">67</span> &lt;-<span class="st"> </span>heights_no_na[heights_no_na <span class="op">&gt;</span><span class="st"> </span><span class="dv">67</span>]
+<pre class="sourceCode r"><code class="sourceCode r">heights_above_<span class="dv">67</span> &lt;-<span class="st"> </span>heights_no_na[heights_no_na <span class="op">&gt;</span><span class="st"> </span><span class="dv">67</span>]
 <span class="kw">length</span>(heights_above_<span class="dv">67</span>)</code></pre>
 <pre><code>## [1] 6</code></pre>
-</div>
-</div>
-</blockquote>
-<p>Now that we have learned how to write scripts, and the basics of R’s data
-structures, we are ready to start working with the Portal dataset we have been
-using in the other lessons, and learn about data frames.</p>
+<div class = "solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-13" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-13&#39;, &#39;sol-start-13&#39;)"></span>
+</p>
+<div class="solution-body" id = "sol-body-13" style="display: none;">
+
+
+
+
+
+
+<p>Now that we have learned how to write scripts, and the basics of R’s
+data structures, we are ready to start working with the Portal dataset
+we have been using in the other lessons, and learn about data frames.</p>
 
 </div>
 </div>
@@ -1106,7 +1203,7 @@ using in the other lessons, and learn about data frames.</p>
 <a href="starting-with-data.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2018-12-30
+2018-12-31
 </p>
 </div>
 </div>

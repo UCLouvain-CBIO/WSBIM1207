@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2018-12-30" />
+<meta name="date" content="2018-12-31" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -707,7 +707,7 @@ level. Let’s look at the number of males and females captured over the course 
 the experiment:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">## bar plot of the number of females and males captured during the experiment:</span>
 <span class="kw">plot</span>(surveys<span class="op">$</span>sex)</code></pre>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-82-1.png" width="672"  /></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-85-1.png" width="672"  /></p>
 <p>In addition to males and females, there are about 1700 individuals for which the
 sex information hasn’t been recorded. Additionally, for these individuals,
 there is no label to indicate that the information is missing or undetermined. Let’s rename this
@@ -742,7 +742,7 @@ Answer
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(sex)[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>)
 sex &lt;-<span class="st"> </span><span class="kw">factor</span>(sex, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>, <span class="st">&quot;undetermined&quot;</span>))
 <span class="kw">plot</span>(sex)</code></pre>
-<img src="WSBIM1207_files/figure-html/unnamed-chunk-84-1.png" width="672"  />
+<img src="WSBIM1207_files/figure-html/unnamed-chunk-87-1.png" width="672"  />
 </div>
 </div>
 </blockquote>
@@ -856,9 +856,9 @@ Using the function <code>installed.packages()</code>, verify if the <code>lubrid
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-6" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-6&#39;, &#39;sol-start-6&#39;)"></span>
+► Solution<span id="sol-start-14" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-14&#39;, &#39;sol-start-14&#39;)"></span>
 </p>
-<div id="sol-body-6" class="solution-body" style="display: none;">
+<div id="sol-body-14" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">## 1. get the names of all installed packages</span>
 ip &lt;-<span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())
 <span class="co">## 2. TRUE if installed, FALSE otherwise</span>
@@ -901,9 +901,9 @@ Construct a matrix of dimension 1000 by 3 of normally distributed data (mean 0, 
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-7" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-7&#39;, &#39;sol-start-7&#39;)"></span>
+► Solution<span id="sol-start-15" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-15&#39;, &#39;sol-start-15&#39;)"></span>
 </p>
-<div id="sol-body-7" class="solution-body" style="display: none;">
+<div id="sol-body-15" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
 m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">3000</span>), <span class="dt">ncol =</span> <span class="dv">3</span>)
 <span class="kw">dim</span>(m)</code></pre>
@@ -1119,7 +1119,7 @@ the list is named).</p>
 <a href="manipulating-and-analyzing-data-with-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2018-12-30
+2018-12-31
 </p>
 </div>
 </div>
