@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2018-12-31" />
+<meta name="date" content="2019-01-01" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -313,7 +313,7 @@ for ‘Save workspace to .RData’ on exit.’</p>
 <p class="caption marginnote shownote">
 Figure 2.2: Set ‘Save workspace to .RData on exit’ to ‘Never’
 </p>
-<img src="figs/rstudio-preferences.png" alt="Set 'Save workspace to .RData on exit' to 'Never'" width="100%"  />
+<img src="figs/rstudio-preferences.png" alt="Set 'Save workspace to .RData on exit' to 'Never'" width="70%"  />
 </div>
 <div id="organizing-your-working-directory" class="section level3">
 <h3><span class="header-section-number">2.4.1</span> Organizing your working directory</h3>
@@ -429,22 +429,39 @@ command and return you to the <code>&gt;</code> prompt.</p>
 </div>
 <div id="how-to-learn-more-after-the-workshop" class="section level2">
 <h2><span class="header-section-number">2.6</span> How to learn more after the workshop?</h2>
-<p>The material we cover during this workshop will give you an initial taste of how you can use R to analyze data for your own research. However, you will need to learn more to do advanced operations such as cleaning your dataset, using statistical methods, or creating beautiful graphics. The best way to become proficient and efficient at R, as with any other tool, is to use it to address your actual research questions. As a beginner, it can feel daunting to have to write a script from scratch, and given that many people make their code available online, modifying existing code to suit your purpose might make it easier for you to get started.</p>
+<p>The material we cover during this workshop will give you an initial
+taste of how you can use R to analyze data for your own
+research. However, you will need to learn more to do advanced
+operations such as cleaning your dataset, using statistical methods,
+or creating beautiful graphics. The best way to become proficient and
+efficient at R, as with any other tool, is to use it to address your
+actual research questions. As a beginner, it can feel daunting to have
+to write a script from scratch, and given that many people make their
+code available online, modifying existing code to suit your purpose
+might make it easier for you to get started.</p>
 <p><img src="figs/kitten-try-things.jpg" width="400px"  style="display: block; margin: auto;" /></p>
 </div>
 <div id="seeking-help" class="section level2">
 <h2><span class="header-section-number">2.7</span> Seeking help</h2>
 <div id="use-the-built-in-rstudio-help-interface-to-search-for-more-information-on-r-functions" class="section level3 unnumbered">
 <h3>Use the built-in RStudio help interface to search for more information on R functions</h3>
-<div class="figure">
-<img src="figs/rstudiohelp.png" alt="RStudio help interface." />
-<p class="caption">RStudio help interface.</p>
+<div class="figure" style="text-align: center"><span id="fig:rstudiohelp"></span>
+<p class="caption marginnote shownote">
+Figure 2.5: RStudio help interface.
+</p>
+<img src="figs/rstudiohelp.png" alt="RStudio help interface." width="70%"  />
 </div>
-<p>One of the fastest ways to get help, is to use the RStudio help interface. This panel by default can be found at the lower right hand panel of RStudio. As seen in the screenshot, by typing the word “Mean”, RStudio tries to also give a number of suggestions that you might be interested in. The description is then shown in the display window.</p>
+<p>One of the fastest ways to get help, is to use the RStudio help
+interface. This panel by default can be found at the lower right hand
+panel of RStudio. As seen in the screenshot, by typing the word
+“Mean”, RStudio tries to also give a number of suggestions that you
+might be interested in. The description is then shown in the display
+window.</p>
 </div>
 <div id="i-know-the-name-of-the-function-i-want-to-use-but-im-not-sure-how-to-use-it" class="section level3 unnumbered">
 <h3>I know the name of the function I want to use, but I’m not sure how to use it</h3>
-<p>If you need help with a specific function, let’s say <code>barplot()</code>, you can type:</p>
+<p>If you need help with a specific function, let’s say <code>barplot()</code>, you
+can type:</p>
 <pre class="sourceCode r"><code class="sourceCode r">?barplot</code></pre>
 <p>If you just need to remind yourself of the names of the arguments, you can use:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">args</span>(lm)</code></pre>
@@ -1164,14 +1181,11 @@ your atomic vector.</p>
 </p>
 </div>
 </div>
-<div class = "solution">
+<div class="solution">
 <p class="solution-begin">
 ► Solution<span id="sol-start-12" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-12&#39;, &#39;sol-start-12&#39;)"></span>
 </p>
-<div class="solution-body" id = "sol-body-12" style="display: none;">
-
-
-
+<div id="sol-body-12" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">heights_no_na &lt;-<span class="st"> </span>heights[<span class="op">!</span><span class="kw">is.na</span>(heights)]
 <span class="co">## or</span>
 heights_no_na &lt;-<span class="st"> </span><span class="kw">na.omit</span>(heights)</code></pre>
@@ -1180,20 +1194,14 @@ heights_no_na &lt;-<span class="st"> </span><span class="kw">na.omit</span>(heig
 <pre class="sourceCode r"><code class="sourceCode r">heights_above_<span class="dv">67</span> &lt;-<span class="st"> </span>heights_no_na[heights_no_na <span class="op">&gt;</span><span class="st"> </span><span class="dv">67</span>]
 <span class="kw">length</span>(heights_above_<span class="dv">67</span>)</code></pre>
 <pre><code>## [1] 6</code></pre>
-<div class = "solution">
-<p class="solution-begin">
-► Solution<span id="sol-start-13" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-13&#39;, &#39;sol-start-13&#39;)"></span>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
 </p>
-<div class="solution-body" id = "sol-body-13" style="display: none;">
-
-
-
-
-
-
+</div>
+</div>
 <p>Now that we have learned how to write scripts, and the basics of R’s
-data structures, we are ready to start working with the Portal dataset
-we have been using in the other lessons, and learn about data frames.</p>
+data structures, we are ready to start working with larger data, and
+learn about data frames.</p>
 
 </div>
 </div>
@@ -1203,7 +1211,7 @@ we have been using in the other lessons, and learn about data frames.</p>
 <a href="starting-with-data.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2018-12-31
+2019-01-01
 </p>
 </div>
 </div>

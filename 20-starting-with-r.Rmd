@@ -163,7 +163,7 @@ RStudio's default preferences generally work well, but saving a workspace to
 To turn that off, go to Tools --> 'Global Options' and select the 'Never' option
 for 'Save workspace to .RData' on exit.'
 
-```{r, results='markup', fig.cap="Set 'Save workspace to .RData on exit' to 'Never'", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+```{r, results='markup', fig.cap="Set 'Save workspace to .RData on exit' to 'Never'", echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
 knitr::include_graphics("./figs/rstudio-preferences.png")
 ```
 
@@ -288,7 +288,16 @@ command and return you to the `>` prompt.
 
 ## How to learn more after the workshop?
 
-The material we cover during this workshop will give you an initial taste of how you can use R to analyze data for your own research. However, you will need to learn more to do advanced operations such as cleaning your dataset, using statistical methods, or creating beautiful graphics. The best way to become proficient and efficient at R, as with any other tool, is to use it to address your actual research questions. As a beginner, it can feel daunting to have to write a script from scratch, and given that many people make their code available online, modifying existing code to suit your purpose might make it easier for you to get started.
+The material we cover during this workshop will give you an initial
+taste of how you can use R to analyze data for your own
+research. However, you will need to learn more to do advanced
+operations such as cleaning your dataset, using statistical methods,
+or creating beautiful graphics. The best way to become proficient and
+efficient at R, as with any other tool, is to use it to address your
+actual research questions. As a beginner, it can feel daunting to have
+to write a script from scratch, and given that many people make their
+code available online, modifying existing code to suit your purpose
+might make it easier for you to get started.
 
 
 ```{r kitten, results='markup', echo=FALSE, purl=FALSE, out.width='400px', fig.align='center'}
@@ -300,13 +309,21 @@ knitr::include_graphics("./figs/kitten-try-things.jpg")
 
 ### Use the built-in RStudio help interface to search for more information on R functions {-}
 
-![RStudio help interface.](./figs/rstudiohelp.png)
+```{r rstudiohelp, fig.cap="RStudio help interface.", results='markup', echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
+knitr::include_graphics("./figs/rstudiohelp.png")
+```
 
-One of the fastest ways to get help, is to use the RStudio help interface. This panel by default can be found at the lower right hand panel of RStudio. As seen in the screenshot, by typing the word "Mean", RStudio tries to also give a number of suggestions that you might be interested in. The description is then shown in the display window.
+One of the fastest ways to get help, is to use the RStudio help
+interface. This panel by default can be found at the lower right hand
+panel of RStudio. As seen in the screenshot, by typing the word
+"Mean", RStudio tries to also give a number of suggestions that you
+might be interested in. The description is then shown in the display
+window.
 
 ### I know the name of the function I want to use, but I'm not sure how to use it {-}
 
-If you need help with a specific function, let's say `barplot()`, you can type:
+If you need help with a specific function, let's say `barplot()`, you
+can type:
 
 ```{r, eval=FALSE, purl=FALSE}
 ?barplot
@@ -1076,11 +1093,11 @@ median(heights, na.rm = TRUE)
 heights_above_67 <- heights_no_na[heights_no_na > 67]
 length(heights_above_67)
 ```
-`r msmbstyle::solution_begin()`
+`r msmbstyle::solution_end()`
 
 
 ```{r, echo=FALSE, purl=TRUE}
-## Challenge
+## Question
 ## 1. Using this vector of heights in inches, create a new vector with the NAs removed.
 ##
 ##    heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
@@ -1091,5 +1108,5 @@ length(heights_above_67)
 ```
 
 Now that we have learned how to write scripts, and the basics of R's
-data structures, we are ready to start working with the Portal dataset
-we have been using in the other lessons, and learn about data frames.
+data structures, we are ready to start working with larger data, and
+learn about data frames.

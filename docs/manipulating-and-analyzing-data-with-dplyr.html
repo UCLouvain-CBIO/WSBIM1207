@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2018-12-31" />
+<meta name="date" content="2019-01-01" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -408,21 +408,45 @@ surveys_sml</code></pre>
 ## 16 RM         M          4
 ## 17 RM         M          4</code></pre>
 <p>Note that the final data frame is the leftmost part of this expression.</p>
-<blockquote>
-<p><strong>Challenge</strong></p>
-<p>Using pipes, subset the <code>surveys</code> data to include animals collected before
-1995 and retain only the columns <code>year</code>, <code>sex</code>, and <code>weight</code>.</p>
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Using pipes, subset the <code>surveys</code> data to include animals collected
+before 1995 and retain only the columns <code>year</code>, <code>sex</code>, and <code>weight</code>.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-15" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-15&#39;, &#39;sol-start-15&#39;)"></span>
+</p>
+<div id="sol-body-15" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">surveys <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">filter</span>(year <span class="op">&lt;</span><span class="st"> </span><span class="dv">1995</span>) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">select</span>(year, sex, weight)</code></pre>
+<pre><code>## # A tibble: 21,486 x 3
+##     year sex   weight
+##    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
+##  1  1977 M         NA
+##  2  1977 M         NA
+##  3  1977 &lt;NA&gt;      NA
+##  4  1977 &lt;NA&gt;      NA
+##  5  1977 &lt;NA&gt;      NA
+##  6  1977 &lt;NA&gt;      NA
+##  7  1977 &lt;NA&gt;      NA
+##  8  1978 &lt;NA&gt;      NA
+##  9  1978 M        218
+## 10  1978 &lt;NA&gt;      NA
+## # ... with 21,476 more rows</code></pre>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
 </div>
 </div>
-</blockquote>
 <div id="mutate" class="section level3">
 <h3><span class="header-section-number">4.4.1</span> Mutate</h3>
 <p>Frequently you’ll want to create new columns based on the values in existing
@@ -503,27 +527,38 @@ those we could insert a <code>filter()</code> in the chain:</p>
 ## #   taxa &lt;chr&gt;, plot_type &lt;chr&gt;, weight_kg &lt;dbl&gt;</code></pre>
 <p><code>is.na()</code> is a function that determines whether something is an <code>NA</code>. The <code>!</code>
 symbol negates the result, so we’re asking for every row where weight <em>is not</em> an <code>NA</code>.</p>
-<blockquote>
-<p><strong>Challenge</strong></p>
-<p>Create a new data frame from the <code>surveys</code> data that meets the following
-criteria: contains only the <code>species_id</code> column and a new column called
-<code>hindfoot_half</code> containing values that are half the <code>hindfoot_length</code> values.
-In this <code>hindfoot_half</code> column, there are no <code>NA</code>s and all values are less
-than 30.</p>
-<p><strong>Hint</strong>: think about how the commands should be ordered to produce this data frame!</p>
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Create a new data frame from the <code>surveys</code> data that meets the
+following criteria: contains only the <code>species_id</code> column and a new
+column called <code>hindfoot_half</code> containing values that are half the
+<code>hindfoot_length</code> values. In this <code>hindfoot_half</code> column, there are
+no <code>NA</code>s and all values are less than 30.</p>
+<p><strong>Hint</strong>: think about how the commands should be ordered to produce
+this data frame!</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-16" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-16&#39;, &#39;sol-start-16&#39;)"></span>
+</p>
+<div id="sol-body-16" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">surveys_hindfoot_half &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(hindfoot_length)) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">mutate</span>(<span class="dt">hindfoot_half =</span> hindfoot_length <span class="op">/</span><span class="st"> </span><span class="dv">2</span>) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">filter</span>(hindfoot_half <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">select</span>(species_id, hindfoot_half)</code></pre>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
 </div>
 </div>
-</blockquote>
 </div>
 <div id="split-apply-combine-data-analysis-and-the-summarize-function" class="section level3">
 <h3><span class="header-section-number">4.4.2</span> Split-apply-combine data analysis and the summarize() function</h3>
@@ -765,18 +800,34 @@ the levels of the species and (ii) in descending order of the count:</p>
 ## # ... with 71 more rows</code></pre>
 <p>From the table above, we may learn that, for instance, there are 75 observations of
 the <em>albigula</em> species that are not specified for its sex (i.e. <code>NA</code>).</p>
-<blockquote>
-<p><strong>Challenge</strong></p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<ol style="list-style-type: decimal">
+<li><p>How many animals were caught in each <code>plot_type</code> surveyed?</p></li>
+<li><p>Use <code>group_by()</code> and <code>summarize()</code> to find the mean, min, and max
+hindfoot length for each species (using <code>species_id</code>). Also add the
+number of observations (hint: see <code>?n</code>).</p></li>
+<li><p>What was the heaviest animal measured in each year? Return the columns <code>year</code>,
+<code>genus</code>, <code>species_id</code>, and <code>weight</code>.</p></li>
+</ol>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-17" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-17&#39;, &#39;sol-start-17&#39;)"></span>
+</p>
+<div id="sol-body-17" class="solution-body" style="display: none;">
 <ol style="list-style-type: decimal">
 <li>How many animals were caught in each <code>plot_type</code> surveyed?</li>
 </ol>
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
 <pre class="sourceCode r"><code class="sourceCode r">surveys <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">count</span>(plot_type)</code></pre>
+<span class="st">     </span><span class="kw">count</span>(plot_type)</code></pre>
 <pre><code>## # A tibble: 5 x 2
 ##   plot_type                     n
 ##   &lt;chr&gt;                     &lt;int&gt;
@@ -785,18 +836,11 @@ Answer
 ## 3 Rodent Exclosure           4233
 ## 4 Short-term Krat Exclosure  5906
 ## 5 Spectab exclosure          3918</code></pre>
-</div>
-</div>
 <ol start="2" style="list-style-type: decimal">
-<li>Use <code>group_by()</code> and <code>summarize()</code> to find the mean, min, and max hindfoot
-length for each species (using <code>species_id</code>). Also add the number of
-observations (hint: see <code>?n</code>).</li>
+<li>Use <code>group_by()</code> and <code>summarize()</code> to find the mean, min, and max
+hindfoot length for each species (using <code>species_id</code>). Also add the
+number of observations (hint: see <code>?n</code>).</li>
 </ol>
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
 <pre class="sourceCode r"><code class="sourceCode r">surveys <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(hindfoot_length)) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">group_by</span>(species_id) <span class="op">%&gt;%</span>
@@ -820,17 +864,10 @@ Answer
 ##  9 OX                       19.1                13                21     8
 ## 10 PB                       26.1                 2                47  2864
 ## # ... with 15 more rows</code></pre>
-</div>
-</div>
 <ol start="3" style="list-style-type: decimal">
 <li>What was the heaviest animal measured in each year? Return the columns <code>year</code>,
 <code>genus</code>, <code>species_id</code>, and <code>weight</code>.</li>
 </ol>
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
 <pre class="sourceCode r"><code class="sourceCode r">surveys <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(weight)) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span>
@@ -852,16 +889,17 @@ Answer
 ##  9  1984 Neotoma   albigula       259
 ## 10  1985 Neotoma   albigula       225
 ## # ... with 17 more rows</code></pre>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
 </div>
 </div>
-</blockquote>
 </div>
 </div>
 <div id="reshaping-with-gather-and-spread" class="section level3">
 <h3><span class="header-section-number">4.4.3</span> Reshaping with gather and spread</h3>
-<p>In the <a href="http://www.datacarpentry.org/spreadsheet-ecology-lesson/01-format-data/">spreadsheet
-lesson</a>,
-we discussed how to structure our data leading to the four rules defining a tidy
+<p>In the spreadsheet lesson (chapter <a href="dataorg.html#dataorg">1</a>), we discussed how
+to structure our data leading to the four rules defining a tidy
 dataset:</p>
 <ol style="list-style-type: decimal">
 <li>Each variable has its own column</li>
@@ -869,22 +907,30 @@ dataset:</p>
 <li>Each value must have its own cell</li>
 <li>Each type of observational unit forms a table</li>
 </ol>
-<p>Here we examine the fourth rule: Each type of observational unit forms a table.</p>
-<p>In <code>surveys</code> , the rows of <code>surveys</code> contain the values of variables associated
-with each record (the unit), values such the weight or sex of each animal
-associated with each record. What if instead of comparing records, we
-wanted to compare the different mean weight of each species between plots? (Ignoring <code>plot_type</code> for simplicity).</p>
-<p>We’d need to create a new table where each row (the unit) is comprise of values of variables associated with each plot. In practical terms this means the values
-of the species in <code>genus</code> would become the names of column variables and the cells would contain the values of the mean weight observed on each plot.</p>
-<p>Having created a new table, it is therefore straightforward to explore the
-relationship between the weight of different species within, and between, the
-plots. The key point here is that we are still following a tidy data structure,
-but we have <strong>reshaped</strong> the data according to the observations of interest:
-average species weight per plot instead of recordings per date.</p>
-<p>The opposite transformation would be to transform column names into values of
-a variable.</p>
-<p>We can do both these of transformations with two <code>tidyr</code> functions, <code>spread()</code>
-and <code>gather()</code>.</p>
+<p>Here we examine the fourth rule:</p>
+<blockquote>
+<p>Each type of observational unit forms a table.</p>
+</blockquote>
+<p>In <code>surveys</code> , the rows of <code>surveys</code> contain the values of variables
+associated with each record (the unit), values such the weight or sex
+of each animal associated with each record. What if instead of
+comparing records, we wanted to compare the different mean weight of
+each species between plots? (Ignoring <code>plot_type</code> for simplicity).</p>
+<p>We’d need to create a new table where each row (the unit) is comprise
+of values of variables associated with each plot. In practical terms
+this means the values of the species in <code>genus</code> would become the names
+of column variables and the cells would contain the values of the mean
+weight observed on each plot.</p>
+<p>Having created a new table, it is therefore straightforward to explore
+the relationship between the weight of different species within, and
+between, the plots. The key point here is that we are still following
+a tidy data structure, but we have <strong>reshaped</strong> the data according to
+the observations of interest: average species weight per plot instead
+of recordings per date.</p>
+<p>The opposite transformation would be to transform column names into
+values of a variable.</p>
+<p>We can do both these of transformations with two <code>tidyr</code> functions,
+<code>spread()</code> and <code>gather()</code>.</p>
 <div id="spreading" class="section level4">
 <h4><span class="header-section-number">4.4.3.1</span> Spreading</h4>
 <p><code>spread()</code> takes three principal arguments:</p>
@@ -893,13 +939,13 @@ and <code>gather()</code>.</p>
 <li>the <em>key</em> column variable whose values will become new column names.</li>
 <li>the <em>value</em> column variable whose values will fill the new column variables.</li>
 </ol>
-<p>Further arguments include <code>fill</code> which, if set, fills in missing values with
-the value provided.</p>
-<p>Let’s use <code>spread()</code> to transform surveys to find the mean weight of each
-species in each plot over the entire survey period. We use <code>filter()</code>,
-<code>group_by()</code> and <code>summarise()</code> to filter our observations and variables of
-interest, and create a new variable for the <code>mean_weight</code>. We use the pipe as
-before too.</p>
+<p>Further arguments include <code>fill</code> which, if set, fills in missing
+values with the value provided.</p>
+<p>Let’s use <code>spread()</code> to transform surveys to find the mean weight of
+each species in each plot over the entire survey period. We use
+<code>filter()</code>, <code>group_by()</code> and <code>summarise()</code> to filter our observations
+and variables of interest, and create a new variable for the
+<code>mean_weight</code>. We use the pipe as before too.</p>
 <pre class="sourceCode r"><code class="sourceCode r">surveys_gw &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(weight)) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(genus, plot_id) <span class="op">%&gt;%</span>
@@ -928,10 +974,11 @@ before too.</p>
 ##   .. )
 ##  - attr(*, &quot;vars&quot;)= chr &quot;genus&quot;
 ##  - attr(*, &quot;drop&quot;)= logi TRUE</code></pre>
-<p>This yields <code>surveys_gw</code> where the observations for each plot are spread across
-multiple rows, 196 observations of 3 variables.
-Using <code>spread()</code> to key on <code>genus</code> with values from <code>mean_weight</code> this becomes
-24 observations of 11 variables, one row for each plot. We again use pipes:</p>
+<p>This yields <code>surveys_gw</code> where the observations for each plot are
+spread across multiple rows, 196 observations of 3 variables. Using
+<code>spread()</code> to key on <code>genus</code> with values from <code>mean_weight</code> this
+becomes 24 observations of 11 variables, one row for each plot. We
+again use pipes:</p>
 <pre class="sourceCode r"><code class="sourceCode r">surveys_spread &lt;-<span class="st"> </span>surveys_gw <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">spread</span>(<span class="dt">key =</span> genus, <span class="dt">value =</span> mean_weight)
 
@@ -948,9 +995,10 @@ Using <code>spread()</code> to key on <code>genus</code> with values from <code>
 ##  $ Reithrodontomys: num  11.4 10.7 10.5 10.3 11.2 ...
 ##  $ Sigmodon       : num  NA 70.9 65.6 82 82.7 ...
 ##  $ Spermophilus   : num  NA NA NA NA NA NA NA NA NA NA ...</code></pre>
-<p><img src="img/spread_data_R.png" /></p>
-<p>We could now plot comparisons between the weight of species in different plots,
-although we may wish to fill in the missing values first.</p>
+<p><img src="figs/spread_data_R.png" /></p>
+<p>We could now plot comparisons between the weight of species in
+different plots, although we may wish to fill in the missing values
+first.</p>
 <pre class="sourceCode r"><code class="sourceCode r">surveys_gw <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">spread</span>(genus, mean_weight, <span class="dt">fill =</span> <span class="dv">0</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">head</span>()</code></pre>
@@ -993,7 +1041,7 @@ the key variable. Here we drop <code>plot_id</code> column with a minus sign.</p
 ##  $ plot_id    : num  1 2 3 4 5 6 7 8 9 10 ...
 ##  $ genus      : chr  &quot;Baiomys&quot; &quot;Baiomys&quot; &quot;Baiomys&quot; &quot;Baiomys&quot; ...
 ##  $ mean_weight: num  7 6 8.61 NA 7.75 ...</code></pre>
-<p><img src="img/gather_data_R.png" /></p>
+<p><img src="figs/gather_data_R.png" /></p>
 <p>Note that now the <code>NA</code> genera are included in the re-gathered format. Spreading
 and then gathering can be a useful way to balance out a dataset so every
 replicate has the same composition.</p>
@@ -1184,7 +1232,7 @@ folder.</p>
 <a href="data-visualization-with-ggplot2.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2018-12-31
+2019-01-01
 </p>
 </div>
 </div>
