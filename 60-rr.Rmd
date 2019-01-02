@@ -6,6 +6,8 @@ For a general introduction on the topic in French, see @Pouzat:2015.
 
 Possibly explain briefly the different types of preproducibility.
 
+Useful reference: @Markowetz:2015.
+
 ## `knitr` and `rmarkdown`
 
 Reproducible research is an essential part of any data analysis. With

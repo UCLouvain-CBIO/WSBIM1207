@@ -57,15 +57,17 @@ Reminder about reproducible research, and need for raw data and
 complete processing script to reproduce the processed data and
 results.
 
+## The Bioconductor project {#sec:bioconductor}
+
+The [Bioconductor](http://www.bioconductor.org) ...
+
 ## Objects
 
 Data in bioinformatics is often more complex than the basic data types
 we have seen so far. Give a short introduction and example to some
 relevant object.
 
-## The Bioconductor project {#sec:bioconductor}
-
-The [Bioconductor](http://www.bioconductor.org) ...
+## Lab notebooks
 
 ## Exercises
 
