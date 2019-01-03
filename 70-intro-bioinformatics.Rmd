@@ -67,7 +67,12 @@ Data in bioinformatics is often more complex than the basic data types
 we have seen so far. Give a short introduction and example to some
 relevant object.
 
-## Lab notebooks
+## Documentation
+
+Documenting ones tasks in a bioinformatics project is absolutely
+essential. It is akin a lab notebook for wet lab.
+
+
 
 ## Exercises
 
