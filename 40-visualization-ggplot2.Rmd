@@ -1,4 +1,4 @@
-# Data visualization with ggplot2
+# Data visualization
 
 
 ```{r vis_setup, echo=FALSE, purl=FALSE}
@@ -7,9 +7,8 @@ surveys_complete <- read_csv(file = "data_output/surveys_complete.csv",
 ```
 
 ```{r, echo=FALSE, purl=TRUE}
-### Data Visualization with ggplot2
+### Data Visualization
 ```
-
 
 **Learning Objectives**
 
