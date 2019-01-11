@@ -1307,7 +1307,10 @@ value for `taxa` includes a comma (`Rodent-not,censused`).  If we try
 to read the above into Excel (or other spreadsheet program), we will
 get something like this:
 
-![](../figs/csv-mistake.png)
+
+```{r, results='markup', echo=FALSE, purl=FALSE, out.width='40%', fig.align='center'}
+knitr::include_graphics("./figs/csv-mistake.png")
+```
 
 The value for `taxa` was split into two columns (instead of being put
 in one column `D`). This can propagate to a number of further
