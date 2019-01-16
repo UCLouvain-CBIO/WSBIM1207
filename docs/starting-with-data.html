@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-01-11" />
+<meta name="date" content="2019-01-16" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -155,7 +155,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="joining-tables.html"><span class="toc-section-number">6</span> Joining tables</a>
 <a href="reproducible-research.html"><span class="toc-section-number">7</span> Reproducible research</a>
 <a href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a>
-<a href="conclusions.html"><span class="toc-section-number">9</span> Conclusions</a>
+<a href="additional-programming-concepts.html"><span class="toc-section-number">9</span> Additional programming concepts</a>
+<a href="conclusions.html"><span class="toc-section-number">10</span> Conclusions</a>
 <a href="session-information.html">Session information</a>
 </div>
 </li>
@@ -834,11 +835,11 @@ are currently installed on our respective computers using the
 explore this matrix as those used for dataframes above.</p>
 <pre class="sourceCode r"><code class="sourceCode r">ip &lt;-<span class="st"> </span><span class="kw">installed.packages</span>()
 <span class="kw">dim</span>(ip)</code></pre>
-<pre><code>## [1] 428  16</code></pre>
+<pre><code>## [1] 449  16</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">colnames</span>(ip))</code></pre>
 <pre><code>## [1] &quot;Package&quot;  &quot;LibPath&quot;  &quot;Version&quot;  &quot;Priority&quot; &quot;Depends&quot;  &quot;Imports&quot;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">rownames</span>(ip)) <span class="co">## these are the package names</span></code></pre>
-<pre><code>## [1] &quot;abind&quot;    &quot;acepack&quot;  &quot;affy&quot;     &quot;affyio&quot;   &quot;ALL&quot;      &quot;annotate&quot;</code></pre>
+<pre><code>## [1] &quot;abind&quot;   &quot;acepack&quot; &quot;affy&quot;    &quot;affyio&quot;  &quot;ALL&quot;     &quot;alpine&quot;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">## View(ip)</span></code></pre>
 <div class="question">
 <p class="question-begin">
@@ -1084,9 +1085,9 @@ a matrix, a dataframe and another list:</p>
 <pre><code>## List of 5
 ##  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##  $ : chr [1:26] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ : chr [1:428, 1:16] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
+##  $ : chr [1:449, 1:16] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
-##   .. ..$ : chr [1:428] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
+##   .. ..$ : chr [1:449] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
 ##   .. ..$ : chr [1:16] &quot;Package&quot; &quot;LibPath&quot; &quot;Version&quot; &quot;Priority&quot; ...
 ##  $ :&#39;data.frame&#39;:    50 obs. of  2 variables:
 ##   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...
@@ -1118,7 +1119,7 @@ the list is named).</p>
 <a href="manipulating-and-analyzing-data-with-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-01-11
+2019-01-16
 </p>
 </div>
 </div>

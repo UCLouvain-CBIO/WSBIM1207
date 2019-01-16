@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:title" content="Chapter 6 Joining tables | Introduction to bioinformatics" />
+<meta property="og:title" content="Chapter 9 Additional programming concepts | Introduction to bioinformatics" />
 <meta property="og:type" content="book" />
 
 
@@ -22,7 +22,7 @@
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
-<title>Chapter 6 Joining tables | Introduction to bioinformatics</title>
+<title>Chapter 9 Additional programming concepts | Introduction to bioinformatics</title>
 
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
@@ -142,10 +142,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="starting-with-data.html"><span class="toc-section-number">3</span> Starting with data</a>
 <a href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a>
 <a href="data-visualization.html"><span class="toc-section-number">5</span> Data visualization</a>
-<a id="active-page" href="joining-tables.html"><span class="toc-section-number">6</span> Joining tables</a>
+<a href="joining-tables.html"><span class="toc-section-number">6</span> Joining tables</a>
 <a href="reproducible-research.html"><span class="toc-section-number">7</span> Reproducible research</a>
 <a href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a>
-<a href="additional-programming-concepts.html"><span class="toc-section-number">9</span> Additional programming concepts</a>
+<a id="active-page" href="additional-programming-concepts.html"><span class="toc-section-number">9</span> Additional programming concepts</a><ul class="toc-sections">
+<li class="toc"><a href="#conditionals"> Conditionals</a></li>
+<li class="toc"><a href="#iteration"> Iteration</a></li>
+<li class="toc"><a href="#writing-clean-code"> Writing clean code</a></li>
+<li class="toc"><a href="#writing-new-functions"> Writing new functions</a></li>
+</ul>
 <a href="conclusions.html"><span class="toc-section-number">10</span> Conclusions</a>
 <a href="session-information.html">Session information</a>
 </div>
@@ -156,14 +161,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="joining-tables" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> Joining tables</h1>
-<p>A chapter about table joins.</p>
+<div id="additional-programming-concepts" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Additional programming concepts</h1>
+<p>More advanced data analyses techniques require some additional
+programming kills, that will be introdcuced in this section, and
+demonstrate using high troughput omics data.</p>
+<div id="conditionals" class="section level2">
+<h2><span class="header-section-number">9.1</span> Conditionals</h2>
+<p><code>if</code> and <code>else</code>.</p>
+</div>
+<div id="iteration" class="section level2">
+<h2><span class="header-section-number">9.2</span> Iteration</h2>
+<p><code>for</code> loops and <code>apply</code> functions.</p>
+<p>Example: iteration over files.</p>
+</div>
+<div id="writing-clean-code" class="section level2">
+<h2><span class="header-section-number">9.3</span> Writing clean code</h2>
+<p>Writing clean code means writing easily readable code, hence easily
+understable code and, eventually code with less bugs.</p>
+<p>Defensive programming</p>
+</div>
+<div id="writing-new-functions" class="section level2">
+<h2><span class="header-section-number">9.4</span> Writing new functions</h2>
+<p>A function is composed of a name, inputs (inside the parenthesis), a
+body (between curly brackets) and an ouput (last statement or variably
+indise the <code>return</code> statement).</p>
+<pre class="sourceCode r"><code class="sourceCode r">my_fun &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {
+    <span class="kw">message</span>(<span class="st">&quot;First input: &quot;</span>, x)
+    <span class="kw">message</span>(<span class="st">&quot;Second input: &quot;</span>, y)
+    z &lt;-<span class="st"> </span>x <span class="op">*</span><span class="st"> </span><span class="kw">abs</span>(y)
+    <span class="kw">return</span>(z)
+}
+<span class="kw">my_fun</span>(<span class="dv">2</span>, <span class="dv">-5</span>)</code></pre>
+<pre><code>## First input: 2</code></pre>
+<pre><code>## Second input: -5</code></pre>
+<pre><code>## [1] 10</code></pre>
 
 </div>
+</div>
 <p style="text-align: center;">
-<a href="data-visualization.html"><button class="btn btn-default">Previous</button></a>
-<a href="reproducible-research.html"><button class="btn btn-default">Next</button></a>
+<a href="sec-bioinfo.html"><button class="btn btn-default">Previous</button></a>
+<a href="conclusions.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
 2019-01-16

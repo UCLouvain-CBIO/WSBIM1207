@@ -1,0 +1,39 @@
+# Additional programming concepts
+
+More advanced data analyses techniques require some additional
+programming kills, that will be introdcuced in this section, and
+demonstrate using high troughput omics data.
+
+## Conditionals
+
+`if` and `else`.
+
+## Iteration
+
+`for` loops and `apply` functions.
+
+Example: iteration over files.
+
+## Writing clean code
+
+Writing clean code means writing easily readable code, hence easily
+understable code and, eventually code with less bugs.
+
+Defensive programming
+
+
+## Writing new functions
+
+A function is composed of a name, inputs (inside the parenthesis), a
+body (between curly brackets) and an ouput (last statement or variably
+indise the `return` statement).
+
+```{r myfun}
+my_fun <- function(x, y) {
+    message("First input: ", x)
+    message("Second input: ", y)
+    z <- x * abs(y)
+    return(z)
+}
+my_fun(2, -5)
+```
