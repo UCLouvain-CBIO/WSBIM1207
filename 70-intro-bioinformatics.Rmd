@@ -57,9 +57,13 @@ Reminder about reproducible research, and need for raw data and
 complete processing script to reproduce the processed data and
 results.
 
+## Project management reminder
+
+See also @Noble:2009.
+
 ## The Bioconductor project {#sec:bioconductor}
 
-The [Bioconductor](http://www.bioconductor.org) ...
+The [Bioconductor](http://www.bioconductor.org) (@Gentleman:2004;@Huber:2015) ...
 
 ## Objects
 

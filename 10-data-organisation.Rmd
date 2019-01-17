@@ -299,11 +299,8 @@ with this data and how you would fix it.
 <!--   at the end. -->
 
 
-An **excellent reference**, in particular with regard to R scripting is
-
-> Hadley Wickham, *Tidy Data*, Vol. 59, Issue 10, Sep 2014, Journal of
-> Statistical
-> Software. [http://www.jstatsoft.org/v59/i10](http://www.jstatsoft.org/v59/i10).
+An **excellent reference**, in particular with regard to R scripting
+is the *Tidy Data* paper @Wickham:2014.
 
 ## Common Spreadsheet Errors
 
