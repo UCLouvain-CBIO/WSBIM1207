@@ -82,12 +82,21 @@ on practice.
 
 ## Motivation {-}
 
-Although bioinformatics is playing a central role in bio-medical
-research, bioinformatics skills aren't well integrated in life science
+
+
+Today, it is difficule to overestimate the very broad importance and
+impact of *data*. Given the abundance of data around us, and the
+sophistication of tools for their analysis and interpretation that are
+readily available, data has become a tool of profound social
+change. Resarch in general, and biomedical research in particular, is
+at the centre of this evolution. And while bioinformatics has been
+playing a central role in bio-medical research for many years now,
+bioinformatics skills aren't well integrated in life science
 curricula, limiting students in their career prospects and research
 horizon [@WilsonSayres:2018]. It is important for young researchers to
 acquire quantitative, computational and data skills to address the
 challenges that lie ahead.
+
 
 This first course will focus on the data skills. It will not teach to
 use any specific piece of bioinformatics software. Once one has
@@ -106,15 +115,16 @@ are notoriously difficult to install and run.
 Critical thinking is essential in any aspect of research, and
 bioinformatics and data analysis doesn't escape that rule. Teaching
 critical thinking is however very difficult, and arguably impossible
-without first possessing the tools to be critical. Rather that
-teaching a limited set of software tools, the course aims at teaching
-the skills that will allow to interrogate and visualise data, and hence
-be in a position to be critical with respect to ones data. In
-addition, while specific software become obsolete and are replaced, or
-are specific to one specific field of research, critical investigation
-of data will always be required and will never be replaced.
+without first possessing the skills and master the tools to be
+critical about data. Rather that teaching a limited set of software
+tools, this course aims at teaching a set of skills and methodologies
+that allow to interrogate and visualise data, and hence be in a
+position to be critical with respect to ones data. In addition, while
+specific software become obsolete and are replaced, or are specific to
+one specific field of research, critical investigation of data will
+always be required and will never be replaced.
 
-A final reason why the focus of the course ought to be on data skills
+Another reason why the focus of the course ought to be on data skills
 is that an essential difficulty in modern, multidisciplinary research
 is communication. Wetlab biomedical scientists aren't required to
 become bioinformaticians, statisticians, programmers, ... to be
@@ -151,7 +161,8 @@ and the compiled material can be read at http://bit.ly/WSBIM1207.
 
 Contributions to this material are welcome. The best way to contribute
 or contact the maintainers is by means of pull requests and
-issues. Please familiarise yourself with the [code of
+[issues](https://github.com/uclouvain-cbio/WSBIM1207/issues). Please
+familiarise yourself with the [code of
 conduct](https://github.com/UCLouvain-CBIO/WSBIM1207/blob/master/CONDUCT.md). By
 participating in this project you agree to abide by its terms.
 

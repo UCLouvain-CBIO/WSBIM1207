@@ -14,6 +14,8 @@ demonstrate using high troughput omics data.
 
 Example: iteration over files.
 
+Possibly also mention `while`.
+
 ## Writing clean code
 
 Writing clean code means writing easily readable code, hence easily
