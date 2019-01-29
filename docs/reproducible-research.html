@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:title" content="Chapter 11 Reproducible research | Introduction to bioinformatics" />
+<meta property="og:title" content="Chapter 7 Reproducible research | Introduction to bioinformatics" />
 <meta property="og:type" content="book" />
 
 
@@ -22,7 +22,7 @@
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
-<title>Chapter 11 Reproducible research | Introduction to bioinformatics</title>
+<title>Chapter 7 Reproducible research | Introduction to bioinformatics</title>
 
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
@@ -139,23 +139,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="index.html">Preamble</a>
 <a href="dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
 <a href="starting-with-r.html"><span class="toc-section-number">2</span> Starting with R</a>
-<a href="additional-exercises.html"><span class="toc-section-number">3</span> Additional exercises</a>
-<a href="starting-with-data.html"><span class="toc-section-number">4</span> Starting with data</a>
-<a href="additional-exercises-1.html1"><span class="toc-section-number">5</span> Additional exercises</a>
-<a href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">6</span> Manipulating and analyzing data with dplyr</a>
-<a href="additional-exercises-2.html2"><span class="toc-section-number">7</span> Additional exercises</a>
-<a href="data-visualization.html"><span class="toc-section-number">8</span> Data visualization</a>
-<a href="additional-exercises-3.html3"><span class="toc-section-number">9</span> Additional exercises</a>
-<a href="joining-tables.html"><span class="toc-section-number">10</span> Joining tables</a>
-<a id="active-page" href="reproducible-research.html"><span class="toc-section-number">11</span> Reproducible research</a><ul class="toc-sections">
+<a href="starting-with-data.html"><span class="toc-section-number">3</span> Starting with data</a>
+<a href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a>
+<a href="data-visualization.html"><span class="toc-section-number">5</span> Data visualization</a>
+<a href="joining-tables.html"><span class="toc-section-number">6</span> Joining tables</a>
+<a id="active-page" href="reproducible-research.html"><span class="toc-section-number">7</span> Reproducible research</a><ul class="toc-sections">
 <li class="toc"><a href="#working-reproducibly"> Working reproducibly</a></li>
 <li class="toc"><a href="#knitr-and-rmarkdown"> <code>knitr</code> and <code>rmarkdown</code></a></li>
 <li class="toc"><a href="#additional-features"> Additional features</a></li>
 <li class="toc"><a href="#docker-containers"> Docker containers</a></li>
 </ul>
-<a href="sec-bioinfo.html"><span class="toc-section-number">12</span> Bioinformatics</a>
-<a href="additional-programming-concepts.html"><span class="toc-section-number">13</span> Additional programming concepts</a>
-<a href="conclusions.html"><span class="toc-section-number">14</span> Conclusions</a>
+<a href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a>
+<a href="additional-programming-concepts.html"><span class="toc-section-number">9</span> Additional programming concepts</a>
+<a href="conclusions.html"><span class="toc-section-number">10</span> Conclusions</a>
 <a href="session-information.html">Session information</a>
 </div>
 </li>
@@ -166,15 +162,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="row">
 <div class="col-sm-12">
 <div id="reproducible-research" class="section level1">
-<h1><span class="header-section-number">Chapter 11</span> Reproducible research</h1>
+<h1><span class="header-section-number">Chapter 7</span> Reproducible research</h1>
 <p>For a general introduction on the topic in French, see <span class="citation">Pouzat, Davison, and Hinsen (<label for="tufte-mn-13" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-13" class="margin-toggle">2015<span class="marginnote">Pouzat, Christophe, Andrew Davison, and Konrad Hinsen. 2015. “La Recherche Reproductible : Une Communication Scientifique Explicite.” <em>Statistique et Société</em> 3 (1). <a href="http://www.publications-sfds.fr/index.php/stat_soc/article/view/448">http://www.publications-sfds.fr/index.php/stat_soc/article/view/448</a>.</span>)</span>.</p>
 <div id="working-reproducibly" class="section level2">
-<h2><span class="header-section-number">11.1</span> Working reproducibly</h2>
+<h2><span class="header-section-number">7.1</span> Working reproducibly</h2>
 <p>Possibly explain briefly the different types of preproducibility.</p>
 <p>Useful reference: <span class="citation">Markowetz (<label for="tufte-mn-14" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-14" class="margin-toggle">2015<span class="marginnote">Markowetz, Florian. 2015. “Five Selfish Reasons to Work Reproducibly.” <em>Genome Biology</em> 16 (1): 274. <a href="https://doi.org/10.1186/s13059-015-0850-7">https://doi.org/10.1186/s13059-015-0850-7</a>.</span>)</span>.</p>
 </div>
 <div id="knitr-and-rmarkdown" class="section level2">
-<h2><span class="header-section-number">11.2</span> <code>knitr</code> and <code>rmarkdown</code></h2>
+<h2><span class="header-section-number">7.2</span> <code>knitr</code> and <code>rmarkdown</code></h2>
 <p>Reproducible research is an essential part of any data analysis. With
 the tools that are available, one can argue that it has become more
 difficult not to produce reproducible reports than to producing then.</p>
@@ -205,7 +201,7 @@ document.</p>
 <p><img src="figs/rnb.png" /></p>
 </div>
 <div id="additional-features" class="section level2">
-<h2><span class="header-section-number">11.3</span> Additional features</h2>
+<h2><span class="header-section-number">7.3</span> Additional features</h2>
 <ul>
 <li><p>Among the most options that can set for code chunks is
 <code>cache</code>. Setting <code>cache=TRUE</code> will avoid that specific code chunk to
@@ -238,7 +234,7 @@ information</em> section.</p>
 </blockquote>
 </div>
 <div id="docker-containers" class="section level2">
-<h2><span class="header-section-number">11.4</span> Docker containers</h2>
+<h2><span class="header-section-number">7.4</span> Docker containers</h2>
 
 </div>
 </div>

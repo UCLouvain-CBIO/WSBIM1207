@@ -862,4 +862,4 @@ if (!dir.exists("data_output")) dir.create("data_output")
 write_csv(surveys_complete, path = "data_output/surveys_complete.csv")
 ```
 
-# Additional exercises
+## Additional exercises

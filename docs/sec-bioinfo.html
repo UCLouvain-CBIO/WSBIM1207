@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:title" content="Chapter 12 Bioinformatics | Introduction to bioinformatics" />
+<meta property="og:title" content="Chapter 8 Bioinformatics | Introduction to bioinformatics" />
 <meta property="og:type" content="book" />
 
 
@@ -22,7 +22,7 @@
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
-<title>Chapter 12 Bioinformatics | Introduction to bioinformatics</title>
+<title>Chapter 8 Bioinformatics | Introduction to bioinformatics</title>
 
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
@@ -139,16 +139,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="index.html">Preamble</a>
 <a href="dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
 <a href="starting-with-r.html"><span class="toc-section-number">2</span> Starting with R</a>
-<a href="additional-exercises.html"><span class="toc-section-number">3</span> Additional exercises</a>
-<a href="starting-with-data.html"><span class="toc-section-number">4</span> Starting with data</a>
-<a href="additional-exercises-1.html1"><span class="toc-section-number">5</span> Additional exercises</a>
-<a href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">6</span> Manipulating and analyzing data with dplyr</a>
-<a href="additional-exercises-2.html2"><span class="toc-section-number">7</span> Additional exercises</a>
-<a href="data-visualization.html"><span class="toc-section-number">8</span> Data visualization</a>
-<a href="additional-exercises-3.html3"><span class="toc-section-number">9</span> Additional exercises</a>
-<a href="joining-tables.html"><span class="toc-section-number">10</span> Joining tables</a>
-<a href="reproducible-research.html"><span class="toc-section-number">11</span> Reproducible research</a>
-<a id="active-page" href="sec-bioinfo.html"><span class="toc-section-number">12</span> Bioinformatics</a><ul class="toc-sections">
+<a href="starting-with-data.html"><span class="toc-section-number">3</span> Starting with data</a>
+<a href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a>
+<a href="data-visualization.html"><span class="toc-section-number">5</span> Data visualization</a>
+<a href="joining-tables.html"><span class="toc-section-number">6</span> Joining tables</a>
+<a href="reproducible-research.html"><span class="toc-section-number">7</span> Reproducible research</a>
+<a id="active-page" href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a><ul class="toc-sections">
 <li class="toc"><a href="#omics-data"> Omics data</a></li>
 <li class="toc"><a href="#project-management-reminder"> Project management reminder</a></li>
 <li class="toc"><a href="#sec:bioconductor"> The Bioconductor project</a></li>
@@ -156,8 +152,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#documentation"> Documentation</a></li>
 <li class="toc"><a href="#exercises"> Exercises</a></li>
 </ul>
-<a href="additional-programming-concepts.html"><span class="toc-section-number">13</span> Additional programming concepts</a>
-<a href="conclusions.html"><span class="toc-section-number">14</span> Conclusions</a>
+<a href="additional-programming-concepts.html"><span class="toc-section-number">9</span> Additional programming concepts</a>
+<a href="conclusions.html"><span class="toc-section-number">10</span> Conclusions</a>
 <a href="session-information.html">Session information</a>
 </div>
 </li>
@@ -168,7 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="row">
 <div class="col-sm-12">
 <div id="sec:bioinfo" class="section level1">
-<h1><span class="header-section-number">Chapter 12</span> Bioinformatics</h1>
+<h1><span class="header-section-number">Chapter 8</span> Bioinformatics</h1>
 <p>As already alluded to ealier, <a href="https://en.wikipedia.org/wiki/Bioinformatics">Wikipedia
 defines</a> bioinformatics
 as</p>
@@ -181,7 +177,7 @@ analysis, to software development, computational or statistical
 methodological development, more theoretical work, as well as any
 combination of these.</p>
 <div id="omics-data" class="section level2">
-<h2><span class="header-section-number">12.1</span> Omics data</h2>
+<h2><span class="header-section-number">8.1</span> Omics data</h2>
 <p>So far, we have explored broad data science techniques in R. A
 widespread and successful area of bioinfomatics, and one that you, as
 a biology or biomedical science student are likely to be confronted
@@ -192,11 +188,11 @@ with, is the analysis and interpretation of omics data.</p>
 <div class="figure">--><span id="fig:infoflow"></span>
 <img src="figs/Centraldogma_nodetails.png" alt="Information flow in biological systems (Source [Wikipedia](https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology))." width="368"  />
 <!--
-<p class="caption marginnote">-->Figure 12.1: Information flow in biological systems (Source <a href="https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology">Wikipedia</a>).<!--</p>-->
+<p class="caption marginnote">-->Figure 8.1: Information flow in biological systems (Source <a href="https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology">Wikipedia</a>).<!--</p>-->
 <!--</div>--></span>
 </p>
 <p>It is useful to define these omics data along the flow of information
-in biology (Figure <a href="sec-bioinfo.html#fig:infoflow">12.1</a>), and define the different
+in biology (Figure <a href="sec-bioinfo.html#fig:infoflow">8.1</a>), and define the different
 application domains. The technologies that focus on DNA, and the
 genome in particular (either whole or parts thereof) are termed
 <strong>genomics</strong>, and are currently based on sequencing, in particular
@@ -229,26 +225,26 @@ complete processing script to reproduce the processed data and
 results.</p>
 </div>
 <div id="project-management-reminder" class="section level2">
-<h2><span class="header-section-number">12.2</span> Project management reminder</h2>
+<h2><span class="header-section-number">8.2</span> Project management reminder</h2>
 <p>See also <span class="citation">Noble (<label for="tufte-mn-16" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-16" class="margin-toggle">2009<span class="marginnote">Noble, William Stafford. 2009. “A Quick Guide to Organizing Computational Biology Projects.” <em>PLOS Computational Biology</em> 5 (7): 1–5. <a href="https://doi.org/10.1371/journal.pcbi.1000424">https://doi.org/10.1371/journal.pcbi.1000424</a>.</span>)</span>.</p>
 </div>
 <div id="sec:bioconductor" class="section level2">
-<h2><span class="header-section-number">12.3</span> The Bioconductor project</h2>
+<h2><span class="header-section-number">8.3</span> The Bioconductor project</h2>
 <p>The <a href="http://www.bioconductor.org">Bioconductor</a> (<span class="citation">R. C. Gentleman et al. (<label for="tufte-mn-17" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-17" class="margin-toggle">2004<span class="marginnote">Gentleman, Robert C., Vincent J. Carey, Douglas M. Bates, Ben Bolstad, Marcel Dettling, Sandrine Dudoit, Byron Ellis, et al. 2004. “Bioconductor: Open Software Development for Computational Biology and Bioinformatics.” <em>Genome Biol</em> 5 (10): –80. <a href="https://doi.org/10.1186/gb-2004-5-10-r80">https://doi.org/10.1186/gb-2004-5-10-r80</a>.</span>)</span>;<span class="citation">Huber et al. (<label for="tufte-mn-18" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-18" class="margin-toggle">2015<span class="marginnote">Huber, W, V J Carey, R Gentleman, S Anders, M Carlson, B S Carvalho, H C Bravo, et al. 2015. “Orchestrating High-Throughput Genomic Analysis with Bioconductor.” <em>Nat Methods</em> 12 (2): 115–21. <a href="https://doi.org/10.1038/nmeth.3252">https://doi.org/10.1038/nmeth.3252</a>.</span>)</span>) …</p>
 </div>
 <div id="objects" class="section level2">
-<h2><span class="header-section-number">12.4</span> Objects</h2>
+<h2><span class="header-section-number">8.4</span> Objects</h2>
 <p>Data in bioinformatics is often more complex than the basic data types
 we have seen so far. Give a short introduction and example to some
 relevant object.</p>
 </div>
 <div id="documentation" class="section level2">
-<h2><span class="header-section-number">12.5</span> Documentation</h2>
+<h2><span class="header-section-number">8.5</span> Documentation</h2>
 <p>Documenting ones tasks in a bioinformatics project is absolutely
 essential. It is akin a lab notebook for wet lab.</p>
 </div>
 <div id="exercises" class="section level2">
-<h2><span class="header-section-number">12.6</span> Exercises</h2>
+<h2><span class="header-section-number">8.6</span> Exercises</h2>
 <p>More exercises, framed in the context of bioinformatics.</p>
 
 </div>

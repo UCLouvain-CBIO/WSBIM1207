@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:title" content="Chapter 4 Starting with data | Introduction to bioinformatics" />
+<meta property="og:title" content="Chapter 3 Starting with data | Introduction to bioinformatics" />
 <meta property="og:type" content="book" />
 
 
@@ -22,7 +22,7 @@
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
-<title>Chapter 4 Starting with data | Introduction to bioinformatics</title>
+<title>Chapter 3 Starting with data | Introduction to bioinformatics</title>
 
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
@@ -139,8 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="index.html">Preamble</a>
 <a href="dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
 <a href="starting-with-r.html"><span class="toc-section-number">2</span> Starting with R</a>
-<a href="additional-exercises.html"><span class="toc-section-number">3</span> Additional exercises</a>
-<a id="active-page" href="starting-with-data.html"><span class="toc-section-number">4</span> Starting with data</a><ul class="toc-sections">
+<a id="active-page" href="starting-with-data.html"><span class="toc-section-number">3</span> Starting with data</a><ul class="toc-sections">
 <li class="toc"><a href="#presentation-of-the-survey-data"> Presentation of the Survey Data</a></li>
 <li class="toc"><a href="#what-are-data-frames"> What are data frames?</a></li>
 <li class="toc"><a href="#NA"> Inspecting <code>data.frame</code> Objects</a></li>
@@ -150,17 +149,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#formatting-dates"> Formatting Dates</a></li>
 <li class="toc"><a href="#summary-of-r-objects"> Summary of R objects</a></li>
 <li class="toc"><a href="#lists"> Lists</a></li>
+<li class="toc"><a href="#additional-exercises-1"> Additional exercises</a></li>
 </ul>
-<a href="additional-exercises-1.html1"><span class="toc-section-number">5</span> Additional exercises</a>
-<a href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">6</span> Manipulating and analyzing data with dplyr</a>
-<a href="additional-exercises-2.html2"><span class="toc-section-number">7</span> Additional exercises</a>
-<a href="data-visualization.html"><span class="toc-section-number">8</span> Data visualization</a>
-<a href="additional-exercises-3.html3"><span class="toc-section-number">9</span> Additional exercises</a>
-<a href="joining-tables.html"><span class="toc-section-number">10</span> Joining tables</a>
-<a href="reproducible-research.html"><span class="toc-section-number">11</span> Reproducible research</a>
-<a href="sec-bioinfo.html"><span class="toc-section-number">12</span> Bioinformatics</a>
-<a href="additional-programming-concepts.html"><span class="toc-section-number">13</span> Additional programming concepts</a>
-<a href="conclusions.html"><span class="toc-section-number">14</span> Conclusions</a>
+<a href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a>
+<a href="data-visualization.html"><span class="toc-section-number">5</span> Data visualization</a>
+<a href="joining-tables.html"><span class="toc-section-number">6</span> Joining tables</a>
+<a href="reproducible-research.html"><span class="toc-section-number">7</span> Reproducible research</a>
+<a href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a>
+<a href="additional-programming-concepts.html"><span class="toc-section-number">9</span> Additional programming concepts</a>
+<a href="conclusions.html"><span class="toc-section-number">10</span> Conclusions</a>
 <a href="session-information.html">Session information</a>
 </div>
 </li>
@@ -171,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="row">
 <div class="col-sm-12">
 <div id="starting-with-data" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Starting with data</h1>
+<h1><span class="header-section-number">Chapter 3</span> Starting with data</h1>
 <p><strong>Learning Objectives</strong></p>
 <ul>
 <li>Describe what a data frame is.</li>
@@ -184,7 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Format dates.</li>
 </ul>
 <div id="presentation-of-the-survey-data" class="section level2">
-<h2><span class="header-section-number">4.1</span> Presentation of the Survey Data</h2>
+<h2><span class="header-section-number">3.1</span> Presentation of the Survey Data</h2>
 <p>We are studying the species repartition and weight of animals caught
 in plots in our study area. The dataset is stored as a comma separated
 value (CSV) file. Each row holds information for a single animal, and
@@ -312,7 +309,7 @@ argument set to FALSE.</p>
 </blockquote>
 </div>
 <div id="what-are-data-frames" class="section level2">
-<h2><span class="header-section-number">4.2</span> What are data frames?</h2>
+<h2><span class="header-section-number">3.2</span> What are data frames?</h2>
 <p>Data frames are the <em>de facto</em> data structure for most tabular data,
 and what we use for statistics and plotting.</p>
 <p>A data frame can be created by hand, but most commonly they are generated by the
@@ -343,7 +340,7 @@ with the function <code>str()</code>:</p>
 ##  $ plot_type      : Factor w/ 5 levels &quot;Control&quot;,&quot;Long-term Krat Exclosure&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
 </div>
 <div id="inspecting-data.frame-objects" class="section level2">
-<h2><span class="header-section-number">4.3</span> Inspecting <code>data.frame</code> Objects</h2>
+<h2><span class="header-section-number">3.3</span> Inspecting <code>data.frame</code> Objects</h2>
 <p>We already saw how the functions <code>head()</code> and <code>str()</code> can be useful to check the
 content and the structure of a data frame. Here is a non-exhaustive list of
 functions to get a sense of the content/structure of the data. Let’s try them out!</p>
@@ -412,7 +409,7 @@ Answer
 </blockquote>
 </div>
 <div id="indexing-and-subsetting-data-frames" class="section level2">
-<h2><span class="header-section-number">4.4</span> Indexing and subsetting data frames</h2>
+<h2><span class="header-section-number">3.4</span> Indexing and subsetting data frames</h2>
 <p>Our survey data frame has rows and columns (it has 2 dimensions), if we want to
 extract some specific data from it, we need to specify the “coordinates” we
 want from it. Row numbers come first, followed by column numbers. However, note
@@ -637,7 +634,7 @@ surveys_head &lt;-<span class="st"> </span>surveys[<span class="op">-</span>(<sp
 </blockquote>
 </div>
 <div id="factors" class="section level2">
-<h2><span class="header-section-number">4.5</span> Factors</h2>
+<h2><span class="header-section-number">3.5</span> Factors</h2>
 <p>When we did <code>str(surveys)</code> we saw that several of the columns consist of
 integers. The columns <code>genus</code>, <code>species</code>, <code>sex</code>, <code>plot_type</code>, … however, are
 of a special class called <code>factor</code>. Factors are very useful and actually
@@ -678,7 +675,7 @@ be able to tell just from the integer data. Factors, on the other hand, have
 this information built in. It is particularly helpful when there are many levels
 (like the species names in our example dataset).</p>
 <div id="converting-factors" class="section level3">
-<h3><span class="header-section-number">4.5.1</span> Converting factors</h3>
+<h3><span class="header-section-number">3.5.1</span> Converting factors</h3>
 <p>If you need to convert a factor to a character vector, you use
 <code>as.character(x)</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.character</span>(sex)</code></pre>
@@ -705,7 +702,7 @@ vector <code>year_fct</code> inside the square brackets</li>
 </ul>
 </div>
 <div id="renaming-factors" class="section level3">
-<h3><span class="header-section-number">4.5.2</span> Renaming factors</h3>
+<h3><span class="header-section-number">3.5.2</span> Renaming factors</h3>
 <p>When your data is stored as a factor, you can use the <code>plot()</code> function to get a
 quick glance at the number of observations represented by each factor
 level. Let’s look at the number of males and females captured over the course of
@@ -753,7 +750,7 @@ sex &lt;-<span class="st"> </span><span class="kw">factor</span>(sex, <span clas
 </blockquote>
 </div>
 <div id="using-stringsasfactorsfalse" class="section level3">
-<h3><span class="header-section-number">4.5.3</span> Using <code>stringsAsFactors=FALSE</code></h3>
+<h3><span class="header-section-number">3.5.3</span> Using <code>stringsAsFactors=FALSE</code></h3>
 <p>By default, when building or importing a data frame, the columns that contain
 characters (i.e. text) are coerced (= converted) into factors. Depending on what you want to do with the data, you may want to keep these
 columns as <code>character</code>. To do so, <code>read.csv()</code> and <code>read.table()</code> have an
@@ -826,7 +823,7 @@ entry (a letter in a column that should only contain numbers for instance).</p>
 </div>
 </div>
 <div id="matrices" class="section level2">
-<h2><span class="header-section-number">4.6</span> Matrices</h2>
+<h2><span class="header-section-number">3.6</span> Matrices</h2>
 <p>Before proceeding, now that we have learnt about dateframes, let’s
 recap package installation and learn about a new data type, namely the
 <code>matrix</code>. Like a <code>data.frame</code>, a matrix has two dimensions, rows and
@@ -927,7 +924,7 @@ m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">
 </div>
 </div>
 <div id="formatting-dates" class="section level2">
-<h2><span class="header-section-number">4.7</span> Formatting Dates</h2>
+<h2><span class="header-section-number">3.7</span> Formatting Dates</h2>
 <p>One of the most common issues that new (and experienced!) R users have is
 converting date and time information into a variable that is appropriate and
 usable during analyses. As a reminder from earlier in this lesson, the best
@@ -1058,7 +1055,7 @@ missing_dates &lt;-<span class="st"> </span>surveys[is_missing_date,  date_colum
 analyses, how would you deal with this situation?</p>
 </div>
 <div id="summary-of-r-objects" class="section level2">
-<h2><span class="header-section-number">4.8</span> Summary of R objects</h2>
+<h2><span class="header-section-number">3.8</span> Summary of R objects</h2>
 <p>So far, we have seen several types of R object varying in the number
 of dimensions and whether they could store a single of multiple data
 types:</p>
@@ -1069,7 +1066,7 @@ types:</p>
 </ul>
 </div>
 <div id="lists" class="section level2">
-<h2><span class="header-section-number">4.9</span> Lists</h2>
+<h2><span class="header-section-number">3.9</span> Lists</h2>
 <p>A data type that we haven’t seen yet, but that is useful to know, and
 follows from the summary that we have just seen are lists:</p>
 <ul>
@@ -1116,10 +1113,14 @@ the list is named).</p>
 <pre><code>## [[1]]
 ##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 </div>
+<div id="additional-exercises-1" class="section level2">
+<h2><span class="header-section-number">3.10</span> Additional exercises</h2>
+
+</div>
 </div>
 <p style="text-align: center;">
-<a href="additional-exercises.html"><button class="btn btn-default">Previous</button></a>
-<a href="additional-exercises-1.html"><button class="btn btn-default">Next</button></a>
+<a href="starting-with-r.html"><button class="btn btn-default">Previous</button></a>
+<a href="manipulating-and-analyzing-data-with-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
 2019-01-29
