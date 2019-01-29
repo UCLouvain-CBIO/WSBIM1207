@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-01-17" />
+<meta name="date" content="2019-01-29" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -145,14 +145,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <a href="dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
 <a href="starting-with-r.html"><span class="toc-section-number">2</span> Starting with R</a>
-<a href="starting-with-data.html"><span class="toc-section-number">3</span> Starting with data</a>
-<a href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a>
-<a href="data-visualization.html"><span class="toc-section-number">5</span> Data visualization</a>
-<a href="joining-tables.html"><span class="toc-section-number">6</span> Joining tables</a>
-<a href="reproducible-research.html"><span class="toc-section-number">7</span> Reproducible research</a>
-<a href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a>
-<a href="additional-programming-concepts.html"><span class="toc-section-number">9</span> Additional programming concepts</a>
-<a href="conclusions.html"><span class="toc-section-number">10</span> Conclusions</a>
+<a href="additional-exercises.html"><span class="toc-section-number">3</span> Additional exercises</a>
+<a href="starting-with-data.html"><span class="toc-section-number">4</span> Starting with data</a>
+<a href="additional-exercises-1.html1"><span class="toc-section-number">5</span> Additional exercises</a>
+<a href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">6</span> Manipulating and analyzing data with dplyr</a>
+<a href="additional-exercises-2.html2"><span class="toc-section-number">7</span> Additional exercises</a>
+<a href="data-visualization.html"><span class="toc-section-number">8</span> Data visualization</a>
+<a href="additional-exercises-3.html3"><span class="toc-section-number">9</span> Additional exercises</a>
+<a href="joining-tables.html"><span class="toc-section-number">10</span> Joining tables</a>
+<a href="reproducible-research.html"><span class="toc-section-number">11</span> Reproducible research</a>
+<a href="sec-bioinfo.html"><span class="toc-section-number">12</span> Bioinformatics</a>
+<a href="additional-programming-concepts.html"><span class="toc-section-number">13</span> Additional programming concepts</a>
+<a href="conclusions.html"><span class="toc-section-number">14</span> Conclusions</a>
 <a href="session-information.html">Session information</a>
 </div>
 </li>
@@ -197,8 +201,14 @@ definitions. Hence, the material and how it is taught will be focused
 on practice.</p>
 <div id="motivation" class="section level2 unnumbered">
 <h2>Motivation</h2>
-<p>Although bioinformatics is playing a central role in bio-medical
-research, bioinformatics skills aren’t well integrated in life science
+<p>Today, it is difficule to overestimate the very broad importance and
+impact of <em>data</em>. Given the abundance of data around us, and the
+sophistication of tools for their analysis and interpretation that are
+readily available, data has become a tool of profound social
+change. Resarch in general, and biomedical research in particular, is
+at the centre of this evolution. And while bioinformatics has been
+playing a central role in bio-medical research for many years now,
+bioinformatics skills aren’t well integrated in life science
 curricula, limiting students in their career prospects and research
 horizon <span class="citation">(Wilson Sayres et al. <label for="tufte-mn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle">2018<span class="marginnote">Wilson Sayres, M A, C Hauser, M Sierk, S Robic, A G Rosenwald, T M Smith, E W Triplett, et al. 2018. “Bioinformatics Core Competencies for Undergraduate Life Sciences Education.” <em>PLoS One</em> 13 (6): e0196878. <a href="https://doi.org/10.1371/journal.pone.0196878">https://doi.org/10.1371/journal.pone.0196878</a>.</span>)</span>. It is important for young researchers to
 acquire quantitative, computational and data skills to address the
@@ -217,14 +227,15 @@ molecular biology.</p>
 <p>Critical thinking is essential in any aspect of research, and
 bioinformatics and data analysis doesn’t escape that rule. Teaching
 critical thinking is however very difficult, and arguably impossible
-without first possessing the tools to be critical. Rather that
-teaching a limited set of software tools, the course aims at teaching
-the skills that will allow to interrogate and visualise data, and hence
-be in a position to be critical with respect to ones data. In
-addition, while specific software become obsolete and are replaced, or
-are specific to one specific field of research, critical investigation
-of data will always be required and will never be replaced.</p>
-<p>A final reason why the focus of the course ought to be on data skills
+without first possessing the skills and master the tools to be
+critical about data. Rather that teaching a limited set of software
+tools, this course aims at teaching a set of skills and methodologies
+that allow to interrogate and visualise data, and hence be in a
+position to be critical with respect to ones data. In addition, while
+specific software become obsolete and are replaced, or are specific to
+one specific field of research, critical investigation of data will
+always be required and will never be replaced.</p>
+<p>Another reason why the focus of the course ought to be on data skills
 is that an essential difficulty in modern, multidisciplinary research
 is communication. Wetlab biomedical scientists aren’t required to
 become bioinformaticians, statisticians, programmers, … to be
@@ -258,7 +269,8 @@ code is publicly available in a Github repository
 and the compiled material can be read at <a href="http://bit.ly/WSBIM1207" class="uri">http://bit.ly/WSBIM1207</a>.</p>
 <p>Contributions to this material are welcome. The best way to contribute
 or contact the maintainers is by means of pull requests and
-issues. Please familiarise yourself with the <a href="https://github.com/UCLouvain-CBIO/WSBIM1207/blob/master/CONDUCT.md">code of
+<a href="https://github.com/uclouvain-cbio/WSBIM1207/issues">issues</a>. Please
+familiarise yourself with the <a href="https://github.com/UCLouvain-CBIO/WSBIM1207/blob/master/CONDUCT.md">code of
 conduct</a>. By
 participating in this project you agree to abide by its terms.</p>
 </div>
@@ -271,7 +283,7 @@ We will also use the
 interact with R and write scripts and reports. Both R and RStudio are
 easy to install and works on all major operating systems.</p>
 <p>Once R and RStudio are installed, a set of packages will need to be
-installed. See section <a href="session-information.html#sec:setup2">10.2</a> for details.</p>
+installed. See section <a href="session-information.html#sec:setup2">14.2</a> for details.</p>
 <p>To build this book, you’ll need <code>bookdown</code> <span class="citation">(Xie <label for="tufte-mn-9" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-9" class="margin-toggle">2018a<span class="marginnote">Xie, Yihui. 2018a. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</span>)</span> and a
 fork<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> <a href="https://github.com/lgatto/msmbstyle" class="uri">https://github.com/lgatto/msmbstyle</a></span> of <a href="https://github.com/grimbough/msmbstyle/"><code>msmbstyle</code>
 style</a> <span class="citation">(Smith <label for="tufte-mn-10" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-10" class="margin-toggle">2019<span class="marginnote">Smith, Mike. 2019. <em>Msmbstyle: MSMB Styles for R Markdown Documents</em>.</span>)</span>.</p>
@@ -292,7 +304,7 @@ License</a>/</p>
 <a href="dataorg.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-01-17
+2019-01-29
 </p>
 </div>
 </div>

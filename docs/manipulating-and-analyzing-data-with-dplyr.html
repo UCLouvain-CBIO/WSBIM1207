@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:title" content="Chapter 4 Manipulating and analyzing data with dplyr | Introduction to bioinformatics" />
+<meta property="og:title" content="Chapter 6 Manipulating and analyzing data with dplyr | Introduction to bioinformatics" />
 <meta property="og:type" content="book" />
 
 
@@ -17,12 +17,12 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-01-17" />
+<meta name="date" content="2019-01-29" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
-<title>Chapter 4 Manipulating and analyzing data with dplyr | Introduction to bioinformatics</title>
+<title>Chapter 6 Manipulating and analyzing data with dplyr | Introduction to bioinformatics</title>
 
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
@@ -139,20 +139,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="index.html">Preamble</a>
 <a href="dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
 <a href="starting-with-r.html"><span class="toc-section-number">2</span> Starting with R</a>
-<a href="starting-with-data.html"><span class="toc-section-number">3</span> Starting with data</a>
-<a id="active-page" href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a><ul class="toc-sections">
+<a href="additional-exercises.html"><span class="toc-section-number">3</span> Additional exercises</a>
+<a href="starting-with-data.html"><span class="toc-section-number">4</span> Starting with data</a>
+<a href="additional-exercises-1.html1"><span class="toc-section-number">5</span> Additional exercises</a>
+<a id="active-page" href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">6</span> Manipulating and analyzing data with dplyr</a><ul class="toc-sections">
 <li class="toc"><a href="#data-manipulation-using-dplyr-and-tidyr"> Data Manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong></a></li>
 <li class="toc"><a href="#what-are-dplyr-and-tidyr"> What are <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong>?</a></li>
 <li class="toc"><a href="#selecting-columns-and-filtering-rows"> Selecting columns and filtering rows</a></li>
 <li class="toc"><a href="#pipes"> Pipes</a></li>
 <li class="toc"><a href="#exporting-data-1"> Exporting data</a></li>
 </ul>
-<a href="data-visualization.html"><span class="toc-section-number">5</span> Data visualization</a>
-<a href="joining-tables.html"><span class="toc-section-number">6</span> Joining tables</a>
-<a href="reproducible-research.html"><span class="toc-section-number">7</span> Reproducible research</a>
-<a href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a>
-<a href="additional-programming-concepts.html"><span class="toc-section-number">9</span> Additional programming concepts</a>
-<a href="conclusions.html"><span class="toc-section-number">10</span> Conclusions</a>
+<a href="additional-exercises-2.html2"><span class="toc-section-number">7</span> Additional exercises</a>
+<a href="data-visualization.html"><span class="toc-section-number">8</span> Data visualization</a>
+<a href="additional-exercises-3.html3"><span class="toc-section-number">9</span> Additional exercises</a>
+<a href="joining-tables.html"><span class="toc-section-number">10</span> Joining tables</a>
+<a href="reproducible-research.html"><span class="toc-section-number">11</span> Reproducible research</a>
+<a href="sec-bioinfo.html"><span class="toc-section-number">12</span> Bioinformatics</a>
+<a href="additional-programming-concepts.html"><span class="toc-section-number">13</span> Additional programming concepts</a>
+<a href="conclusions.html"><span class="toc-section-number">14</span> Conclusions</a>
 <a href="session-information.html">Session information</a>
 </div>
 </li>
@@ -163,7 +167,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="row">
 <div class="col-sm-12">
 <div id="manipulating-and-analyzing-data-with-dplyr" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Manipulating and analyzing data with dplyr</h1>
+<h1><span class="header-section-number">Chapter 6</span> Manipulating and analyzing data with dplyr</h1>
 <p><strong>Learning Objectives</strong></p>
 <ul>
 <li><p>Describe the purpose of the <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong> packages.</p></li>
@@ -187,7 +191,7 @@ purpose those formats are useful.</p></li>
 <li><p>Export a data frame to a .csv file.</p></li>
 </ul>
 <div id="data-manipulation-using-dplyr-and-tidyr" class="section level2">
-<h2><span class="header-section-number">4.1</span> Data Manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong></h2>
+<h2><span class="header-section-number">6.1</span> Data Manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong></h2>
 <p>Bracket subsetting is handy, but it can be cumbersome and difficult to
 read, especially for complicated operations. Enter
 <strong><code>dplyr</code></strong>. <strong><code>dplyr</code></strong> is a package for making tabular data
@@ -225,7 +229,7 @@ avoid having to set <strong><code>stringsAsFactors</code></strong> to <strong><c
 <span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre>
 </div>
 <div id="what-are-dplyr-and-tidyr" class="section level2">
-<h2><span class="header-section-number">4.2</span> What are <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong>?</h2>
+<h2><span class="header-section-number">6.2</span> What are <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong>?</h2>
 <p>The package <strong><code>dplyr</code></strong> provides easy tools for the most common data manipulation
 tasks. It is built to work directly with data frames, with many common tasks
 optimized by being written in a compiled language (C++). An additional feature is the
@@ -298,7 +302,7 @@ screen.</li>
 </ul>
 </div>
 <div id="selecting-columns-and-filtering-rows" class="section level2">
-<h2><span class="header-section-number">4.3</span> Selecting columns and filtering rows</h2>
+<h2><span class="header-section-number">6.3</span> Selecting columns and filtering rows</h2>
 <p>To select columns of a data frame, use <code>select()</code>. The first argument
 to this function is the data frame (<code>surveys</code>), and the subsequent
 arguments are the columns to keep.</p>
@@ -327,7 +331,7 @@ and <code>species_id</code>.</p>
 ## #   species &lt;chr&gt;, taxa &lt;chr&gt;, plot_type &lt;chr&gt;</code></pre>
 </div>
 <div id="pipes" class="section level2">
-<h2><span class="header-section-number">4.4</span> Pipes</h2>
+<h2><span class="header-section-number">6.4</span> Pipes</h2>
 <p>What if you want to select and filter at the same time? There are three
 ways to do this: use intermediate steps, nested functions, or pipes.</p>
 <p>With intermediate steps, you create a temporary data frame and use
@@ -449,7 +453,7 @@ before 1995 and retain only the columns <code>year</code>, <code>sex</code>, and
 </div>
 </div>
 <div id="mutate" class="section level3">
-<h3><span class="header-section-number">4.4.1</span> Mutate</h3>
+<h3><span class="header-section-number">6.4.1</span> Mutate</h3>
 <p>Frequently you’ll want to create new columns based on the values in existing
 columns, for example to do unit conversions, or to find the ratio of values in two
 columns. For this we’ll use <code>mutate()</code>.</p>
@@ -562,13 +566,13 @@ this data frame!</p>
 </div>
 </div>
 <div id="split-apply-combine-data-analysis-and-the-summarize-function" class="section level3">
-<h3><span class="header-section-number">4.4.2</span> Split-apply-combine data analysis and the summarize() function</h3>
+<h3><span class="header-section-number">6.4.2</span> Split-apply-combine data analysis and the summarize() function</h3>
 <p>Many data analysis tasks can be approached using the <em>split-apply-combine</em>
 paradigm: split the data into groups, apply some analysis to each group, and
 then combine the results. <strong><code>dplyr</code></strong> makes this very easy through the use of the
 <code>group_by()</code> function.</p>
 <div id="the-summarize-function" class="section level4">
-<h4><span class="header-section-number">4.4.2.1</span> The <code>summarize()</code> function</h4>
+<h4><span class="header-section-number">6.4.2.1</span> The <code>summarize()</code> function</h4>
 <p><code>group_by()</code> is often used together with <code>summarize()</code>, which collapses each
 group into a single-row summary of that group. <code>group_by()</code> takes as arguments
 the column names that contain the <strong>categorical</strong> variables for which you want
@@ -726,7 +730,7 @@ column indicating the minimum weight for each species for each sex:</p>
 ## # … with 54 more rows</code></pre>
 </div>
 <div id="counting" class="section level4">
-<h4><span class="header-section-number">4.4.2.2</span> Counting</h4>
+<h4><span class="header-section-number">6.4.2.2</span> Counting</h4>
 <p>When working with data, we often want to know the number of observations found
 for each factor or combination of factors. For this task, <strong><code>dplyr</code></strong> provides
 <code>count()</code>. For example, if we wanted to count the number of rows of data for
@@ -898,7 +902,7 @@ number of observations (hint: see <code>?n</code>).</li>
 </div>
 </div>
 <div id="reshaping-with-gather-and-spread" class="section level3">
-<h3><span class="header-section-number">4.4.3</span> Reshaping with gather and spread</h3>
+<h3><span class="header-section-number">6.4.3</span> Reshaping with gather and spread</h3>
 <p>In the spreadsheet lesson (chapter <a href="dataorg.html#dataorg">1</a>), we discussed how
 to structure our data leading to the four rules defining a tidy
 dataset:</p>
@@ -933,7 +937,7 @@ values of a variable.</p>
 <p>We can do both these of transformations with two <code>tidyr</code> functions,
 <code>spread()</code> and <code>gather()</code>.</p>
 <div id="spreading" class="section level4">
-<h4><span class="header-section-number">4.4.3.1</span> Spreading</h4>
+<h4><span class="header-section-number">6.4.3.1</span> Spreading</h4>
 <p><code>spread()</code> takes three principal arguments:</p>
 <ol style="list-style-type: decimal">
 <li>the data</li>
@@ -1016,7 +1020,7 @@ first.</p>
 ## #   Sigmodon &lt;dbl&gt;, Spermophilus &lt;dbl&gt;</code></pre>
 </div>
 <div id="gathering" class="section level4">
-<h4><span class="header-section-number">4.4.3.2</span> Gathering</h4>
+<h4><span class="header-section-number">6.4.3.2</span> Gathering</h4>
 <p>The opposing situation could occur if we had been provided with data in the
 form of <code>surveys_spread</code>, where the genus names are column names, but we
 wish to treat them as values of a genus variable instead.</p>
@@ -1184,7 +1188,7 @@ Answer
 </div>
 </div>
 <div id="exporting-data-1" class="section level2">
-<h2><span class="header-section-number">4.5</span> Exporting data</h2>
+<h2><span class="header-section-number">6.5</span> Exporting data</h2>
 <p>Now that you have learned how to use <strong><code>dplyr</code></strong> to extract information from
 or summarize your raw data, you may want to export these new data sets to share
 them with your collaborators or for archival.</p>
@@ -1225,15 +1229,14 @@ typing <code>dim(surveys_complete)</code>.</p>
 <p>Now that our data set is ready, we can save it as a CSV file in our <code>data_output</code>
 folder.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_csv</span>(surveys_complete, <span class="dt">path =</span> <span class="st">&quot;data_output/surveys_complete.csv&quot;</span>)</code></pre>
-
 </div>
 </div>
 <p style="text-align: center;">
-<a href="starting-with-data.html"><button class="btn btn-default">Previous</button></a>
-<a href="data-visualization.html"><button class="btn btn-default">Next</button></a>
+<a href="additional-exercises-1.html"><button class="btn btn-default">Previous</button></a>
+<a href="additional-exercises-2.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-01-17
+2019-01-29
 </p>
 </div>
 </div>

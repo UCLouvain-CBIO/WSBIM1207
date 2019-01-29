@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:title" content="Chapter 5 Data visualization | Introduction to bioinformatics" />
+<meta property="og:title" content="Chapter 8 Data visualization | Introduction to bioinformatics" />
 <meta property="og:type" content="book" />
 
 
@@ -17,12 +17,12 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-01-17" />
+<meta name="date" content="2019-01-29" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
-<title>Chapter 5 Data visualization | Introduction to bioinformatics</title>
+<title>Chapter 8 Data visualization | Introduction to bioinformatics</title>
 
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
@@ -139,9 +139,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="index.html">Preamble</a>
 <a href="dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
 <a href="starting-with-r.html"><span class="toc-section-number">2</span> Starting with R</a>
-<a href="starting-with-data.html"><span class="toc-section-number">3</span> Starting with data</a>
-<a href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a>
-<a id="active-page" href="data-visualization.html"><span class="toc-section-number">5</span> Data visualization</a><ul class="toc-sections">
+<a href="additional-exercises.html"><span class="toc-section-number">3</span> Additional exercises</a>
+<a href="starting-with-data.html"><span class="toc-section-number">4</span> Starting with data</a>
+<a href="additional-exercises-1.html1"><span class="toc-section-number">5</span> Additional exercises</a>
+<a href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">6</span> Manipulating and analyzing data with dplyr</a>
+<a href="additional-exercises-2.html2"><span class="toc-section-number">7</span> Additional exercises</a>
+<a id="active-page" href="data-visualization.html"><span class="toc-section-number">8</span> Data visualization</a><ul class="toc-sections">
 <li class="toc"><a href="#plotting-with-ggplot2"> Plotting with <strong><code>ggplot2</code></strong></a></li>
 <li class="toc"><a href="#building-your-plots-iteratively"> Building your plots iteratively</a></li>
 <li class="toc"><a href="#boxplot"> Boxplot</a></li>
@@ -152,11 +155,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#arranging-and-exporting-plots"> Arranging and exporting plots</a></li>
 <li class="toc"><a href="#other-packages-for-visualisation"> Other packages for visualisation</a></li>
 </ul>
-<a href="joining-tables.html"><span class="toc-section-number">6</span> Joining tables</a>
-<a href="reproducible-research.html"><span class="toc-section-number">7</span> Reproducible research</a>
-<a href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a>
-<a href="additional-programming-concepts.html"><span class="toc-section-number">9</span> Additional programming concepts</a>
-<a href="conclusions.html"><span class="toc-section-number">10</span> Conclusions</a>
+<a href="additional-exercises-3.html3"><span class="toc-section-number">9</span> Additional exercises</a>
+<a href="joining-tables.html"><span class="toc-section-number">10</span> Joining tables</a>
+<a href="reproducible-research.html"><span class="toc-section-number">11</span> Reproducible research</a>
+<a href="sec-bioinfo.html"><span class="toc-section-number">12</span> Bioinformatics</a>
+<a href="additional-programming-concepts.html"><span class="toc-section-number">13</span> Additional programming concepts</a>
+<a href="conclusions.html"><span class="toc-section-number">14</span> Conclusions</a>
 <a href="session-information.html">Session information</a>
 </div>
 </li>
@@ -167,7 +171,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="row">
 <div class="col-sm-12">
 <div id="data-visualization" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> Data visualization</h1>
+<h1><span class="header-section-number">Chapter 8</span> Data visualization</h1>
 <p><strong>Learning Objectives</strong></p>
 <ul>
 <li>Produce scatter plots, boxplots, and time series plots using ggplot.</li>
@@ -182,7 +186,7 @@ in the <strong><code>tidyverse</code></strong> package.</p>
 <p>If not still in the workspace, load the data we saved in the previous lesson.</p>
 <pre class="sourceCode r"><code class="sourceCode r">surveys_complete &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data_output/surveys_complete.csv&quot;</span>)</code></pre>
 <div id="plotting-with-ggplot2" class="section level2">
-<h2><span class="header-section-number">5.1</span> Plotting with <strong><code>ggplot2</code></strong></h2>
+<h2><span class="header-section-number">8.1</span> Plotting with <strong><code>ggplot2</code></strong></h2>
 <p><strong><code>ggplot2</code></strong> is a plotting package that makes it simple to create complex plots
 from data in a data frame. It provides a more programmatic interface for
 specifying what variables to plot, how they are displayed, and general visual
@@ -272,7 +276,7 @@ with the hexagonal bin plot that you created.</li>
 </blockquote>
 </div>
 <div id="building-your-plots-iteratively" class="section level2">
-<h2><span class="header-section-number">5.2</span> Building your plots iteratively</h2>
+<h2><span class="header-section-number">8.2</span> Building your plots iteratively</h2>
 <p>Building plots with <strong><code>ggplot2</code></strong> is typically an iterative process. We start by
 defining the dataset we’ll use, lay out the axes, and choose a geom:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span>
@@ -317,7 +321,7 @@ Answer
 </blockquote>
 </div>
 <div id="boxplot" class="section level2">
-<h2><span class="header-section-number">5.3</span> Boxplot</h2>
+<h2><span class="header-section-number">8.3</span> Boxplot</h2>
 <p>We can use boxplots to visualize the distribution of weight within each species:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> species_id, <span class="dt">y =</span> weight)) <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_boxplot</span>()</code></pre>
@@ -360,7 +364,7 @@ the sample was taken (<code>plot_id</code>).</p></li>
 </blockquote>
 </div>
 <div id="plotting-time-series-data" class="section level2">
-<h2><span class="header-section-number">5.4</span> Plotting time series data</h2>
+<h2><span class="header-section-number">8.4</span> Plotting time series data</h2>
 <p>Let’s calculate number of counts per year for each species. First we need
 to group the data and count records within each group:</p>
 <pre class="sourceCode r"><code class="sourceCode r">yearly_counts &lt;-<span class="st"> </span>surveys_complete <span class="op">%&gt;%</span>
@@ -382,7 +386,7 @@ the aesthetic function to include <code>group = species_id</code>:</p>
 <p><img src="WSBIM1207_files/figure-html/time-series-with-colors-1.png" width="672"  /></p>
 </div>
 <div id="faceting" class="section level2">
-<h2><span class="header-section-number">5.5</span> Faceting</h2>
+<h2><span class="header-section-number">8.5</span> Faceting</h2>
 <p><strong><code>ggplot2</code></strong> has a special technique called <em>faceting</em> that allows the user to split one
 plot into multiple plots based on a factor included in the dataset. We will use it to
 make a time series plot for each species:</p>
@@ -411,7 +415,7 @@ the grid:</p>
 <p><img src="WSBIM1207_files/figure-html/facet-by-species-and-sex-white-bg-1.png" width="672"  /></p>
 </div>
 <div id="ggplot2-themes" class="section level2">
-<h2><span class="header-section-number">5.6</span> <strong><code>ggplot2</code></strong> themes</h2>
+<h2><span class="header-section-number">8.6</span> <strong><code>ggplot2</code></strong> themes</h2>
 <p>In addition to <code>theme_bw()</code>, which changes the plot background to white, <strong><code>ggplot2</code></strong>
 comes with several other themes which can be useful to quickly change the look
 of your visualization. The complete list of themes is available
@@ -468,7 +472,7 @@ yearly_sex_weight &lt;-<span class="st"> </span>surveys_complete <span class="op
 <p><img src="WSBIM1207_files/figure-html/average-weight-time-facet-sex-columns-1.png" width="672"  /></p>
 </div>
 <div id="customization" class="section level2">
-<h2><span class="header-section-number">5.7</span> Customization</h2>
+<h2><span class="header-section-number">8.7</span> Customization</h2>
 <p>Take a look at the <a href="https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf"><strong><code>ggplot2</code></strong> cheat sheet</a>, and
 think of ways you could improve the plot.</p>
 <p>Now, let’s change names of axes to something more informative than ‘year’
@@ -536,7 +540,7 @@ for inspiration. Here are some ideas:</p>
 </blockquote>
 </div>
 <div id="arranging-and-exporting-plots" class="section level2">
-<h2><span class="header-section-number">5.8</span> Arranging and exporting plots</h2>
+<h2><span class="header-section-number">8.8</span> Arranging and exporting plots</h2>
 <p>Faceting is a great tool for splitting one plot into multiple plots, but sometimes you may want to produce a single figure that contains multiple plots using different variables or even different data frames. The <strong><code>gridExtra</code></strong> package allows us to combine separate ggplots into a single figure using <code>grid.arrange()</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;gridExtra&quot;</span>)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gridExtra)
@@ -577,20 +581,19 @@ combo_plot &lt;-<span class="st"> </span><span class="kw">grid.arrange</span>(sp
 <p>Note: The parameters <code>width</code> and <code>height</code> also determine the font size in the saved plot.</p>
 </div>
 <div id="other-packages-for-visualisation" class="section level2">
-<h2><span class="header-section-number">5.9</span> Other packages for visualisation</h2>
+<h2><span class="header-section-number">8.9</span> Other packages for visualisation</h2>
 <ul>
 <li>base graphics</li>
 <li>lattice</li>
 </ul>
-
 </div>
 </div>
 <p style="text-align: center;">
-<a href="manipulating-and-analyzing-data-with-dplyr.html"><button class="btn btn-default">Previous</button></a>
-<a href="joining-tables.html"><button class="btn btn-default">Next</button></a>
+<a href="additional-exercises-2.html"><button class="btn btn-default">Previous</button></a>
+<a href="additional-exercises-3.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-01-17
+2019-01-29
 </p>
 </div>
 </div>

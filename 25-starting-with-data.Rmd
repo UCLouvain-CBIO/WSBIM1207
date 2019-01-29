@@ -747,3 +747,5 @@ l[[1]] ## first element
 l[1:2] ## a list of length 2
 l[1]   ## a list of length 1
 ```
+
+# Additional exercises

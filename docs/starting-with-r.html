@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-01-17" />
+<meta name="date" content="2019-01-29" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -149,14 +149,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#r-packages"> R packages</a></li>
 <li class="toc"><a href="#introduction-to-r"> Introduction to R</a></li>
 </ul>
-<a href="starting-with-data.html"><span class="toc-section-number">3</span> Starting with data</a>
-<a href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a>
-<a href="data-visualization.html"><span class="toc-section-number">5</span> Data visualization</a>
-<a href="joining-tables.html"><span class="toc-section-number">6</span> Joining tables</a>
-<a href="reproducible-research.html"><span class="toc-section-number">7</span> Reproducible research</a>
-<a href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a>
-<a href="additional-programming-concepts.html"><span class="toc-section-number">9</span> Additional programming concepts</a>
-<a href="conclusions.html"><span class="toc-section-number">10</span> Conclusions</a>
+<a href="additional-exercises.html"><span class="toc-section-number">3</span> Additional exercises</a>
+<a href="starting-with-data.html"><span class="toc-section-number">4</span> Starting with data</a>
+<a href="additional-exercises-1.html1"><span class="toc-section-number">5</span> Additional exercises</a>
+<a href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">6</span> Manipulating and analyzing data with dplyr</a>
+<a href="additional-exercises-2.html2"><span class="toc-section-number">7</span> Additional exercises</a>
+<a href="data-visualization.html"><span class="toc-section-number">8</span> Data visualization</a>
+<a href="additional-exercises-3.html3"><span class="toc-section-number">9</span> Additional exercises</a>
+<a href="joining-tables.html"><span class="toc-section-number">10</span> Joining tables</a>
+<a href="reproducible-research.html"><span class="toc-section-number">11</span> Reproducible research</a>
+<a href="sec-bioinfo.html"><span class="toc-section-number">12</span> Bioinformatics</a>
+<a href="additional-programming-concepts.html"><span class="toc-section-number">13</span> Additional programming concepts</a>
+<a href="conclusions.html"><span class="toc-section-number">14</span> Conclusions</a>
 <a href="session-information.html">Session information</a>
 </div>
 </li>
@@ -543,7 +547,7 @@ as it provides critical information about your platform, the versions of R and
 the packages that you are using, and other information that can be very helpful
 to understand your problem.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre>
-<pre><code>## R version 3.5.1 Patched (2018-11-02 r75540)
+<pre><code>## R version 3.5.2 Patched (2019-01-24 r76018)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Manjaro Linux
 ## 
@@ -566,8 +570,8 @@ to understand your problem.</p>
 ##  [1] Rcpp_1.0.0       bookdown_0.9     msmbstyle_0.0.3  png_0.1-7       
 ##  [5] digest_0.6.18    magrittr_1.5     evaluate_0.12    highr_0.7       
 ##  [9] stringi_1.2.4    rstudioapi_0.9.0 xml2_1.2.0       rmarkdown_1.11  
-## [13] tools_3.5.1      stringr_1.3.1    xfun_0.4         yaml_2.2.0      
-## [17] compiler_3.5.1   htmltools_0.3.6  knitr_1.21</code></pre>
+## [13] tools_3.5.2      stringr_1.3.1    xfun_0.4         yaml_2.2.0      
+## [17] compiler_3.5.2   htmltools_0.3.6  knitr_1.21</code></pre>
 </div>
 <div id="where-to-ask-for-help" class="section level3 unnumbered">
 <h3>Where to ask for help?</h3>
@@ -649,7 +653,7 @@ from the user <code>lgatto</code>’s github repository.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
 <span class="kw">library</span>(<span class="st">&quot;devtools&quot;</span>)
 <span class="kw">install_github</span>(<span class="st">&quot;lgatto/msmbstyle&quot;</span>)</code></pre>
-<p>In section <a href="sec-bioinfo.html#sec:bioconductor">8.3</a>, we will see how to install
+<p>In section <a href="sec-bioinfo.html#sec:bioconductor">12.3</a>, we will see how to install
 <a href="http://www.bioconductor.org">Bioconductor</a>, a project dedicated to
 bioinformatics and omics packages.</p>
 </div>
@@ -1203,16 +1207,15 @@ heights_no_na &lt;-<span class="st"> </span><span class="kw">na.omit</span>(heig
 <p>Now that we have learned how to write scripts, and the basics of R’s
 data structures, we are ready to start working with larger data, and
 learn about data frames.</p>
-
 </div>
 </div>
 </div>
 <p style="text-align: center;">
 <a href="dataorg.html"><button class="btn btn-default">Previous</button></a>
-<a href="starting-with-data.html"><button class="btn btn-default">Next</button></a>
+<a href="additional-exercises.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-01-17
+2019-01-29
 </p>
 </div>
 </div>
