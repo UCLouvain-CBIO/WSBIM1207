@@ -145,6 +145,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#what-are-dplyr-and-tidyr"> What are <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong>?</a></li>
 <li class="toc"><a href="#selecting-columns-and-filtering-rows"> Selecting columns and filtering rows</a></li>
 <li class="toc"><a href="#pipes"> Pipes</a></li>
+<li class="toc"><a href="#reshaping-with-gather-and-spread"> Reshaping with gather and spread</a></li>
 <li class="toc"><a href="#exporting-data-1"> Exporting data</a></li>
 <li class="toc"><a href="#additional-exercises-2"> Additional exercises</a></li>
 </ul>
@@ -898,8 +899,9 @@ number of observations (hint: see <code>?n</code>).</li>
 </div>
 </div>
 </div>
-<div id="reshaping-with-gather-and-spread" class="section level3">
-<h3><span class="header-section-number">4.4.3</span> Reshaping with gather and spread</h3>
+</div>
+<div id="reshaping-with-gather-and-spread" class="section level2">
+<h2><span class="header-section-number">4.5</span> Reshaping with gather and spread</h2>
 <p>In the spreadsheet lesson (chapter <a href="dataorg.html#dataorg">1</a>), we discussed how
 to structure our data leading to the four rules defining a tidy
 dataset:</p>
@@ -933,8 +935,8 @@ of recordings per date.</p>
 values of a variable.</p>
 <p>We can do both these of transformations with two <code>tidyr</code> functions,
 <code>spread()</code> and <code>gather()</code>.</p>
-<div id="spreading" class="section level4">
-<h4><span class="header-section-number">4.4.3.1</span> Spreading</h4>
+<div id="spreading" class="section level3">
+<h3><span class="header-section-number">4.5.1</span> Spreading</h3>
 <p><code>spread()</code> takes three principal arguments:</p>
 <ol style="list-style-type: decimal">
 <li>the data</li>
@@ -1016,8 +1018,8 @@ first.</p>
 ## # … with 4 more variables: Peromyscus &lt;dbl&gt;, Reithrodontomys &lt;dbl&gt;,
 ## #   Sigmodon &lt;dbl&gt;, Spermophilus &lt;dbl&gt;</code></pre>
 </div>
-<div id="gathering" class="section level4">
-<h4><span class="header-section-number">4.4.3.2</span> Gathering</h4>
+<div id="gathering" class="section level3">
+<h3><span class="header-section-number">4.5.2</span> Gathering</h3>
 <p>The opposing situation could occur if we had been provided with data in the
 form of <code>surveys_spread</code>, where the genus names are column names, but we
 wish to treat them as values of a genus variable instead.</p>
@@ -1063,16 +1065,26 @@ row, we don’t even need to list them all out - just use the <code>:</code> ope
 ## 4       4 Baiomys       NA   
 ## 5       5 Baiomys        7.75
 ## 6       6 Baiomys       NA</code></pre>
-<blockquote>
-<p><strong>Challenge</strong></p>
-<ol style="list-style-type: decimal">
-<li>Spread the <code>surveys</code> data frame with <code>year</code> as columns, <code>plot_id</code>
-as rows, and the
-number of genera per plot as the values. You will need to summarize before
-reshaping, and use the function <code>n_distinct()</code> to get the number of unique
-genera within a particular chunk of data. It’s a powerful function! See
-<code>?n_distinct</code> for more.</li>
-</ol>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Spread the <code>surveys</code> data frame with <code>year</code> as columns, <code>plot_id</code> as
+rows, and the number of genera per plot as the values. You will need
+to summarize before reshaping, and use the function <code>n_distinct()</code> to
+get the number of unique genera within a particular chunk of
+data. It’s a powerful function! See <code>?n_distinct</code> for more.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-18" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-18&#39;, &#39;sol-start-18&#39;)"></span>
+</p>
+<div id="sol-body-18" class="solution-body" style="display: none;">
 <div class="accordion">
 <h3 class="toc-ignore">
 Answer
@@ -1082,7 +1094,6 @@ Answer
 <span class="st">  </span><span class="kw">group_by</span>(plot_id, year) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n_genera =</span> <span class="kw">n_distinct</span>(genus)) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">spread</span>(year, n_genera)
-
 <span class="kw">head</span>(rich_time)</code></pre>
 <pre><code>## # A tibble: 6 x 27
 ## # Groups:   plot_id [6]
@@ -1100,10 +1111,28 @@ Answer
 ## #   `1999` &lt;int&gt;, `2000` &lt;int&gt;, `2001` &lt;int&gt;, `2002` &lt;int&gt;</code></pre>
 </div>
 </div>
-<ol start="2" style="list-style-type: decimal">
-<li>Now take that data frame and <code>gather()</code> it again, so each row is a unique
-<code>plot_id</code> by <code>year</code> combination.</li>
-</ol>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Now take that data frame and <code>gather()</code> it again, so each row is a
+unique <code>plot_id</code> by <code>year</code> combination.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-19" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-19&#39;, &#39;sol-start-19&#39;)"></span>
+</p>
+<div id="sol-body-19" class="solution-body" style="display: none;">
 <div class="accordion">
 <h3 class="toc-ignore">
 Answer
@@ -1128,32 +1157,79 @@ Answer
 ## # … with 614 more rows</code></pre>
 </div>
 </div>
-<ol start="3" style="list-style-type: decimal">
-<li>The <code>surveys</code> data set has
-two measurement columns: <code>hindfoot_length</code> and <code>weight</code>. This makes it
-difficult to do things like look at the relationship between mean values of
-each measurement per year in different plot types. Let’s walk through a
-common solution for this type of problem. First, use <code>gather()</code> to create a
-dataset where we have a key column called <code>measurement</code> and a
-<code>value</code> column that takes on the value of either <code>hindfoot_length</code> or
-<code>weight</code>. <em>Hint</em>: You’ll need to specify which columns are being gathered.</li>
-</ol>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>The <code>surveys</code> data set has two measurement columns: <code>hindfoot_length</code>
+and <code>weight</code>. This makes it difficult to do things like look at the
+relationship between mean values of each measurement per year in
+different plot types. Let’s walk through a common solution for this
+type of problem. First, use <code>gather()</code> to create a dataset where we
+have a key column called <code>measurement</code> and a <code>value</code> column that takes
+on the value of either <code>hindfoot_length</code> or <code>weight</code>.</p>
+<p><em>Hint</em>: You’ll need to specify which columns are being gathered.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-20" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-20&#39;, &#39;sol-start-20&#39;)"></span>
+</p>
+<div id="sol-body-20" class="solution-body" style="display: none;">
 <div class="accordion">
 <h3 class="toc-ignore">
 Answer
 </h3>
 <div style="background: #fff;">
 <pre class="sourceCode r"><code class="sourceCode r">surveys_long &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">gather</span>(measurement, value, hindfoot_length, weight)</code></pre>
+<span class="st">    </span><span class="kw">gather</span>(measurement, value, hindfoot_length, weight)
+<span class="kw">head</span>(surveys_long)</code></pre>
+<pre><code>## # A tibble: 6 x 13
+##   record_id month   day  year plot_id species_id sex   genus species taxa 
+##       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;
+## 1         1     7    16  1977       2 NL         M     Neot… albigu… Rode…
+## 2        72     8    19  1977       2 NL         M     Neot… albigu… Rode…
+## 3       224     9    13  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
+## 4       266    10    16  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
+## 5       349    11    12  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
+## 6       363    11    12  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
+## # … with 3 more variables: plot_type &lt;chr&gt;, measurement &lt;chr&gt;, value &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<ol start="4" style="list-style-type: decimal">
-<li>With this new data set, calculate the average of each
-<code>measurement</code> in each <code>year</code> for each different <code>plot_type</code>. Then
-<code>spread()</code> them into a data set with a column for <code>hindfoot_length</code> and
-<code>weight</code>. <em>Hint</em>: You only need to specify the key and value
-columns for <code>spread()</code>.</li>
-</ol>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>With this new data set, calculate the average of each <code>measurement</code> in
+each <code>year</code> for each different <code>plot_type</code>. Then <code>spread()</code> them into
+a data set with a column for <code>hindfoot_length</code> and <code>weight</code>.</p>
+<p><em>Hint</em>: You only need to specify the key and value columns for
+<code>spread()</code>.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-21" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-21&#39;, &#39;sol-start-21&#39;)"></span>
+</p>
+<div id="sol-body-21" class="solution-body" style="display: none;">
 <div class="accordion">
 <h3 class="toc-ignore">
 Answer
@@ -1180,12 +1256,15 @@ Answer
 ## # … with 120 more rows</code></pre>
 </div>
 </div>
-</blockquote>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
 </div>
 </div>
 </div>
 <div id="exporting-data-1" class="section level2">
-<h2><span class="header-section-number">4.5</span> Exporting data</h2>
+<h2><span class="header-section-number">4.6</span> Exporting data</h2>
 <p>Now that you have learned how to use <strong><code>dplyr</code></strong> to extract information from
 or summarize your raw data, you may want to export these new data sets to share
 them with your collaborators or for archival.</p>
@@ -1228,7 +1307,7 @@ folder.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_csv</span>(surveys_complete, <span class="dt">path =</span> <span class="st">&quot;data_output/surveys_complete.csv&quot;</span>)</code></pre>
 </div>
 <div id="additional-exercises-2" class="section level2">
-<h2><span class="header-section-number">4.6</span> Additional exercises</h2>
+<h2><span class="header-section-number">4.7</span> Additional exercises</h2>
 
 </div>
 </div>
