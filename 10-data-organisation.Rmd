@@ -605,7 +605,7 @@ are encoded, etc. that are important to document but can disrupt the
 formatting of your data file.
 
 Additionally, file or database level metadata describes how files that
-make up the dataset relate to each other; what format are they are in;
+make up the dataset relate to each other; what format are they in;
 and whether they supercede or are superceded by previous files. A
 folder-level readme.txt file is the classic way of accounting for all
 the files and folders in a project.
