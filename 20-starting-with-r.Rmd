@@ -3,6 +3,10 @@
 #second test
 # A enlever bien sur
 # last
+
+# Remove
+
+
 **Learning Objectives**
 
 - Describe the purpose of the RStudio Script, Console, Environment, and Plots
