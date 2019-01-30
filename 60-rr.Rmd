@@ -2,11 +2,60 @@
 
 For a general introduction on the topic in French, see @Pouzat:2015.
 
-## Working reproducibly
+Reproducible research refers to research that can be reproduced under
+various conditions and by different people. It applies to every area
+of research, both experimental and computational, but is often (but
+not always) easier to implement for computational work. The different
+levels of reproducibility can formalised[^rrblog] as follows:
 
-Possibly explain briefly the different types of preproducibility.
 
-Useful reference: @Markowetz:2015.
+[^rrblog]: The nomenclature is taken from [this blog post](https://lgatto.github.io/rr-what-should-be-our-goals/) that provides links and highlights that confusion that exists around the terms and concepts of reproducibility.
+
+- **Repeat** my experiment, i.e. obtain the same tables/graphs/results
+  using the same setup (data, software, ...) in the same lab or on the
+  same computer. That's basically re-running one of my analysis some
+  time after I original developed it.
+
+- **Reproduce** an experiment (not ones own), i.e. obtain the same
+  tables/graphs/results in a different lab or on a different computer,
+  using the same setup (the data would be downloaded from a public
+  repository and the same software, but possibly using a different
+  version, or a different operation system).
+
+- **Replicate** an experiment, i.e. obtain the same (similar enough)
+  tables/graphs/results in a different set up. The data could still be
+  downloaded from the public repository, or possibly
+  re-generated/re-simulated, and the analysis would be re-implemented
+  based on the original description.
+
+- Finally, **re-use** the information/knowledge from one experiment to
+  run a different experiment with the aim to **confirm** results from
+  scratch.
+
+The table below summerised these concepts focusing on data and code in
+computational projects.
+
+
+|                    | Same data | Different data |
+|--------------------|:---------:|:--------------:|
+| **Same code**      | Repeat    | Reproduce      |
+| **Different code** | Reproduce | Replicate      |
+
+
+There are many reasons to work reproducibly, and @Markowetz:2015
+nicely summarises 5 good reasons. Importantly, he stressed out that
+the first beneficiary of reproducible work are the student/research
+that apply these principles:
+
+1. Reproducibility helps to avoid disaster.
+2. Reproducibility makes it easier to write papers[^rrexam1].
+3. Reproducibility helps reviewers see it your way[^rrexam2].
+4. Reproducibility enables continuity of your work.
+5. Reproducibility helps to build your reputation.
+
+
+[^rrexam1]: And course reports! The exam of this course will consist in a reproducible report using the tools described below.
+[^rrexam2]: Not reviewers, also professors that read exams. See previous footnote.
 
 ## `knitr` and `rmarkdown`
 
@@ -80,3 +129,10 @@ DT::datatable(ip)
 
 
 ## Docker containers
+
+There are other tools for reproducible research, that aim to
+disseminate more than code and data. Docker containers for example
+enable to share the complete image of an operating system, including
+all system dependencies and software/data to repeat a complete
+analysis. These are useful tools, even though their aren't necessarily
+ideal, and beyond the aim of this course.
