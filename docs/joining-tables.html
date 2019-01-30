@@ -145,7 +145,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a id="active-page" href="joining-tables.html"><span class="toc-section-number">6</span> Joining tables</a><ul class="toc-sections">
 <li class="toc"><a href="#combining-tables"> Combining tables</a></li>
 <li class="toc"><a href="#different-types-of-joins"> Different types of joins</a></li>
-<li class="toc"><a href="#multipe-matches"> Multipe matches</a></li>
+<li class="toc"><a href="#multiple-matches"> Multiple matches</a></li>
 <li class="toc"><a href="#matching-across-multiple-keys"> Matching across multiple keys</a></li>
 <li class="toc"><a href="#merge-in-base-r"> Merge in base R</a></li>
 <li class="toc"><a href="#additional-exercises-4"> Additional exercises</a></li>
@@ -189,12 +189,12 @@ shown below.</p>
 <pre><code>## 
 ## This is &#39;rWSBIM1207&#39; version 0.1.0</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(jdf)</code></pre>
-<p>The example data is composed of pairs of tables (<code>tibbles</code> here). The
-first member of the pair contains protein
-<a href="https://www.uniprot.org/">UniProt</a><label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> UniProt is the protein information database. Its mission is to <em>provide the scientific community with a comprehensive, high-quality and freely accessible resource of protein sequence and functional information</em>.</span> unique accession number
-(<code>uniprot</code> variable), the most likely sub-cellular localisation of
-these respective proteins (<code>organelle</code> variable) as well as the
-proteins identifier (<code>entry</code>).</p>
+<p>The example data is composed of pairs of tables (we have tibbles here,
+but this would equally work with dataframes). The first member of the
+pair contains protein <a href="https://www.uniprot.org/">UniProt</a><label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> UniProt is the protein information database. Its mission is to <em>provide the scientific community with a comprehensive, high-quality and freely accessible resource of protein sequence and functional information</em>.</span> unique
+accession number (<code>uniprot</code> variable), the most likely sub-cellular
+localisation of these respective proteins (<code>organelle</code> variable) as
+well as the proteins identifier (<code>entry</code>).</p>
 <pre class="sourceCode r"><code class="sourceCode r">jdf1</code></pre>
 <pre><code>## # A tibble: 25 x 3
 ##    uniprot  organelle                             entry      
@@ -283,7 +283,7 @@ in the joined one.</p>
 </p>
 <div class="question-body">
 <p>Using the <code>full_join</code> function demonstrated above, join tables <code>jdf4</code>
-and <code>jdf5</code>. What has happend for observations <code>P02468</code> and <code>Q9JKF1</code>?</p>
+and <code>jdf5</code>. What has happened for observations <code>P02468</code> and <code>Q9JKF1</code>?</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -446,15 +446,15 @@ Figure 6.2: Outer joins match observations that appear in at least on table, fil
 </div>
 </div>
 </div>
-<div id="multipe-matches" class="section level2">
-<h2><span class="header-section-number">6.3</span> Multipe matches</h2>
+<div id="multiple-matches" class="section level2">
+<h2><span class="header-section-number">6.3</span> Multiple matches</h2>
 <p>Sometimes, keys aren’t unique. In the <code>jdf6</code> table below, we see that
 the accession number <code>Q99PL5</code> is repeated twice. According to this
 table, the ribosomial protein binding protein 1 localises in the
 <a href="https://en.wikipedia.org/wiki/Endoplasmic_reticulum">endoplasmic
 reticulum</a> (often
 abbreviated ER) and in the <a href="https://en.wikipedia.org/wiki/Golgi_apparatus">Golgi
-apparatus</a> (aften
+apparatus</a> (often
 abbreviated GA).</p>
 <pre class="sourceCode r"><code class="sourceCode r">jdf6</code></pre>
 <pre><code>## # A tibble: 5 x 4
@@ -508,7 +508,7 @@ between <code>jdf6</code> and <code>jdf7</code>, both having duplicated <code>Q9
 </p>
 <div id="sol-body-22" class="solution-body" style="display: none;">
 <p><code>jdf6</code> has two entries, one for each possible sub-cellular
-localisation of the protein. <code>jdf7</code> has also two entries, refering to
+localisation of the protein. <code>jdf7</code> has also two entries, referring to
 two different quantitative measurements (variable <code>measure</code>). When
 joining the duplicated keys, you get all possible combinations.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-160"></span>

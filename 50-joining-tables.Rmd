@@ -1,6 +1,5 @@
 # Joining tables
 
-
 In many real life situations, data are spread across multiple tables
 or spreadsheets. Usually this occurs because different types of
 information about a subject, e.g. a patient, are collected from
@@ -34,12 +33,12 @@ library("rWSBIM1207")
 data(jdf)
 ```
 
-The example data is composed of pairs of tables (`tibbles` here). The
-first member of the pair contains protein
-[UniProt](https://www.uniprot.org/)[^up] unique accession number
-(`uniprot` variable), the most likely sub-cellular localisation of
-these respective proteins (`organelle` variable) as well as the
-proteins identifier (`entry`).
+The example data is composed of pairs of tables (we have tibbles here,
+but this would equally work with dataframes). The first member of the
+pair contains protein [UniProt](https://www.uniprot.org/)[^up] unique
+accession number (`uniprot` variable), the most likely sub-cellular
+localisation of these respective proteins (`organelle` variable) as
+well as the proteins identifier (`entry`).
 
 [^up]: UniProt is the protein information database. Its mission is to *provide the scientific community with a comprehensive, high-quality and freely accessible resource of protein sequence and functional information*.
 
@@ -86,7 +85,7 @@ in the joined one.
 
 `r msmbstyle::question_begin()`
 Using the `full_join` function demonstrated above, join tables `jdf4`
-and `jdf5`. What has happend for observations `P02468` and `Q9JKF1`?
+and `jdf5`. What has happened for observations `P02468` and `Q9JKF1`?
 `r msmbstyle::question_end()`
 
 
@@ -156,7 +155,7 @@ inner_join(jdf4, jdf5)
 ```
 `r msmbstyle::solution_end()`
 
-## Multipe matches
+## Multiple matches
 
 Sometimes, keys aren't unique. In the `jdf6` table below, we see that
 the accession number `Q99PL5` is repeated twice. According to this
@@ -164,7 +163,7 @@ table, the ribosomial protein binding protein 1 localises in the
 [endoplasmic
 reticulum](https://en.wikipedia.org/wiki/Endoplasmic_reticulum) (often
 abbreviated ER) and in the [Golgi
-apparatus](https://en.wikipedia.org/wiki/Golgi_apparatus) (aften
+apparatus](https://en.wikipedia.org/wiki/Golgi_apparatus) (often
 abbreviated GA).
 
 ```{r jdf6}
@@ -194,7 +193,7 @@ Interpret the result of the inner join above, where both tables have duplicated 
 
 `r msmbstyle::solution_begin()`
 `jdf6` has two entries, one for each possible sub-cellular
-localisation of the protein. `jdf7` has also two entries, refering to
+localisation of the protein. `jdf7` has also two entries, referring to
 two different quantitative measurements (variable `measure`). When
 joining the duplicated keys, you get all possible combinations.
 
