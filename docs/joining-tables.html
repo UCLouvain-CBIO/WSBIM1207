@@ -145,7 +145,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a id="active-page" href="joining-tables.html"><span class="toc-section-number">6</span> Joining tables</a><ul class="toc-sections">
 <li class="toc"><a href="#combining-tables"> Combining tables</a></li>
 <li class="toc"><a href="#different-types-of-joins"> Different types of joins</a></li>
-<li class="toc"><a href="#duplicate-keys"> Duplicate keys</a></li>
+<li class="toc"><a href="#multipe-matches"> Multipe matches</a></li>
+<li class="toc"><a href="#matching-across-multiple-keys"> Matching across multiple keys</a></li>
 <li class="toc"><a href="#merge-in-base-r"> Merge in base R</a></li>
 <li class="toc"><a href="#additional-exercises-4"> Additional exercises</a></li>
 </ul>
@@ -445,11 +446,152 @@ Figure 6.2: Outer joins match observations that appear in at least on table, fil
 </div>
 </div>
 </div>
-<div id="duplicate-keys" class="section level2">
-<h2><span class="header-section-number">6.3</span> Duplicate keys</h2>
+<div id="multipe-matches" class="section level2">
+<h2><span class="header-section-number">6.3</span> Multipe matches</h2>
+<p>Sometimes, keys aren’t unique. In the <code>jdf6</code> table below, we see that
+the accession number <code>Q99PL5</code> is repeated twice. According to this
+table, the ribosomial protein binding protein 1 localises in the
+<a href="https://en.wikipedia.org/wiki/Endoplasmic_reticulum">endoplasmic
+reticulum</a> (often
+abbreviated ER) and in the <a href="https://en.wikipedia.org/wiki/Golgi_apparatus">Golgi
+apparatus</a> (aften
+abbreviated GA).</p>
+<pre class="sourceCode r"><code class="sourceCode r">jdf6</code></pre>
+<pre><code>## # A tibble: 5 x 4
+##   uniprot organelle             entry       isoform
+##   &lt;chr&gt;   &lt;chr&gt;                 &lt;chr&gt;         &lt;dbl&gt;
+## 1 P26039  Actin cytoskeleton    TLN1_MOUSE        1
+## 2 Q99PL5  Endoplasmic reticulum RRBP1_MOUSE       1
+## 3 Q99PL5  Golgi apparatus       RRBP1_MOUSE       2
+## 4 Q6PB66  Mitochondrion         LPPRC_MOUSE       1
+## 5 P11276  Extracellular matrix  FINC_MOUSE        1</code></pre>
+<p>If we now want to join <code>jdf6</code> and <code>jdf2</code>, the variables of the latter
+will be duplicated.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">inner_join</span>(jdf6, jdf2)</code></pre>
+<pre><code>## Joining, by = &quot;uniprot&quot;</code></pre>
+<pre><code>## # A tibble: 5 x 7
+##   uniprot organelle    entry  isoform gene_name description        organism
+##   &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;              &lt;chr&gt;   
+## 1 P26039  Actin cytos… TLN1_…       1 Tln1      Talin-1            Mmus    
+## 2 Q99PL5  Endoplasmic… RRBP1…       1 Rrbp1     Ribosome-binding … Mmus    
+## 3 Q99PL5  Golgi appar… RRBP1…       2 Rrbp1     Ribosome-binding … Mmus    
+## 4 Q6PB66  Mitochondri… LPPRC…       1 Lrpprc    Leucine-rich PPR … Mmus    
+## 5 P11276  Extracellul… FINC_…       1 Fn1       Fibronectin        Mmus</code></pre>
+<p>In the case above, repeating is useful, as it completes <code>jdf6</code> with
+correct information from <code>jdf2</code>. One needs however to be careful when
+duplicated keys exist in both tables. Below, we create an inner join
+between <code>jdf6</code> and <code>jdf7</code>, both having duplicated <code>Q99PL5</code> entries.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">inner_join</span>(jdf6, jdf7)</code></pre>
+<pre><code>## Joining, by = &quot;uniprot&quot;</code></pre>
+<pre><code>## # A tibble: 4 x 9
+##   uniprot organelle entry isoform gene_name description organism
+##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;   
+## 1 Q99PL5  Endoplas… RRBP…       1 Rrbp1     Ribosome-b… Mmus    
+## 2 Q99PL5  Endoplas… RRBP…       1 Rrbp1     Ribosome-b… Mmus    
+## 3 Q99PL5  Golgi ap… RRBP…       2 Rrbp1     Ribosome-b… Mmus    
+## 4 Q99PL5  Golgi ap… RRBP…       2 Rrbp1     Ribosome-b… Mmus    
+## # … with 2 more variables: isoform_num &lt;dbl&gt;, measure &lt;dbl&gt;</code></pre>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Interpret the result of the inner join above, where both tables have duplicated keys.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-22" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-22&#39;, &#39;sol-start-22&#39;)"></span>
+</p>
+<div id="sol-body-22" class="solution-body" style="display: none;">
+<p><code>jdf6</code> has two entries, one for each possible sub-cellular
+localisation of the protein. <code>jdf7</code> has also two entries, refering to
+two different quantitative measurements (variable <code>measure</code>). When
+joining the duplicated keys, you get all possible combinations.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-160"></span>
+<p class="caption marginnote shownote">
+Figure 6.3: Joins with duplicated keys in both tables, producing all possible combinations. Figure taken from <em>R for Data Science</em>.
+</p>
+<img src="figs/join-many-to-many.png" alt="Joins with duplicated keys in both tables, producing all possible combinations. Figure taken from *R for Data Science*." width="70%"  />
+</div>
+<p>In this case, we obtain wrong information: both proteins in the ER and
+in the GA both have value 102 and 3.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="matching-across-multiple-keys" class="section level2">
+<h2><span class="header-section-number">6.4</span> Matching across multiple keys</h2>
+<p>So far, we have matched tables using a single key (possibly with
+different names in the two tables). Sometimes, it is necessary to
+match tables using multiple keys. A typical example is when multiple
+variables are needed to discriminate different rows in a tables.</p>
+<p>Following up from the last example, we see that the duplicated UniProt
+accession numbers in the <code>jdf6</code> and <code>jdf7</code> tables refer to different
+<a href="https://en.wikipedia.org/wiki/Protein_isoform">isoforms</a> of the same
+RRBP1 gene. To uniquely identify isoforms, we need to consider two
+keys, namely the UniProt accession number (named <code>uniprot</code> in both
+tables) as well as the isoform number, called <code>isoform</code> and
+<code>isoform_num</code> respectively.</p>
+<p>Because the isoform status was encoded using different variable names
+(which is, of course a source of confusion), <code>jdf6</code> and <code>jdf7</code> are
+only automatically joined based on the shared <code>uniprot</code> key. Here, we
+need to join using both keys and need to explicitly name the variables
+used for the join.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">inner_join</span>(jdf6, jdf7, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;uniprot&quot;</span> =<span class="st"> &quot;uniprot&quot;</span>, <span class="st">&quot;isoform&quot;</span> =<span class="st"> &quot;isoform_num&quot;</span>))</code></pre>
+<pre><code>## # A tibble: 2 x 8
+##   uniprot organelle   entry isoform gene_name description  organism measure
+##   &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt;
+## 1 Q99PL5  Endoplasmi… RRBP…       1 Rrbp1     Ribosome-bi… Mmus         102
+## 2 Q99PL5  Golgi appa… RRBP…       2 Rrbp1     Ribosome-bi… Mmus           3</code></pre>
+<p>We now see that isoform 1 localised to the ER and has a measured value
+of 102, while isoform 2, that localised to the GA, has a measured
+value of 3.</p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Can you think of another way to merge tables <code>jdf6</code> and <code>jdf7</code> using
+the two keys?</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-23" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-23&#39;, &#39;sol-start-23&#39;)"></span>
+</p>
+<div id="sol-body-23" class="solution-body" style="display: none;">
+<p>Ideally, the isoform variables should be named identically in the two
+tables, which would enable and automatic join with the two
+keys. Below, we first fix the misnamed variable in <code>jdf7</code>. Instead of
+updating the variable name by checking its index manually, we grep it
+programmatically and store it in a new variable <code>i</code>. We can then join
+the two tables without having to specify the two keys explicitly.</p>
+<pre class="sourceCode r"><code class="sourceCode r">i &lt;-<span class="st"> </span><span class="kw">grep</span>(<span class="st">&quot;isoform&quot;</span>, <span class="kw">names</span>(jdf7))
+<span class="kw">names</span>(jdf7)[i] &lt;-<span class="st"> &quot;isoform&quot;</span>
+<span class="kw">inner_join</span>(jdf6, jdf7)</code></pre>
+<pre><code>## Joining, by = c(&quot;uniprot&quot;, &quot;isoform&quot;)</code></pre>
+<pre><code>## # A tibble: 2 x 8
+##   uniprot organelle   entry isoform gene_name description  organism measure
+##   &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt;
+## 1 Q99PL5  Endoplasmi… RRBP…       1 Rrbp1     Ribosome-bi… Mmus         102
+## 2 Q99PL5  Golgi appa… RRBP…       2 Rrbp1     Ribosome-bi… Mmus           3</code></pre>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 </div>
 <div id="merge-in-base-r" class="section level2">
-<h2><span class="header-section-number">6.4</span> Merge in base R</h2>
+<h2><span class="header-section-number">6.5</span> Merge in base R</h2>
 <p>Above, we have used several join functions from the <code>dplyr</code> package as
 they are convenient and easy to remember. The equivalent function in
 the <code>base</code> package, that is installed with R, is the <code>merge</code>
@@ -485,7 +627,7 @@ important to be aware of the other one, especially given the
 widespread usage of <code>merge</code> in many packages and in R itself.</p>
 </div>
 <div id="additional-exercises-4" class="section level2">
-<h2><span class="header-section-number">6.5</span> Additional exercises</h2>
+<h2><span class="header-section-number">6.6</span> Additional exercises</h2>
 <div class="question">
 <p class="question-begin">
 ► Question

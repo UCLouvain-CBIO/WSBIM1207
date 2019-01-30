@@ -156,11 +156,110 @@ inner_join(jdf4, jdf5)
 ```
 `r msmbstyle::solution_end()`
 
-## Matching across multiple keys
-
 ## Multipe matches
 
-Duplicate keys
+Sometimes, keys aren't unique. In the `jdf6` table below, we see that
+the accession number `Q99PL5` is repeated twice. According to this
+table, the ribosomial protein binding protein 1 localises in the
+[endoplasmic
+reticulum](https://en.wikipedia.org/wiki/Endoplasmic_reticulum) (often
+abbreviated ER) and in the [Golgi
+apparatus](https://en.wikipedia.org/wiki/Golgi_apparatus) (aften
+abbreviated GA).
+
+```{r jdf6}
+jdf6
+```
+
+If we now want to join `jdf6` and `jdf2`, the variables of the latter
+will be duplicated.
+
+```{r multexple}
+inner_join(jdf6, jdf2)
+```
+
+In the case above, repeating is useful, as it completes `jdf6` with
+correct information from `jdf2`. One needs however to be careful when
+duplicated keys exist in both tables. Below, we create an inner join
+between `jdf6` and `jdf7`, both having duplicated `Q99PL5` entries.
+
+```{r multproblem}
+inner_join(jdf6, jdf7)
+```
+
+`r msmbstyle::question_begin()`
+Interpret the result of the inner join above, where both tables have duplicated keys.
+`r msmbstyle::question_end()`
+
+
+`r msmbstyle::solution_begin()`
+`jdf6` has two entries, one for each possible sub-cellular
+localisation of the protein. `jdf7` has also two entries, refering to
+two different quantitative measurements (variable `measure`). When
+joining the duplicated keys, you get all possible combinations.
+
+```{r, results='markup', fig.cap="Joins with duplicated keys in both tables, producing all possible combinations. Figure taken from *R for Data Science*.", echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
+knitr::include_graphics("./figs/join-many-to-many.png")
+```
+
+In this case, we obtain wrong information: both proteins in the ER and
+in the GA both have value 102 and 3.
+`r msmbstyle::solution_end()`
+
+
+## Matching across multiple keys
+
+So far, we have matched tables using a single key (possibly with
+different names in the two tables). Sometimes, it is necessary to
+match tables using multiple keys. A typical example is when multiple
+variables are needed to discriminate different rows in a tables.
+
+Following up from the last example, we see that the duplicated UniProt
+accession numbers in the `jdf6` and `jdf7` tables refer to different
+[isoforms](https://en.wikipedia.org/wiki/Protein_isoform) of the same
+RRBP1 gene. To uniquely identify isoforms, we need to consider two
+keys, namely the UniProt accession number (named `uniprot` in both
+tables) as well as the isoform number, called `isoform` and
+`isoform_num` respectively.
+
+Because the isoform status was encoded using different variable names
+(which is, of course a source of confusion), `jdf6` and `jdf7` are
+only automatically joined based on the shared `uniprot` key. Here, we
+need to join using both keys and need to explicitly name the variables
+used for the join.
+
+
+```{r morekeys}
+inner_join(jdf6, jdf7, by = c("uniprot" = "uniprot", "isoform" = "isoform_num"))
+```
+
+We now see that isoform 1 localised to the ER and has a measured value
+of 102, while isoform 2, that localised to the GA, has a measured
+value of 3.
+
+
+`r msmbstyle::question_begin()`
+Can you think of another way to merge tables `jdf6` and `jdf7` using
+the two keys?
+`r msmbstyle::question_end()`
+
+
+`r msmbstyle::solution_begin()`
+Ideally, the isoform variables should be named identically in the two
+tables, which would enable and automatic join with the two
+keys. Below, we first fix the misnamed variable in `jdf7`. Instead of
+updating the variable name by checking its index manually, we grep it
+programmatically and store it in a new variable `i`. We can then join
+the two tables without having to specify the two keys explicitly.
+
+```{r morekeysex}
+i <- grep("isoform", names(jdf7))
+names(jdf7)[i] <- "isoform"
+inner_join(jdf6, jdf7)
+```
+
+
+`r msmbstyle::solution_end()`
 
 
 ## Merge in base R
