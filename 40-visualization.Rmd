@@ -1,6 +1,6 @@
 # Data visualization
 test2
-
+ok
 ```{r vis_setup, echo=FALSE, purl=FALSE}
 surveys_complete <- read_csv(file = "data_output/surveys_complete.csv",
                              col_types = cols())
