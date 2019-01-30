@@ -1,5 +1,5 @@
 # Manipulating and analyzing data with dplyr
-
+test2
 
 ```{r dplyrsetup, echo=FALSE, purl=FALSE, message=FALSE}
 if (!file.exists("data/surveys.csv"))
