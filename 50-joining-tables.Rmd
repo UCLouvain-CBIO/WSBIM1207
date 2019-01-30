@@ -1,3 +1,194 @@
 # Joining tables
 
-A chapter about table joins. See https://r4ds.had.co.nz/relational-data.html#understanding-joins.
+
+In many real life situations, data are spread across multiple tables
+or spreadsheets. Usually this occurs because different types of
+information about a subject, e.g. a patient, are collected from
+different sources. It may be desirable for some analyses to combine
+data from two or more tables into a single data frame based on a
+common column, for example, an attribute that uniquely identifies the
+subject.
+
+The `dplyr` package, that we have already used extensively, provides a
+set of join functions for combining two data frames based on matches
+within specified columns.
+
+For further reading, please refer to the chapter about [table
+joins](https://r4ds.had.co.nz/relational-data.html#understanding-joins)
+in @r4ds:2017.
+
+```{r cleanup, echo = FALSE}
+rm(list = ls())
+```
+
+## Combining tables
+
+We are going to illustrate join using a common example from the
+bioinformatics world, where annotations about genes are scattered in
+different tables that have one or more shared columns. The data we are
+going to use are available in the course package and can be loaded as
+shown below.
+
+```{r joindata}
+library("rWSBIM1207")
+data(jdf)
+```
+
+The example data is composed of pairs of tables (`tibbles` here). The
+first member of the pair contains protein
+[UniProt](https://www.uniprot.org/)[^up] unique accession number
+(`uniprot` variable), the most likely sub-cellular localisation of
+these respective proteins (`organelle` variable) as well as the
+proteins identifier (`entry`).
+
+[^up]: UniProt is the protein information database. Its mission is to *provide the scientific community with a comprehensive, high-quality and freely accessible resource of protein sequence and functional information*.
+
+```{r jdf1}
+jdf1
+```
+
+The second table contains the name of the gene that codes for the
+protein (`gene_name` variable), a description of the gene
+(`description` variable), the uniprot accession number (this is the
+common variable that can be used to join tables) and the species the
+protein information comes from (`organism` variable).
+
+```{r jdf2}
+jdf2
+```
+
+We now want to join these two tables into a single one containing all
+variables. We are going to use `dplyr`'s `full_join` function to do
+so, that finds the common variable (in this case `uniprot`) to match
+observations from the first and second table.
+
+```{r join1}
+full_join(jdf1, jdf2)
+```
+
+In the examples above, each observation of the `jdf1` and `jdf2`
+tables are uniquely identified by their UniProt accession number. Such
+variables are called **keys**. Keys are used to match observations
+across different tables.
+
+In case none of the variable names match, those to be used can be set
+manually using the `by` argument, as shown below with the `jdf1` (as
+above) and `jdf3` tables, where the UniProt accession number is
+encoded using a different capitalisation.
+
+```{r joinby}
+names(jdf3)
+full_join(jdf1, jdf3, by = c("uniprot" = "UniProt"))
+```
+
+As can be seen above, the variable name of the first table is retained
+in the joined one.
+
+`r msmbstyle::question_begin()`
+Using the `full_join` function demonstrated above, join tables `jdf4`
+and `jdf5`. What has happend for observations `P02468` and `Q9JKF1`?
+`r msmbstyle::question_end()`
+
+
+`r msmbstyle::solution_begin()`
+```{r joinex1}
+full_join(jdf4, jdf5)
+```
+
+`P02468` and `Q9JKF1` are only present in `jdf4` and `jdf5`
+respectively, and their respective values for the variables of the
+table have been encoded as missing.
+
+`r msmbstyle::solution_end()`
+
+## Different types of joins
+
+Above, we have used the `full_join` function, that fully joins two
+tables and keeps all observations, adding missing values if
+necessary. Sometimes, we want to be selective, and keep observations
+that are present in only one or both tables.
+
+- An **inner join** keeps observations that are present in both
+  tables.
+
+```{r, results='markup', fig.cap="An inner join matches pairs of observation matching in both tables, this dropping those that are unique to one table. Figure taken from *R for Data Science*.", echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
+knitr::include_graphics("./figs/join-inner.png")
+```
+
+- A **left join** keeps observations that are present in the left
+  (first) table, dropping those that are only present in the other.
+- A **right join** keeps observations that are present in the right
+  (second) table, dropping those that are only present in the other.
+- A **full join** keeps all observations.
+
+
+```{r, results='markup', fig.cap="Outer joins match observations that appear in at least on table, filling up missing values with `NA` values. Figure taken from *R for Data Science*.", echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
+knitr::include_graphics("./figs/join-outer.png")
+```
+
+`r msmbstyle::question_begin()`
+Join tables `jdf4` and `jdf5`, keeping only observations in `jdf4`.
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+```{r leftjoinex1}
+left_join(jdf4, jdf5)
+```
+`r msmbstyle::solution_end()`
+
+`r msmbstyle::question_begin()`
+Join tables `jdf4` and `jdf5`, keeping only observations in `jdf5`.
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+```{r rightjoinex1}
+right_join(jdf4, jdf5)
+```
+`r msmbstyle::solution_end()`
+
+`r msmbstyle::question_begin()`
+Join tables `jdf4` and `jdf5`, keeping observations observed in both tables.
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+```{r innerjoinex1}
+inner_join(jdf4, jdf5)
+```
+`r msmbstyle::solution_end()`
+
+## Matching across multiple keys
+
+## Multipe matches
+
+Duplicate keys
+
+
+## Merge in base R
+
+Above, we have used several join functions from the `dplyr` package as
+they are convenient and easy to remember. The equivalent function in
+the `base` package, that is installed with R, is the `merge`
+function. The table below shows how these are related:
+
+| dplyr              | merge                                     |
+|--------------------|-------------------------------------------|
+| `inner_join(x, y)` | `merge(x, y)`                             |
+| `left_join(x, y)`  | `merge(x, y, all.x = TRUE)`               |
+| `right_join(x, y)` | `merge(x, y, all.y = TRUE),`              |
+| `full_join(x, y)`  | `merge(x, y, all.x = TRUE, all.y = TRUE)` |
+
+
+Even if you decide to stick with one of these alternatives, it is
+important to be aware of the other one, especially given the
+widespread usage of `merge` in many packages and in R itself.
+
+
+## Additional exercises
+
+
+`r msmbstyle::question_begin()`
+
+Using the `jdf4` and `jdf5` tables, emulate the left, right and inner
+joins using a the full join and filter functions.
+
+`r msmbstyle::question_end()`

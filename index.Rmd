@@ -149,7 +149,7 @@ data science with R*, is based on the [**Data Carpentry** Ecology
 curiculum](https://datacarpentry.org/lessons/#ecology-workshop).
 
 General references for this course are *R for Data Science*
-[@r4ds:2015] and *Bioinformatics Data Skills* [@Buffalo:2015].
+[@r4ds:2017] and *Bioinformatics Data Skills* [@Buffalo:2015].
 
 ## About this course material {-}
 
