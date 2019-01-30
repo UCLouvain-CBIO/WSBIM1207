@@ -1,6 +1,8 @@
 # Starting with R
 #test
 #second test
+# A enlever bien sur
+
 **Learning Objectives**
 
 - Describe the purpose of the RStudio Script, Console, Environment, and Plots
