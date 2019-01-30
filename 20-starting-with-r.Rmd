@@ -1,5 +1,4 @@
 # Starting with R
-
 # OK ?
 
 **Learning Objectives**
