@@ -1,6 +1,6 @@
 # Starting with R
 # OK ?
-
+# Enfin ?
 **Learning Objectives**
 
 - Describe the purpose of the RStudio Script, Console, Environment, and Plots
