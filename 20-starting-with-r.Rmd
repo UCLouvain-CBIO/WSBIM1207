@@ -1,7 +1,12 @@
 # Starting with R
 
 # Valider ?
+<<<<<<< HEAD
 # Oups
+=======
+# ?
+# OK
+>>>>>>> 837899846bc9d626e6853d2e74a66d52e5eddd87
 
 **Learning Objectives**
 
