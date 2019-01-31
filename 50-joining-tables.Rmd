@@ -1,5 +1,15 @@
 # Joining tables
 
+**Learning Objectives**
+
+At the end of this section, students should understand
+
+* the need and concept of table joins,
+* different between different types of joins,
+* the importance of keys in joins,
+* circumstances leading to the appearance of missing values,
+* the implications of using non-unique keys.
+
 In many real life situations, data are spread across multiple tables
 or spreadsheets. Usually this occurs because different types of
 information about a subject, e.g. a patient, are collected from
