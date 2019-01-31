@@ -33,6 +33,15 @@ data.
 
 ## Iteration
 
+Iteration describes the situtation when an specific action has to be
+repeated many times on different inputs of the same type. For example,
+if we have a vector of numeric `x` shown below,
+
+```{r}
+(x <- 1:10)
+```
+
+
 `for` loops and `apply` functions.
 
 Example: iteration over files.
