@@ -66,9 +66,6 @@ have likely not yet been exposed to bioinformatics
 
 > What is bioinformatics?
 
-[^qst]: The same question will be asked at the very end of the
-course. It will be interesting to assess how the students'
-appreciation of data science and bioinformatics has evolved.
 
 While [Wikipedia
 defines](https://en.wikipedia.org/wiki/Bioinformatics) it as
@@ -76,9 +73,11 @@ defines](https://en.wikipedia.org/wiki/Bioinformatics) it as
 > Bioinformatics is an interdisciplinary field that develops methods
   and software tools for understanding biological data.
 
-this course will focus on the doing, rather than on knowing
-definitions. Hence, the material and how it is taught will be focused
-on practice.
+this course won't try to answer that question by providing an overview
+of the many context where methods and software tools are developed in
+the frame of biological data. We will focus on the getting hands-on
+experience in data manipulation. Hence, the material and how it is
+taught will be focused on practice.
 
 ## Motivation {-}
 
@@ -102,12 +101,11 @@ This first course will focus on the data skills. It will not teach to
 use any specific piece of bioinformatics software. Once one has
 identified a relevant piece of software, running it shouldn't be a
 major problem[^runningsw]. The important part will be to understand
-what it does, why it does it and how to assess if the output one's
-data can be trusted. The latter requires to explore and understand the
-data and the results, i.e. data skills. As described by @Buffalo:2015,
-equating learning a piece of bioinformatics software to learning
-bioinformatics is like learning pipetting as a means to learn
-molecular biology.
+what it does, why it does it and how to assess if the output can be
+trusted. The latter requires to explore and understand the data and
+the results, i.e. data skills. As described by @Buffalo:2015, equating
+learning a piece of bioinformatics software to learning bioinformatics
+is like learning pipetting as a means to learn molecular biology.
 
 [^runningsw]: Although, in all fairness, some bioinformatics software
 are notoriously difficult to install and run.
@@ -117,12 +115,23 @@ bioinformatics and data analysis doesn't escape that rule. Teaching
 critical thinking is however very difficult, and arguably impossible
 without first possessing the skills and master the tools to be
 critical about data. Rather than teaching a limited set of software
-tools, this course aims at teaching a set of skills and methodologies
-that allow to interrogate and visualise data, and hence be in a
-position to be critical with respect to ones data. In addition, while
-specific software become obsolete and are replaced, or are specific to
-one specific field of research, critical investigation of data will
-always be required and will never be replaced.
+tools, this course aims at teaching a set of hands-on skills and
+methodologies that allow to interrogate and visualise data, and hence
+be in a position to be critical with respect to new data. In addition,
+while specific software become obsolete and are replaced, or are
+specific to one specific field of research, critical investigation of
+data will always be required and will never be replaced.
+
+We will be using the [R](https://www.R-project.org/) language and
+environment [@R] and the [RStudio integrated development
+environment](https://www.rstudio.com/products/RStudio/) to acquire
+these data skills. Other interactive language such as
+[Python](https://www.R-project.org/) and the interactive [jupyer
+notebooks](https://jupyter.org/) would also have been a good fit. One
+motivation of this choice is the availability of numerous
+R/[Bionductor] packages [@Huber:2015] for the analysis of high
+throughput biology data.
+
 
 Another reason why the focus of the course ought to be on data skills
 is that an essential difficulty in modern, multidisciplinary research
@@ -201,4 +210,4 @@ bookdown::render_book(".")
 
 This material is licensed under the [Creative Commons
 Attribution-ShareAlike 4.0
-License](https://creativecommons.org/licenses/by-sa/4.0/)/
+License](https://creativecommons.org/licenses/by-sa/4.0/).
