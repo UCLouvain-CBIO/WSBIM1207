@@ -1,5 +1,14 @@
 # Reproducible research
 
+**Learning Objectives**
+
+- Understand the concept of reproducible research and reproducible
+  documents.
+- Undertand the process by which a source document in compiled into a
+  final report.
+- Generate a reproducible report in html or pdf from an Rmarkdown
+  document using RStudio.
+
 For a general introduction on the topic in French, see @Pouzat:2015.
 
 Reproducible research refers to research that can be reproduced under
