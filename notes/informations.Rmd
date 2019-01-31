@@ -6,7 +6,7 @@ output: html_document
 ## Information générales
 
 - [Descriptif du cours](https://uclouvain.be/cours-2018-wsbim1207.html)
-- Titulaire: Laurent Gatto
+- Titulaire: Prof Laurent Gatto
 - Assistants: M. Kevin Missault et Dr. Axelle Loriot
 - Notes de cours: http://bit.ly/WSBIM1207
 - Informations aux étudiants (ce document): http://bit.ly/WSBIM1207info
@@ -17,13 +17,20 @@ output: html_document
   forum
   [moodle](https://moodleucl.uclouvain.be/course/view.php?id=12167). Toute
   question posée par email sera transférée sur moodle et la réponse y
-  sera aussi apportée de telle manière à ce que tous les étudiants
-  profitent de la réponse. Les étudiants sont par ailleurs invités a
-  répondre aux questions de leurs collègues. **N'oubliez pas de vous
+  sera apportée de telle manière à ce que tous les étudiants profitent
+  de la réponse. Les étudiants sont par ailleurs invités a répondre
+  aux questions de leurs collègues. **N'oubliez pas de vous
   inscrire!**
 
 - Les notes de cours sont en anglais, mais le cours se donnera en
   français.
+
+- Le cours sera mis à jour regulièrement en pour répondre aux
+  questions et commentaires abordés durent le cours.
+
+- I est fortement conseillé de participer activement durant les cours,
+  et de faire les exercices aussi bien pendant le cours que ceux
+  proposés comme travail à domicile.
 
 - La **présence des étudiants à l'ensemble des cours (volumes 1 et 2)
   est obligatoire**. Les présences seront comptabilisées. **N'oubliez
@@ -31,10 +38,6 @@ output: html_document
 
 - En case de trois absences non justifiées, l'étudiant(e) pourra se
   voir refuser la participation à l'examen de fin de cours.
-
-- I est fortement conseillé de participer activement durant les cours,
-  et de faire les exercices aussi bien pendant le cours que ceux
-  proposés comme travail à domicile.
 
 - I est fort probable qu'il y ait des interrogations cotées en début
   de certaines sessions. Le meilleur moyen de vous y préparer et de
@@ -44,17 +47,20 @@ output: html_document
 
 ## Horaire
 
-| Jour              | Début | Fin   |
-|-------------------|-------|-------|
-| Jeudi  07/02/2019 | 08h30 | 12h30 |
-| Jeudi  14/02/2019 | 08h30 | 12h30 |
-| Jeudi  21/02/2019 | 08h30 | 12h30 |
-| Jeudi  28/02/2019 | 08h30 | 12h30 |
-| Jeudi  07/03/2019 | 08h30 | 12h30 |
-| Jeudi  14/03/2019 | 08h30 | 12h30 |
-| Jeudi  21/03/2019 | 08h30 | 12h30 |
-| Jeudi  28/03/2019 | 08h30 | 12h30 |
-| Jeudi  04/04/2019 | 08h30 | 12h30 |
+|   | Jour              | Horaire       | Matière                                         |
+|---|-------------------|---------------|-------------------------------------------------|
+| 1 | Jeudi  07/02/2019 | 08h30 - 12h30 | Intro et tableurs                               |
+| 2 | Jeudi  14/02/2019 | 08h30 - 12h30 | Introduction à R/RStudio et `data.frames`       |
+| 3 | Jeudi  21/02/2019 | 08h30 - 12h30 | Analyses de données                             |
+| 4 | Jeudi  28/02/2019 | 08h30 - 12h30 | Analyses de données (suite)                     |
+| 5 | Jeudi  07/03/2019 | 08h30 - 12h30 | Visualisation de données                        |
+| 6 | Jeudi  14/03/2019 | 08h30 - 12h30 | Jointures et exercices supplémentaires          |
+| 7 | Jeudi  21/03/2019 | 08h30 - 12h30 | Recherche reproductible et bioinformatique      |
+| 8 | Jeudi  28/03/2019 | 08h30 - 12h30 | Eléments de programmation                       |
+| 9 | Jeudi  04/04/2019 | 08h30 - 12h30 | Exercices supplémentaires et questions/réponses |
+
+NB: la matière reprises ci-dessus est à titre indicatif uniquement, et
+sera adaptée en fonction de l'avancée en cours.
 
 ## Examen
 
