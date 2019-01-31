@@ -1,8 +1,31 @@
 # Additional programming concepts
 
-More advanced data analyses techniques require some additional
-programming kills, that will be introdcuced in this section, and
-demonstrate using high troughput omics data.
+**Learning Objectives**
+
+Learn programming concepts, including
+
+- how to handle conditions
+- iterate of data structures
+- good coding practice
+- code re-use through functions
+
+When the size and the complexity of the data increases, or the data
+science question of interest becomes more complex, the data analysis
+techniques as we have seen them so far need to be complemented with
+programming techniques. From a data science point of view, there is no
+clear delimitation between data analysis and (data) programming, both
+morphing into each other[^dataprog].
+
+[^dataprog]: A fundamental difference however is how data analysis and
+    programming are taught. When it comes to researchers, and
+    biomedical researchers in particular, teaching programming to
+    analyse data isn't successful. Teaching data analysis to
+    eventually programme with data, however, has proven a successful
+    strategy.
+
+This chapter will introduce some additional programming skills and
+demonstrate how to use them in the context of high troughput omics
+data.
 
 ## Conditionals
 
