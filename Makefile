@@ -5,6 +5,6 @@ all:
 book:
 	R -e 'bookdown::render_book(".", output_dir = "docs")'
 
-./docs/informations.html: informations.md
-	R -e 'rmarkdown::render("informations.md", output_format = rmarkdown::html_document())'
+./docs/informations.html: informations.Rmd
+	R -e 'rmarkdown::render("informations.Rmd")'
 	mv informations.html docs/.

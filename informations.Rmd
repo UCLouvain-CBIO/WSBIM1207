@@ -1,0 +1,78 @@
+---
+title: "Informations WSBIM1207 2018 - 2019"
+output: html_document
+---
+
+## Information générales
+
+- [Descriptif du cours](https://uclouvain.be/cours-2018-wsbim1207.html)
+- Titulaire: Laurent Gatto
+- Assistants: M. Kevin Missault et Dr. Axelle Loriot
+- Notes de cours: http://bit.ly/WSBIM1207
+- Informations aux étudiants (ce document): http://bit.ly/WSBIM1207info
+
+----
+
+- Pour toutes **questions concernant le cours**, veuillez utiliser le
+  forum
+  [moodle](https://moodleucl.uclouvain.be/course/view.php?id=12167). Toute
+  question posée par email sera transférée sur moodle et la réponse y
+  sera aussi apportée de telle manière à ce que tous les étudiants
+  profitent de la réponse. Les étudiants sont par ailleurs invités a
+  répondre aux questions de leurs collègues. **N'oubliez pas de vous
+  inscrire!**
+
+- Les notes de cours sont en anglais, mais le cours se donnera en
+  français.
+
+- La **présence des étudiants à l'ensemble des cours (volumes 1 et 2)
+  est obligatoire**. Les présences seront comptabilisées. **N'oubliez
+  pas de signer en début de chaque cours!**
+
+- En case de trois absences non justifiées, l'étudiant(e) pourra se
+  voir refuser la participation à l'examen de fin de cours.
+
+- I est fortement conseillé de participer activement durant les cours,
+  et de faire les exercices aussi bien pendant le cours que ceux
+  proposés comme travail à domicile.
+
+- I est fort probable qu'il y ait des interrogations cotées en début
+  de certaines sessions. Le meilleur moyen de vous y préparer et de
+  faire et comprendre les exercises en cours et à domicile.
+
+- Nous ferons une pause d'environ 30 minutes de 10h15 à 10h45.
+
+## Horaire
+
+| Jour              | Début | Fin   |
+|-------------------|-------|-------|
+| Jeudi  07/02/2019 | 08h30 | 12h30 |
+| Jeudi  14/02/2019 | 08h30 | 12h30 |
+| Jeudi  21/02/2019 | 08h30 | 12h30 |
+| Jeudi  28/02/2019 | 08h30 | 12h30 |
+| Jeudi  07/03/2019 | 08h30 | 12h30 |
+| Jeudi  14/03/2019 | 08h30 | 12h30 |
+| Jeudi  21/03/2019 | 08h30 | 12h30 |
+| Jeudi  28/03/2019 | 08h30 | 12h30 |
+| Jeudi  04/04/2019 | 08h30 | 12h30 |
+
+## Examen
+
+- L'examen consistera en la préparation, sur ordinateur, de [rapport
+  reproductible en
+  Rmarkdown](https://uclouvain-cbio.github.io/WSBIM1207/reproducible-research.html),
+  que vous nous rendrez en fin d'examen. Nous le compilerons nous
+  mêmes en format pdf, et ce fichier que nous corrigerons.
+
+- Le nombre de pages de rapport sera limité. Assurez-vous de ne pas la
+  dépasser.
+
+- L'examen sera a livre ouvert - vous aurez accès à la dernière mise à
+  jour des notes de cours.
+
+- Les questions d'examen seront en français et vos réponses seront
+  aussi en français.
+
+----
+
+Dernière mise à jour: `r date()`
