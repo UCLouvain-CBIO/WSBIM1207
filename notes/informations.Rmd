@@ -28,7 +28,7 @@ output: html_document
 - Le cours sera mis à jour regulièrement en pour répondre aux
   questions et commentaires abordés durent le cours.
 
-- I est fortement conseillé de participer activement durant les cours,
+- Il est fortement conseillé de participer activement durant les cours,
   et de faire les exercices aussi bien pendant le cours que ceux
   proposés comme travail à domicile.
 
