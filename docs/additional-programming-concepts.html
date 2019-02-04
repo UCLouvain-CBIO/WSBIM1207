@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-01-31" />
+<meta name="date" content="2019-02-04" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -146,10 +146,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="reproducible-research.html"><span class="toc-section-number">7</span> Reproducible research</a>
 <a href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a>
 <a id="active-page" href="additional-programming-concepts.html"><span class="toc-section-number">9</span> Additional programming concepts</a><ul class="toc-sections">
-<li class="toc"><a href="#conditionals"> Conditionals</a></li>
-<li class="toc"><a href="#iteration"> Iteration</a></li>
 <li class="toc"><a href="#writing-clean-code"> Writing clean code</a></li>
 <li class="toc"><a href="#writing-new-functions"> Writing new functions</a></li>
+<li class="toc"><a href="#conditionals"> Conditionals</a></li>
+<li class="toc"><a href="#iteration"> Iteration</a></li>
 </ul>
 <a href="conclusions.html"><span class="toc-section-number">10</span> Conclusions</a>
 <a href="session-information.html">Session information</a>
@@ -185,29 +185,14 @@ strategy.</span>.</p>
 <p>This chapter will introduce some additional programming skills and
 demonstrate how to use them in the context of high troughput omics
 data.</p>
-<div id="conditionals" class="section level2">
-<h2><span class="header-section-number">9.1</span> Conditionals</h2>
-<p><code>if</code> and <code>else</code>.</p>
-</div>
-<div id="iteration" class="section level2">
-<h2><span class="header-section-number">9.2</span> Iteration</h2>
-<p>Iteration describes the situtation when an specific action has to be
-repeated many times on different inputs of the same type. For example,
-if we have a vector of numeric <code>x</code> shown below,</p>
-<pre class="sourceCode r"><code class="sourceCode r">(x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<p><code>for</code> loops and <code>apply</code> functions.</p>
-<p>Example: iteration over files.</p>
-<p>Possibly also mention <code>while</code>.</p>
-</div>
 <div id="writing-clean-code" class="section level2">
-<h2><span class="header-section-number">9.3</span> Writing clean code</h2>
+<h2><span class="header-section-number">9.1</span> Writing clean code</h2>
 <p>Writing clean code means writing easily readable code, hence easily
 understable code and, eventually code with less bugs.</p>
 <p>Defensive programming</p>
 </div>
 <div id="writing-new-functions" class="section level2">
-<h2><span class="header-section-number">9.4</span> Writing new functions</h2>
+<h2><span class="header-section-number">9.2</span> Writing new functions</h2>
 <p>A function is composed of a name, inputs (inside the parenthesis), a
 body (between curly brackets) and an ouput (last statement or variably
 indise the <code>return</code> statement).</p>
@@ -221,7 +206,89 @@ indise the <code>return</code> statement).</p>
 <pre><code>## First input: 2</code></pre>
 <pre><code>## Second input: -5</code></pre>
 <pre><code>## [1] 10</code></pre>
+</div>
+<div id="conditionals" class="section level2">
+<h2><span class="header-section-number">9.3</span> Conditionals</h2>
+<p><code>if</code> and <code>else</code>.</p>
+</div>
+<div id="iteration" class="section level2">
+<h2><span class="header-section-number">9.4</span> Iteration</h2>
+<p>Iteration describes the situtation when a specific operation has to be
+repeated many times on different inputs of the same type. For example,
+if we have a vector of numeric <code>x</code> shown below,</p>
+<pre class="sourceCode r"><code class="sourceCode r">(x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>and we wanted to apply the logarithm operation on each element of <code>x</code>,
+it wouldn’t be convenient to type</p>
+<pre><code>log(1)
+log(2)
+log(3)
+...
+log(10)</code></pre>
+<p>The concept of iteration allows us to programme the following command:</p>
+<blockquote>
+<p>Repeat <code>log</code> for each value of my input <code>x</code>.</p>
+</blockquote>
+<p>or more formally</p>
+<blockquote>
+<p>Repeat <code>log(i)</code> where <code>i</code> takes in turn each value of my input <code>x</code>.</p>
+</blockquote>
+<p>We will see different ways of implementing such an iteration.</p>
+<div id="using-a-for-loop" class="section level3 unnumbered">
+<h3>Using a <code>for</code> loop</h3>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span> (i <span class="cf">in</span> x)
+    <span class="kw">print</span>(<span class="kw">log</span>(i))</code></pre>
+<pre><code>## [1] 0
+## [1] 0.6931472
+## [1] 1.098612
+## [1] 1.386294
+## [1] 1.609438
+## [1] 1.791759
+## [1] 1.94591
+## [1] 2.079442
+## [1] 2.197225
+## [1] 2.302585</code></pre>
+<p>The loop above only prints the results on screen. They aren’t stored
+and are lost for any further re-use, which would be very annoying if
+if took much more time to perform all the calculations. In the code
+chunk below, we are going to first inititalise a vector with the
+appropriate number of <code>NA</code> values and, at each iteration, we then
+store the result. We however now need to change our loop and iterate
+of the indices of the input vector, so that we can re-use these
+indices to save the results in the output vector.</p>
+<pre class="sourceCode r"><code class="sourceCode r">res_loop &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="kw">length</span>(x))
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(x))
+    res_loop[i] &lt;-<span class="st"> </span><span class="kw">log</span>(x[i])
+res_loop</code></pre>
+<pre><code>##  [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
+##  [8] 2.0794415 2.1972246 2.3025851</code></pre>
+</div>
+<div id="using-the-apply-function" class="section level3 unnumbered">
+<h3>Using the <code>apply</code> function</h3>
+<p>The apply family of functions implements our defintion of iteration
+quite literally</p>
+<blockquote>
+<p>Repeat <code>log</code> for each value of my input <code>x</code></p>
+</blockquote>
+<p>is reformulated as</p>
+<blockquote>
+<p>For each value of my input <code>x</code>, apply <code>log</code></p>
+</blockquote>
+<p>and coded as</p>
+<pre class="sourceCode r"><code class="sourceCode r">res_apply &lt;-<span class="st"> </span><span class="kw">sapply</span>(x, log)
+res_apply</code></pre>
+<pre><code>##  [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
+##  [8] 2.0794415 2.1972246 2.3025851</code></pre>
+</div>
+<div id="vectorisation" class="section level3 unnumbered">
+<h3>Vectorisation</h3>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log</span>(x)</code></pre>
+<pre><code>##  [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
+##  [8] 2.0794415 2.1972246 2.3025851</code></pre>
+<p>Example: iteration over files.</p>
+<p>Possibly also mention <code>while</code>.</p>
 
+</div>
 </div>
 </div>
 <p style="text-align: center;">
@@ -229,7 +296,7 @@ indise the <code>return</code> statement).</p>
 <a href="conclusions.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-01-31
+2019-02-04
 </p>
 </div>
 </div>

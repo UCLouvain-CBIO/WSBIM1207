@@ -27,27 +27,6 @@ This chapter will introduce some additional programming skills and
 demonstrate how to use them in the context of high troughput omics
 data.
 
-## Conditionals
-
-`if` and `else`.
-
-## Iteration
-
-Iteration describes the situtation when an specific action has to be
-repeated many times on different inputs of the same type. For example,
-if we have a vector of numeric `x` shown below,
-
-```{r}
-(x <- 1:10)
-```
-
-
-`for` loops and `apply` functions.
-
-Example: iteration over files.
-
-Possibly also mention `while`.
-
 ## Writing clean code
 
 Writing clean code means writing easily readable code, hence easily
@@ -71,3 +50,96 @@ my_fun <- function(x, y) {
 }
 my_fun(2, -5)
 ```
+
+## Conditionals
+
+`if` and `else`.
+
+## Iteration
+
+Iteration describes the situtation when a specific operation has to be
+repeated many times on different inputs of the same type. For example,
+if we have a vector of numeric `x` shown below,
+
+```{r}
+(x <- 1:10)
+```
+
+and we wanted to apply the logarithm operation on each element of `x`,
+it wouldn't be convenient to type
+
+```
+log(1)
+log(2)
+log(3)
+...
+log(10)
+```
+
+The concept of iteration allows us to programme the following command:
+
+> Repeat `log` for each value of my input `x`.
+
+
+or more formally
+
+> Repeat `log(i)` where `i` takes in turn each value of my input `x`.
+
+
+We will see different ways of implementing such an iteration.
+
+### Using a `for` loop {-}
+
+```{r}
+for (i in x)
+    print(log(i))
+```
+
+The loop above only prints the results on screen. They aren't stored
+and are lost for any further re-use, which would be very annoying if
+if took much more time to perform all the calculations. In the code
+chunk below, we are going to first inititalise a vector with the
+appropriate number of `NA` values and, at each iteration, we then
+store the result. We however now need to change our loop and iterate
+of the indices of the input vector, so that we can re-use these
+indices to save the results in the output vector.
+
+
+```{r}
+res_loop <- rep(NA, length(x))
+for (i in seq_along(x))
+    res_loop[i] <- log(x[i])
+res_loop
+```
+
+
+### Using the `apply` function {-}
+
+The apply family of functions implements our defintion of iteration
+quite literally
+
+> Repeat `log` for each value of my input `x`
+
+is reformulated as
+
+> For each value of my input `x`, apply `log`
+
+and coded as
+
+
+```{r}
+res_apply <- sapply(x, log)
+res_apply
+```
+
+
+
+### Vectorisation {-}
+
+```{r}
+log(x)
+```
+
+Example: iteration over files.
+
+Possibly also mention `while`.
