@@ -29,10 +29,64 @@ data.
 
 ## Writing clean code
 
-Writing clean code means writing easily readable code, hence easily
-understable code and, eventually code with less bugs.
 
-Defensive programming
+Writing clean code means writing easily readable code, hence easily
+understable code and, eventually code with less bugs. One easy way to
+achieve this is through consistency, i.e. stick to a **style
+guide**. This issue is that there are several style guides available,
+often with conflicting suggestions. Two widely used ones are the
+[Bioconductor style
+guide](http://bioconductor.org/developers/how-to/coding-style/) and
+[Hadley Wickhams's R Style
+Guide](http://r-pkgs.had.co.nz/style.html). The advice from for naming
+variables seen in the first and second chapters are also relevant.
+
+Here are a couple of suggestions:
+
+- Use `<-` to assign variables. Use `=` is also valid, but make sure
+  that you stick with one.
+- Use either camel case (`camelCaseNaming`) of snake case
+  (`snake_case_naming`), and avoid using dots (don't use
+  `dot.variable.names`). These conventions apply to functions,
+  variables and files (for the latter, a `-` instead of `_` is also
+  acceptable).
+- Always spell out `TRUE` and `FALSE`, and resist the temptation to
+  use `T` and `F` instead.
+- Use 4 spaces for indenting. No tabs.
+- No lines longer than 80 characters.
+- Use spaces around binary operators.
+- No spaces between a function name and the opening parenthesis.
+
+Another good advise is to avoid re-writing the same code many
+times. We will see below two strategies to do that, namely iteration
+and writing new functions. This firstly reduces the amount of code
+typed and hence the number of bugs, but more importantly enables
+consistency. If something in your code changes, there's only one
+change and it applies everywhere, rather than doing that same change
+repeatedly (at the first of adding bugs and to miss some updates).
+
+When writing code, **keep it simple and short**[^KISS]. Ideally, the
+code should be evident. But when the questions tackled are not
+trivial, is becomes essential to add **comments** to clarify aspects
+of the script/programme. Make sure to use them to describe why
+something is done, rather than explaining how things are done (which
+is tyically best done by the code itself).
+
+[^KISS]: The official motto is
+[KISS](https://en.wikipedia.org/wiki/KISS_principle), *keep your
+functions simple, stupid*, widely used in programming.
+
+A general guideline to avoid bugs is to apply **defensive
+programming**:
+
+- making the code work in a predicable manner
+
+- writing code that fails in a well-defined manner
+
+- if something weird happens, either properly deal with it, of fail
+  quickly and loudly
+
+
 
 
 ## Writing new functions
@@ -132,14 +186,89 @@ res_apply <- sapply(x, log)
 res_apply
 ```
 
+There are three such function that *apply* a function iteratively:
 
+- `sapply` iterates over a vector and returns a new vector of the same
+  length as the input vector[^sapplyexcetption].
+
+- `lapply` iterates over a linear input (a vector of a list) and
+  returns a list of the same length as the input.
+
+- `apply` iterates of the rows or the columns of a `data.frame` or
+  `matrix` and returns a list or vector or approritate length (number
+  of rows or columns). The dimension over which the iterations
+  proceeds is defined by the second argument, where `1` defines rows
+  and `2` defined columns[^arrayapply].
+
+
+[^sapplyexcetption]: This is a simplification of how `sapply` works,
+    that is partly defined by the the `simplify` argument and whether
+    the result of applying the function on each element of the input
+    can be returned as a vector. The alternative is to return a
+    `list`, like `lapply`.
+
+[^arrayapply]: This generalises to arrays with more than 2 dimensions.
+
+
+When performing the same operations in different ways (using different
+implementations), it is essential to verify that the results are
+identical or, if not, at least compatible. The most direct way to do
+the former is to use the `identical` function:
+
+```{r}
+identical(res_loop, res_apply)
+```
 
 ### Vectorisation {-}
 
+We must not forget the obvious, which is vectorisation. Many R
+functions work by default iteratively on every element of a vectors,
+i.e. they work irrespectively whether the vector is of length
+1[^scalar] or longer.
+
+[^scalar]: A vector of length 1 would be called a scalar in other
+    programming languages.
+
+
 ```{r}
-log(x)
+res_vec <- log(x)
+res_vec
 ```
 
-Example: iteration over files.
+And, as before, we check that we obtain identical results:
 
-Possibly also mention `while`.
+```{r}
+identical(res_loop, res_vec)
+```
+
+### Which iteration to use?
+
+Even though they produce the same result, the iteration strategies
+above aren't equal, and some should be preferred in different
+situtions.
+
+- When a vectorised solution exists, this is the one that should be
+  chosen. It is by far the fastest solution, but only applicable to
+  existing functions. If you were to write your own function to
+  iterate over, it is advisable to write a vectorised function.
+
+- The apply functions are extremely convenient and concise, and hence
+  widely used. They have a couple of advantages, including that there
+  is no need to explicitly initialise a result variable and that they
+  can easily be parallelised.
+
+- For loops are the most generic solution for iteration, and they
+  require to initialise the result variable that will be populated
+  during the loop. As opposed to popular belief, they aren't slower
+  than using apply functions. They are however the best solution if,
+  during the iteration, one has the access another element than the
+  one currently processed (typically, if `i` is the coutner, accessing
+  `i + 1` or `i - 1`).
+
+
+
+
+<!-- Possibly also mention `while`. -->
+
+
+### Example: iterating over files
