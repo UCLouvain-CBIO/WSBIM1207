@@ -87,7 +87,7 @@ chunks, these documents become Rmarkdown files (`.Rmd`). The can be
 converted into markdown using `knitr::knit`, that executes the code
 chunk and incorporates their output in the resulting markdown
 documents, which itself is converted to one of many output formats,
-typically pdf of html using [pandoc](http://pandoc.org/). I R, this
+typically pdf of html using [pandoc](http://pandoc.org/). In R, this
 final conversion is done using `rmarkdown::render` (that relies on
 pandoc). The [rmarkdown](http://rmarkdown.rstudio.com/) package is
 developed and maintained by RStudio and benefits from excellent
