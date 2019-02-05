@@ -80,13 +80,34 @@ A general guideline to avoid bugs is to apply **defensive
 programming**:
 
 - making the code work in a predicable manner
-
 - writing code that fails in a well-defined manner
-
 - if something weird happens, either properly deal with it, of fail
   quickly and loudly
 
+Here are some examples of how to do this:
 
+- use functions like `is.numeric(x)`, `is.character(x)`,
+  `is.data.frame(x)`, ... for make sure that the variable you are
+  going to use is of the expected type.
+
+- Make sure the length or dimensions of what you are going to use are
+  what you expect:
+
+```{r, eval = FALSE}
+length(x) > 0
+nrow(x) > 0
+ncol(x) > 0
+```
+
+- Failing fast and well! Wrap such test in `stopifnot()`, so that if
+  they fail, you get immediately an error, rather than risking that
+  you code fails later with obscure error messages or, worse, the code
+  runs to completion but returns meaningless results.
+
+```{r, eval = FALSE}
+stopifnot(length(x) > 0)
+stopifnot(ncol(x) > 0, nrow(x) > 0)
+```
 
 
 ## Writing new functions

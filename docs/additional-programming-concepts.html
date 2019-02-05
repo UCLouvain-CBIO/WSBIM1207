@@ -232,11 +232,30 @@ is tyically best done by the code itself).</p>
 <p>A general guideline to avoid bugs is to apply <strong>defensive
 programming</strong>:</p>
 <ul>
-<li><p>making the code work in a predicable manner</p></li>
-<li><p>writing code that fails in a well-defined manner</p></li>
-<li><p>if something weird happens, either properly deal with it, of fail
-quickly and loudly</p></li>
+<li>making the code work in a predicable manner</li>
+<li>writing code that fails in a well-defined manner</li>
+<li>if something weird happens, either properly deal with it, of fail
+quickly and loudly</li>
 </ul>
+<p>Here are some examples of how to do this:</p>
+<ul>
+<li><p>use functions like <code>is.numeric(x)</code>, <code>is.character(x)</code>,
+<code>is.data.frame(x)</code>, … for make sure that the variable you are
+going to use is of the expected type.</p></li>
+<li><p>Make sure the length or dimensions of what you are going to use are
+what you expect:</p></li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>
+<span class="kw">nrow</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>
+<span class="kw">ncol</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span></code></pre>
+<ul>
+<li>Failing fast and well! Wrap such test in <code>stopifnot()</code>, so that if
+they fail, you get immediately an error, rather than risking that
+you code fails later with obscure error messages or, worse, the code
+runs to completion but returns meaningless results.</li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stopifnot</span>(<span class="kw">length</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)
+<span class="kw">stopifnot</span>(<span class="kw">ncol</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="kw">nrow</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</code></pre>
 </div>
 <div id="writing-new-functions" class="section level2">
 <h2><span class="header-section-number">9.2</span> Writing new functions</h2>
