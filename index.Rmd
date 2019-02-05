@@ -61,7 +61,7 @@ The course will be followed by *Bioinformatics*
 data analysis*
 ([WSBIM2122](https://github.com/UCLouvain-CBIO/WSBIM2122)).
 
-It is interesting to start this course by asking the students[^qst] ??, who
+It is interesting to start this course by asking the students, who
 have likely not yet been exposed to bioinformatics
 
 > What is bioinformatics?
