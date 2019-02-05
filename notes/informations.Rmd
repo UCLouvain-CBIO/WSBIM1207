@@ -39,10 +39,10 @@ output: html_document
 - En case de trois absences non justifiées, l'étudiant(e) pourra se
   voir refuser la participation à l'examen de fin de cours.
 
-- I est fort probable qu'il y ait des interrogations cotées en début
-  de certaines sessions. Ces cotes seront contabilisées dans la note
-  finale. Le meilleur moyen de vous y préparer et de faire et
-  comprendre les exercises en cours et à domicile.
+- Il y aura des interrogations cotées en début de certaines
+  sessions. Ces cotes seront contabilisées dans la note finale. Le
+  meilleur moyen de vous y préparer et de faire et comprendre les
+  exercises en cours et à domicile.
 
 - Nous ferons une pause d'environ 30 minutes de 10h15 à 10h45.
 
