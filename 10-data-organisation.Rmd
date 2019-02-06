@@ -80,7 +80,7 @@ researchers. We can use them for:
 
 Here are three examples from research papers:
 
-```{r, results='markup', fig.cap="A figure from a bioinformatics paper ([Hugues et al. (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3866554/)) that compares different proteomics data processing methods (along the columns) and how they control false positive rate for spiked-in data, the operator effect, and affect the root mean square error (RMSE).", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+```{r, results='markup', fig.cap="A figure from a bioinformatics paper ([Hugues et al. (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3866554/)) that compares different proteomics data processing methods (along the columns) and how (1) these methods control false positive rate for spiked-in data, (2) their effect on the variabilty due to different operators, and (2) how they affect the root mean square error (RMSE).", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("./figs/tab1.png")
 ```
 
@@ -93,7 +93,7 @@ knitr::include_graphics("./figs/tab2.png")
 knitr::include_graphics("./figs/tab3a.png")
 ```
 
-```{r, results='markup', fig.cap="Limunescence read-out of a 96 well plate. The file is available [here](https://github.com/UCLouvain-CBIO/WSBIM1207/files/2836821/luminescence.xlsx).", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+```{r, results='markup', fig.cap="Luminescence read-out of a 96 well plate. The file is available [here](https://github.com/UCLouvain-CBIO/WSBIM1207/files/2836821/luminescence.xlsx).", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("./figs/tab4.png")
 ```
 
@@ -365,10 +365,10 @@ Keypoints:
 - Avoid special characters in your data.
 - Record metadata in a separate plain text file.
 
-This lesson is meant to be used as a reference for discussion as
-learners identify issues with the messy dataset discussed in the
-previous lesson. Instructors: don't go through this lesson except to
-refer to responses to the exercise in the previous lesson.
+<!-- This lesson is meant to be used as a reference for discussion as -->
+<!-- learners identify issues with the messy dataset discussed in the -->
+<!-- previous lesson. Instructors: don't go through this lesson except to -->
+<!-- refer to responses to the exercise in the previous lesson. -->
 
 There are a few potential errors to be on the lookout for in your own
 data as well as data from collaborators or the Internet. If you are
@@ -791,9 +791,15 @@ But these "features" often allow ambiguity to creep into your data. Ideally, dat
 
 #### Dates stored as integers {-}
 
-The first thing you need to know is that Excel stores dates as numbers - see the last column in the above figure. Essentially, it counts the days from a default of December 31, 1899, and thus stores July 2, 2014 as  the serial number 41822.
+The first thing you need to know is that Excel stores dates as numbers
+- see the last column in the above figure. Essentially, it counts the
+days from a default of December 31, 1899, and thus stores July 2, 2014
+as the serial number 41822[^excel1].
 
-(But wait. That’s the default on my version of Excel. We’ll get into how this can introduce problems down the line later in this lesson. )
+[^excel1]: But wait. That's the default on my version of Excel. We'll
+           get into how this can introduce problems down the line
+           later in this lesson.
+
 
 This serial number thing can actually be useful in some circumstances. By using
 the above functions we can easily add days, months or years to a given date.
@@ -852,15 +858,17 @@ dates if we then open the `csv` file in Excel?
   Choose `Save Active Sheet`.
 
 - Navigate to the file in your finder application. Right click and
-  select `Open With`. Choose a plain text editor application and view
-  the file. Notice that the dates display as month/day without any
-  year information. > - Now right click on the file again and open
-  with Excel. Notice that the dates display with the current year, not
-  2015.
+  select `Open With`. Choose a plain text editor such as Notepad and
+  view the file. Notice that the dates display as month/day without
+  any year information.
 
-As you can see, exporting data from Excel and then importing it back into Excel fundamentally changed the data!
+- Now right click on the file again and open with Excel. Notice that
+  the dates display with the current year, not 2015.
+
+As you can see, exporting data from Excel and then importing it back
+into Excel fundamentally changed the data!
+
 `r msmbstyle::solution_end()`
-
 
 **Note** You will notice that when exporting into a text-based format
 (such as CSV), Excel will export its internal date integer instead of
@@ -1422,7 +1430,7 @@ formatted in a predictable way and one can reason on the data without
 having to look at it and/or fix it.
 
 
-## Additional exercise
+## Additional exercises
 
 `r msmbstyle::question_begin()`
 Downlod the supplementary
@@ -1434,4 +1442,28 @@ Using the best practice documented above, export the file to a
 text-based spreadsheet (`csv`, `tsv`, ...). If necessary, manually fix
 the table, but making sure you keep a copy of the original data and
 document your modifications.
+`r msmbstyle::question_end()`
+
+`r msmbstyle::question_begin()`
+
+Download the *'Luminescence read-out of a 96 well plate'* table
+presented as example above and reformat it in a way that makes it
+amenable to data analysis.
+
+Hint: The letters A to H and the numbers 1 to 12 represent
+respectively the rows and the columns of the plate.
+
+`r msmbstyle::question_end()`
+
+`r msmbstyle::question_begin()`
+
+Imagine the following experiment, and produce a data table, making up
+values for a dozen of observations.
+
+> Rodents, either mice or rats, where collected on various days by
+> either operator A or B. Their weight and tail length was measured
+> and were then assigned to either a control group (and administered
+> water) or a condition group (and administered drug X). Exactly one
+> week later, the measurements on the animal were repeated.
+
 `r msmbstyle::question_end()`

@@ -146,7 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#data-integrity"> Data integrity</a></li>
 <li class="toc"><a href="#exporting-data"> Exporting data</a></li>
 <li class="toc"><a href="#summary"> Summary</a></li>
-<li class="toc"><a href="#additional-exercise"> Additional exercise</a></li>
+<li class="toc"><a href="#additional-exercises"> Additional exercises</a></li>
 </ul>
 <a href="sec-startr.html"><span class="toc-section-number">2</span> Starting with R</a>
 <a href="sec-startdata.html"><span class="toc-section-number">3</span> Starting with data</a>
@@ -247,9 +247,9 @@ researchers. We can use them for:</p>
 <p>Here are three examples from research papers:</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
 <p class="caption marginnote shownote">
-Figure 1.1: A figure from a bioinformatics paper (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3866554/">Hugues et al. (2014)</a>) that compares different proteomics data processing methods (along the columns) and how they control false positive rate for spiked-in data, the operator effect, and affect the root mean square error (RMSE).
+Figure 1.1: A figure from a bioinformatics paper (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3866554/">Hugues et al. (2014)</a>) that compares different proteomics data processing methods (along the columns) and how (1) these methods control false positive rate for spiked-in data, (2) their effect on the variabilty due to different operators, and (2) how they affect the root mean square error (RMSE).
 </p>
-<img src="figs/tab1.png" alt="A figure from a bioinformatics paper ([Hugues et al. (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3866554/)) that compares different proteomics data processing methods (along the columns) and how they control false positive rate for spiked-in data, the operator effect, and affect the root mean square error (RMSE)." width="100%"  />
+<img src="figs/tab1.png" alt="A figure from a bioinformatics paper ([Hugues et al. (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3866554/)) that compares different proteomics data processing methods (along the columns) and how (1) these methods control false positive rate for spiked-in data, (2) their effect on the variabilty due to different operators, and (2) how they affect the root mean square error (RMSE)." width="100%"  />
 </div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
 <p class="caption marginnote shownote">
@@ -265,9 +265,9 @@ Figure 1.3: Parts of the quantitative data of a spatial proteomics dataset by <a
 </div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
 <p class="caption marginnote shownote">
-Figure 1.4: Limunescence read-out of a 96 well plate. The file is available <a href="https://github.com/UCLouvain-CBIO/WSBIM1207/files/2836821/luminescence.xlsx">here</a>.
+Figure 1.4: Luminescence read-out of a 96 well plate. The file is available <a href="https://github.com/UCLouvain-CBIO/WSBIM1207/files/2836821/luminescence.xlsx">here</a>.
 </p>
-<img src="figs/tab4.png" alt="Limunescence read-out of a 96 well plate. The file is available [here](https://github.com/UCLouvain-CBIO/WSBIM1207/files/2836821/luminescence.xlsx)." width="100%"  />
+<img src="figs/tab4.png" alt="Luminescence read-out of a 96 well plate. The file is available [here](https://github.com/UCLouvain-CBIO/WSBIM1207/files/2836821/luminescence.xlsx)." width="100%"  />
 </div>
 <div class="question">
 <p class="question-begin">
@@ -525,10 +525,10 @@ and how can we avoid them?</li>
 <li>Avoid special characters in your data.</li>
 <li>Record metadata in a separate plain text file.</li>
 </ul>
-<p>This lesson is meant to be used as a reference for discussion as
-learners identify issues with the messy dataset discussed in the
-previous lesson. Instructors: don’t go through this lesson except to
-refer to responses to the exercise in the previous lesson.</p>
+<!-- This lesson is meant to be used as a reference for discussion as -->
+<!-- learners identify issues with the messy dataset discussed in the -->
+<!-- previous lesson. Instructors: don't go through this lesson except to -->
+<!-- refer to responses to the exercise in the previous lesson. -->
 <p>There are a few potential errors to be on the lookout for in your own
 data as well as data from collaborators or the Internet. If you are
 aware of the errors and the possible negative effect on downstream
@@ -956,8 +956,12 @@ Figure 1.5: Many formats, many ambiguities
 <p>But these “features” often allow ambiguity to creep into your data. Ideally, data should be as unambiguous as possible.</p>
 <div id="dates-stored-as-integers" class="section level4 unnumbered">
 <h4>Dates stored as integers</h4>
-<p>The first thing you need to know is that Excel stores dates as numbers - see the last column in the above figure. Essentially, it counts the days from a default of December 31, 1899, and thus stores July 2, 2014 as the serial number 41822.</p>
-<p>(But wait. That’s the default on my version of Excel. We’ll get into how this can introduce problems down the line later in this lesson. )</p>
+<p>The first thing you need to know is that Excel stores dates as numbers
+- see the last column in the above figure. Essentially, it counts the
+days from a default of December 31, 1899, and thus stores July 2, 2014
+as the serial number 41822<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> But wait. That’s the default on my version of Excel. We’ll
+get into how this can introduce problems down the line
+later in this lesson.</span>.</p>
 <p>This serial number thing can actually be useful in some circumstances. By using
 the above functions we can easily add days, months or years to a given date.
 Say you had a sampling plan where you needed to sample every thirty seven days.
@@ -1014,16 +1018,15 @@ format select <code>CSV UTF-8 (Comma delimited) (.csv)</code>. Click <code>Save<
 <li><p>You will see a pop-up that says “This workbook cannot be saved in
 the selected file format because it contains multiple sheets.”
 Choose <code>Save Active Sheet</code>.</p></li>
-<li>Navigate to the file in your finder application. Right click and
-select <code>Open With</code>. Choose a plain text editor application and view
-the file. Notice that the dates display as month/day without any
-year information. &gt; - Now right click on the file again and open
-with Excel. Notice that the dates display with the current year, not
-<ol start="2015" style="list-style-type: decimal">
-<li></li>
-</ol></li>
+<li><p>Navigate to the file in your finder application. Right click and
+select <code>Open With</code>. Choose a plain text editor such as Notepad and
+view the file. Notice that the dates display as month/day without
+any year information.</p></li>
+<li><p>Now right click on the file again and open with Excel. Notice that
+the dates display with the current year, not 2015.</p></li>
 </ul>
-<p>As you can see, exporting data from Excel and then importing it back into Excel fundamentally changed the data!</p>
+<p>As you can see, exporting data from Excel and then importing it back
+into Excel fundamentally changed the data!</p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1515,7 +1518,7 @@ column, because Excel will only use commas that fall outside of
 quotation marks as delimiting characters.</p>
 <p>Alternatively, if you are working with data that contains commas, you
 likely will need to use another delimiter when working in a
-spreadsheet<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> This is of course particularly relevant in European
+spreadsheet<label for="tufte-sn-4" class="margin-toggle sidenote-number">4</label><input type="checkbox" id="tufte-sn-4" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">4</span> This is of course particularly relevant in European
 countries where the comma is used as a decimal
 separator. In such cases, the default value separator in a
 csv file will be the semi-colon (;), or values will be
@@ -1560,8 +1563,8 @@ transform/visualise/model cycle are only feasible is the data is
 formatted in a predictable way and one can reason on the data without
 having to look at it and/or fix it.</p>
 </div>
-<div id="additional-exercise" class="section level2">
-<h2><span class="header-section-number">1.9</span> Additional exercise</h2>
+<div id="additional-exercises" class="section level2">
+<h2><span class="header-section-number">1.9</span> Additional exercises</h2>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -1575,6 +1578,40 @@ al. (2019)</a> that we discussed above.</p>
 text-based spreadsheet (<code>csv</code>, <code>tsv</code>, …). If necessary, manually fix
 the table, but making sure you keep a copy of the original data and
 document your modifications.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Download the <em>‘Luminescence read-out of a 96 well plate’</em> table
+presented as example above and reformat it in a way that makes it
+amenable to data analysis.</p>
+<p>Hint: The letters A to H and the numbers 1 to 12 represent
+respectively the rows and the columns of the plate.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Imagine the following experiment, and produce a data table, making up
+values for a dozen of observations.</p>
+<blockquote>
+<p>Rodents, either mice or rats, where collected on various days by
+either operator A or B. Their weight and tail length was measured
+and were then assigned to either a control group (and administered
+water) or a condition group (and administered drug X). Exactly one
+week later, the measurements on the animal were repeated.</p>
+</blockquote>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
