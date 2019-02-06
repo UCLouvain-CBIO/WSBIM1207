@@ -33,6 +33,12 @@ If not still in the workspace, load the data we saved in the previous lesson.
 surveys_complete <- read_csv("data_output/surveys_complete.csv")
 ```
 
+The [Data Visualization Cheat
+Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+will cover the basics and more advanced features of `ggplot2` and will
+help, in addition to serve as a reminder, getting an overview of the
+many data representations available in the package.
+
 ## Plotting with **`ggplot2`**
 
 **`ggplot2`** is a plotting package that makes it simple to create complex plots

@@ -127,23 +127,22 @@ these data skills. Other interactive language such as
 [Python](https://www.R-project.org/) and the interactive [jupyer
 notebooks](https://jupyter.org/) would also have been a good fit. One
 motivation of this choice is the availability of numerous
-R/[Bionductor] packages [@Huber:2015] for the analysis of high
-throughput biology data.
+R/[Bionductor](https://www.bioconductor.org/) packages [@Huber:2015]
+for the analysis of high throughput biology data.
 
 
 Another reason why the focus of the course ought to be on data skills
-is that an essential difficulty in modern, multidisciplinary research
-is communication. Wetlab biomedical scientists aren't required to
-become bioinformaticians, statisticians, programmers, ... to be
-outstanding researchers, but they will need to communicate efficiency
-with these experts (and vice versa). What most often unites all these
-experts is data, and communication around data is critical. The
-importance of critical thinking and communication around data becomes
-more evident when one realises that, when tracking work in
-bioinformatics core facilities, only a minority of projects were
-purely routine and that most researchers came to the bioinformatics
-core seeking customized analysis, rather than a standardized package
-[@Chang:2015].
+is that an notable difficulty in modern, multidisciplinary research is
+communication. Wetlab biomedical scientists aren't required to become
+bioinformaticians, statisticians, programmers, ... to be outstanding
+researchers, but they will need to communicate efficiency with these
+experts (and vice versa). What most often unites all these experts is
+data, and communication around data is critical. The importance of
+critical thinking and communication around data becomes more evident
+when one realises that, when tracking work in bioinformatics core
+facilities, only a minority of projects were purely routine and that
+most researchers came to the bioinformatics core seeking customized
+analysis, rather than a standardized package [@Chang:2015].
 
 
 The overall learning objectives of this course are:
@@ -171,6 +170,11 @@ curiculum](https://datacarpentry.org/lessons/#ecology-workshop) [@DCRecol].
 
 General references for this course are *R for Data Science*
 [@r4ds:2017] and *Bioinformatics Data Skills* [@Buffalo:2015].
+
+The [RStudio Cheat
+Sheets](https://www.rstudio.com/resources/cheatsheets/) are also a
+handy resource and readers will be pointed to specific sheets in the
+respective chapters.
 
 ## Pre-requisites {-}
 

@@ -105,6 +105,11 @@ To load the package type:
 library("tidyverse")
 ```
 
+The [Data Transformation Cheat
+Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+provides an overview of the `dplyr`grammar, offering more details and
+functions that we will see in this chapter.
+
 ## What are **`dplyr`** and **`tidyr`**?
 
 The package **`dplyr`** provides easy tools for the most common data manipulation

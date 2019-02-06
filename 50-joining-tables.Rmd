@@ -30,6 +30,11 @@ in @r4ds:2017.
 rm(list = ls())
 ```
 
+The [Data Transformation Cheat
+Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+also provides a short overview on table joins.
+
+
 ## Combining tables
 
 We are going to illustrate join using a common example from the

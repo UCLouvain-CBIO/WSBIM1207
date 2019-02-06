@@ -146,7 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <a href="sec-dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
 <a href="sec-startr.html"><span class="toc-section-number">2</span> Starting with R</a>
-<a href="starting-with-data.html"><span class="toc-section-number">3</span> Starting with data</a>
+<a href="sec-startdata.html"><span class="toc-section-number">3</span> Starting with data</a>
 <a href="sec-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a>
 <a href="sec-vis.html"><span class="toc-section-number">5</span> Data visualization</a>
 <a href="sec-join.html"><span class="toc-section-number">6</span> Joining tables</a>
@@ -238,21 +238,20 @@ these data skills. Other interactive language such as
 <a href="https://www.R-project.org/">Python</a> and the interactive <a href="https://jupyter.org/">jupyer
 notebooks</a> would also have been a good fit. One
 motivation of this choice is the availability of numerous
-R/[Bionductor] packages <span class="citation">(Huber et al. <label for="tufte-mn-4" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle">2015<span class="marginnote">Huber, W, V J Carey, R Gentleman, S Anders, M Carlson, B S Carvalho, H C Bravo, et al. 2015. “Orchestrating High-Throughput Genomic Analysis with Bioconductor.” <em>Nat Methods</em> 12 (2): 115–21. <a href="https://doi.org/10.1038/nmeth.3252">https://doi.org/10.1038/nmeth.3252</a>.</span>)</span> for the analysis of high
-throughput biology data.</p>
+R/<a href="https://www.bioconductor.org/">Bionductor</a> packages <span class="citation">(Huber et al. <label for="tufte-mn-4" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle">2015<span class="marginnote">Huber, W, V J Carey, R Gentleman, S Anders, M Carlson, B S Carvalho, H C Bravo, et al. 2015. “Orchestrating High-Throughput Genomic Analysis with Bioconductor.” <em>Nat Methods</em> 12 (2): 115–21. <a href="https://doi.org/10.1038/nmeth.3252">https://doi.org/10.1038/nmeth.3252</a>.</span>)</span>
+for the analysis of high throughput biology data.</p>
 <p>Another reason why the focus of the course ought to be on data skills
-is that an essential difficulty in modern, multidisciplinary research
-is communication. Wetlab biomedical scientists aren’t required to
-become bioinformaticians, statisticians, programmers, … to be
-outstanding researchers, but they will need to communicate efficiency
-with these experts (and vice versa). What most often unites all these
-experts is data, and communication around data is critical. The
-importance of critical thinking and communication around data becomes
-more evident when one realises that, when tracking work in
-bioinformatics core facilities, only a minority of projects were
-purely routine and that most researchers came to the bioinformatics
-core seeking customized analysis, rather than a standardized package
-<span class="citation">(Chang <label for="tufte-mn-5" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-5" class="margin-toggle">2015<span class="marginnote">Chang, J. 2015. “Core Services: Reward Bioinformaticians.” <em>Nature</em> 520 (7546): 151–2. <a href="https://doi.org/10.1038/520151a">https://doi.org/10.1038/520151a</a>.</span>)</span>.</p>
+is that an notable difficulty in modern, multidisciplinary research is
+communication. Wetlab biomedical scientists aren’t required to become
+bioinformaticians, statisticians, programmers, … to be outstanding
+researchers, but they will need to communicate efficiency with these
+experts (and vice versa). What most often unites all these experts is
+data, and communication around data is critical. The importance of
+critical thinking and communication around data becomes more evident
+when one realises that, when tracking work in bioinformatics core
+facilities, only a minority of projects were purely routine and that
+most researchers came to the bioinformatics core seeking customized
+analysis, rather than a standardized package <span class="citation">(Chang <label for="tufte-mn-5" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-5" class="margin-toggle">2015<span class="marginnote">Chang, J. 2015. “Core Services: Reward Bioinformaticians.” <em>Nature</em> 520 (7546): 151–2. <a href="https://doi.org/10.1038/520151a">https://doi.org/10.1038/520151a</a>.</span>)</span>.</p>
 <p>The overall learning objectives of this course are:</p>
 <ul>
 <li><p>for students to apply and adapt the general data analysis techniques
@@ -275,6 +274,10 @@ data science with R</em>, is based on the <a href="https://datacarpentry.org/les
 curiculum</a> <span class="citation">(Michonneau and Fournier <label for="tufte-mn-6" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-6" class="margin-toggle">2019<span class="marginnote">Michonneau, Francois, and Auriel Fournier, eds. 2019. “Data Carpentry: R for Data Analysis and Visualization of Ecological Data.” <a href="https://doi.org/10.5281/zenodo.569338">https://doi.org/10.5281/zenodo.569338</a>.</span>)</span>.</p>
 <p>General references for this course are <em>R for Data Science</em>
 <span class="citation">(Grolemund and Wickham <label for="tufte-mn-7" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-7" class="margin-toggle">2017<span class="marginnote">Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. O’Reilly Media. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.</span>)</span> and <em>Bioinformatics Data Skills</em> <span class="citation">(Buffalo <label for="tufte-mn-8" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-8" class="margin-toggle">2015<span class="marginnote">Buffalo, Vince. 2015. <em>Bioinformatics Data Skills</em>. O’Reilly Media, Inc.</span>)</span>.</p>
+<p>The <a href="https://www.rstudio.com/resources/cheatsheets/">RStudio Cheat
+Sheets</a> are also a
+handy resource and readers will be pointed to specific sheets in the
+respective chapters.</p>
 </div>
 <div id="pre-requisites" class="section level2 unnumbered">
 <h2>Pre-requisites</h2>

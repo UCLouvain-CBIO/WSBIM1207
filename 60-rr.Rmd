@@ -137,6 +137,14 @@ DT::datatable(ip)
 > information* section.
 
 
+The [R Markdown Cheat
+Sheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
+and [Reference
+Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+will help you with the markdown synatax, R code chunk options, and
+RStudio utlisation.
+
+
 ## Docker containers
 
 There are other tools for reproducible research, that aim to

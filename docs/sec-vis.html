@@ -139,7 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="index.html">Preamble</a>
 <a href="sec-dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
 <a href="sec-startr.html"><span class="toc-section-number">2</span> Starting with R</a>
-<a href="starting-with-data.html"><span class="toc-section-number">3</span> Starting with data</a>
+<a href="sec-startdata.html"><span class="toc-section-number">3</span> Starting with data</a>
 <a href="sec-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a>
 <a id="active-page" href="sec-vis.html"><span class="toc-section-number">5</span> Data visualization</a><ul class="toc-sections">
 <li class="toc"><a href="#plotting-with-ggplot2"> Plotting with <strong><code>ggplot2</code></strong></a></li>
@@ -182,6 +182,11 @@ in the <strong><code>tidyverse</code></strong> package.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre>
 <p>If not still in the workspace, load the data we saved in the previous lesson.</p>
 <pre class="sourceCode r"><code class="sourceCode r">surveys_complete &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data_output/surveys_complete.csv&quot;</span>)</code></pre>
+<p>The <a href="https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf">Data Visualization Cheat
+Sheet</a>
+will cover the basics and more advanced features of <code>ggplot2</code> and will
+help, in addition to serve as a reminder, getting an overview of the
+many data representations available in the package.</p>
 <div id="plotting-with-ggplot2" class="section level2">
 <h2><span class="header-section-number">5.1</span> Plotting with <strong><code>ggplot2</code></strong></h2>
 <p><strong><code>ggplot2</code></strong> is a plotting package that makes it simple to create complex plots

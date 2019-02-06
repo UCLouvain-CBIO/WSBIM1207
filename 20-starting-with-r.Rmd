@@ -25,6 +25,13 @@ software that interprets the scripts written using it.
 your R scripts but also to interact with the R software. To function correctly,
 RStudio needs R and therefore both need to be installed on your computer.
 
+
+The [RStudio IDE Cheat
+Sheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
+provides much more information that will be covered here, but can be
+useful to learn keyboard shortcuts and discover new features.
+
+
 ## Why learn R?
 
 ### R does not involve lots of pointing and clicking, and that's a good thing {-}
