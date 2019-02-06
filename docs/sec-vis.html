@@ -307,19 +307,12 @@ instance, we can add transparency (<code>alpha</code>) to avoid overplotting:</p
 <p><img src="WSBIM1207_files/figure-html/color-by-species3-1.png" width="672"  /></p>
 <blockquote>
 <p><strong>Challenge</strong></p>
-Use what you just learned to create a scatter plot of <code>weight</code> over
+<p>Use what you just learned to create a scatter plot of <code>weight</code> over
 <code>species_id</code> with the plot types showing in different colors. Is this a good
-way to show this type of data?
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
+way to show this type of data?</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> species_id, <span class="dt">y =</span> weight)) <span class="op">+</span>
 <span class="st">   </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> plot_type))</code></pre>
-<img src="WSBIM1207_files/figure-html/scatter-challenge-1.png" width="672"  />
-</div>
-</div>
+<p><img src="WSBIM1207_files/figure-html/scatter-challenge-1.png" width="672"  /></p>
 </blockquote>
 </div>
 <div id="boxplot" class="section level2">
@@ -434,11 +427,6 @@ themes.</p>
 <p><strong>Challenge</strong></p>
 <p>Use what you just learned to create a plot that depicts how the average weight
 of each species changes through the years.</p>
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
 <pre class="sourceCode r"><code class="sourceCode r">yearly_weight &lt;-<span class="st"> </span>surveys_complete <span class="op">%&gt;%</span>
 <span class="st">                </span><span class="kw">group_by</span>(year, species_id) <span class="op">%&gt;%</span>
 <span class="st">                 </span><span class="kw">summarize</span>(<span class="dt">avg_weight =</span> <span class="kw">mean</span>(weight))
@@ -446,9 +434,7 @@ Answer
 <span class="st">   </span><span class="kw">geom_line</span>() <span class="op">+</span>
 <span class="st">   </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id) <span class="op">+</span>
 <span class="st">   </span><span class="kw">theme_bw</span>()</code></pre>
-<img src="WSBIM1207_files/figure-html/average-weight-time-series-1.png" width="672"  />
-</div>
-</div>
+<p><img src="WSBIM1207_files/figure-html/average-weight-time-series-1.png" width="672"  /></p>
 </blockquote>
 <p>The <code>facet_wrap</code> geometry extracts plots into an arbitrary number of dimensions
 to allow them to cleanly fit on one page. On the other hand, the <code>facet_grid</code>

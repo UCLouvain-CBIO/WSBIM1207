@@ -429,9 +429,9 @@ before 1995 and retain only the columns <code>year</code>, <code>sex</code>, and
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-15" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-15&#39;, &#39;sol-start-15&#39;)"></span>
+► Solution<span id="sol-start-17" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-17&#39;, &#39;sol-start-17&#39;)"></span>
 </p>
-<div id="sol-body-15" class="solution-body" style="display: none;">
+<div id="sol-body-17" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">surveys <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">filter</span>(year <span class="op">&lt;</span><span class="st"> </span><span class="dv">1995</span>) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">select</span>(year, sex, weight)</code></pre>
@@ -553,9 +553,9 @@ this data frame!</p>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-16" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-16&#39;, &#39;sol-start-16&#39;)"></span>
+► Solution<span id="sol-start-18" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-18&#39;, &#39;sol-start-18&#39;)"></span>
 </p>
-<div id="sol-body-16" class="solution-body" style="display: none;">
+<div id="sol-body-18" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">surveys_hindfoot_half &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(hindfoot_length)) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">mutate</span>(<span class="dt">hindfoot_half =</span> hindfoot_length <span class="op">/</span><span class="st"> </span><span class="dv">2</span>) <span class="op">%&gt;%</span>
@@ -827,9 +827,9 @@ number of observations (hint: see <code>?n</code>).</p></li>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-17" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-17&#39;, &#39;sol-start-17&#39;)"></span>
+► Solution<span id="sol-start-19" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-19&#39;, &#39;sol-start-19&#39;)"></span>
 </p>
-<div id="sol-body-17" class="solution-body" style="display: none;">
+<div id="sol-body-19" class="solution-body" style="display: none;">
 <ol style="list-style-type: decimal">
 <li>How many animals were caught in each <code>plot_type</code> surveyed?</li>
 </ol>
@@ -1086,14 +1086,9 @@ data. It’s a powerful function! See <code>?n_distinct</code> for more.</p>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-18" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-18&#39;, &#39;sol-start-18&#39;)"></span>
+► Solution<span id="sol-start-20" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-20&#39;, &#39;sol-start-20&#39;)"></span>
 </p>
-<div id="sol-body-18" class="solution-body" style="display: none;">
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
+<div id="sol-body-20" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">rich_time &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(plot_id, year) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n_genera =</span> <span class="kw">n_distinct</span>(genus)) <span class="op">%&gt;%</span>
@@ -1113,8 +1108,6 @@ Answer
 ## #   `1989` &lt;int&gt;, `1990` &lt;int&gt;, `1991` &lt;int&gt;, `1992` &lt;int&gt;, `1993` &lt;int&gt;,
 ## #   `1994` &lt;int&gt;, `1995` &lt;int&gt;, `1996` &lt;int&gt;, `1997` &lt;int&gt;, `1998` &lt;int&gt;,
 ## #   `1999` &lt;int&gt;, `2000` &lt;int&gt;, `2001` &lt;int&gt;, `2002` &lt;int&gt;</code></pre>
-</div>
-</div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1134,14 +1127,9 @@ unique <code>plot_id</code> by <code>year</code> combination.</p>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-19" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-19&#39;, &#39;sol-start-19&#39;)"></span>
+► Solution<span id="sol-start-21" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-21&#39;, &#39;sol-start-21&#39;)"></span>
 </p>
-<div id="sol-body-19" class="solution-body" style="display: none;">
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
+<div id="sol-body-21" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">rich_time <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">gather</span>(year, n_genera, <span class="op">-</span>plot_id)</code></pre>
 <pre><code>## # A tibble: 624 x 3
@@ -1159,8 +1147,6 @@ Answer
 ##  9       9 1977         3
 ## 10      10 1977         1
 ## # … with 614 more rows</code></pre>
-</div>
-</div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1186,14 +1172,9 @@ on the value of either <code>hindfoot_length</code> or <code>weight</code>.</p>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-20" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-20&#39;, &#39;sol-start-20&#39;)"></span>
+► Solution<span id="sol-start-22" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-22&#39;, &#39;sol-start-22&#39;)"></span>
 </p>
-<div id="sol-body-20" class="solution-body" style="display: none;">
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
+<div id="sol-body-22" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">surveys_long &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">gather</span>(measurement, value, hindfoot_length, weight)
 <span class="kw">head</span>(surveys_long)</code></pre>
@@ -1207,8 +1188,6 @@ Answer
 ## 5       349    11    12  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
 ## 6       363    11    12  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
 ## # … with 3 more variables: plot_type &lt;chr&gt;, measurement &lt;chr&gt;, value &lt;dbl&gt;</code></pre>
-</div>
-</div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1231,14 +1210,9 @@ a data set with a column for <code>hindfoot_length</code> and <code>weight</code
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-21" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-21&#39;, &#39;sol-start-21&#39;)"></span>
+► Solution<span id="sol-start-23" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-23&#39;, &#39;sol-start-23&#39;)"></span>
 </p>
-<div id="sol-body-21" class="solution-body" style="display: none;">
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
+<div id="sol-body-23" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">surveys_long <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(year, measurement, plot_type) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_value =</span> <span class="kw">mean</span>(value, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)) <span class="op">%&gt;%</span>
@@ -1258,8 +1232,6 @@ Answer
 ##  9  1978 Short-term Krat Exclosure            36.9   63.8
 ## 10  1978 Spectab exclosure                    42.3   80.1
 ## # … with 120 more rows</code></pre>
-</div>
-</div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>

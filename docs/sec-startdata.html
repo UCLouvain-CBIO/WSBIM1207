@@ -381,11 +381,6 @@ objects besides <code>data.frame</code>.</p>
 <li>How many rows and how many columns are in this object?</li>
 <li>How many species have been recorded during these surveys?</li>
 </ul>
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(surveys)</code></pre>
 <pre><code>## &#39;data.frame&#39;:  34786 obs. of  13 variables:
 ##  $ record_id      : int  1 72 224 266 349 363 435 506 588 661 ...
@@ -404,8 +399,6 @@ Answer
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">## * class: data frame</span>
 <span class="co">## * how many rows: 34786,  how many columns: 13</span>
 <span class="co">## * how many species: 48</span></code></pre>
-</div>
-</div>
 </blockquote>
 </div>
 <div id="indexing-and-subsetting-data-frames" class="section level2">
@@ -614,11 +607,6 @@ frame. Store the content of this row in an object named <code>surveys_middle</co
 <code>head(surveys)</code>, keeping just the first through 6th rows of the surveys
 dataset.</p></li>
 </ol>
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">## 1.</span>
 surveys_<span class="dv">200</span> &lt;-<span class="st"> </span>surveys[<span class="dv">200</span>, ]
 <span class="co">## 2.</span>
@@ -629,8 +617,6 @@ surveys_last &lt;-<span class="st"> </span>surveys[n_rows, ]
 surveys_middle &lt;-<span class="st"> </span>surveys[n_rows <span class="op">/</span><span class="st"> </span><span class="dv">2</span>, ]
 <span class="co">## 4.</span>
 surveys_head &lt;-<span class="st"> </span>surveys[<span class="op">-</span>(<span class="dv">7</span><span class="op">:</span>n_rows), ]</code></pre>
-</div>
-</div>
 </blockquote>
 </div>
 <div id="factors" class="section level2">
@@ -736,17 +722,10 @@ of the data frame:</p>
 <li>Now that we have renamed the factor level to “undetermined”, can you recreate the
 barplot such that “undetermined” is last (after “male”)?</li>
 </ul>
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(sex)[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>)
 sex &lt;-<span class="st"> </span><span class="kw">factor</span>(sex, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>, <span class="st">&quot;undetermined&quot;</span>))
 <span class="kw">plot</span>(sex)</code></pre>
-<img src="WSBIM1207_files/figure-html/unnamed-chunk-93-1.png" width="672"  />
-</div>
-</div>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-93-1.png" width="672"  /></p>
 </blockquote>
 </div>
 <div id="using-stringsasfactorsfalse" class="section level3">
@@ -765,24 +744,52 @@ surveys &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span cla
 <span class="kw">str</span>(surveys)
 <span class="co">## Convert the column &quot;plot_type&quot; into a factor</span>
 surveys<span class="op">$</span>plot_type &lt;-<span class="st"> </span><span class="kw">factor</span>(surveys<span class="op">$</span>plot_type)</code></pre>
-<blockquote>
-<p><strong>Challenge</strong></p>
-<ol style="list-style-type: decimal">
-<li><p>We have seen how data frames are created when using <code>read.csv()</code>, but
-they can also be created by hand with the <code>data.frame()</code> function. There are
-a few mistakes in this hand-crafted <code>data.frame</code>. Can you spot and fix them?
-Don’t hesitate to experiment!</p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>We have seen how data frames are created when using <code>read.csv()</code>, but
+they can also be created by hand with the <code>data.frame()</code> function.
+There are a few mistakes in this hand-crafted <code>data.frame</code>. Can you
+spot and fix them? Don’t hesitate to experiment!</p>
 <pre class="sourceCode r"><code class="sourceCode r">animal_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
-          <span class="dt">animal =</span> <span class="kw">c</span>(dog, cat, sea cucumber, sea urchin),
-          <span class="dt">feel =</span> <span class="kw">c</span>(<span class="st">&quot;furry&quot;</span>, <span class="st">&quot;squishy&quot;</span>, <span class="st">&quot;spiny&quot;</span>),
-          <span class="dt">weight =</span> <span class="kw">c</span>(<span class="dv">45</span>, <span class="dv">8</span> <span class="fl">1.1</span>, <span class="fl">0.8</span>)
-          )</code></pre></li>
-<li>Can you predict the class for each of the columns in the following example?
-Check your guesses using <code>str(country_climate)</code>:
+       <span class="dt">animal =</span> <span class="kw">c</span>(dog, cat, sea cucumber, sea urchin),
+       <span class="dt">feel =</span> <span class="kw">c</span>(<span class="st">&quot;furry&quot;</span>, <span class="st">&quot;squishy&quot;</span>, <span class="st">&quot;spiny&quot;</span>),
+       <span class="dt">weight =</span> <span class="kw">c</span>(<span class="dv">45</span>, <span class="dv">8</span> <span class="fl">1.1</span>, <span class="fl">0.8</span>))</code></pre>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-13" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-13&#39;, &#39;sol-start-13&#39;)"></span>
+</p>
+<div id="sol-body-13" class="solution-body" style="display: none;">
 <ul>
-<li>Are they what you expected? Why? Why not?</li>
-<li>What would have been different if we had added <code>stringsAsFactors = FALSE</code> when creating the data frame?</li>
-<li>What would you need to change to ensure that each column had the accurate data type?</li>
+<li>missing quotations around the names of the animals</li>
+<li>missing one entry in the “feel” column (probably for one of the furry animals)</li>
+<li>missing one comma in the weight column</li>
+</ul>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Can you predict the class for each of the columns in the following
+example?</p>
+<p>Check your guesses using <code>str(country_climate)</code>:</p>
+<ul>
+<li><p>Are they what you expected? Why? Why not?</p></li>
+<li><p>What would have been different if we had added <code>stringsAsFactors = FALSE</code> when creating the data frame?</p></li>
+<li><p>What would you need to change to ensure that each column had the
+accurate data type?</p></li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r">country_climate &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
        <span class="dt">country =</span> <span class="kw">c</span>(<span class="st">&quot;Canada&quot;</span>, <span class="st">&quot;Panama&quot;</span>, <span class="st">&quot;South Africa&quot;</span>, <span class="st">&quot;Australia&quot;</span>),
@@ -791,35 +798,37 @@ Check your guesses using <code>str(country_climate)</code>:
        <span class="dt">northern_hemisphere =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="st">&quot;FALSE&quot;</span>),
        <span class="dt">has_kangaroo =</span> <span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="dv">1</span>)
        )</code></pre>
-<div class="accordion">
-<h3 class="toc-ignore">
-Answer
-</h3>
-<div style="background: #fff;">
-<p>
-<ul>
-<li>missing quotations around the names of the animals</li>
-<li>missing one entry in the “feel” column (probably for one of the furry animals)</li>
-<li>missing one comma in the weight column</li>
-<li><code>country</code>, <code>climate</code>, <code>temperature</code>, and <code>northern_hemisphere</code> are
-factors; <code>has_kangaroo</code> is numeric</li>
-<li>using <code>stringsAsFactors = FALSE</code> would have made them character instead of
-factors</li>
-<li>removing the quotes in temperature and northern_hemisphere and replacing 1
-by TRUE in the <code>has_kangaroo</code> column would give what was probably
-intended
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
 </div>
-</div></li>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-14" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-14&#39;, &#39;sol-start-14&#39;)"></span>
+</p>
+<div id="sol-body-14" class="solution-body" style="display: none;">
+<ul>
+<li><p><code>country</code>, <code>climate</code>, <code>temperature</code>, and <code>northern_hemisphere</code> are
+factors; <code>has_kangaroo</code> is numeric.</p></li>
+<li><p>Using <code>stringsAsFactors = FALSE</code> would have made them character
+instead of factors.</p></li>
+<li><p>Removing the quotes in temperature and northern_hemisphere and
+replacing 1 by TRUE in the <code>has_kangaroo</code> column would give what was
+probably intended.</p></li>
 </ul>
-</p></li>
-</ol>
-</blockquote>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 <p>The automatic conversion of data type is sometimes a blessing, sometimes an
 annoyance. Be aware that it exists, learn the rules, and double check that data
 you import in R are of the correct type within your data frame. If not, use it
 to your advantage to detect mistakes that might have been introduced during data
 entry (a letter in a column that should only contain numbers for instance).</p>
-<p>Learn more in this <a href="https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio">RStudio tutorial</a></p>
+<p>Learn more in this <a href="https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio">RStudio
+tutorial</a></p>
 </div>
 </div>
 <div id="matrices" class="section level2">
@@ -858,9 +867,9 @@ Using the function <code>installed.packages()</code>, verify if the <code>lubrid
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-13" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-13&#39;, &#39;sol-start-13&#39;)"></span>
+► Solution<span id="sol-start-15" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-15&#39;, &#39;sol-start-15&#39;)"></span>
 </p>
-<div id="sol-body-13" class="solution-body" style="display: none;">
+<div id="sol-body-15" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">## 1. get the names of all installed packages</span>
 ip &lt;-<span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())
 <span class="co">## 2. TRUE if installed, FALSE otherwise</span>
@@ -903,9 +912,9 @@ Construct a matrix of dimension 1000 by 3 of normally distributed data (mean 0, 
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-14" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-14&#39;, &#39;sol-start-14&#39;)"></span>
+► Solution<span id="sol-start-16" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-16&#39;, &#39;sol-start-16&#39;)"></span>
 </p>
-<div id="sol-body-14" class="solution-body" style="display: none;">
+<div id="sol-body-16" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
 m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">3000</span>), <span class="dt">ncol =</span> <span class="dv">3</span>)
 <span class="kw">dim</span>(m)</code></pre>
