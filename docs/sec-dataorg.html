@@ -1496,7 +1496,12 @@ BA,Baiomys,taylori,Rodent</code></pre>
 value for <code>taxa</code> includes a comma (<code>Rodent-not,censused</code>). If we try
 to read the above into Excel (or other spreadsheet program), we will
 get something like this:</p>
-<p><img src="figs/csv-mistake.png" width="40%"  style="display: block; margin: auto;" /></p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
+<p class="caption marginnote shownote">
+Figure 1.15: The risks of having commas inside comma-separated data.
+</p>
+<img src="figs/csv-mistake.png" alt="The risks of having commas inside comma-separated data." width="80%"  />
+</div>
 <p>The value for <code>taxa</code> was split into two columns (instead of being put
 in one column <code>D</code>). This can propagate to a number of further
 errors. For example, the extra column will be interpreted as a column
@@ -1517,7 +1522,11 @@ column, because Excel will only use commas that fall outside of
 quotation marks as delimiting characters.</p>
 <p>Alternatively, if you are working with data that contains commas, you
 likely will need to use another delimiter when working in a
-spreadsheet. In this case, consider using tabs as your delimiter and
+spreadsheet<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> This is of course particularly relevant in European
+countries where the comma is used as a decimal
+separator. In such cases, the default value separator in a
+csv file will be the semi-colon (;), or values will be
+systematically quoted.</span>. In this case, consider using tabs as your delimiter and
 working with TSV files. TSV files can be exported from spreadsheet
 programs in the same way as CSV files.</p>
 <p>If you are working with an already existing dataset in which the data
@@ -1544,11 +1553,11 @@ build relevant scripts.</p>
 <div class="figure">--><span id="fig:analysis"></span>
 <img src="figs/analysis.png" alt="A typical data analysis workflow." width="362"  />
 <!--
-<p class="caption marginnote">-->Figure 1.15: A typical data analysis workflow.<!--</p>-->
+<p class="caption marginnote">-->Figure 1.16: A typical data analysis workflow.<!--</p>-->
 <!--</div>--></span>
 </p>
 <p>A typical data analysis worflow is illustrated in figure
-<a href="sec-dataorg.html#fig:analysis">1.15</a>), where data is repeatedly tranformed, visualised,
+<a href="sec-dataorg.html#fig:analysis">1.16</a>, where data is repeatedly tranformed, visualised,
 modelled. This iteration is repeated multiple times until the data is
 understood. In many real-life cases, however, most time is spend in
 clearning up and preparing the data, rather than actually analysing

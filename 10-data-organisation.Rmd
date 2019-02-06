@@ -1351,7 +1351,7 @@ to read the above into Excel (or other spreadsheet program), we will
 get something like this:
 
 
-```{r, results='markup', echo=FALSE, purl=FALSE, out.width='40%', fig.align='center'}
+```{r, results='markup', fig.cap = "The risks of having commas inside comma-separated data.", echo=FALSE, purl=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("./figs/csv-mistake.png")
 ```
 
@@ -1381,9 +1381,15 @@ quotation marks as delimiting characters.
 
 Alternatively, if you are working with data that contains commas, you
 likely will need to use another delimiter when working in a
-spreadsheet. In this case, consider using tabs as your delimiter and
+spreadsheet[^decsep]. In this case, consider using tabs as your delimiter and
 working with TSV files. TSV files can be exported from spreadsheet
 programs in the same way as CSV files.
+
+[^decsep]: This is of course particularly relevant in European
+           countries where the comma is used as a decimal
+           separator. In such cases, the default value separator in a
+           csv file will be the semi-colon (;), or values will be
+           systematically quoted.
 
 If you are working with an already existing dataset in which the data
 values are not included in "" but which have commas as both delimiters
@@ -1409,7 +1415,7 @@ knitr::include_graphics("./figs/analysis.png")
 ```
 
 A typical data analysis worflow is illustrated in figure
-\@ref(fig:analysis)), where data is repeatedly tranformed, visualised,
+\@ref(fig:analysis), where data is repeatedly tranformed, visualised,
 modelled. This iteration is repeated multiple times until the data is
 understood. In many real-life cases, however, most time is spend in
 clearning up and preparing the data, rather than actually analysing
