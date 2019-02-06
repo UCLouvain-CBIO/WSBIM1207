@@ -25,8 +25,8 @@ output: html_document
 - Les notes de cours sont en anglais, mais le cours se donnera en
   français.
 
-- Le cours sera mis à jour regulièrement en pour répondre aux
-  questions et commentaires abordés durent le cours.
+- Le cours sera mis à jour regulièrement pour répondre aux
+  questions et commentaires abordés durant le cours.
 
 - Il est fortement conseillé de participer activement durant les cours,
   et de faire les exercices aussi bien pendant le cours que ceux
@@ -40,25 +40,25 @@ output: html_document
   voir refuser la participation à l'examen de fin de cours.
 
 - Il y aura des interrogations cotées en début de certaines
-  sessions. Ces cotes seront contabilisées dans la note finale. Le
+  sessions. Ces cotes seront comptabilisées dans la note finale. Le
   meilleur moyen de vous y préparer et de faire et comprendre les
-  exercises en cours et à domicile.
+  exercices en cours et à domicile.
 
 - Nous ferons une pause d'environ 30 minutes de 10h15 à 10h45.
 
 
 Ce qui est attendu de vous:
 
-- **Interactions** entre étudiants et enseignants: poser des questions,
+- **Interactions** entre étudiants et enseignants: posez des questions,
   n'hésitez pas à vous entraider durant les résolutions de problèmes.
 
 - Un **apprentissage actif**. Il ne vous sera pas possible de
   comprendre la matière en apprenant le cours par coeur. C'est la
-  pratique qui vous permettra de maîtriser la: tentez donc les
-  exercises et si vous n'y arrivez pas, posez des questions.
+  pratique qui vous permettra de la maîtriser: tentez donc les
+  exercices et si vous n'y arrivez pas, posez des questions.
 
-- Donnez-nous du **feed-back approproprié**, pour que nous puissions
-  vous aidez en proposant d'avantages d'exercises et/ou en clarifiant
+- Donnez-nous un **feed-back approprié**, pour que nous puissions
+  vous aidez en proposant davantages d'exercices et/ou en clarifiant
   des parties du cours. Ce feed-back se fera pendant les cours
   (questions et réponses) et en fin de session (post-its).
 
@@ -79,7 +79,7 @@ Ce qui est attendu de vous:
 | 8 | Jeudi  28/03/2019 | 08h30 - 12h30 | Eléments de programmation                       |
 | 9 | Jeudi  04/04/2019 | 08h30 - 12h30 | Exercices supplémentaires et questions/réponses |
 
-NB: la matière reprises ci-dessus est à titre indicatif uniquement, et
+NB: la matière reprise ci-dessus est à titre indicatif uniquement, et
 sera adaptée en fonction de l'avancée en cours.
 
 ## Examen
@@ -88,12 +88,12 @@ sera adaptée en fonction de l'avancée en cours.
   reproductible en
   Rmarkdown](https://uclouvain-cbio.github.io/WSBIM1207/sec-rr.html),
   que vous nous rendrez en fin d'examen. Nous le compilerons nous
-  mêmes en format pdf, et ce fichier que nous corrigerons.
+  mêmes en format pdf, et c'est ce fichier que nous corrigerons.
 
-- Le nombre de pages de rapport sera limité. Assurez-vous de ne pas la
+- Le nombre de pages de rapport sera limité. Assurez-vous de ne pas le
   dépasser.
 
-- L'examen sera a livre ouvert - vous aurez accès à la dernière mise à
+- L'examen sera à livre ouvert - vous aurez accès à la dernière mise à
   jour des notes de cours.
 
 - Les questions d'examen seront en français et vos réponses seront
