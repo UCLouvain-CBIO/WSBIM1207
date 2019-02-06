@@ -266,7 +266,7 @@ inspect the variables we are going to create, and visualize the plots we will
 generate. RStudio can also be used for other things (e.g., version control,
 developing packages, writing Shiny apps) that we will not cover during the
 workshop.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-14"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
 <p class="caption marginnote shownote">
 Figure 2.1: RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.
 </p>
@@ -315,7 +315,7 @@ directory and rename it (e.g., <code>data-carpentry-script.R</code>).</li>
 .RData can be cumbersome, especially if you are working with larger datasets.
 To turn that off, go to Tools –&gt; ‘Global Options’ and select the ‘Never’ option
 for ‘Save workspace to .RData’ on exit.’</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-15"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-19"></span>
 <p class="caption marginnote shownote">
 Figure 2.2: Set ‘Save workspace to .RData on exit’ to ‘Never’
 </p>
@@ -346,7 +346,7 @@ functions (more on that later).</li>
 </ul>
 <p>You may want additional directories or subdirectories depending on your project
 needs, but these should form the backbone of your working directory.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-16"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-20"></span>
 <p class="caption marginnote shownote">
 Figure 2.3: Example of a working directory structure.
 </p>
@@ -365,7 +365,7 @@ your R console.) Repeat these operations to create a <code>data_output/</code> a
 <p>We are going to keep the script in the root of our working directory because we
 are only going to use one file and it will make things easier.</p>
 <p>Your working directory should now look like this:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-21"></span>
 <p class="caption marginnote shownote">
 Figure 2.4: How it should look like at the beginning of this lesson
 </p>
@@ -548,21 +548,21 @@ as it provides critical information about your platform, the versions of R and
 the packages that you are using, and other information that can be very helpful
 to understand your problem.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre>
-<pre><code>## R version 3.5.2 Patched (2019-01-24 r76018)
+<pre><code>## R Under development (unstable) (2018-04-02 r74505)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Manjaro Linux
+## Running under: Ubuntu 14.04.5 LTS
 ## 
 ## Matrix products: default
-## BLAS: /usr/lib/libblas.so.3.8.0
-## LAPACK: /usr/lib/liblapack.so.3.8.0
+## BLAS: /usr/lib/atlas-base/atlas/libblas.so.3.0
+## LAPACK: /usr/lib/lapack/liblapack.so.3.0
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [1] LC_CTYPE=en_GB.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_GB.UTF-8        LC_COLLATE=en_GB.UTF-8    
+##  [5] LC_MONETARY=en_GB.UTF-8    LC_MESSAGES=en_GB.UTF-8   
+##  [7] LC_PAPER=en_GB.UTF-8       LC_NAME=C                 
 ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## [11] LC_MEASUREMENT=en_GB.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
@@ -571,8 +571,8 @@ to understand your problem.</p>
 ##  [1] Rcpp_1.0.0       bookdown_0.9     msmbstyle_0.0.3  png_0.1-7       
 ##  [5] digest_0.6.18    magrittr_1.5     evaluate_0.12    highr_0.7       
 ##  [9] stringi_1.2.4    rstudioapi_0.9.0 xml2_1.2.0       rmarkdown_1.11  
-## [13] tools_3.5.2      stringr_1.3.1    xfun_0.4         yaml_2.2.0      
-## [17] compiler_3.5.2   htmltools_0.3.6  knitr_1.21</code></pre>
+## [13] tools_3.6.0      stringr_1.3.1    xfun_0.4         yaml_2.2.0      
+## [17] compiler_3.6.0   htmltools_0.3.6  knitr_1.21</code></pre>
 </div>
 <div id="where-to-ask-for-help" class="section level3 unnumbered">
 <h3>Where to ask for help?</h3>

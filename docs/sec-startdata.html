@@ -437,108 +437,108 @@ surveys[, <span class="dv">1</span>]</code></pre>
 ##  [ reached getOption(&quot;max.print&quot;) -- omitted 34686 entries ]</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first column of the data frame (as a data.frame)</span>
 surveys[<span class="dv">1</span>]</code></pre>
-<pre><code>##     record_id
-## 1           1
-## 2          72
-## 3         224
-## 4         266
-## 5         349
-## 6         363
-## 7         435
-## 8         506
-## 9         588
-## 10        661
-## 11        748
-## 12        845
-## 13        990
-## 14       1164
-## 15       1261
-## 16       1374
-## 17       1453
-## 18       1756
-## 19       1818
-## 20       1882
-## 21       2133
-## 22       2184
-## 23       2406
-## 24       2728
-## 25       3000
-## 26       3002
-## 27       4667
-## 28       4859
-## 29       5048
-## 30       5180
-## 31       5299
-## 32       5485
-## 33       5558
-## 34       5583
-## 35       5966
-## 36       6020
-## 37       6023
-## 38       6036
-## 39       6167
-## 40       6479
-## 41       6500
-## 42       8022
-## 43       8263
-## 44       8387
-## 45       8394
-## 46       8407
-## 47       8514
-## 48       8543
-## 49       8657
-## 50       8675
-## 51       8755
-## 52       9048
-## 53       9132
-## 54       9270
-## 55       9349
-## 56       9512
-## 57       9605
-## 58       9703
-## 59      10606
-## 60      10617
-## 61      10627
-## 62      10720
-## 63      10923
-## 64      10949
-## 65      11215
-## 66      11329
-## 67      11496
-## 68      11498
-## 69      11611
-## 70      11628
-## 71      11709
-## 72      11877
-## 73      11879
-## 74      11887
-## 75      11953
-## 76      12299
-## 77      12458
-## 78      12602
-## 79      12678
-## 80      12708
-## 81      12729
-## 82      12756
-## 83      12871
-## 84      12997
-## 85      13025
-## 86      13114
-## 87      13275
-## 88      13326
-## 89      13434
-## 90      13465
-## 91      13476
-## 92      13615
-## 93      13630
-## 94      13748
-## 95      13977
-## 96      14646
-## 97      14740
-## 98      14796
-## 99      14804
-## 100     14896
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 34686 rows ]</code></pre>
+<pre><code>##       record_id
+## 1             1
+## 2            72
+## 3           224
+## 4           266
+## 5           349
+## 6           363
+## 7           435
+## 8           506
+## 9           588
+## 10          661
+## 11          748
+## 12          845
+## 13          990
+## 14         1164
+## 15         1261
+## 16         1374
+## 17         1453
+## 18         1756
+## 19         1818
+## 20         1882
+## 21         2133
+## 22         2184
+## 23         2406
+## 24         2728
+## 25         3000
+## 26         3002
+## 27         4667
+## 28         4859
+## 29         5048
+## 30         5180
+## 31         5299
+## 32         5485
+## 33         5558
+## 34         5583
+## 35         5966
+## 36         6020
+## 37         6023
+## 38         6036
+## 39         6167
+## 40         6479
+## 41         6500
+## 42         8022
+## 43         8263
+## 44         8387
+## 45         8394
+## 46         8407
+## 47         8514
+## 48         8543
+## 49         8657
+## 50         8675
+## 51         8755
+## 52         9048
+## 53         9132
+## 54         9270
+## 55         9349
+## 56         9512
+## 57         9605
+## 58         9703
+## 59        10606
+## 60        10617
+## 61        10627
+## 62        10720
+## 63        10923
+## 64        10949
+## 65        11215
+## 66        11329
+## 67        11496
+## 68        11498
+## 69        11611
+## 70        11628
+## 71        11709
+## 72        11877
+## 73        11879
+## 74        11887
+## 75        11953
+## 76        12299
+## 77        12458
+## 78        12602
+## 79        12678
+## 80        12708
+## 81        12729
+## 82        12756
+## 83        12871
+## 84        12997
+## 85        13025
+## 86        13114
+## 87        13275
+## 88        13326
+## 89        13434
+## 90        13465
+## 91        13476
+## 92        13615
+## 93        13630
+## 94        13748
+## 95        13977
+## 96        14646
+## 97        14740
+## 98        14796
+## 99        14804
+## 100       14896
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 34686 rows ]</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first three elements in the 7th column (as a vector)</span>
 surveys[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">7</span>]</code></pre>
 <pre><code>## [1] M M  
@@ -555,25 +555,25 @@ head_surveys &lt;-<span class="st"> </span>surveys[<span class="dv">1</span><spa
 or decreasing order, test <code>1:10</code> and <code>10:1</code> for instance.</p>
 <p>You can also exclude certain indices of a data frame using the “<code>-</code>” sign:</p>
 <pre class="sourceCode r"><code class="sourceCode r">surveys[, <span class="dv">-1</span>]          <span class="co"># The whole data frame, except the first column</span></code></pre>
-<pre><code>##   month day year plot_id species_id sex hindfoot_length weight   genus
-## 1     7  16 1977       2         NL   M              32     NA Neotoma
-## 2     8  19 1977       2         NL   M              31     NA Neotoma
-## 3     9  13 1977       2         NL                  NA     NA Neotoma
-## 4    10  16 1977       2         NL                  NA     NA Neotoma
-## 5    11  12 1977       2         NL                  NA     NA Neotoma
-## 6    11  12 1977       2         NL                  NA     NA Neotoma
-## 7    12  10 1977       2         NL                  NA     NA Neotoma
-## 8     1   8 1978       2         NL                  NA     NA Neotoma
-##    species   taxa plot_type
-## 1 albigula Rodent   Control
-## 2 albigula Rodent   Control
-## 3 albigula Rodent   Control
-## 4 albigula Rodent   Control
-## 5 albigula Rodent   Control
-## 6 albigula Rodent   Control
-## 7 albigula Rodent   Control
-## 8 albigula Rodent   Control
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 34778 rows ]</code></pre>
+<pre><code>##       month day year plot_id species_id sex hindfoot_length weight
+## 1         7  16 1977       2         NL   M              32     NA
+## 2         8  19 1977       2         NL   M              31     NA
+## 3         9  13 1977       2         NL                  NA     NA
+## 4        10  16 1977       2         NL                  NA     NA
+## 5        11  12 1977       2         NL                  NA     NA
+## 6        11  12 1977       2         NL                  NA     NA
+## 7        12  10 1977       2         NL                  NA     NA
+## 8         1   8 1978       2         NL                  NA     NA
+##                  genus         species    taxa                 plot_type
+## 1              Neotoma        albigula  Rodent                   Control
+## 2              Neotoma        albigula  Rodent                   Control
+## 3              Neotoma        albigula  Rodent                   Control
+## 4              Neotoma        albigula  Rodent                   Control
+## 5              Neotoma        albigula  Rodent                   Control
+## 6              Neotoma        albigula  Rodent                   Control
+## 7              Neotoma        albigula  Rodent                   Control
+## 8              Neotoma        albigula  Rodent                   Control
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 34778 rows ]</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">surveys[<span class="op">-</span><span class="kw">c</span>(<span class="dv">7</span><span class="op">:</span><span class="dv">34786</span>), ] <span class="co"># Equivalent to head(surveys)</span></code></pre>
 <pre><code>##   record_id month day year plot_id species_id sex hindfoot_length weight
 ## 1         1     7  16 1977       2         NL   M              32     NA
@@ -709,7 +709,7 @@ level. Let’s look at the number of males and females captured over the course 
 the experiment:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">## bar plot of the number of females and males captured during the experiment:</span>
 <span class="kw">plot</span>(surveys<span class="op">$</span>sex)</code></pre>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-86-1.png" width="672"  /></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-90-1.png" width="672"  /></p>
 <p>In addition to males and females, there are about 1700 individuals for which the
 sex information hasn’t been recorded. Additionally, for these individuals,
 there is no label to indicate that the information is missing or undetermined. Let’s rename this
@@ -744,7 +744,7 @@ Answer
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(sex)[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>)
 sex &lt;-<span class="st"> </span><span class="kw">factor</span>(sex, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>, <span class="st">&quot;undetermined&quot;</span>))
 <span class="kw">plot</span>(sex)</code></pre>
-<img src="WSBIM1207_files/figure-html/unnamed-chunk-88-1.png" width="672"  />
+<img src="WSBIM1207_files/figure-html/unnamed-chunk-92-1.png" width="672"  />
 </div>
 </div>
 </blockquote>
@@ -836,11 +836,12 @@ are currently installed on our respective computers using the
 explore this matrix as those used for dataframes above.</p>
 <pre class="sourceCode r"><code class="sourceCode r">ip &lt;-<span class="st"> </span><span class="kw">installed.packages</span>()
 <span class="kw">dim</span>(ip)</code></pre>
-<pre><code>## [1] 495  16</code></pre>
+<pre><code>## [1] 729  16</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">colnames</span>(ip))</code></pre>
 <pre><code>## [1] &quot;Package&quot;  &quot;LibPath&quot;  &quot;Version&quot;  &quot;Priority&quot; &quot;Depends&quot;  &quot;Imports&quot;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">rownames</span>(ip)) <span class="co">## these are the package names</span></code></pre>
-<pre><code>## [1] &quot;abind&quot;   &quot;acepack&quot; &quot;affy&quot;    &quot;affyio&quot;  &quot;ALL&quot;     &quot;alpine&quot;</code></pre>
+<pre><code>## [1] &quot;abind&quot;           &quot;acepack&quot;         &quot;ada&quot;             &quot;addinexamples&quot;  
+## [5] &quot;additivityTests&quot; &quot;ade4&quot;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">## View(ip)</span></code></pre>
 <div class="question">
 <p class="question-begin">
@@ -1004,7 +1005,7 @@ vector from the <code>year</code>, <code>month</code>, and <code>day</code> colu
 ##  [86] &quot;1987-07-26&quot; &quot;1987-08-26&quot; &quot;1987-08-26&quot; &quot;1987-09-27&quot; &quot;1987-09-27&quot;
 ##  [91] &quot;1987-09-27&quot; &quot;1987-10-25&quot; &quot;1987-10-25&quot; &quot;1987-11-22&quot; &quot;1988-01-24&quot;
 ##  [96] &quot;1988-06-12&quot; &quot;1988-07-15&quot; &quot;1988-08-10&quot; &quot;1988-08-10&quot; &quot;1988-09-12&quot;
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 34686 entries ]</code></pre>
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 34686 entries ]</code></pre>
 <p>The resulting <code>Date</code> vector can be added to <code>surveys</code> as a new column called <code>date</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r">surveys<span class="op">$</span>date &lt;-<span class="st"> </span><span class="kw">ymd</span>(<span class="kw">paste</span>(surveys<span class="op">$</span>year, surveys<span class="op">$</span>month, surveys<span class="op">$</span>day, <span class="dt">sep =</span> <span class="st">&quot;-&quot;</span>))</code></pre>
 <pre><code>## Warning: 129 failed to parse.</code></pre>
@@ -1086,9 +1087,9 @@ a matrix, a dataframe and another list:</p>
 <pre><code>## List of 5
 ##  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##  $ : chr [1:26] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ : chr [1:495, 1:16] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
+##  $ : chr [1:729, 1:16] &quot;abind&quot; &quot;acepack&quot; &quot;ada&quot; &quot;addinexamples&quot; ...
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
-##   .. ..$ : chr [1:495] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
+##   .. ..$ : chr [1:729] &quot;abind&quot; &quot;acepack&quot; &quot;ada&quot; &quot;addinexamples&quot; ...
 ##   .. ..$ : chr [1:16] &quot;Package&quot; &quot;LibPath&quot; &quot;Version&quot; &quot;Priority&quot; ...
 ##  $ :&#39;data.frame&#39;:    50 obs. of  2 variables:
 ##   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...

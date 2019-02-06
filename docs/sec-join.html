@@ -186,7 +186,7 @@ set of join functions for combining two data frames based on matches
 within specified columns.</p>
 <p>For further reading, please refer to the chapter about <a href="https://r4ds.had.co.nz/relational-data.html#understanding-joins">table
 joins</a>
-in <span class="citation">Grolemund and Wickham (<label for="tufte-mn-16" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-16" class="margin-toggle">2017<span class="marginnote">Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. O’Reilly Media. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.</span>)</span>.</p>
+in <span class="citation">Grolemund and Wickham (<label for="tufte-mn-18" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-18" class="margin-toggle">2017<span class="marginnote">Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. O’Reilly Media. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.</span>)</span>.</p>
 <p>The <a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf">Data Transformation Cheat
 Sheet</a>
 also provides a short overview on table joins.</p>
@@ -344,7 +344,7 @@ that are present in only one or both tables.</p>
 <li>An <strong>inner join</strong> keeps observations that are present in both
 tables.</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-157"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-161"></span>
 <p class="caption marginnote shownote">
 Figure 6.1: An inner join matches pairs of observation matching in both tables, this dropping those that are unique to one table. Figure taken from <em>R for Data Science</em>.
 </p>
@@ -357,7 +357,7 @@ Figure 6.1: An inner join matches pairs of observation matching in both tables, 
 (second) table, dropping those that are only present in the other.</li>
 <li>A <strong>full join</strong> keeps all observations.</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-158"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-162"></span>
 <p class="caption marginnote shownote">
 Figure 6.2: Outer joins match observations that appear in at least on table, filling up missing values with <code>NA</code> values. Figure taken from <em>R for Data Science</em>.
 </p>
@@ -523,7 +523,7 @@ between <code>jdf6</code> and <code>jdf7</code>, both having duplicated <code>Q9
 localisation of the protein. <code>jdf7</code> has also two entries, referring to
 two different quantitative measurements (variable <code>measure</code>). When
 joining the duplicated keys, you get all possible combinations.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-159"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-163"></span>
 <p class="caption marginnote shownote">
 Figure 6.3: Joins with duplicated keys in both tables, producing all possible combinations. Figure taken from <em>R for Data Science</em>.
 </p>

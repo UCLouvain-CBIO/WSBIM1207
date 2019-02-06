@@ -142,9 +142,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#problems-with-spreadsheets"> Problems with Spreadsheets</a></li>
 <li class="toc"><a href="#formatting-data-tables-in-spreadsheets"> Formatting data tables in spreadsheets</a></li>
 <li class="toc"><a href="#common-spreadsheet-errors"> Common Spreadsheet Errors</a></li>
-<li class="toc"><a href="#zeros"> Not filling in zeros</a></li>
-<li class="toc"><a href="#null"> Using problematic null values</a></li>
-<li class="toc"><a href="#NA"> Using problematic field names</a></li>
 <li class="toc"><a href="#dates"> Dates as data</a></li>
 <li class="toc"><a href="#data-integrity"> Data integrity</a></li>
 <li class="toc"><a href="#exporting-data"> Exporting data</a></li>
@@ -246,11 +243,37 @@ researchers. We can use them for:</p>
 <li>Statistics</li>
 <li>Plotting</li>
 </ul>
+<p>Here are three examples from research papers:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
+<p class="caption marginnote shownote">
+Figure 1.1: A figure from a bioinformatics paper (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3866554/">Hugues et al. (2014)</a>) that compares different proteomics data processing methods (along the columns) and how they control false positive rate for spiked-in data, the operator effect, and affect the root mean square error (RMSE).
+</p>
+<img src="figs/tab1.png" alt="A figure from a bioinformatics paper ([Hugues et al. (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3866554/)) that compares different proteomics data processing methods (along the columns) and how they control false positive rate for spiked-in data, the operator effect, and affect the root mean square error (RMSE)." width="100%"  />
+</div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<p class="caption marginnote shownote">
+Figure 1.2: This table summarises the spatial proteomics experiments that were re-analysed as part the a meta-analysis by <a href="https://www.sciencedirect.com/science/article/pii/S1367593118301339">Gatto et al. (2018)</a>.
+</p>
+<img src="figs/tab2.png" alt="This table summarises the spatial proteomics experiments that were re-analysed as part the a meta-analysis by [Gatto et al. (2018)](https://www.sciencedirect.com/science/article/pii/S1367593118301339). " width="100%"  />
+</div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<p class="caption marginnote shownote">
+Figure 1.3: Parts of the quantitative data of a spatial proteomics dataset by <a href="https://www.nature.com/articles/s41467-018-08191-w">Geladaki et al. (2019)</a>. The supplementary table is available <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-08191-w/MediaObjects/41467_2018_8191_MOESM4_ESM.xlsx">here</a>
+</p>
+<img src="figs/tab3a.png" alt="Parts of the quantitative data of a spatial proteomics dataset by [Geladaki et al. (2019)](https://www.nature.com/articles/s41467-018-08191-w). The supplementary table is available [here](https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-08191-w/MediaObjects/41467_2018_8191_MOESM4_ESM.xlsx)" width="100%"  />
+</div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<p class="caption marginnote shownote">
+Figure 1.4: Limunescence read-out of a 96 well plate. The file is available <a href="https://github.com/UCLouvain-CBIO/WSBIM1207/files/2836821/luminescence.xlsx">here</a>.
+</p>
+<img src="figs/tab4.png" alt="Limunescence read-out of a 96 well plate. The file is available [here](https://github.com/UCLouvain-CBIO/WSBIM1207/files/2836821/luminescence.xlsx)." width="100%"  />
+</div>
 <div class="question">
 <p class="question-begin">
 ► Question
 </p>
 <div class="question-body">
+<p>Discuss the following points with your neighbour</p>
 <ul>
 <li>How many people have used spreadsheets, in their research, courses,
 or at home?</li>
@@ -313,17 +336,25 @@ to be the program most used by biologists and ecologists.</p>
 </div>
 <div id="formatting-data-tables-in-spreadsheets" class="section level2">
 <h2><span class="header-section-number">1.3</span> Formatting data tables in spreadsheets</h2>
-<p>Questions:
-- How do we format data in spreadsheets for effective data use?</p>
-<p>Objectives:</p>
+<p><strong>Questions</strong></p>
 <ul>
-<li>Describe best practices for data entry and formatting in spreadsheets.</li>
-<li>Apply best practices to arrange variables and observations in a spreadsheet.</li>
+<li>How do we format data in spreadsheets for effective data use?</li>
 </ul>
-<p>Keypoints:
-- Never modify your raw data. Always make a copy before making any changes.
-- Keep track of all of the steps you take to clean your data in a plain text file.
-- Organize your data according to tidy data principles.</p>
+<p><strong>Objectives</strong></p>
+<ul>
+<li><p>Describe best practices for data entry and formatting in
+spreadsheets.</p></li>
+<li><p>Apply best practices to arrange variables and observations in a
+spreadsheet.</p></li>
+</ul>
+<p><strong>Keypoints</strong></p>
+<ul>
+<li><p>Never modify your raw data. Always make a copy before making any
+changes.</p></li>
+<li><p>Keep track of all of the steps you take to clean your data in a
+plain text file.</p></li>
+<li><p>Organize your data according to tidy data principles.</p></li>
+</ul>
 <p>The most common mistake made is treating spreadsheet programs like lab
 notebooks, that is, relying on context, notes in the margin, spatial
 layout of data and fields to convey information. As humans, we can
@@ -346,18 +377,18 @@ choices can limit your ability to work with the data in other programs
 or have the you-of-6-months-from-now or your collaborator work with
 the data.</p>
 <blockquote>
-<p>Note: the best layouts/formats (as well as software and interfaces)
-for data entry and data analysis might be different. It is important
-to take this into account, and ideally automate the conversion from
-one to another.</p>
+<p><strong>Note:</strong> the best layouts/formats (as well as software and
+interfaces) for data entry and data analysis might be different. It
+is important to take this into account, and ideally automate the
+conversion from one to another.</p>
 </blockquote>
 <div id="keeping-track-of-your-analyses" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> Keeping track of your analyses</h3>
 <p>When you’re working with spreadsheets, during data clean up or
 analyses, it’s very easy to end up with a spreadsheet that looks very
 different from the one you started with. In order to be able to
-reproduce your analyses or figure out what you did when Reviewer #3
-asks for a different analysis, you should</p>
+reproduce your analyses or figure out what you did when a reviewer or
+instructor asks for a different analysis, you should</p>
 <ul>
 <li><p>create a new file with your cleaned or analyzed data. Don’t modify
 the original dataset, or you will never know where you started!</p></li>
@@ -370,9 +401,12 @@ folder as the data file.</p></li>
 <p><img src="figs/spreadsheet-setup-updated.png" /></p>
 <p>Put these principles in to practice today during your Exercises.</p>
 <blockquote>
-<p>Note: This is out of scope for this lesson, but for information on
-how to maintain version control over your data, look at our lesson
-on <a href="http://swcarpentry.github.io/git-novice/">‘Git’</a>.</p>
+<p><strong>Note:</strong> This is out of scope for this lesson, but for information
+on how to maintain version control over your data, look at our
+lesson on <a href="http://swcarpentry.github.io/git-novice/">‘Git’</a>. See
+also this <a href="https://lgatto.github.io/github-intro/">blog post</a> for a
+quick tutorial or <span class="citation">Perez-Riverol (<label for="tufte-mn-15" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-15" class="margin-toggle">2016<span class="marginnote">Perez-Riverol, Laurent AND Wang, Yasset AND Gatto. 2016. “Ten Simple Rules for Taking Advantage of Git and GitHub.” <em>PLOS Computational Biology</em> 12 (7): 1–11. <a href="https://doi.org/10.1371/journal.pcbi.1004947">https://doi.org/10.1371/journal.pcbi.1004947</a>.</span>)</span> for a more research-oriented
+use-case.</p>
 </blockquote>
 </div>
 <div id="structuring-data-in-spreadsheets" class="section level3">
@@ -458,7 +492,7 @@ with this data and how you would fix it.</p>
 <!--   and go to the dates lesson. Or you can say you'll come back to dates -->
 <!--   at the end. -->
 <p>An <strong>excellent reference</strong>, in particular with regard to R scripting
-is the <em>Tidy Data</em> paper <span class="citation">Wickham (<label for="tufte-mn-15" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-15" class="margin-toggle">2014<span class="marginnote">Wickham, Hadley. 2014. “Tidy Data.” <em>Journal of Statistical Software, Articles</em> 59 (10): 1–23. <a href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>.</span>)</span>.</p>
+is the <em>Tidy Data</em> paper <span class="citation">Wickham (<label for="tufte-mn-16" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-16" class="margin-toggle">2014<span class="marginnote">Wickham, Hadley. 2014. “Tidy Data.” <em>Journal of Statistical Software, Articles</em> 59 (10): 1–23. <a href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>.</span>)</span>.</p>
 </div>
 </div>
 <div id="common-spreadsheet-errors" class="section level2">
@@ -558,9 +592,8 @@ down the road.</p>
 <p>Instead you can freeze the column headers so that they remain visible even when you have a spreadsheet with many rows.</p>
 <p><a href="https://support.office.com/en-ca/article/Freeze-column-headings-for-easy-scrolling-57ccce0c-cf85-4725-9579-c5d13106ca6a">Documentation on how to freeze column headers</a></p>
 </div>
-</div>
-<div id="zeros" class="section level2">
-<h2><span class="header-section-number">1.5</span> Not filling in zeros</h2>
+<div id="zeros" class="section level3">
+<h3><span class="header-section-number">1.4.3</span> Not filling in zeros</h3>
 <p>It might be that when you’re measuring something, it’s usually a zero,
 say the number of times a rabbit is observed in the survey. Why bother
 writing in the number zero in that column, when it’s mostly zeros?</p>
@@ -579,8 +612,8 @@ computer can’t guess the value of the missing observations). Because
 of this, it’s very important to record zeros as zeros and truly
 missing data as nulls.</p>
 </div>
-<div id="null" class="section level2">
-<h2><span class="header-section-number">1.6</span> Using problematic null values</h2>
+<div id="null" class="section level3">
+<h3><span class="header-section-number">1.4.4</span> Using problematic null values</h3>
 <p><strong>Example</strong>: using -999 or other numerical values (or zero) to
 represent missing data.</p>
 <p><strong>Solutions</strong>:</p>
@@ -603,13 +636,13 @@ recorded as -999, 999, or 0.</p>
 to represent missing (null) values. How these values are interpreted
 will depend on the software you use to analyze your data. It is
 essential to use a clearly defined and consistent null indicator.</p>
-<p>Blanks (most applications) and NA (for R) are good choices. White et
-al, 2013, explain good choices for indicating null values for
-different software applications in their article:</p>
-<p><a href="https://peerj.com/preprints/7/">Nine simple ways to make it easier to (re)use your data.</a> Ideas in Ecology and Evolution.</p>
+<p>Blanks (most applications) and NA (for R) are good
+choices. <span class="citation">White et al. (<label for="tufte-mn-17" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-17" class="margin-toggle">2013<span class="marginnote">White, Ethan P., Elita Baldridge, Zachary T. Brym, Kenneth J. Locey, Daniel J. McGlinn, and Sarah R. Supp. 2013. “Nine Simple Ways to Make It Easier to (Re)use Your Data.” <em>PeerJ PrePrints</em> 1 (July): e7v2. <a href="https://doi.org/10.7287/peerj.preprints.7v2">https://doi.org/10.7287/peerj.preprints.7v2</a>.</span>)</span> explain good choices for indicating null values
+for different software applications in their article:</p>
 <p><img src="figs/3_white_table_1.jpg" /></p>
+</div>
 <div id="formatting" class="section level3">
-<h3><span class="header-section-number">1.6.1</span> Using formatting to convey information</h3>
+<h3><span class="header-section-number">1.4.5</span> Using formatting to convey information</h3>
 <p><strong>Example</strong>: highlighting cells, rows or columns that should be
 excluded from an analysis, leaving blank rows to indicate
 separations in data.</p>
@@ -619,7 +652,7 @@ excluded.</p>
 <p><img src="figs/good_formatting.png" /></p>
 </div>
 <div id="formatting_pretty" class="section level3">
-<h3><span class="header-section-number">1.6.2</span> Using formatting to make the data sheet look pretty</h3>
+<h3><span class="header-section-number">1.4.6</span> Using formatting to make the data sheet look pretty</h3>
 <p><strong>Example</strong>: merging cells.</p>
 <p><strong>Solution</strong>: If you’re not careful, formatting a worksheet to be more
 aesthetically pleasing can compromise your computer’s ability to see
@@ -628,7 +661,7 @@ by statistics software. Consider restructuring your data in such a way
 that you will not need to merge cells to organize your data.</p>
 </div>
 <div id="units" class="section level3">
-<h3><span class="header-section-number">1.6.3</span> Placing comments or units in cells</h3>
+<h3><span class="header-section-number">1.4.7</span> Placing comments or units in cells</h3>
 <p><strong>Example</strong>: Your data was collected, in part, by a summer student who
 you later found out was mis-identifying some of your species, some of
 the time. You want a way to note these data are suspect.</p>
@@ -641,7 +674,7 @@ same unit, but if for some reason they aren’t, create another field
 and specify the units the cell is in.</p>
 </div>
 <div id="info" class="section level3">
-<h3><span class="header-section-number">1.6.4</span> Entering more than one piece of information in a cell</h3>
+<h3><span class="header-section-number">1.4.8</span> Entering more than one piece of information in a cell</h3>
 <p><strong>Example</strong>: You find one male, and one female of the same
 species. You enter this as <code>1M</code>, <code>1F</code>.</p>
 <p><strong>Solution</strong>: Don’t include more than one piece of information in a
@@ -650,9 +683,8 @@ you need both these measurements, design your data sheet to include
 this information. For example, include one column for number of
 individuals and a separate column for sex.</p>
 </div>
-</div>
-<div id="field_name" class="section level2">
-<h2><span class="header-section-number">1.7</span> Using problematic field names</h2>
+<div id="field_name" class="section level3">
+<h3><span class="header-section-number">1.4.9</span> Using problematic field names</h3>
 <p>Choose descriptive field names, but be careful not to include spaces,
 numbers, or special characters of any kind. Spaces can be
 misinterpreted by parsers that use whitespace as delimiters and some
@@ -711,8 +743,9 @@ confusion and enables others to readily interpret your fields.</p>
 </tr>
 </tbody>
 </table>
+</div>
 <div id="special" class="section level3">
-<h3><span class="header-section-number">1.7.1</span> Using special characters in data</h3>
+<h3><span class="header-section-number">1.4.10</span> Using special characters in data</h3>
 <p><strong>Example</strong>: You treat your spreadsheet program as a word processor
 when writing notes, for example copying data directly from Word or
 other applications.</p>
@@ -729,7 +762,7 @@ tabs, and vertical tabs. In other words, treat a text cell as if it
 were a simple web form that can only contain text and spaces.</p>
 </div>
 <div id="metadata" class="section level3">
-<h3><span class="header-section-number">1.7.2</span> Inclusion of metadata in data table</h3>
+<h3><span class="header-section-number">1.4.11</span> Inclusion of metadata in data table</h3>
 <p><strong>Example</strong>: You add a legend at the top or bottom of your data table
 explaining column meaning, units, exceptions, etc.</p>
 <p><strong>Solution</strong>: Recording data about your data (“metadata”) is
@@ -772,7 +805,7 @@ License</a>.)</p>
 </div>
 </div>
 <div id="dates" class="section level2">
-<h2><span class="header-section-number">1.8</span> Dates as data</h2>
+<h2><span class="header-section-number">1.5</span> Dates as data</h2>
 <p>Questions:</p>
 <ul>
 <li>What are good approaches for handling dates in spreadsheets?</li>
@@ -884,7 +917,7 @@ minute and second.</p></li>
 </div>
 </div>
 <div id="preferred-date-format" class="section level3">
-<h3><span class="header-section-number">1.8.1</span> Preferred date format</h3>
+<h3><span class="header-section-number">1.5.1</span> Preferred date format</h3>
 <p>It is much safer to store dates with <a href="#day">YEAR, MONTH, DAY</a> in
 separate columns or as <a href="#doy">YEAR and DAY-OF-YEAR</a> in separate
 columns.</p>
@@ -903,7 +936,7 @@ Excel</a>
 (look for dates that are ~4 years off).</p>
 </div>
 <div id="data-formats-in-spreadsheets" class="section level3">
-<h3><span class="header-section-number">1.8.2</span> Data formats in spreadsheets</h3>
+<h3><span class="header-section-number">1.5.2</span> Data formats in spreadsheets</h3>
 <p>Spreadsheet programs have numerous “useful features” which allow them to handle dates in a variety of ways.</p>
 <div class="figure">
 <img src="figs/5_excel_dates_1.jpg" alt="Many formats, many ambiguities" />
@@ -911,7 +944,7 @@ Excel</a>
 </div>
 <p>But these “features” often allow ambiguity to creep into your data. Ideally, data should be as unambiguous as possible.</p>
 <div id="dates-stored-as-integers" class="section level4">
-<h4><span class="header-section-number">1.8.2.1</span> Dates stored as integers</h4>
+<h4><span class="header-section-number">1.5.2.1</span> Dates stored as integers</h4>
 <p>The first thing you need to know is that Excel stores dates as numbers - see the last column in the above figure. Essentially, it counts the days from a default of December 31, 1899, and thus stores July 2, 2014 as the serial number 41822.</p>
 <p>(But wait. That’s the default on my version of Excel. We’ll get into how this can introduce problems down the line later in this lesson. )</p>
 <p>This serial number thing can actually be useful in some circumstances. By using
@@ -993,7 +1026,7 @@ software to manipulate the file.</p>
 </div>
 </div>
 <div id="advantages-of-alternative-date-formatting" class="section level3">
-<h3><span class="header-section-number">1.8.3</span> Advantages of Alternative Date Formatting</h3>
+<h3><span class="header-section-number">1.5.3</span> Advantages of Alternative Date Formatting</h3>
 <div id="storing-dates-as-year-month-day" class="section level4 unnumbered">
 <h4>Storing dates as YEAR, MONTH, DAY</h4>
 <p>Storing dates in YEAR, MONTH, DAY format helps remove this
@@ -1001,9 +1034,9 @@ ambiguity. Let’s look at this issue a bit closer.</p>
 <p>For instance this is a spreadsheet representing insect counts that
 were taken every few days over the summer, and things went something
 like this:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
 <p class="caption marginnote shownote">
-Figure 1.1: So, so ambiguous, it’s even confusing Excel.
+Figure 1.5: So, so ambiguous, it’s even confusing Excel.
 </p>
 <img src="figs/6_excel_dates_2.jpg" alt="So, so ambiguous, it's even confusing Excel." width="70%"  />
 </div>
@@ -1029,9 +1062,9 @@ year-to-year variation, and DOY can be used to measure the passage of
 time within a year.</p>
 <p>So, can you convert all your dates into DOY format? Well, in Excel,
 here’s a useful guide:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
 <p class="caption marginnote shownote">
-Figure 1.2: Kill that ambiguity before it bites you!
+Figure 1.6: Kill that ambiguity before it bites you!
 </p>
 <img src="figs/7_excel_dates_3.jpg" alt="Kill that ambiguity before it bites you!" width="70%"  />
 </div>
@@ -1053,7 +1086,7 @@ software.</p>
 </div>
 </div>
 <div id="data-integrity" class="section level2">
-<h2><span class="header-section-number">1.9</span> Data integrity</h2>
+<h2><span class="header-section-number">1.6</span> Data integrity</h2>
 <p>Questions:</p>
 <ul>
 <li>How can we carry out basic quality control and quality assurance in
@@ -1079,7 +1112,7 @@ implemented prior to entering data (quality assurance) and
 techniques that are used after entering data to check for errors
 (quality control).</p>
 <div id="quality-assurance" class="section level3">
-<h3><span class="header-section-number">1.9.1</span> Quality Assurance</h3>
+<h3><span class="header-section-number">1.6.1</span> Quality Assurance</h3>
 <p>Quality assurance stops bad data from ever being entered by checking to see if
 values are valid during data entry. For example, if research is being conducted
 at sites A, B, and C, then the value V (which is right next to B on the
@@ -1093,9 +1126,9 @@ in each data column.</p>
 <li><p>Select the cells or column you want to validate</p></li>
 <li><p>On the <code>Data</code> tab select <code>Data Validation</code></p></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
 <p class="caption marginnote shownote">
-Figure 1.3: Image of Data Validation button on Data tab.
+Figure 1.7: Image of Data Validation button on Data tab.
 </p>
 <img src="figs/data_validation.png" alt="Image of Data Validation button on Data tab." width="50%"  />
 </div>
@@ -1104,9 +1137,9 @@ Figure 1.3: Image of Data Validation button on Data tab.
 column. Options include whole numbers, decimals, lists of items, dates, and
 other values.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
 <p class="caption marginnote shownote">
-Figure 1.4: Image of Data Validation window.
+Figure 1.8: Image of Data Validation window.
 </p>
 <img src="figs/data_validation_window.png" alt="Image of Data Validation window." width="50%"  />
 </div>
@@ -1123,34 +1156,34 @@ plot values that are integers between 1 and 24.</p>
 <li>In the <code>Allow</code> box select <code>Whole number</code></li>
 <li>Set the minimum and maximum values to 1 and 24.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
 <p class="caption marginnote shownote">
-Figure 1.5: Image of Data Validation window for validating plot values.
+Figure 1.9: Image of Data Validation window for validating plot values.
 </p>
 <img src="figs/plot_validation.png" alt="Image of Data Validation window for validating plot values." width="50%"  />
 </div>
 <p>Now let’s try entering a new value in the plot column that isn’t a valid
 plot. The spreadsheet stops us from entering the wrong value and asks us if we
 would like to try again.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
 <p class="caption marginnote shownote">
-Figure 1.6: Image of error when trying to enter invalid data.
+Figure 1.10: Image of error when trying to enter invalid data.
 </p>
 <img src="figs/invalid_value.png" alt="Image of error when trying to enter invalid data." width="50%"  />
 </div>
 <p>You can also customize the resulting message to be more informative by entering
 your own message in the <code>Input Message</code> tab</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
 <p class="caption marginnote shownote">
-Figure 1.7: Image of Input Message tab.
+Figure 1.11: Image of Input Message tab.
 </p>
 <img src="figs/input_message.png" alt="Image of Input Message tab." width="50%"  />
 </div>
 <p>or allow invalid data to result in a warning rather than an error by modifying the <code>Style</code>
 option on the <code>Error Alert</code> tab.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
 <p class="caption marginnote shownote">
-Figure 1.8: Image of Error Alert tab.
+Figure 1.12: Image of Error Alert tab.
 </p>
 <img src="figs/error_alert.png" alt="Image of Error Alert tab." width="50%"  />
 </div>
@@ -1159,15 +1192,15 @@ example, if you use a list of options to restrict data entry, the spreadsheet
 will provide you with a drop-downlist of the available items. So, instead of
 trying to remember how to spell <em>Dipodomys spectabilis</em>, you can select the
 right option from the list.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
 <p class="caption marginnote shownote">
-Figure 1.9: Image of drop-down menu.
+Figure 1.13: Image of drop-down menu.
 </p>
 <img src="figs/drop_down_list.png" alt="Image of drop-down menu." width="50%"  />
 </div>
 </div>
 <div id="quality-control" class="section level3">
-<h3><span class="header-section-number">1.9.2</span> Quality Control</h3>
+<h3><span class="header-section-number">1.6.2</span> Quality Control</h3>
 <p>Tip: <em>Before doing any quality control operations, save your original
 file with the formulas and a name indicating it is the original
 data. Create a separate file with appropriate naming and versioning,
@@ -1244,7 +1277,7 @@ outliers and odd values.</p>
 </div>
 </div>
 <div id="conditional-formatting" class="section level3">
-<h3><span class="header-section-number">1.9.3</span> Conditional formatting</h3>
+<h3><span class="header-section-number">1.6.3</span> Conditional formatting</h3>
 <p>Conditional formatting basically can do something like color code your
 values by some criteria or lowest to highest. This makes it easy to
 scan your data for outliers.</p>
@@ -1285,7 +1318,7 @@ also can do these checks in a programming language like R or SQL.</p>
 </div>
 </div>
 <div id="exporting-data" class="section level2">
-<h2><span class="header-section-number">1.10</span> Exporting data</h2>
+<h2><span class="header-section-number">1.7</span> Exporting data</h2>
 <p>Questions:</p>
 <ul>
 <li>How can we export data from spreadsheets in a way that is useful for
@@ -1359,9 +1392,9 @@ it and hit ‘Save’.</li>
 </ol>
 <p>An important note for backwards compatibility: you can open CSV files
 in Excel!</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-14"></span>
 <p class="caption marginnote shownote">
-Figure 1.10: Saving an Excel file to CSV.
+Figure 1.14: Saving an Excel file to CSV.
 </p>
 <img src="figs/excel-to-csv.png" alt="Saving an Excel file to CSV." width="70%"  />
 </div>
@@ -1412,6 +1445,24 @@ tutorial</a>):</p>
 <li>Use <a href="http://dos2unix.sourceforge.net/">dos2unix</a> (available on OSX,
 *nix, and Cygwin) on local files to standardize line endings.</li>
 </ol>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Downlod the supplementary
+<a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-08191-w/MediaObjects/41467_2018_8191_MOESM4_ESM.xlsx">table</a>
+from <a href="https://www.nature.com/articles/s41467-018-08191-w">Geladaki et
+al. (2019)</a> that we discussed above.</p>
+<p>Using the best practice documented above, export the file to a
+text-based spreadsheet (<code>csv</code>, <code>tsv</code>, …). If necessary, manually fix
+the table, but making sure you keep a copy of the original data and
+document your modifications.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 </div>
 <div id="a-note-on-r-and-xls" class="section level4 unnumbered">
 <h4>A note on R and <code>xls</code></h4>
@@ -1486,18 +1537,18 @@ build relevant scripts.</p>
 </div>
 </div>
 <div id="summary" class="section level2">
-<h2><span class="header-section-number">1.11</span> Summary</h2>
+<h2><span class="header-section-number">1.8</span> Summary</h2>
 <p>
 <span class="marginnote shownote">
 <!--
 <div class="figure">--><span id="fig:analysis"></span>
 <img src="figs/analysis.png" alt="A typical data analysis workflow." width="362"  />
 <!--
-<p class="caption marginnote">-->Figure 1.11: A typical data analysis workflow.<!--</p>-->
+<p class="caption marginnote">-->Figure 1.15: A typical data analysis workflow.<!--</p>-->
 <!--</div>--></span>
 </p>
 <p>A typical data analysis worflow is illustrated in figure
-<a href="sec-dataorg.html#fig:analysis">1.11</a>), where data is repeatedly tranformed, visualised,
+<a href="sec-dataorg.html#fig:analysis">1.15</a>), where data is repeatedly tranformed, visualised,
 modelled. This iteration is repeated multiple times until the data is
 understood. In many real-life cases, however, most time is spend in
 clearning up and preparing the data, rather than actually analysing

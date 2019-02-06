@@ -80,26 +80,27 @@ researchers. We can use them for:
 
 Here are three examples from research papers:
 
-```{r, results='markup', fig.cap="", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+```{r, results='markup', fig.cap="A figure from a bioinformatics paper ([Hugues et al. (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3866554/)) that compares different proteomics data processing methods (along the columns) and how they control false positive rate for spiked-in data, the operator effect, and affect the root mean square error (RMSE).", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("./figs/tab1.png")
 ```
 
 
-```{r, results='markup', fig.cap="", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+```{r, results='markup', fig.cap="This table summarises the spatial proteomics experiments that were re-analysed as part the a meta-analysis by [Gatto et al. (2018)](https://www.sciencedirect.com/science/article/pii/S1367593118301339). ", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("./figs/tab2.png")
 ```
 
-```{r, results='markup', fig.cap="", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+```{r, results='markup', fig.cap="Parts of the quantitative data of a spatial proteomics dataset by [Geladaki et al. (2019)](https://www.nature.com/articles/s41467-018-08191-w). The supplementary table is available [here](https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-08191-w/MediaObjects/41467_2018_8191_MOESM4_ESM.xlsx)", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("./figs/tab3a.png")
 ```
 
-```{r, results='markup', fig.cap="", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
-knitr::include_graphics("./figs/tab3b.png")
+```{r, results='markup', fig.cap="Limunescence read-out of a 96 well plate. The file is available [here](https://github.com/UCLouvain-CBIO/WSBIM1207/files/2836821/luminescence.xlsx).", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("./figs/tab4.png")
 ```
 
 
-
 `r msmbstyle::question_begin()`
+Discuss the following points with your neighbour
+
 - How many people have used spreadsheets, in their research, courses,
   or at home?
 - What kind of operations do you do in spreadsheets?
@@ -158,17 +159,26 @@ In this lesson we're going to talk about:
 
 ## Formatting data tables in spreadsheets
 
-Questions:
+**Questions**
+
 - How do we format data in spreadsheets for effective data use?
 
-Objectives:
+**Objectives**
 
-- Describe best practices for data entry and formatting in spreadsheets.
-- Apply best practices to arrange variables and observations in a spreadsheet.
+- Describe best practices for data entry and formatting in
+  spreadsheets.
 
-Keypoints:
-- Never modify your raw data. Always make a copy before making any changes.
-- Keep track of all of the steps you take to clean your data in a plain text file.
+- Apply best practices to arrange variables and observations in a
+  spreadsheet.
+
+**Keypoints**
+
+- Never modify your raw data. Always make a copy before making any
+  changes.
+
+- Keep track of all of the steps you take to clean your data in a
+  plain text file.
+
 - Organize your data according to tidy data principles.
 
 The most common mistake made is treating spreadsheet programs like lab
@@ -195,18 +205,18 @@ choices can limit your ability to work with the data in other programs
 or have the you-of-6-months-from-now or your collaborator work with
 the data.
 
-> Note: the best layouts/formats (as well as software and interfaces)
-> for data entry and data analysis might be different. It is important
-> to take this into account, and ideally automate the conversion from
-> one to another.
+> **Note:** the best layouts/formats (as well as software and
+> interfaces) for data entry and data analysis might be different. It
+> is important to take this into account, and ideally automate the
+> conversion from one to another.
 
 ### Keeping track of your analyses
 
 When you're working with spreadsheets, during data clean up or
 analyses, it's very easy to end up with a spreadsheet that looks very
 different from the one you started with. In order to be able to
-reproduce your analyses or figure out what you did when Reviewer #3
-asks for a different analysis, you should
+reproduce your analyses or figure out what you did when a reviewer or
+instructor asks for a different analysis, you should
 
 - create a new file with your cleaned or analyzed data. Don't modify
   the original dataset, or you will never know where you started!
@@ -222,9 +232,12 @@ This might be an example of a spreadsheet setup:
 
 Put these principles in to practice today during your Exercises.
 
-> Note: This is out of scope for this lesson, but for information on
-  how to maintain version control over your data, look at our lesson
-  on ['Git'](http://swcarpentry.github.io/git-novice/).
+> **Note:** This is out of scope for this lesson, but for information
+> on how to maintain version control over your data, look at our
+> lesson on ['Git'](http://swcarpentry.github.io/git-novice/). See
+> also this [blog post](https://lgatto.github.io/github-intro/) for a
+> quick tutorial or @Perez-Riverol:2016 for a more research-oriented
+> use-case.
 
 
 ### Structuring data in spreadsheets
@@ -431,7 +444,7 @@ Instead you can freeze the column headers so that they remain visible even when 
 
 [Documentation on how to freeze column headers](https://support.office.com/en-ca/article/Freeze-column-headings-for-easy-scrolling-57ccce0c-cf85-4725-9579-c5d13106ca6a)
 
-## Not filling in zeros {#zeros}
+### Not filling in zeros {#zeros}
 
 It might be that when you're measuring something, it's usually a zero,
 say the number of times a rabbit is observed in the survey. Why bother
@@ -454,7 +467,7 @@ of this, it's very important to record zeros as zeros and truly
 missing data as nulls.
 
 
-## Using problematic null values {#null}
+### Using problematic null values {#null}
 
 **Example**: using -999 or other numerical values (or zero) to
   represent missing data.
@@ -484,11 +497,9 @@ to represent missing (null) values. How these values are interpreted
 will depend on the software you use to analyze your data. It is
 essential to use a clearly defined and consistent null indicator.
 
-Blanks (most applications) and NA (for R) are good choices. White et
-al, 2013, explain good choices for indicating null values for
-different software applications in their article:
-
-[Nine simple ways to make it easier to (re)use your data.](https://peerj.com/preprints/7/) Ideas in Ecology and Evolution.
+Blanks (most applications) and NA (for R) are good
+choices. @White:2013 explain good choices for indicating null values
+for different software applications in their article:
 
 ![](./figs/3_white_table_1.jpg)
 
@@ -543,7 +554,7 @@ you need both these measurements, design your data sheet to include
 this information. For example, include one column for number of
 individuals and a separate column for sex.
 
-## Using problematic field names {#field_name}
+### Using problematic field names {#field_name}
 
 Choose descriptive field names, but be careful not to include spaces,
 numbers, or special characters of any kind. Spaces can be
@@ -1285,6 +1296,19 @@ and then create a file `.gitattributes` that contains the line:
 
 3. Use [dos2unix](http://dos2unix.sourceforge.net/) (available on OSX,
    *nix, and Cygwin) on local files to standardize line endings.
+
+
+`r msmbstyle::question_begin()`
+Downlod the supplementary
+[table](https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-08191-w/MediaObjects/41467_2018_8191_MOESM4_ESM.xlsx)
+from [Geladaki et
+al. (2019)](https://www.nature.com/articles/s41467-018-08191-w) that we discussed above.
+
+Using the best practice documented above, export the file to a
+text-based spreadsheet (`csv`, `tsv`, ...). If necessary, manually fix
+the table, but making sure you keep a copy of the original data and
+document your modifications.
+`r msmbstyle::question_end()`
 
 #### A note on R and `xls` {-}
 
