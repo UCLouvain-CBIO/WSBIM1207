@@ -134,7 +134,7 @@ command-line based statistics program like R or SAS, it’s practically
 impossible to apply a calculation to one observation in your
 dataset but not another unless you’re doing it on purpose.
 
-### Using Spreadsheets for Data Entry and Cleaning
+### Using Spreadsheets for Data Entry and Cleaning {-}
 
 However, there are circumstances where you might want to use a spreadsheet
 program to produce “quick and dirty” calculations or figures, and data
@@ -269,10 +269,13 @@ look at all of one species or look at different weight distributions by sex,
 it would be hard to do this using this data setup. If instead we put sex and species
 in different columns, you can see that it would be much easier.
 
-### Columns for variables and rows for observations
+### Columns for variables and rows for observations {-}
 
-The rule of thumb, when setting up a datasheet, is columns =
-variables, rows = observations, cells = data (values).
+The rule of thumb, when setting up a datasheet, is
+
+- columns = variables
+- rows = observations
+- cells = data (values)
 
 So, instead we should have:
 
@@ -345,6 +348,7 @@ Questions:
   and how can we avoid them?
 
 Objectives:
+
 - Recognize and resolve common spreadsheet formatting problems.
 
 Keypoints:
@@ -656,6 +660,7 @@ Questions:
 - What are good approaches for handling dates in spreadsheets?
 
 Objectives:
+
 - Describe how dates are stored and formatted in spreadsheets.
 - Describe the advantages of alternative date formatting in spreadsheets.
 - Demonstrate best practices for entering dates in spreadsheets.
@@ -678,10 +683,10 @@ family of products. If you will later need to export the data and need to
 conserve the timestamps, you are better off handling them using one of the solutions discussed below.
 
 Additionally, Excel can [turn things that aren't dates into
-dates](https://nsaunders.wordpress.com/2012/10/22/gene-name-errors-and-excel-lessons-not-learned/),
-for example names or identifiers like MAR1, DEC1, OCT4. So if you're
-avoiding the date format overall, it's easier to identify these
-issues.
+dates](https://nsaunders.wordpress.com/2012/10/22/gene-name-errors-and-excel-lessons-not-learned/)
+(@Zeeberg:2004), for example names or identifiers like MAR1, DEC1,
+OCT4. So if you're avoiding the date format overall, it's easier to
+identify these issues.
 
 `r msmbstyle::question_begin()`
 
@@ -777,11 +782,14 @@ Excel](http://uc3.cdlib.org/2014/04/09/abandon-all-hope-ye-who-enter-dates-in-ex
 
 Spreadsheet programs have numerous “useful features” which allow them to handle dates in a variety of ways.
 
-![Many formats, many ambiguities](./figs/5_excel_dates_1.jpg)
+
+```{r, results='markup', fig.cap="Many formats, many ambiguities", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("./figs/5_excel_dates_1.jpg")
+```
 
 But these "features" often allow ambiguity to creep into your data. Ideally, data should be as unambiguous as possible.
 
-#### Dates stored as integers
+#### Dates stored as integers {-}
 
 The first thing you need to know is that Excel stores dates as numbers - see the last column in the above figure. Essentially, it counts the days from a default of December 31, 1899, and thus stores July 2, 2014 as  the serial number 41822.
 
@@ -1106,7 +1114,7 @@ outliers and odd values.
 ![](./figs/sorting_solution_2.png)
 `r msmbstyle::solution_end()`
 
-### Conditional formatting
+#### Conditional formatting {-}
 
 Conditional formatting basically can do something like color code your
 values by some criteria or lowest to highest. This makes it easy to
@@ -1297,19 +1305,6 @@ and then create a file `.gitattributes` that contains the line:
 3. Use [dos2unix](http://dos2unix.sourceforge.net/) (available on OSX,
    *nix, and Cygwin) on local files to standardize line endings.
 
-
-`r msmbstyle::question_begin()`
-Downlod the supplementary
-[table](https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-08191-w/MediaObjects/41467_2018_8191_MOESM4_ESM.xlsx)
-from [Geladaki et
-al. (2019)](https://www.nature.com/articles/s41467-018-08191-w) that we discussed above.
-
-Using the best practice documented above, export the file to a
-text-based spreadsheet (`csv`, `tsv`, ...). If necessary, manually fix
-the table, but making sure you keep a copy of the original data and
-document your modifications.
-`r msmbstyle::question_end()`
-
 #### A note on R and `xls` {-}
 
 There are R packages that can read `xls` files (as well as Google
@@ -1425,3 +1420,18 @@ An agile data analysis workflow, with several fast iteration of the
 transform/visualise/model cycle are only feasible is the data is
 formatted in a predictable way and one can reason on the data without
 having to look at it and/or fix it.
+
+
+## Additional exercise
+
+`r msmbstyle::question_begin()`
+Downlod the supplementary
+[table](https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-08191-w/MediaObjects/41467_2018_8191_MOESM4_ESM.xlsx)
+from [Geladaki et
+al. (2019)](https://www.nature.com/articles/s41467-018-08191-w) that we discussed above.
+
+Using the best practice documented above, export the file to a
+text-based spreadsheet (`csv`, `tsv`, ...). If necessary, manually fix
+the table, but making sure you keep a copy of the original data and
+document your modifications.
+`r msmbstyle::question_end()`

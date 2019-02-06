@@ -709,7 +709,7 @@ level. Let’s look at the number of males and females captured over the course 
 the experiment:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">## bar plot of the number of females and males captured during the experiment:</span>
 <span class="kw">plot</span>(surveys<span class="op">$</span>sex)</code></pre>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-90-1.png" width="672"  /></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-91-1.png" width="672"  /></p>
 <p>In addition to males and females, there are about 1700 individuals for which the
 sex information hasn’t been recorded. Additionally, for these individuals,
 there is no label to indicate that the information is missing or undetermined. Let’s rename this
@@ -744,7 +744,7 @@ Answer
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(sex)[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>)
 sex &lt;-<span class="st"> </span><span class="kw">factor</span>(sex, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>, <span class="st">&quot;undetermined&quot;</span>))
 <span class="kw">plot</span>(sex)</code></pre>
-<img src="WSBIM1207_files/figure-html/unnamed-chunk-92-1.png" width="672"  />
+<img src="WSBIM1207_files/figure-html/unnamed-chunk-93-1.png" width="672"  />
 </div>
 </div>
 </blockquote>

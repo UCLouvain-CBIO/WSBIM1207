@@ -146,6 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#data-integrity"> Data integrity</a></li>
 <li class="toc"><a href="#exporting-data"> Exporting data</a></li>
 <li class="toc"><a href="#summary"> Summary</a></li>
+<li class="toc"><a href="#additional-exercise"> Additional exercise</a></li>
 </ul>
 <a href="sec-startr.html"><span class="toc-section-number">2</span> Starting with R</a>
 <a href="sec-startdata.html"><span class="toc-section-number">3</span> Starting with data</a>
@@ -311,8 +312,8 @@ slightly different formula to multiple adjacent cells. When using a
 command-line based statistics program like R or SAS, it’s practically
 impossible to apply a calculation to one observation in your
 dataset but not another unless you’re doing it on purpose.</p>
-<div id="using-spreadsheets-for-data-entry-and-cleaning" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> Using Spreadsheets for Data Entry and Cleaning</h3>
+<div id="using-spreadsheets-for-data-entry-and-cleaning" class="section level3 unnumbered">
+<h3>Using Spreadsheets for Data Entry and Cleaning</h3>
 <p>However, there are circumstances where you might want to use a spreadsheet
 program to produce “quick and dirty” calculations or figures, and data
 cleaning will help you use some of these features. Data cleaning also
@@ -435,10 +436,14 @@ look at all of one species or look at different weight distributions by sex,
 it would be hard to do this using this data setup. If instead we put sex and species
 in different columns, you can see that it would be much easier.</p>
 </div>
-<div id="columns-for-variables-and-rows-for-observations" class="section level3">
-<h3><span class="header-section-number">1.3.3</span> Columns for variables and rows for observations</h3>
-<p>The rule of thumb, when setting up a datasheet, is columns =
-variables, rows = observations, cells = data (values).</p>
+<div id="columns-for-variables-and-rows-for-observations" class="section level3 unnumbered">
+<h3>Columns for variables and rows for observations</h3>
+<p>The rule of thumb, when setting up a datasheet, is</p>
+<ul>
+<li>columns = variables</li>
+<li>rows = observations</li>
+<li>cells = data (values)</li>
+</ul>
 <p>So, instead we should have:</p>
 <p><img src="figs/single-info.png" /></p>
 <p><strong>Discussion</strong></p>
@@ -502,8 +507,10 @@ is the <em>Tidy Data</em> paper <span class="citation">Wickham (<label for="tuft
 <li>What are some common challenges with formatting data in spreadsheets
 and how can we avoid them?</li>
 </ul>
-<p>Objectives:
-- Recognize and resolve common spreadsheet formatting problems.</p>
+<p>Objectives:</p>
+<ul>
+<li>Recognize and resolve common spreadsheet formatting problems.</li>
+</ul>
 <p>Keypoints:</p>
 <ul>
 <li>Avoid using multiple tables within one spreadsheet.</li>
@@ -810,10 +817,12 @@ License</a>.)</p>
 <ul>
 <li>What are good approaches for handling dates in spreadsheets?</li>
 </ul>
-<p>Objectives:
-- Describe how dates are stored and formatted in spreadsheets.
-- Describe the advantages of alternative date formatting in spreadsheets.
-- Demonstrate best practices for entering dates in spreadsheets.</p>
+<p>Objectives:</p>
+<ul>
+<li>Describe how dates are stored and formatted in spreadsheets.</li>
+<li>Describe the advantages of alternative date formatting in spreadsheets.</li>
+<li>Demonstrate best practices for entering dates in spreadsheets.</li>
+</ul>
 <p>Keypoints:</p>
 <ul>
 <li>Treating dates as multiple pieces of data rather than one makes them
@@ -830,10 +839,10 @@ Gnumeric, etc.) are usually guaranteed to be compatible only within the same
 family of products. If you will later need to export the data and need to
 conserve the timestamps, you are better off handling them using one of the solutions discussed below.</p>
 <p>Additionally, Excel can <a href="https://nsaunders.wordpress.com/2012/10/22/gene-name-errors-and-excel-lessons-not-learned/">turn things that aren’t dates into
-dates</a>,
-for example names or identifiers like MAR1, DEC1, OCT4. So if you’re
-avoiding the date format overall, it’s easier to identify these
-issues.</p>
+dates</a>
+(<span class="citation">Zeeberg et al. (<label for="tufte-mn-18" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-18" class="margin-toggle">2004<span class="marginnote">Zeeberg, Barry R., Joseph Riss, David W. Kane, Kimberly J. Bussey, Edward Uchio, W. Marston Linehan, J. Carl Barrett, and John N. Weinstein. 2004. “Mistaken Identifiers: Gene Name Errors Can Be Introduced Inadvertently When Using Excel in Bioinformatics.” <em>BMC Bioinformatics</em> 5 (1): 80. <a href="https://doi.org/10.1186/1471-2105-5-80">https://doi.org/10.1186/1471-2105-5-80</a>.</span>)</span>), for example names or identifiers like MAR1, DEC1,
+OCT4. So if you’re avoiding the date format overall, it’s easier to
+identify these issues.</p>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -938,13 +947,15 @@ Excel</a>
 <div id="data-formats-in-spreadsheets" class="section level3">
 <h3><span class="header-section-number">1.5.2</span> Data formats in spreadsheets</h3>
 <p>Spreadsheet programs have numerous “useful features” which allow them to handle dates in a variety of ways.</p>
-<div class="figure">
-<img src="figs/5_excel_dates_1.jpg" alt="Many formats, many ambiguities" />
-<p class="caption">Many formats, many ambiguities</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<p class="caption marginnote shownote">
+Figure 1.5: Many formats, many ambiguities
+</p>
+<img src="figs/5_excel_dates_1.jpg" alt="Many formats, many ambiguities" width="100%"  />
 </div>
 <p>But these “features” often allow ambiguity to creep into your data. Ideally, data should be as unambiguous as possible.</p>
-<div id="dates-stored-as-integers" class="section level4">
-<h4><span class="header-section-number">1.5.2.1</span> Dates stored as integers</h4>
+<div id="dates-stored-as-integers" class="section level4 unnumbered">
+<h4>Dates stored as integers</h4>
 <p>The first thing you need to know is that Excel stores dates as numbers - see the last column in the above figure. Essentially, it counts the days from a default of December 31, 1899, and thus stores July 2, 2014 as the serial number 41822.</p>
 <p>(But wait. That’s the default on my version of Excel. We’ll get into how this can introduce problems down the line later in this lesson. )</p>
 <p>This serial number thing can actually be useful in some circumstances. By using
@@ -1034,9 +1045,9 @@ ambiguity. Let’s look at this issue a bit closer.</p>
 <p>For instance this is a spreadsheet representing insect counts that
 were taken every few days over the summer, and things went something
 like this:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
 <p class="caption marginnote shownote">
-Figure 1.5: So, so ambiguous, it’s even confusing Excel.
+Figure 1.6: So, so ambiguous, it’s even confusing Excel.
 </p>
 <img src="figs/6_excel_dates_2.jpg" alt="So, so ambiguous, it's even confusing Excel." width="70%"  />
 </div>
@@ -1062,9 +1073,9 @@ year-to-year variation, and DOY can be used to measure the passage of
 time within a year.</p>
 <p>So, can you convert all your dates into DOY format? Well, in Excel,
 here’s a useful guide:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
 <p class="caption marginnote shownote">
-Figure 1.6: Kill that ambiguity before it bites you!
+Figure 1.7: Kill that ambiguity before it bites you!
 </p>
 <img src="figs/7_excel_dates_3.jpg" alt="Kill that ambiguity before it bites you!" width="70%"  />
 </div>
@@ -1126,9 +1137,9 @@ in each data column.</p>
 <li><p>Select the cells or column you want to validate</p></li>
 <li><p>On the <code>Data</code> tab select <code>Data Validation</code></p></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
 <p class="caption marginnote shownote">
-Figure 1.7: Image of Data Validation button on Data tab.
+Figure 1.8: Image of Data Validation button on Data tab.
 </p>
 <img src="figs/data_validation.png" alt="Image of Data Validation button on Data tab." width="50%"  />
 </div>
@@ -1137,9 +1148,9 @@ Figure 1.7: Image of Data Validation button on Data tab.
 column. Options include whole numbers, decimals, lists of items, dates, and
 other values.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
 <p class="caption marginnote shownote">
-Figure 1.8: Image of Data Validation window.
+Figure 1.9: Image of Data Validation window.
 </p>
 <img src="figs/data_validation_window.png" alt="Image of Data Validation window." width="50%"  />
 </div>
@@ -1156,34 +1167,34 @@ plot values that are integers between 1 and 24.</p>
 <li>In the <code>Allow</code> box select <code>Whole number</code></li>
 <li>Set the minimum and maximum values to 1 and 24.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
 <p class="caption marginnote shownote">
-Figure 1.9: Image of Data Validation window for validating plot values.
+Figure 1.10: Image of Data Validation window for validating plot values.
 </p>
 <img src="figs/plot_validation.png" alt="Image of Data Validation window for validating plot values." width="50%"  />
 </div>
 <p>Now let’s try entering a new value in the plot column that isn’t a valid
 plot. The spreadsheet stops us from entering the wrong value and asks us if we
 would like to try again.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
 <p class="caption marginnote shownote">
-Figure 1.10: Image of error when trying to enter invalid data.
+Figure 1.11: Image of error when trying to enter invalid data.
 </p>
 <img src="figs/invalid_value.png" alt="Image of error when trying to enter invalid data." width="50%"  />
 </div>
 <p>You can also customize the resulting message to be more informative by entering
 your own message in the <code>Input Message</code> tab</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
 <p class="caption marginnote shownote">
-Figure 1.11: Image of Input Message tab.
+Figure 1.12: Image of Input Message tab.
 </p>
 <img src="figs/input_message.png" alt="Image of Input Message tab." width="50%"  />
 </div>
 <p>or allow invalid data to result in a warning rather than an error by modifying the <code>Style</code>
 option on the <code>Error Alert</code> tab.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
 <p class="caption marginnote shownote">
-Figure 1.12: Image of Error Alert tab.
+Figure 1.13: Image of Error Alert tab.
 </p>
 <img src="figs/error_alert.png" alt="Image of Error Alert tab." width="50%"  />
 </div>
@@ -1192,9 +1203,9 @@ example, if you use a list of options to restrict data entry, the spreadsheet
 will provide you with a drop-downlist of the available items. So, instead of
 trying to remember how to spell <em>Dipodomys spectabilis</em>, you can select the
 right option from the list.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-14"></span>
 <p class="caption marginnote shownote">
-Figure 1.13: Image of drop-down menu.
+Figure 1.14: Image of drop-down menu.
 </p>
 <img src="figs/drop_down_list.png" alt="Image of drop-down menu." width="50%"  />
 </div>
@@ -1275,9 +1286,8 @@ outliers and odd values.</p>
 </div>
 </div>
 </div>
-</div>
-<div id="conditional-formatting" class="section level3">
-<h3><span class="header-section-number">1.6.3</span> Conditional formatting</h3>
+<div id="conditional-formatting" class="section level4 unnumbered">
+<h4>Conditional formatting</h4>
 <p>Conditional formatting basically can do something like color code your
 values by some criteria or lowest to highest. This makes it easy to
 scan your data for outliers.</p>
@@ -1315,6 +1325,7 @@ both the cells where the letter “g” was included and the empty cells.</p>
 </div>
 <p>It is nice to do be able to do these scans in spreadsheets, but we
 also can do these checks in a programming language like R or SQL.</p>
+</div>
 </div>
 </div>
 <div id="exporting-data" class="section level2">
@@ -1392,9 +1403,9 @@ it and hit ‘Save’.</li>
 </ol>
 <p>An important note for backwards compatibility: you can open CSV files
 in Excel!</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-14"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-15"></span>
 <p class="caption marginnote shownote">
-Figure 1.14: Saving an Excel file to CSV.
+Figure 1.15: Saving an Excel file to CSV.
 </p>
 <img src="figs/excel-to-csv.png" alt="Saving an Excel file to CSV." width="70%"  />
 </div>
@@ -1445,24 +1456,6 @@ tutorial</a>):</p>
 <li>Use <a href="http://dos2unix.sourceforge.net/">dos2unix</a> (available on OSX,
 *nix, and Cygwin) on local files to standardize line endings.</li>
 </ol>
-<div class="question">
-<p class="question-begin">
-► Question
-</p>
-<div class="question-body">
-<p>Downlod the supplementary
-<a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-08191-w/MediaObjects/41467_2018_8191_MOESM4_ESM.xlsx">table</a>
-from <a href="https://www.nature.com/articles/s41467-018-08191-w">Geladaki et
-al. (2019)</a> that we discussed above.</p>
-<p>Using the best practice documented above, export the file to a
-text-based spreadsheet (<code>csv</code>, <code>tsv</code>, …). If necessary, manually fix
-the table, but making sure you keep a copy of the original data and
-document your modifications.</p>
-<p class="question-end">
-<span class="fa fa-square-o solution-icon"></span>
-</p>
-</div>
-</div>
 </div>
 <div id="a-note-on-r-and-xls" class="section level4 unnumbered">
 <h4>A note on R and <code>xls</code></h4>
@@ -1496,9 +1489,9 @@ BA,Baiomys,taylori,Rodent</code></pre>
 value for <code>taxa</code> includes a comma (<code>Rodent-not,censused</code>). If we try
 to read the above into Excel (or other spreadsheet program), we will
 get something like this:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
 <p class="caption marginnote shownote">
-Figure 1.15: The risks of having commas inside comma-separated data.
+Figure 1.16: The risks of having commas inside comma-separated data.
 </p>
 <img src="figs/csv-mistake.png" alt="The risks of having commas inside comma-separated data." width="80%"  />
 </div>
@@ -1553,11 +1546,11 @@ build relevant scripts.</p>
 <div class="figure">--><span id="fig:analysis"></span>
 <img src="figs/analysis.png" alt="A typical data analysis workflow." width="362"  />
 <!--
-<p class="caption marginnote">-->Figure 1.16: A typical data analysis workflow.<!--</p>-->
+<p class="caption marginnote">-->Figure 1.17: A typical data analysis workflow.<!--</p>-->
 <!--</div>--></span>
 </p>
 <p>A typical data analysis worflow is illustrated in figure
-<a href="sec-dataorg.html#fig:analysis">1.16</a>, where data is repeatedly tranformed, visualised,
+<a href="sec-dataorg.html#fig:analysis">1.17</a>, where data is repeatedly tranformed, visualised,
 modelled. This iteration is repeated multiple times until the data is
 understood. In many real-life cases, however, most time is spend in
 clearning up and preparing the data, rather than actually analysing
@@ -1566,6 +1559,27 @@ and understanding it.</p>
 transform/visualise/model cycle are only feasible is the data is
 formatted in a predictable way and one can reason on the data without
 having to look at it and/or fix it.</p>
+</div>
+<div id="additional-exercise" class="section level2">
+<h2><span class="header-section-number">1.9</span> Additional exercise</h2>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Downlod the supplementary
+<a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-08191-w/MediaObjects/41467_2018_8191_MOESM4_ESM.xlsx">table</a>
+from <a href="https://www.nature.com/articles/s41467-018-08191-w">Geladaki et
+al. (2019)</a> that we discussed above.</p>
+<p>Using the best practice documented above, export the file to a
+text-based spreadsheet (<code>csv</code>, <code>tsv</code>, …). If necessary, manually fix
+the table, but making sure you keep a copy of the original data and
+document your modifications.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 
 </div>
 </div>
