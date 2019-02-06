@@ -81,7 +81,7 @@ taught will be focused on practice.
 
 ## Motivation {-}
 
-Today, it is difficule to overestimate the very broad importance and
+Today, it is difficult to overestimate the very broad importance and
 impact of *data*. Given the abundance of data around us, and the
 sophistication of tools for their analysis and interpretation that are
 readily available, data has become a tool of profound social
