@@ -1,4 +1,4 @@
-# Session information {-}
+# Session information {-} {#sec:si}
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

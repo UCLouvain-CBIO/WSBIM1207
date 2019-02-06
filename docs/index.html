@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-02-05" />
+<meta name="date" content="2019-02-06" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -140,20 +140,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#motivation">Motivation</a></li>
 <li class="toc"><a href="#references-and-credits">References and credits</a></li>
 <li class="toc"><a href="#about-this-course-material">About this course material</a></li>
+<li class="toc"><a href="#pre-requisites">Pre-requisites</a></li>
 <li class="toc"><a href="#setup">Setup</a></li>
 <li class="toc"><a href="#license">License</a></li>
 </ul>
-<a href="dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
-<a href="starting-with-r.html"><span class="toc-section-number">2</span> Starting with R</a>
+<a href="sec-dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
+<a href="sec-startr.html"><span class="toc-section-number">2</span> Starting with R</a>
 <a href="starting-with-data.html"><span class="toc-section-number">3</span> Starting with data</a>
-<a href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a>
-<a href="data-visualization.html"><span class="toc-section-number">5</span> Data visualization</a>
-<a href="joining-tables.html"><span class="toc-section-number">6</span> Joining tables</a>
-<a href="reproducible-research.html"><span class="toc-section-number">7</span> Reproducible research</a>
+<a href="sec-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a>
+<a href="sec-vis.html"><span class="toc-section-number">5</span> Data visualization</a>
+<a href="sec-join.html"><span class="toc-section-number">6</span> Joining tables</a>
+<a href="sec-rr.html"><span class="toc-section-number">7</span> Reproducible research</a>
 <a href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a>
-<a href="additional-programming-concepts.html"><span class="toc-section-number">9</span> Additional programming concepts</a>
-<a href="conclusions.html"><span class="toc-section-number">10</span> Conclusions</a>
-<a href="session-information.html">Session information</a>
+<a href="sec-prog.html"><span class="toc-section-number">9</span> Additional programming concepts</a>
+<a href="sec-ccl.html"><span class="toc-section-number">10</span> Conclusions</a>
+<a href="sec-si.html"><span class="toc-section-number">11</span> Session information {-}</a>
 </div>
 </li>
 </ul>
@@ -278,8 +279,17 @@ familiarise yourself with the <a href="https://github.com/UCLouvain-CBIO/WSBIM12
 conduct</a>. By
 participating in this project you agree to abide by its terms.</p>
 </div>
+<div id="pre-requisites" class="section level2 unnumbered">
+<h2>Pre-requisites</h2>
+<p>There are no programming or technical pre-requisities for this course,
+other than basic computer usage, such as knowing about files and
+folders and downloading files. Software requirements are documented in
+the <em>Setup</em> section below.</p>
+</div>
 <div id="setup" class="section level2 unnumbered">
 <h2>Setup</h2>
+<p>For chapter <a href="sec-dataorg.html#sec:dataorg">1</a> about <em>Data organisation with
+Spreadsheets</em>, a spreadsheet programme is necessary.</p>
 <p>We will be using the <a href="https://www.r-project.org/">R environment for statistical
 computing</a> as main data science language.
 We will also use the
@@ -287,7 +297,7 @@ We will also use the
 interact with R and write scripts and reports. Both R and RStudio are
 easy to install and works on all major operating systems.</p>
 <p>Once R and RStudio are installed, a set of packages will need to be
-installed. See section <a href="session-information.html#sec:setup2">10.2</a> for details.</p>
+installed. See section <a href="sec-si.html#sec:setup2">11.1</a> for details.</p>
 <p>To build this book, you’ll need <code>bookdown</code> <span class="citation">(Xie <label for="tufte-mn-11" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-11" class="margin-toggle">2018a<span class="marginnote">Xie, Yihui. 2018a. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</span>)</span> and a
 fork<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> <a href="https://github.com/lgatto/msmbstyle" class="uri">https://github.com/lgatto/msmbstyle</a></span> of <a href="https://github.com/grimbough/msmbstyle/"><code>msmbstyle</code>
 style</a> <span class="citation">(Smith <label for="tufte-mn-12" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-12" class="margin-toggle">2019<span class="marginnote">Smith, Mike. 2019. <em>Msmbstyle: MSMB Styles for R Markdown Documents</em>.</span>)</span>.</p>
@@ -305,10 +315,10 @@ License</a>.</p>
 </div>
 </div>
 <p style="text-align: center;">
-<a href="dataorg.html"><button class="btn btn-default">Next</button></a>
+<a href="sec-dataorg.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-02-05
+2019-02-06
 </p>
 </div>
 </div>

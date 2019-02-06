@@ -1,4 +1,4 @@
-# Manipulating and analyzing data with dplyr
+# Manipulating and analyzing data with dplyr  {#sec:dplyr}
 
 
 ```{r dplyrsetup, echo=FALSE, purl=FALSE, message=FALSE}

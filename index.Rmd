@@ -81,8 +81,6 @@ taught will be focused on practice.
 
 ## Motivation {-}
 
-
-
 Today, it is difficule to overestimate the very broad importance and
 impact of *data*. Given the abundance of data around us, and the
 sophistication of tools for their analysis and interpretation that are
@@ -175,8 +173,17 @@ familiarise yourself with the [code of
 conduct](https://github.com/UCLouvain-CBIO/WSBIM1207/blob/master/CONDUCT.md). By
 participating in this project you agree to abide by its terms.
 
+## Pre-requisites {-}
+
+There are no programming or technical pre-requisities for this course,
+other than basic computer usage, such as knowing about files and
+folders and downloading files. Software requirements are documented in
+the *Setup* section below.
 
 ## Setup {-}
+
+For chapter \@ref(sec:dataorg) about *Data organisation with
+Spreadsheets*, a spreadsheet programme is necessary.
 
 We will be using the [R environment for statistical
 computing](https://www.r-project.org/) as main data science language.

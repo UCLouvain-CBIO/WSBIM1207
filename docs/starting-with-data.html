@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-02-05" />
+<meta name="date" content="2019-02-06" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -137,8 +137,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="javascript:void(0)" class="dropbtn">&#x25BE; Chapters</a>
 <div class="dropdown-content">
 <a href="index.html">Preamble</a>
-<a href="dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
-<a href="starting-with-r.html"><span class="toc-section-number">2</span> Starting with R</a>
+<a href="sec-dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
+<a href="sec-startr.html"><span class="toc-section-number">2</span> Starting with R</a>
 <a id="active-page" href="starting-with-data.html"><span class="toc-section-number">3</span> Starting with data</a><ul class="toc-sections">
 <li class="toc"><a href="#presentation-of-the-survey-data"> Presentation of the Survey Data</a></li>
 <li class="toc"><a href="#what-are-data-frames"> What are data frames?</a></li>
@@ -151,14 +151,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#lists"> Lists</a></li>
 <li class="toc"><a href="#additional-exercises-1"> Additional exercises</a></li>
 </ul>
-<a href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a>
-<a href="data-visualization.html"><span class="toc-section-number">5</span> Data visualization</a>
-<a href="joining-tables.html"><span class="toc-section-number">6</span> Joining tables</a>
-<a href="reproducible-research.html"><span class="toc-section-number">7</span> Reproducible research</a>
+<a href="sec-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a>
+<a href="sec-vis.html"><span class="toc-section-number">5</span> Data visualization</a>
+<a href="sec-join.html"><span class="toc-section-number">6</span> Joining tables</a>
+<a href="sec-rr.html"><span class="toc-section-number">7</span> Reproducible research</a>
 <a href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a>
-<a href="additional-programming-concepts.html"><span class="toc-section-number">9</span> Additional programming concepts</a>
-<a href="conclusions.html"><span class="toc-section-number">10</span> Conclusions</a>
-<a href="session-information.html">Session information</a>
+<a href="sec-prog.html"><span class="toc-section-number">9</span> Additional programming concepts</a>
+<a href="sec-ccl.html"><span class="toc-section-number">10</span> Conclusions</a>
+<a href="sec-si.html"><span class="toc-section-number">11</span> Session information {-}</a>
 </div>
 </li>
 </ul>
@@ -836,7 +836,7 @@ are currently installed on our respective computers using the
 explore this matrix as those used for dataframes above.</p>
 <pre class="sourceCode r"><code class="sourceCode r">ip &lt;-<span class="st"> </span><span class="kw">installed.packages</span>()
 <span class="kw">dim</span>(ip)</code></pre>
-<pre><code>## [1] 493  16</code></pre>
+<pre><code>## [1] 495  16</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">colnames</span>(ip))</code></pre>
 <pre><code>## [1] &quot;Package&quot;  &quot;LibPath&quot;  &quot;Version&quot;  &quot;Priority&quot; &quot;Depends&quot;  &quot;Imports&quot;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">rownames</span>(ip)) <span class="co">## these are the package names</span></code></pre>
@@ -1086,9 +1086,9 @@ a matrix, a dataframe and another list:</p>
 <pre><code>## List of 5
 ##  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##  $ : chr [1:26] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ : chr [1:493, 1:16] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
+##  $ : chr [1:495, 1:16] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
-##   .. ..$ : chr [1:493] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
+##   .. ..$ : chr [1:495] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
 ##   .. ..$ : chr [1:16] &quot;Package&quot; &quot;LibPath&quot; &quot;Version&quot; &quot;Priority&quot; ...
 ##  $ :&#39;data.frame&#39;:    50 obs. of  2 variables:
 ##   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...
@@ -1119,11 +1119,11 @@ the list is named).</p>
 </div>
 </div>
 <p style="text-align: center;">
-<a href="starting-with-r.html"><button class="btn btn-default">Previous</button></a>
-<a href="manipulating-and-analyzing-data-with-dplyr.html"><button class="btn btn-default">Next</button></a>
+<a href="sec-startr.html"><button class="btn btn-default">Previous</button></a>
+<a href="sec-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-02-05
+2019-02-06
 </p>
 </div>
 </div>

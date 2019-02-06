@@ -1,4 +1,4 @@
-# Data visualization
+# Data visualization  {#sec:vis}
 
 
 ```{r vis_setup, echo=FALSE, purl=FALSE}

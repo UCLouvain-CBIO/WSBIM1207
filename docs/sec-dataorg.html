@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-02-05" />
+<meta name="date" content="2019-02-06" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -137,7 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="javascript:void(0)" class="dropbtn">&#x25BE; Chapters</a>
 <div class="dropdown-content">
 <a href="index.html">Preamble</a>
-<a id="active-page" href="dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a><ul class="toc-sections">
+<a id="active-page" href="sec-dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a><ul class="toc-sections">
 <li class="toc"><a href="#introduction"> Introduction</a></li>
 <li class="toc"><a href="#problems-with-spreadsheets"> Problems with Spreadsheets</a></li>
 <li class="toc"><a href="#formatting-data-tables-in-spreadsheets"> Formatting data tables in spreadsheets</a></li>
@@ -150,16 +150,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#exporting-data"> Exporting data</a></li>
 <li class="toc"><a href="#summary"> Summary</a></li>
 </ul>
-<a href="starting-with-r.html"><span class="toc-section-number">2</span> Starting with R</a>
+<a href="sec-startr.html"><span class="toc-section-number">2</span> Starting with R</a>
 <a href="starting-with-data.html"><span class="toc-section-number">3</span> Starting with data</a>
-<a href="manipulating-and-analyzing-data-with-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a>
-<a href="data-visualization.html"><span class="toc-section-number">5</span> Data visualization</a>
-<a href="joining-tables.html"><span class="toc-section-number">6</span> Joining tables</a>
-<a href="reproducible-research.html"><span class="toc-section-number">7</span> Reproducible research</a>
+<a href="sec-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a>
+<a href="sec-vis.html"><span class="toc-section-number">5</span> Data visualization</a>
+<a href="sec-join.html"><span class="toc-section-number">6</span> Joining tables</a>
+<a href="sec-rr.html"><span class="toc-section-number">7</span> Reproducible research</a>
 <a href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a>
-<a href="additional-programming-concepts.html"><span class="toc-section-number">9</span> Additional programming concepts</a>
-<a href="conclusions.html"><span class="toc-section-number">10</span> Conclusions</a>
-<a href="session-information.html">Session information</a>
+<a href="sec-prog.html"><span class="toc-section-number">9</span> Additional programming concepts</a>
+<a href="sec-ccl.html"><span class="toc-section-number">10</span> Conclusions</a>
+<a href="sec-si.html"><span class="toc-section-number">11</span> Session information {-}</a>
 </div>
 </li>
 </ul>
@@ -168,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="dataorg" class="section level1">
+<div id="sec:dataorg" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Data organisation with Spreadsheets</h1>
 <div id="introduction" class="section level2">
 <h2><span class="header-section-number">1.1</span> Introduction</h2>
@@ -485,18 +485,18 @@ to the way you format your data in spreadsheets, can have a great
 impact on efficiency and reliability when it comes to data cleaning
 and analysis.</p>
 <ul>
-<li><a href="dataorg.html#tables">Using multiple tables</a></li>
-<li><a href="dataorg.html#tabs">Using multiple tabs</a></li>
-<li><a href="dataorg.html#zeros">Not filling in zeros</a></li>
-<li><a href="dataorg.html#null">Using problematic null values</a></li>
-<li><a href="dataorg.html#formatting">Using formatting to convey information</a></li>
-<li><a href="dataorg.html#formatting_pretty">Using formatting to make the data sheet look pretty</a></li>
-<li><a href="dataorg.html#units">Placing comments or units in cells</a></li>
-<li><a href="dataorg.html#info">Entering more than one piece of information in a cell</a></li>
-<li><a href="dataorg.html#field_name">Using problematic field names</a></li>
-<li><a href="dataorg.html#special">Using special characters in data</a></li>
-<li><a href="dataorg.html#metadata">Inclusion of metadata in data table</a></li>
-<li><a href="dataorg.html#dates">Date formatting</a></li>
+<li><a href="sec-dataorg.html#tables">Using multiple tables</a></li>
+<li><a href="sec-dataorg.html#tabs">Using multiple tabs</a></li>
+<li><a href="sec-dataorg.html#zeros">Not filling in zeros</a></li>
+<li><a href="sec-dataorg.html#null">Using problematic null values</a></li>
+<li><a href="sec-dataorg.html#formatting">Using formatting to convey information</a></li>
+<li><a href="sec-dataorg.html#formatting_pretty">Using formatting to make the data sheet look pretty</a></li>
+<li><a href="sec-dataorg.html#units">Placing comments or units in cells</a></li>
+<li><a href="sec-dataorg.html#info">Entering more than one piece of information in a cell</a></li>
+<li><a href="sec-dataorg.html#field_name">Using problematic field names</a></li>
+<li><a href="sec-dataorg.html#special">Using special characters in data</a></li>
+<li><a href="sec-dataorg.html#metadata">Inclusion of metadata in data table</a></li>
+<li><a href="sec-dataorg.html#dates">Date formatting</a></li>
 </ul>
 <div id="tables" class="section level3">
 <h3><span class="header-section-number">1.4.1</span> Using multiple tables</h3>
@@ -581,7 +581,7 @@ like
 before analysis. Other times different null values are used to convey
 different reasons why the data isn’t there. This is important
 information to capture, but is in effect using one column to capture
-two pieces of information. Like for <a href="dataorg.html#formatting">using formatting to convey
+two pieces of information. Like for <a href="sec-dataorg.html#formatting">using formatting to convey
 information</a>((#formatting) it would be good here to create a new
 column like ‘data_missing’ and use that column to capture the
 different reasons.</p>
@@ -1485,7 +1485,7 @@ build relevant scripts.</p>
 <!--</div>--></span>
 </p>
 <p>A typical data analysis worflow is illustrated in figure
-<a href="dataorg.html#fig:analysis">1.11</a>), where data is repeatedly tranformed, visualised,
+<a href="sec-dataorg.html#fig:analysis">1.11</a>), where data is repeatedly tranformed, visualised,
 modelled. This iteration is repeated multiple times until the data is
 understood. In many real-life cases, however, most time is spend in
 clearning up and preparing the data, rather than actually analysing
@@ -1499,10 +1499,10 @@ having to look at it and/or fix it.</p>
 </div>
 <p style="text-align: center;">
 <a href="index.html"><button class="btn btn-default">Previous</button></a>
-<a href="starting-with-r.html"><button class="btn btn-default">Next</button></a>
+<a href="sec-startr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-02-05
+2019-02-06
 </p>
 </div>
 </div>

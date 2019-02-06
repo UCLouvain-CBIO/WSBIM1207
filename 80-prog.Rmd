@@ -1,4 +1,4 @@
-# Additional programming concepts
+# Additional programming concepts {#sec:prog}
 
 **Learning Objectives**
 
