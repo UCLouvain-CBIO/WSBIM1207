@@ -78,6 +78,27 @@ researchers. We can use them for:
 - Plotting
 
 
+Here are three examples from research papers:
+
+```{r, results='markup', fig.cap="", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("./figs/tab1.png")
+```
+
+
+```{r, results='markup', fig.cap="", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("./figs/tab2.png")
+```
+
+```{r, results='markup', fig.cap="", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("./figs/tab3a.png")
+```
+
+```{r, results='markup', fig.cap="", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("./figs/tab3b.png")
+```
+
+
+
 `r msmbstyle::question_begin()`
 - How many people have used spreadsheets, in their research, courses,
   or at home?
