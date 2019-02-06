@@ -46,6 +46,25 @@ output: html_document
 
 - Nous ferons une pause d'environ 30 minutes de 10h15 à 10h45.
 
+
+Ce qui est attendu de vous:
+
+- **Interactions** entre étudiants et enseignants: poser des questions,
+  n'hésitez pas à vous entraider durant les résolutions de problèmes.
+
+- Un **apprentissage actif**. Il ne vous sera pas possible de
+  comprendre la matière en apprenant le cours par coeur. C'est la
+  pratique qui vous permettra de maîtriser la: tentez donc les
+  exercises et si vous n'y arrivez pas, posez des questions.
+
+- Donnez-nous du **feed-back approproprié**, pour que nous puissions
+  vous aidez en proposant d'avantages d'exercises et/ou en clarifiant
+  des parties du cours. Ce feed-back se fera pendant les cours
+  (questions et réponses) et en fin de session (post-its).
+
+- Travaillez regulièrement, en particulier en participant activement
+  au cours. N'attendez pas la fin du cours pour vous y mettre!
+
 ## Horaire
 
 |   | Jour              | Horaire       | Matière                                         |
@@ -67,7 +86,7 @@ sera adaptée en fonction de l'avancée en cours.
 
 - L'examen consistera en la préparation, sur ordinateur, de [rapport
   reproductible en
-  Rmarkdown](https://uclouvain-cbio.github.io/WSBIM1207/reproducible-research.html),
+  Rmarkdown](https://uclouvain-cbio.github.io/WSBIM1207/sec-rr.html),
   que vous nous rendrez en fin d'examen. Nous le compilerons nous
   mêmes en format pdf, et ce fichier que nous corrigerons.
 

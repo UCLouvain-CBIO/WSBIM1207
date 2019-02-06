@@ -139,8 +139,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a id="active-page" href="index.html">Preamble</a><ul class="toc-sections">
 <li class="toc"><a href="#motivation">Motivation</a></li>
 <li class="toc"><a href="#references-and-credits">References and credits</a></li>
-<li class="toc"><a href="#about-this-course-material">About this course material</a></li>
 <li class="toc"><a href="#pre-requisites">Pre-requisites</a></li>
+<li class="toc"><a href="#about-this-course-material">About this course material</a></li>
 <li class="toc"><a href="#setup">Setup</a></li>
 <li class="toc"><a href="#license">License</a></li>
 </ul>
@@ -253,6 +253,17 @@ bioinformatics core facilities, only a minority of projects were
 purely routine and that most researchers came to the bioinformatics
 core seeking customized analysis, rather than a standardized package
 <span class="citation">(Chang <label for="tufte-mn-5" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-5" class="margin-toggle">2015<span class="marginnote">Chang, J. 2015. “Core Services: Reward Bioinformaticians.” <em>Nature</em> 520 (7546): 151–2. <a href="https://doi.org/10.1038/520151a">https://doi.org/10.1038/520151a</a>.</span>)</span>.</p>
+<p>The overall learning objectives of this course are:</p>
+<ul>
+<li><p>for students to apply and adapt the general data analysis techniques
+and principles that are presented to new data and new contexts;</p></li>
+<li><p>establish links between different concepts seen in the course such
+as, for example, the importance of tidy data in general, how it
+applies to dataframes in R, and how it enables reasoning on the
+data;</p></li>
+<li><p>become autonomous when being presented with new data and be in a
+position to explore and understand them.</p></li>
+</ul>
 </div>
 <div id="references-and-credits" class="section level2 unnumbered">
 <h2>References and credits</h2>
@@ -261,14 +272,21 @@ however, as they cover large parts of the material or provide
 complementary resources.</p>
 <p>The material for the first chapters, covering the <em>Introduction to
 data science with R</em>, is based on the <a href="https://datacarpentry.org/lessons/#ecology-workshop"><strong>Data Carpentry</strong> Ecology
-curiculum</a>.</p>
+curiculum</a> <span class="citation">(Michonneau and Fournier <label for="tufte-mn-6" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-6" class="margin-toggle">2019<span class="marginnote">Michonneau, Francois, and Auriel Fournier, eds. 2019. “Data Carpentry: R for Data Analysis and Visualization of Ecological Data.” <a href="https://doi.org/10.5281/zenodo.569338">https://doi.org/10.5281/zenodo.569338</a>.</span>)</span>.</p>
 <p>General references for this course are <em>R for Data Science</em>
-<span class="citation">(Grolemund and Wickham <label for="tufte-mn-6" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-6" class="margin-toggle">2017<span class="marginnote">Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. O’Reilly Media. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.</span>)</span> and <em>Bioinformatics Data Skills</em> <span class="citation">(Buffalo <label for="tufte-mn-7" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-7" class="margin-toggle">2015<span class="marginnote">Buffalo, Vince. 2015. <em>Bioinformatics Data Skills</em>. O’Reilly Media, Inc.</span>)</span>.</p>
+<span class="citation">(Grolemund and Wickham <label for="tufte-mn-7" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-7" class="margin-toggle">2017<span class="marginnote">Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. O’Reilly Media. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.</span>)</span> and <em>Bioinformatics Data Skills</em> <span class="citation">(Buffalo <label for="tufte-mn-8" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-8" class="margin-toggle">2015<span class="marginnote">Buffalo, Vince. 2015. <em>Bioinformatics Data Skills</em>. O’Reilly Media, Inc.</span>)</span>.</p>
+</div>
+<div id="pre-requisites" class="section level2 unnumbered">
+<h2>Pre-requisites</h2>
+<p>There are no programming or technical pre-requisities for this course,
+other than basic computer usage, such as knowing about files and
+folders and downloading files. Software requirements are documented in
+the <em>Setup</em> section below.</p>
 </div>
 <div id="about-this-course-material" class="section level2 unnumbered">
 <h2>About this course material</h2>
-<p>This material is written in R markdown <span class="citation">(Allaire et al. <label for="tufte-mn-8" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-8" class="margin-toggle">2018<span class="marginnote">Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2018. <em>Rmarkdown: Dynamic Documents for R</em>. <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a>.</span>)</span> and compiled as a
-book using <code>knitr</code> <span class="citation">(Xie <label for="tufte-mn-9" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-9" class="margin-toggle">2018b<span class="marginnote">Xie, Yihui. 2018b. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in R</em>. <a href="https://CRAN.R-project.org/package=knitr">https://CRAN.R-project.org/package=knitr</a>.</span>)</span> <code>bookdown</code> <span class="citation">(Xie <label for="tufte-mn-10" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-10" class="margin-toggle">2018a<span class="marginnote">Xie, Yihui. 2018a. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</span>)</span>. The source
+<p>This material is written in R markdown <span class="citation">(Allaire et al. <label for="tufte-mn-9" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-9" class="margin-toggle">2018<span class="marginnote">Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2018. <em>Rmarkdown: Dynamic Documents for R</em>. <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a>.</span>)</span> and compiled as a
+book using <code>knitr</code> <span class="citation">(Xie <label for="tufte-mn-10" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-10" class="margin-toggle">2018b<span class="marginnote">Xie, Yihui. 2018b. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in R</em>. <a href="https://CRAN.R-project.org/package=knitr">https://CRAN.R-project.org/package=knitr</a>.</span>)</span> <code>bookdown</code> <span class="citation">(Xie <label for="tufte-mn-11" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-11" class="margin-toggle">2018a<span class="marginnote">Xie, Yihui. 2018a. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</span>)</span>. The source
 code is publicly available in a Github repository
 <a href="https://github.com/uclouvain-cbio/WSBIM1207">https://github.com/uclouvain-cbio/WSBIM1207</a>
 and the compiled material can be read at <a href="http://bit.ly/WSBIM1207" class="uri">http://bit.ly/WSBIM1207</a>.</p>
@@ -278,13 +296,6 @@ or contact the maintainers is by means of pull requests and
 familiarise yourself with the <a href="https://github.com/UCLouvain-CBIO/WSBIM1207/blob/master/CONDUCT.md">code of
 conduct</a>. By
 participating in this project you agree to abide by its terms.</p>
-</div>
-<div id="pre-requisites" class="section level2 unnumbered">
-<h2>Pre-requisites</h2>
-<p>There are no programming or technical pre-requisities for this course,
-other than basic computer usage, such as knowing about files and
-folders and downloading files. Software requirements are documented in
-the <em>Setup</em> section below.</p>
 </div>
 <div id="setup" class="section level2 unnumbered">
 <h2>Setup</h2>
@@ -298,9 +309,9 @@ interact with R and write scripts and reports. Both R and RStudio are
 easy to install and works on all major operating systems.</p>
 <p>Once R and RStudio are installed, a set of packages will need to be
 installed. See section <a href="session-information.html#sec:setup2">10.2</a> for details.</p>
-<p>To build this book, you’ll need <code>bookdown</code> <span class="citation">(Xie <label for="tufte-mn-11" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-11" class="margin-toggle">2018a<span class="marginnote">Xie, Yihui. 2018a. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</span>)</span> and a
+<p>To build this book, you’ll need <code>bookdown</code> <span class="citation">(Xie <label for="tufte-mn-12" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-12" class="margin-toggle">2018a<span class="marginnote">Xie, Yihui. 2018a. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</span>)</span> and a
 fork<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> <a href="https://github.com/lgatto/msmbstyle" class="uri">https://github.com/lgatto/msmbstyle</a></span> of <a href="https://github.com/grimbough/msmbstyle/"><code>msmbstyle</code>
-style</a> <span class="citation">(Smith <label for="tufte-mn-12" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-12" class="margin-toggle">2019<span class="marginnote">Smith, Mike. 2019. <em>Msmbstyle: MSMB Styles for R Markdown Documents</em>.</span>)</span>.</p>
+style</a> <span class="citation">(Smith <label for="tufte-mn-13" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-13" class="margin-toggle">2019<span class="marginnote">Smith, Mike. 2019. <em>Msmbstyle: MSMB Styles for R Markdown Documents</em>.</span>)</span>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)
 devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;lgatto/msmbstyle&quot;</span>)</code></pre>
 <p>In the course’s work directory, simply type</p>

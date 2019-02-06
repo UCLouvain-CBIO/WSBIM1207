@@ -145,6 +145,20 @@ purely routine and that most researchers came to the bioinformatics
 core seeking customized analysis, rather than a standardized package
 [@Chang:2015].
 
+
+The overall learning objectives of this course are:
+
+- for students to apply and adapt the general data analysis techniques
+  and principles that are presented to new data and new contexts;
+
+- establish links between different concepts seen in the course such
+  as, for example, the importance of tidy data in general, how it
+  applies to dataframes in R, and how it enables reasoning on the
+  data;
+
+- become autonomous when being presented with new data and be in a
+  position to explore and understand them.
+
 ## References and credits {-}
 
 References are provided throughout the course. Several stand out
@@ -153,10 +167,17 @@ complementary resources.
 
 The material for the first chapters, covering the *Introduction to
 data science with R*, is based on the [**Data Carpentry** Ecology
-curiculum](https://datacarpentry.org/lessons/#ecology-workshop).
+curiculum](https://datacarpentry.org/lessons/#ecology-workshop) [@DCRecol].
 
 General references for this course are *R for Data Science*
 [@r4ds:2017] and *Bioinformatics Data Skills* [@Buffalo:2015].
+
+## Pre-requisites {-}
+
+There are no programming or technical pre-requisities for this course,
+other than basic computer usage, such as knowing about files and
+folders and downloading files. Software requirements are documented in
+the *Setup* section below.
 
 ## About this course material {-}
 
@@ -173,12 +194,6 @@ familiarise yourself with the [code of
 conduct](https://github.com/UCLouvain-CBIO/WSBIM1207/blob/master/CONDUCT.md). By
 participating in this project you agree to abide by its terms.
 
-## Pre-requisites {-}
-
-There are no programming or technical pre-requisities for this course,
-other than basic computer usage, such as knowing about files and
-folders and downloading files. Software requirements are documented in
-the *Setup* section below.
 
 ## Setup {-}
 
