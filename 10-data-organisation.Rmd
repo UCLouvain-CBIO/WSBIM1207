@@ -29,7 +29,7 @@ After this lesson, you will be able to:
 - Implement best practices in data table formatting
 - Identify and address common formatting mistakes
 - Understand approaches for handling dates in spreadsheets
-- Utilize basic quality control features and data manipulation practices
+- Utilise basic quality control features and data manipulation practices
 - Effectively export data from spreadsheet programs
 
 Spreadsheets are good for data entry. Therefore we have a lot of data
@@ -62,18 +62,11 @@ published by O'Reilly
 
 ### Spreadsheet programs {-}
 
-Many spreadsheet programs are available. Since most participants utilize Excel as their primary spreadsheet program, this lesson will make use of Excel examples.
-
-A free spreadsheet program that can also be used is LibreOffice
-
-Commands may differ a bit between programs, but the general idea
-is the same.
-
-> **Exercise**
-> - How many people have used spreadsheets in their research?
-> - How many people have accidentally done something that made them
-> frustrated or sad?
-
+Many spreadsheet programs are available. Since most participants
+utilise Excel as their primary spreadsheet program, this lesson will
+make use of Excel examples. A free spreadsheet program that can also
+be used is LibreOffice, Commands may differ a bit between programs,
+but the general idea is the same.
 
 Spreadsheets encompass a lot of the things we need to be able to do as
 researchers. We can use them for:
@@ -84,7 +77,15 @@ researchers. We can use them for:
 - Statistics
 - Plotting
 
-We do a lot of different operations in spreadsheets. What kind of operations do you do in spreadsheets? Which ones do you think spreadsheets are good for?
+
+`r msmbstyle::question_begin()`
+- How many people have used spreadsheets, in their research, courses,
+  or at home?
+- What kind of operations do you do in spreadsheets?
+- Which ones do you think spreadsheets are good for?
+- How many people have accidentally done something that made them
+  frustrated or sad?
+`r msmbstyle::question_end()`
 
 ## Problems with Spreadsheets
 
