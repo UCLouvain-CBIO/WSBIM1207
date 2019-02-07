@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-02-06" />
+<meta name="date" content="2019-02-07" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -324,7 +324,7 @@ preliminary summary statistics.</p>
 <p>In this lesson, we will assume that you are most likely using Excel as
 your primary spreadsheet program - there are others (gnumeric, Calc
 from OpenOffice), and their functionality is similar, but Excel seems
-to be the program most used by biologists and ecologists.</p>
+to be the program most used by biologists and biomedical researchers.</p>
 <p>In this lesson we’re going to talk about:</p>
 <ol style="list-style-type: decimal">
 <li>Formatting data tables in spreadsheets</li>
@@ -435,10 +435,10 @@ weight, sex and date collected.</p>
 look at all of one species or look at different weight distributions by sex,
 it would be hard to do this using this data setup. If instead we put sex and species
 in different columns, you can see that it would be much easier.</p>
-</div>
-<div id="columns-for-variables-and-rows-for-observations" class="section level3 unnumbered">
-<h3>Columns for variables and rows for observations</h3>
 <p>The rule of thumb, when setting up a datasheet, is</p>
+<blockquote>
+<p><strong>Columns for variables and rows for observations</strong></p>
+</blockquote>
 <ul>
 <li>columns = variables</li>
 <li>rows = observations</li>
@@ -858,10 +858,10 @@ this we can use the built in Excel functions</p></li>
 <pre><code>YEAR()
 MONTH()
 DAY()</code></pre>
-<p>(Make sure the new column is formatted as a number and not as a date.)</p>
-<p>You can see that even though you wanted the year to be 2014, your
-spreadsheet program automatically interpreted it as 2015, the year you
-entered the data.</p>
+<p>Make sure the new column is formatted as a number and not as a date.</p>
+<!-- You can see that even though you wanted the year to be 2014, your -->
+<!-- spreadsheet program automatically interpreted it as 2015, the year you -->
+<!-- entered the data. -->
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -954,8 +954,9 @@ Figure 1.5: Many formats, many ambiguities
 <img src="figs/5_excel_dates_1.jpg" alt="Many formats, many ambiguities" width="100%"  />
 </div>
 <p>But these “features” often allow ambiguity to creep into your data. Ideally, data should be as unambiguous as possible.</p>
-<div id="dates-stored-as-integers" class="section level4 unnumbered">
-<h4>Dates stored as integers</h4>
+</div>
+<div id="dates-stored-as-integers" class="section level3">
+<h3><span class="header-section-number">1.5.3</span> Dates stored as integers</h3>
 <p>The first thing you need to know is that Excel stores dates as numbers
 - see the last column in the above figure. Essentially, it counts the
 days from a default of December 31, 1899, and thus stores July 2, 2014
@@ -1010,7 +1011,7 @@ dates if we then open the <code>csv</code> file in Excel?</p>
 </p>
 <div id="sol-body-3" class="solution-body" style="display: none;">
 <ul>
-<li><p>Click to the “dates” tab of the workbook and double-click on any of
+<li><p>Click on the “dates” tab of the workbook and double-click on any of
 the values in the <code>Date collected</code> column. Notice that the dates
 display with the year 2015.</p></li>
 <li><p>Select <code>File -&gt; Save As</code> in Excel and in the drop down menu for file
@@ -1038,9 +1039,8 @@ a useful value (that is, the dates will be represented as integer
 numbers). This can potentially lead to problems if you use other
 software to manipulate the file.</p>
 </div>
-</div>
 <div id="advantages-of-alternative-date-formatting" class="section level3">
-<h3><span class="header-section-number">1.5.3</span> Advantages of Alternative Date Formatting</h3>
+<h3><span class="header-section-number">1.5.4</span> Advantages of Alternative Date Formatting</h3>
 <div id="storing-dates-as-year-month-day" class="section level4 unnumbered">
 <h4>Storing dates as YEAR, MONTH, DAY</h4>
 <p>Storing dates in YEAR, MONTH, DAY format helps remove this
@@ -1625,7 +1625,7 @@ week later, the measurements on the animal were repeated.</p>
 <a href="sec-startr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-02-06
+2019-02-07
 </p>
 </div>
 </div>

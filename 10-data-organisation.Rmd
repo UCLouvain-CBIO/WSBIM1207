@@ -147,7 +147,7 @@ preliminary summary statistics.
 In this lesson, we will assume that you are most likely using Excel as
 your primary spreadsheet program - there are others (gnumeric, Calc
 from OpenOffice), and their functionality is similar, but Excel seems
-to be the program most used by biologists and ecologists.
+to be the program most used by biologists and biomedical researchers.
 
 In this lesson we're going to talk about:
 
@@ -269,9 +269,10 @@ look at all of one species or look at different weight distributions by sex,
 it would be hard to do this using this data setup. If instead we put sex and species
 in different columns, you can see that it would be much easier.
 
-### Columns for variables and rows for observations {-}
 
 The rule of thumb, when setting up a datasheet, is
+
+>  **Columns for variables and rows for observations**
 
 - columns = variables
 - rows = observations
@@ -704,11 +705,11 @@ MONTH()
 DAY()
 ```
 
-(Make sure the new column is formatted as a number and not as a date.)
+Make sure the new column is formatted as a number and not as a date.
 
-You can see that even though you wanted the year to be 2014, your
-spreadsheet program automatically interpreted it as 2015, the year you
-entered the data.
+<!-- You can see that even though you wanted the year to be 2014, your -->
+<!-- spreadsheet program automatically interpreted it as 2015, the year you -->
+<!-- entered the data. -->
 
 `r msmbstyle::question_end()`
 
@@ -789,7 +790,7 @@ knitr::include_graphics("./figs/5_excel_dates_1.jpg")
 
 But these "features" often allow ambiguity to creep into your data. Ideally, data should be as unambiguous as possible.
 
-#### Dates stored as integers {-}
+### Dates stored as integers
 
 The first thing you need to know is that Excel stores dates as numbers
 - see the last column in the above figure. Essentially, it counts the
@@ -846,7 +847,8 @@ dates if we then open the `csv` file in Excel?
 
 
 `r msmbstyle::solution_begin()`
-- Click to the "dates" tab of the workbook and double-click on any of
+
+- Click on the "dates" tab of the workbook and double-click on any of
   the values in the `Date collected` column. Notice that the dates
   display with the year 2015.
 
