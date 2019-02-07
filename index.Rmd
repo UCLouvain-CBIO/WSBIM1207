@@ -152,9 +152,11 @@ respective chapters.
 ## Pre-requisites {-}
 
 There are no programming or technical pre-requisities for this course,
-other than basic computer usage, such as knowing about files and
-folders and downloading files. Software requirements are documented in
-the *Setup* section below.
+other than basic computer usage, such as knowing about files (binary
+and text files) and folders and downloading files. Familiarity with a
+spreadsheet editor is helpful for the first paragraph.
+
+Software requirements are documented in the *Setup* section below.
 
 ## About this course material {-}
 

@@ -124,17 +124,21 @@ knitr::include_graphics("./figs/rstudio-screenshot.png")
 ```
 
 
-RStudio is divided into 4 "Panes": the **Source** for your scripts and documents
-(top-left, in the default layout), your **Environment/History** (top-right),
-your **Files/Plots/Packages/Help/Viewer** (bottom-right), and
-the R **Console** (bottom-left). The placement of these
-panes and their content can be customized (see menu, Tools -> Global Options ->
-Pane Layout).
+RStudio is divided into 4 "Panes":
 
-One of the advantages of using RStudio is that all the information
-you need to write code is available in a single window. Additionally, with many
-shortcuts, autocompletion, and highlighting for the major file types you use
-while developing in R, RStudio will make typing easier and less error-prone.
+- the **Source** for your scripts and documents (top-left, in the default layout)
+- your **Environment/History** (top-right),
+- your **Files/Plots/Packages/Help/Viewer** (bottom-right), and
+0 the R **Console** (bottom-left).
+
+The placement of these panes and their content can be customized (see
+menu, `Tools -> Global Options -> Pane Layout`).
+
+One of the advantages of using RStudio is that all the information you
+need to write code is available in a single window. Additionally, with
+many shortcuts, autocompletion, and highlighting for the major file
+types you use while developing in R, RStudio will make typing easier
+and less error-prone.
 
 ## Getting set up
 
@@ -1103,19 +1107,247 @@ length(heights_above_67)
 `r msmbstyle::solution_end()`
 
 
-```{r, echo=FALSE, purl=TRUE}
-## Question
-## 1. Using this vector of heights in inches, create a new vector with the NAs removed.
-##
-##    heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
-##
-## 2. Use the function `median()` to calculate the median of the `heights` vector.
-##
-## 3. Use R to figure out how many people in the set are taller than 67 inches.
-```
 
 Now that we have learned how to write scripts, and the basics of R's
 data structures, we are ready to start working with larger data, and
 learn about data frames.
 
+## Generating vectors
+
+There exists some functions to generate vectors of different type. To
+generate a vector of numerics, one can use the `numerics()`
+constructor, providing the length of the output vector as
+parameter. The values will be initialised with 0.
+
+```{r}
+numeric(3)
+numeric(10)
+```
+
+Note that if we ask for a vector of numerics of length 0, we obtain
+exactly that:
+
+```{r}
+numeric(0)
+```
+
+There are similar constructors for characters and logicals, named
+`character()` and `logical()` respectively.
+
+`r msmbstyle::question_begin()`
+What are the defaults for character and logical vectors?
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+```{r}
+character(2) ## the empty charater
+logical(2)   ## FALSE
+```
+`r msmbstyle::solution_end()`
+
+The `rep` function allow to repeat a value a certain number of
+times. If we want to initiate a vector of numerics of length 5 with
+the value -1, for example, we could do the following:
+
+```{r}
+rep(-1, 5)
+```
+
+Similarly, to generate a vector populated with missing values, which
+is often a good way to start, without setting assumptions on the data
+to be collected:
+
+```{r}
+rep(NA, 5)
+```
+
+`rep` can take vectors of any length as input (above, we used vectors
+of length 1) and any type. For example, if we want to repeat the
+values 1, 2 and 3 five times, we would do the following:
+
+```{r}
+rep(c(1, 2, 3), 5)
+```
+
+`r msmbstyle::question_begin()`
+What if we wanted to repeat the values 1, 2 and 3 five times, but
+obtain five 1s, five 2s and five 3s in that order? There are two
+possibilities - see `?rep` or `?sort` for help.
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+```{r}
+rep(c(1, 2, 3), each = 5)
+sort(rep(c(1, 2, 3), 5))
+```
+`r msmbstyle::solution_end()`
+
+Another very useful function is `seq`, to generate a sequence of
+numbers. For example, to generate a sequence of integers from 1 to 20
+by steps of 2, one would use:
+
+```{r}
+seq(from = 1, to = 20, by = 2)
+```
+
+The default value of `by` is 1 and, given that the generate of a
+sequence of one value to another with steps of 1 is frequently used,
+there's a shortcut:
+
+```{r}
+seq(1, 5, 1)
+seq(1, 5) ## default by
+1:5
+```
+
+To generate a sequence of numbers from 1 to 20 of final length of 3,
+one would use:
+
+```{r}
+seq(from = 1, to = 20, length.out = 3)
+```
+
+A last group of useful functions are those that generate random
+data. The first one, `sample`, generates a random permutation of
+another vector. For example, to draw a random order to 10 students
+oral example, I first assign each student a number from 1 to then (for
+instance based on the alphabetic order of their name) and then:
+
+```{r}
+sample(1:10)
+```
+
+Without further arguments, `sample` will return a permutation of all
+elements of the vector. If I want a random sample of a certain size, I
+would set this value as second argument. Below, I sample 5 random
+letters from the alphabet contained in the pre-defined `letters` vector:
+
+```{r}
+sample(letters, 5)
+```
+
+If I wanted an output larger than the input vector, or being able to
+draw some elements multiple times, I would need to set the `replace`
+argument to `TRUE`:
+
+```{r}
+sample(1:5, 10, replace = TRUE)
+```
+
+`r msmbstyle::question_begin()`
+
+When trying the functions above out, you will have realised that the
+samples are indeed random and that one doesn't get the same
+permutation twice. To be able to reproduce these random draws, one can
+set the random number generation seed manually with `set.seed()`
+before drawing the random sample.
+
+- Test this feature with your neighbour. First draw two random
+  permutations of `1:10` independently and observe that you get
+  different results.
+
+- Now set the seed with, for example, `set.seed(123)` and repeat the
+  random draw. Observe that you now get the same random draws.
+
+- Repeat by setting a different seed.
+
+`r msmbstyle::question_end()`
+
+
+`r msmbstyle::solution_begin()`
+
+Different permutations
+
+```{r}
+sample(1:10)
+sample(1:10)
+```
+
+Same permutations with seed 123
+
+```{r}
+set.seed(123)
+sample(1:10)
+set.seed(123)
+sample(1:10)
+```
+
+A different seed
+
+```{r}
+set.seed(1)
+sample(1:10)
+set.seed(1)
+sample(1:10)
+```
+
+`r msmbstyle::solution_end()`
+
+
+The last function we are going to see is `rnorm`, that draws a random
+sample from a normal distribution. Two normal distributions of means 0
+and 100 and standard deviations 1 and 5, noted noted *N(0, 1)* and
+*N(100, 5)*, are shown below
+
+```{r echo=FALSE, fig.width = 12, fig.height = 6, fig.cap = "Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right."}
+par(mfrow = c(1, 2))
+plot(density(rnorm(1000)), main = "", sub = "N(0, 1)")
+plot(density(rnorm(1000, 100, 5)), main = "", sub = "N(100, 5)")
+```
+
+The three arguments, `n`, `mean` and `sd`, define the size of the
+sample, and the parameters of the normal distribution, i.e the mean
+and its standard deviation. The defaults of the latter are 0 and 1.
+
+
+```{r}
+rnorm(5)
+rnorm(5, 2, 2)
+rnorm(5, 100, 5)
+```
+
 ## Additional exercises
+
+
+`r msmbstyle::question_begin()`
+- Create two vectors `x` and `y` containing the numbers 1 to 10 and 10
+  to 1 respectively. You can use the `seq` or `:` functions rather
+  than constructing them by hand.
+- Check their type. Depending how they were created, they can be
+  integers or doubles.
+- Take the sum of each vector and verify they are identical.
+- Sum vectors element-wise, and verify that all results are identical.
+- Swap the value or `x` and `y`.
+`r msmbstyle::question_end()`
+
+
+
+
+`r msmbstyle::question_begin()`
+- Calculate the mean of a random distribution *N(15, 1)* of size 100
+  and store it in variable `m1`.
+- Calculate the mean of a random distribution *N(0, 1)* of size 100
+  and store it in variable `m2`.
+- Calculate the mean of another random distribution *N(15, 1)* of size
+  1000 and store it in variable `m3`.
+- Can you guess with one of `m1` and `m2` will be larger? Verify in R.
+- Can you guess with one of `m1` and `m3` will be larger? Verify in R.
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+
+```{r}
+m1 <- mean(rnorm(100, 15, 1))
+m2 <- mean(rnorm(100, 0, 1))
+m3 <- mean(rnorm(1000, 15, 1))
+
+## From the nature of the distributions, I expect m1 > m2
+m1 > m2
+
+## I cannot predict which one of m1 and m3 will be larger, only that
+## they will be very close to each other, variating around 15
+m1
+m3
+```
+
+`r msmbstyle::solution_end()`

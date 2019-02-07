@@ -148,6 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#seeking-help"> Seeking help</a></li>
 <li class="toc"><a href="#r-packages"> R packages</a></li>
 <li class="toc"><a href="#introduction-to-r"> Introduction to R</a></li>
+<li class="toc"><a href="#generating-vectors"> Generating vectors</a></li>
 <li class="toc"><a href="#additional-exercises-1"> Additional exercises</a></li>
 </ul>
 <a href="sec-startdata.html"><span class="toc-section-number">3</span> Starting with data</a>
@@ -272,16 +273,20 @@ Figure 2.1: RStudio interface screenshot. Clockwise from top left: Source, Envir
 </p>
 <img src="figs/rstudio-screenshot.png" alt="RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console." width="100%"  />
 </div>
-<p>RStudio is divided into 4 “Panes”: the <strong>Source</strong> for your scripts and documents
-(top-left, in the default layout), your <strong>Environment/History</strong> (top-right),
-your <strong>Files/Plots/Packages/Help/Viewer</strong> (bottom-right), and
-the R <strong>Console</strong> (bottom-left). The placement of these
-panes and their content can be customized (see menu, Tools -&gt; Global Options -&gt;
-Pane Layout).</p>
-<p>One of the advantages of using RStudio is that all the information
-you need to write code is available in a single window. Additionally, with many
-shortcuts, autocompletion, and highlighting for the major file types you use
-while developing in R, RStudio will make typing easier and less error-prone.</p>
+<p>RStudio is divided into 4 “Panes”:</p>
+<ul>
+<li>the <strong>Source</strong> for your scripts and documents (top-left, in the default layout)</li>
+<li>your <strong>Environment/History</strong> (top-right),</li>
+<li>your <strong>Files/Plots/Packages/Help/Viewer</strong> (bottom-right), and
+0 the R <strong>Console</strong> (bottom-left).</li>
+</ul>
+<p>The placement of these panes and their content can be customized (see
+menu, <code>Tools -&gt; Global Options -&gt; Pane Layout</code>).</p>
+<p>One of the advantages of using RStudio is that all the information you
+need to write code is available in a single window. Additionally, with
+many shortcuts, autocompletion, and highlighting for the major file
+types you use while developing in R, RStudio will make typing easier
+and less error-prone.</p>
 </div>
 <div id="getting-set-up" class="section level2">
 <h2><span class="header-section-number">2.4</span> Getting set up</h2>
@@ -1210,8 +1215,262 @@ data structures, we are ready to start working with larger data, and
 learn about data frames.</p>
 </div>
 </div>
+<div id="generating-vectors" class="section level2">
+<h2><span class="header-section-number">2.10</span> Generating vectors</h2>
+<p>There exists some functions to generate vectors of different type. To
+generate a vector of numerics, one can use the <code>numerics()</code>
+constructor, providing the length of the output vector as
+parameter. The values will be initialised with 0.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">numeric</span>(<span class="dv">3</span>)</code></pre>
+<pre><code>## [1] 0 0 0</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">numeric</span>(<span class="dv">10</span>)</code></pre>
+<pre><code>##  [1] 0 0 0 0 0 0 0 0 0 0</code></pre>
+<p>Note that if we ask for a vector of numerics of length 0, we obtain
+exactly that:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">numeric</span>(<span class="dv">0</span>)</code></pre>
+<pre><code>## numeric(0)</code></pre>
+<p>There are similar constructors for characters and logicals, named
+<code>character()</code> and <code>logical()</code> respectively.</p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>What are the defaults for character and logical vectors?</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-13" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-13&#39;, &#39;sol-start-13&#39;)"></span>
+</p>
+<div id="sol-body-13" class="solution-body" style="display: none;">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">character</span>(<span class="dv">2</span>) <span class="co">## the empty charater</span></code></pre>
+<pre><code>## [1] &quot;&quot; &quot;&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">logical</span>(<span class="dv">2</span>)   <span class="co">## FALSE</span></code></pre>
+<pre><code>## [1] FALSE FALSE</code></pre>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>The <code>rep</code> function allow to repeat a value a certain number of
+times. If we want to initiate a vector of numerics of length 5 with
+the value -1, for example, we could do the following:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">5</span>)</code></pre>
+<pre><code>## [1] -1 -1 -1 -1 -1</code></pre>
+<p>Similarly, to generate a vector populated with missing values, which
+is often a good way to start, without setting assumptions on the data
+to be collected:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">5</span>)</code></pre>
+<pre><code>## [1] NA NA NA NA NA</code></pre>
+<p><code>rep</code> can take vectors of any length as input (above, we used vectors
+of length 1) and any type. For example, if we want to repeat the
+values 1, 2 and 3 five times, we would do the following:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dv">5</span>)</code></pre>
+<pre><code>##  [1] 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3</code></pre>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>What if we wanted to repeat the values 1, 2 and 3 five times, but
+obtain five 1s, five 2s and five 3s in that order? There are two
+possibilities - see <code>?rep</code> or <code>?sort</code> for help.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-14" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-14&#39;, &#39;sol-start-14&#39;)"></span>
+</p>
+<div id="sol-body-14" class="solution-body" style="display: none;">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dt">each =</span> <span class="dv">5</span>)</code></pre>
+<pre><code>##  [1] 1 1 1 1 1 2 2 2 2 2 3 3 3 3 3</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sort</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dv">5</span>))</code></pre>
+<pre><code>##  [1] 1 1 1 1 1 2 2 2 2 2 3 3 3 3 3</code></pre>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Another very useful function is <code>seq</code>, to generate a sequence of
+numbers. For example, to generate a sequence of integers from 1 to 20
+by steps of 2, one would use:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">20</span>, <span class="dt">by =</span> <span class="dv">2</span>)</code></pre>
+<pre><code>##  [1]  1  3  5  7  9 11 13 15 17 19</code></pre>
+<p>The default value of <code>by</code> is 1 and, given that the generate of a
+sequence of one value to another with steps of 1 is frequently used,
+there’s a shortcut:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">1</span>)</code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">5</span>) <span class="co">## default by</span></code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<p>To generate a sequence of numbers from 1 to 20 of final length of 3,
+one would use:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">20</span>, <span class="dt">length.out =</span> <span class="dv">3</span>)</code></pre>
+<pre><code>## [1]  1.0 10.5 20.0</code></pre>
+<p>A last group of useful functions are those that generate random
+data. The first one, <code>sample</code>, generates a random permutation of
+another vector. For example, to draw a random order to 10 students
+oral example, I first assign each student a number from 1 to then (for
+instance based on the alphabetic order of their name) and then:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
+<pre><code>##  [1]  2  7  4  5  6  9  1  3  8 10</code></pre>
+<p>Without further arguments, <code>sample</code> will return a permutation of all
+elements of the vector. If I want a random sample of a certain size, I
+would set this value as second argument. Below, I sample 5 random
+letters from the alphabet contained in the pre-defined <code>letters</code> vector:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(letters, <span class="dv">5</span>)</code></pre>
+<pre><code>## [1] &quot;z&quot; &quot;h&quot; &quot;s&quot; &quot;q&quot; &quot;g&quot;</code></pre>
+<p>If I wanted an output larger than the input vector, or being able to
+draw some elements multiple times, I would need to set the <code>replace</code>
+argument to <code>TRUE</code>:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</code></pre>
+<pre><code>##  [1] 4 1 5 5 3 4 3 2 2 5</code></pre>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>When trying the functions above out, you will have realised that the
+samples are indeed random and that one doesn’t get the same
+permutation twice. To be able to reproduce these random draws, one can
+set the random number generation seed manually with <code>set.seed()</code>
+before drawing the random sample.</p>
+<ul>
+<li><p>Test this feature with your neighbour. First draw two random
+permutations of <code>1:10</code> independently and observe that you get
+different results.</p></li>
+<li><p>Now set the seed with, for example, <code>set.seed(123)</code> and repeat the
+random draw. Observe that you now get the same random draws.</p></li>
+<li><p>Repeat by setting a different seed.</p></li>
+</ul>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-15" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-15&#39;, &#39;sol-start-15&#39;)"></span>
+</p>
+<div id="sol-body-15" class="solution-body" style="display: none;">
+<p>Different permutations</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
+<pre><code>##  [1]  6  3  8  4  9 10  5  2  7  1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
+<pre><code>##  [1]  6  8  2  9  4  3 10  7  1  5</code></pre>
+<p>Same permutations with seed 123</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
+<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
+<pre><code>##  [1]  3  8  4  7  6  1 10  9  2  5</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
+<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
+<pre><code>##  [1]  3  8  4  7  6  1 10  9  2  5</code></pre>
+<p>A different seed</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1</span>)
+<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
+<pre><code>##  [1]  3  4  5  7  2  8  9  6 10  1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1</span>)
+<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
+<pre><code>##  [1]  3  4  5  7  2  8  9  6 10  1</code></pre>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>The last function we are going to see is <code>rnorm</code>, that draws a random
+sample from a normal distribution. Two normal distributions of means 0
+and 100 and standard deviations 1 and 5, noted noted <em>N(0, 1)</em> and
+<em>N(100, 5)</em>, are shown below</p>
+<div class="figure"><span id="fig:unnamed-chunk-87"></span>
+<p class="caption marginnote shownote">
+Figure 2.6: Two normal distributions: <em>N(0, 1)</em> on the left and <em>N(100, 5)</em> on the right.
+</p>
+<img src="WSBIM1207_files/figure-html/unnamed-chunk-87-1.png" alt="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right." width="1152"  />
+</div>
+<p>The three arguments, <code>n</code>, <code>mean</code> and <code>sd</code>, define the size of the
+sample, and the parameters of the normal distribution, i.e the mean
+and its standard deviation. The defaults of the latter are 0 and 1.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">5</span>)</code></pre>
+<pre><code>## [1]  0.69641761  0.05351568 -1.31028350 -2.12306606 -0.20807859</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">2</span>)</code></pre>
+<pre><code>## [1]  1.3744268 -0.1164714  2.8344472  1.3690969  3.6510983</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dv">100</span>, <span class="dv">5</span>)</code></pre>
+<pre><code>## [1] 106.45636  96.87448  95.62427 100.71678 107.12595</code></pre>
+</div>
 <div id="additional-exercises-1" class="section level2">
-<h2><span class="header-section-number">2.10</span> Additional exercises</h2>
+<h2><span class="header-section-number">2.11</span> Additional exercises</h2>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<ul>
+<li>Create two vectors <code>x</code> and <code>y</code> containing the numbers 1 to 10 and 10
+to 1 respectively. You can use the <code>seq</code> or <code>:</code> functions rather
+than constructing them by hand.</li>
+<li>Check their type. Depending how they were created, they can be
+integers or doubles.</li>
+<li>Take the sum of each vector and verify they are identical.</li>
+<li>Sum vectors element-wise, and verify that all results are identical.</li>
+<li>Swap the value or <code>x</code> and <code>y</code>.</li>
+</ul>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<ul>
+<li>Calculate the mean of a random distribution <em>N(15, 1)</em> of size 100
+and store it in variable <code>m1</code>.</li>
+<li>Calculate the mean of a random distribution <em>N(0, 1)</em> of size 100
+and store it in variable <code>m2</code>.</li>
+<li>Calculate the mean of another random distribution <em>N(15, 1)</em> of size
+1000 and store it in variable <code>m3</code>.</li>
+<li>Can you guess with one of <code>m1</code> and <code>m2</code> will be larger? Verify in R.</li>
+<li>Can you guess with one of <code>m1</code> and <code>m3</code> will be larger? Verify in R.</li>
+</ul>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-16" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-16&#39;, &#39;sol-start-16&#39;)"></span>
+</p>
+<div id="sol-body-16" class="solution-body" style="display: none;">
+<pre class="sourceCode r"><code class="sourceCode r">m1 &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">15</span>, <span class="dv">1</span>))
+m2 &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dv">1</span>))
+m3 &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">rnorm</span>(<span class="dv">1000</span>, <span class="dv">15</span>, <span class="dv">1</span>))
+
+<span class="co">## From the nature of the distributions, I expect m1 &gt; m2</span>
+m1 <span class="op">&gt;</span><span class="st"> </span>m2</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## I cannot predict which one of m1 and m3 will be larger, only that</span>
+<span class="co">## they will be very close to each other, variating around 15</span>
+m1</code></pre>
+<pre><code>## [1] 14.90802</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">m3</code></pre>
+<pre><code>## [1] 15.05952</code></pre>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 
 </div>
 </div>
