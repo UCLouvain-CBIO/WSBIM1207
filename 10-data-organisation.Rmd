@@ -1339,19 +1339,18 @@ the commas which are a part of the data values will be interpreted as
 delimiters.
 
 
-
 For example, our data might look like this:
 
 ```
 species_id,genus,species,taxa
 AB,Amphispiza,bilineata,Bird
-AH,Ammospermophilus,harrisi,Rodent-not,censused
+AH,Ammospermophilus,harrisi,Rodent, not censused
 AS,Ammodramus,savannarum,Bird
 BA,Baiomys,taylori,Rodent
 ```
 
-In the record `AH,Ammospermophilus,harrisi,Rodent-not,censused` the
-value for `taxa` includes a comma (`Rodent-not,censused`).  If we try
+In the record `AH,Ammospermophilus,harrisi,Rodent, not censused` the
+value for `taxa` includes a comma (`Rodent, not censused`).  If we try
 to read the above into Excel (or other spreadsheet program), we will
 get something like this:
 
@@ -1375,7 +1374,7 @@ data might look like this:
 ```
 species_id,genus,species,taxa
 "AB","Amphispiza","bilineata","Bird"
-"AH","Ammospermophilus","harrisi","Rodent-not, censused"
+"AH","Ammospermophilus","harrisi","Rodent, not censused"
 "AS","Ammodramus","savannarum","Bird"
 "BA","Baiomys","taylori","Rodent"
 ```
