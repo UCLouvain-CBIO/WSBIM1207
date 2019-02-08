@@ -521,7 +521,7 @@ install.packages("dplyr")
 This command will install the `dplyr` package as well as all its
 dependencies, i.e. all the packages that it relies on to function.
 
-[Github](https://github.com/) is an general-pupose online softare
+[Github](https://github.com/) is a general-pupose online software
 project repository and is well suited for R package development. To
 install a package from Gtihub, one can use the `install_github()`
 function from the `devtools` package. Below we first install the
