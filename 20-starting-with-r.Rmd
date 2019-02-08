@@ -1321,8 +1321,6 @@ rnorm(5, 100, 5)
 `r msmbstyle::question_end()`
 
 
-
-
 `r msmbstyle::question_begin()`
 - Calculate the mean of a random distribution *N(15, 1)* of size 100
   and store it in variable `m1`.
@@ -1334,20 +1332,20 @@ rnorm(5, 100, 5)
 - Can you guess with one of `m1` and `m3` will be larger? Verify in R.
 `r msmbstyle::question_end()`
 
-`r msmbstyle::solution_begin()`
 
-```{r}
-m1 <- mean(rnorm(100, 15, 1))
-m2 <- mean(rnorm(100, 0, 1))
-m3 <- mean(rnorm(1000, 15, 1))
 
-## From the nature of the distributions, I expect m1 > m2
-m1 > m2
+<!-- `r msmbstyle::solution_begin()` -->
+<!-- ```{r} -->
+<!-- m1 <- mean(rnorm(100, 15, 1)) -->
+<!-- m2 <- mean(rnorm(100, 0, 1)) -->
+<!-- m3 <- mean(rnorm(1000, 15, 1)) -->
 
-## I cannot predict which one of m1 and m3 will be larger, only that
-## they will be very close to each other, variating around 15
-m1
-m3
-```
+<!-- ## From the nature of the distributions, I expect m1 > m2 -->
+<!-- m1 > m2 -->
 
-`r msmbstyle::solution_end()`
+<!-- ## I cannot predict which one of m1 and m3 will be larger, only that -->
+<!-- ## they will be very close to each other, variating around 15 -->
+<!-- m1 -->
+<!-- m3 -->
+<!-- ``` -->
+<!-- `r msmbstyle::solution_end()` -->

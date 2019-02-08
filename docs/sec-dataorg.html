@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-02-07" />
+<meta name="date" content="2019-02-08" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -1485,11 +1485,11 @@ delimiters.</p>
 <p>For example, our data might look like this:</p>
 <pre><code>species_id,genus,species,taxa
 AB,Amphispiza,bilineata,Bird
-AH,Ammospermophilus,harrisi,Rodent-not,censused
+AH,Ammospermophilus,harrisi,Rodent, not censused
 AS,Ammodramus,savannarum,Bird
 BA,Baiomys,taylori,Rodent</code></pre>
-<p>In the record <code>AH,Ammospermophilus,harrisi,Rodent-not,censused</code> the
-value for <code>taxa</code> includes a comma (<code>Rodent-not,censused</code>). If we try
+<p>In the record <code>AH,Ammospermophilus,harrisi,Rodent, not censused</code> the
+value for <code>taxa</code> includes a comma (<code>Rodent, not censused</code>). If we try
 to read the above into Excel (or other spreadsheet program), we will
 get something like this:</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
@@ -1510,7 +1510,7 @@ above by putting the values in quotes (""). Applying this rule, our
 data might look like this:</p>
 <pre><code>species_id,genus,species,taxa
 &quot;AB&quot;,&quot;Amphispiza&quot;,&quot;bilineata&quot;,&quot;Bird&quot;
-&quot;AH&quot;,&quot;Ammospermophilus&quot;,&quot;harrisi&quot;,&quot;Rodent-not, censused&quot;
+&quot;AH&quot;,&quot;Ammospermophilus&quot;,&quot;harrisi&quot;,&quot;Rodent, not censused&quot;
 &quot;AS&quot;,&quot;Ammodramus&quot;,&quot;savannarum&quot;,&quot;Bird&quot;
 &quot;BA&quot;,&quot;Baiomys&quot;,&quot;taylori&quot;,&quot;Rodent&quot;</code></pre>
 <p>Now opening this file as a <code>csv</code> in Excel will not lead to an extra
@@ -1632,7 +1632,7 @@ week later, the measurements on the animal were repeated.</p>
 <a href="sec-startr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-02-07
+2019-02-08
 </p>
 </div>
 </div>

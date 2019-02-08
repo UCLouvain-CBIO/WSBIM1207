@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-02-07" />
+<meta name="date" content="2019-02-08" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -695,7 +695,7 @@ level. Let’s look at the number of males and females captured over the course 
 the experiment:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">## bar plot of the number of females and males captured during the experiment:</span>
 <span class="kw">plot</span>(surveys<span class="op">$</span>sex)</code></pre>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-109-1.png" width="672"  /></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-108-1.png" width="672"  /></p>
 <p>In addition to males and females, there are about 1700 individuals for which the
 sex information hasn’t been recorded. Additionally, for these individuals,
 there is no label to indicate that the information is missing or undetermined. Let’s rename this
@@ -725,7 +725,7 @@ barplot such that “undetermined” is last (after “male”)?</li>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(sex)[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>)
 sex &lt;-<span class="st"> </span><span class="kw">factor</span>(sex, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>, <span class="st">&quot;undetermined&quot;</span>))
 <span class="kw">plot</span>(sex)</code></pre>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-111-1.png" width="672"  /></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-110-1.png" width="672"  /></p>
 </blockquote>
 </div>
 <div id="using-stringsasfactorsfalse" class="section level3">
@@ -845,7 +845,7 @@ are currently installed on our respective computers using the
 explore this matrix as those used for dataframes above.</p>
 <pre class="sourceCode r"><code class="sourceCode r">ip &lt;-<span class="st"> </span><span class="kw">installed.packages</span>()
 <span class="kw">dim</span>(ip)</code></pre>
-<pre><code>## [1] 495  16</code></pre>
+<pre><code>## [1] 496  16</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">colnames</span>(ip))</code></pre>
 <pre><code>## [1] &quot;Package&quot;  &quot;LibPath&quot;  &quot;Version&quot;  &quot;Priority&quot; &quot;Depends&quot;  &quot;Imports&quot;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">rownames</span>(ip)) <span class="co">## these are the package names</span></code></pre>
@@ -1095,9 +1095,9 @@ a matrix, a dataframe and another list:</p>
 <pre><code>## List of 5
 ##  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##  $ : chr [1:26] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ : chr [1:495, 1:16] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
+##  $ : chr [1:496, 1:16] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
-##   .. ..$ : chr [1:495] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
+##   .. ..$ : chr [1:496] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
 ##   .. ..$ : chr [1:16] &quot;Package&quot; &quot;LibPath&quot; &quot;Version&quot; &quot;Priority&quot; ...
 ##  $ :&#39;data.frame&#39;:    50 obs. of  2 variables:
 ##   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...
@@ -1132,7 +1132,7 @@ the list is named).</p>
 <a href="sec-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-02-07
+2019-02-08
 </p>
 </div>
 </div>
