@@ -770,9 +770,28 @@ relevant for rectangular data such as dataframes and matrices.
 A more general way to save data, that is specific to R and is
 guaranteed to work on any operating system, is to use the `save`
 function. Saving objects will generate a binary representation of the
-object on disk, that is guaranteed to produce the same object once
-read back into R using the `load` function.
+object on disk, a *R Data* file (`rda` extension) that guarantees to
+produce the same object once loaded back into R using the `load`
+function.
 
+```{r, eval = FALSE}
+save(surveys, file = "data_output/surveys.rda")
+rm(surveys)
+load("data_output/surveys.rda")
+head(surveys)
+```
+
+Note about how the function `load` loads the object in the file
+directly in the global environment.
+
+```{r echo=FALSE}
+unlink("data_putput/surveys.rda")
+```
+
+To conclude, when it comes to saving data from R that will be loaded
+again in R, saving and loading is the preferred approach. If tabular
+data need to be shared with somebody that is not using R, then
+exporting to a text-based spreadsheet is a good alternative.
 
 ## Additional exercises
 
@@ -800,6 +819,8 @@ following numbers of molds: 1, 6, 6, 5 and 4.
 - Calculate for each experiment the total number of molds
   counted. Check if the first experiment counted more molds than the
   second one.
+
+- Save the `molds_study` variable in a file named `molds_study.rda`.
 
 `r msmbstyle::question_end()`
 

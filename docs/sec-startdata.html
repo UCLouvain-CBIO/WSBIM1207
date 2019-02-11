@@ -1149,8 +1149,19 @@ relevant for rectangular data such as dataframes and matrices.</p>
 <p>A more general way to save data, that is specific to R and is
 guaranteed to work on any operating system, is to use the <code>save</code>
 function. Saving objects will generate a binary representation of the
-object on disk, that is guaranteed to produce the same object once
-read back into R using the <code>load</code> function.</p>
+object on disk, a <em>R Data</em> file (<code>rda</code> extension) that guarantees to
+produce the same object once loaded back into R using the <code>load</code>
+function.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">save</span>(surveys, <span class="dt">file =</span> <span class="st">&quot;data_output/surveys.rda&quot;</span>)
+<span class="kw">rm</span>(surveys)
+<span class="kw">load</span>(<span class="st">&quot;data_output/surveys.rda&quot;</span>)
+<span class="kw">head</span>(surveys)</code></pre>
+<p>Note about how the function <code>load</code> loads the object in the file
+directly in the global environment.</p>
+<p>To conclude, when it comes to saving data from R that will be loaded
+again in R, saving and loading is the preferred approach. If tabular
+data need to be shared with somebody that is not using R, then
+exporting to a text-based spreadsheet is a good alternative.</p>
 </div>
 <div id="additional-exercises-2" class="section level2">
 <h2><span class="header-section-number">3.12</span> Additional exercises</h2>
@@ -1179,6 +1190,7 @@ and rename the variables as <code>Day</code>, <code>Molds_1</code> and <code>Mol
 <li><p>Calculate for each experiment the total number of molds
 counted. Check if the first experiment counted more molds than the
 second one.</p></li>
+<li><p>Save the <code>molds_study</code> variable in a file named <code>molds_study.rda</code>.</p></li>
 </ul>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
