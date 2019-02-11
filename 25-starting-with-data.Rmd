@@ -10,6 +10,7 @@
 - Reorder and rename factors.
 - Change how character strings are handled in a data frame.
 - Format dates.
+- Export and save data.
 
 ## Presentation of the Survey Data
 
@@ -526,7 +527,7 @@ tutorial](https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data
 
 ## Matrices
 
-Before proceeding, now that we have learnt about dateframes, let's
+Before proceeding, now that we have learnt about dataframes, let's
 recap package installation and learn about a new data type, namely the
 `matrix`. Like a `data.frame`, a matrix has two dimensions, rows and
 columns. But the major difference is that all cells in a `matrix` must
@@ -611,7 +612,11 @@ date is stored as a separate variable. Using `str()`, We can confirm that our
 data frame has a separate column for day, month, and year, and that each contains
 integer values.
 
-```{r, eval=FALSE, purl=FALSE} str(surveys) ``` We are going to use
+```{r, eval=FALSE, purl=FALSE}
+str(surveys)
+```
+
+We are going to use
 the `ymd()` function from the package **`lubridate`** (which belongs
 to the **`tidyverse`**; learn more
 [here](https://www.tidyverse.org/)). . **`lubridate`** gets installed
@@ -737,6 +742,37 @@ l[[1]] ## first element
 l[1:2] ## a list of length 2
 l[1]   ## a list of length 1
 ```
+## Exporting tabular data
+
+We have seen how to read a text-based spreadsheet into R using the
+`read.table` family of functions. To export a `data.frame` to a
+text-based spreadsheet, we can use the `write.table` set of functions
+(`write.csv`, `write.delim`, ...). They all take the variable to be
+exported and the file to be exported to. For example, to export the
+`surveys` data to the `my_surveys.csv` file in the `data_output`
+directory, we would execute:
+
+```{r, eval = FALSE}
+write.csv(surveys, file = "data_output/my_surveys.csv")
+```
+
+This new csv file can now be shared with other collaborators who
+aren't familiar with R.
+
+## Saving data
+
+Exporting data to a spreadsheet has several limitations, such as those
+described in the first chapter such as possible inconsistencies with
+`,` and `.` for decimal separators and lack of variable type
+definitions. Furthermore, exporting data to a spreadsheet is only
+relevant for rectangular data such as dataframes and matrices.
+
+A more general way to save data, that is specific to R and is
+guaranteed to work on any operating system, is to use the `save`
+function. Saving objects will generate a binary representation of the
+object on disk, that is guaranteed to produce the same object once
+read back into R using the `load` function.
+
 
 ## Additional exercises
 
@@ -793,3 +829,36 @@ following numbers of molds: 1, 6, 6, 5 and 4.
 <!-- total1 > total2 -->
 <!-- ``` -->
 <!-- `r msmbstyle::solution_end()` -->
+
+
+`r msmbstyle::question_begin()`
+
+We are going to analyse beer consumption in 48 individuals. The data
+is available in the `rWSBIM1207` package. The data illustrated the
+fictive beer consumption in liters per year at different age according
+to gender and employment.
+
+- Load the `rWSBIM1207` package. If the package isn't installed of its
+  version is older than 0.1.1, install it from the
+  `UCLouvain-CBIO/rWSBIM1207' GitHub repository using the
+  `devtools::install_github` function.
+
+- Using the `beers.csv()` function from `rWSBIM1207`, get the path the
+  the `beers.csv` file and read it to produce a `data.frame` named
+  `beers`. The spreadsheet uses semi-colons `;` to separate cells. Use
+  `read.csv2` and `read.delim` and set the separator appropriately, and
+  verify that the two variables are identical.
+
+- Check the number of observations and identidy variables are
+  available. Calculate a summary of each variable using the `summary`
+  function directly on the `data.frame`.
+
+- Calculate the mean and the median age and consumption.
+
+- Calculate a two-way table of gender and employment status.
+
+- Remove observations with missing values and export the data into a
+  new `csv` file called `beers_no_na.csv`.
+
+
+`r msmbstyle::question_end()`

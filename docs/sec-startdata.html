@@ -149,6 +149,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#formatting-dates"> Formatting Dates</a></li>
 <li class="toc"><a href="#summary-of-r-objects"> Summary of R objects</a></li>
 <li class="toc"><a href="#lists"> Lists</a></li>
+<li class="toc"><a href="#exporting-tabular-data"> Exporting tabular data</a></li>
+<li class="toc"><a href="#saving-data"> Saving data</a></li>
 <li class="toc"><a href="#additional-exercises-2"> Additional exercises</a></li>
 </ul>
 <a href="sec-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a>
@@ -179,6 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Reorder and rename factors.</li>
 <li>Change how character strings are handled in a data frame.</li>
 <li>Format dates.</li>
+<li>Export and save data.</li>
 </ul>
 <div id="presentation-of-the-survey-data" class="section level2">
 <h2><span class="header-section-number">3.1</span> Presentation of the Survey Data</h2>
@@ -833,7 +836,7 @@ tutorial</a></p>
 </div>
 <div id="matrices" class="section level2">
 <h2><span class="header-section-number">3.6</span> Matrices</h2>
-<p>Before proceeding, now that we have learnt about dateframes, let’s
+<p>Before proceeding, now that we have learnt about dataframes, let’s
 recap package installation and learn about a new data type, namely the
 <code>matrix</code>. Like a <code>data.frame</code>, a matrix has two dimensions, rows and
 columns. But the major difference is that all cells in a <code>matrix</code> must
@@ -941,7 +944,8 @@ practice for dealing with date data is to ensure that each component of your
 date is stored as a separate variable. Using <code>str()</code>, We can confirm that our
 data frame has a separate column for day, month, and year, and that each contains
 integer values.</p>
-<p><code>{r, eval=FALSE, purl=FALSE} str(surveys)</code> We are going to use
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(surveys)</code></pre>
+<p>We are going to use
 the <code>ymd()</code> function from the package <strong><code>lubridate</code></strong> (which belongs
 to the <strong><code>tidyverse</code></strong>; learn more
 <a href="https://www.tidyverse.org/">here</a>). . <strong><code>lubridate</code></strong> gets installed
@@ -1122,8 +1126,34 @@ the list is named).</p>
 <pre><code>## [[1]]
 ##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 </div>
+<div id="exporting-tabular-data" class="section level2">
+<h2><span class="header-section-number">3.10</span> Exporting tabular data</h2>
+<p>We have seen how to read a text-based spreadsheet into R using the
+<code>read.table</code> family of functions. To export a <code>data.frame</code> to a
+text-based spreadsheet, we can use the <code>write.table</code> set of functions
+(<code>write.csv</code>, <code>write.delim</code>, …). They all take the variable to be
+exported and the file to be exported to. For example, to export the
+<code>surveys</code> data to the <code>my_surveys.csv</code> file in the <code>data_output</code>
+directory, we would execute:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write.csv</span>(surveys, <span class="dt">file =</span> <span class="st">&quot;data_output/my_surveys.csv&quot;</span>)</code></pre>
+<p>This new csv file can now be shared with other collaborators who
+aren’t familiar with R.</p>
+</div>
+<div id="saving-data" class="section level2">
+<h2><span class="header-section-number">3.11</span> Saving data</h2>
+<p>Exporting data to a spreadsheet has several limitations, such as those
+described in the first chapter such as possible inconsistencies with
+<code>,</code> and <code>.</code> for decimal separators and lack of variable type
+definitions. Furthermore, exporting data to a spreadsheet is only
+relevant for rectangular data such as dataframes and matrices.</p>
+<p>A more general way to save data, that is specific to R and is
+guaranteed to work on any operating system, is to use the <code>save</code>
+function. Saving objects will generate a binary representation of the
+object on disk, that is guaranteed to produce the same object once
+read back into R using the <code>load</code> function.</p>
+</div>
 <div id="additional-exercises-2" class="section level2">
-<h2><span class="header-section-number">3.10</span> Additional exercises</h2>
+<h2><span class="header-section-number">3.12</span> Additional exercises</h2>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -1184,6 +1214,37 @@ second one.</p></li>
 <p class="solution-end"><span class="fa fa-square-o solution-icon"></span></p></div></div>
 
  -->
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>We are going to analyse beer consumption in 48 individuals. The data
+is available in the <code>rWSBIM1207</code> package. The data illustrated the
+fictive beer consumption in liters per year at different age according
+to gender and employment.</p>
+<ul>
+<li><p>Load the <code>rWSBIM1207</code> package. If the package isn’t installed of its
+version is older than 0.1.1, install it from the
+<code>UCLouvain-CBIO/rWSBIM1207' GitHub repository using the</code>devtools::install_github` function.</p></li>
+<li><p>Using the <code>beers.csv()</code> function from <code>rWSBIM1207</code>, get the path the
+the <code>beers.csv</code> file and read it to produce a <code>data.frame</code> named
+<code>beers</code>. The spreadsheet uses semi-colons <code>;</code> to separate cells. Use
+<code>read.csv2</code> and <code>read.delim</code> and set the separator appropriately, and
+verify that the two variables are identical.</p></li>
+<li><p>Check the number of observations and identidy variables are
+available. Calculate a summary of each variable using the <code>summary</code>
+function directly on the <code>data.frame</code>.</p></li>
+<li><p>Calculate the mean and the median age and consumption.</p></li>
+<li><p>Calculate a two-way table of gender and employment status.</p></li>
+<li><p>Remove observations with missing values and export the data into a
+new <code>csv</code> file called <code>beers_no_na.csv</code>.</p></li>
+</ul>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 
 </div>
 </div>

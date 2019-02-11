@@ -55,7 +55,6 @@ suppressWarnings(surveys$date <- lubridate::ymd(paste(surveys$year,
 - Reshape a data frame from long to wide format and back with the
   `spread` and `gather` commands from the **`tidyr`** package.
 
-- Export a data frame to a .csv file.
 
 
 ## Data Manipulation using **`dplyr`** and **`tidyr`**
@@ -811,14 +810,15 @@ re-generate them.
 In preparation for our next lesson on plotting, we are going to prepare a
 cleaned up version of the data set that doesn't include any missing data.
 
-Let's start by removing observations of animals for which `weight` and `hindfoot_length` are missing, or the `sex` has not been determined:
+Let's start by removing observations of animals for which `weight` and
+`hindfoot_length` are missing, or the `sex` has not been determined:
 
 
 ```{r, purl=FALSE}
 surveys_complete <- surveys %>%
-  filter(!is.na(weight),           # remove missing weight
-         !is.na(hindfoot_length),  # remove missing hindfoot_length
-         !is.na(sex))                # remove missing sex
+  filter(!is.na(weight),           ## remove missing weight
+         !is.na(hindfoot_length),  ## remove missing hindfoot_length
+         !is.na(sex))              ## remove missing sex
 ```
 
 Because we are interested in plotting how species abundances have changed
@@ -844,10 +844,10 @@ surveys_complete <- surveys_complete %>%
 ##  Start by removing observations for which the `species_id`, `weight`,
 ##  `hindfoot_length`, or `sex` data are missing:
 surveys_complete <- surveys %>%
-    filter(species_id != "",        # remove missing species_id
-           !is.na(weight),                 # remove missing weight
-           !is.na(hindfoot_length),        # remove missing hindfoot_length
-           sex != "")                      # remove missing sex
+    filter(species_id != "",        ## remove missing species_id
+           !is.na(weight),          ## remove missing weight
+           !is.na(hindfoot_length), ## remove missing hindfoot_length
+           sex != "")               ## remove missing sex
 
 ##  Now remove rare species in two steps. First, make a list of species which
 ##  appear at least 50 times in our dataset:

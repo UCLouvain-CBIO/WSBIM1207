@@ -186,7 +186,6 @@ purpose those formats are useful.</p></li>
 <li><p>Describe what key-value pairs are.</p></li>
 <li><p>Reshape a data frame from long to wide format and back with the
 <code>spread</code> and <code>gather</code> commands from the <strong><code>tidyr</code></strong> package.</p></li>
-<li><p>Export a data frame to a .csv file.</p></li>
 </ul>
 <div id="data-manipulation-using-dplyr-and-tidyr" class="section level2">
 <h2><span class="header-section-number">4.1</span> Data Manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong></h2>
@@ -1256,11 +1255,12 @@ directory, so even if the files it contains are deleted, we can always
 re-generate them.</p>
 <p>In preparation for our next lesson on plotting, we are going to prepare a
 cleaned up version of the data set that doesn’t include any missing data.</p>
-<p>Let’s start by removing observations of animals for which <code>weight</code> and <code>hindfoot_length</code> are missing, or the <code>sex</code> has not been determined:</p>
+<p>Let’s start by removing observations of animals for which <code>weight</code> and
+<code>hindfoot_length</code> are missing, or the <code>sex</code> has not been determined:</p>
 <pre class="sourceCode r"><code class="sourceCode r">surveys_complete &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(weight),           <span class="co"># remove missing weight</span>
-         <span class="op">!</span><span class="kw">is.na</span>(hindfoot_length),  <span class="co"># remove missing hindfoot_length</span>
-         <span class="op">!</span><span class="kw">is.na</span>(sex))                <span class="co"># remove missing sex</span></code></pre>
+<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(weight),           <span class="co">## remove missing weight</span>
+         <span class="op">!</span><span class="kw">is.na</span>(hindfoot_length),  <span class="co">## remove missing hindfoot_length</span>
+         <span class="op">!</span><span class="kw">is.na</span>(sex))              <span class="co">## remove missing sex</span></code></pre>
 <p>Because we are interested in plotting how species abundances have changed
 through time, we are also going to remove observations for rare species (i.e.,
 that have been observed less than 50 times). We will do this in two steps: first

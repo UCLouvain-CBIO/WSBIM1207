@@ -199,7 +199,7 @@ going to use are available in the course package and can be loaded as
 shown below.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;rWSBIM1207&quot;</span>)</code></pre>
 <pre><code>## 
-## This is &#39;rWSBIM1207&#39; version 0.1.0</code></pre>
+## This is &#39;rWSBIM1207&#39; version 0.1.1</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(jdf)</code></pre>
 <p>The example data is composed of pairs of tables (we have tibbles here,
 but this would equally work with dataframes). The first member of the
@@ -344,7 +344,7 @@ that are present in only one or both tables.</p>
 <li>An <strong>inner join</strong> keeps observations that are present in both
 tables.</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-178"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-180"></span>
 <p class="caption marginnote shownote">
 Figure 6.1: An inner join matches pairs of observation matching in both tables, this dropping those that are unique to one table. Figure taken from <em>R for Data Science</em>.
 </p>
@@ -357,7 +357,7 @@ Figure 6.1: An inner join matches pairs of observation matching in both tables, 
 (second) table, dropping those that are only present in the other.</li>
 <li>A <strong>full join</strong> keeps all observations.</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-179"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-181"></span>
 <p class="caption marginnote shownote">
 Figure 6.2: Outer joins match observations that appear in at least on table, filling up missing values with <code>NA</code> values. Figure taken from <em>R for Data Science</em>.
 </p>
@@ -523,7 +523,7 @@ between <code>jdf6</code> and <code>jdf7</code>, both having duplicated <code>Q9
 localisation of the protein. <code>jdf7</code> has also two entries, referring to
 two different quantitative measurements (variable <code>measure</code>). When
 joining the duplicated keys, you get all possible combinations.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-180"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-182"></span>
 <p class="caption marginnote shownote">
 Figure 6.3: Joins with duplicated keys in both tables, producing all possible combinations. Figure taken from <em>R for Data Science</em>.
 </p>
