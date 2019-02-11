@@ -924,33 +924,34 @@ We are going to analyse clinical data from The Cancer Genome Atlas
 
 `r msmbstyle::question_end()`
 
-`r msmbstyle::solution_begin()`
 
-```{r}
-library("rWSBIM1207")
-clinical <- read.csv(clinical1.csv())
+<!-- `r msmbstyle::solution_begin()` -->
 
-str(clinical)
-names(clinical)
-## or
-colnames(clinical)
+<!-- ```{r} -->
+<!-- library("rWSBIM1207") -->
+<!-- clinical <- read.csv(clinical1.csv()) -->
 
-clinical_mini <- clinical[, c(1, 3, 4, 12)]
-## or
-clinical_mini <- clinical[, c("patientID", "gender", "age_at_diagnosis", "smoking_history")]
+<!-- str(clinical) -->
+<!-- names(clinical) -->
+<!-- ## or -->
+<!-- colnames(clinical) -->
 
-levels(clinical_mini$smoking_history)
-table(clinical_mini$smoking_history)
+<!-- clinical_mini <- clinical[, c(1, 3, 4, 12)] -->
+<!-- ## or -->
+<!-- clinical_mini <- clinical[, c("patientID", "gender", "age_at_diagnosis", "smoking_history")] -->
 
-clinical_mini$years_at_diagnosis <- clinical_mini$age_at_diagnosis / 365
+<!-- levels(clinical_mini$smoking_history) -->
+<!-- table(clinical_mini$smoking_history) -->
 
-mean(clinical_mini$years_at_diagnosis, na.rm = TRUE)
-median(clinical_mini$years_at_diagnosis, na.rm = TRUE)
+<!-- clinical_mini$years_at_diagnosis <- clinical_mini$age_at_diagnosis / 365 -->
 
-quantile(clinical_mini$years_at_diagnosis, 0.25, na.rm = TRUE)
-quantile(clinical_mini$years_at_diagnosis, 0.75, na.rm = TRUE)
+<!-- mean(clinical_mini$years_at_diagnosis, na.rm = TRUE) -->
+<!-- median(clinical_mini$years_at_diagnosis, na.rm = TRUE) -->
 
-summary(clinical_mini$years_at_diagnosis)
-```
+<!-- quantile(clinical_mini$years_at_diagnosis, 0.25, na.rm = TRUE) -->
+<!-- quantile(clinical_mini$years_at_diagnosis, 0.75, na.rm = TRUE) -->
 
-`r msmbstyle::solution_end()`
+<!-- summary(clinical_mini$years_at_diagnosis) -->
+<!-- ``` -->
+
+<!-- `r msmbstyle::solution_end()` -->

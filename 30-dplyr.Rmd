@@ -564,21 +564,9 @@ surveys %>%
 `r msmbstyle::solution_end()`
 
 
-```{r, eval=FALSE, purl=TRUE, echo=FALSE}
-## Count question:
-##  1. How many animals were caught in each `plot_type` surveyed?
-
-##  2. Use `group_by()` and `summarize()` to find the mean, min, and max
-## hindfoot length for each species (using `species_id`). Also add the number of
-## observations (hint: see `?n`).
-
-##  3. What was the heaviest animal measured in each year? Return the
-##  columns `year`, `genus`, `species_id`, and `weight`.
-```
-
 ## Reshaping with gather and spread
 
-In the spreadsheet lesson (chapter \@ref(dataorg)), we discussed how
+In the spreadsheet lesson (chapter \@ref(sec:dataorg)), we discussed how
 to structure our data leading to the four rules defining a tidy
 dataset:
 
