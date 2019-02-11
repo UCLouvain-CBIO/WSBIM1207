@@ -895,9 +895,10 @@ vector</strong> types that R uses: <code>"character"</code> and <code>"numeric"<
 are built from. The other 4 <strong>atomic vector</strong> types are:</p>
 <ul>
 <li><code>"logical"</code> for <code>TRUE</code> and <code>FALSE</code> (the boolean data type)</li>
-<li><code>"integer"</code> for integer numbers (e.g., <code>2L</code>, the <code>L</code> indicates to R that it’s an integer)</li>
-<li><code>"complex"</code> to represent complex numbers with real and imaginary parts (e.g.,
-<code>1 + 4i</code>) and that’s all we’re going to say about them</li>
+<li><code>"integer"</code> for integer numbers (e.g., <code>2L</code>, the <code>L</code> indicates to R
+that it’s an integer)</li>
+<li><code>"complex"</code> to represent complex numbers with real and imaginary
+parts (e.g., <code>1 + 4i</code>) and that’s all we’re going to say about them</li>
 <li><code>"raw"</code> for bitstreams that we won’t discuss further</li>
 </ul>
 <p>You can check the type of your vector using the <code>typeof()</code> function
@@ -1133,8 +1134,28 @@ Here “four” comes after “five”, and therefore is “greater than” it.<
 </div>
 </div>
 </div>
+<div id="names" class="section level3">
+<h3><span class="header-section-number">2.9.7</span> Names</h3>
+<p>It is possible to name each element of a vector. The code chunk below
+show a initial vector without any names, how names are set, and
+retrieved.</p>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">10</span>)
+<span class="kw">names</span>(x) <span class="co">## no names</span></code></pre>
+<pre><code>## NULL</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(x) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>)
+<span class="kw">names</span>(x) <span class="co">## now we have names</span></code></pre>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot;</code></pre>
+<p>When a vector has names, it is possible to access elements by their
+name, in addition to their index.</p>
+<pre class="sourceCode r"><code class="sourceCode r">x[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</code></pre>
+<pre><code>## A C 
+## 1 3</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">x[<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;C&quot;</span>)]</code></pre>
+<pre><code>## A C 
+## 1 3</code></pre>
+</div>
 <div id="missing-data" class="section level3">
-<h3><span class="header-section-number">2.9.7</span> Missing data</h3>
+<h3><span class="header-section-number">2.9.8</span> Missing data</h3>
 <p>As R was designed to analyze datasets, it includes the concept of missing data
 (which is uncommon in other programming languages). Missing data are represented
 in vectors as <code>NA</code>.</p>
@@ -1322,18 +1343,18 @@ another vector. For example, to draw a random order to 10 students
 oral example, I first assign each student a number from 1 to then (for
 instance based on the alphabetic order of their name) and then:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  5  2  1  6  9 10  4  8  3  7</code></pre>
+<pre><code>##  [1]  7  8  1  6  4  5  2  3 10  9</code></pre>
 <p>Without further arguments, <code>sample</code> will return a permutation of all
 elements of the vector. If I want a random sample of a certain size, I
 would set this value as second argument. Below, I sample 5 random
 letters from the alphabet contained in the pre-defined <code>letters</code> vector:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(letters, <span class="dv">5</span>)</code></pre>
-<pre><code>## [1] &quot;c&quot; &quot;d&quot; &quot;q&quot; &quot;h&quot; &quot;j&quot;</code></pre>
+<pre><code>## [1] &quot;i&quot; &quot;x&quot; &quot;q&quot; &quot;f&quot; &quot;t&quot;</code></pre>
 <p>If I wanted an output larger than the input vector, or being able to
 draw some elements multiple times, I would need to set the <code>replace</code>
 argument to <code>TRUE</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</code></pre>
-<pre><code>##  [1] 3 3 5 2 5 4 2 2 2 4</code></pre>
+<pre><code>##  [1] 4 1 4 4 3 3 1 5 1 1</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -1364,9 +1385,9 @@ random draw. Observe that you now get the same random draws.</p></li>
 <div id="sol-body-15" class="solution-body" style="display: none;">
 <p>Different permutations</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1] 10  3  5  2  4  6  1  8  7  9</code></pre>
+<pre><code>##  [1]  9  7  2 10  1  4  3  8  6  5</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  5  4  8  3  2  9  6  7 10  1</code></pre>
+<pre><code>##  [1]  9  7 10  2  4  8  3  1  5  6</code></pre>
 <p>Same permutations with seed 123</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
 <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
@@ -1390,11 +1411,11 @@ random draw. Observe that you now get the same random draws.</p></li>
 sample from a normal distribution. Two normal distributions of means 0
 and 100 and standard deviations 1 and 5, noted noted <em>N(0, 1)</em> and
 <em>N(100, 5)</em>, are shown below</p>
-<div class="figure"><span id="fig:unnamed-chunk-87"></span>
+<div class="figure"><span id="fig:unnamed-chunk-89"></span>
 <p class="caption marginnote shownote">
 Figure 2.6: Two normal distributions: <em>N(0, 1)</em> on the left and <em>N(100, 5)</em> on the right.
 </p>
-<img src="WSBIM1207_files/figure-html/unnamed-chunk-87-1.png" alt="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right." width="1152"  />
+<img src="WSBIM1207_files/figure-html/unnamed-chunk-89-1.png" alt="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right." width="1152"  />
 </div>
 <p>The three arguments, <code>n</code>, <code>mean</code> and <code>sd</code>, define the size of the
 sample, and the parameters of the normal distribution, i.e the mean
@@ -1434,12 +1455,9 @@ integers or doubles.</li>
 </p>
 <div class="question-body">
 <ul>
-<li>Create a vector named x containing the numbers 20 to 2. Retrieve
-elements that are strictly larger than 5 and smaller or equal than
-<ol start="15" style="list-style-type: decimal">
-<li></li>
-</ol></li>
-<li>Remove the first 8 elements from <code>x</code> and store the result in <code>x2</code>.</li>
+<li><p>Create a vector named x containing the numbers 20 to 2. Retrieve
+elements that are strictly larger than 5 and smaller or equal than 15.</p></li>
+<li><p>Remove the first 8 elements from <code>x</code> and store the result in <code>x2</code>.</p></li>
 </ul>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1456,6 +1474,40 @@ elements that are strictly larger than 5 and smaller or equal than
 <!-- x -->
 <!-- x[x > 5 & x < 15] -->
 <!-- x2 <- x[-(1:8)] -->
+<!-- ``` -->
+<!-- 
+
+<p class="solution-end"><span class="fa fa-square-o solution-icon"></span></p></div></div>
+
+ -->
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>You’re doing an colony counting experiment, counting every day, from
+Monday to Friday how many molds you see in your cell cultures.</p>
+<ul>
+<li><p>Create a vector named <code>molds</code> containing the results of your counts:
+1, 2, 5, 8 and 10.</p></li>
+<li><p>Set the names of <code>molds</code> using week days and extract the number of
+molds identified on Wednesday.</p></li>
+</ul>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<!-- 
+
+<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-17' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-17', 'sol-start-17')"></span></p><div class="solution-body" id = "sol-body-17" style="display: none;">
+
+ -->
+<!-- ```{r} -->
+<!-- molds <- c(1, 2, 5, 8, 10) -->
+<!-- days <-  c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday") -->
+<!-- names(molds) <- days -->
+<!-- molds["Wednesday"] -->
 <!-- ``` -->
 <!-- 
 
@@ -1484,7 +1536,7 @@ and store it in variable <code>m2</code>.</li>
 </div>
 <!-- 
 
-<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-17' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-17', 'sol-start-17')"></span></p><div class="solution-body" id = "sol-body-17" style="display: none;">
+<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-18' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-18', 'sol-start-18')"></span></p><div class="solution-body" id = "sol-body-18" style="display: none;">
 
  -->
 <!-- ```{r} -->

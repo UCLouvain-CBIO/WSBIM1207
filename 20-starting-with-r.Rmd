@@ -841,9 +841,10 @@ vector** types that R uses: `"character"` and `"numeric"` (or
 are built from. The other 4 **atomic vector** types are:
 
 * `"logical"` for `TRUE` and `FALSE` (the boolean data type)
-* `"integer"` for integer numbers (e.g., `2L`, the `L` indicates to R that it's an integer)
-* `"complex"` to represent complex numbers with real and imaginary parts (e.g.,
-  `1 + 4i`) and that's all we're going to say about them
+* `"integer"` for integer numbers (e.g., `2L`, the `L` indicates to R
+  that it's an integer)
+* `"complex"` to represent complex numbers with real and imaginary
+  parts (e.g., `1 + 4i`) and that's all we're going to say about them
 * `"raw"` for bitstreams that we won't discuss further
 
 You can check the type of your vector using the `typeof()` function
@@ -1034,6 +1035,27 @@ When using ">" or "<" on strings, R compares their alphabetical order.
 Here "four" comes after "five", and therefore is "greater than" it.
 
 `r msmbstyle::solution_end()`
+
+### Names
+
+It is possible to name each element of a vector. The code chunk below
+show a initial vector without any names, how names are set, and
+retrieved.
+
+```{r}
+x <- c(1, 5, 3, 5, 10)
+names(x) ## no names
+names(x) <- c("A", "B", "C", "D", "E")
+names(x) ## now we have names
+```
+
+When a vector has names, it is possible to access elements by their
+name, in addition to their index.
+
+```{r}
+x[c(1, 3)]
+x[c("A", "C")]
+```
 
 ### Missing data
 
@@ -1323,8 +1345,8 @@ rnorm(5, 100, 5)
 
 `r msmbstyle::question_begin()`
 - Create a vector named x containing the numbers 20 to 2. Retrieve
-  elements that are strictly larger than 5 and smaller or equal than
-  15.
+  elements that are strictly larger than 5 and smaller or equal than 15.
+
 - Remove the first 8 elements from `x` and store the result in `x2`.
 `r msmbstyle::question_end()`
 
@@ -1338,6 +1360,28 @@ rnorm(5, 100, 5)
 <!-- ``` -->
 <!-- `r msmbstyle::solution_end()` -->
 
+
+`r msmbstyle::question_begin()`
+
+You're doing an colony counting experiment, counting every day, from
+Monday to Friday how many molds you see in your cell cultures.
+
+- Create a vector named `molds` containing the results of your counts:
+  1, 2, 5, 8 and 10.
+
+- Set the names of `molds` using week days and extract the number of
+  molds identified on Wednesday.
+
+`r msmbstyle::question_end()`
+
+<!-- `r msmbstyle::solution_begin()` -->
+<!-- ```{r} -->
+<!-- molds <- c(1, 2, 5, 8, 10) -->
+<!-- days <-  c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday") -->
+<!-- names(molds) <- days -->
+<!-- molds["Wednesday"] -->
+<!-- ``` -->
+<!-- `r msmbstyle::solution_end()` -->
 
 `r msmbstyle::question_begin()`
 - Calculate the mean of a random distribution *N(15, 1)* of size 100

@@ -739,3 +739,57 @@ l[1]   ## a list of length 1
 ```
 
 ## Additional exercises
+
+`r msmbstyle::question_begin()`
+
+You're doing an colony counting experiment, counting every day how
+many molds you see in your cell cultures.
+
+- Create a vector named `molds` containing the results of your counts:
+  1, 2, 5, 8 and 10. Create a vector `days` containing the week day,
+  from Monday to Friday. Use these two vector to create a `data.frame`
+  named `molds_study` containing two variables, `Day` and
+  `Molds_count`.
+
+- Create a new `data.frame` that contains the observations where more
+  that 2 colonies were counted. How many observations are there? How
+  many counts are there in total for these observations.
+
+You repeat the molds study experiment the following week and count the
+following numbers of molds: 1, 6, 6, 5 and 4.
+
+- Add these data as a third column to the `molds_study` `data.frame`
+  and rename the variables as `Day`, `Molds_1` and `Molds_2`.
+
+- Calculate for each experiment the total number of molds
+  counted. Check if the first experiment counted more molds than the
+  second one.
+
+`r msmbstyle::question_end()`
+
+
+
+<!-- `r msmbstyle::solution_begin()` -->
+<!-- ```{r} -->
+<!-- molds <- c(1, 2, 5, 8, 10) -->
+<!-- days <-  c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday") -->
+<!-- molds_study <- data.frame("Day" = days, "Molds_count" = molds) -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- molds2 <- molds_study[molds_study$Molds_count > 2, ] -->
+<!-- nrow(molds2) -->
+<!-- sum(molds2$Molds_count) -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- molds_study$Molds_count2 <- c(1, 6, 6, 5, 4) -->
+<!-- names(molds_study)[2:3] <- c("Molds_1", "Molds_2") -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- total1 <- sum(molds_study$Molds_1) -->
+<!-- total2 <- sum(molds_study$Molds_2) -->
+<!-- total1 > total2 -->
+<!-- ``` -->
+<!-- `r msmbstyle::solution_end()` -->
