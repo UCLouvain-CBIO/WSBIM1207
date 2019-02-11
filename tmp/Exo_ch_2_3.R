@@ -7,13 +7,6 @@ molds <- c(1,2,5,8,10)
 days <-  c("Monday","Tuesday","Wednesday","Thursday","Friday")
 molds_study <- data.frame("Time" = days, "Molds_count" = molds)
 
-# Create a vector named x containing the numbers 20 to 2. Retrieve elements that are larger than 5 and smaller than 15.
-# Remove the first 8 elements from x and store the result in x2.
-
-x <- 20:2
-x
-x[x > 5 & x < 15]
-x2 <- x[-(1:8)]
 
 # Referring to elements of a data frame
 # On which days did we observe more than 2 molds
@@ -42,5 +35,3 @@ molds_study
 total1 <- sum(molds_study$Molds_1)
 total2 <- sum(molds_study$Molds_2)
 total1 > total2
-
-

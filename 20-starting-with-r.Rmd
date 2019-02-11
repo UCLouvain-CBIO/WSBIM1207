@@ -1322,6 +1322,24 @@ rnorm(5, 100, 5)
 
 
 `r msmbstyle::question_begin()`
+- Create a vector named x containing the numbers 20 to 2. Retrieve
+  elements that are strictly larger than 5 and smaller or equal than
+  15.
+- Remove the first 8 elements from `x` and store the result in `x2`.
+`r msmbstyle::question_end()`
+
+
+<!-- `r msmbstyle::solution_begin()` -->
+<!-- ```{r} -->
+<!-- x <- 20:2 -->
+<!-- x -->
+<!-- x[x > 5 & x < 15] -->
+<!-- x2 <- x[-(1:8)] -->
+<!-- ``` -->
+<!-- `r msmbstyle::solution_end()` -->
+
+
+`r msmbstyle::question_begin()`
 - Calculate the mean of a random distribution *N(15, 1)* of size 100
   and store it in variable `m1`.
 - Calculate the mean of a random distribution *N(0, 1)* of size 100

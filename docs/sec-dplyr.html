@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-02-09" />
+<meta name="date" content="2019-02-11" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -429,9 +429,9 @@ before 1995 and retain only the columns <code>year</code>, <code>sex</code>, and
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-21" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-21&#39;, &#39;sol-start-21&#39;)"></span>
+► Solution<span id="sol-start-22" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-22&#39;, &#39;sol-start-22&#39;)"></span>
 </p>
-<div id="sol-body-21" class="solution-body" style="display: none;">
+<div id="sol-body-22" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">surveys <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">filter</span>(year <span class="op">&lt;</span><span class="st"> </span><span class="dv">1995</span>) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">select</span>(year, sex, weight)</code></pre>
@@ -553,9 +553,9 @@ this data frame!</p>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-22" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-22&#39;, &#39;sol-start-22&#39;)"></span>
+► Solution<span id="sol-start-23" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-23&#39;, &#39;sol-start-23&#39;)"></span>
 </p>
-<div id="sol-body-22" class="solution-body" style="display: none;">
+<div id="sol-body-23" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">surveys_hindfoot_half &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(hindfoot_length)) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">mutate</span>(<span class="dt">hindfoot_half =</span> hindfoot_length <span class="op">/</span><span class="st"> </span><span class="dv">2</span>) <span class="op">%&gt;%</span>
@@ -827,9 +827,9 @@ number of observations (hint: see <code>?n</code>).</p></li>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-23" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-23&#39;, &#39;sol-start-23&#39;)"></span>
+► Solution<span id="sol-start-24" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-24&#39;, &#39;sol-start-24&#39;)"></span>
 </p>
-<div id="sol-body-23" class="solution-body" style="display: none;">
+<div id="sol-body-24" class="solution-body" style="display: none;">
 <ol style="list-style-type: decimal">
 <li>How many animals were caught in each <code>plot_type</code> surveyed?</li>
 </ol>
@@ -1086,9 +1086,9 @@ data. It’s a powerful function! See <code>?n_distinct</code> for more.</p>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-24" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-24&#39;, &#39;sol-start-24&#39;)"></span>
+► Solution<span id="sol-start-25" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-25&#39;, &#39;sol-start-25&#39;)"></span>
 </p>
-<div id="sol-body-24" class="solution-body" style="display: none;">
+<div id="sol-body-25" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">rich_time &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(plot_id, year) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n_genera =</span> <span class="kw">n_distinct</span>(genus)) <span class="op">%&gt;%</span>
@@ -1127,9 +1127,9 @@ unique <code>plot_id</code> by <code>year</code> combination.</p>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-25" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-25&#39;, &#39;sol-start-25&#39;)"></span>
+► Solution<span id="sol-start-26" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-26&#39;, &#39;sol-start-26&#39;)"></span>
 </p>
-<div id="sol-body-25" class="solution-body" style="display: none;">
+<div id="sol-body-26" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">rich_time <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">gather</span>(year, n_genera, <span class="op">-</span>plot_id)</code></pre>
 <pre><code>## # A tibble: 624 x 3
@@ -1172,9 +1172,9 @@ on the value of either <code>hindfoot_length</code> or <code>weight</code>.</p>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-26" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-26&#39;, &#39;sol-start-26&#39;)"></span>
+► Solution<span id="sol-start-27" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-27&#39;, &#39;sol-start-27&#39;)"></span>
 </p>
-<div id="sol-body-26" class="solution-body" style="display: none;">
+<div id="sol-body-27" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">surveys_long &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">gather</span>(measurement, value, hindfoot_length, weight)
 <span class="kw">head</span>(surveys_long)</code></pre>
@@ -1210,9 +1210,9 @@ a data set with a column for <code>hindfoot_length</code> and <code>weight</code
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-27" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-27&#39;, &#39;sol-start-27&#39;)"></span>
+► Solution<span id="sol-start-28" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-28&#39;, &#39;sol-start-28&#39;)"></span>
 </p>
-<div id="sol-body-27" class="solution-body" style="display: none;">
+<div id="sol-body-28" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">surveys_long <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(year, measurement, plot_type) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_value =</span> <span class="kw">mean</span>(value, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)) <span class="op">%&gt;%</span>
@@ -1292,7 +1292,7 @@ folder.</p>
 <a href="sec-vis.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-02-09
+2019-02-11
 </p>
 </div>
 </div>

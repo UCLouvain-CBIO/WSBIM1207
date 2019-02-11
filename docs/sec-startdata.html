@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-02-09" />
+<meta name="date" content="2019-02-11" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -764,9 +764,9 @@ spot and fix them? Don’t hesitate to experiment!</p>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-17" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-17&#39;, &#39;sol-start-17&#39;)"></span>
+► Solution<span id="sol-start-18" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-18&#39;, &#39;sol-start-18&#39;)"></span>
 </p>
-<div id="sol-body-17" class="solution-body" style="display: none;">
+<div id="sol-body-18" class="solution-body" style="display: none;">
 <ul>
 <li>missing quotations around the names of the animals</li>
 <li>missing one entry in the “feel” column (probably for one of the furry animals)</li>
@@ -805,9 +805,9 @@ accurate data type?</p></li>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-18" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-18&#39;, &#39;sol-start-18&#39;)"></span>
+► Solution<span id="sol-start-19" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-19&#39;, &#39;sol-start-19&#39;)"></span>
 </p>
-<div id="sol-body-18" class="solution-body" style="display: none;">
+<div id="sol-body-19" class="solution-body" style="display: none;">
 <ul>
 <li><p><code>country</code>, <code>climate</code>, <code>temperature</code>, and <code>northern_hemisphere</code> are
 factors; <code>has_kangaroo</code> is numeric.</p></li>
@@ -845,7 +845,7 @@ are currently installed on our respective computers using the
 explore this matrix as those used for dataframes above.</p>
 <pre class="sourceCode r"><code class="sourceCode r">ip &lt;-<span class="st"> </span><span class="kw">installed.packages</span>()
 <span class="kw">dim</span>(ip)</code></pre>
-<pre><code>## [1] 496  16</code></pre>
+<pre><code>## [1] 499  16</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">colnames</span>(ip))</code></pre>
 <pre><code>## [1] &quot;Package&quot;  &quot;LibPath&quot;  &quot;Version&quot;  &quot;Priority&quot; &quot;Depends&quot;  &quot;Imports&quot;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">rownames</span>(ip)) <span class="co">## these are the package names</span></code></pre>
@@ -866,9 +866,9 @@ Using the function <code>installed.packages()</code>, verify if the <code>lubrid
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-19" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-19&#39;, &#39;sol-start-19&#39;)"></span>
+► Solution<span id="sol-start-20" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-20&#39;, &#39;sol-start-20&#39;)"></span>
 </p>
-<div id="sol-body-19" class="solution-body" style="display: none;">
+<div id="sol-body-20" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">## 1. get the names of all installed packages</span>
 ip &lt;-<span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())
 <span class="co">## 2. TRUE if installed, FALSE otherwise</span>
@@ -911,9 +911,9 @@ Construct a matrix of dimension 1000 by 3 of normally distributed data (mean 0, 
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-20" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-20&#39;, &#39;sol-start-20&#39;)"></span>
+► Solution<span id="sol-start-21" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-21&#39;, &#39;sol-start-21&#39;)"></span>
 </p>
-<div id="sol-body-20" class="solution-body" style="display: none;">
+<div id="sol-body-21" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
 m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">3000</span>), <span class="dt">ncol =</span> <span class="dv">3</span>)
 <span class="kw">dim</span>(m)</code></pre>
@@ -1095,9 +1095,9 @@ a matrix, a dataframe and another list:</p>
 <pre><code>## List of 5
 ##  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##  $ : chr [1:26] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ : chr [1:496, 1:16] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
+##  $ : chr [1:499, 1:16] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
-##   .. ..$ : chr [1:496] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
+##   .. ..$ : chr [1:499] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
 ##   .. ..$ : chr [1:16] &quot;Package&quot; &quot;LibPath&quot; &quot;Version&quot; &quot;Priority&quot; ...
 ##  $ :&#39;data.frame&#39;:    50 obs. of  2 variables:
 ##   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...
@@ -1132,7 +1132,7 @@ the list is named).</p>
 <a href="sec-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-02-09
+2019-02-11
 </p>
 </div>
 </div>
