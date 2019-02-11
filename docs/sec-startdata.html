@@ -1232,7 +1232,7 @@ second one.</p></li>
 </p>
 <div class="question-body">
 <p>We are going to analyse beer consumption in 48 individuals. The data
-is available in the <code>rWSBIM1207</code> package. The data illustrated the
+are available in the <code>rWSBIM1207</code> package. The data illustrated the
 fictive beer consumption in liters per year at different age according
 to gender and employment.</p>
 <ul>
@@ -1253,6 +1253,132 @@ function directly on the <code>data.frame</code>.</p></li>
 new <code>csv</code> file called <code>beers_no_na.csv</code>.</p></li>
 </ul>
 <p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>We are going to analyse clinical data from The Cancer Genome Atlas
+(TCGA). The data are available in the <code>rWSBIM1207</code> package.</p>
+<ul>
+<li><p>Load the <code>rWSBIM1207</code> package. If the package isn’t installed of its
+version is older than 0.1.1, install it from the
+<code>UCLouvain-CBIO/rWSBIM1207' GitHub repository using the</code>devtools::install_github` function.</p></li>
+<li><p>Obtain the path to th csv file containing the clinical data need for
+this exercise using the <code>clinical1.csv</code> function and read it into R
+as a <code>data.frame</code> called <code>clinical</code>.</p></li>
+<li><p>Inspect the data using <code>str</code> and <code>View</code>. How many patients are
+recorded in the table?</p></li>
+<li><p>Print the column names using two different functions.</p></li>
+<li><p>Create a smaller data frame called <code>clinical_mini</code> containing only
+the columns corresponding to the <code>patientID</code>, <code>gender</code>,
+<code>age_at_diagnosis</code> and <code>smoking_history</code>. Try to do this using using
+column indices and column names.</p></li>
+<li><p>Inspect the <code>smoking_history</code> column. how many categories are
+recorded? How many observations are there for each category?</p></li>
+<li><p>The column age at diagnosis is recorded in days. Create a new column
+<code>years_at_diagnosis</code> corresponding to the age at diagnosis converted
+in years.</p></li>
+<li><p>Calculate the mean and median age at diagnosis. Hint: pay attention
+to missing values!.</p></li>
+<li><p>Use the <code>quantile</code> function to calculate the first and last quartile
+of age at diagnosis. Use the help function (<code>?quantile</code>) to see how
+to use the <code>quantile</code> function.</p></li>
+<li><p>Use the <code>summary</code> function to confirm your previous results.</p></li>
+</ul>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-24" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-24&#39;, &#39;sol-start-24&#39;)"></span>
+</p>
+<div id="sol-body-24" class="solution-body" style="display: none;">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;rWSBIM1207&quot;</span>)</code></pre>
+<pre><code>## 
+## This is &#39;rWSBIM1207&#39; version 0.1.1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">clinical &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">clinical1.csv</span>())
+
+<span class="kw">str</span>(clinical)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    516 obs. of  15 variables:
+##  $ patientID                    : Factor w/ 516 levels &quot;TCGA-05-4244&quot;,..: 2 4 5 6 7 8 9 11 12 13 ...
+##  $ tumor_tissue_site            : Factor w/ 1 level &quot;lung&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ gender                       : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 2 2 2 1 2 2 1 1 2 ...
+##  $ age_at_diagnosis             : int  24532 24868 24411 25660 21430 27971 28094 17471 20819 27881 ...
+##  $ vital_status                 : int  0 0 0 0 0 1 1 0 1 0 ...
+##  $ days_to_death                : int  NA NA NA NA NA 0 303 NA 244 NA ...
+##  $ days_to_last_followup        : int  1523 607 426 1369 1126 NA NA 1431 NA 578 ...
+##  $ pathologic_stage             : Factor w/ 9 levels &quot;stage i&quot;,&quot;stage ia&quot;,..: 3 3 7 2 3 8 8 8 9 3 ...
+##  $ pathology_T_stage            : Factor w/ 9 levels &quot;t1&quot;,&quot;t1a&quot;,&quot;t1b&quot;,..: 4 4 4 1 4 8 8 8 4 4 ...
+##  $ pathology_N_stage            : Factor w/ 5 levels &quot;n0&quot;,&quot;n1&quot;,&quot;n2&quot;,..: 1 1 3 1 1 3 2 4 5 1 ...
+##  $ pathology_M_stage            : Factor w/ 5 levels &quot;m0&quot;,&quot;m1&quot;,&quot;m1a&quot;,..: 1 1 1 1 1 1 1 1 2 1 ...
+##  $ smoking_history              : Factor w/ 5 levels &quot;current reformed smoker for &lt; or = 15 years&quot;,..: 2 1 2 2 1 2 2 4 5 2 ...
+##  $ number_pack_years_smoked     : num  52 62 20 43 15 NA 19 72 NA NA ...
+##  $ year_of_tobacco_smoking_onset: int  NA NA 1963 NA 1966 NA 1947 NA NA NA ...
+##  $ stopped_smoking_year         : int  NA NA 1987 NA 1996 1983 1984 NA NA 1975 ...</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(clinical)</code></pre>
+<pre><code>##  [1] &quot;patientID&quot;                     &quot;tumor_tissue_site&quot;            
+##  [3] &quot;gender&quot;                        &quot;age_at_diagnosis&quot;             
+##  [5] &quot;vital_status&quot;                  &quot;days_to_death&quot;                
+##  [7] &quot;days_to_last_followup&quot;         &quot;pathologic_stage&quot;             
+##  [9] &quot;pathology_T_stage&quot;             &quot;pathology_N_stage&quot;            
+## [11] &quot;pathology_M_stage&quot;             &quot;smoking_history&quot;              
+## [13] &quot;number_pack_years_smoked&quot;      &quot;year_of_tobacco_smoking_onset&quot;
+## [15] &quot;stopped_smoking_year&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## or</span>
+<span class="kw">colnames</span>(clinical)</code></pre>
+<pre><code>##  [1] &quot;patientID&quot;                     &quot;tumor_tissue_site&quot;            
+##  [3] &quot;gender&quot;                        &quot;age_at_diagnosis&quot;             
+##  [5] &quot;vital_status&quot;                  &quot;days_to_death&quot;                
+##  [7] &quot;days_to_last_followup&quot;         &quot;pathologic_stage&quot;             
+##  [9] &quot;pathology_T_stage&quot;             &quot;pathology_N_stage&quot;            
+## [11] &quot;pathology_M_stage&quot;             &quot;smoking_history&quot;              
+## [13] &quot;number_pack_years_smoked&quot;      &quot;year_of_tobacco_smoking_onset&quot;
+## [15] &quot;stopped_smoking_year&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">clinical_mini &lt;-<span class="st"> </span>clinical[, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">12</span>)]
+<span class="co">## or</span>
+clinical_mini &lt;-<span class="st"> </span>clinical[, <span class="kw">c</span>(<span class="st">&quot;patientID&quot;</span>, <span class="st">&quot;gender&quot;</span>, <span class="st">&quot;age_at_diagnosis&quot;</span>, <span class="st">&quot;smoking_history&quot;</span>)]
+
+<span class="kw">levels</span>(clinical_mini<span class="op">$</span>smoking_history)</code></pre>
+<pre><code>## [1] &quot;current reformed smoker for &lt; or = 15 years&quot;    
+## [2] &quot;current reformed smoker for &gt; 15 years&quot;         
+## [3] &quot;current reformed smoker, duration not specified&quot;
+## [4] &quot;current smoker&quot;                                 
+## [5] &quot;lifelong non-smoker&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(clinical_mini<span class="op">$</span>smoking_history)</code></pre>
+<pre><code>## 
+##     current reformed smoker for &lt; or = 15 years 
+##                                             168 
+##          current reformed smoker for &gt; 15 years 
+##                                             135 
+## current reformed smoker, duration not specified 
+##                                               4 
+##                                  current smoker 
+##                                             120 
+##                             lifelong non-smoker 
+##                                              75</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">clinical_mini<span class="op">$</span>years_at_diagnosis &lt;-<span class="st"> </span>clinical_mini<span class="op">$</span>age_at_diagnosis <span class="op">/</span><span class="st"> </span><span class="dv">365</span>
+
+<span class="kw">mean</span>(clinical_mini<span class="op">$</span>years_at_diagnosis, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre>
+<pre><code>## [1] 65.81568</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(clinical_mini<span class="op">$</span>years_at_diagnosis, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre>
+<pre><code>## [1] 66.85479</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">quantile</span>(clinical_mini<span class="op">$</span>years_at_diagnosis, <span class="fl">0.25</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre>
+<pre><code>##      25% 
+## 59.54521</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">quantile</span>(clinical_mini<span class="op">$</span>years_at_diagnosis, <span class="fl">0.75</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre>
+<pre><code>##      75% 
+## 72.94521</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(clinical_mini<span class="op">$</span>years_at_diagnosis)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##   38.53   59.55   66.85   65.82   72.95   88.85      31</code></pre>
+<p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
