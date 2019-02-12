@@ -603,7 +603,164 @@ Note: The parameters `width` and `height` also determine the font size in the sa
 
 ## Other packages for visualisation
 
-- base graphics
-- lattice
+`ggplot2` is a very powerful package that fits very nicely in our
+*tidy data* and *tidy tools* pipeline. There are other visualiation
+packages in R that, while not always as flexible as `ggplot2`,
+shoudn't be ignored.
+
+### base graphics {-}
+
+### The lattice package {-}
 
 ## Additional exercises
+
+`r msmbstyle::question_begin()`
+
+Load the beer consuption data with
+
+```{r}
+library("rWSBIM1207")
+data(beers)
+```
+
+Analyse the data to answer the question *Do men drink more than women
+according to age and working status?* Now reproduce the figure below.
+
+```{r, results='markup', fig.cap="Visualisation of beer consumption, highlighting different patterns of beer consumption in employed and unemployed males and females.", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("./figs/ggplot-beer.png")
+```
+`r msmbstyle::question_end()`
+
+
+<!-- `r msmbstyle::solution_begin()` -->
+
+<!-- ```{r} -->
+<!-- library("dplyr") -->
+<!-- beers3 <- beers %>% -->
+<!--     filter(!is.na(Consumption)) %>% -->
+<!--     group_by(Gender, Age, Work) %>% -->
+<!--     summarize(mean_consumption = mean(Consumption)) -->
+
+<!-- library("ggplot2") -->
+<!-- ggplot(data = beers3, -->
+<!--        mapping = aes(x = Age, y = mean_consumption, colour = Work)) + -->
+<!--   geom_line() + -->
+<!--   geom_point() + -->
+<!--   facet_wrap(~ Gender) + -->
+<!--   labs(title = "Mean consumption of beers according to age, employment status and gender", -->
+<!--        y = "Mean consumption (Litre)") -->
+<!-- ``` -->
+
+<!-- `r msmbstyle::solution_end()` -->
+
+
+`r msmbstyle::question_begin()`
+
+We are now going to analyse transcriptomics data from the TCGA
+project.
+
+- Using the file returned by the `expression.csv()` function from the
+  `rWSBIM1207` package, create a table called `expression`.
+
+- Inspect the data.
+
+The `sampleID` column gives the TCGA reference of the sample and
+sample is unique. The 12 first characters (TCGA-XX-XXXX) of the
+samples ID are unique to each patient. The 3 last characters of the
+samples ID indicate the type of sample: samples ending with '-01A'
+(TCGA-XX-XXXX-01A) correspond to tumors and samples ending with '-11A'
+(TCGA-XX-XXXX-11A) correspond to normal peritumoral tissues.
+
+The `patient` column gives the reference of each patient. Note that
+some patient for which both tumor and normal tissue were analysed are
+recorded twice. The `type` column gives the nature of each sample
+(tumor or normal tissue). The 5 next column give the expression levels
+of 5 genes in each sample.
+
+- Using geom_point, draw a plot showing distribution of expression
+  levels of A2LD1 in normal tissue samples and in primary tumor
+  samples.
+
+- Repeat this visualisation using this time the geom_jitter. Which
+  representation is more appropriate? Why?
+
+- Colour the samples according to the tissue type.
+
+- Colour the samples according to their expression level in A2ML1.
+
+- Highlight the points corresponding to patient "TCGA-73-4676".
+
+- Add a transparent boxplot to the graph.
+
+- Change the y scale to log10 scale.
+
+- Visualise the expression of A1BG against that of A2LD1 setting the x
+  axis on the log10 scale. Colours the observations based on their
+  type and resize the points according to the expression level of the
+  A2ML1 gene.
+
+`r msmbstyle::question_end()`
+
+
+`r msmbstyle::solution_begin()`
+```{r}
+library("rWSBIM1207")
+library("readr")
+library("ggplot2")
+expression <- read_csv(expression.csv())
+
+
+## Using geom_point, draw a plot showing distribution of expression
+## levels of A2LD1 in normal tissue samples and in primary tumor samples
+ggplot(data = expression,
+       mapping = aes(x = type, y = A2LD1)) +
+  geom_point()
+
+## Repeat this visualisation using this time the geom_jitter. Which
+## representation is more appropriate? Why?
+ggplot(data = expression,
+       mapping = aes(x = type, y = A2LD1)) +
+    geom_jitter()
+
+## Colour the samples according to the tissue type.
+ggplot(data = expression,
+       mapping = aes(x = type, y = A2LD1, colour = type)) +
+  geom_jitter()
+
+
+## Colour the samples according to their expression level in A2ML1.
+ggplot(data = expression,
+       mapping = aes(x = type, y = A2LD1, colour = A2ML1)) +
+  geom_jitter()
+
+## Highlight the points corresponding to patient "TCGA-73-4676"
+ggplot(data = expression,
+       mapping = aes(x = type, y = A2LD1,
+                     colour = patient == "TCGA-73-4676")) +
+  geom_jitter()
+
+## Add a transparent boxplot to the graph.
+ggplot(data = expression, mapping = aes(x = type, y = A2LD1)) +
+  geom_jitter(aes(colour = type)) +
+  geom_boxplot(alpha = 0)
+
+## Change the y scale to log10 scale.
+ggplot(data = expression, mapping = aes(x = type, y = A2LD1)) +
+  geom_jitter(aes(colour = type)) +
+  geom_boxplot(alpha = 0) +
+    scale_y_log10()
+
+
+## Visualise the expression of A1BG against that of A2LD1 setting the
+## x axis on the log10 scale. Colours the observations based on their
+## type and resize the points according to the expression level of the
+## A2ML1 gene.
+ggplot(data = expression,
+       mapping = aes(x = A1BG, y = A2LD1,
+                     colour = type,
+                     size = A2ML1)) +
+    geom_point() +
+    scale_x_log10()
+
+```
+`r msmbstyle::solution_end()`

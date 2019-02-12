@@ -899,15 +899,14 @@ data(beers)
 
 Beer consumption analysis:
 
-- Does working statue have an impact on beer consumption?
+- Does employment status have an impact on beer consumption?
 - Do men drink more than women?
-- Does working statue have an influence on beer consumption according
+- Does employment status have an influence on beer consumption according
   to gender?
-- Do men drink more than women according to age and working statue?
+- Do men drink more than women according to age and employment status?
 
 
 `r msmbstyle::question_end()`
-
 
 <!-- `r msmbstyle::solution_begin()` -->
 
@@ -943,15 +942,15 @@ Beer consumption analysis:
 <!-- tab -->
 <!-- ``` -->
 
-<!-- ```{r, eval = FALSE} -->
-<!-- write_csv(tab, file = "data_output/tab.csv") -->
-<!-- ## or -->
-<!-- write.csv(tab, file = "data_output/tab.csv") -->
-<!-- ``` -->
+<!--  ```{r, eval = FALSE} -->
+<!--  write_csv(tab, file = "data_output/tab.csv") -->
+<!--  ## or -->
+<!--  write.csv(tab, file = "data_output/tab.csv") -->
+<!--  ``` -->
 
 <!-- Beer consumption analysis: -->
 
-<!-- - Does working statue have an impact on beer consumption? -->
+<!-- - Does employment status have an impact on beer consumption? -->
 
 <!-- ```{r} -->
 <!-- beers2 %>% -->
@@ -967,7 +966,7 @@ Beer consumption analysis:
 <!--   summarize(mean_consumption = mean(Consumption)) -->
 <!-- ``` -->
 
-<!-- - Does working statue have an influence on beer consumption according -->
+<!-- - Does employmnet status have an influence on beer consumption according -->
 <!--   to gender? -->
 
 <!-- ```{r} -->
@@ -976,7 +975,7 @@ Beer consumption analysis:
 <!--   summarize(mean_consumption = mean(Consumption)) -->
 <!-- ``` -->
 
-<!-- - Do men drink more than women according to age and working statue? -->
+<!-- - Do men drink more than women according to age and employment status? -->
 
 <!-- ```{r} -->
 <!-- beers3 <- beers2 %>% -->
@@ -998,18 +997,6 @@ following one, that clearly highlight important patterns in our data.
 ```{r, results='markup', fig.cap="Visualisation of beer consumption, highlighting different patterns of beer consumption in employed and unemployed males and females.", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("./figs/ggplot-beer.png")
 ```
-
-
-<!-- ```{r, echo = FALSE, message = FALSE} -->
-<!-- library("ggplot2") -->
-<!-- ggplot(data = beers3, -->
-<!--        mapping = aes(x = Age, y = mean_consumption, color = Work)) + -->
-<!--   geom_line() + -->
-<!--   geom_point() + -->
-<!--   facet_wrap(~ Gender) + -->
-<!--   labs(title = "Mean consumption of beers according to age, working statue and gender", -->
-<!--        y = "Mean consumption (Litre)") -->
-<!-- ``` -->
 
 `r msmbstyle::question_begin()`
 

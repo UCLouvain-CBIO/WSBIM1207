@@ -1312,11 +1312,11 @@ Year, and order in descending value of consumption of beers.</p></li>
 </ul>
 <p>Beer consumption analysis:</p>
 <ul>
-<li>Does working statue have an impact on beer consumption?</li>
+<li>Does employment status have an impact on beer consumption?</li>
 <li>Do men drink more than women?</li>
-<li>Does working statue have an influence on beer consumption according
+<li>Does employment status have an influence on beer consumption according
 to gender?</li>
-<li>Do men drink more than women according to age and working statue?</li>
+<li>Do men drink more than women according to age and employment status?</li>
 </ul>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1354,13 +1354,13 @@ to gender?</li>
 <!--     arrange(desc(Consumption)) -->
 <!-- tab -->
 <!-- ``` -->
-<!-- ```{r, eval = FALSE} -->
-<!-- write_csv(tab, file = "data_output/tab.csv") -->
-<!-- ## or -->
-<!-- write.csv(tab, file = "data_output/tab.csv") -->
-<!-- ``` -->
+<!--  ```{r, eval = FALSE} -->
+<!--  write_csv(tab, file = "data_output/tab.csv") -->
+<!--  ## or -->
+<!--  write.csv(tab, file = "data_output/tab.csv") -->
+<!--  ``` -->
 <!-- Beer consumption analysis: -->
-<!-- - Does working statue have an impact on beer consumption? -->
+<!-- - Does employment status have an impact on beer consumption? -->
 <!-- ```{r} -->
 <!-- beers2 %>% -->
 <!--   group_by(Work) %>% -->
@@ -1372,14 +1372,14 @@ to gender?</li>
 <!--   group_by(Gender) %>% -->
 <!--   summarize(mean_consumption = mean(Consumption)) -->
 <!-- ``` -->
-<!-- - Does working statue have an influence on beer consumption according -->
+<!-- - Does employmnet status have an influence on beer consumption according -->
 <!--   to gender? -->
 <!-- ```{r} -->
 <!-- beers2 %>% -->
 <!--   group_by(Gender, Work) %>% -->
 <!--   summarize(mean_consumption = mean(Consumption)) -->
 <!-- ``` -->
-<!-- - Do men drink more than women according to age and working statue? -->
+<!-- - Do men drink more than women according to age and employment status? -->
 <!-- ```{r} -->
 <!-- beers3 <- beers2 %>% -->
 <!--   group_by(Gender, Age, Work) %>% -->
@@ -1401,16 +1401,6 @@ Figure 4.1: Visualisation of beer consumption, highlighting different patterns o
 </p>
 <img src="figs/ggplot-beer.png" alt="Visualisation of beer consumption, highlighting different patterns of beer consumption in employed and unemployed males and females." width="100%"  />
 </div>
-<!-- ```{r, echo = FALSE, message = FALSE} -->
-<!-- library("ggplot2") -->
-<!-- ggplot(data = beers3, -->
-<!--        mapping = aes(x = Age, y = mean_consumption, color = Work)) + -->
-<!--   geom_line() + -->
-<!--   geom_point() + -->
-<!--   facet_wrap(~ Gender) + -->
-<!--   labs(title = "Mean consumption of beers according to age, working statue and gender", -->
-<!--        y = "Mean consumption (Litre)") -->
-<!-- ``` -->
 <div class="question">
 <p class="question-begin">
 ► Question

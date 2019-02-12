@@ -570,13 +570,184 @@ combo_plot &lt;-<span class="st"> </span><span class="kw">grid.arrange</span>(sp
 </div>
 <div id="other-packages-for-visualisation" class="section level2">
 <h2><span class="header-section-number">5.9</span> Other packages for visualisation</h2>
-<ul>
-<li>base graphics</li>
-<li>lattice</li>
-</ul>
+<p><code>ggplot2</code> is a very powerful package that fits very nicely in our
+<em>tidy data</em> and <em>tidy tools</em> pipeline. There are other visualiation
+packages in R that, while not always as flexible as <code>ggplot2</code>,
+shoudn’t be ignored.</p>
+<div id="base-graphics" class="section level3 unnumbered">
+<h3>base graphics</h3>
+</div>
+<div id="the-lattice-package" class="section level3 unnumbered">
+<h3>The lattice package</h3>
+</div>
 </div>
 <div id="additional-exercises-4" class="section level2">
 <h2><span class="header-section-number">5.10</span> Additional exercises</h2>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Load the beer consuption data with</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;rWSBIM1207&quot;</span>)
+<span class="kw">data</span>(beers)</code></pre>
+<p>Analyse the data to answer the question <em>Do men drink more than women
+according to age and working status?</em> Now reproduce the figure below.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-186"></span>
+<p class="caption marginnote shownote">
+Figure 5.1: Visualisation of beer consumption, highlighting different patterns of beer consumption in employed and unemployed males and females.
+</p>
+<img src="figs/ggplot-beer.png" alt="Visualisation of beer consumption, highlighting different patterns of beer consumption in employed and unemployed males and females." width="100%"  />
+</div>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<!-- 
+
+<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-34' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-34', 'sol-start-34')"></span></p><div class="solution-body" id = "sol-body-34" style="display: none;">
+
+ -->
+<!-- ```{r} -->
+<!-- library("dplyr") -->
+<!-- beers3 <- beers %>% -->
+<!--     filter(!is.na(Consumption)) %>% -->
+<!--     group_by(Gender, Age, Work) %>% -->
+<!--     summarize(mean_consumption = mean(Consumption)) -->
+<!-- library("ggplot2") -->
+<!-- ggplot(data = beers3, -->
+<!--        mapping = aes(x = Age, y = mean_consumption, colour = Work)) + -->
+<!--   geom_line() + -->
+<!--   geom_point() + -->
+<!--   facet_wrap(~ Gender) + -->
+<!--   labs(title = "Mean consumption of beers according to age, employment status and gender", -->
+<!--        y = "Mean consumption (Litre)") -->
+<!-- ``` -->
+<!-- 
+
+<p class="solution-end"><span class="fa fa-square-o solution-icon"></span></p></div></div>
+
+ -->
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>We are now going to analyse transcriptomics data from the TCGA
+project.</p>
+<ul>
+<li><p>Using the file returned by the <code>expression.csv()</code> function from the
+<code>rWSBIM1207</code> package, create a table called <code>expression</code>.</p></li>
+<li><p>Inspect the data.</p></li>
+</ul>
+<p>The <code>sampleID</code> column gives the TCGA reference of the sample and
+sample is unique. The 12 first characters (TCGA-XX-XXXX) of the
+samples ID are unique to each patient. The 3 last characters of the
+samples ID indicate the type of sample: samples ending with ‘-01A’
+(TCGA-XX-XXXX-01A) correspond to tumors and samples ending with ‘-11A’
+(TCGA-XX-XXXX-11A) correspond to normal peritumoral tissues.</p>
+<p>The <code>patient</code> column gives the reference of each patient. Note that
+some patient for which both tumor and normal tissue were analysed are
+recorded twice. The <code>type</code> column gives the nature of each sample
+(tumor or normal tissue). The 5 next column give the expression levels
+of 5 genes in each sample.</p>
+<ul>
+<li><p>Using geom_point, draw a plot showing distribution of expression
+levels of A2LD1 in normal tissue samples and in primary tumor
+samples.</p></li>
+<li><p>Repeat this visualisation using this time the geom_jitter. Which
+representation is more appropriate? Why?</p></li>
+<li><p>Colour the samples according to the tissue type.</p></li>
+<li><p>Colour the samples according to their expression level in A2ML1.</p></li>
+<li><p>Highlight the points corresponding to patient “TCGA-73-4676”.</p></li>
+<li><p>Add a transparent boxplot to the graph.</p></li>
+<li><p>Change the y scale to log10 scale.</p></li>
+<li><p>Visualise the expression of A1BG against that of A2LD1 setting the x
+axis on the log10 scale. Colours the observations based on their
+type and resize the points according to the expression level of the
+A2ML1 gene.</p></li>
+</ul>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-35" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-35&#39;, &#39;sol-start-35&#39;)"></span>
+</p>
+<div id="sol-body-35" class="solution-body" style="display: none;">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;rWSBIM1207&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;readr&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>)
+expression &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">expression.csv</span>())</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   sampleID = col_character(),
+##   patient = col_character(),
+##   type = col_character(),
+##   A1BG = col_double(),
+##   A1CF = col_double(),
+##   A2BP1 = col_double(),
+##   A2LD1 = col_double(),
+##   A2ML1 = col_double()
+## )</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Using geom_point, draw a plot showing distribution of expression</span>
+<span class="co">## levels of A2LD1 in normal tissue samples and in primary tumor samples</span>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> expression,
+       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> type, <span class="dt">y =</span> A2LD1)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-187-1.png" width="672"  /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Repeat this visualisation using this time the geom_jitter. Which</span>
+<span class="co">## representation is more appropriate? Why?</span>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> expression,
+       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> type, <span class="dt">y =</span> A2LD1)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_jitter</span>()</code></pre>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-187-2.png" width="672"  /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Colour the samples according to the tissue type.</span>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> expression,
+       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> type, <span class="dt">y =</span> A2LD1, <span class="dt">colour =</span> type)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_jitter</span>()</code></pre>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-187-3.png" width="672"  /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Colour the samples according to their expression level in A2ML1.</span>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> expression,
+       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> type, <span class="dt">y =</span> A2LD1, <span class="dt">colour =</span> A2ML1)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_jitter</span>()</code></pre>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-187-4.png" width="672"  /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Highlight the points corresponding to patient &quot;TCGA-73-4676&quot;</span>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> expression,
+       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> type, <span class="dt">y =</span> A2LD1,
+                     <span class="dt">colour =</span> patient <span class="op">==</span><span class="st"> &quot;TCGA-73-4676&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_jitter</span>()</code></pre>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-187-5.png" width="672"  /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Add a transparent boxplot to the graph.</span>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> expression, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> type, <span class="dt">y =</span> A2LD1)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> type)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">alpha =</span> <span class="dv">0</span>)</code></pre>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-187-6.png" width="672"  /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Change the y scale to log10 scale.</span>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> expression, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> type, <span class="dt">y =</span> A2LD1)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> type)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">alpha =</span> <span class="dv">0</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_y_log10</span>()</code></pre>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-187-7.png" width="672"  /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Visualise the expression of A1BG against that of A2LD1 setting the</span>
+<span class="co">## x axis on the log10 scale. Colours the observations based on their</span>
+<span class="co">## type and resize the points according to the expression level of the</span>
+<span class="co">## A2ML1 gene.</span>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> expression,
+       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> A1BG, <span class="dt">y =</span> A2LD1,
+                     <span class="dt">colour =</span> type,
+                     <span class="dt">size =</span> A2ML1)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_x_log10</span>()</code></pre>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-187-8.png" width="672"  /></p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 
 </div>
 </div>
