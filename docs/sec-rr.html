@@ -147,6 +147,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#knitr-and-rmarkdown"> <code>knitr</code> and <code>rmarkdown</code></a></li>
 <li class="toc"><a href="#additional-features"> Additional features</a></li>
 <li class="toc"><a href="#docker-containers"> Docker containers</a></li>
+<li class="toc"><a href="#additional-exercises-6"> Additional exercises</a></li>
 </ul>
 <a href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a>
 <a href="sec-prog.html"><span class="toc-section-number">9</span> Additional programming concepts</a>
@@ -293,16 +294,22 @@ providing all the session information details with the
 allows readers to review the version of R itself and all the
 packages that were used to produce the report.</li>
 </ul>
-<blockquote>
-<p><strong>Challenge</strong></p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
 <p>Prepare an Rmarkdown report summarising the portal ecology data. The
-report should include a <em>Material and methods</em> section where the
-data is read in (ideally from the online file) and briefly
-described, a <em>Data preparation</em> section where rows with missing
-values are filtered out, and a <em>Visualisation</em> section where one or
-two plots are rendered. Finish your report with a <em>Session
-information</em> section.</p>
-</blockquote>
+report should include a <em>Material and methods</em> section where the data
+is read in (ideally from the online file) and briefly described, a
+<em>Data preparation</em> section where rows with missing values are filtered
+out, and a <em>Visualisation</em> section where one or two plots are
+rendered. Finish your report with a <em>Session information</em> section.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 <p>The <a href="https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf">R Markdown Cheat
 Sheet</a>
 and <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">Reference
@@ -318,6 +325,30 @@ enable to share the complete image of an operating system, including
 all system dependencies and software/data to repeat a complete
 analysis. These are useful tools, even though their aren’t necessarily
 ideal, and beyond the aim of this course.</p>
+</div>
+<div id="additional-exercises-6" class="section level2">
+<h2><span class="header-section-number">7.4</span> Additional exercises</h2>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Repeat the <em>Beer consumption</em> analysis using the that was done in
+chapters <a href="sec-dplyr.html#sec:dplyr">4</a> and <a href="sec-vis.html#sec:vis">5</a>.</p>
+<p>To test if your report is fully reproducible, uniquely name the <code>Rmd</code>
+file as <code>surname_surname_beers_report.Rmd</code>, post it on the course
+forum and ask your neighbour to download it, compile it into pdf and
+provide feedback on whether the document was reproducible and easy to
+follow<label for="tufte-sn-13" class="margin-toggle sidenote-number">13</label><input type="checkbox" id="tufte-sn-13" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">13</span> This is an important exercise, as it will mimic the exam
+situation, where you will hand in your <code>Rmd</code> reports that will
+need to be compiled (to pdf) before marking. In addition, it
+demonstrates the challenges of writing and reproducing an
+understandable and reproducible document.</span>.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 
 </div>
 </div>

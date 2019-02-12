@@ -136,16 +136,18 @@ DT::datatable(ip)
   allows readers to review the version of R itself and all the
   packages that were used to produce the report.
 
-> **Challenge**
->
-> Prepare an Rmarkdown report summarising the portal ecology data. The
-> report should include a *Material and methods* section where the
-> data is read in (ideally from the online file) and briefly
-> described, a *Data preparation* section where rows with missing
-> values are filtered out, and a *Visualisation* section where one or
-> two plots are rendered. Finish your report with a *Session
-> information* section.
 
+
+`r msmbstyle::question_begin()`
+
+Prepare an Rmarkdown report summarising the portal ecology data. The
+report should include a *Material and methods* section where the data
+is read in (ideally from the online file) and briefly described, a
+*Data preparation* section where rows with missing values are filtered
+out, and a *Visualisation* section where one or two plots are
+rendered. Finish your report with a *Session information* section.
+
+`r msmbstyle::question_end()`
 
 The [R Markdown Cheat
 Sheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
@@ -163,3 +165,24 @@ enable to share the complete image of an operating system, including
 all system dependencies and software/data to repeat a complete
 analysis. These are useful tools, even though their aren't necessarily
 ideal, and beyond the aim of this course.
+
+## Additional exercises
+
+`r msmbstyle::question_begin()`
+
+Repeat the *Beer consumption* analysis using the that was done in
+chapters \@ref(sec:dplyr) and \@ref(sec:vis).
+
+To test if your report is fully reproducible, uniquely name the `Rmd`
+file as `surname_surname_beers_report.Rmd`, post it on the course
+forum and ask your neighbour to download it, compile it into pdf and
+provide feedback on whether the document was reproducible and easy to
+follow[^asinexam].
+
+[^asinexam]: This is an important exercise, as it will mimic the exam
+    situation, where you will hand in your `Rmd` reports that will
+    need to be compiled (to pdf) before marking. In addition, it
+    demonstrates the challenges of writing and reproducing an
+    understandable and reproducible document.
+
+`r msmbstyle::question_end()`
