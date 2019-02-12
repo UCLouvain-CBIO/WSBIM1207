@@ -9,7 +9,12 @@
 - Generate a reproducible report in html or pdf from an Rmarkdown
   document using RStudio.
 
-For a general introduction on the topic in French, see @Pouzat:2015.
+For a general introduction on the topic in French, see
+@Pouzat:2015. If you want to explore the topic of reproducible
+research in French, the [Recherche reproductible : principes
+méthodologiques pour une science
+transparente](https://www.fun-mooc.fr/courses/course-v1:inria+41016+session01bis/about)
+MOOC is of interest.
 
 Reproducible research refers to research that can be reproduced under
 various conditions and by different people. It applies to every area
@@ -18,7 +23,10 @@ not always) easier to implement for computational work. The different
 levels of reproducibility can formalised[^rrblog] as follows:
 
 
-[^rrblog]: The nomenclature is taken from [this blog post](https://lgatto.github.io/rr-what-should-be-our-goals/) that provides links and highlights that confusion that exists around the terms and concepts of reproducibility.
+[^rrblog]: The nomenclature is taken from [this blog
+    post](https://lgatto.github.io/rr-what-should-be-our-goals/) that
+    provides links and highlights that confusion that exists around
+    the terms and concepts of reproducibility.
 
 - **Repeat** my experiment, i.e. obtain the same tables/graphs/results
   using the same setup (data, software, ...) in the same lab or on the
@@ -63,8 +71,10 @@ that apply these principles:
 5. Reproducibility helps to build your reputation.
 
 
-[^rrexam1]: And course reports! The exam of this course will consist in a reproducible report using the tools described below.
-[^rrexam2]: Not reviewers, also professors that read exams. See previous footnote.
+[^rrexam1]: And course reports! The exam of this course will consist
+    in a reproducible report using the tools described below.
+[^rrexam2]: Not only reviewers, also professors that read exams. See
+    previous footnote.
 
 ## `knitr` and `rmarkdown`
 
