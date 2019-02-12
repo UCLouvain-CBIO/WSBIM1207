@@ -650,6 +650,60 @@ joins using a the full join and filter functions.</p>
 </p>
 </div>
 </div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Load the <code>rWSBIM1207</code> package. Using the <code>data</code> function, directly
+load the <code>clinical2</code> and <code>expression</code> data into your global
+environment.</p>
+<ul>
+<li><p>Inspect the clinical data. What kind of information do we have and
+how many patients are recorded?</p></li>
+<li><p>Inspect the expression data. How many samples are recorded?</p></li>
+<li><p>Join the <code>expression</code> and <code>clinical2</code> tables by the patient
+reference, using the <code>left_join</code> and the <code>right_join</code> functions. Why
+are the results different?</p></li>
+<li><p>Join <code>expression</code> and <code>clinical2</code> tables in order to create a table
+containing merged data exclusively for normal samples.</p></li>
+</ul>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<!-- 
+
+<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-42' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-42', 'sol-start-42')"></span></p><div class="solution-body" id = "sol-body-42" style="display: none;">
+
+ -->
+<!-- ```{r} -->
+<!-- library("rWSBIM1207") -->
+<!-- data(expression) -->
+<!-- data(clinical2) -->
+<!-- nrow(clinical2) -->
+<!-- nrow(expression) -->
+<!-- ## Join the `expression` and `clinical2` tables by the patient -->
+<!-- ## reference, using the `left_join` and the `right_join` -->
+<!-- ## functions. Why are the results different? -->
+<!-- right_join(expression, clinical2, by = c("patient" = "patientID")) -->
+<!-- left_join(expression, clinical2, by = c("patient" = "patientID")) -->
+<!-- ## Difference due to 3 patients recorded in clinical data are not -->
+<!-- ## recorded in expression. -->
+<!-- length(clinical2$patientID) -->
+<!-- length(unique(expression$patient)) -->
+<!-- ## Join `expression` and `clinical2` tables in order to create a table -->
+<!-- ## containing merged data exclusively for normal samples. -->
+<!-- expression %>% -->
+<!--   filter(type == "normal") %>% -->
+<!--   left_join(clinical2, by = c("patient" = "patientID")) -->
+<!-- ``` -->
+<!-- 
+
+<p class="solution-end"><span class="fa fa-square-o solution-icon"></span></p></div></div>
+
+ -->
 
 </div>
 </div>
