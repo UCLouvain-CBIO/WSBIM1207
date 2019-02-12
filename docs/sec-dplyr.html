@@ -1411,6 +1411,153 @@ Figure 4.1: Visualisation of beer consumption, highlighting different patterns o
 <!--   labs(title = "Mean consumption of beers according to age, working statue and gender", -->
 <!--        y = "Mean consumption (Litre)") -->
 <!-- ``` -->
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>The Cancer Genome Atlas (TCGA) is a large scale effort that has
+collected high throughput biology data from hundreds of patients
+samples. In this exercise, we are going to analyse the clinical
+variables recorded for a subset of the patients.</p>
+<ul>
+<li><p>Load the <code>rWSBIM1207</code> package. If the package isn’t installed of its
+version is older than 0.1.1, install it from the
+<code>UCLouvain-CBIO/rWSBIM1207' GitHub repository using the</code>devtools::install_github` function.</p></li>
+<li><p>Using the <code>clinical1.csv()</code> function from <code>rWSBIM1207</code>, find the
+path the <code>clinical1.csv</code> file and read it to produce a <code>data.frame</code>
+named <code>clinical</code>.</p></li>
+<li><p>Familiarise yourself with the data.</p></li>
+<li><p>Create a smaller data frame called <code>clinical_mini</code> containing only
+the columns corresponding to <code>patientID</code>, <code>gender</code>,
+<code>age_at_diagnosis</code>, <code>smoking_history</code>, <code>number_pack_years_smoked</code>,
+<code>year_of_tobacco_smoking_onset</code>, and <code>stopped_smoking_year</code>.</p></li>
+<li><p>Calculate the number of males and females in the cohort.</p></li>
+<li><p>Create a new variable <code>years_at_diagnosis</code> corresponding to the age
+at diagnosis converted from days into years.</p></li>
+<li><p>Calculate the mean and median age at diagnosis (in years). Pay
+attention to missing values!</p></li>
+<li><p>Calculate the mean and median age at diagnosis for males and
+females.</p></li>
+<li><p>How many patient were diagnosed before 50 years?</p></li>
+<li><p>Compare the mean age at diagnosis between <em>current smoker</em> and
+<em>lifelong non-smoker</em>.</p></li>
+<li><p>Select patients who stopped smoking more than 15 years ago and
+calculate the number of smoking years for these cases. Display only
+cases for which you were able to calculate the data.</p></li>
+<li><p>How many of them smoked less than 5 years?</p></li>
+<li><p>Try to recreate the following table, reporting the number of smokers
+and lifelong-non smoker between males and females. Note: the layout
+can be different.</p></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="left">gender</th>
+<th align="right">current smoker</th>
+<th align="right">lifelong non-smoker</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">female</td>
+<td align="right">51</td>
+<td align="right">55</td>
+</tr>
+<tr class="even">
+<td align="left">male</td>
+<td align="right">69</td>
+<td align="right">20</td>
+</tr>
+</tbody>
+</table>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<!-- 
+
+<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-33' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-33', 'sol-start-33')"></span></p><div class="solution-body" id = "sol-body-33" style="display: none;">
+
+ -->
+<!-- ```{r, message = FALSE} -->
+<!-- library("rWSBIM1207") -->
+<!-- library("readr") -->
+<!-- library("dplyr") -->
+<!-- library("magrittr") -->
+<!-- clinical <- read_csv(clinical1.csv()) -->
+<!-- str(clinical) -->
+<!-- ## View(clinical) -->
+<!-- clinical_mini <- clinical %>% -->
+<!--     select(patientID, gender, age_at_diagnosis, -->
+<!--            smoking_history, number_pack_years_smoked, -->
+<!--            year_of_tobacco_smoking_onset, -->
+<!--            stopped_smoking_year) -->
+<!-- clinical_mini -->
+<!-- ## Calculate the number of males and females in the cohort. -->
+<!-- clinical_mini %>% -->
+<!--     group_by(gender) %>% -->
+<!--     count() -->
+<!-- ## Create a new variable `years_at_diagnosis` corresponding to the age -->
+<!-- ## at diagnosis converted from days into years. -->
+<!-- clinical_mini <- clinical_mini %>% -->
+<!--     mutate(years_at_diagnosis = age_at_diagnosis / 365) -->
+<!-- select(clinical_mini, -->
+<!--        years_at_diagnosis, -->
+<!--        age_at_diagnosis) -->
+<!-- ## Calculate the mean and median age at diagnosis (in years). Pay -->
+<!-- ## attention to missing values! -->
+<!-- clinical_mini %>% -->
+<!--     summarize(mean = mean(years_at_diagnosis, na.rm = TRUE), -->
+<!--               median = median(years_at_diagnosis, na.rm = TRUE)) -->
+<!-- ## idem but removing NA values before -->
+<!-- clinical_mini %>% -->
+<!--   filter(!is.na(years_at_diagnosis)) %>% -->
+<!--     summarise(mean = mean(years_at_diagnosis), -->
+<!--               median = median(years_at_diagnosis)) -->
+<!-- ## Calculate the mean and median age at diagnosis for males and -->
+<!-- ## females -->
+<!-- clinical_mini %>% -->
+<!--     group_by(gender) %>% -->
+<!--     summarise(mean = mean(years_at_diagnosis, na.rm = TRUE), -->
+<!--               median = median(years_at_diagnosis, na.rm = TRUE)) -->
+<!-- ## How many patient were diagnosed before 50 years? -->
+<!-- clinical_mini %>% -->
+<!--   filter(years_at_diagnosis < 50) %>% -->
+<!--   count() -->
+<!-- ## Compare the mean age at diagnosis between "current smoker" and -->
+<!-- ## "lifelong non-smoker"? -->
+<!-- clinical_mini %>% -->
+<!--   filter(smoking_history == 'current smoker' | smoking_history == 'lifelong non-smoker') %>% -->
+<!--   group_by(smoking_history) %>% -->
+<!--   summarize(mean = mean(years_at_diagnosis, na.rm = TRUE)) -->
+<!-- ## Select patients who stopped smoking more than 15 years ago and -->
+<!-- ## calculate the number of smoking years for these cases. -->
+<!-- clinical_mini %>% -->
+<!--     filter(smoking_history == "current reformed smoker for > 15 years") %>% -->
+<!--     mutate(years_smoked = stopped_smoking_year - year_of_tobacco_smoking_onset) %>% -->
+<!--     filter(!is.na(years_smoked)) %>% -->
+<!--     select(patientID, years_smoked) -->
+<!-- # How many of them smoked less than 5 years? -->
+<!-- clinical_mini %>% -->
+<!--   filter(smoking_history == "current reformed smoker for > 15 years") %>% -->
+<!--   mutate(years_smoked = stopped_smoking_year - year_of_tobacco_smoking_onset) %>% -->
+<!--   filter(years_smoked < 5) %>% -->
+<!--   count() -->
+<!-- ## Try to recreate the following table, reporting the number of -->
+<!-- ## smokers and lifelong-non smoker between males and females. -->
+<!-- clinical_mini %>% -->
+<!--   filter(smoking_history == 'current smoker' | smoking_history == 'lifelong non-smoker') %>% -->
+<!--   group_by(gender, smoking_history) %>% -->
+<!--     summarize(n = n()) %>% -->
+<!--   tidyr::spread(key = smoking_history, value = n) -->
+<!-- ``` -->
+<!-- 
+
+<p class="solution-end"><span class="fa fa-square-o solution-icon"></span></p></div></div>
+
+ -->
 
 </div>
 </div>

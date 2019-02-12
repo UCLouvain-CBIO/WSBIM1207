@@ -879,11 +879,11 @@ to gender and employment.
   `UCLouvain-CBIO/rWSBIM1207' GitHub repository using the
   `devtools::install_github` function.
 
-- Using the `beers.csv()` function from `rWSBIM1207`, get the path the
+- Using the `beers.csv()` function from `rWSBIM1207`, find the path
   the `beers.csv` file and read it to produce a `data.frame` named
   `beers`. The spreadsheet uses semi-colons `;` to separate cells. Use
-  `read.csv2` and `read.delim` and set the separator appropriately, and
-  verify that the two variables are identical.
+  `read.csv2` and `read.delim` and set the separator appropriately,
+  and verify that the two variables are identical.
 
 - Check the number of observations and identidy variables are
   available. Calculate a summary of each variable using the `summary`

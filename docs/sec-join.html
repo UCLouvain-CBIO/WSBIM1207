@@ -197,10 +197,8 @@ bioinformatics world, where annotations about genes are scattered in
 different tables that have one or more shared columns. The data we are
 going to use are available in the course package and can be loaded as
 shown below.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;rWSBIM1207&quot;</span>)</code></pre>
-<pre><code>## 
-## This is &#39;rWSBIM1207&#39; version 0.1.1</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(jdf)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;rWSBIM1207&quot;</span>)
+<span class="kw">data</span>(jdf)</code></pre>
 <p>The example data is composed of pairs of tables (we have tibbles here,
 but this would equally work with dataframes). The first member of the
 pair contains protein <a href="https://www.uniprot.org/">UniProt</a><label for="tufte-sn-8" class="margin-toggle sidenote-number">8</label><input type="checkbox" id="tufte-sn-8" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">8</span> UniProt is the protein information database. Its mission is to <em>provide the scientific community with a comprehensive, high-quality and freely accessible resource of protein sequence and functional information</em>.</span> unique
@@ -303,9 +301,9 @@ and <code>jdf5</code>. What has happened for observations <code>P02468</code> an
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-33" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-33&#39;, &#39;sol-start-33&#39;)"></span>
+► Solution<span id="sol-start-34" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-34&#39;, &#39;sol-start-34&#39;)"></span>
 </p>
-<div id="sol-body-33" class="solution-body" style="display: none;">
+<div id="sol-body-34" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">full_join</span>(jdf4, jdf5)</code></pre>
 <pre><code>## Joining, by = &quot;uniprot&quot;</code></pre>
 <pre><code>## # A tibble: 14 x 6
@@ -344,7 +342,7 @@ that are present in only one or both tables.</p>
 <li>An <strong>inner join</strong> keeps observations that are present in both
 tables.</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-184"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-185"></span>
 <p class="caption marginnote shownote">
 Figure 6.1: An inner join matches pairs of observation matching in both tables, this dropping those that are unique to one table. Figure taken from <em>R for Data Science</em>.
 </p>
@@ -357,7 +355,7 @@ Figure 6.1: An inner join matches pairs of observation matching in both tables, 
 (second) table, dropping those that are only present in the other.</li>
 <li>A <strong>full join</strong> keeps all observations.</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-185"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-186"></span>
 <p class="caption marginnote shownote">
 Figure 6.2: Outer joins match observations that appear in at least on table, filling up missing values with <code>NA</code> values. Figure taken from <em>R for Data Science</em>.
 </p>
@@ -376,9 +374,9 @@ Figure 6.2: Outer joins match observations that appear in at least on table, fil
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-34" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-34&#39;, &#39;sol-start-34&#39;)"></span>
+► Solution<span id="sol-start-35" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-35&#39;, &#39;sol-start-35&#39;)"></span>
 </p>
-<div id="sol-body-34" class="solution-body" style="display: none;">
+<div id="sol-body-35" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">left_join</span>(jdf4, jdf5)</code></pre>
 <pre><code>## Joining, by = &quot;uniprot&quot;</code></pre>
 <pre><code>## # A tibble: 10 x 6
@@ -412,9 +410,9 @@ Figure 6.2: Outer joins match observations that appear in at least on table, fil
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-35" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-35&#39;, &#39;sol-start-35&#39;)"></span>
+► Solution<span id="sol-start-36" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-36&#39;, &#39;sol-start-36&#39;)"></span>
 </p>
-<div id="sol-body-35" class="solution-body" style="display: none;">
+<div id="sol-body-36" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">right_join</span>(jdf4, jdf5)</code></pre>
 <pre><code>## Joining, by = &quot;uniprot&quot;</code></pre>
 <pre><code>## # A tibble: 5 x 6
@@ -443,9 +441,9 @@ Figure 6.2: Outer joins match observations that appear in at least on table, fil
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-36" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-36&#39;, &#39;sol-start-36&#39;)"></span>
+► Solution<span id="sol-start-37" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-37&#39;, &#39;sol-start-37&#39;)"></span>
 </p>
-<div id="sol-body-36" class="solution-body" style="display: none;">
+<div id="sol-body-37" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">inner_join</span>(jdf4, jdf5)</code></pre>
 <pre><code>## Joining, by = &quot;uniprot&quot;</code></pre>
 <pre><code>## # A tibble: 1 x 6
@@ -516,14 +514,14 @@ between <code>jdf6</code> and <code>jdf7</code>, both having duplicated <code>Q9
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-37" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-37&#39;, &#39;sol-start-37&#39;)"></span>
+► Solution<span id="sol-start-38" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-38&#39;, &#39;sol-start-38&#39;)"></span>
 </p>
-<div id="sol-body-37" class="solution-body" style="display: none;">
+<div id="sol-body-38" class="solution-body" style="display: none;">
 <p><code>jdf6</code> has two entries, one for each possible sub-cellular
 localisation of the protein. <code>jdf7</code> has also two entries, referring to
 two different quantitative measurements (variable <code>measure</code>). When
 joining the duplicated keys, you get all possible combinations.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-186"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-187"></span>
 <p class="caption marginnote shownote">
 Figure 6.3: Joins with duplicated keys in both tables, producing all possible combinations. Figure taken from <em>R for Data Science</em>.
 </p>
@@ -578,9 +576,9 @@ the two keys?</p>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-38" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-38&#39;, &#39;sol-start-38&#39;)"></span>
+► Solution<span id="sol-start-39" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-39&#39;, &#39;sol-start-39&#39;)"></span>
 </p>
-<div id="sol-body-38" class="solution-body" style="display: none;">
+<div id="sol-body-39" class="solution-body" style="display: none;">
 <p>Ideally, the isoform variables should be named identically in the two
 tables, which would enable and automatic join with the two
 keys. Below, we first fix the misnamed variable in <code>jdf7</code>. Instead of
