@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-02-11" />
+<meta name="date" content="2019-02-12" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -144,7 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#knowing-your-way-around-rstudio"> Knowing your way around RStudio</a></li>
 <li class="toc"><a href="#getting-set-up"> Getting set up</a></li>
 <li class="toc"><a href="#interacting-with-r"> Interacting with R</a></li>
-<li class="toc"><a href="#how-to-learn-more-after-the-workshop"> How to learn more after the workshop?</a></li>
+<li class="toc"><a href="#how-to-learn-more-after-the-course"> How to learn more after the course?</a></li>
 <li class="toc"><a href="#seeking-help"> Seeking help</a></li>
 <li class="toc"><a href="#r-packages"> R packages</a></li>
 <li class="toc"><a href="#introduction-to-r"> Introduction to R</a></li>
@@ -438,13 +438,15 @@ When this happens, and you thought you finished typing your command, click
 inside the console window and press <kbd><code>Esc</code></kbd>; this will cancel the incomplete
 command and return you to the <code>&gt;</code> prompt.</p>
 </div>
-<div id="how-to-learn-more-after-the-workshop" class="section level2">
-<h2><span class="header-section-number">2.6</span> How to learn more after the workshop?</h2>
-<p>The material we cover during this workshop will give you an initial
-taste of how you can use R to analyze data for your own
+<div id="how-to-learn-more-after-the-course" class="section level2">
+<h2><span class="header-section-number">2.6</span> How to learn more after the course?</h2>
+<p>The material we cover during this course will give you an initial
+taste of how you can use R to analyse data for your own
 research. However, you will need to learn more to do advanced
 operations such as cleaning your dataset, using statistical methods,
-or creating beautiful graphics. The best way to become proficient and
+or creating beautiful graphics<label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> We will introduce most of these (except statistics)
+here, but will only manage to scratch the surface of the wealth of
+what is possible to do with R.</span>. The best way to become proficient and
 efficient at R, as with any other tool, is to use it to address your
 actual research questions. As a beginner, it can feel daunting to have
 to write a script from scratch, and given that many people make their
@@ -538,10 +540,12 @@ same object as the one in memory:</p>
 ##     0.2, 0.2, 0.4), Species = structure(c(1L, 1L, 1L, 1L, 1L, 
 ##     1L), .Label = c(&quot;setosa&quot;, &quot;versicolor&quot;, &quot;virginica&quot;), class = &quot;factor&quot;)), row.names = c(NA, 
 ## 6L), class = &quot;data.frame&quot;)</code></pre>
-<p>If the object is larger, provide either the raw file (i.e., your CSV file) with
-your script up to the point of the error (and after removing everything that is
-not relevant to your issue). Alternatively, in particular if your question is
-not related to a data frame, you can save any R object to a file:</p>
+<p>If the object is larger, provide either the raw file (i.e., your CSV
+file) with your script up to the point of the error (and after
+removing everything that is not relevant to your
+issue). Alternatively, in particular if your question is not related
+to a data frame, you can save any R object to a file<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> See section <a href="sec-startdata.html#sec:exportandsave">3.10</a> for a better
+introduction about exporting and saving data.</span>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">saveRDS</span>(iris, <span class="dt">file=</span><span class="st">&quot;/tmp/iris.rds&quot;</span>)</code></pre>
 <p>The content of this file is however not human readable and cannot be posted
 directly on Stack Overflow. Instead, it can be sent to someone by email who can
@@ -1238,6 +1242,8 @@ learn about data frames.</p>
 </div>
 <div id="generating-vectors" class="section level2">
 <h2><span class="header-section-number">2.10</span> Generating vectors</h2>
+<div id="constructors" class="section level3 unnumbered">
+<h3>Constructors</h3>
 <p>There exists some functions to generate vectors of different type. To
 generate a vector of numerics, one can use the <code>numerics()</code>
 constructor, providing the length of the output vector as
@@ -1277,6 +1283,9 @@ exactly that:</p>
 </p>
 </div>
 </div>
+</div>
+<div id="replicate-elements" class="section level3 unnumbered">
+<h3>Replicate elements</h3>
 <p>The <code>rep</code> function allow to repeat a value a certain number of
 times. If we want to initiate a vector of numerics of length 5 with
 the value -1, for example, we could do the following:</p>
@@ -1319,6 +1328,9 @@ possibilities - see <code>?rep</code> or <code>?sort</code> for help.</p>
 </p>
 </div>
 </div>
+</div>
+<div id="sequence-generation" class="section level3 unnumbered">
+<h3>Sequence generation</h3>
 <p>Another very useful function is <code>seq</code>, to generate a sequence of
 numbers. For example, to generate a sequence of integers from 1 to 20
 by steps of 2, one would use:</p>
@@ -1337,24 +1349,27 @@ there’s a shortcut:</p>
 one would use:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">20</span>, <span class="dt">length.out =</span> <span class="dv">3</span>)</code></pre>
 <pre><code>## [1]  1.0 10.5 20.0</code></pre>
+</div>
+<div id="random-samples-and-permutations" class="section level3 unnumbered">
+<h3>Random samples and permutations</h3>
 <p>A last group of useful functions are those that generate random
 data. The first one, <code>sample</code>, generates a random permutation of
 another vector. For example, to draw a random order to 10 students
 oral example, I first assign each student a number from 1 to then (for
 instance based on the alphabetic order of their name) and then:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  1  3  8  5  2  7 10  9  4  6</code></pre>
+<pre><code>##  [1]  5  3  2  1  6  8  4  7 10  9</code></pre>
 <p>Without further arguments, <code>sample</code> will return a permutation of all
 elements of the vector. If I want a random sample of a certain size, I
 would set this value as second argument. Below, I sample 5 random
 letters from the alphabet contained in the pre-defined <code>letters</code> vector:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(letters, <span class="dv">5</span>)</code></pre>
-<pre><code>## [1] &quot;c&quot; &quot;f&quot; &quot;i&quot; &quot;q&quot; &quot;h&quot;</code></pre>
+<pre><code>## [1] &quot;c&quot; &quot;i&quot; &quot;m&quot; &quot;s&quot; &quot;g&quot;</code></pre>
 <p>If I wanted an output larger than the input vector, or being able to
 draw some elements multiple times, I would need to set the <code>replace</code>
 argument to <code>TRUE</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</code></pre>
-<pre><code>##  [1] 1 5 1 5 3 1 2 1 1 4</code></pre>
+<pre><code>##  [1] 2 2 3 4 2 2 1 5 4 2</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -1385,9 +1400,9 @@ random draw. Observe that you now get the same random draws.</p></li>
 <div id="sol-body-15" class="solution-body" style="display: none;">
 <p>Different permutations</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  3  1  4  7  2  8 10  9  5  6</code></pre>
+<pre><code>##  [1]  3  1  4  7 10  6  8  5  2  9</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1] 10  4  8  2  9  3  5  6  1  7</code></pre>
+<pre><code>##  [1]  1  6  3  8 10  9  5  7  2  4</code></pre>
 <p>Same permutations with seed 123</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
 <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
@@ -1407,6 +1422,9 @@ random draw. Observe that you now get the same random draws.</p></li>
 </p>
 </div>
 </div>
+</div>
+<div id="drawing-samples-from-a-normal-distribution" class="section level3 unnumbered">
+<h3>Drawing samples from a normal distribution</h3>
 <p>The last function we are going to see is <code>rnorm</code>, that draws a random
 sample from a normal distribution. Two normal distributions of means 0
 and 100 and standard deviations 1 and 5, noted noted <em>N(0, 1)</em> and
@@ -1426,6 +1444,7 @@ and its standard deviation. The defaults of the latter are 0 and 1.</p>
 <pre><code>## [1]  1.3744268 -0.1164714  2.8344472  1.3690969  3.6510983</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dv">100</span>, <span class="dv">5</span>)</code></pre>
 <pre><code>## [1] 106.45636  96.87448  95.62427 100.71678 107.12595</code></pre>
+</div>
 </div>
 <div id="additional-exercises-1" class="section level2">
 <h2><span class="header-section-number">2.11</span> Additional exercises</h2>
@@ -1563,7 +1582,7 @@ and store it in variable <code>m2</code>.</li>
 <a href="sec-startdata.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-02-11
+2019-02-12
 </p>
 </div>
 </div>

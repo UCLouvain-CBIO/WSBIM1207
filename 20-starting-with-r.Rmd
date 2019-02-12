@@ -297,19 +297,22 @@ inside the console window and press <kbd>`Esc`</kbd>; this will cancel the incom
 command and return you to the `>` prompt.
 
 
-## How to learn more after the workshop?
+## How to learn more after the course?
 
-The material we cover during this workshop will give you an initial
-taste of how you can use R to analyze data for your own
+The material we cover during this course will give you an initial
+taste of how you can use R to analyse data for your own
 research. However, you will need to learn more to do advanced
 operations such as cleaning your dataset, using statistical methods,
-or creating beautiful graphics. The best way to become proficient and
+or creating beautiful graphics[^inthiscoure]. The best way to become proficient and
 efficient at R, as with any other tool, is to use it to address your
 actual research questions. As a beginner, it can feel daunting to have
 to write a script from scratch, and given that many people make their
 code available online, modifying existing code to suit your purpose
 might make it easier for you to get started.
 
+[^inthiscoure]: We will introduce most of these (except statistics)
+    here, but will only manage to scratch the surface of the wealth of
+    what is possible to do with R.
 
 ```{r kitten, results='markup', echo=FALSE, purl=FALSE, out.width='400px', fig.align='center'}
 knitr::include_graphics("./figs/kitten-try-things.jpg")
@@ -417,14 +420,18 @@ same object as the one in memory:
 dput(head(iris)) # iris is an example data frame that comes with R and head() is a function that returns the first part of the data frame
 ```
 
-If the object is larger, provide either the raw file (i.e., your CSV file) with
-your script up to the point of the error (and after removing everything that is
-not relevant to your issue). Alternatively, in particular if your question is
-not related to a data frame, you can save any R object to a file:
+If the object is larger, provide either the raw file (i.e., your CSV
+file) with your script up to the point of the error (and after
+removing everything that is not relevant to your
+issue). Alternatively, in particular if your question is not related
+to a data frame, you can save any R object to a file[^export]:
 
 ```{r, eval=FALSE, purl=FALSE}
 saveRDS(iris, file="/tmp/iris.rds")
 ```
+
+[^export]: See section \@ref(sec:exportandsave) for a better
+    introduction about exporting and saving data.
 
 The content of this file is however not human readable and cannot be posted
 directly on Stack Overflow. Instead, it can be sent to someone by email who can
@@ -1136,6 +1143,8 @@ learn about data frames.
 
 ## Generating vectors
 
+### Constructors {-}
+
 There exists some functions to generate vectors of different type. To
 generate a vector of numerics, one can use the `numerics()`
 constructor, providing the length of the output vector as
@@ -1166,6 +1175,8 @@ character(2) ## the empty charater
 logical(2)   ## FALSE
 ```
 `r msmbstyle::solution_end()`
+
+### Replicate elements {-}
 
 The `rep` function allow to repeat a value a certain number of
 times. If we want to initiate a vector of numerics of length 5 with
@@ -1204,6 +1215,8 @@ sort(rep(c(1, 2, 3), 5))
 ```
 `r msmbstyle::solution_end()`
 
+### Sequence generation {-}
+
 Another very useful function is `seq`, to generate a sequence of
 numbers. For example, to generate a sequence of integers from 1 to 20
 by steps of 2, one would use:
@@ -1228,6 +1241,8 @@ one would use:
 ```{r}
 seq(from = 1, to = 20, length.out = 3)
 ```
+
+### Random samples and permutations {-}
 
 A last group of useful functions are those that generate random
 data. The first one, `sample`, generates a random permutation of
@@ -1305,6 +1320,7 @@ sample(1:10)
 
 `r msmbstyle::solution_end()`
 
+### Drawing samples from a normal distribution {-}
 
 The last function we are going to see is `rnorm`, that draws a random
 sample from a normal distribution. Two normal distributions of means 0

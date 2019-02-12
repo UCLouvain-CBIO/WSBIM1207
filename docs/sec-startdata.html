@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-02-11" />
+<meta name="date" content="2019-02-12" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -149,8 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#formatting-dates"> Formatting Dates</a></li>
 <li class="toc"><a href="#summary-of-r-objects"> Summary of R objects</a></li>
 <li class="toc"><a href="#lists"> Lists</a></li>
-<li class="toc"><a href="#exporting-tabular-data"> Exporting tabular data</a></li>
-<li class="toc"><a href="#saving-data"> Saving data</a></li>
+<li class="toc"><a href="#sec:exportandsave"> Exporting and saving data</a></li>
 <li class="toc"><a href="#additional-exercises-2"> Additional exercises</a></li>
 </ul>
 <a href="sec-dplyr.html"><span class="toc-section-number">4</span> Manipulating and analyzing data with dplyr</a>
@@ -885,7 +884,7 @@ ip &lt;-<span class="st"> </span><span class="kw">rownames</span>(<span class="k
 </div>
 <p>The default constructor for a matrix is <code>matrix</code>. It takes a vector of
 values to populate the matrix and the number of row and/or
-columns<label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> Either the number of rows or columns are enough, as the other
+columns<label for="tufte-sn-7" class="margin-toggle sidenote-number">7</label><input type="checkbox" id="tufte-sn-7" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">7</span> Either the number of rows or columns are enough, as the other
 one can be deduced from the length of the values. Try out what happens
 if the values and number of rows/columns don’t add up.</span>. The values are sorted along the columns, as illustrated
 below.</p>
@@ -1126,8 +1125,10 @@ the list is named).</p>
 <pre><code>## [[1]]
 ##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 </div>
-<div id="exporting-tabular-data" class="section level2">
-<h2><span class="header-section-number">3.10</span> Exporting tabular data</h2>
+<div id="sec:exportandsave" class="section level2">
+<h2><span class="header-section-number">3.10</span> Exporting and saving data</h2>
+<div id="exporting-tabular-data" class="section level3 unnumbered">
+<h3>Exporting tabular data</h3>
 <p>We have seen how to read a text-based spreadsheet into R using the
 <code>read.table</code> family of functions. To export a <code>data.frame</code> to a
 text-based spreadsheet, we can use the <code>write.table</code> set of functions
@@ -1139,8 +1140,8 @@ directory, we would execute:</p>
 <p>This new csv file can now be shared with other collaborators who
 aren’t familiar with R.</p>
 </div>
-<div id="saving-data" class="section level2">
-<h2><span class="header-section-number">3.11</span> Saving data</h2>
+<div id="saving-data" class="section level3 unnumbered">
+<h3>Saving data</h3>
 <p>Exporting data to a spreadsheet has several limitations, such as those
 described in the first chapter such as possible inconsistencies with
 <code>,</code> and <code>.</code> for decimal separators and lack of variable type
@@ -1158,13 +1159,38 @@ function.</p>
 <span class="kw">head</span>(surveys)</code></pre>
 <p>Note about how the function <code>load</code> loads the object in the file
 directly in the global environment.</p>
+<p>There is also the <code>saveRDS</code> and <code>readRDS</code> functions that save R
+objects to binary files (using the <code>rds</code> extension here) and read
+these back into R. From a user’s perspective, main different is that,
+<code>load</code> loads an object in the gloval environment while <code>readRDS</code> reads
+the data from disk and returns it. It is this necessary to store the
+output of <code>readRDS</code> in a variable:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">saveRDS</span>(surveys, <span class="dt">file =</span> <span class="st">&quot;data_output/surveys.rds&quot;</span>)
+<span class="kw">rm</span>(surveys)
+surveys &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;data_output/surveys.rds&quot;</span>)
+<span class="kw">head</span>(surveys)</code></pre>
+<pre><code>##   record_id month day year plot_id species_id sex hindfoot_length weight
+## 1         1     7  16 1977       2         NL   M              32     NA
+## 2        72     8  19 1977       2         NL   M              31     NA
+## 3       224     9  13 1977       2         NL                  NA     NA
+## 4       266    10  16 1977       2         NL                  NA     NA
+## 5       349    11  12 1977       2         NL                  NA     NA
+## 6       363    11  12 1977       2         NL                  NA     NA
+##     genus  species   taxa plot_type       date
+## 1 Neotoma albigula Rodent   Control 1977-07-16
+## 2 Neotoma albigula Rodent   Control 1977-08-19
+## 3 Neotoma albigula Rodent   Control 1977-09-13
+## 4 Neotoma albigula Rodent   Control 1977-10-16
+## 5 Neotoma albigula Rodent   Control 1977-11-12
+## 6 Neotoma albigula Rodent   Control 1977-11-12</code></pre>
 <p>To conclude, when it comes to saving data from R that will be loaded
 again in R, saving and loading is the preferred approach. If tabular
 data need to be shared with somebody that is not using R, then
 exporting to a text-based spreadsheet is a good alternative.</p>
 </div>
+</div>
 <div id="additional-exercises-2" class="section level2">
-<h2><span class="header-section-number">3.12</span> Additional exercises</h2>
+<h2><span class="header-section-number">3.11</span> Additional exercises</h2>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -1332,7 +1358,7 @@ to use the <code>quantile</code> function.</p></li>
 <a href="sec-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-02-11
+2019-02-12
 </p>
 </div>
 </div>

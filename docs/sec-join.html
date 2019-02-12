@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-02-11" />
+<meta name="date" content="2019-02-12" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -203,7 +203,7 @@ shown below.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(jdf)</code></pre>
 <p>The example data is composed of pairs of tables (we have tibbles here,
 but this would equally work with dataframes). The first member of the
-pair contains protein <a href="https://www.uniprot.org/">UniProt</a><label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> UniProt is the protein information database. Its mission is to <em>provide the scientific community with a comprehensive, high-quality and freely accessible resource of protein sequence and functional information</em>.</span> unique
+pair contains protein <a href="https://www.uniprot.org/">UniProt</a><label for="tufte-sn-8" class="margin-toggle sidenote-number">8</label><input type="checkbox" id="tufte-sn-8" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">8</span> UniProt is the protein information database. Its mission is to <em>provide the scientific community with a comprehensive, high-quality and freely accessible resource of protein sequence and functional information</em>.</span> unique
 accession number (<code>uniprot</code> variable), the most likely sub-cellular
 localisation of these respective proteins (<code>organelle</code> variable) as
 well as the proteins identifier (<code>entry</code>).</p>
@@ -344,7 +344,7 @@ that are present in only one or both tables.</p>
 <li>An <strong>inner join</strong> keeps observations that are present in both
 tables.</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-181"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-182"></span>
 <p class="caption marginnote shownote">
 Figure 6.1: An inner join matches pairs of observation matching in both tables, this dropping those that are unique to one table. Figure taken from <em>R for Data Science</em>.
 </p>
@@ -357,7 +357,7 @@ Figure 6.1: An inner join matches pairs of observation matching in both tables, 
 (second) table, dropping those that are only present in the other.</li>
 <li>A <strong>full join</strong> keeps all observations.</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-182"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-183"></span>
 <p class="caption marginnote shownote">
 Figure 6.2: Outer joins match observations that appear in at least on table, filling up missing values with <code>NA</code> values. Figure taken from <em>R for Data Science</em>.
 </p>
@@ -523,7 +523,7 @@ between <code>jdf6</code> and <code>jdf7</code>, both having duplicated <code>Q9
 localisation of the protein. <code>jdf7</code> has also two entries, referring to
 two different quantitative measurements (variable <code>measure</code>). When
 joining the duplicated keys, you get all possible combinations.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-183"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-184"></span>
 <p class="caption marginnote shownote">
 Figure 6.3: Joins with duplicated keys in both tables, producing all possible combinations. Figure taken from <em>R for Data Science</em>.
 </p>
@@ -660,7 +660,7 @@ joins using a the full join and filter functions.</p>
 <a href="sec-rr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-02-11
+2019-02-12
 </p>
 </div>
 </div>

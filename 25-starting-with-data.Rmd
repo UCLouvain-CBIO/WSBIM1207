@@ -742,7 +742,9 @@ l[[1]] ## first element
 l[1:2] ## a list of length 2
 l[1]   ## a list of length 1
 ```
-## Exporting tabular data
+## Exporting and saving data {#sec:exportandsave}
+
+### Exporting tabular data {-}
 
 We have seen how to read a text-based spreadsheet into R using the
 `read.table` family of functions. To export a `data.frame` to a
@@ -755,11 +757,10 @@ directory, we would execute:
 ```{r, eval = FALSE}
 write.csv(surveys, file = "data_output/my_surveys.csv")
 ```
-
 This new csv file can now be shared with other collaborators who
 aren't familiar with R.
 
-## Saving data
+### Saving data {-}
 
 Exporting data to a spreadsheet has several limitations, such as those
 described in the first chapter such as possible inconsistencies with
@@ -784,8 +785,24 @@ head(surveys)
 Note about how the function `load` loads the object in the file
 directly in the global environment.
 
+
+There is also the `saveRDS` and `readRDS` functions that save R
+objects to binary files (using the `rds` extension here) and read
+these back into R. From a user's perspective, main different is that,
+`load` loads an object in the gloval environment while `readRDS` reads
+the data from disk and returns it. It is this necessary to store the
+output of `readRDS` in a variable:
+
+```{r}
+saveRDS(surveys, file = "data_output/surveys.rds")
+rm(surveys)
+surveys <- readRDS("data_output/surveys.rds")
+head(surveys)
+```
+
 ```{r echo=FALSE}
-unlink("data_putput/surveys.rda")
+unlink("data_output/surveys.rda")
+unlink("data_output/surveys.rds")
 ```
 
 To conclude, when it comes to saving data from R that will be loaded
