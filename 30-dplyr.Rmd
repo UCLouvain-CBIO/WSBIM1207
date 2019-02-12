@@ -866,3 +866,147 @@ write_csv(surveys_complete, path = "data_output/surveys_complete.csv")
 ```
 
 ## Additional exercises
+
+`r msmbstyle::question_begin()`
+
+We are going to re-analyse beer consumption in 48 individuals using
+`dplyr`. The data are available in the `rWSBIM1207` package. The data
+illustrated the fictive beer consumption in litres per year at
+different age according to gender and employment.
+
+- Load the `rWSBIM1207` package. If the package isn't installed of its
+  version is older than 0.1.1, install it from the
+  `UCLouvain-CBIO/rWSBIM1207' GitHub repository using the
+  `devtools::install_github` function.
+
+- Directly load the data by typing
+
+```{r, eval=FALSE}
+data(beers)
+```
+
+- Remove observations with missing values.
+
+- Using the `Year`, `Month` and `Year` columns, create a new column
+  `Date` using `dplyr::mutate` and `lubridate::ymd`. What is the class
+  of `Date` ?
+
+- Create a new table, containing observations for women older than 35
+  years old, employed, and select all columns except Day, Month and
+  Year, and order in descending value of consumption of beers.
+
+- Export the new table to a `csv` file.
+
+Beer consumption analysis:
+
+- Does working statue have an impact on beer consumption?
+- Do men drink more than women?
+- Does working statue have an influence on beer consumption according
+  to gender?
+- Do men drink more than women according to age and working statue?
+
+
+`r msmbstyle::question_end()`
+
+
+<!-- `r msmbstyle::solution_begin()` -->
+
+<!-- ```{r, message = FALSE} -->
+<!-- library("rWSBIM1207") -->
+<!-- library("dplyr") -->
+<!-- library("magrittr") -->
+<!-- data("beers") -->
+
+<!-- ## Dealing with missing values -->
+<!-- anyNA(beers) -->
+<!-- beers2 <- beers %>% -->
+<!--     filter(!is.na(Consumption)) -->
+
+<!-- anyNA(beers2) -->
+
+<!-- ## New Date variable -->
+<!-- library("lubridate") -->
+<!-- beers2 <- beers2 %>% -->
+<!--     mutate(Date = ymd(paste(beers2$Year, -->
+<!--                         beers2$Month, -->
+<!--                         beers2$Day, sep = "-"))) -->
+<!-- class(beers2$Date) -->
+
+<!-- ## Filter, select and arrange -->
+<!-- tab <- beers2 %>% -->
+<!--     filter(Age > 35) %>% -->
+<!--     filter(Gender == "Female") %>% -->
+<!--     filter(Work == "Employed") %>% -->
+<!--     select(--Day, -Month, -Year) %>% -->
+<!--     arrange(desc(Consumption)) -->
+
+<!-- tab -->
+<!-- ``` -->
+
+<!-- ```{r, eval = FALSE} -->
+<!-- write_csv(tab, file = "data_output/tab.csv") -->
+<!-- ## or -->
+<!-- write.csv(tab, file = "data_output/tab.csv") -->
+<!-- ``` -->
+
+<!-- Beer consumption analysis: -->
+
+<!-- - Does working statue have an impact on beer consumption? -->
+
+<!-- ```{r} -->
+<!-- beers2 %>% -->
+<!--   group_by(Work) %>% -->
+<!--   summarize(mean_consumption = mean(Consumption)) -->
+<!-- ``` -->
+
+<!-- - Do men drink more than women? -->
+
+<!-- ```{r} -->
+<!-- beers2 %>% -->
+<!--   group_by(Gender) %>% -->
+<!--   summarize(mean_consumption = mean(Consumption)) -->
+<!-- ``` -->
+
+<!-- - Does working statue have an influence on beer consumption according -->
+<!--   to gender? -->
+
+<!-- ```{r} -->
+<!-- beers2 %>% -->
+<!--   group_by(Gender, Work) %>% -->
+<!--   summarize(mean_consumption = mean(Consumption)) -->
+<!-- ``` -->
+
+<!-- - Do men drink more than women according to age and working statue? -->
+
+<!-- ```{r} -->
+<!-- beers3 <- beers2 %>% -->
+<!--   group_by(Gender, Age, Work) %>% -->
+<!--     summarize(mean_consumption = mean(Consumption)) -->
+
+<!-- beers3 -->
+<!-- ``` -->
+
+<!-- `r msmbstyle::solution_end()` -->
+
+
+As we can see from the last exercise, it become difficult to read and
+interpret multiple results. In the next chapter, we will see how to
+complement such analysis questions with visualisations such as the
+following one, that clearly highlight important patterns in our data.
+
+
+```{r, results='markup', fig.cap="Visualisation of beer consumption, highlighting different patterns of beer consumption in employed and unemployed males and females.", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("./figs/ggplot-beer.png")
+```
+
+
+<!-- ```{r, echo = FALSE, message = FALSE} -->
+<!-- library("ggplot2") -->
+<!-- ggplot(data = beers3, -->
+<!--        mapping = aes(x = Age, y = mean_consumption, color = Work)) + -->
+<!--   geom_line() + -->
+<!--   geom_point() + -->
+<!--   facet_wrap(~ Gender) + -->
+<!--   labs(title = "Mean consumption of beers according to age, working statue and gender", -->
+<!--        y = "Mean consumption (Litre)") -->
+<!-- ``` -->

@@ -1284,6 +1284,133 @@ folder.</p>
 </div>
 <div id="additional-exercises-3" class="section level2">
 <h2><span class="header-section-number">4.7</span> Additional exercises</h2>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>We are going to re-analyse beer consumption in 48 individuals using
+<code>dplyr</code>. The data are available in the <code>rWSBIM1207</code> package. The data
+illustrated the fictive beer consumption in litres per year at
+different age according to gender and employment.</p>
+<ul>
+<li><p>Load the <code>rWSBIM1207</code> package. If the package isn’t installed of its
+version is older than 0.1.1, install it from the
+<code>UCLouvain-CBIO/rWSBIM1207' GitHub repository using the</code>devtools::install_github` function.</p></li>
+<li><p>Directly load the data by typing</p></li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(beers)</code></pre>
+<ul>
+<li><p>Remove observations with missing values.</p></li>
+<li><p>Using the <code>Year</code>, <code>Month</code> and <code>Year</code> columns, create a new column
+<code>Date</code> using <code>dplyr::mutate</code> and <code>lubridate::ymd</code>. What is the class
+of <code>Date</code> ?</p></li>
+<li><p>Create a new table, containing observations for women older than 35
+years old, employed, and select all columns except Day, Month and
+Year, and order in descending value of consumption of beers.</p></li>
+<li><p>Export the new table to a <code>csv</code> file.</p></li>
+</ul>
+<p>Beer consumption analysis:</p>
+<ul>
+<li>Does working statue have an impact on beer consumption?</li>
+<li>Do men drink more than women?</li>
+<li>Does working statue have an influence on beer consumption according
+to gender?</li>
+<li>Do men drink more than women according to age and working statue?</li>
+</ul>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<!-- 
+
+<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-32' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-32', 'sol-start-32')"></span></p><div class="solution-body" id = "sol-body-32" style="display: none;">
+
+ -->
+<!-- ```{r, message = FALSE} -->
+<!-- library("rWSBIM1207") -->
+<!-- library("dplyr") -->
+<!-- library("magrittr") -->
+<!-- data("beers") -->
+<!-- ## Dealing with missing values -->
+<!-- anyNA(beers) -->
+<!-- beers2 <- beers %>% -->
+<!--     filter(!is.na(Consumption)) -->
+<!-- anyNA(beers2) -->
+<!-- ## New Date variable -->
+<!-- library("lubridate") -->
+<!-- beers2 <- beers2 %>% -->
+<!--     mutate(Date = ymd(paste(beers2$Year, -->
+<!--                         beers2$Month, -->
+<!--                         beers2$Day, sep = "-"))) -->
+<!-- class(beers2$Date) -->
+<!-- ## Filter, select and arrange -->
+<!-- tab <- beers2 %>% -->
+<!--     filter(Age > 35) %>% -->
+<!--     filter(Gender == "Female") %>% -->
+<!--     filter(Work == "Employed") %>% -->
+<!--     select(--Day, -Month, -Year) %>% -->
+<!--     arrange(desc(Consumption)) -->
+<!-- tab -->
+<!-- ``` -->
+<!-- ```{r, eval = FALSE} -->
+<!-- write_csv(tab, file = "data_output/tab.csv") -->
+<!-- ## or -->
+<!-- write.csv(tab, file = "data_output/tab.csv") -->
+<!-- ``` -->
+<!-- Beer consumption analysis: -->
+<!-- - Does working statue have an impact on beer consumption? -->
+<!-- ```{r} -->
+<!-- beers2 %>% -->
+<!--   group_by(Work) %>% -->
+<!--   summarize(mean_consumption = mean(Consumption)) -->
+<!-- ``` -->
+<!-- - Do men drink more than women? -->
+<!-- ```{r} -->
+<!-- beers2 %>% -->
+<!--   group_by(Gender) %>% -->
+<!--   summarize(mean_consumption = mean(Consumption)) -->
+<!-- ``` -->
+<!-- - Does working statue have an influence on beer consumption according -->
+<!--   to gender? -->
+<!-- ```{r} -->
+<!-- beers2 %>% -->
+<!--   group_by(Gender, Work) %>% -->
+<!--   summarize(mean_consumption = mean(Consumption)) -->
+<!-- ``` -->
+<!-- - Do men drink more than women according to age and working statue? -->
+<!-- ```{r} -->
+<!-- beers3 <- beers2 %>% -->
+<!--   group_by(Gender, Age, Work) %>% -->
+<!--     summarize(mean_consumption = mean(Consumption)) -->
+<!-- beers3 -->
+<!-- ``` -->
+<!-- 
+
+<p class="solution-end"><span class="fa fa-square-o solution-icon"></span></p></div></div>
+
+ -->
+<p>As we can see from the last exercise, it become difficult to read and
+interpret multiple results. In the next chapter, we will see how to
+complement such analysis questions with visualisations such as the
+following one, that clearly highlight important patterns in our data.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-174"></span>
+<p class="caption marginnote shownote">
+Figure 4.1: Visualisation of beer consumption, highlighting different patterns of beer consumption in employed and unemployed males and females.
+</p>
+<img src="figs/ggplot-beer.png" alt="Visualisation of beer consumption, highlighting different patterns of beer consumption in employed and unemployed males and females." width="100%"  />
+</div>
+<!-- ```{r, echo = FALSE, message = FALSE} -->
+<!-- library("ggplot2") -->
+<!-- ggplot(data = beers3, -->
+<!--        mapping = aes(x = Age, y = mean_consumption, color = Work)) + -->
+<!--   geom_line() + -->
+<!--   geom_point() + -->
+<!--   facet_wrap(~ Gender) + -->
+<!--   labs(title = "Mean consumption of beers according to age, working statue and gender", -->
+<!--        y = "Mean consumption (Litre)") -->
+<!-- ``` -->
 
 </div>
 </div>
