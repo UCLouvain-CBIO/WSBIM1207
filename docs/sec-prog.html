@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-02-12" />
+<meta name="date" content="2019-02-13" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -177,7 +177,7 @@ science question of interest becomes more complex, the data analysis
 techniques as we have seen them so far need to be complemented with
 programming techniques. From a data science point of view, there is no
 clear delimitation between data analysis and (data) programming, both
-morphing into each other<label for="tufte-sn-14" class="margin-toggle sidenote-number">14</label><input type="checkbox" id="tufte-sn-14" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">14</span> A fundamental difference however is how data analysis and
+morphing into each other<label for="tufte-sn-15" class="margin-toggle sidenote-number">15</label><input type="checkbox" id="tufte-sn-15" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">15</span> A fundamental difference however is how data analysis and
 programming are taught. When it comes to researchers, and
 biomedical researchers in particular, teaching programming to
 analyse data isn’t successful. Teaching data analysis to
@@ -221,7 +221,7 @@ typed and hence the number of bugs, but more importantly enables
 consistency. If something in your code changes, there’s only one
 change and it applies everywhere, rather than doing that same change
 repeatedly (at the first of adding bugs and to miss some updates).</p>
-<p>When writing code, <strong>keep it simple and short</strong><label for="tufte-sn-15" class="margin-toggle sidenote-number">15</label><input type="checkbox" id="tufte-sn-15" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">15</span> The official motto is
+<p>When writing code, <strong>keep it simple and short</strong><label for="tufte-sn-16" class="margin-toggle sidenote-number">16</label><input type="checkbox" id="tufte-sn-16" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">16</span> The official motto is
 <a href="https://en.wikipedia.org/wiki/KISS_principle">KISS</a>, <em>keep your
 functions simple, stupid</em>, widely used in programming.</span>. Ideally, the
 code should be evident. But when the questions tackled are not
@@ -344,7 +344,7 @@ res_apply</code></pre>
 <p>There are three such function that <em>apply</em> a function iteratively:</p>
 <ul>
 <li><p><code>sapply</code> iterates over a vector and returns a new vector of the same
-length as the input vector<label for="tufte-sn-16" class="margin-toggle sidenote-number">16</label><input type="checkbox" id="tufte-sn-16" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">16</span> This is a simplification of how <code>sapply</code> works,
+length as the input vector<label for="tufte-sn-17" class="margin-toggle sidenote-number">17</label><input type="checkbox" id="tufte-sn-17" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">17</span> This is a simplification of how <code>sapply</code> works,
 that is partly defined by the the <code>simplify</code> argument and whether
 the result of applying the function on each element of the input
 can be returned as a vector. The alternative is to return a
@@ -355,7 +355,7 @@ returns a list of the same length as the input.</p></li>
 <code>matrix</code> and returns a list or vector or approritate length (number
 of rows or columns). The dimension over which the iterations
 proceeds is defined by the second argument, where <code>1</code> defines rows
-and <code>2</code> defined columns<label for="tufte-sn-17" class="margin-toggle sidenote-number">17</label><input type="checkbox" id="tufte-sn-17" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">17</span> This generalises to arrays with more than 2 dimensions.</span>.</p></li>
+and <code>2</code> defined columns<label for="tufte-sn-18" class="margin-toggle sidenote-number">18</label><input type="checkbox" id="tufte-sn-18" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">18</span> This generalises to arrays with more than 2 dimensions.</span>.</p></li>
 </ul>
 <p>When performing the same operations in different ways (using different
 implementations), it is essential to verify that the results are
@@ -369,7 +369,7 @@ the former is to use the <code>identical</code> function:</p>
 <p>We must not forget the obvious, which is vectorisation. Many R
 functions work by default iteratively on every element of a vectors,
 i.e. they work irrespectively whether the vector is of length
-1<label for="tufte-sn-18" class="margin-toggle sidenote-number">18</label><input type="checkbox" id="tufte-sn-18" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">18</span> A vector of length 1 would be called a scalar in other
+1<label for="tufte-sn-19" class="margin-toggle sidenote-number">19</label><input type="checkbox" id="tufte-sn-19" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">19</span> A vector of length 1 would be called a scalar in other
 programming languages.</span> or longer.</p>
 <pre class="sourceCode r"><code class="sourceCode r">res_vec &lt;-<span class="st"> </span><span class="kw">log</span>(x)
 res_vec</code></pre>
@@ -418,7 +418,7 @@ one currently processed (typically, if <code>i</code> is the coutner, accessing
 <a href="sec-ccl.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-02-12
+2019-02-13
 </p>
 </div>
 </div>

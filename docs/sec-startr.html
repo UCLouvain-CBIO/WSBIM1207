@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-02-12" />
+<meta name="date" content="2019-02-13" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -183,11 +183,16 @@ troubleshooting with the R user community.</p></li>
 </ul>
 <div id="what-is-r-what-is-rstudio" class="section level2">
 <h2><span class="header-section-number">2.1</span> What is R? What is RStudio?</h2>
-<p>The term <code>R</code> is used to refer to both the programming language and the
-software that interprets the scripts written using it.</p>
-<p><a href="https://rstudio.com">RStudio</a> is currently a very popular way to not only write
-your R scripts but also to interact with the R software. To function correctly,
-RStudio needs R and therefore both need to be installed on your computer.</p>
+<p>The term <a href="https://www.r-project.org/">R</a> is used to refer to both the
+<em>programming language</em>, the <em>environment for statistical computing</em>
+and <em>the software</em> that interprets the scripts written using it.</p>
+<p><a href="https://rstudio.com">RStudio</a> is currently a very popular way to not
+only write your R scripts but also to interact with the R
+software<label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> As opposed to using R directly from the command line
+console. There exist other software that interface and integrate
+with R, but RStudio is particularly well suited for beginners and
+while providing numerous very advanced features.</span>. To function correctly, RStudio needs R and
+therefore both need to be installed on your computer.</p>
 <p>The <a href="https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf">RStudio IDE Cheat
 Sheet</a>
 provides much more information that will be covered here, but can be
@@ -444,7 +449,7 @@ command and return you to the <code>&gt;</code> prompt.</p>
 taste of how you can use R to analyse data for your own
 research. However, you will need to learn more to do advanced
 operations such as cleaning your dataset, using statistical methods,
-or creating beautiful graphics<label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> We will introduce most of these (except statistics)
+or creating beautiful graphics<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> We will introduce most of these (except statistics)
 here, but will only manage to scratch the surface of the wealth of
 what is possible to do with R.</span>. The best way to become proficient and
 efficient at R, as with any other tool, is to use it to address your
@@ -544,7 +549,7 @@ same object as the one in memory:</p>
 file) with your script up to the point of the error (and after
 removing everything that is not relevant to your
 issue). Alternatively, in particular if your question is not related
-to a data frame, you can save any R object to a file<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> See section <a href="sec-startdata.html#sec:exportandsave">3.10</a> for a better
+to a data frame, you can save any R object to a file<label for="tufte-sn-7" class="margin-toggle sidenote-number">7</label><input type="checkbox" id="tufte-sn-7" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">7</span> See section <a href="sec-startdata.html#sec:exportandsave">3.10</a> for a better
 introduction about exporting and saving data.</span>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">saveRDS</span>(iris, <span class="dt">file=</span><span class="st">&quot;/tmp/iris.rds&quot;</span>)</code></pre>
 <p>The content of this file is however not human readable and cannot be posted
@@ -1358,18 +1363,18 @@ another vector. For example, to draw a random order to 10 students
 oral example, I first assign each student a number from 1 to then (for
 instance based on the alphabetic order of their name) and then:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1] 10  5  8  2  6  7  1  9  3  4</code></pre>
+<pre><code>##  [1]  3  5 10  4  2  9  7  6  8  1</code></pre>
 <p>Without further arguments, <code>sample</code> will return a permutation of all
 elements of the vector. If I want a random sample of a certain size, I
 would set this value as second argument. Below, I sample 5 random
 letters from the alphabet contained in the pre-defined <code>letters</code> vector:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(letters, <span class="dv">5</span>)</code></pre>
-<pre><code>## [1] &quot;k&quot; &quot;w&quot; &quot;r&quot; &quot;z&quot; &quot;n&quot;</code></pre>
+<pre><code>## [1] &quot;k&quot; &quot;m&quot; &quot;q&quot; &quot;t&quot; &quot;n&quot;</code></pre>
 <p>If I wanted an output larger than the input vector, or being able to
 draw some elements multiple times, I would need to set the <code>replace</code>
 argument to <code>TRUE</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</code></pre>
-<pre><code>##  [1] 2 2 2 5 2 1 3 3 5 4</code></pre>
+<pre><code>##  [1] 4 4 2 3 4 3 1 2 1 4</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -1400,9 +1405,9 @@ random draw. Observe that you now get the same random draws.</p></li>
 <div id="sol-body-15" class="solution-body" style="display: none;">
 <p>Different permutations</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  8  5 10  6  4  1  9  2  3  7</code></pre>
+<pre><code>##  [1]  5  7  8  1  3  6 10  4  2  9</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  9  5 10  3  6  8  1  2  4  7</code></pre>
+<pre><code>##  [1]  2  5  9  1  7  4 10  8  3  6</code></pre>
 <p>Same permutations with seed 123</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
 <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
@@ -1582,7 +1587,7 @@ and store it in variable <code>m2</code>.</li>
 <a href="sec-startdata.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-02-12
+2019-02-13
 </p>
 </div>
 </div>
