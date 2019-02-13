@@ -605,8 +605,8 @@ correct names of the columns.</p>
 </p>
 <div class="question-body">
 <ol style="list-style-type: decimal">
-<li>Create a <code>data.frame</code> (<code>surveys_200</code>) containing only the data in
-row 200 of the <code>surveys</code> dataset.</li>
+<li><p>Create a <code>data.frame</code> (<code>surveys_200</code>) containing only the data in
+row 200 of the <code>surveys</code> dataset.</p></li>
 <li>Notice how <code>nrow()</code> gave you the number of rows in a <code>data.frame</code>?
 <ul>
 <li>Use that number to pull out just that last row in the data frame.</li>
@@ -615,11 +615,12 @@ sure it’s meeting expectations.</li>
 <li>Pull out that last row using <code>nrow()</code> instead of the row number.</li>
 <li>Create a new data frame (<code>surveys_last</code>) from that last row.</li>
 </ul></li>
-<li>Use <code>nrow()</code> to extract the row that is in the middle of the data
-frame. Store the content of this row in an object named <code>surveys_middle</code>.</li>
-<li>Combine <code>nrow()</code> with the <code>-</code> notation above to reproduce the behavior of
-<code>head(surveys)</code>, keeping just the first through 6th rows of the surveys
-dataset.</li>
+<li><p>Use <code>nrow()</code> to extract the row that is in the middle of the data
+frame. Store the content of this row in an object named
+<code>surveys_middle</code>.</p></li>
+<li><p>Combine <code>nrow()</code> with the <code>-</code> notation above to reproduce the
+behavior of <code>head(surveys)</code>, keeping just the first through 6th
+rows of the surveys dataset.</p></li>
 </ol>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -719,19 +720,24 @@ vector <code>year_fct</code> inside the square brackets</li>
 </div>
 <div id="renaming-factors" class="section level3">
 <h3><span class="header-section-number">3.5.2</span> Renaming factors</h3>
-<p>When your data is stored as a factor, you can use the <code>plot()</code> function to get a
-quick glance at the number of observations represented by each factor
-level. Let’s look at the number of males and females captured over the course of
-the experiment:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## bar plot of the number of females and males captured during the experiment:</span>
-<span class="kw">plot</span>(surveys<span class="op">$</span>sex)</code></pre>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-105-1.png" width="672"  /></p>
-<p>In addition to males and females, there are about 1700 individuals for which the
-sex information hasn’t been recorded. Additionally, for these individuals,
-there is no label to indicate that the information is missing or undetermined. Let’s rename this
-label to something more meaningful. Before doing that, we’re going to pull out
-the data on sex and work with that data, so we’re not modifying the working copy
-of the data frame:</p>
+<p>When your data is stored as a factor, you can use the <code>plot()</code>
+function to get a quick glance at the number of observations
+represented by each factor level. Let’s look at the number of males
+and females captured over the course of the experiment:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(surveys<span class="op">$</span>sex)</code></pre>
+<div class="figure"><span id="fig:firstfactorplot"></span>
+<p class="caption marginnote shownote">
+Figure 3.1: Bar plot of the number of females and males captured during the experiment.
+</p>
+<img src="WSBIM1207_files/figure-html/firstfactorplot-1.png" alt="Bar plot of the number of females and males captured during the experiment." width="672"  />
+</div>
+<p>In addition to males and females, there are about 1700 individuals for
+which the sex information hasn’t been recorded. Additionally, for
+these individuals, there is no label to indicate that the information
+is missing or undetermined. Let’s rename this label to something more
+meaningful. Before doing that, we’re going to pull out the data on sex
+and work with that data, so we’re not modifying the working copy of
+the data frame:</p>
 <pre class="sourceCode r"><code class="sourceCode r">sex &lt;-<span class="st"> </span>surveys<span class="op">$</span>sex
 <span class="kw">head</span>(sex)</code></pre>
 <pre><code>## [1] M M        
@@ -769,7 +775,7 @@ recreate the barplot such that “undetermined” is last (after
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(sex)[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>)
 sex &lt;-<span class="st"> </span><span class="kw">factor</span>(sex, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>, <span class="st">&quot;undetermined&quot;</span>))
 <span class="kw">plot</span>(sex)</code></pre>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-107-1.png" width="672"  /></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-105-1.png" width="672"  /></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
