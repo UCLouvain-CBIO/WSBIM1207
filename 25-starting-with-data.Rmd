@@ -93,11 +93,15 @@ head(surveys)
 > functions for the main `read.table()` function with different
 > arguments.  As such, the surveys data above could have also been
 > loaded by using `read.table()` with the separation argument as
-> `,`. The code is as follows: `surveys <-
-> read.table(file="data/portal_data_joined.csv", sep=",",
-> header=TRUE)`.  The header argument has to be set to TRUE to be able
-> to read the headers as by default `read.table()` has the header
-> argument set to FALSE.
+> `,`. The code is as follows:
+
+```
+surveys <- read.table(file="data/portal_data_joined.csv", sep=",", header=TRUE)
+```
+
+> The header argument has to be set to TRUE to be able to read the
+> headers as by default `read.table()` has the header argument set to
+> FALSE.
 
 ## What are data frames?
 
@@ -130,74 +134,62 @@ We already saw how the functions `head()` and `str()` can be useful to check the
 content and the structure of a data frame. Here is a non-exhaustive list of
 functions to get a sense of the content/structure of the data. Let's try them out!
 
-* Size:
-    * `dim(surveys)` - returns a vector with the number of rows in the first element,
-          and the number of columns as the second element (the **dim**ensions of
-          the object)
-    * `nrow(surveys)` - returns the number of rows
-    * `ncol(surveys)` - returns the number of columns
+**Size**:
 
-* Content:
-    * `head(surveys)` - shows the first 6 rows
-    * `tail(surveys)` - shows the last 6 rows
+- `dim(surveys)` - returns a vector with the number of rows in the
+   first element, and the number of columns as the second element (the
+   **dim**ensions of the object)
+- `nrow(surveys)` - returns the number of rows
+- `ncol(surveys)` - returns the number of columns
 
-* Names:
-    * `names(surveys)` - returns the column names (synonym of `colnames()` for `data.frame`
-           objects)
-    * `rownames(surveys)` - returns the row names
+**Content**:
 
-* Summary:
-    * `str(surveys)` - structure of the object and information about the class, length and
-           content of  each column
-    * `summary(surveys)` - summary statistics for each column
+- `head(surveys)` - shows the first 6 rows
+- `tail(surveys)` - shows the last 6 rows
+
+**Names**:
+
+- `names(surveys)` - returns the column names (synonym of `colnames()`
+   for `data.frame` objects)
+- `rownames(surveys)` - returns the row names
+
+**Summary**:
+
+- `str(surveys)` - structure of the object and information about the
+  class, length and content of each column
+- `summary(surveys)` - summary statistics for each column
+
 
 Note: most of these functions are "generic", they can be used on other types of
 objects besides `data.frame`.
 
 
-> **Challenge**
->
-> Based on the output of `str(surveys)`, can you answer the following questions?
->
-> * What is the class of the object `surveys`?
-> * How many rows and how many columns are in this object?
-> * How many species have been recorded during these surveys?
->
-> ```{r, answer=TRUE, results="markup", purl=FALSE}
->
-> str(surveys)
->
-> ## * class: data frame
-> ## * how many rows: 34786,  how many columns: 13
-> ## * how many species: 48
->
-> ```
+`r msmbstyle::question_begin()`
+
+Based on the output of `str(surveys)`, can you answer the following
+questions?
+
+- What is the class of the object `surveys`?
+- How many rows and how many columns are in this object?
+- How many species have been recorded during these surveys?
+
+`r msmbstyle::question_end()`
 
 
-```{r, echo=FALSE, purl=TRUE}
-
-## Challenge
-## Based on the output of `str(surveys)`, can you answer the following questions?
-## * What is the class of the object `surveys`?
-## * How many rows and how many columns are in this object?
-## * How many species have been recorded during these surveys?
-
-```
+`r msmbstyle::solution_begin()`
+- class: data frame
+- how many rows: 34786,  how many columns: 13
+- how many species: 48
+`r msmbstyle::solution_end()`
 
 
 ## Indexing and subsetting data frames
 
-```{r, echo=FALSE, purl=TRUE}
-
-## Indexing and subsetting data frames
-```
-
-
-Our survey data frame has rows and columns (it has 2 dimensions), if we want to
-extract some specific data from it, we need to specify the "coordinates" we
-want from it. Row numbers come first, followed by column numbers. However, note
-that different ways of specifying these coordinates lead to results with
-different classes.
+Our survey data frame has rows and columns (it has 2 dimensions), if
+we want to extract some specific data from it, we need to specify the
+"coordinates" we want from it. Row numbers come first, followed by
+column numbers. However, note that different ways of specifying these
+coordinates lead to results with different classes.
 
 
 ```{r, purl=FALSE}
