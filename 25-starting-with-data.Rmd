@@ -219,7 +219,8 @@ surveys[, -1]          # The whole data frame, except the first column
 surveys[-c(7:34786), ] # Equivalent to head(surveys)
 ```
 
-Data frames can be subset by calling indices (as shown previously), but also by calling their column names directly:
+Data frames can be subset by calling indices (as shown previously),
+but also by calling their column names directly:
 
 ```{r, eval = FALSE, purl=FALSE}
 surveys["species_id"]       # Result is a data.frame
@@ -228,29 +229,29 @@ surveys[["species_id"]]     # Result is a vector
 surveys$species_id          # Result is a vector
 ```
 
-In RStudio, you can use the autocompletion feature to get the full and correct names of the columns.
+In RStudio, you can use the autocompletion feature to get the full and
+correct names of the columns.
 
-> **Challenge**
->
-> 1. Create a `data.frame` (`surveys_200`) containing only the data in
->    row 200 of the `surveys` dataset.
->
-> 2. Notice how `nrow()` gave you the number of rows in a `data.frame`?
->
->      * Use that number to pull out just that last row in the data frame.
->      * Compare that with what you see as the last row using `tail()` to make
->        sure it's meeting expectations.
->      * Pull out that last row using `nrow()` instead of the row number.
->      * Create a new data frame (`surveys_last`) from that last row.
->
-> 3. Use `nrow()` to extract the row that is in the middle of the data
->    frame. Store the content of this row in an object named `surveys_middle`.
->
-> 4. Combine `nrow()` with the `-` notation above to reproduce the behavior of
->    `head(surveys)`, keeping just the first through 6th rows of the surveys
->    dataset.
->
-> ```{r, answer=TRUE, purl=FALSE}
+`r msmbstyle::question_begin()`
+
+1. Create a `data.frame` (`surveys_200`) containing only the data in
+   row 200 of the `surveys` dataset.
+2. Notice how `nrow()` gave you the number of rows in a `data.frame`?
+     * Use that number to pull out just that last row in the data frame.
+     * Compare that with what you see as the last row using `tail()` to make
+       sure it's meeting expectations.
+     * Pull out that last row using `nrow()` instead of the row number.
+     * Create a new data frame (`surveys_last`) from that last row.
+3. Use `nrow()` to extract the row that is in the middle of the data
+   frame. Store the content of this row in an object named `surveys_middle`.
+4. Combine `nrow()` with the `-` notation above to reproduce the behavior of
+   `head(surveys)`, keeping just the first through 6th rows of the surveys
+   dataset.
+
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+> ```{r}
 > ## 1.
 > surveys_200 <- surveys[200, ]
 > ## 2.
@@ -262,37 +263,10 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 > ## 4.
 > surveys_head <- surveys[-(7:n_rows), ]
 > ```
-
-
-```{r, echo=FALSE, purl=TRUE}
-### Challenges:
-###
-### 1. Create a `data.frame` (`surveys_200`) containing only the
-###    data in row 200 of the `surveys` dataset.
-###
-### 2. Notice how `nrow()` gave you the number of rows in a `data.frame`?
-###
-###      * Use that number to pull out just that last row in the data frame
-###      * Compare that with what you see as the last row using `tail()` to make
-###        sure it's meeting expectations.
-###      * Pull out that last row using `nrow()` instead of the row number
-###      * Create a new data frame object (`surveys_last`) from that last row
-###
-### 3. Use `nrow()` to extract the row that is in the middle of the
-###    data frame. Store the content of this row in an object named
-###    `surveys_middle`.
-###
-### 4. Combine `nrow()` with the `-` notation above to reproduce the behavior of
-###    `head(surveys)`, keeping just the first through 6th rows of the surveys
-###    dataset.
-
-```
+`r msmbstyle::solution_end()`
 
 ## Factors
 
-```{r, echo=FALSE, purl=TRUE}
-### Factors
-```
 
 When we did `str(surveys)` we saw that several of the columns consist of
 integers. The columns `genus`, `species`, `sex`, `plot_type`, ... however, are
@@ -374,13 +348,14 @@ Notice that in the `levels()` approach, three important steps occur:
 
 ### Renaming factors
 
-When your data is stored as a factor, you can use the `plot()` function to get a
-quick glance at the number of observations represented by each factor
-level. Let's look at the number of males and females captured over the course of
-the experiment:
+When your data is stored as a factor, you can use the `plot()`
+function to get a quick glance at the number of observations
+represented by each factor level. Let's look at the number of males
+and females captured over the course of the experiment:
 
 ```{r, purl=TRUE}
-## bar plot of the number of females and males captured during the experiment:
+## bar plot of the number of females and males captured during the
+## experiment:
 plot(surveys$sex)
 ```
 
@@ -400,27 +375,25 @@ levels(sex)
 head(sex)
 ```
 
+`r msmbstyle::question_begin()`
 
-> **Challenge**
->
-> * Rename "F" and "M" to "female" and "male" respectively.
-> * Now that we have renamed the factor level to "undetermined", can you recreate the
->  barplot such that "undetermined" is last (after "male")?
->
-> ```{r, answer=TRUE, purl=FALSE}
-> levels(sex)[2:3] <- c("female", "male")
-> sex <- factor(sex, levels = c("female", "male", "undetermined"))
-> plot(sex)
-> ```
+- Rename "F" and "M" to "female" and "male" respectively.
 
+- Now that we have renamed the factor level to "undetermined", can you
+  recreate the barplot such that "undetermined" is last (after
+  "male")?
 
-```{r wrong-order, results='show', echo=FALSE, purl=TRUE}
-## Challenges
-##
-## * Rename "F" and "M" to "female" and "male" respectively.
-## * Now that we have renamed the factor level to "undetermined", can you recreate the
-##   barplot such that "undetermined" is last (after "male")
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+
+```{r, answer=TRUE, purl=FALSE}
+levels(sex)[2:3] <- c("female", "male")
+sex <- factor(sex, levels = c("female", "male", "undetermined"))
+plot(sex)
 ```
+
+`r msmbstyle::solution_end()`
 
 
 ### Using `stringsAsFactors=FALSE`
