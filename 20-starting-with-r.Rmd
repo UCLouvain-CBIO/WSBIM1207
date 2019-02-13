@@ -86,7 +86,7 @@ genetics, and a lot more.
 
 [^whatarepkgs]: i.e. add-ons that confer R with new functionality,
     such as bioinformatics data analysis - see chapter
-    \@ref(sec:sec:bioinfo)
+    \@ref(sec:bioinfo)
 
 ### R works on data of all shapes and sizes {-}
 
@@ -130,22 +130,21 @@ Let's start by learning about [RStudio](https://www.rstudio.com/),
 which is an Integrated Development Environment (IDE) for working with
 R.
 
-The RStudio IDE open-source product is free under the
-[Affero General Public License (AGPL) v3](https://www.gnu.org/licenses/agpl-3.0.en.html).
-The RStudio IDE is also available with a commercial license and priority email
-support from RStudio, Inc.
+The RStudio IDE open-source product is free under the [Affero General
+Public License (AGPL) v3](https://www.gnu.org/licenses/agpl-3.0.en.html).
+The RStudio IDE is also available with a commercial license and
+priority email support from RStudio, Inc.
 
-We will use RStudio IDE to write code, navigate the files on our computer,
-inspect the variables we are going to create, and visualize the plots we will
-generate. RStudio can also be used for other things (e.g., version control,
-developing packages, writing Shiny apps) that we will not cover during the
-workshop.
+We will use RStudio IDE to write code, navigate the files on our
+computer, inspect the variables we are going to create, and visualize
+the plots we will generate. RStudio can also be used for other things
+(e.g., version control, developing packages, writing Shiny apps) that
+we will not cover during the workshop.
 
 
 ```{r, results='markup', fig.cap="RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("./figs/rstudio-screenshot.png")
 ```
-
 
 RStudio is divided into 4 "Panes":
 

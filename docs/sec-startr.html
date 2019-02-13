@@ -235,7 +235,7 @@ chapter <a href="sec-rr.html#sec:rr">7</a>.</p>
 <h3>R is interdisciplinary and extensible</h3>
 <p>With 10000+ packages<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> i.e. add-ons that confer R with new functionality,
 such as bioinformatics data analysis - see chapter
-<a href="#sec:sec:bioinfo"><strong>??</strong></a></span> that can be installed to extend its
+<a href="sec-bioinfo.html#sec:bioinfo">8</a></span> that can be installed to extend its
 capabilities, R provides a framework that allows you to combine
 statistical approaches from many scientific disciplines to best suit
 the analytical framework you need to analyze your data. For instance,
@@ -279,15 +279,15 @@ someone else) find some, you can report and fix bugs.</p>
 <p>Let’s start by learning about <a href="https://www.rstudio.com/">RStudio</a>,
 which is an Integrated Development Environment (IDE) for working with
 R.</p>
-<p>The RStudio IDE open-source product is free under the
-<a href="https://www.gnu.org/licenses/agpl-3.0.en.html">Affero General Public License (AGPL) v3</a>.
-The RStudio IDE is also available with a commercial license and priority email
-support from RStudio, Inc.</p>
-<p>We will use RStudio IDE to write code, navigate the files on our computer,
-inspect the variables we are going to create, and visualize the plots we will
-generate. RStudio can also be used for other things (e.g., version control,
-developing packages, writing Shiny apps) that we will not cover during the
-workshop.</p>
+<p>The RStudio IDE open-source product is free under the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">Affero General
+Public License (AGPL) v3</a>.
+The RStudio IDE is also available with a commercial license and
+priority email support from RStudio, Inc.</p>
+<p>We will use RStudio IDE to write code, navigate the files on our
+computer, inspect the variables we are going to create, and visualize
+the plots we will generate. RStudio can also be used for other things
+(e.g., version control, developing packages, writing Shiny apps) that
+we will not cover during the workshop.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-19"></span>
 <p class="caption marginnote shownote">
 Figure 2.1: RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.
@@ -1379,18 +1379,18 @@ another vector. For example, to draw a random order to 10 students
 oral example, I first assign each student a number from 1 to then (for
 instance based on the alphabetic order of their name) and then:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  9  1  4  8  2  5  7 10  6  3</code></pre>
+<pre><code>##  [1] 10  3  8  1  4  7  9  5  2  6</code></pre>
 <p>Without further arguments, <code>sample</code> will return a permutation of all
 elements of the vector. If I want a random sample of a certain size, I
 would set this value as second argument. Below, I sample 5 random
 letters from the alphabet contained in the pre-defined <code>letters</code> vector:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(letters, <span class="dv">5</span>)</code></pre>
-<pre><code>## [1] &quot;m&quot; &quot;b&quot; &quot;l&quot; &quot;c&quot; &quot;i&quot;</code></pre>
+<pre><code>## [1] &quot;d&quot; &quot;b&quot; &quot;n&quot; &quot;s&quot; &quot;j&quot;</code></pre>
 <p>If I wanted an output larger than the input vector, or being able to
 draw some elements multiple times, I would need to set the <code>replace</code>
 argument to <code>TRUE</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</code></pre>
-<pre><code>##  [1] 5 1 2 3 3 4 5 4 1 3</code></pre>
+<pre><code>##  [1] 1 2 1 2 2 4 1 5 2 4</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -1421,9 +1421,9 @@ random draw. Observe that you now get the same random draws.</p></li>
 <div id="sol-body-15" class="solution-body" style="display: none;">
 <p>Different permutations</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1] 10  1  2  8  5  3  4  7  9  6</code></pre>
+<pre><code>##  [1]  6  1  4  8  9  2  7  5 10  3</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  6  5  1  9  8 10  2  4  7  3</code></pre>
+<pre><code>##  [1] 10  8  4  2  9  6  7  1  3  5</code></pre>
 <p>Same permutations with seed 123</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
 <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
