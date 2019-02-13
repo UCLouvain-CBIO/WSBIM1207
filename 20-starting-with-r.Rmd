@@ -275,57 +275,61 @@ Alternatively you can use `setwd("/path/to/working/directory")` to
 reset your working directory. However, your scripts should not include
 this line because it will fail on someone else's computer.
 
-
 ## Interacting with R
 
-The basis of programming is that we write down instructions for the computer to
-follow, and then we tell the computer to follow those instructions. We write, or
-*code*, instructions in R because it is a common language that both the computer
-and we can understand. We call the instructions *commands* and we tell the
-computer to follow the instructions by *executing* (also called *running*) those
-commands.
+The basis of programming is that we write down instructions for the
+computer to follow, and then we tell the computer to follow those
+instructions. We write, or *code*, instructions in R because it is a
+common language that both the computer and we can understand. We call
+the instructions *commands* and we tell the computer to follow the
+instructions by *executing* (also called *running*) those commands.
 
-There are two main ways of interacting with R: by using the console or by using
-script files (plain text files that contain your code). The console pane (in
-RStudio, the bottom left panel) is the place where commands written in the R
-language can be typed and executed immediately by the computer. It is also where
-the results will be shown for commands that have been executed. You can type
-commands directly into the console and press `Enter` to execute those commands,
-but they will be forgotten when you close the session.
+There are two main ways of interacting with R: by using the
+**console** or by using **scripts** (plain text files that contain
+your code). The console pane (in RStudio, the bottom left panel) is
+the place where commands written in the R language can be typed and
+executed immediately by the computer. It is also where the results
+will be shown for commands that have been executed. You can type
+commands directly into the console and press `Enter` to execute those
+commands, but they will be forgotten when you close the session.
 
-Because we want our code and workflow to be reproducible, it is better to type
-the commands we want in the script editor, and save the script. This way, there
-is a complete record of what we did, and anyone (including our future selves!)
-can easily replicate the results on their computer.
+Because we want our code and workflow to be reproducible, it is better
+to type the commands we want in the script editor, and save the
+script. This way, there is a complete record of what we did, and
+anyone (including our future selves!)  can easily replicate the
+results on their computer.
 
-RStudio allows you to execute commands directly from the script editor by using
-the <kbd>`Ctrl`</kbd> + <kbd>`Enter`</kbd> shortcut (on Macs, <kbd>`Cmd`</kbd> +
-<kbd>`Return`</kbd> will work, too). The command on the current line in the
-script (indicated by the cursor) or all of the commands in the currently
-selected text will be sent to the console and executed when you press
-<kbd>`Ctrl`</kbd> + <kbd>`Enter`</kbd>. You can find other keyboard shortcuts in this [RStudio cheatsheet about the RStudio IDE](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf).
+RStudio allows you to execute commands directly from the script editor
+by using the `Ctrl` + `Enter` shortcut (on Macs, `Cmd` + `Return` will
+work, too). The command on the current line in the script (indicated
+by the cursor) or all of the commands in the currently selected text
+will be sent to the console and executed when you press `Ctrl` +
+`Enter`. You can find other keyboard shortcuts in this [RStudio
+cheatsheet about the RStudio
+IDE](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf).
 
-At some point in your analysis you may want to check the content of a variable
-or the structure of an object, without necessarily keeping a record of it in
-your script. You can type these commands and execute them directly in the
-console.  RStudio provides the <kbd>`Ctrl`</kbd> + <kbd>`1`</kbd> and
-<kbd>`Ctrl`</kbd> + <kbd>`2`</kbd> shortcuts allow you to jump between the
-script and the console panes.
+At some point in your analysis you may want to check the content of a
+variable or the structure of an object, without necessarily keeping a
+record of it in your script. You can type these commands and execute
+them directly in the console.  RStudio provides the `Ctrl` + `1` and
+`Ctrl` + `2` shortcuts allow you to jump between the script and the
+console panes.
 
-If R is ready to accept commands, the R console shows a `>` prompt. If it
-receives a command (by typing, copy-pasting or sent from the script editor using
-<kbd>`Ctrl`</kbd> + <kbd>`Enter`</kbd>), R will try to execute it, and when
-ready, will show the results and come back with a new `>` prompt to wait for new
-commands.
+If R is ready to accept commands, the R console shows a `>` prompt. If
+it receives a command (by typing, copy-pasting or sent from the script
+editor using `Ctrl` + `Enter`), R will try to execute it, and when
+ready, will show the results and come back with a new `>` prompt to
+wait for new commands.
 
-If R is still waiting for you to enter more data because it isn't complete yet,
-the console will show a `+` prompt. It means that you haven't finished entering
-a complete command. This is because you have not 'closed' a parenthesis or
-quotation, i.e. you don't have the same number of left-parentheses as
-right-parentheses, or the same number of opening and closing quotation marks.
-When this happens, and you thought you finished typing your command, click
-inside the console window and press <kbd>`Esc`</kbd>; this will cancel the incomplete
-command and return you to the `>` prompt.
+If R is still waiting for you to enter more data because it isn't
+complete yet, the console will show a `+` prompt. It means that you
+haven't finished entering a complete command. This is because you have
+not 'closed' a parenthesis or quotation, i.e. you don't have the same
+number of left-parentheses as right-parentheses, or the same number of
+opening and closing quotation marks.  When this happens, and you
+thought you finished typing your command, click inside the console
+window and press `Esc`; this will cancel the incomplete command and
+return you to the `>` prompt.
 
 
 ## How to learn more after the course?
@@ -334,12 +338,12 @@ The material we cover during this course will give you an initial
 taste of how you can use R to analyse data for your own
 research. However, you will need to learn more to do advanced
 operations such as cleaning your dataset, using statistical methods,
-or creating beautiful graphics[^inthiscoure]. The best way to become proficient and
-efficient at R, as with any other tool, is to use it to address your
-actual research questions. As a beginner, it can feel daunting to have
-to write a script from scratch, and given that many people make their
-code available online, modifying existing code to suit your purpose
-might make it easier for you to get started.
+or creating beautiful graphics[^inthiscoure]. The best way to become
+proficient and efficient at R, as with any other tool, is to use it to
+address your actual research questions. As a beginner, it can feel
+daunting to have to write a script from scratch, and given that many
+people make their code available online, modifying existing code to
+suit your purpose might make it easier for you to get started.
 
 [^inthiscoure]: We will introduce most of these (except statistics)
     here, but will only manage to scratch the surface of the wealth of
@@ -348,7 +352,6 @@ might make it easier for you to get started.
 ```{r kitten, results='markup', echo=FALSE, purl=FALSE, out.width='400px', fig.align='center'}
 knitr::include_graphics("./figs/kitten-try-things.jpg")
 ```
-
 
 ## Seeking help
 
@@ -424,31 +427,36 @@ but it is full of useful information.
 
 ### Asking for help {-}
 
-The key to receiving help from someone is for them to rapidly grasp your
-problem. You should make it as easy as possible to pinpoint where the issue
-might be.
+The key to receiving help from someone is for them to rapidly grasp
+your problem. You should make it as easy as possible to pinpoint where
+the issue might be.
 
-Try to use the correct words to describe your problem. For instance, a package
-is not the same thing as a library. Most people will understand what you meant,
-but others have really strong feelings about the difference in meaning. The key
-point is that it can make things confusing for people trying to help you. Be as
-precise as possible when describing your problem.
+Try to use the correct words to describe your problem. For instance, a
+package is not the same thing as a library. Most people will
+understand what you meant, but others have really strong feelings
+about the difference in meaning. The key point is that it can make
+things confusing for people trying to help you. Be as precise as
+possible when describing your problem.
 
 If possible, try to reduce what doesn't work to a simple *reproducible
-example*. If you can reproduce the problem using a very small data frame
-instead of your 50,000 rows and 10,000 columns one, provide the small one with
-the description of your problem. When appropriate, try to generalize what you
-are doing so even people who are not in your field can understand the
-question. For instance instead of using a subset of your real dataset, create a
-small (3 columns, 5 rows) generic one. For more information on how to write a
-reproducible example see [this article by Hadley Wickham](http://adv-r.had.co.nz/Reproducibility.html).
+example*. If you can reproduce the problem using a very small data
+frame instead of your 50000 rows and 10000 columns one, provide the
+small one with the description of your problem. When appropriate, try
+to generalize what you are doing so even people who are not in your
+field can understand the question. For instance instead of using a
+subset of your real dataset, create a small (3 columns, 5 rows)
+generic one. For more information on how to write a reproducible
+example see [this article by Hadley
+Wickham](http://adv-r.had.co.nz/Reproducibility.html).
 
-To share an object with someone else, if it's relatively small, you can use the
-function `dput()`. It will output R code that can be used to recreate the exact
-same object as the one in memory:
+To share an object with someone else, if it's relatively small, you
+can use the function `dput()`. It will output R code that can be used
+to recreate the exact same object as the one in memory:
 
 ```{r, results='show', purl=FALSE}
-dput(head(iris)) # iris is an example data frame that comes with R and head() is a function that returns the first part of the data frame
+## iris is an example data frame that comes with R and head() is a
+## function that returns the first part of the data frame
+dput(head(iris))
 ```
 
 If the object is larger, provide either the raw file (i.e., your CSV
@@ -464,10 +472,11 @@ saveRDS(iris, file="/tmp/iris.rds")
 [^export]: See section \@ref(sec:exportandsave) for a better
     introduction about exporting and saving data.
 
-The content of this file is however not human readable and cannot be posted
-directly on Stack Overflow. Instead, it can be sent to someone by email who can
-read it with the `readRDS()` command (here it is assumed that the downloaded
-file is in a `Downloads` folder in the user's home directory):
+The content of this file is however not human readable and cannot be
+posted directly on Stack Overflow. Instead, it can be sent to someone
+by email who can read it with the `readRDS()` command (here it is
+assumed that the downloaded file is in a `Downloads` folder in the
+user's home directory):
 
 ```{r, eval=FALSE, purl=FALSE}
 some_data <- readRDS(file="~/Downloads/iris.rds")
@@ -484,32 +493,36 @@ sessionInfo()
 
 ### Where to ask for help? {-}
 
-* The person sitting next to you during the workshop. Don't hesitate to talk to
-  your neighbor during the workshop, compare your answers, and ask for
-  help. You might also be interested in organizing regular meetings following
-  the workshop to keep learning from each other.
-* Your friendly colleagues: if you know someone with more experience than you,
-  they might be able and willing to help you.
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/r): if your question
-  hasn't been answered before and is well crafted, chances are you will get an
-  answer in less than 5 min. Remember to follow their guidelines on [how to ask
-  a good question](http://stackoverflow.com/help/how-to-ask).
-* The [R-help mailing list](https://stat.ethz.ch/mailman/listinfo/r-help): it is
-  read by a lot of people (including most of the R core team), a lot of people
-  post to it, but the tone can be pretty dry, and it is not always very
-  welcoming to new users. If your question is valid, you are likely to get an
-  answer very fast but don't expect that it will come with smiley faces. Also,
-  here more than anywhere else, be sure to use correct vocabulary (otherwise
-  you might get an answer pointing to the misuse of your words rather than
-  answering your question). You will also have more success if your question is
-  about a base function rather than a specific package.
-* If your question is about a specific package, see if there is a mailing list
-  for it. Usually it's included in the DESCRIPTION file of the package that can
-  be accessed using `packageDescription("name-of-package")`. You may also want
-  to try to email the author of the package directly, or open an issue on the
+* The person sitting next to you during the course. Don't hesitate to
+  talk to your neighbour during the workshop, compare your answers,
+  and ask for help.
+* Your friendly colleagues: if you know someone with more experience
+  than you, they might be able and willing to help you.
+* [Stack Overflow](http://stackoverflow.com/questions/tagged/r): if
+  your question hasn't been answered before and is well crafted,
+  chances are you will get an answer in less than 5 min. Remember to
+  follow their guidelines on [how to ask a good
+  question](http://stackoverflow.com/help/how-to-ask).
+* The [R-help mailing
+  list](https://stat.ethz.ch/mailman/listinfo/r-help): it is read by a
+  lot of people (including most of the R core team), a lot of people
+  post to it, but the tone can be pretty dry, and it is not always
+  very welcoming to new users. If your question is valid, you are
+  likely to get an answer very fast but don't expect that it will come
+  with smiley faces. Also, here more than anywhere else, be sure to
+  use correct vocabulary (otherwise you might get an answer pointing
+  to the misuse of your words rather than answering your
+  question). You will also have more success if your question is about
+  a base function rather than a specific package.
+* If your question is about a specific package, see if there is a
+  mailing list for it. Usually it's included in the DESCRIPTION file
+  of the package that can be accessed using
+  `packageDescription("name-of-package")`. You may also want to try to
+  email the author of the package directly, or open an issue on the
   code repository (e.g., GitHub).
-* There are also some topic-specific mailing lists (GIS, phylogenetics, etc...),
-  the complete list is [here](http://www.r-project.org/mail.html).
+* There are also some topic-specific mailing lists (GIS,
+  phylogenetics, etc...), the complete list is
+  [here](http://www.r-project.org/mail.html).
 
 ### More resources {-}
 
@@ -626,30 +639,34 @@ single keystroke in a PC, while typing <kbd>Option</kbd> +
 <kbd>-</kbd> (push <kbd>Option</kbd> at the same time as the
 <kbd>-</kbd> key) does the same in a Mac.
 
+### Naming variables
+
 Objects can be given any name such as `x`, `current_temperature`, or
-`subject_id`. You want your object names to be explicit and not too long. They
-cannot start with a number (`2x` is not valid, but `x2` is). R is case sensitive
-(e.g., `weight_kg` is different from `Weight_kg`). There are some names that
-cannot be used because they are the names of fundamental functions in R (e.g.,
-`if`, `else`, `for`, see
+`subject_id`. You want your object names to be explicit and not too
+long. They cannot start with a number (`2x` is not valid, but `x2`
+is). R is case sensitive (e.g., `weight_kg` is different from
+`Weight_kg`). There are some names that cannot be used because they
+are the names of fundamental functions in R (e.g., `if`, `else`,
+`for`, see
 [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html)
-for a complete list). In general, even if it's allowed, it's best to not use
-other function names (e.g., `c`, `T`, `mean`, `data`, `df`, `weights`). If in
-doubt, check the help to see if the name is already in use. It's also best to
-avoid dots (`.`) within an object name as in `my.dataset`. There are many
-functions in R with dots in their names for historical reasons, but because dots
-have a special meaning in R (for methods) and other programming languages, it's
-best to avoid them. It is also recommended to use nouns for object names, and
-verbs for function names. It's important to be consistent in the styling of your
-code (where you put spaces, how you name objects, etc.). Using a consistent
-coding style makes your code clearer to read for your future self and your
-collaborators. In R, three popular style guides are
-[Google's](https://google.github.io/styleguide/Rguide.xml), [Jean
+for a complete list). In general, even if it's allowed, it's best to
+not use other function names (e.g., `c`, `T`, `mean`, `data`, `df`,
+`weights`). If in doubt, check the help to see if the name is already
+in use. It's also best to avoid dots (`.`) within an object name as in
+`my.dataset`. There are many functions in R with dots in their names
+for historical reasons, but because dots have a special meaning in R
+(for methods) and other programming languages, it's best to avoid
+them. It is also recommended to use nouns for object names, and verbs
+for function names. It's important to be consistent in the styling of
+your code (where you put spaces, how you name objects, etc.). Using a
+consistent coding style makes your code clearer to read for your
+future self and your collaborators. In R, three popular style guides
+are [Google's](https://google.github.io/styleguide/Rguide.xml), [Jean
 Fan's](http://jef.works/R-style-guide/) and the
 [tidyverse's](http://style.tidyverse.org/). The tidyverse's is very
 comprehensive and may seem overwhelming at first. You can install the
-[**`lintr`**](https://github.com/jimhester/lintr) package to automatically check
-for issues in the styling of your code.
+[**`lintr`**](https://github.com/jimhester/lintr) package to
+automatically check for issues in the styling of your code.
 
 > **Objects vs. variables**
 >
@@ -698,7 +715,12 @@ and then change `weight_kg` to 100.
 weight_kg <- 100
 ```
 
-What do you think is the current content of the object `weight_lb`? 126.5 or 220?
+`r msmbstyle::question_begin()`
+
+What do you think is the current content of the object `weight_lb`?
+126.5 or 220?
+
+`r msmbstyle::question_end()`
 
 ### Comments
 

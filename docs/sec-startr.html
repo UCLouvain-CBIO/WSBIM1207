@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-02-13" />
+<meta name="date" content="2019-02-14" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -429,48 +429,53 @@ this line because it will fail on someone else’s computer.</p>
 </div>
 <div id="interacting-with-r" class="section level2">
 <h2><span class="header-section-number">2.5</span> Interacting with R</h2>
-<p>The basis of programming is that we write down instructions for the computer to
-follow, and then we tell the computer to follow those instructions. We write, or
-<em>code</em>, instructions in R because it is a common language that both the computer
-and we can understand. We call the instructions <em>commands</em> and we tell the
-computer to follow the instructions by <em>executing</em> (also called <em>running</em>) those
-commands.</p>
-<p>There are two main ways of interacting with R: by using the console or by using
-script files (plain text files that contain your code). The console pane (in
-RStudio, the bottom left panel) is the place where commands written in the R
-language can be typed and executed immediately by the computer. It is also where
-the results will be shown for commands that have been executed. You can type
-commands directly into the console and press <code>Enter</code> to execute those commands,
-but they will be forgotten when you close the session.</p>
-<p>Because we want our code and workflow to be reproducible, it is better to type
-the commands we want in the script editor, and save the script. This way, there
-is a complete record of what we did, and anyone (including our future selves!)
-can easily replicate the results on their computer.</p>
-<p>RStudio allows you to execute commands directly from the script editor by using
-the <kbd><code>Ctrl</code></kbd> + <kbd><code>Enter</code></kbd> shortcut (on Macs, <kbd><code>Cmd</code></kbd> +
-<kbd><code>Return</code></kbd> will work, too). The command on the current line in the
-script (indicated by the cursor) or all of the commands in the currently
-selected text will be sent to the console and executed when you press
-<kbd><code>Ctrl</code></kbd> + <kbd><code>Enter</code></kbd>. You can find other keyboard shortcuts in this <a href="https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf">RStudio cheatsheet about the RStudio IDE</a>.</p>
-<p>At some point in your analysis you may want to check the content of a variable
-or the structure of an object, without necessarily keeping a record of it in
-your script. You can type these commands and execute them directly in the
-console. RStudio provides the <kbd><code>Ctrl</code></kbd> + <kbd><code>1</code></kbd> and
-<kbd><code>Ctrl</code></kbd> + <kbd><code>2</code></kbd> shortcuts allow you to jump between the
-script and the console panes.</p>
-<p>If R is ready to accept commands, the R console shows a <code>&gt;</code> prompt. If it
-receives a command (by typing, copy-pasting or sent from the script editor using
-<kbd><code>Ctrl</code></kbd> + <kbd><code>Enter</code></kbd>), R will try to execute it, and when
-ready, will show the results and come back with a new <code>&gt;</code> prompt to wait for new
-commands.</p>
-<p>If R is still waiting for you to enter more data because it isn’t complete yet,
-the console will show a <code>+</code> prompt. It means that you haven’t finished entering
-a complete command. This is because you have not ‘closed’ a parenthesis or
-quotation, i.e. you don’t have the same number of left-parentheses as
-right-parentheses, or the same number of opening and closing quotation marks.
-When this happens, and you thought you finished typing your command, click
-inside the console window and press <kbd><code>Esc</code></kbd>; this will cancel the incomplete
-command and return you to the <code>&gt;</code> prompt.</p>
+<p>The basis of programming is that we write down instructions for the
+computer to follow, and then we tell the computer to follow those
+instructions. We write, or <em>code</em>, instructions in R because it is a
+common language that both the computer and we can understand. We call
+the instructions <em>commands</em> and we tell the computer to follow the
+instructions by <em>executing</em> (also called <em>running</em>) those commands.</p>
+<p>There are two main ways of interacting with R: by using the
+<strong>console</strong> or by using <strong>scripts</strong> (plain text files that contain
+your code). The console pane (in RStudio, the bottom left panel) is
+the place where commands written in the R language can be typed and
+executed immediately by the computer. It is also where the results
+will be shown for commands that have been executed. You can type
+commands directly into the console and press <code>Enter</code> to execute those
+commands, but they will be forgotten when you close the session.</p>
+<p>Because we want our code and workflow to be reproducible, it is better
+to type the commands we want in the script editor, and save the
+script. This way, there is a complete record of what we did, and
+anyone (including our future selves!) can easily replicate the
+results on their computer.</p>
+<p>RStudio allows you to execute commands directly from the script editor
+by using the <code>Ctrl</code> + <code>Enter</code> shortcut (on Macs, <code>Cmd</code> + <code>Return</code> will
+work, too). The command on the current line in the script (indicated
+by the cursor) or all of the commands in the currently selected text
+will be sent to the console and executed when you press <code>Ctrl</code> +
+<code>Enter</code>. You can find other keyboard shortcuts in this <a href="https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf">RStudio
+cheatsheet about the RStudio
+IDE</a>.</p>
+<p>At some point in your analysis you may want to check the content of a
+variable or the structure of an object, without necessarily keeping a
+record of it in your script. You can type these commands and execute
+them directly in the console. RStudio provides the <code>Ctrl</code> + <code>1</code> and
+<code>Ctrl</code> + <code>2</code> shortcuts allow you to jump between the script and the
+console panes.</p>
+<p>If R is ready to accept commands, the R console shows a <code>&gt;</code> prompt. If
+it receives a command (by typing, copy-pasting or sent from the script
+editor using <code>Ctrl</code> + <code>Enter</code>), R will try to execute it, and when
+ready, will show the results and come back with a new <code>&gt;</code> prompt to
+wait for new commands.</p>
+<p>If R is still waiting for you to enter more data because it isn’t
+complete yet, the console will show a <code>+</code> prompt. It means that you
+haven’t finished entering a complete command. This is because you have
+not ‘closed’ a parenthesis or quotation, i.e. you don’t have the same
+number of left-parentheses as right-parentheses, or the same number of
+opening and closing quotation marks. When this happens, and you
+thought you finished typing your command, click inside the console
+window and press <code>Esc</code>; this will cancel the incomplete command and
+return you to the <code>&gt;</code> prompt.</p>
 </div>
 <div id="how-to-learn-more-after-the-course" class="section level2">
 <h2><span class="header-section-number">2.6</span> How to learn more after the course?</h2>
@@ -480,12 +485,12 @@ research. However, you will need to learn more to do advanced
 operations such as cleaning your dataset, using statistical methods,
 or creating beautiful graphics<label for="tufte-sn-7" class="margin-toggle sidenote-number">7</label><input type="checkbox" id="tufte-sn-7" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">7</span> We will introduce most of these (except statistics)
 here, but will only manage to scratch the surface of the wealth of
-what is possible to do with R.</span>. The best way to become proficient and
-efficient at R, as with any other tool, is to use it to address your
-actual research questions. As a beginner, it can feel daunting to have
-to write a script from scratch, and given that many people make their
-code available online, modifying existing code to suit your purpose
-might make it easier for you to get started.</p>
+what is possible to do with R.</span>. The best way to become
+proficient and efficient at R, as with any other tool, is to use it to
+address your actual research questions. As a beginner, it can feel
+daunting to have to write a script from scratch, and given that many
+people make their code available online, modifying existing code to
+suit your purpose might make it easier for you to get started.</p>
 <p><img src="figs/kitten-try-things.jpg" width="400px"  style="display: block; margin: auto;" /></p>
 </div>
 <div id="seeking-help" class="section level2">
@@ -548,26 +553,31 @@ but it is full of useful information.</p>
 </div>
 <div id="asking-for-help" class="section level3 unnumbered">
 <h3>Asking for help</h3>
-<p>The key to receiving help from someone is for them to rapidly grasp your
-problem. You should make it as easy as possible to pinpoint where the issue
-might be.</p>
-<p>Try to use the correct words to describe your problem. For instance, a package
-is not the same thing as a library. Most people will understand what you meant,
-but others have really strong feelings about the difference in meaning. The key
-point is that it can make things confusing for people trying to help you. Be as
-precise as possible when describing your problem.</p>
+<p>The key to receiving help from someone is for them to rapidly grasp
+your problem. You should make it as easy as possible to pinpoint where
+the issue might be.</p>
+<p>Try to use the correct words to describe your problem. For instance, a
+package is not the same thing as a library. Most people will
+understand what you meant, but others have really strong feelings
+about the difference in meaning. The key point is that it can make
+things confusing for people trying to help you. Be as precise as
+possible when describing your problem.</p>
 <p>If possible, try to reduce what doesn’t work to a simple <em>reproducible
-example</em>. If you can reproduce the problem using a very small data frame
-instead of your 50,000 rows and 10,000 columns one, provide the small one with
-the description of your problem. When appropriate, try to generalize what you
-are doing so even people who are not in your field can understand the
-question. For instance instead of using a subset of your real dataset, create a
-small (3 columns, 5 rows) generic one. For more information on how to write a
-reproducible example see <a href="http://adv-r.had.co.nz/Reproducibility.html">this article by Hadley Wickham</a>.</p>
-<p>To share an object with someone else, if it’s relatively small, you can use the
-function <code>dput()</code>. It will output R code that can be used to recreate the exact
-same object as the one in memory:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dput</span>(<span class="kw">head</span>(iris)) <span class="co"># iris is an example data frame that comes with R and head() is a function that returns the first part of the data frame</span></code></pre>
+example</em>. If you can reproduce the problem using a very small data
+frame instead of your 50000 rows and 10000 columns one, provide the
+small one with the description of your problem. When appropriate, try
+to generalize what you are doing so even people who are not in your
+field can understand the question. For instance instead of using a
+subset of your real dataset, create a small (3 columns, 5 rows)
+generic one. For more information on how to write a reproducible
+example see <a href="http://adv-r.had.co.nz/Reproducibility.html">this article by Hadley
+Wickham</a>.</p>
+<p>To share an object with someone else, if it’s relatively small, you
+can use the function <code>dput()</code>. It will output R code that can be used
+to recreate the exact same object as the one in memory:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## iris is an example data frame that comes with R and head() is a</span>
+<span class="co">## function that returns the first part of the data frame</span>
+<span class="kw">dput</span>(<span class="kw">head</span>(iris))</code></pre>
 <pre><code>## structure(list(Sepal.Length = c(5.1, 4.9, 4.7, 4.6, 5, 5.4), 
 ##     Sepal.Width = c(3.5, 3, 3.2, 3.1, 3.6, 3.9), Petal.Length = c(1.4, 
 ##     1.4, 1.3, 1.5, 1.4, 1.7), Petal.Width = c(0.2, 0.2, 0.2, 
@@ -581,10 +591,11 @@ issue). Alternatively, in particular if your question is not related
 to a data frame, you can save any R object to a file<label for="tufte-sn-8" class="margin-toggle sidenote-number">8</label><input type="checkbox" id="tufte-sn-8" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">8</span> See section <a href="sec-startdata.html#sec:exportandsave">3.10</a> for a better
 introduction about exporting and saving data.</span>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">saveRDS</span>(iris, <span class="dt">file=</span><span class="st">&quot;/tmp/iris.rds&quot;</span>)</code></pre>
-<p>The content of this file is however not human readable and cannot be posted
-directly on Stack Overflow. Instead, it can be sent to someone by email who can
-read it with the <code>readRDS()</code> command (here it is assumed that the downloaded
-file is in a <code>Downloads</code> folder in the user’s home directory):</p>
+<p>The content of this file is however not human readable and cannot be
+posted directly on Stack Overflow. Instead, it can be sent to someone
+by email who can read it with the <code>readRDS()</code> command (here it is
+assumed that the downloaded file is in a <code>Downloads</code> folder in the
+user’s home directory):</p>
 <pre class="sourceCode r"><code class="sourceCode r">some_data &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="dt">file=</span><span class="st">&quot;~/Downloads/iris.rds&quot;</span>)</code></pre>
 <p>Last, but certainly not least, <strong>always include the output of <code>sessionInfo()</code></strong>
 as it provides critical information about your platform, the versions of R and
@@ -620,32 +631,36 @@ to understand your problem.</p>
 <div id="where-to-ask-for-help" class="section level3 unnumbered">
 <h3>Where to ask for help?</h3>
 <ul>
-<li>The person sitting next to you during the workshop. Don’t hesitate to talk to
-your neighbor during the workshop, compare your answers, and ask for
-help. You might also be interested in organizing regular meetings following
-the workshop to keep learning from each other.</li>
-<li>Your friendly colleagues: if you know someone with more experience than you,
-they might be able and willing to help you.</li>
-<li><a href="http://stackoverflow.com/questions/tagged/r">Stack Overflow</a>: if your question
-hasn’t been answered before and is well crafted, chances are you will get an
-answer in less than 5 min. Remember to follow their guidelines on <a href="http://stackoverflow.com/help/how-to-ask">how to ask
-a good question</a>.</li>
-<li>The <a href="https://stat.ethz.ch/mailman/listinfo/r-help">R-help mailing list</a>: it is
-read by a lot of people (including most of the R core team), a lot of people
-post to it, but the tone can be pretty dry, and it is not always very
-welcoming to new users. If your question is valid, you are likely to get an
-answer very fast but don’t expect that it will come with smiley faces. Also,
-here more than anywhere else, be sure to use correct vocabulary (otherwise
-you might get an answer pointing to the misuse of your words rather than
-answering your question). You will also have more success if your question is
-about a base function rather than a specific package.</li>
-<li>If your question is about a specific package, see if there is a mailing list
-for it. Usually it’s included in the DESCRIPTION file of the package that can
-be accessed using <code>packageDescription("name-of-package")</code>. You may also want
-to try to email the author of the package directly, or open an issue on the
+<li>The person sitting next to you during the course. Don’t hesitate to
+talk to your neighbour during the workshop, compare your answers,
+and ask for help.</li>
+<li>Your friendly colleagues: if you know someone with more experience
+than you, they might be able and willing to help you.</li>
+<li><a href="http://stackoverflow.com/questions/tagged/r">Stack Overflow</a>: if
+your question hasn’t been answered before and is well crafted,
+chances are you will get an answer in less than 5 min. Remember to
+follow their guidelines on <a href="http://stackoverflow.com/help/how-to-ask">how to ask a good
+question</a>.</li>
+<li>The <a href="https://stat.ethz.ch/mailman/listinfo/r-help">R-help mailing
+list</a>: it is read by a
+lot of people (including most of the R core team), a lot of people
+post to it, but the tone can be pretty dry, and it is not always
+very welcoming to new users. If your question is valid, you are
+likely to get an answer very fast but don’t expect that it will come
+with smiley faces. Also, here more than anywhere else, be sure to
+use correct vocabulary (otherwise you might get an answer pointing
+to the misuse of your words rather than answering your
+question). You will also have more success if your question is about
+a base function rather than a specific package.</li>
+<li>If your question is about a specific package, see if there is a
+mailing list for it. Usually it’s included in the DESCRIPTION file
+of the package that can be accessed using
+<code>packageDescription("name-of-package")</code>. You may also want to try to
+email the author of the package directly, or open an issue on the
 code repository (e.g., GitHub).</li>
-<li>There are also some topic-specific mailing lists (GIS, phylogenetics, etc…),
-the complete list is <a href="http://www.r-project.org/mail.html">here</a>.</li>
+<li>There are also some topic-specific mailing lists (GIS,
+phylogenetics, etc…), the complete list is
+<a href="http://www.r-project.org/mail.html">here</a>.</li>
 </ul>
 </div>
 <div id="more-resources" class="section level3 unnumbered">
@@ -740,30 +755,35 @@ at the same time as the <kbd>-</kbd> key) will write <code>&lt;-</code> in a
 single keystroke in a PC, while typing <kbd>Option</kbd> +
 <kbd>-</kbd> (push <kbd>Option</kbd> at the same time as the
 <kbd>-</kbd> key) does the same in a Mac.</p>
+</div>
+<div id="naming-variables" class="section level3">
+<h3><span class="header-section-number">2.9.2</span> Naming variables</h3>
 <p>Objects can be given any name such as <code>x</code>, <code>current_temperature</code>, or
-<code>subject_id</code>. You want your object names to be explicit and not too long. They
-cannot start with a number (<code>2x</code> is not valid, but <code>x2</code> is). R is case sensitive
-(e.g., <code>weight_kg</code> is different from <code>Weight_kg</code>). There are some names that
-cannot be used because they are the names of fundamental functions in R (e.g.,
-<code>if</code>, <code>else</code>, <code>for</code>, see
+<code>subject_id</code>. You want your object names to be explicit and not too
+long. They cannot start with a number (<code>2x</code> is not valid, but <code>x2</code>
+is). R is case sensitive (e.g., <code>weight_kg</code> is different from
+<code>Weight_kg</code>). There are some names that cannot be used because they
+are the names of fundamental functions in R (e.g., <code>if</code>, <code>else</code>,
+<code>for</code>, see
 <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html">here</a>
-for a complete list). In general, even if it’s allowed, it’s best to not use
-other function names (e.g., <code>c</code>, <code>T</code>, <code>mean</code>, <code>data</code>, <code>df</code>, <code>weights</code>). If in
-doubt, check the help to see if the name is already in use. It’s also best to
-avoid dots (<code>.</code>) within an object name as in <code>my.dataset</code>. There are many
-functions in R with dots in their names for historical reasons, but because dots
-have a special meaning in R (for methods) and other programming languages, it’s
-best to avoid them. It is also recommended to use nouns for object names, and
-verbs for function names. It’s important to be consistent in the styling of your
-code (where you put spaces, how you name objects, etc.). Using a consistent
-coding style makes your code clearer to read for your future self and your
-collaborators. In R, three popular style guides are
-<a href="https://google.github.io/styleguide/Rguide.xml">Google’s</a>, <a href="http://jef.works/R-style-guide/">Jean
+for a complete list). In general, even if it’s allowed, it’s best to
+not use other function names (e.g., <code>c</code>, <code>T</code>, <code>mean</code>, <code>data</code>, <code>df</code>,
+<code>weights</code>). If in doubt, check the help to see if the name is already
+in use. It’s also best to avoid dots (<code>.</code>) within an object name as in
+<code>my.dataset</code>. There are many functions in R with dots in their names
+for historical reasons, but because dots have a special meaning in R
+(for methods) and other programming languages, it’s best to avoid
+them. It is also recommended to use nouns for object names, and verbs
+for function names. It’s important to be consistent in the styling of
+your code (where you put spaces, how you name objects, etc.). Using a
+consistent coding style makes your code clearer to read for your
+future self and your collaborators. In R, three popular style guides
+are <a href="https://google.github.io/styleguide/Rguide.xml">Google’s</a>, <a href="http://jef.works/R-style-guide/">Jean
 Fan’s</a> and the
 <a href="http://style.tidyverse.org/">tidyverse’s</a>. The tidyverse’s is very
 comprehensive and may seem overwhelming at first. You can install the
-<a href="https://github.com/jimhester/lintr"><strong><code>lintr</code></strong></a> package to automatically check
-for issues in the styling of your code.</p>
+<a href="https://github.com/jimhester/lintr"><strong><code>lintr</code></strong></a> package to
+automatically check for issues in the styling of your code.</p>
 <blockquote>
 <p><strong>Objects vs. variables</strong></p>
 <p>What are known as <code>objects</code> in <code>R</code> are known as <code>variables</code> in many other
@@ -794,10 +814,21 @@ object, <code>weight_lb</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r">weight_lb &lt;-<span class="st"> </span><span class="fl">2.2</span> <span class="op">*</span><span class="st"> </span>weight_kg</code></pre>
 <p>and then change <code>weight_kg</code> to 100.</p>
 <pre class="sourceCode r"><code class="sourceCode r">weight_kg &lt;-<span class="st"> </span><span class="dv">100</span></code></pre>
-<p>What do you think is the current content of the object <code>weight_lb</code>? 126.5 or 220?</p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>What do you think is the current content of the object <code>weight_lb</code>?
+126.5 or 220?</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 </div>
 <div id="comments" class="section level3">
-<h3><span class="header-section-number">2.9.2</span> Comments</h3>
+<h3><span class="header-section-number">2.9.3</span> Comments</h3>
 <p>The comment character in R is <code>#</code>, anything to the right of a <code>#</code> in a script
 will be ignored by R. It is useful to leave notes, and explanations in your
 scripts.
@@ -825,7 +856,7 @@ mass_index &lt;-<span class="st"> </span>mass<span class="op">/</span>age  <span
 </div>
 </div>
 <div id="functions-and-their-arguments" class="section level3">
-<h3><span class="header-section-number">2.9.3</span> Functions and their arguments</h3>
+<h3><span class="header-section-number">2.9.4</span> Functions and their arguments</h3>
 <p>Functions are “canned scripts” that automate more complicated sets of commands
 including operations assignments, etc. Many functions are predefined, or can be
 made available by importing R <em>packages</em> (more on that later). A function
@@ -879,7 +910,7 @@ definition of a function with unfamiliar arguments to understand what you’re
 doing.</p>
 </div>
 <div id="vectors-and-data-types" class="section level3">
-<h3><span class="header-section-number">2.9.4</span> Vectors and data types</h3>
+<h3><span class="header-section-number">2.9.5</span> Vectors and data types</h3>
 <p>A vector is the most common and basic data type in R, and is pretty much
 the workhorse of R. A vector is composed by a series of values, which can be
 either numbers or characters. We can assign a series of values to a vector using
@@ -1089,7 +1120,7 @@ logical → numeric → character ← logical
 </div>
 </div>
 <div id="subsetting-vectors" class="section level3">
-<h3><span class="header-section-number">2.9.5</span> Subsetting vectors</h3>
+<h3><span class="header-section-number">2.9.6</span> Subsetting vectors</h3>
 <p>If we want to extract one or several values from a vector, we must provide one
 or several indices in square brackets. For instance:</p>
 <pre class="sourceCode r"><code class="sourceCode r">animals &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;mouse&quot;</span>, <span class="st">&quot;rat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;cat&quot;</span>)
@@ -1108,7 +1139,7 @@ family (including C++, Java, Perl, and Python) count from 0 because that’s
 simpler for computers to do.</p>
 </div>
 <div id="conditional-subsetting" class="section level3">
-<h3><span class="header-section-number">2.9.6</span> Conditional subsetting</h3>
+<h3><span class="header-section-number">2.9.7</span> Conditional subsetting</h3>
 <p>Another common way of subsetting is by using a logical vector. <code>TRUE</code> will
 select the element with the same index, while <code>FALSE</code> will not:</p>
 <pre class="sourceCode r"><code class="sourceCode r">weight_g &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">34</span>, <span class="dv">39</span>, <span class="dv">54</span>, <span class="dv">55</span>)
@@ -1173,7 +1204,7 @@ Here “four” comes after “five”, and therefore is “greater than” it.<
 </div>
 </div>
 <div id="names" class="section level3">
-<h3><span class="header-section-number">2.9.7</span> Names</h3>
+<h3><span class="header-section-number">2.9.8</span> Names</h3>
 <p>It is possible to name each element of a vector. The code chunk below
 show a initial vector without any names, how names are set, and
 retrieved.</p>
@@ -1193,7 +1224,7 @@ name, in addition to their index.</p>
 ## 1 3</code></pre>
 </div>
 <div id="missing-data" class="section level3">
-<h3><span class="header-section-number">2.9.8</span> Missing data</h3>
+<h3><span class="header-section-number">2.9.9</span> Missing data</h3>
 <p>As R was designed to analyze datasets, it includes the concept of missing data
 (which is uncommon in other programming languages). Missing data are represented
 in vectors as <code>NA</code>.</p>
@@ -1392,18 +1423,18 @@ another vector. For example, to draw a random order to 10 students
 oral example, I first assign each student a number from 1 to then (for
 instance based on the alphabetic order of their name) and then:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  2  4  9  5  1  7  8  3  6 10</code></pre>
+<pre><code>##  [1]  5  6  1  2  9  3 10  8  4  7</code></pre>
 <p>Without further arguments, <code>sample</code> will return a permutation of all
 elements of the vector. If I want a random sample of a certain size, I
 would set this value as second argument. Below, I sample 5 random
 letters from the alphabet contained in the pre-defined <code>letters</code> vector:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(letters, <span class="dv">5</span>)</code></pre>
-<pre><code>## [1] &quot;k&quot; &quot;m&quot; &quot;n&quot; &quot;w&quot; &quot;i&quot;</code></pre>
+<pre><code>## [1] &quot;i&quot; &quot;x&quot; &quot;m&quot; &quot;j&quot; &quot;c&quot;</code></pre>
 <p>If I wanted an output larger than the input vector, or being able to
 draw some elements multiple times, I would need to set the <code>replace</code>
 argument to <code>TRUE</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</code></pre>
-<pre><code>##  [1] 4 2 3 5 2 4 1 4 5 1</code></pre>
+<pre><code>##  [1] 5 2 1 1 3 5 1 5 5 4</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -1434,9 +1465,9 @@ random draw. Observe that you now get the same random draws.</p></li>
 <div id="sol-body-15" class="solution-body" style="display: none;">
 <p>Different permutations</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  4  6  8  5  1 10  3  9  2  7</code></pre>
+<pre><code>##  [1]  7  9  6  8  1 10  5  3  2  4</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1] 10  3  6  4  9  1  7  8  2  5</code></pre>
+<pre><code>##  [1]  2 10  3  4  7  5  6  1  8  9</code></pre>
 <p>Same permutations with seed 123</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
 <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
@@ -1616,7 +1647,7 @@ and store it in variable <code>m2</code>.</li>
 <a href="sec-startdata.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-02-13
+2019-02-14
 </p>
 </div>
 </div>
