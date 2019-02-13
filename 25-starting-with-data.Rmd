@@ -234,11 +234,12 @@ correct names of the columns.
    row 200 of the `surveys` dataset.
 
 2. Notice how `nrow()` gave you the number of rows in a `data.frame`?
-   - Use that number to pull out just that last row in the data frame.
-   - Compare that with what you see as the last row using `tail()` to make
-     sure it's meeting expectations.
-   - Pull out that last row using `nrow()` instead of the row number.
-   - Create a new data frame (`surveys_last`) from that last row.
+
+- Use that number to pull out just that last row in the data frame.
+- Compare that with what you see as the last row using `tail()` to make
+  sure it's meeting expectations.
+- Pull out that last row using `nrow()` instead of the row number.
+- Create a new data frame (`surveys_last`) from that last row.
 
 3. Use `nrow()` to extract the row that is in the middle of the data
    frame. Store the content of this row in an object named
@@ -386,7 +387,7 @@ head(sex)
 
 `r msmbstyle::solution_begin()`
 
-```{r, answer=TRUE, purl=FALSE}
+```{r}
 levels(sex)[2:3] <- c("female", "male")
 sex <- factor(sex, levels = c("female", "male", "undetermined"))
 plot(sex)
