@@ -432,25 +432,25 @@ increasing or decreasing order, test <code>1:10</code> and <code>10:1</code> for
 instance. See section <a href="sec-startr.html#sec:genvec">2.10</a> for details.</p>
 <p>You can also exclude certain indices of a data frame using the “<code>-</code>” sign:</p>
 <pre class="sourceCode r"><code class="sourceCode r">surveys[, <span class="dv">-1</span>]          <span class="co"># The whole data frame, except the first column</span></code></pre>
-<pre><code>##   month day year plot_id species_id sex hindfoot_length weight   genus
-## 1     7  16 1977       2         NL   M              32     NA Neotoma
-## 2     8  19 1977       2         NL   M              31     NA Neotoma
-## 3     9  13 1977       2         NL                  NA     NA Neotoma
-## 4    10  16 1977       2         NL                  NA     NA Neotoma
-## 5    11  12 1977       2         NL                  NA     NA Neotoma
-## 6    11  12 1977       2         NL                  NA     NA Neotoma
-## 7    12  10 1977       2         NL                  NA     NA Neotoma
-## 8     1   8 1978       2         NL                  NA     NA Neotoma
-##    species   taxa plot_type
-## 1 albigula Rodent   Control
-## 2 albigula Rodent   Control
-## 3 albigula Rodent   Control
-## 4 albigula Rodent   Control
-## 5 albigula Rodent   Control
-## 6 albigula Rodent   Control
-## 7 albigula Rodent   Control
-## 8 albigula Rodent   Control
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 34778 rows ]</code></pre>
+<pre><code>##       month day year plot_id species_id sex hindfoot_length weight
+## 1         7  16 1977       2         NL   M              32     NA
+## 2         8  19 1977       2         NL   M              31     NA
+## 3         9  13 1977       2         NL                  NA     NA
+## 4        10  16 1977       2         NL                  NA     NA
+## 5        11  12 1977       2         NL                  NA     NA
+## 6        11  12 1977       2         NL                  NA     NA
+## 7        12  10 1977       2         NL                  NA     NA
+## 8         1   8 1978       2         NL                  NA     NA
+##                  genus         species    taxa                 plot_type
+## 1              Neotoma        albigula  Rodent                   Control
+## 2              Neotoma        albigula  Rodent                   Control
+## 3              Neotoma        albigula  Rodent                   Control
+## 4              Neotoma        albigula  Rodent                   Control
+## 5              Neotoma        albigula  Rodent                   Control
+## 6              Neotoma        albigula  Rodent                   Control
+## 7              Neotoma        albigula  Rodent                   Control
+## 8              Neotoma        albigula  Rodent                   Control
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 34778 rows ]</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">surveys[<span class="op">-</span><span class="kw">c</span>(<span class="dv">7</span><span class="op">:</span><span class="dv">34786</span>), ] <span class="co"># Equivalent to head(surveys)</span></code></pre>
 <pre><code>##   record_id month day year plot_id species_id sex hindfoot_length weight
 ## 1         1     7  16 1977       2         NL   M              32     NA
@@ -776,11 +776,12 @@ are currently installed on our respective computers using the
 explore this matrix as those used for dataframes above.</p>
 <pre class="sourceCode r"><code class="sourceCode r">ip &lt;-<span class="st"> </span><span class="kw">installed.packages</span>()
 <span class="kw">dim</span>(ip)</code></pre>
-<pre><code>## [1] 499  16</code></pre>
+<pre><code>## [1] 729  16</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">colnames</span>(ip))</code></pre>
 <pre><code>## [1] &quot;Package&quot;  &quot;LibPath&quot;  &quot;Version&quot;  &quot;Priority&quot; &quot;Depends&quot;  &quot;Imports&quot;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">rownames</span>(ip)) <span class="co">## these are the package names</span></code></pre>
-<pre><code>## [1] &quot;abind&quot;   &quot;acepack&quot; &quot;affy&quot;    &quot;affyio&quot;  &quot;ALL&quot;     &quot;alpine&quot;</code></pre>
+<pre><code>## [1] &quot;abind&quot;           &quot;acepack&quot;         &quot;ada&quot;             &quot;addinexamples&quot;  
+## [5] &quot;additivityTests&quot; &quot;ade4&quot;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">## View(ip)</span></code></pre>
 <div class="question">
 <p class="question-begin">
@@ -945,7 +946,7 @@ vector from the <code>year</code>, <code>month</code>, and <code>day</code> colu
 ##  [86] &quot;1987-07-26&quot; &quot;1987-08-26&quot; &quot;1987-08-26&quot; &quot;1987-09-27&quot; &quot;1987-09-27&quot;
 ##  [91] &quot;1987-09-27&quot; &quot;1987-10-25&quot; &quot;1987-10-25&quot; &quot;1987-11-22&quot; &quot;1988-01-24&quot;
 ##  [96] &quot;1988-06-12&quot; &quot;1988-07-15&quot; &quot;1988-08-10&quot; &quot;1988-08-10&quot; &quot;1988-09-12&quot;
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 34686 entries ]</code></pre>
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 34686 entries ]</code></pre>
 <p>The resulting <code>Date</code> vector can be added to <code>surveys</code> as a new column called <code>date</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r">surveys<span class="op">$</span>date &lt;-<span class="st"> </span><span class="kw">ymd</span>(<span class="kw">paste</span>(surveys<span class="op">$</span>year, surveys<span class="op">$</span>month, surveys<span class="op">$</span>day, <span class="dt">sep =</span> <span class="st">&quot;-&quot;</span>))</code></pre>
 <pre><code>## Warning: 129 failed to parse.</code></pre>
@@ -1027,9 +1028,9 @@ a matrix, a dataframe and another list:</p>
 <pre><code>## List of 5
 ##  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##  $ : chr [1:26] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ : chr [1:499, 1:16] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
+##  $ : chr [1:729, 1:16] &quot;abind&quot; &quot;acepack&quot; &quot;ada&quot; &quot;addinexamples&quot; ...
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
-##   .. ..$ : chr [1:499] &quot;abind&quot; &quot;acepack&quot; &quot;affy&quot; &quot;affyio&quot; ...
+##   .. ..$ : chr [1:729] &quot;abind&quot; &quot;acepack&quot; &quot;ada&quot; &quot;addinexamples&quot; ...
 ##   .. ..$ : chr [1:16] &quot;Package&quot; &quot;LibPath&quot; &quot;Version&quot; &quot;Priority&quot; ...
 ##  $ :&#39;data.frame&#39;:    50 obs. of  2 variables:
 ##   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...
