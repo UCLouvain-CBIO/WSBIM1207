@@ -1422,7 +1422,8 @@ learn about data frames.
   than constructing them by hand.
 - Check their type. Depending how they were created, they can be
   integers or doubles.
-- Take the sum of each vector and verify they are identical.
+- Take the sum (see the `sum()` function) of each vector and verify
+  they are identical.
 - Sum vectors element-wise, and verify that all results are identical.
 - Swap the value or `x` and `y`.
 `r msmbstyle::question_end()`
