@@ -1208,6 +1208,10 @@ length(heights_above_67)
 
 ## Generating vectors {#sec:genvec}
 
+```{r, echo = FALSE}
+set.seed(1)
+```
+
 ### Constructors {-}
 
 There exists some functions to generate vectors of different type. To

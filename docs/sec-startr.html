@@ -1433,18 +1433,18 @@ another vector. For example, to draw a random order to 10 students
 oral example, I first assign each student a number from 1 to then (for
 instance based on the alphabetic order of their name) and then:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  7  3  6  4  2  5  9 10  8  1</code></pre>
+<pre><code>##  [1]  3  4  5  7  2  8  9  6 10  1</code></pre>
 <p>Without further arguments, <code>sample</code> will return a permutation of all
 elements of the vector. If I want a random sample of a certain size, I
 would set this value as second argument. Below, I sample 5 random
 letters from the alphabet contained in the pre-defined <code>letters</code> vector:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(letters, <span class="dv">5</span>)</code></pre>
-<pre><code>## [1] &quot;t&quot; &quot;k&quot; &quot;u&quot; &quot;p&quot; &quot;o&quot;</code></pre>
+<pre><code>## [1] &quot;f&quot; &quot;e&quot; &quot;q&quot; &quot;i&quot; &quot;x&quot;</code></pre>
 <p>If I wanted an output larger than the input vector, or being able to
 draw some elements multiple times, I would need to set the <code>replace</code>
 argument to <code>TRUE</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</code></pre>
-<pre><code>##  [1] 2 2 2 3 1 3 4 1 1 4</code></pre>
+<pre><code>##  [1] 3 4 5 2 4 5 2 4 1 2</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -1475,9 +1475,9 @@ random draw. Observe that you now get the same random draws.</p></li>
 <div id="sol-body-15" class="solution-body" style="display: none;">
 <p>Different permutations</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  4  7  2  6  8  3 10  9  5  1</code></pre>
+<pre><code>##  [1]  4  1 10  7  3  6  5  2  9  8</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  3  1  4  7  9  6  5  8 10  2</code></pre>
+<pre><code>##  [1]  7  8  1  6  3  5 10  4  2  9</code></pre>
 <p>Same permutations with seed 123</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
 <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
@@ -1504,11 +1504,11 @@ random draw. Observe that you now get the same random draws.</p></li>
 sample from a normal distribution. Two normal distributions of means 0
 and 100 and standard deviations 1 and 5, noted noted <em>N(0, 1)</em> and
 <em>N(100, 5)</em>, are shown below</p>
-<div class="figure"><span id="fig:unnamed-chunk-90"></span>
+<div class="figure"><span id="fig:unnamed-chunk-91"></span>
 <p class="caption marginnote shownote">
 Figure 2.7: Two normal distributions: <em>N(0, 1)</em> on the left and <em>N(100, 5)</em> on the right.
 </p>
-<img src="WSBIM1207_files/figure-html/unnamed-chunk-90-1.png" alt="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right." width="1152"  />
+<img src="WSBIM1207_files/figure-html/unnamed-chunk-91-1.png" alt="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right." width="1152"  />
 </div>
 <p>The three arguments, <code>n</code>, <code>mean</code> and <code>sd</code>, define the size of the
 sample, and the parameters of the normal distribution, i.e the mean
