@@ -722,11 +722,11 @@ dependencies, i.e. all the packages that it relies on to function.</p>
 project repository and is well suited for R package development. To
 install a package from Gtihub, one can use the <code>install_github()</code>
 function from the <code>devtools</code> package. Below we first install the
-latter from CRAN (as show above), then we install <code>msmbstyle</code> directly
-from the user <code>lgatto</code>’s github repository.</p>
+latter from CRAN (as show above), then we install <code>rWSBIM1207</code>
+directly from the user <code>UCLouvain-CBIO</code> github repository.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
 <span class="kw">library</span>(<span class="st">&quot;devtools&quot;</span>)
-<span class="kw">install_github</span>(<span class="st">&quot;lgatto/msmbstyle&quot;</span>)</code></pre>
+<span class="kw">install_github</span>(<span class="st">&quot;UCLouvain-CBIO/rWSBIM1207&quot;</span>)</code></pre>
 <p>In section <a href="sec-bioinfo.html#sec:bioconductor">8.3</a>, we will see how to install
 <a href="http://www.bioconductor.org">Bioconductor</a>, a project dedicated to
 bioinformatics and omics packages.</p>
@@ -1433,18 +1433,18 @@ another vector. For example, to draw a random order to 10 students
 oral example, I first assign each student a number from 1 to then (for
 instance based on the alphabetic order of their name) and then:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  1  8 10  5  2  3  9  7  6  4</code></pre>
+<pre><code>##  [1] 10  1  5  7  8  2  4  9  6  3</code></pre>
 <p>Without further arguments, <code>sample</code> will return a permutation of all
 elements of the vector. If I want a random sample of a certain size, I
 would set this value as second argument. Below, I sample 5 random
 letters from the alphabet contained in the pre-defined <code>letters</code> vector:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(letters, <span class="dv">5</span>)</code></pre>
-<pre><code>## [1] &quot;m&quot; &quot;q&quot; &quot;y&quot; &quot;j&quot; &quot;e&quot;</code></pre>
+<pre><code>## [1] &quot;s&quot; &quot;i&quot; &quot;q&quot; &quot;z&quot; &quot;x&quot;</code></pre>
 <p>If I wanted an output larger than the input vector, or being able to
 draw some elements multiple times, I would need to set the <code>replace</code>
 argument to <code>TRUE</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</code></pre>
-<pre><code>##  [1] 2 4 1 2 3 1 1 4 2 4</code></pre>
+<pre><code>##  [1] 4 2 4 2 5 3 1 2 4 4</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -1475,9 +1475,9 @@ random draw. Observe that you now get the same random draws.</p></li>
 <div id="sol-body-15" class="solution-body" style="display: none;">
 <p>Different permutations</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  3  7  5 10  2  1  4  8  6  9</code></pre>
+<pre><code>##  [1]  4  6  2  7  8  1  5 10  9  3</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  8  5 10  2  6  9  7  1  4  3</code></pre>
+<pre><code>##  [1]  7  8  1 10  2  4  5  3  9  6</code></pre>
 <p>Same permutations with seed 123</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
 <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>

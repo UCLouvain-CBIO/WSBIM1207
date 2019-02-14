@@ -595,13 +595,13 @@ dependencies, i.e. all the packages that it relies on to function.
 project repository and is well suited for R package development. To
 install a package from Gtihub, one can use the `install_github()`
 function from the `devtools` package. Below we first install the
-latter from CRAN (as show above), then we install `msmbstyle` directly
-from the user `lgatto`'s github repository.
+latter from CRAN (as show above), then we install `rWSBIM1207`
+directly from the user `UCLouvain-CBIO` github repository.
 
 ```{r ghinstall, eval=FALSE, purl=FALSE}
 install.packages("devtools")
 library("devtools")
-install_github("lgatto/msmbstyle")
+install_github("UCLouvain-CBIO/rWSBIM1207")
 ```
 
 In section \@ref(sec:bioconductor), we will see how to install
