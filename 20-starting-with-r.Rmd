@@ -206,7 +206,7 @@ tutorial below.
   `New project`.
 3. Enter a name for this new folder (or "directory"), and choose a
    convenient location for it. This will be your **working directory**
-   for the session (e.g., `~/start-r`).
+   for this session (or whole course) (e.g., `wsbim1207`).
 4. Click on `Create project`.
 5. (Optional) Set Preferences to 'Never' save workspace in RStudio.
 
@@ -260,7 +260,7 @@ CSV files, and `fig_output/` folder for the figures that we will save.
 
 Under the `Files` tab on the right of the screen, click on `New Folder` and
 create a folder named `data` within your newly created working directory
-(e.g., `~/start-r/data`). (Alternatively, type `dir.create("data")` at
+(e.g., `~/wsbim1207/data`). (Alternatively, type `dir.create("data")` at
 your R console.) Repeat these operations to create a `data_output/` and a
 `fig_output` folders.
 
@@ -351,7 +351,7 @@ window and press `Esc`; this will cancel the incomplete command and
 return you to the `>` prompt.
 
 
-## How to learn more after the course?
+## How to learn more during and after the course?
 
 The material we cover during this course will give you an initial
 taste of how you can use R to analyse data for your own
