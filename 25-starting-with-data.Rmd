@@ -74,30 +74,30 @@ head(surveys)
 ## View(surveys)
 ```
 
-> **Note**
->
-> `read.csv` assumes that fields are delineated by commas, however, in
-> several countries, the comma is used as a decimal separator and the
-> semicolon (;) is used as a field delineator. If you want to read in
-> this type of files in R, you can use the `read.csv2` function. It
-> behaves exactly like `read.csv` but uses different parameters for
-> the decimal and the field separators. If you are working with
-> another format, they can be both specified by the user. Check out
-> the help for `read.csv()` by typing `?read.csv` to learn more. There
-> is also the `read.delim()` for in tab separated data files. It is
-> important to note that all of these functions are actually wrapper
-> functions for the main `read.table()` function with different
-> arguments.  As such, the surveys data above could have also been
-> loaded by using `read.table()` with the separation argument as
-> `,`. The code is as follows:
+**Note**
+
+`read.csv` assumes that fields are delineated by commas, however, in
+several countries, the comma is used as a decimal separator and the
+semicolon (;) is used as a field delineator. If you want to read in
+this type of files in R, you can use the `read.csv2` function. It
+behaves exactly like `read.csv` but uses different parameters for the
+decimal and the field separators. If you are working with another
+format, they can be both specified by the user. Check out the help for
+`read.csv()` by typing `?read.csv` to learn more. There is also the
+`read.delim()` for in tab separated data files. It is important to
+note that all of these functions are actually wrapper functions for
+the main `read.table()` function with different arguments.  As such,
+the surveys data above could have also been loaded by using
+`read.table()` with the separation argument as `,`. The code is as
+follows:
 
 ```
 surveys <- read.table(file="data/portal_data_joined.csv", sep=",", header=TRUE)
 ```
 
-> The header argument has to be set to TRUE to be able to read the
-> headers as by default `read.table()` has the header argument set to
-> FALSE.
+The header argument has to be set to TRUE to be able to read the
+headers as by default `read.table()` has the header argument set to
+FALSE.
 
 ## What are data frames?
 
@@ -188,7 +188,7 @@ column numbers. However, note that different ways of specifying these
 coordinates lead to results with different classes.
 
 
-```{r, purl=FALSE}
+```{r, eval = FALSE}
 # first element in the first column of the data frame (as a vector)
 surveys[1, 1]
 # first element in the 6th column (as a vector)
@@ -205,8 +205,9 @@ surveys[3, ]
 head_surveys <- surveys[1:6, ]
 ```
 
-`:` is a special function that creates numeric vectors of integers in increasing
-or decreasing order, test `1:10` and `10:1` for instance.
+`:` is a special function that creates numeric vectors of integers in
+increasing or decreasing order, test `1:10` and `10:1` for
+instance. See section \@ref(sec:genvec) for details.
 
 You can also exclude certain indices of a data frame using the "`-`" sign:
 
