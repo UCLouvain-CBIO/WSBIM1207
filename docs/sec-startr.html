@@ -241,6 +241,12 @@ statistical approaches from many scientific disciplines to best suit
 the analytical framework you need to analyze your data. For instance,
 R has packages for image analysis, GIS, time series, population
 genetics, and a lot more.</p>
+<div class="figure"><span id="fig:unnamed-chunk-19"></span>
+<p class="caption marginnote shownote">
+Figure 2.1: Some notable <a href="https://cran.r-project.org/">CRAN package</a> milestones. Data from Henrik Bengtsson available from <a href="https://www.jottr.org/2015/08/12/milestone-cran-7000/" class="uri">https://www.jottr.org/2015/08/12/milestone-cran-7000/</a>.
+</p>
+<img src="WSBIM1207_files/figure-html/unnamed-chunk-19-1.png" alt="Some notable [CRAN  package](https://cran.r-project.org/) milestones. Data from Henrik Bengtsson available from https://www.jottr.org/2015/08/12/milestone-cran-7000/." width="672"  />
+</div>
 </div>
 <div id="r-works-on-data-of-all-shapes-and-sizes" class="section level3 unnumbered">
 <h3>R works on data of all shapes and sizes</h3>
@@ -288,9 +294,9 @@ computer, inspect the variables we are going to create, and visualize
 the plots we will generate. RStudio can also be used for other things
 (e.g., version control, developing packages, writing Shiny apps) that
 we will not cover during the workshop.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-19"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-20"></span>
 <p class="caption marginnote shownote">
-Figure 2.1: RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.
+Figure 2.2: RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.
 </p>
 <img src="figs/rstudio-screenshot.png" alt="RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console." width="100%"  />
 </div>
@@ -341,9 +347,9 @@ for the session (e.g., <code>~/start-r</code>).</li>
 .RData can be cumbersome, especially if you are working with larger datasets.
 To turn that off, go to Tools –&gt; ‘Global Options’ and select the ‘Never’ option
 for ‘Save workspace to .RData’ on exit.’</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-20"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-21"></span>
 <p class="caption marginnote shownote">
-Figure 2.2: Set ‘Save workspace to .RData on exit’ to ‘Never’
+Figure 2.3: Set ‘Save workspace to .RData on exit’ to ‘Never’
 </p>
 <img src="figs/rstudio-preferences.png" alt="Set 'Save workspace to .RData on exit' to 'Never'" width="70%"  />
 </div>
@@ -374,9 +380,9 @@ separate folder for your functions (more on that later).</li>
 <p>You may want additional directories or subdirectories depending on
 your project needs, but these should form the backbone of your working
 directory.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-21"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22"></span>
 <p class="caption marginnote shownote">
-Figure 2.3: Example of a working directory structure.
+Figure 2.4: Example of a working directory structure.
 </p>
 <img src="figs/working-directory-structure.png" alt="Example of a working directory structure." width="100%"  />
 </div>
@@ -402,9 +408,9 @@ your R console.) Repeat these operations to create a <code>data_output/</code> a
 because we are only going to use one file and it will make things
 easier.</p>
 <p>Your working directory should now look like this:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-23"></span>
 <p class="caption marginnote shownote">
-Figure 2.4: How it should look like at the beginning of this lesson
+Figure 2.5: How it should look like at the beginning of this lesson
 </p>
 <img src="figs/r-starting-how-it-should-look-like.png" alt="How it should look like at the beginning of this lesson" width="100%"  />
 </div>
@@ -499,7 +505,7 @@ suit your purpose might make it easier for you to get started.</p>
 <h3>Use the built-in RStudio help interface to search for more information on R functions</h3>
 <div class="figure" style="text-align: center"><span id="fig:rstudiohelp"></span>
 <p class="caption marginnote shownote">
-Figure 2.5: RStudio help interface.
+Figure 2.6: RStudio help interface.
 </p>
 <img src="figs/rstudiohelp.png" alt="RStudio help interface." width="70%"  />
 </div>
@@ -621,12 +627,21 @@ to understand your problem.</p>
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
+## other attached packages:
+## [1] ggplot2_3.1.0
+## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.0       bookdown_0.9     msmbstyle_0.0.3  png_0.1-7       
-##  [5] digest_0.6.18    magrittr_1.5     evaluate_0.12    highr_0.7       
-##  [9] stringi_1.2.4    rstudioapi_0.9.0 xml2_1.2.0       rmarkdown_1.11  
-## [13] tools_3.5.2      stringr_1.4.0    xfun_0.4         yaml_2.2.0      
-## [17] compiler_3.5.2   htmltools_0.3.6  knitr_1.21</code></pre>
+##  [1] Rcpp_1.0.0       pillar_1.3.1     compiler_3.5.2   highr_0.7       
+##  [5] plyr_1.8.4       bindr_0.1.1      tools_3.5.2      digest_0.6.18   
+##  [9] msmbstyle_0.0.3  evaluate_0.12    tibble_2.0.1     gtable_0.2.0    
+## [13] pkgconfig_2.0.2  png_0.1-7        rlang_0.3.1      rstudioapi_0.9.0
+## [17] yaml_2.2.0       xfun_0.4         bindrcpp_0.2.2   withr_2.1.2     
+## [21] stringr_1.4.0    dplyr_0.7.8      xml2_1.2.0       knitr_1.21      
+## [25] grid_3.5.2       tidyselect_0.2.5 glue_1.3.0       R6_2.3.0        
+## [29] rmarkdown_1.11   bookdown_0.9     purrr_0.3.0      magrittr_1.5    
+## [33] scales_1.0.0     htmltools_0.3.6  assertthat_0.2.0 colorspace_1.4-0
+## [37] labeling_0.3     stringi_1.2.4    lazyeval_0.2.1   munsell_0.5.0   
+## [41] crayon_1.3.4</code></pre>
 </div>
 <div id="where-to-ask-for-help" class="section level3 unnumbered">
 <h3>Where to ask for help?</h3>
@@ -1418,18 +1433,18 @@ another vector. For example, to draw a random order to 10 students
 oral example, I first assign each student a number from 1 to then (for
 instance based on the alphabetic order of their name) and then:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  6  2  8  3  7  5  4  9 10  1</code></pre>
+<pre><code>##  [1]  5  7 10  1  2  8  9  6  3  4</code></pre>
 <p>Without further arguments, <code>sample</code> will return a permutation of all
 elements of the vector. If I want a random sample of a certain size, I
 would set this value as second argument. Below, I sample 5 random
 letters from the alphabet contained in the pre-defined <code>letters</code> vector:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(letters, <span class="dv">5</span>)</code></pre>
-<pre><code>## [1] &quot;g&quot; &quot;s&quot; &quot;h&quot; &quot;a&quot; &quot;w&quot;</code></pre>
+<pre><code>## [1] &quot;s&quot; &quot;n&quot; &quot;f&quot; &quot;g&quot; &quot;d&quot;</code></pre>
 <p>If I wanted an output larger than the input vector, or being able to
 draw some elements multiple times, I would need to set the <code>replace</code>
 argument to <code>TRUE</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</code></pre>
-<pre><code>##  [1] 3 5 3 4 1 1 3 4 5 5</code></pre>
+<pre><code>##  [1] 3 2 4 1 2 5 1 3 3 2</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -1460,9 +1475,9 @@ random draw. Observe that you now get the same random draws.</p></li>
 <div id="sol-body-15" class="solution-body" style="display: none;">
 <p>Different permutations</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  1  3  5  8  4  9  6 10  2  7</code></pre>
+<pre><code>##  [1]  6  8  9  7  4  3  1  5 10  2</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
-<pre><code>##  [1]  2  7  5  3 10  6  8  1  4  9</code></pre>
+<pre><code>##  [1]  6  4  1  2  9  7  3  5  8 10</code></pre>
 <p>Same permutations with seed 123</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
 <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
@@ -1489,11 +1504,11 @@ random draw. Observe that you now get the same random draws.</p></li>
 sample from a normal distribution. Two normal distributions of means 0
 and 100 and standard deviations 1 and 5, noted noted <em>N(0, 1)</em> and
 <em>N(100, 5)</em>, are shown below</p>
-<div class="figure"><span id="fig:unnamed-chunk-89"></span>
+<div class="figure"><span id="fig:unnamed-chunk-90"></span>
 <p class="caption marginnote shownote">
-Figure 2.6: Two normal distributions: <em>N(0, 1)</em> on the left and <em>N(100, 5)</em> on the right.
+Figure 2.7: Two normal distributions: <em>N(0, 1)</em> on the left and <em>N(100, 5)</em> on the right.
 </p>
-<img src="WSBIM1207_files/figure-html/unnamed-chunk-89-1.png" alt="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right." width="1152"  />
+<img src="WSBIM1207_files/figure-html/unnamed-chunk-90-1.png" alt="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right." width="1152"  />
 </div>
 <p>The three arguments, <code>n</code>, <code>mean</code> and <code>sd</code>, define the size of the
 sample, and the parameters of the normal distribution, i.e the mean

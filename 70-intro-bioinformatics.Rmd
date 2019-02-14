@@ -65,6 +65,9 @@ See also @Noble:2009.
 
 The [Bioconductor](http://www.bioconductor.org) (@Gentleman:2004;@Huber:2015) ...
 
+Package installation: reminder and `BiocManager::install`.
+
+
 ## Objects
 
 Data in bioinformatics is often more complex than the basic data types
