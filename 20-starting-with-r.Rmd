@@ -1520,3 +1520,52 @@ Monday to Friday how many molds you see in your cell cultures.
 <!-- m3 -->
 <!-- ``` -->
 <!-- `r msmbstyle::solution_end()` -->
+
+
+<!-- `r msmbstyle::question_begin()` -->
+
+<!-- Given vectors `v1`, `v2` and `v3` below -->
+
+<!-- ```{r} -->
+<!-- v1 <- c(1, 2, 3, "4") -->
+<!-- v2 <- c(45, 23, TRUE, 21, 12, 34) -->
+<!-- v3 <- c(v1, v2) -->
+<!-- ``` -->
+
+<!-- - What is the class of `v3`? -->
+<!-- - What is the length of `v3`? -->
+<!-- - Assign names `"a"`, `"b"`, .. to the `v3`. -->
+<!-- - What is the value of `v3["e"]`? -->
+<!-- - Re-using `v1`, create a vector `v4` containing -->
+
+<!-- ```{r, echo = FALSE, comment = NA} -->
+<!-- (v4 <- c(v1[2:1], "NEW", v1[3:4])) -->
+<!-- ``` -->
+
+<!-- - What is the command to round 3.1234 to two decimanl digits? -->
+
+<!-- - If you execute `round(3.1234)`, you get `3`. Why? -->
+
+<!-- The WSBIM1207 students were asked how many breaks they wanted during -->
+<!-- the four-hour Thursday morning sessions. The answers are stored in -->
+<!-- vectors `p1` (only one break of 30 minutes), `p2` (two breaks of 15 -->
+<!-- minutes) and `p3` (three breaks of 10 minutes). -->
+
+<!-- ```{r} -->
+<!-- p1 <- c(1, 1, 1) -->
+<!-- names(p1) <- c("A34", "D3", "F12") -->
+<!-- p2 <- c(2, 2, 2, 2) -->
+<!-- names(p2) <- c("W4", "A21", "K7", "K8") -->
+<!-- p3 <- c(3, 3, 3, 3, 3, 3, 3) -->
+<!-- names(p3) <- c("D1", "D2", "A10", "D5", "D15", "A16", "B22") -->
+<!-- ``` -->
+
+
+<!-- - What command would you use to identify the number of respective -->
+<!--   answers? -->
+
+<!-- - Concatenate all answers into a single vector `p`. -->
+
+<!-- - What command would you use to get the vote for student `D2` from vector `p`? -->
+
+<!-- `r msmbstyle::question_end()` -->

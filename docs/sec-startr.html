@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-02-14" />
+<meta name="date" content="2019-02-15" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -620,21 +620,21 @@ as it provides critical information about your platform, the versions of R and
 the packages that you are using, and other information that can be very helpful
 to understand your problem.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre>
-<pre><code>## R Under development (unstable) (2018-04-02 r74505)
+<pre><code>## R version 3.5.2 Patched (2019-01-24 r76018)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Ubuntu 14.04.5 LTS
+## Running under: Manjaro Linux
 ## 
 ## Matrix products: default
-## BLAS: /usr/lib/atlas-base/atlas/libblas.so.3.0
-## LAPACK: /usr/lib/lapack/liblapack.so.3.0
+## BLAS: /usr/lib/libblas.so.3.8.0
+## LAPACK: /usr/lib/liblapack.so.3.8.0
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_GB.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_GB.UTF-8        LC_COLLATE=en_GB.UTF-8    
-##  [5] LC_MONETARY=en_GB.UTF-8    LC_MESSAGES=en_GB.UTF-8   
-##  [7] LC_PAPER=en_GB.UTF-8       LC_NAME=C                 
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
 ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_GB.UTF-8 LC_IDENTIFICATION=C       
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
@@ -643,16 +643,16 @@ to understand your problem.</p>
 ## [1] ggplot2_3.1.0
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.0       pillar_1.3.1     compiler_3.6.0   highr_0.7       
-##  [5] plyr_1.8.4       bindr_0.1.1      tools_3.6.0      digest_0.6.18   
-##  [9] msmbstyle_0.0.3  evaluate_0.13    tibble_2.0.1     gtable_0.2.0    
+##  [1] Rcpp_1.0.0       pillar_1.3.1     compiler_3.5.2   highr_0.7       
+##  [5] plyr_1.8.4       bindr_0.1.1      tools_3.5.2      digest_0.6.18   
+##  [9] msmbstyle_0.0.3  evaluate_0.12    tibble_2.0.1     gtable_0.2.0    
 ## [13] pkgconfig_2.0.2  png_0.1-7        rlang_0.3.1      rstudioapi_0.9.0
-## [17] yaml_2.2.0       xfun_0.4         bindrcpp_0.2.2   withr_2.1.2.9000
+## [17] yaml_2.2.0       xfun_0.4         bindrcpp_0.2.2   withr_2.1.2     
 ## [21] stringr_1.4.0    dplyr_0.7.8      xml2_1.2.0       knitr_1.21      
-## [25] grid_3.6.0       tidyselect_0.2.5 glue_1.3.0       R6_2.3.0        
+## [25] grid_3.5.2       tidyselect_0.2.5 glue_1.3.0       R6_2.3.0        
 ## [29] rmarkdown_1.11   bookdown_0.9     purrr_0.3.0      magrittr_1.5    
 ## [33] scales_1.0.0     htmltools_0.3.6  assertthat_0.2.0 colorspace_1.4-0
-## [37] labeling_0.3     stringi_1.3.1    lazyeval_0.2.1   munsell_0.5.0   
+## [37] labeling_0.3     stringi_1.2.4    lazyeval_0.2.1   munsell_0.5.0   
 ## [41] crayon_1.3.4</code></pre>
 </div>
 <div id="where-to-ask-for-help" class="section level3 unnumbered">
@@ -1665,6 +1665,48 @@ and store it in variable <code>m2</code>.</li>
 <p class="solution-end"><span class="fa fa-square-o solution-icon"></span></p></div></div>
 
  -->
+<!-- 
+
+<div class = 'question' id=''><p class='question-begin'>&#x25BA; Question</p><div class='question-body'>
+
+ -->
+<!-- Given vectors `v1`, `v2` and `v3` below -->
+<!-- ```{r} -->
+<!-- v1 <- c(1, 2, 3, "4") -->
+<!-- v2 <- c(45, 23, TRUE, 21, 12, 34) -->
+<!-- v3 <- c(v1, v2) -->
+<!-- ``` -->
+<!-- - What is the class of `v3`? -->
+<!-- - What is the length of `v3`? -->
+<!-- - Assign names `"a"`, `"b"`, .. to the `v3`. -->
+<!-- - What is the value of `v3["e"]`? -->
+<!-- - Re-using `v1`, create a vector `v4` containing -->
+<!-- ```{r, echo = FALSE, comment = NA} -->
+<!-- (v4 <- c(v1[2:1], "NEW", v1[3:4])) -->
+<!-- ``` -->
+<!-- - What is the command to round 3.1234 to two decimanl digits? -->
+<!-- - If you execute `round(3.1234)`, you get `3`. Why? -->
+<!-- The WSBIM1207 students were asked how many breaks they wanted during -->
+<!-- the four-hour Thursday morning sessions. The answers are stored in -->
+<!-- vectors `p1` (only one break of 30 minutes), `p2` (two breaks of 15 -->
+<!-- minutes) and `p3` (three breaks of 10 minutes). -->
+<!-- ```{r} -->
+<!-- p1 <- c(1, 1, 1) -->
+<!-- names(p1) <- c("A34", "D3", "F12") -->
+<!-- p2 <- c(2, 2, 2, 2) -->
+<!-- names(p2) <- c("W4", "A21", "K7", "K8") -->
+<!-- p3 <- c(3, 3, 3, 3, 3, 3, 3) -->
+<!-- names(p3) <- c("D1", "D2", "A10", "D5", "D15", "A16", "B22") -->
+<!-- ``` -->
+<!-- - What command would you use to identify the number of respective -->
+<!--   answers? -->
+<!-- - Concatenate all answers into a single vector `p`. -->
+<!-- - What command would you use to get the vote for student `D2` from vector `p`? -->
+<!-- 
+
+<p class="question-end"><span class="fa fa-square-o solution-icon"></span></p></div></div>
+
+ -->
 
 </div>
 </div>
@@ -1673,7 +1715,7 @@ and store it in variable <code>m2</code>.</li>
 <a href="sec-startdata.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-02-14
+2019-02-15
 </p>
 </div>
 </div>
