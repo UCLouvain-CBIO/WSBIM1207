@@ -1066,10 +1066,20 @@ more_animals <- animals[c(1, 2, 3, 2, 1, 4)]
 more_animals
 ```
 
-R indices start at 1. Programming languages like Fortran, MATLAB, Julia, and R start
-counting at 1, because that's what human beings typically do. Languages in the C
-family (including C++, Java, Perl, and Python) count from 0 because that's
-simpler for computers to do.
+R indices start at 1. Programming languages like Fortran, MATLAB,
+Julia, and R start counting at 1, because that's what human beings
+typically do. Languages in the C family (including C++, Java, Perl,
+and Python) count from 0 because that's simpler for computers to do.
+
+Finally, it is also possible to get all the elements of a vector
+except some specified elements using negative indices:
+
+```{r}
+animals ## all animals
+animals[-1] ## all but the first one
+animals[-c(1, 3)] ## all but 1st/3rd ones
+animals[c(-1, -3)] ## all but 1st/3rd ones
+```
 
 ### Conditional subsetting
 

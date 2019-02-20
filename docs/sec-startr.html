@@ -1159,10 +1159,20 @@ original one:</p>
 <pre class="sourceCode r"><code class="sourceCode r">more_animals &lt;-<span class="st"> </span>animals[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>)]
 more_animals</code></pre>
 <pre><code>## [1] &quot;mouse&quot; &quot;rat&quot;   &quot;dog&quot;   &quot;rat&quot;   &quot;mouse&quot; &quot;cat&quot;</code></pre>
-<p>R indices start at 1. Programming languages like Fortran, MATLAB, Julia, and R start
-counting at 1, because that’s what human beings typically do. Languages in the C
-family (including C++, Java, Perl, and Python) count from 0 because that’s
-simpler for computers to do.</p>
+<p>R indices start at 1. Programming languages like Fortran, MATLAB,
+Julia, and R start counting at 1, because that’s what human beings
+typically do. Languages in the C family (including C++, Java, Perl,
+and Python) count from 0 because that’s simpler for computers to do.</p>
+<p>Finally, it is also possible to get all the elements of a vector
+except some specified elements using negative indices:</p>
+<pre class="sourceCode r"><code class="sourceCode r">animals <span class="co">## all animals</span></code></pre>
+<pre><code>## [1] &quot;mouse&quot; &quot;rat&quot;   &quot;dog&quot;   &quot;cat&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">animals[<span class="op">-</span><span class="dv">1</span>] <span class="co">## all but the first one</span></code></pre>
+<pre><code>## [1] &quot;rat&quot; &quot;dog&quot; &quot;cat&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">animals[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)] <span class="co">## all but 1st/3rd ones</span></code></pre>
+<pre><code>## [1] &quot;rat&quot; &quot;cat&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">animals[<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">-3</span>)] <span class="co">## all but 1st/3rd ones</span></code></pre>
+<pre><code>## [1] &quot;rat&quot; &quot;cat&quot;</code></pre>
 </div>
 <div id="conditional-subsetting" class="section level3">
 <h3><span class="header-section-number">2.9.7</span> Conditional subsetting</h3>
@@ -1515,11 +1525,11 @@ random draw. Observe that you now get the same random draws.</p></li>
 sample from a normal distribution. Two normal distributions of means 0
 and 100 and standard deviations 1 and 5, noted noted <em>N(0, 1)</em> and
 <em>N(100, 5)</em>, are shown below</p>
-<div class="figure"><span id="fig:unnamed-chunk-91"></span>
+<div class="figure"><span id="fig:unnamed-chunk-92"></span>
 <p class="caption marginnote shownote">
 Figure 2.7: Two normal distributions: <em>N(0, 1)</em> on the left and <em>N(100, 5)</em> on the right.
 </p>
-<img src="WSBIM1207_files/figure-html/unnamed-chunk-91-1.png" alt="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right." width="1152"  />
+<img src="WSBIM1207_files/figure-html/unnamed-chunk-92-1.png" alt="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right." width="1152"  />
 </div>
 <p>The three arguments, <code>n</code>, <code>mean</code> and <code>sd</code>, define the size of the
 sample, and the parameters of the normal distribution, i.e the mean
