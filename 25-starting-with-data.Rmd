@@ -167,7 +167,8 @@ questions?
 
 - What is the class of the object `surveys`?
 - How many rows and how many columns are in this object?
-- How many species have been recorded during these surveys?
+- How many species (as defined by the `species_id` variable) have been
+  recorded during these surveys?
 
 `r msmbstyle::question_end()`
 
