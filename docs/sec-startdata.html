@@ -582,11 +582,11 @@ result in an entirely new (and unwanted in this case) set of numbers.
 One method to avoid this is to convert factors to characters, and then to numbers.
 Another method is to use the <code>levels()</code> function. Compare:</p>
 <pre class="sourceCode r"><code class="sourceCode r">year_fct &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">1990</span>, <span class="dv">1983</span>, <span class="dv">1977</span>, <span class="dv">1998</span>, <span class="dv">1990</span>))
-<span class="kw">as.numeric</span>(year_fct)               <span class="co"># Wrong! And there is no warning...</span></code></pre>
+<span class="kw">as.numeric</span>(year_fct)  <span class="co">## Wrong! And there is no warning...</span></code></pre>
 <pre><code>## [1] 3 2 1 4 3</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(year_fct)) <span class="co"># Works...</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(year_fct)) <span class="co">## Works...</span></code></pre>
 <pre><code>## [1] 1990 1983 1977 1998 1990</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.numeric</span>(<span class="kw">levels</span>(year_fct))[year_fct]    <span class="co"># The recommended way.</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.numeric</span>(<span class="kw">levels</span>(year_fct))[year_fct] <span class="co">## The recommended way.</span></code></pre>
 <pre><code>## [1] 1990 1983 1977 1998 1990</code></pre>
 <p>Notice that in the <code>levels()</code> approach, three important steps occur:</p>
 <ul>
