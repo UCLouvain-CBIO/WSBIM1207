@@ -96,6 +96,10 @@ sera adaptée en fonction de l'avancée en cours.
 - L'examen sera à livre ouvert - vous aurez accès à la dernière mise à
   jour des notes de cours.
 
+- Vous devrez utiliser l'ordinateur de la salle pour
+  l'examen. Ordinateurs portables personnels ainsi que des tablettes
+  ou téléphone portables ne seront pas autorisés.
+
 - Les questions d'examen seront en français et vos réponses seront
   aussi en français.
 
