@@ -1522,6 +1522,9 @@ Monday to Friday how many molds you see in your cell cultures.
 
 - Compute the number of students that wanted more that 1 break.
 
+- Bonus: as above, but setting the probability for votes to 1/5, 2/5
+  and 2/5 respectively. Read `?sample` to find out how to do that.
+
 `r msmbstyle::question_end()`
 
 
