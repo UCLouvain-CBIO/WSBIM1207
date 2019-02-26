@@ -1513,6 +1513,16 @@ Monday to Friday how many molds you see in your cell cultures.
 - Can you guess with one of `m1` and `m3` will be larger? Verify in R.
 `r msmbstyle::question_end()`
 
+`r msmbstyle::question_begin()`
+
+- Using the `sample` function, simulate a set of 100 students voting
+  (randomly) for 1, 2 or 3 breaks during the WSBIM1207 course.
+
+- Display the values as  a table of votes.
+
+- Compute the number of students that wanted more that 1 break.
+
+`r msmbstyle::question_end()`
 
 
 <!-- `r msmbstyle::solution_begin()` -->
