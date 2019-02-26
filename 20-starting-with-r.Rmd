@@ -88,23 +88,8 @@ genetics, and a lot more.
     such as bioinformatics data analysis - see chapter
     \@ref(sec:bioinfo)
 
-```{r, fig.cap = "Some notable [CRAN  package](https://cran.r-project.org/) milestones. Data from Henrik Bengtsson available from https://www.jottr.org/2015/08/12/milestone-cran-7000/.", echo = FALSE, message = FALSE}
-pkgs <- tibble::tribble(
-                    ~Date, ~Packages,
-                    "2015-08-12", 7000,
-                    "2014-10-29", 6000,
-                    "2013-11-08", 5000,
-                    "2012-08-23", 4000,
-                    "2011-05-12", 3000,
-                    "2009-10-04", 2000,
-                    "2007-04-12", 1000,
-                    "2004-10-01", 500,
-                    "2003-04-01", 250)
-library("ggplot2")
-ggplot(pkgs, aes(Date, Packages)) +
-    geom_point() +
-    ggtitle("CRAN package milestones (data from Henrik Bengtsson)") +
-    theme(axis.text.x = element_text(angle = 90))
+```{r, fig.cap = "Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018.", echo = FALSE, message = FALSE}
+knitr::include_graphics("./figs/cran.png")
 ```
 
 ### R works on data of all shapes and sizes {-}
