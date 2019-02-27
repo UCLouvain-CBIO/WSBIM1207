@@ -271,55 +271,60 @@ correct names of the columns.
 ## Factors
 
 
-When we did `str(surveys)` we saw that several of the columns consist of
-integers. The columns `genus`, `species`, `sex`, `plot_type`, ... however, are
-of a special class called `factor`. Factors are very useful and actually
-contribute to making R particularly well suited to working with data. So we are
-going to spend a little time introducing them.
+When we did `str(surveys)` we saw that several of the columns consist
+of integers. The columns `genus`, `species`, `sex`, `plot_type`,
+... however, are of a special class called `factor`. Factors are very
+useful and actually contribute to making R particularly well suited to
+working with data. So we are going to spend a little time introducing
+them.
 
-Factors represent categorical data. They are stored as integers
+Factors represent **categorical data**. They are stored as integers
 associated with labels and they can be ordered or unordered. While
 factors look (and often behave) like character vectors, they are
 actually treated as integer vectors by R. So you need to be very
 careful when treating them as strings.
 
-Once created, factors can only contain a pre-defined set of values, known as
-*levels*. By default, R always sorts levels in alphabetical order. For
-instance, if you have a factor with 2 levels:
+Once created, factors can only contain a pre-defined set of values,
+known as *levels*. By default, R always sorts levels in alphabetical
+order. For instance, if you have a factor with 2 levels:
 
 ```{r, purl=TRUE}
 sex <- factor(c("male", "female", "female", "male"))
 ```
 
-R will assign `1` to the level `"female"` and `2` to the level `"male"` (because
-`f` comes before `m`, even though the first element in this vector is
-`"male"`). You can see this by using the function `levels()` and you can find the
-number of levels using `nlevels()`:
+R will assign `1` to the level `"female"` and `2` to the level
+`"male"` (because `f` comes before `m`, even though the first element
+in this vector is `"male"`). You can see this by using the function
+`levels()` and you can find the number of levels using `nlevels()`:
+
 
 ```{r, purl=FALSE}
 levels(sex)
 nlevels(sex)
 ```
 
-Sometimes, the order of the factors does not matter, other times you might want
-to specify the order because it is meaningful (e.g., "low", "medium", "high"),
-it improves your visualization, or it is required by a particular type of
-analysis. Here, one way to reorder our levels in the `sex` vector would be:
+Sometimes, the order of the factors does not matter, other times you
+might want to specify the order because it is meaningful (e.g., "low",
+"medium", "high"), it improves your visualization, or it is required
+by a particular type of analysis. Here, one way to reorder our levels
+in the `sex` vector would be:
 
-```{r, results=TRUE, purl=FALSE}
-sex # current order
+
+```{r}
+sex ## current order
 sex <- factor(sex, levels = c("male", "female"))
-sex # after re-ordering
+sex ## after re-ordering
 ```
 
-In R's memory, these factors are represented by integers (1, 2, 3), but are more
-informative than integers because factors are self describing: `"female"`,
-`"male"` is more descriptive than `1`, `2`. Which one is "male"?  You wouldn't
-be able to tell just from the integer data. Factors, on the other hand, have
-this information built in. It is particularly helpful when there are many levels
-(like the species names in our example dataset).
+In R's memory, these factors are represented by integers (1, 2, 3),
+but are more informative than integers because factors are self
+describing: `"female"`, `"male"` is more descriptive than `1`,
+`2`. Which one is "male"?  You wouldn't be able to tell just from the
+integer data. Factors, on the other hand, have this information built
+in. It is particularly helpful when there are many levels (like the
+species names in our example dataset).
 
-### Converting factors
+### Converting to factors
 
 If you need to convert a factor to a character vector, you use
 `as.character(x)`.
@@ -328,26 +333,29 @@ If you need to convert a factor to a character vector, you use
 as.character(sex)
 ```
 
-Converting factors where the levels appear as numbers (such as concentration
-levels, or years) to a numeric vector is a little trickier. The `as.numeric()`
-function returns the index values of the factor, not its levels, so it will
-result in an entirely new (and unwanted in this case) set of numbers.
-One method to avoid this is to convert factors to characters, and then to numbers.
-Another method is to use the `levels()` function. Compare:
+<!-- ### Numeric factors {-} -->
 
-```{r, purl=TRUE}
-year_fct <- factor(c(1990, 1983, 1977, 1998, 1990))
-as.numeric(year_fct)  ## Wrong! And there is no warning...
-as.numeric(as.character(year_fct)) ## Works...
-as.numeric(levels(year_fct))[year_fct] ## The recommended way.
-```
+<!-- Converting factors where the levels appear as numbers (such as -->
+<!-- concentration levels, or years) to a numeric vector is a little -->
+<!-- trickier. The `as.numeric()` function returns the index values of the -->
+<!-- factor, not its levels, so it will result in an entirely new (and -->
+<!-- unwanted in this case) set of numbers.  One method to avoid this is to -->
+<!-- convert factors to characters, and then to numbers.  Another method is -->
+<!-- to use the `levels()` function. Compare: -->
 
-Notice that in the `levels()` approach, three important steps occur:
+<!-- ```{r} -->
+<!-- year_fct <- factor(c(1990, 1983, 1977, 1998, 1990)) -->
+<!-- as.numeric(year_fct)  ## Wrong! And there is no warning... -->
+<!-- as.numeric(as.character(year_fct)) ## Works... -->
+<!-- as.numeric(levels(year_fct))[year_fct] ## The recommended way. -->
+<!-- ```
 
-* We obtain all the factor levels using `levels(year_fct)`
-* We convert these levels to numeric values using `as.numeric(levels(year_fct))`
-* We then access these numeric values using the underlying integers of the
-  vector `year_fct` inside the square brackets
+<!-- Notice that in the `levels()` approach, three important steps occur: -->
+
+<!-- * We obtain all the factor levels using `levels(year_fct)` -->
+<!-- * We convert these levels to numeric values using `as.numeric(levels(year_fct))` -->
+<!-- * We then access these numeric values using the underlying integers of the -->
+<!--   vector `year_fct` inside the square brackets -->
 
 ### Renaming factors
 
@@ -400,14 +408,16 @@ plot(sex)
 
 ### Using `stringsAsFactors=FALSE`
 
-By default, when building or importing a data frame, the columns that contain
-characters (i.e. text) are coerced (= converted) into factors. Depending on what you want to do with the data, you may want to keep these
-columns as `character`. To do so, `read.csv()` and `read.table()` have an
-argument called `stringsAsFactors` which can be set to `FALSE`.
+By default, when building or importing a data frame, the columns that
+contain characters (i.e. text) are coerced (= converted) into
+factors. Depending on what you want to do with the data, you may want
+to keep these columns as `character`. To do so, `read.csv()` and
+`read.table()` have an argument called `stringsAsFactors` which can be
+set to `FALSE`.
 
-In most cases, it is preferable to set `stringsAsFactors = FALSE` when importing
-data and to convert as a factor only the columns that require this data
-type.
+In most cases, it is preferable to set `stringsAsFactors = FALSE` when
+importing data and to convert as a factor only the columns that
+require this data type.
 
 
 ```{r, eval=FALSE, purl=TRUE}
