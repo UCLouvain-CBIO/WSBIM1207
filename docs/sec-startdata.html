@@ -1199,7 +1199,7 @@ fictive beer consumption in liters per year at different age according
 to gender and employment.</p>
 <ul>
 <li><p>Load the <code>rWSBIM1207</code> package. If the package isn’t installed of its
-version is older than 0.1.1, install it from the
+version is greater than 0.1.1, install it from the
 <code>UCLouvain-CBIO/rWSBIM1207</code> GitHub repository using the
 <code>devtools::install_github</code> function.</p></li>
 <li><p>Using the <code>beers.csv()</code> function from <code>rWSBIM1207</code>, find the path
@@ -1207,10 +1207,14 @@ the <code>beers.csv</code> file and read it to produce a <code>data.frame</code>
 <code>beers</code>. The spreadsheet uses semi-colons <code>;</code> to separate cells. Use
 <code>read.csv2</code> and <code>read.delim</code> and set the separator appropriately,
 and verify that the two variables are identical.</p></li>
-<li><p>Check the number of observations and identidy variables are
+<li><p>Check the number of observations and identify the variables that are
 available. Calculate a summary of each variable using the <code>summary</code>
 function directly on the <code>data.frame</code>.</p></li>
 <li><p>Calculate the mean and the median age and consumption.</p></li>
+<li><p>Do men consume more beer than women on average? To answer this
+question, calculate the mean consumption for men only, selecting the
+observations with <code>Gender</code> equal to <code>Male</code>. Then do the same for
+observations with <code>Gender</code> equal to <code>Female</code>.</p></li>
 <li><p>Calculate a two-way table of gender and employment status.</p></li>
 <li><p>Remove observations with missing values and export the data into a
 new <code>csv</code> file called <code>beers_no_na.csv</code>.</p></li>
@@ -1229,7 +1233,7 @@ new <code>csv</code> file called <code>beers_no_na.csv</code>.</p></li>
 (TCGA). The data are available in the <code>rWSBIM1207</code> package.</p>
 <ul>
 <li><p>Load the <code>rWSBIM1207</code> package. If the package isn’t installed of its
-version is older than 0.1.1, install it from the
+version is greater than 0.1.1, install it from the
 <code>UCLouvain-CBIO/rWSBIM1207</code> GitHub repository using the
 <code>devtools::install_github</code> function.</p></li>
 <li><p>Obtain the path to th csv file containing the clinical data need for
@@ -1240,15 +1244,17 @@ recorded in the table?</p></li>
 <li><p>Print the column names using two different functions.</p></li>
 <li><p>Create a smaller data frame called <code>clinical_mini</code> containing only
 the columns corresponding to the <code>patientID</code>, <code>gender</code>,
-<code>age_at_diagnosis</code> and <code>smoking_history</code>. Try to do this using using
+<code>age_at_diagnosis</code> and <code>smoking_history</code>. Try to do this using
 column indices and column names.</p></li>
-<li><p>Inspect the <code>smoking_history</code> column. how many categories are
+<li><p>Inspect the <code>smoking_history</code> column. How many categories are
 recorded? How many observations are there for each category?</p></li>
 <li><p>The column age at diagnosis is recorded in days. Create a new column
 <code>years_at_diagnosis</code> corresponding to the age at diagnosis converted
 in years.</p></li>
 <li><p>Calculate the mean and median age at diagnosis. Hint: pay attention
-to missing values!.</p></li>
+to missing values!</p></li>
+<li><p>Is there a difference between the <code>years_at_diagnosis</code> for male and
+female patients?</p></li>
 <li><p>Use the <code>quantile</code> function to calculate the first and last quartile
 of age at diagnosis. Use the help function (<code>?quantile</code>) to see how
 to use the <code>quantile</code> function.</p></li>

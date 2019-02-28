@@ -856,7 +856,7 @@ fictive beer consumption in liters per year at different age according
 to gender and employment.
 
 - Load the `rWSBIM1207` package. If the package isn't installed of its
-  version is older than 0.1.1, install it from the
+  version is greater than 0.1.1, install it from the
   `UCLouvain-CBIO/rWSBIM1207` GitHub repository using the
   `devtools::install_github` function.
 
@@ -866,11 +866,16 @@ to gender and employment.
   `read.csv2` and `read.delim` and set the separator appropriately,
   and verify that the two variables are identical.
 
-- Check the number of observations and identidy variables are
+- Check the number of observations and identify the variables that are
   available. Calculate a summary of each variable using the `summary`
   function directly on the `data.frame`.
 
 - Calculate the mean and the median age and consumption.
+
+- Do men consume more beer than women on average? To answer this
+  question, calculate the mean consumption for men only, selecting the
+  observations with `Gender` equal to `Male`. Then do the same for
+  observations with `Gender` equal to `Female`.
 
 - Calculate a two-way table of gender and employment status.
 
@@ -886,7 +891,7 @@ We are going to analyse clinical data from The Cancer Genome Atlas
 (TCGA). The data are available in the `rWSBIM1207` package.
 
 - Load the `rWSBIM1207` package. If the package isn't installed of its
-  version is older than 0.1.1, install it from the
+  version is greater than 0.1.1, install it from the
   `UCLouvain-CBIO/rWSBIM1207` GitHub repository using the
   `devtools::install_github` function.
 
@@ -901,10 +906,10 @@ We are going to analyse clinical data from The Cancer Genome Atlas
 
 - Create a smaller data frame called `clinical_mini` containing only
   the columns corresponding to the `patientID`, `gender`,
-  `age_at_diagnosis` and `smoking_history`. Try to do this using using
+  `age_at_diagnosis` and `smoking_history`. Try to do this using
   column indices and column names.
 
-- Inspect the `smoking_history` column. how many categories are
+- Inspect the `smoking_history` column. How many categories are
   recorded? How many observations are there for each category?
 
 - The column age at diagnosis is recorded in days. Create a new column
@@ -912,7 +917,10 @@ We are going to analyse clinical data from The Cancer Genome Atlas
   in years.
 
 - Calculate the mean and median age at diagnosis. Hint: pay attention
-  to missing values!.
+  to missing values!
+
+- Is there a difference between the `years_at_diagnosis` for male and
+  female patients?
 
 - Use the `quantile` function to calculate the first and last quartile
   of age at diagnosis. Use the help function (`?quantile`) to see how
