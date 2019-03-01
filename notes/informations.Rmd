@@ -44,7 +44,8 @@ output: html_document
   meilleur moyen de vous y préparer et de faire et comprendre les
   exercices en cours et à domicile.
 
-- Nous ferons une pause d'environ 30 minutes de 10h15 à 10h45.
+- Le nombre et durée des pauses dépendra du [vote des
+  étudiant(e)s](https://moodleucl.uclouvain.be/mod/choice/view.php?id=734453).
 
 
 Ce qui est attendu de vous:
@@ -73,10 +74,10 @@ Ce qui est attendu de vous:
 | 2 | Jeudi  14/02/2019 | 08h30 - 12h30 | Introduction à R/RStudio et `data.frames`       |
 | 3 | Jeudi  21/02/2019 | 08h30 - 12h30 | Analyses de données                             |
 | 4 | Jeudi  28/02/2019 | 08h30 - 12h30 | Analyses de données (suite)                     |
-| 5 | Jeudi  07/03/2019 | 08h30 - 12h30 | Visualisation de données                        |
-| 6 | Jeudi  14/03/2019 | 08h30 - 12h30 | Jointures et exercices supplémentaires          |
-| 7 | Jeudi  21/03/2019 | 08h30 - 12h30 | Recherche reproductible et bioinformatique      |
-| 8 | Jeudi  28/03/2019 | 08h30 - 12h30 | Eléments de programmation                       |
+| 5 | Jeudi  07/03/2019 | 08h30 - 12h30 | Analyses de données (suite)                     |
+| 6 | Jeudi  14/03/2019 | 08h30 - 12h30 | Visualisation de données                        |
+| 7 | Jeudi  21/03/2019 | 08h30 - 12h30 | Jointures et recherche reproductible            |
+| 8 | Jeudi  28/03/2019 | 08h30 - 12h30 | bioinformatique et éléments de programmation    |
 | 9 | Jeudi  04/04/2019 | 08h30 - 12h30 | Exercices supplémentaires et questions/réponses |
 
 NB: la matière reprise ci-dessus est à titre indicatif uniquement, et
@@ -94,7 +95,8 @@ sera adaptée en fonction de l'avancée en cours.
   dépasser.
 
 - L'examen sera à livre ouvert - vous aurez accès à la dernière mise à
-  jour des notes de cours.
+  jour des notes de cours. Vous pourrez également amener vos notes
+  manuscrites si vous le désirez.
 
 - Vous devrez utiliser l'ordinateur de la salle pour
   l'examen. Ordinateurs portables personnels ainsi que des tablettes
