@@ -262,27 +262,53 @@ surveys_plot <span class="op">+</span>
 <span class="co"># This will not add the new layer and will return an error message</span>
 surveys_plot
   <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre>
-<blockquote>
-<p><strong>Challenge</strong></p>
-<p>Scatter plots can be useful exploratory tools for small datasets. For data
-sets with large numbers of observations, such as the <code>surveys_complete</code> data
-set, overplotting of points can be a limitation of scatter plots. One strategy
-for handling such settings is to use hexagonal binning of observations. The
-plot space is tessellated into hexagons. Each hexagon is assigned a color
-based on the number of observations that fall within its boundaries. To use
-hexagonal binning with <strong><code>ggplot2</code></strong>, first install the R package <code>hexbin</code>
-from CRAN:</p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Scatter plots can be useful exploratory tools for small datasets. For
+data sets with large numbers of observations, such as the
+<code>surveys_complete</code> data set, overplotting of points can be a
+limitation of scatter plots. One strategy for handling such settings
+is to use hexagonal binning of observations. The plot space is
+tessellated into hexagons. Each hexagon is assigned a color based on
+the number of observations that fall within its boundaries. To use
+hexagonal binning <code>ggplot2</code>, first install the R package <code>hexbin</code> from
+CRAN and load it.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-37" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-37&#39;, &#39;sol-start-37&#39;)"></span>
+</p>
+<div id="sol-body-37" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;hexbin&quot;</span>)
 <span class="kw">library</span>(<span class="st">&quot;hexbin&quot;</span>)</code></pre>
-<p>Then use the <code>geom_hex()</code> function:</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Then use the <code>geom_hex()</code> function</p>
 <pre class="sourceCode r"><code class="sourceCode r">surveys_plot <span class="op">+</span>
 <span class="st"> </span><span class="kw">geom_hex</span>()</code></pre>
-<ul>
-<li>What are the relative strengths and weaknesses of a hexagonal bin plot
-compared to a scatter plot? Examine the above scatter plot and compare it
-with the hexagonal bin plot that you created.</li>
-</ul>
-</blockquote>
+<p>What are the relative strengths and weaknesses of a hexagonal bin plot
+compared to a scatter plot? Examine the above scatter plot and compare
+it with the hexagonal bin plot that you created.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 </div>
 <div id="building-your-plots-iteratively" class="section level2">
 <h2><span class="header-section-number">5.2</span> Building your plots iteratively</h2>
@@ -661,7 +687,7 @@ Figure 5.3: Visualisation of beer consumption, highlighting different patterns o
 </div>
 <!-- 
 
-<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-37' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-37', 'sol-start-37')"></span></p><div class="solution-body" id = "sol-body-37" style="display: none;">
+<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-38' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-38', 'sol-start-38')"></span></p><div class="solution-body" id = "sol-body-38" style="display: none;">
 
  -->
 <!-- ```{r} -->
@@ -730,7 +756,7 @@ A2ML1 gene.</p></li>
 </div>
 <!-- 
 
-<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-38' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-38', 'sol-start-38')"></span></p><div class="solution-body" id = "sol-body-38" style="display: none;">
+<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-39' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-39', 'sol-start-39')"></span></p><div class="solution-body" id = "sol-body-39" style="display: none;">
 
  -->
 <!-- ```{r} -->
