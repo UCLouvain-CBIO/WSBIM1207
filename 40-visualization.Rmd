@@ -647,7 +647,8 @@ simple, standard figures, that can be produced very quickly with a
 single line of code and a single function such as `plot`, or `hist`,
 or `boxplot`, ... The defaults are however not always the most
 appealing and tuning of figures, especially when they become more
-complex (for example to produce facets), can become lengthly.
+complex (for example to produce facets), can become lengthly and
+cumbersome.
 
 
 ### The lattice package {-}
