@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-03-01" />
+<meta name="date" content="2019-03-06" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -572,10 +572,52 @@ combo_plot &lt;-<span class="st"> </span><span class="kw">grid.arrange</span>(sp
 <h2><span class="header-section-number">5.9</span> Other packages for visualisation</h2>
 <p><code>ggplot2</code> is a very powerful package that fits very nicely in our
 <em>tidy data</em> and <em>tidy tools</em> pipeline. There are other visualiation
-packages in R that, while not always as flexible as <code>ggplot2</code>,
-shoudn’t be ignored.</p>
+packages in R that shoudn’t be ignored.</p>
 <div id="base-graphics" class="section level3 unnumbered">
 <h3>base graphics</h3>
+<p>The default graphics system that comes with R, often called <em>base R
+graphics</em> is simple and fast. It is based on the <em>painters model</em>,
+where different output are direcly overlaid on top of each other (see
+figure <a href="sec-vis.html#fig:paintermodel">5.1</a>). This is a fundamental difference with
+<code>ggplot2</code> (and with <code>lattice</code>, described below), that returns
+dedicated objects, that are rendered on screen or in a file, and that
+can even be updated.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))
+<span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">main =</span> <span class="st">&quot;First layer, produced with plot(1:20)&quot;</span>)
+<span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">main =</span> <span class="st">&quot;A horizontal red line, added with abline(h = 10)&quot;</span>)
+<span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">10</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)
+<span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">main =</span> <span class="st">&quot;A rectangle, added with rect(5, 5, 15, 15)&quot;</span>)
+<span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">10</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)
+<span class="kw">rect</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">15</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</code></pre>
+<div class="figure"><span id="fig:paintermodel"></span>
+<p class="caption marginnote shownote">
+Figure 5.1: Successive layers added on top of each other.
+</p>
+<img src="WSBIM1207_files/figure-html/paintermodel-1.png" alt="Successive layers added on top of each other." width="1152"  />
+</div>
+<p>Another main difference is that base graphics’ plotting function try
+to do <em>the right</em> thing based on their input type, i.e. they will
+adapt their behavour based on the class of their input. This is again
+very different from what we have in <code>ggplot2</code>, that only accepts
+dataframes as input, and that requires plots to be constructed bit by
+bit.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
+<span class="kw">boxplot</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dt">main =</span> <span class="st">&quot;Boxplot of rnorm(100)&quot;</span>)
+<span class="kw">boxplot</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dt">ncol =</span> <span class="dv">10</span>), <span class="dt">main =</span> <span class="st">&quot;Boxplot of matrix(rnorm(100), ncol = 10)&quot;</span>)
+<span class="kw">hist</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>))
+<span class="kw">hist</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dt">ncol =</span> <span class="dv">10</span>))</code></pre>
+<div class="figure"><span id="fig:plotmethod"></span>
+<p class="caption marginnote shownote">
+Figure 5.2: Plotting boxplots (top) and histograms (bottom) vectors (left) or a matrices (right).
+</p>
+<img src="WSBIM1207_files/figure-html/plotmethod-1.png" alt="Plotting boxplots (top) and histograms (bottom) vectors (left) or a matrices (right)." width="768"  />
+</div>
+<p>The out-of-the-box approach in base graphics can be very efficient for
+simple, standard figures, that can be produced very quickly with a
+single line of code and a single function such as <code>plot</code>, or <code>hist</code>,
+or <code>boxplot</code>, … The defaults are however not always the most
+appealing and tuning of figures, especially when they become more
+complex (for example to produce facets), can become lengthly.</p>
 </div>
 <div id="the-lattice-package" class="section level3 unnumbered">
 <h3>The lattice package</h3>
@@ -595,7 +637,7 @@ shoudn’t be ignored.</p>
 according to age and working status?</em> Now reproduce the figure below.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-181"></span>
 <p class="caption marginnote shownote">
-Figure 5.1: Visualisation of beer consumption, highlighting different patterns of beer consumption in employed and unemployed males and females.
+Figure 5.3: Visualisation of beer consumption, highlighting different patterns of beer consumption in employed and unemployed males and females.
 </p>
 <img src="figs/ggplot-beer.png" alt="Visualisation of beer consumption, highlighting different patterns of beer consumption in employed and unemployed males and females." width="100%"  />
 </div>
@@ -739,7 +781,7 @@ A2ML1 gene.</p></li>
 <a href="sec-join.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-03-01
+2019-03-06
 </p>
 </div>
 </div>

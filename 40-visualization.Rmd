@@ -605,10 +605,50 @@ Note: The parameters `width` and `height` also determine the font size in the sa
 
 `ggplot2` is a very powerful package that fits very nicely in our
 *tidy data* and *tidy tools* pipeline. There are other visualiation
-packages in R that, while not always as flexible as `ggplot2`,
-shoudn't be ignored.
+packages in R that shoudn't be ignored.
 
 ### base graphics {-}
+
+The default graphics system that comes with R, often called *base R
+graphics* is simple and fast. It is based on the *painters model*,
+where different output are direcly overlaid on top of each other (see
+figure \@ref(fig:paintermodel)). This is a fundamental difference with
+`ggplot2` (and with `lattice`, described below), that returns
+dedicated objects, that are rendered on screen or in a file, and that
+can even be updated.
+
+```{r paintermodel, fig.width = 12, fig.height = 4, fig.cap = 'Successive layers added on top of each other.'}
+par(mfrow = c(1, 3))
+plot(1:20, main = "First layer, produced with plot(1:20)")
+plot(1:20, main = "A horizontal red line, added with abline(h = 10)")
+abline(h = 10, col = "red")
+plot(1:20, main = "A rectangle, added with rect(5, 5, 15, 15)")
+abline(h = 10, col = "red")
+rect(5, 5, 15, 15, lwd = 3)
+```
+
+Another main difference is that base graphics' plotting function try
+to do *the right* thing based on their input type, i.e. they will
+adapt their behavour based on the class of their input. This is again
+very different from what we have in `ggplot2`, that only accepts
+dataframes as input, and that requires plots to be constructed bit by
+bit.
+
+```{r plotmethod, fig.width = 8, fig.height = 8, fig.cap = 'Plotting boxplots (top) and histograms (bottom) vectors (left) or a matrices (right).'}
+par(mfrow = c(2, 2))
+boxplot(rnorm(100), main = "Boxplot of rnorm(100)")
+boxplot(matrix(rnorm(100), ncol = 10), main = "Boxplot of matrix(rnorm(100), ncol = 10)")
+hist(rnorm(100))
+hist(matrix(rnorm(100), ncol = 10))
+```
+
+The out-of-the-box approach in base graphics can be very efficient for
+simple, standard figures, that can be produced very quickly with a
+single line of code and a single function such as `plot`, or `hist`,
+or `boxplot`, ... The defaults are however not always the most
+appealing and tuning of figures, especially when they become more
+complex (for example to produce facets), can become lengthly.
+
 
 ### The lattice package {-}
 
