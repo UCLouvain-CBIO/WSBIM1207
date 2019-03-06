@@ -106,7 +106,7 @@ library("tidyverse")
 
 The [Data Transformation Cheat
 Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
-provides an overview of the `dplyr`grammar, offering more details and
+provides an overview of the `dplyr` grammar, offering more details and
 functions that we will see in this chapter.
 
 ## What are **`dplyr`** and **`tidyr`**?
