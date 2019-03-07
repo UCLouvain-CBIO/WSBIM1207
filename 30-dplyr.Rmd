@@ -286,7 +286,7 @@ surveys %>%
 `r msmbstyle::solution_end()`
 
 
-### Mutate
+## Mutate
 
 Frequently you'll want to create new columns based on the values in existing
 columns, for example to do unit conversions, or to find the ratio of values in two
@@ -353,33 +353,37 @@ surveys_hindfoot_half <- surveys %>%
 ```
 `r msmbstyle::solution_end()`
 
-```{r, eval=FALSE, purl=TRUE, echo=FALSE}
-## Mutate question:
-##  Create a new data frame from the `surveys` data that meets the following
-##  criteria: contains only the `species_id` column and a column that
-##  contains values that are half the `hindfoot_length` values (e.g. a
-##  new column `hindfoot_half`). In this `hindfoot_half` column, there are
-##  no NA values and all values are < 30.
 
-##  Hint: think about how the commands should be ordered to produce this data frame!
+## Split-apply-combine data analysis
+
+Many data analysis tasks can be approached using the
+*split-apply-combine* paradigm: split the data into groups, apply some
+analysis to each group, and then combine the results. **`dplyr`**
+makes this very easy through the use of the `group_by()` function.
+
+```{r}
+surveys %>%
+  group_by(sex)
 ```
 
-### Split-apply-combine data analysis and the summarize() function
+The `group_by()` function doesn't perform any data processing, it
+groups the data into subsets: in the example above, our initial
+`tibble` of `r nrow(surveys)` observations is split into
+`r length(unique(surveys$sex))` groups based on the `sex` variable.
 
-Many data analysis tasks can be approached using the *split-apply-combine*
-paradigm: split the data into groups, apply some analysis to each group, and
-then combine the results. **`dplyr`** makes this very easy through the use of the
-`group_by()` function.
+Once the data have been combined, subsequent operations will be
+applied on each group independently.
 
 
-#### The `summarize()` function
+### The `summarize()` function
 
-`group_by()` is often used together with `summarize()`, which collapses each
-group into a single-row summary of that group.  `group_by()` takes as arguments
-the column names that contain the **categorical** variables for which you want
-to calculate the summary statistics. So to compute the mean `weight` by sex:
+`group_by()` is often used together with `summarize()`, which
+collapses each group into a single-row summary of that group.
+`group_by()` takes as arguments the column names that contain the
+**categorical** variables for which you want to calculate the summary
+statistics. So to compute the mean `weight` by sex:
 
-```{r, purl = FALSE}
+```{r}
 surveys %>%
   group_by(sex) %>%
   summarize(mean_weight = mean(weight, na.rm = TRUE))
@@ -390,7 +394,7 @@ screen anymore. It's one of the advantages of `tbl_df` over data frame.
 
 You can also group by multiple columns:
 
-```{r, purl = FALSE}
+```{r}
 surveys %>%
   group_by(sex, species_id) %>%
   summarize(mean_weight = mean(weight, na.rm = TRUE))
@@ -459,7 +463,7 @@ surveys %>%
 ```
 
 
-#### Counting
+### Counting
 
 When working with data, we often want to know the number of observations found
 for each factor or combination of factors. For this task, **`dplyr`** provides
