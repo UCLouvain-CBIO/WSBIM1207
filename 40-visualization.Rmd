@@ -606,14 +606,14 @@ Note: The parameters `width` and `height` also determine the font size in the sa
 ## Other packages for visualisation
 
 `ggplot2` is a very powerful package that fits very nicely in our
-*tidy data* and *tidy tools* pipeline. There are other visualiation
-packages in R that shoudn't be ignored.
+*tidy data* and *tidy tools* pipeline. There are other visualisation
+packages in R that shouldn't be ignored.
 
-### base graphics {-}
+### Base graphics {-}
 
 The default graphics system that comes with R, often called *base R
 graphics* is simple and fast. It is based on the *painters model*,
-where different output are direcly overlaid on top of each other (see
+where different output are directly overlaid on top of each other (see
 figure \@ref(fig:paintermodel)). This is a fundamental difference with
 `ggplot2` (and with `lattice`, described below), that returns
 dedicated objects, that are rendered on screen or in a file, and that
@@ -631,7 +631,7 @@ rect(5, 5, 15, 15, lwd = 3)
 
 Another main difference is that base graphics' plotting function try
 to do *the right* thing based on their input type, i.e. they will
-adapt their behavour based on the class of their input. This is again
+adapt their behaviour based on the class of their input. This is again
 very different from what we have in `ggplot2`, that only accepts
 dataframes as input, and that requires plots to be constructed bit by
 bit.
@@ -649,17 +649,17 @@ simple, standard figures, that can be produced very quickly with a
 single line of code and a single function such as `plot`, or `hist`,
 or `boxplot`, ... The defaults are however not always the most
 appealing and tuning of figures, especially when they become more
-complex (for example to produce facets), can become lengthly and
+complex (for example to produce facets), can become lengthy and
 cumbersome.
 
 ### The lattice package {-}
 
 The `lattice` package is similar to `ggplot2` in that is uses
 dataframes as input, returns graphical objects and supports
-facetting. `lattice` however isn't based on the grammar of graphics
+faceting. `lattice` however isn't based on the grammar of graphics
 and has a more convoluted interface.
 
-A good reference for the `lattice` package is (@latticebook).
+A good reference for the `lattice` package is @latticebook.
 
 ## Additional exercises
 
