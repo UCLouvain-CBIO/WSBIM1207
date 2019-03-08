@@ -295,6 +295,43 @@ Even if you decide to stick with one of these alternatives, it is
 important to be aware of the other one, especially given the
 widespread usage of `merge` in many packages and in R itself.
 
+## Row and column binding
+
+There are other two important functions in R, that can be used to
+combine two dataframes, but assume that these already match
+beforehand.
+
+```{r, fig.width = 6, fig.asp = 1, fig.cap = "Matching dimension and names when binding by rows and columns.", echo = FALSE}
+plot(1:10, type = "n", bty = "n", axes = FALSE, ann = FALSE,
+     xlim = c(1, 11), ylim = c(1, 11))
+
+rect(1, 7.5, 5, 10)
+segments(1, 9.55, 5, 9.55)
+segments(1, 9.5, 5, 9.5)
+text(1, 9.75, labels = paste(paste0("V", 1:5, collapse = " "), "..." , collapse = " "), pos = 4, offset = 0.1)
+segments(seq(1, 5, 0.5), rep(7.5, 10),
+         seq(1, 5, 0.5), rep(9.55, 10))
+
+rect(1, 1, 5, 7)
+segments(1, 6.55, 5, 6.55)
+text(1, 6.75, labels = paste(paste0("V", 1:5, collapse = " "), "..." , collapse = " "), pos = 4, offset = 0.1)
+segments(seq(1, 5, 0.5), rep(1, 10),
+         seq(1, 5, 0.5), rep(6.55, 10))
+segments(rep(1, 12), seq(1, 6.5, 0.5),
+         rep(5, 12), seq(1, 6.5, 0.5))
+
+rect(6, 1, 11, 7)
+segments(6, 6.55, 11, 6.55)
+text(6, 6.75, labels = paste(paste0("X", 1:8, collapse = " "), "..." , collapse = " "), pos = 4, offset = 0.1)
+segments(rep(6, 12), seq(1, 6.5, 0.5),
+         rep(11, 12), seq(1, 6.5, 0.5))
+
+abline(v = seq(1, 5, 0.5), lty = "dotted", col = "grey")
+abline(h = seq(1, 6.5, 0.5), lty = "dotted", col = "grey")
+```
+
+
+
 
 ## Additional exercises
 
