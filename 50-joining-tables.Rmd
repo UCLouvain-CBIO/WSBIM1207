@@ -299,7 +299,7 @@ widespread usage of `merge` in many packages and in R itself.
 
 There are other two important functions in R, that can be used to
 combine two dataframes, but assume that these already match
-beforehand, as summerised in figure \@ref{fig:bindfig} below.
+beforehand, as summerised in figure \@ref(fig:bindfig) below.
 
 ```{r bindfig, fig.width = 6, fig.asp = 1, fig.cap = "Matching dimension and names when binding by rows and columns.", echo = FALSE}
 plot(1:10, type = "n", bty = "n", axes = FALSE, ann = FALSE,
@@ -336,10 +336,54 @@ d2 <- data.frame(a = 4:5, b = 4:5)
 d3 <- data.frame(v1 = 1:2, v2 = 3:4, v3 = 5:6)
 ```
 
-We are going to illustrate binding by columns
+We are going to illustrate binding by columns with dataframes `d1` and
+`d2`, and then binding by rows using `d2` and `d3`. Lets start with
+`d1` and `d2` shown below; both have the same number of columns but,
+and this is crucial, do not have the same column names:
 
-Using the three dataframe `d1`, `d2` and `d3` shown below,
+```{r}
+d1
+d2
+```
 
+While de number of columns match, the names don't, which results in an
+error[^try] when we use `rbind`:
+
+```{r}
+try(rbind(d1, d2))
+```
+
+[^try]: The failing call to `rbind` is wrapped into a `try` call here
+    to stop the error from aborting the document compilation. 
+
+Before `rbind`ing two dataframes, we must assure that their number of columns and
+rownames match exactly:
+
+```{r}
+names(d2) <- names(d1)
+rbind(d1, d2)
+```
+
+If we want to bind to dataframes along their columns, we must make
+sure that their number of rows match; rownames not hinder here:
+
+```{r}
+cbind(d2, d3) 
+```
+
+Note that beyond the dimensions and column names that are required to
+match, the real meaning of `rbind` is to bind dataframes that contain 
+observations for the same set of variables - there is more than only 
+the column names. Below, we `rbind` dataframes with identical column
+names but different variables, which end up all being coerced into
+characters.
+
+
+```{r}
+d1
+d4 <- data.frame(x = letters[1:2], y = letters[1:2])
+str(rbind(d1, d4))
+```
 
 ## Additional exercises
 
