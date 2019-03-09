@@ -212,9 +212,9 @@ instance. See section \@ref(sec:genvec) for details.
 
 You can also exclude certain indices of a data frame using the "`-`" sign:
 
-```{r, purl=FALSE}
-surveys[, -1]          # The whole data frame, except the first column
-surveys[-c(7:34786), ] # Equivalent to head(surveys)
+```{r, eval = FALSE}
+surveys[, -1]          ## The whole data frame, except the first column
+surveys[-c(7:34786), ] ## Equivalent to head(surveys)
 ```
 
 Data frames can be subset by calling indices (as shown previously),
@@ -621,14 +621,14 @@ but, as a best practice, is a character vector formatted as "YYYY-MM-DD".
 
 Let's create a date object and inspect the structure:
 
-```{r, purl=FALSE}
+```{r}
 my_date <- ymd("2015-01-01")
 str(my_date)
 ```
 
 Now let's paste the year, month, and day separately - we get the same result:
 
-```{r, purl=FALSE}
+```{r}
 # sep indicates the character to use to separate each component
 my_date <- ymd(paste("2015", "1", "1", sep = "-"))
 str(my_date)
@@ -638,14 +638,14 @@ Now we apply this function to the surveys dataset. Create a character
 vector from the `year`, `month`, and `day` columns of `surveys` using
 `paste()`:
 
-```{r, purl=FALSE}
-paste(surveys$year, surveys$month, surveys$day, sep = "-")
+```{r}
+head(paste(surveys$year, surveys$month, surveys$day, sep = "-"))
 ```
 
 This character vector can be used as the argument for `ymd()`:
 
-```{r, purl=FALSE}
-ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))
+```{r}
+head(ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-")))
 ```
 
 The resulting `Date` vector can be added to `surveys` as a new column called `date`:
