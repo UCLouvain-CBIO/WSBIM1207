@@ -51,11 +51,16 @@ Here are a couple of suggestions:
   variables and files (for the latter, a `-` instead of `_` is also
   acceptable).
 - Always spell out `TRUE` and `FALSE`, and resist the temptation to
-  use `T` and `F` instead.
+  use `T` and `F` instead[^TF].
 - Use 4 spaces for indenting. No tabs.
 - No lines longer than 80 characters.
 - Use spaces around binary operators.
 - No spaces between a function name and the opening parenthesis.
+
+[^TF]: `TRUE` and `FALSE` are reserved words; one can't use them as
+variable names. This however doesn't hold for `T` and `F`. One can use
+`T` and `F` as regular variable names such, as for example,
+`T <- FALSE` and `F <- TRUE`!
 
 Another good advise is to avoid re-writing the same code many
 times. We will see below two strategies to do that, namely iteration
@@ -162,8 +167,9 @@ We will see different ways of implementing such an iteration.
 ### Using a `for` loop {-}
 
 ```{r}
-for (i in x)
+for (i in x) {
     print(log(i))
+}
 ```
 
 The loop above only prints the results on screen. They aren't stored
@@ -178,11 +184,11 @@ indices to save the results in the output vector.
 
 ```{r}
 res_loop <- rep(NA, length(x))
-for (i in seq_along(x))
+for (i in seq_along(x)) {
     res_loop[i] <- log(x[i])
+}
 res_loop
 ```
-
 
 ### Using the `apply` function {-}
 
@@ -206,7 +212,7 @@ res_apply
 There are three such function that *apply* a function iteratively:
 
 - `sapply` iterates over a vector and returns a new vector of the same
-  length as the input vector[^sapplyexcetption].
+  length as the input vector[^sapplyexception].
 
 - `lapply` iterates over a linear input (a vector of a list) and
   returns a list of the same length as the input.
@@ -218,14 +224,13 @@ There are three such function that *apply* a function iteratively:
   and `2` defined columns[^arrayapply].
 
 
-[^sapplyexcetption]: This is a simplification of how `sapply` works,
+[^sapplyexception]: This is a simplification of how `sapply` works,
     that is partly defined by the the `simplify` argument and whether
     the result of applying the function on each element of the input
     can be returned as a vector. The alternative is to return a
     `list`, like `lapply`.
 
 [^arrayapply]: This generalises to arrays with more than 2 dimensions.
-
 
 When performing the same operations in different ways (using different
 implementations), it is essential to verify that the results are
@@ -235,6 +240,9 @@ the former is to use the `identical` function:
 ```{r}
 identical(res_loop, res_apply)
 ```
+
+The `purrr` package a set of `map` functions similar to the `apply`
+set described above.
 
 ### Vectorisation {-}
 
@@ -266,8 +274,9 @@ situtions.
 
 - When a vectorised solution exists, this is the one that should be
   chosen. It is by far the fastest solution, but only applicable to
-  existing functions. If you were to write your own function to
-  iterate over, it is advisable to write a vectorised function.
+  existing *vectorised* functions. If you were to write your own
+  function to iterate over, it is advisable to write a vectorised
+  function.
 
 - The apply functions are extremely convenient and concise, and hence
   widely used. They have a couple of advantages, including that there
@@ -288,6 +297,83 @@ situtions.
 
 ## Conditionals
 
-`if` and `else`.
+When an operation has to be executed when a condition is met, one
+typically uses a `if` and `else` construct:
+
+```
+if (CONDITION) {
+   ## DO SOMETHING
+} else {
+  ## DO SOMETHING ELSE
+}
+```
+
+For examples
+
+```{r, echo=FALSE}
+set.seed(1)
+```
+
+```{r}
+(x <- rnorm(1))
+
+if (x > 0) {
+   print(log(x))
+} else {
+   print(log(-x))
+}   
+```
+
+But note that in the example above, it would be much better to
+simplify the code and use the absolute value of `x` before taking the
+log, which will generalise the calculation for positive and negative
+values ...
+
+```{r}
+log(abs(x))
+```
+
+... and works for vectors of any length thanks to vectorisation.
+
+```{r}
+x <- rnorm(10)
+log(abs(x))
+```
+
+## Pattern matching
 
 ## Example: iterating over files
+
+`r msmbstyle::question_begin()`
+1. Using the `interroA.csv()` and `interroB.csv()` functions from the
+   `rWSBIM1207` package, create a vector containing the two csv file
+   names.
+`r msmbstyle::question_end()`
+
+
+`r msmbstyle::solution_begin()`
+
+```{r, message = FALSE}
+library("rWSBIM1207")
+fls <- c(interroA.csv(),
+         interroB.csv())
+fls
+```   
+`r msmbstyle::solution_end()`
+
+
+`r msmbstyle::question_begin()`
+2. Iterate over the files and read each into an element of a
+   list. Then, bind the two elements of the list into a single
+   dataframe containing all results.
+`r msmbstyle::question_end()`
+
+
+`r msmbstyle::solution_begin()`
+```{r}
+l <- as.list(fls)
+for (i in seq_along(fls))
+    l[[i]] <- read.csv(fls[i], stringsAsFactors = FALSE)
+interros <- rbind(l[[1]], l[[2]])
+```
+`r msmbstyle::solution_end()`
