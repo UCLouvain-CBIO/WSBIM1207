@@ -342,38 +342,154 @@ log(abs(x))
 
 ## Pattern matching
 
-## Example: iterating over files
+## Analysing data from multiple files
+
+In this recapitulative exercise, we are going to analyse the student
+tests A and B data using functionality from the `dplyr` package (seen
+in chapter \ref@(sec:dplyr)). The student test files are available in
+the `rWSBIM1207` package (the `interroA.csv` and `interroB.csv`
+functions return their respective paths). 
 
 `r msmbstyle::question_begin()`
-1. Using the `interroA.csv()` and `interroB.csv()` functions from the
-   `rWSBIM1207` package, create a vector containing the two csv file
-   names.
+
+1. Start by loading the `rWSBIM1207` and `tidyverse` package, to get
+   all the functionality we will need.
+
 `r msmbstyle::question_end()`
 
-
 `r msmbstyle::solution_begin()`
-
-```{r, message = FALSE}
+```{r, message}
 library("rWSBIM1207")
-fls <- c(interroA.csv(),
-         interroB.csv())
-fls
-```   
+library("tidyverse")
+```
 `r msmbstyle::solution_end()`
 
 
 `r msmbstyle::question_begin()`
-2. Iterate over the files and read each into an element of a
-   list. Then, bind the two elements of the list into a single
-   dataframe containing all results.
+
+2. Using the `interroA.csv()` and `interroB.csv()` functions from the
+   `rWSBIM1207` package, create a vector containing the two csv file
+   names.
+   
 `r msmbstyle::question_end()`
 
 
 `r msmbstyle::solution_begin()`
+
+```{r}
+fls <- c(interroA.csv(),
+         interroB.csv())
+fls
+```
+
+`r msmbstyle::solution_end()`
+
+
+`r msmbstyle::question_begin()`
+
+3. Iterate over the files and read each into an element of a
+   list. Then, bind the two elements of the list into a single
+   dataframe containing all results.
+   
+`r msmbstyle::question_end()`
+
+
+`r msmbstyle::solution_begin()`
+
 ```{r}
 l <- as.list(fls)
 for (i in seq_along(fls))
-    l[[i]] <- read.csv(fls[i], stringsAsFactors = FALSE)
+    l[[i]] <- read_csv(fls[i])
 interros <- rbind(l[[1]], l[[2]])
+interros
+dim(interros)
 ```
+
+or 
+
+```{r}
+l <- lapply(fls, read_csv)
+interros2 <- rbind(l[[1]], l[[2]])
+identical(interros, interros2)
+```
+
+`r msmbstyle::solution_end()`
+
+
+`r msmbstyle::question_begin()`
+
+4. What are the top scores for male and female students in each test
+   (`interro1` to `interro4`).
+
+`r msmbstyle::question_end()`
+
+
+`r msmbstyle::solution_begin()`
+
+```{r}
+interros %>%
+    group_by(gender) %>%
+    summarise(m1 = mean(interro1, na.rm = TRUE),
+              m2 = mean(interro2, na.rm = TRUE),
+              m3 = mean(interro3, na.rm = TRUE),
+              m4 = mean(interro4, na.rm = TRUE))
+```
+
+`r msmbstyle::solution_end()`
+
+
+`r msmbstyle::question_begin()`
+
+5. What are the top scores for male and female students in each test
+   (`interro1` to `interro4`) and in each group.
+   
+`r msmbstyle::question_end()`
+
+
+`r msmbstyle::solution_begin()`
+
+To answer this question, we need to be able to tell the two groups
+apart. This information is however not available in the full
+dataset. We could analyse the two test individually to answer this
+particular question, but a preferred approach is the add this
+information, as it will be needed later anyway.
+
+One way would be to check the number of students that tool the two
+tests, and add a new column based on these values. We still have the
+two dataframes in the `l` list, which allows us to calculate the
+respective number of rows and use this information to create a group
+variables.
+
+```{r}
+sapply(l, nrow)
+interros$group <- c(rep("A", nrow(l[[1]])),
+                    rep("B", nrow(l[[2]])))
+interros
+```
+
+The assumption here is that the order of the observations in the large
+dataframe hasn't changed!
+
+An alternative is to add the group information before combining the
+dataframes.
+
+```{r}
+l[[1]]$group <- "A"
+l[[2]]$group <- "B"
+interros2 <- rbind(l[[1]], l[[2]])
+identical(interros, interros2)
+```
+
+Now we can group by `gender` and `group` to perform our summary
+calculations:
+
+```{r}
+interros %>%
+    group_by(gender, group) %>%
+    summarise(m1 = mean(interro1, na.rm = TRUE),
+              m2 = mean(interro2, na.rm = TRUE),
+              m3 = mean(interro3, na.rm = TRUE),
+              m4 = mean(interro4, na.rm = TRUE))
+```
+
 `r msmbstyle::solution_end()`
