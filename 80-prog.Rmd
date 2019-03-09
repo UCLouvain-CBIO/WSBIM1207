@@ -344,18 +344,30 @@ log(abs(x))
 
 ## Analysing data from multiple files
 
-In this recapitulative exercise, we are going to analyse the student
-tests A and B data using functionality from the `dplyr` package (seen
-in chapter \ref@(sec:dplyr)). The student test files are available in
-the `rWSBIM1207` package (the `interroA.csv` and `interroB.csv`
-functions return their respective paths). 
+This exercise recapitulates the most important material that we have
+seem in the course. We are going to analyse the student tests A and B
+results using functionality from the `dplyr` package (seen in chapter
+\ref@(sec:dplyr)). The student test files are available in the
+`rWSBIM1207` package (the `interroA.csv` and `interroB.csv` functions
+return their respective paths). We want to compare how the male and
+female students in groups A and B have performed. To do this, we want
+to calculate the mean scores and visualise the score distributions in
+each groups.
 
 `r msmbstyle::question_begin()`
+
+Before writing any code to answer the questions above, take a couple
+of minutes to think about what packages are needed to answer the
+questions above and identify the individual steps needed to first
+prepare the data needed to find the answers and then to produce the
+answers.
+
+`r msmbstyle::question_end()`
+
 
 1. Start by loading the `rWSBIM1207` and `tidyverse` package, to get
    all the functionality we will need.
 
-`r msmbstyle::question_end()`
 
 `r msmbstyle::solution_begin()`
 ```{r, message}
@@ -365,15 +377,10 @@ library("tidyverse")
 `r msmbstyle::solution_end()`
 
 
-`r msmbstyle::question_begin()`
-
 2. Using the `interroA.csv()` and `interroB.csv()` functions from the
    `rWSBIM1207` package, create a vector containing the two csv file
    names.
    
-`r msmbstyle::question_end()`
-
-
 `r msmbstyle::solution_begin()`
 
 ```{r}
@@ -385,15 +392,10 @@ fls
 `r msmbstyle::solution_end()`
 
 
-`r msmbstyle::question_begin()`
-
 3. Iterate over the files and read each into an element of a
    list. Then, bind the two elements of the list into a single
    dataframe containing all results.
    
-`r msmbstyle::question_end()`
-
-
 `r msmbstyle::solution_begin()`
 
 ```{r}
@@ -415,14 +417,8 @@ identical(interros, interros2)
 
 `r msmbstyle::solution_end()`
 
-
-`r msmbstyle::question_begin()`
-
 4. What are the top scores for male and female students in each test
    (`interro1` to `interro4`).
-
-`r msmbstyle::question_end()`
-
 
 `r msmbstyle::solution_begin()`
 
@@ -438,13 +434,8 @@ interros %>%
 `r msmbstyle::solution_end()`
 
 
-`r msmbstyle::question_begin()`
-
 5. What are the top scores for male and female students in each test
    (`interro1` to `interro4`) and in each group.
-   
-`r msmbstyle::question_end()`
-
 
 `r msmbstyle::solution_begin()`
 
@@ -494,15 +485,10 @@ interros %>%
 
 `r msmbstyle::solution_end()`
 
-`r msmbstyle::question_begin()`
-
 6. Instead of comparing the means for the four tests in each group and
    gender, visualise their distributions using boxplots. In addition
    to the boxplots, overlay the actual score values (using the
    *jitter* geom) and colour the points based on the students height. w
-
-   
-`r msmbstyle::question_end()` 
 
 
 `r msmbstyle::solution_begin()`
