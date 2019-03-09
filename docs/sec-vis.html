@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-03-08" />
+<meta name="date" content="2019-03-09" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -269,13 +269,30 @@ surveys_plot
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length, <span class="dt">color =</span> species_id)) <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>)</code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/color-by-species3-1.png" width="672"  /></p>
-<blockquote>
-<p><strong>Challenge</strong></p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
 <p>Use what you just learned to create a scatter plot of <code>weight</code> over <code>species_id</code> with the plot types showing in different colors. Is this a good way to show this type of data?</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-38" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-38&#39;, &#39;sol-start-38&#39;)"></span>
+</p>
+<div id="sol-body-38" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> species_id, <span class="dt">y =</span> weight)) <span class="op">+</span>
-<span class="st">   </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> plot_type))</code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/scatter-challenge-1.png" width="672"  /></p>
-</blockquote>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> plot_type))</code></pre></div>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-177-1.png" width="672"  /></p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 </div>
 <div id="boxplot" class="section level2">
 <h2><span class="header-section-number">5.3</span> Boxplot</h2>
@@ -289,8 +306,11 @@ surveys_plot
 <span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> <span class="fl">0.3</span>, <span class="dt">color =</span> <span class="st">&quot;tomato&quot;</span>)</code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/boxplot-with-points-1.png" width="672"  /></p>
 <p>Notice how the boxplot layer is behind the jitter layer? What do you need to change in the code to put the boxplot in front of the points such that it’s not hidden?</p>
-<blockquote>
-<p><strong>Challenges</strong></p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
 <p>Boxplots are useful summaries, but hide the <em>shape</em> of the distribution. For example, if the distribution is bimodal, we would not see it in a boxplot. An alternative to the boxplot is the violin plot, where the shape (of the density of points) is drawn.</p>
 <ul>
 <li>Replace the box plot with a violin plot; see <code>geom_violin()</code>.</li>
@@ -305,7 +325,11 @@ surveys_plot
 <li><p>Add color to the data points on your boxplot according to the plot from which the sample was taken (<code>plot_id</code>).</p></li>
 </ul>
 <p><em>Hint:</em> Check the class for <code>plot_id</code>. Consider changing the class of <code>plot_id</code> from integer to factor. Why does this change how R makes the graph?</p>
-</blockquote>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 </div>
 <div id="plotting-time-series-data" class="section level2">
 <h2><span class="header-section-number">5.4</span> Plotting time series data</h2>
@@ -352,18 +376,35 @@ surveys_plot
 <h2><span class="header-section-number">5.6</span> <strong><code>ggplot2</code></strong> themes</h2>
 <p>In addition to <code>theme_bw()</code>, which changes the plot background to white, <strong><code>ggplot2</code></strong> comes with several other themes which can be useful to quickly change the look of your visualization. The complete list of themes is available at <a href="http://docs.ggplot2.org/current/ggtheme.html" class="uri">http://docs.ggplot2.org/current/ggtheme.html</a>. <code>theme_minimal()</code> and <code>theme_light()</code> are popular, and <code>theme_void()</code> can be useful as a starting point to create a new hand-crafted theme.</p>
 <p>The <a href="https://jrnold.github.io/ggthemes/reference/index.html">ggthemes</a> package provides a wide variety of options (including an Excel 2003 theme). The <a href="https://www.ggplot2-exts.org"><strong><code>ggplot2</code></strong> extensions website</a> provides a list of packages that extend the capabilities of <strong><code>ggplot2</code></strong>, including additional themes.</p>
-<blockquote>
-<p><strong>Challenge</strong></p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
 <p>Use what you just learned to create a plot that depicts how the average weight of each species changes through the years.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-39" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-39&#39;, &#39;sol-start-39&#39;)"></span>
+</p>
+<div id="sol-body-39" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">yearly_weight &lt;-<span class="st"> </span>surveys_complete <span class="op">%&gt;%</span>
-<span class="st">                </span><span class="kw">group_by</span>(year, species_id) <span class="op">%&gt;%</span>
-<span class="st">                 </span><span class="kw">summarize</span>(<span class="dt">avg_weight =</span> <span class="kw">mean</span>(weight))
+<span class="st">    </span><span class="kw">group_by</span>(year, species_id) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">summarize</span>(<span class="dt">avg_weight =</span> <span class="kw">mean</span>(weight))
 <span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_weight, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>avg_weight)) <span class="op">+</span>
-<span class="st">   </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">   </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id) <span class="op">+</span>
-<span class="st">   </span><span class="kw">theme_bw</span>()</code></pre></div>
+<span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id) <span class="op">+</span>
+<span class="st">    </span><span class="kw">theme_bw</span>()</code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/average-weight-time-series-1.png" width="672"  /></p>
-</blockquote>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 <p>The <code>facet_wrap</code> geometry extracts plots into an arbitrary number of dimensions to allow them to cleanly fit on one page. On the other hand, the <code>facet_grid</code> geometry allows you to explicitly specify how you want your plots to be arranged via formula notation (<code>rows ~ columns</code>; a <code>.</code> can be used as a placeholder that indicates only one row or column).</p>
 <p>Let’s modify the previous plot to compare how the weights of males and females has changed through time:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># One column, facet by rows</span>
@@ -425,15 +466,22 @@ yearly_sex_weight &lt;-<span class="st"> </span>surveys_complete <span class="op
 <span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
 <span class="st">    </span>grey_theme</code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/number-species-year-with-right-labels-xfont-orientation-1.png" width="672"  /></p>
-<blockquote>
-<p><strong>Challenge</strong></p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
 <p>With all of this information in hand, please take another five minutes to either improve one of the plots generated in this exercise or create a beautiful graph of your own. Use the RStudio <a href="https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf"><strong><code>ggplot2</code></strong> cheat sheet</a> for inspiration. Here are some ideas:</p>
 <ul>
 <li>See if you can change the thickness of the lines.</li>
 <li>Can you find a way to change the name of the legend? What about its labels?</li>
 <li>Try using a different color palette (see <a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/" class="uri">http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/</a>).</li>
 </ul>
-</blockquote>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 </div>
 <div id="arranging-and-exporting-plots" class="section level2">
 <h2><span class="header-section-number">5.8</span> Arranging and exporting plots</h2>
@@ -539,7 +587,7 @@ Figure 5.3: Visualisation of beer consumption, highlighting different patterns o
 </div>
 <!-- 
 
-<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-38' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-38', 'sol-start-38')"></span></p><div class="solution-body" id = "sol-body-38" style="display: none;">
+<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-40' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-40', 'sol-start-40')"></span></p><div class="solution-body" id = "sol-body-40" style="display: none;">
 
  -->
 <!-- ```{r} -->
@@ -591,7 +639,7 @@ Figure 5.3: Visualisation of beer consumption, highlighting different patterns o
 </div>
 <!-- 
 
-<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-39' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-39', 'sol-start-39')"></span></p><div class="solution-body" id = "sol-body-39" style="display: none;">
+<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-41' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-41', 'sol-start-41')"></span></p><div class="solution-body" id = "sol-body-41" style="display: none;">
 
  -->
 <!-- ```{r} -->
@@ -655,7 +703,7 @@ Figure 5.3: Visualisation of beer consumption, highlighting different patterns o
 <a href="sec-join.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-03-08
+2019-03-09
 </p>
 </div>
 </div>
