@@ -342,6 +342,22 @@ log(abs(x))
 
 ## Pattern matching
 
+One skill that comes handy more often than not is the ability to find
+patterns in text and replace these. We are going to see two functions
+out of many to perform such tasks. As an illustration, we are going to
+mine a vector or peptides identified by mass spectrometry. The data
+can be loaded from the `rWSBIM1207` data:
+
+```{r}
+library("rWSBIM1207")
+data(peptides)
+length(peptides)
+head(peptides)
+```
+
+TODO: show `grep` (and `grepl`) and `sub` (`gsub`).
+
+
 ## Analysing data from multiple files
 
 This exercise recapitulates the most important material that we have
@@ -521,3 +537,12 @@ ggplot(interros2, aes(y = score, x = test)) +
 ``` 
 
 `r msmbstyle::solution_end()`
+
+## Additional exercises
+
+- Read multiple files into one dataframe (prepare data). Note: this
+  will need to be demonstrated in class for many files, as the simple
+  approach above won't scale.
+
+
+
