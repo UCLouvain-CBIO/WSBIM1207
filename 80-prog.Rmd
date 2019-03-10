@@ -355,8 +355,32 @@ length(peptides)
 head(peptides)
 ```
 
-TODO: show `grep` (and `grepl`) and `sub` (`gsub`).
+1. Among the `r length(peptides)` petides, which ones contain the pattern `"TAAE"`?
 
+```{r}
+pattern <- "AAGE"
+## indices of matching peptides
+grep(pattern, peptides)
+## matching peptides
+grep(pattern, peptides, value = TRUE)
+## position of matching peptides
+head(grepl(pattern, peptides))
+```
+
+2. Replace a pattern by another string.
+
+```{r}
+head(peptides)
+head(sub("AE", "XX", peptides))
+```
+
+But careful that `sub` only replaced the first occurrence in a string!
+
+```{r}
+head(peptides)
+head(sub("A", "X", peptides))
+head(gsub("A", "X", peptides))
+```
 
 ## Analysing data from multiple files
 
