@@ -545,8 +545,10 @@ Figure 5.1: Successive layers added on top of each other.
 </div>
 <p>Another main difference is that base graphics’ plotting function try to do <em>the right</em> thing based on their input type, i.e. they will adapt their behaviour based on the class of their input. This is again very different from what we have in <code>ggplot2</code>, that only accepts dataframes as input, and that requires plots to be constructed bit by bit.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
-<span class="kw">boxplot</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dt">main =</span> <span class="st">&quot;Boxplot of rnorm(100)&quot;</span>)
-<span class="kw">boxplot</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dt">ncol =</span> <span class="dv">10</span>), <span class="dt">main =</span> <span class="st">&quot;Boxplot of matrix(rnorm(100), ncol = 10)&quot;</span>)
+<span class="kw">boxplot</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>),
+        <span class="dt">main =</span> <span class="st">&quot;Boxplot of rnorm(100)&quot;</span>)
+<span class="kw">boxplot</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dt">ncol =</span> <span class="dv">10</span>),
+        <span class="dt">main =</span> <span class="st">&quot;Boxplot of matrix(rnorm(100), ncol = 10)&quot;</span>)
 <span class="kw">hist</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>))
 <span class="kw">hist</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dt">ncol =</span> <span class="dv">10</span>))</code></pre></div>
 <div class="figure"><span id="fig:plotmethod"></span>

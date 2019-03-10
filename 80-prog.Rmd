@@ -249,7 +249,7 @@ And, as before, we check that we obtain identical results:
 identical(res_loop, res_vec)
 ```
 
-### Which iteration to use?
+### Which iteration to use? {-}
 
 Even though they produce the same result, the iteration strategies
 above aren't equal, and some should be preferred in different

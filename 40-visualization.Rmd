@@ -634,8 +634,10 @@ bit.
 
 ```{r plotmethod, fig.width = 8, fig.height = 8, fig.cap = 'Plotting boxplots (top) and histograms (bottom) vectors (left) or a matrices (right).'}
 par(mfrow = c(2, 2))
-boxplot(rnorm(100), main = "Boxplot of rnorm(100)")
-boxplot(matrix(rnorm(100), ncol = 10), main = "Boxplot of matrix(rnorm(100), ncol = 10)")
+boxplot(rnorm(100),
+        main = "Boxplot of rnorm(100)")
+boxplot(matrix(rnorm(100), ncol = 10),
+        main = "Boxplot of matrix(rnorm(100), ncol = 10)")
 hist(rnorm(100))
 hist(matrix(rnorm(100), ncol = 10))
 ```

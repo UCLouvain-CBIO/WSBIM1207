@@ -266,8 +266,8 @@ res_vec</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(res_loop, res_vec)</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
-<div id="which-iteration-to-use" class="section level3">
-<h3><span class="header-section-number">9.2.1</span> Which iteration to use?</h3>
+<div id="which-iteration-to-use" class="section level3 unnumbered">
+<h3>Which iteration to use?</h3>
 <p>Even though they produce the same result, the iteration strategies above aren’t equal, and some should be preferred in different situtions.</p>
 <ul>
 <li><p>When a vectorised solution exists, this is the one that should be chosen. It is by far the fastest solution, but only applicable to existing <em>vectorised</em> functions. If you were to write your own function to iterate over, it is advisable to write a vectorised function.</p></li>
@@ -347,7 +347,7 @@ res_vec</code></pre></div>
 ##     }
 ##     return(sum(res))
 ## }
-## &lt;bytecode: 0x55e13ee9b028&gt;</code></pre>
+## &lt;bytecode: 0x560ecbad7e70&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(1L)
 res1 &lt;-<span class="st"> </span><span class="kw">fun</span>(<span class="dv">5</span>, <span class="dv">15</span>)
 <span class="kw">set.seed</span>(1L)
