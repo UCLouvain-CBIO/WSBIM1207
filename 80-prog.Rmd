@@ -341,19 +341,57 @@ my_fun(2, -5)
 
 `r msmbstyle::question_begin()`
 
+```{r, echo = FALSE}
+fun <- function(x, y) {
+    res <- NA
+    if (x > y) {
+        res <- sample(x, y)
+    } else { ## here x <= y
+        res <- rnorm(1000, x, y)
+    }
+    return(sum(res))
+}
+set.seed(1L)
+res1 <- fun(5, 15)
+set.seed(1L)
+res2 <- fun(15, 5)
+```
+
 
 Complete the following function. It is supposed to take two inputs,
-`x` and `y` and, depending whether the `x > y` or `x <= y`, generates 
+`x` and `y` and, depending whether the `x > y` or `x <= y`, it generates 
 the permutation `sample(x, y)` in the first case or draws a sample
-from `rnorm(1000, x, y)` in the second case.
+from `rnorm(1000, x, y)` in the second case. Finally, it returns the
+sum of all values.
+
 
 ```{r, eval = FALSE}
 fun <- function(x, y) {
-
-
-}    
-
+    res <- NA
+    if (   ) {
+        res <- sample(, )
+    } else {
+        res <- rnorm(, , )
+    }
+    return()
+}
 ```
+
+To check your answer, run it with inputs 5, 15 and 15, 5, after
+setting the random number generator to 1 each time with `set.seed(1)`
+and you should get `r res1` and `r res2`.
+
+`r msmbstyle::solution_begin()`
+
+```{r}
+fun
+set.seed(1L)
+res1 <- fun(5, 15)
+set.seed(1L)
+res2 <- fun(15, 5)
+```
+
+`r msmbstyle::solution_end()`
 
 
 `r msmbstyle::question_end()`

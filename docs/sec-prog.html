@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-03-09" />
+<meta name="date" content="2019-03-10" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -121,11 +121,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <a href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a>
 <a id="active-page" href="sec-prog.html"><span class="toc-section-number">9</span> Additional programming concepts</a><ul class="toc-sections">
 <li class="toc"><a href="#writing-clean-code"> Writing clean code</a></li>
-<li class="toc"><a href="#writing-new-functions"> Writing new functions</a></li>
 <li class="toc"><a href="#iteration"> Iteration</a></li>
 <li class="toc"><a href="#conditionals"> Conditionals</a></li>
+<li class="toc"><a href="#writing-new-functions"> Writing new functions</a></li>
 <li class="toc"><a href="#pattern-matching"> Pattern matching</a></li>
 <li class="toc"><a href="#analysing-data-from-multiple-files"> Analysing data from multiple files</a></li>
+<li class="toc"><a href="#additional-exercises-7"> Additional exercises</a></li>
 </ul>
 <a href="sec-ccl.html"><span class="toc-section-number">10</span> Conclusions</a>
 <a href="session-information.html">Session information</a>
@@ -184,22 +185,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stopifnot</span>(<span class="kw">length</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)
 <span class="kw">stopifnot</span>(<span class="kw">ncol</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="kw">nrow</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</code></pre></div>
 </div>
-<div id="writing-new-functions" class="section level2">
-<h2><span class="header-section-number">9.2</span> Writing new functions</h2>
-<p>A function is composed of a name, inputs (inside the parenthesis), a body (between curly brackets) and an ouput (last statement or variably inside the <code>return</code> statement).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_fun &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {
-    <span class="kw">message</span>(<span class="st">&quot;First input: &quot;</span>, x)
-    <span class="kw">message</span>(<span class="st">&quot;Second input: &quot;</span>, y)
-    z &lt;-<span class="st"> </span>x <span class="op">*</span><span class="st"> </span><span class="kw">abs</span>(y)
-    <span class="kw">return</span>(z)
-}
-<span class="kw">my_fun</span>(<span class="dv">2</span>, <span class="dv">-5</span>)</code></pre></div>
-<pre><code>## First input: 2</code></pre>
-<pre><code>## Second input: -5</code></pre>
-<pre><code>## [1] 10</code></pre>
-</div>
 <div id="iteration" class="section level2">
-<h2><span class="header-section-number">9.3</span> Iteration</h2>
+<h2><span class="header-section-number">9.2</span> Iteration</h2>
 <p>Iteration describes the situtation when a specific operation has to be repeated many times on different inputs of the same type. For example, if we have a vector of numeric <code>x</code> shown below,</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
@@ -280,7 +267,7 @@ res_vec</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
 <div id="which-iteration-to-use" class="section level3">
-<h3><span class="header-section-number">9.3.1</span> Which iteration to use?</h3>
+<h3><span class="header-section-number">9.2.1</span> Which iteration to use?</h3>
 <p>Even though they produce the same result, the iteration strategies above aren’t equal, and some should be preferred in different situtions.</p>
 <ul>
 <li><p>When a vectorised solution exists, this is the one that should be chosen. It is by far the fastest solution, but only applicable to existing <em>vectorised</em> functions. If you were to write your own function to iterate over, it is advisable to write a vectorised function.</p></li>
@@ -291,7 +278,7 @@ res_vec</code></pre></div>
 </div>
 </div>
 <div id="conditionals" class="section level2">
-<h2><span class="header-section-number">9.4</span> Conditionals</h2>
+<h2><span class="header-section-number">9.3</span> Conditionals</h2>
 <p>When an operation has to be executed when a condition is met, one typically uses a <code>if</code> and <code>else</code> construct:</p>
 <pre><code>if (CONDITION) {
    ## DO SOMETHING
@@ -316,8 +303,104 @@ res_vec</code></pre></div>
 <pre><code>##  [1] -1.6947599 -0.1795710  0.4670498 -1.1101553 -0.1978799 -0.7186105
 ##  [7] -0.3033716 -0.5520273 -1.1861709  0.4132885</code></pre>
 </div>
+<div id="writing-new-functions" class="section level2">
+<h2><span class="header-section-number">9.4</span> Writing new functions</h2>
+<p>A function is composed of a name, inputs (inside the parenthesis), a body (between curly brackets) and an ouput (last statement or variably inside the <code>return</code> statement).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_fun &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {
+    <span class="kw">message</span>(<span class="st">&quot;First input: &quot;</span>, x)
+    <span class="kw">message</span>(<span class="st">&quot;Second input: &quot;</span>, y)
+    z &lt;-<span class="st"> </span>x <span class="op">*</span><span class="st"> </span><span class="kw">abs</span>(y)
+    <span class="kw">return</span>(z)
+}
+<span class="kw">my_fun</span>(<span class="dv">2</span>, <span class="dv">-5</span>)</code></pre></div>
+<pre><code>## First input: 2</code></pre>
+<pre><code>## Second input: -5</code></pre>
+<pre><code>## [1] 10</code></pre>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Complete the following function. It is supposed to take two inputs, <code>x</code> and <code>y</code> and, depending whether the <code>x &gt; y</code> or <code>x &lt;= y</code>, it generates the permutation <code>sample(x, y)</code> in the first case or draws a sample from <code>rnorm(1000, x, y)</code> in the second case. Finally, it returns the sum of all values.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fun &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {
+    res &lt;-<span class="st"> </span><span class="ot">NA</span>
+    <span class="cf">if</span> (   ) {
+        res &lt;-<span class="st"> </span><span class="kw">sample</span>(, )
+    } <span class="cf">else</span> {
+        res &lt;-<span class="st"> </span><span class="kw">rnorm</span>(, , )
+    }
+    <span class="kw">return</span>()
+}</code></pre></div>
+<p>To check your answer, run it with inputs 5, 15 and 15, 5, after setting the random number generator to 1 each time with <code>set.seed(1)</code> and you should get 4825.2778709 and 32.</p>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-49" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-49&#39;, &#39;sol-start-49&#39;)"></span>
+</p>
+<div id="sol-body-49" class="solution-body" style="display: none;">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fun</code></pre></div>
+<pre><code>## function(x, y) {
+##     res &lt;- NA
+##     if (x &gt; y) {
+##         res &lt;- sample(x, y)
+##     } else { ## here x &lt;= y
+##         res &lt;- rnorm(1000, x, y)
+##     }
+##     return(sum(res))
+## }
+## &lt;bytecode: 0x55e13ee9b028&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(1L)
+res1 &lt;-<span class="st"> </span><span class="kw">fun</span>(<span class="dv">5</span>, <span class="dv">15</span>)
+<span class="kw">set.seed</span>(1L)
+res2 &lt;-<span class="st"> </span><span class="kw">fun</span>(<span class="dv">15</span>, <span class="dv">5</span>)</code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
 <div id="pattern-matching" class="section level2">
 <h2><span class="header-section-number">9.5</span> Pattern matching</h2>
+<p>One skill that comes handy more often than not is the ability to find patterns in text and replace these. We are going to see two functions out of many to perform such tasks. As an illustration, we are going to mine a vector or peptides identified by mass spectrometry. The data can be loaded from the <code>rWSBIM1207</code> data:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;rWSBIM1207&quot;</span>)
+<span class="kw">data</span>(peptides)
+<span class="kw">length</span>(peptides)</code></pre></div>
+<pre><code>## [1] 26796</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(peptides)</code></pre></div>
+<pre><code>## [1] &quot;aAAGEAk&quot; &quot;VTEEAk&quot;  &quot;aSGDPGk&quot; &quot;sAAAEAk&quot; &quot;aANAEGk&quot; &quot;aAAEEAR&quot;</code></pre>
+<ol style="list-style-type: decimal">
+<li>Among the 26796 petides, which ones contain the pattern <code>&quot;TAAE&quot;</code>?</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pattern &lt;-<span class="st"> &quot;AAGE&quot;</span>
+## indices of matching peptides
+<span class="kw">grep</span>(pattern, peptides)</code></pre></div>
+<pre><code>## [1]     1  7026 17140 21912 23423 24947 25257 26658</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## matching peptides
+<span class="kw">grep</span>(pattern, peptides, <span class="dt">value =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] &quot;aAAGEAk&quot;              &quot;aFHGAAGEAGAAFGNHGANR&quot; &quot;eAIDAAGEGGR&quot;         
+## [4] &quot;sAAGEFADDPcSSVkR&quot;     &quot;eAAGEGPVLYEDPPDQk&quot;    &quot;eIEAAGEk&quot;            
+## [7] &quot;dVQELYAAGENR&quot;         &quot;sAAGEFADDPcSSVk&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## position of matching peptides
+<span class="kw">head</span>(<span class="kw">grepl</span>(pattern, peptides))</code></pre></div>
+<pre><code>## [1]  TRUE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Replace a pattern by another string.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(peptides)</code></pre></div>
+<pre><code>## [1] &quot;aAAGEAk&quot; &quot;VTEEAk&quot;  &quot;aSGDPGk&quot; &quot;sAAAEAk&quot; &quot;aANAEGk&quot; &quot;aAAEEAR&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">sub</span>(<span class="st">&quot;AE&quot;</span>, <span class="st">&quot;XX&quot;</span>, peptides))</code></pre></div>
+<pre><code>## [1] &quot;aAAGEAk&quot; &quot;VTEEAk&quot;  &quot;aSGDPGk&quot; &quot;sAAXXAk&quot; &quot;aANXXGk&quot; &quot;aAXXEAR&quot;</code></pre>
+<p>But careful that <code>sub</code> only replaced the first occurrence in a string!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(peptides)</code></pre></div>
+<pre><code>## [1] &quot;aAAGEAk&quot; &quot;VTEEAk&quot;  &quot;aSGDPGk&quot; &quot;sAAAEAk&quot; &quot;aANAEGk&quot; &quot;aAAEEAR&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">sub</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;X&quot;</span>, peptides))</code></pre></div>
+<pre><code>## [1] &quot;aXAGEAk&quot; &quot;VTEEXk&quot;  &quot;aSGDPGk&quot; &quot;sXAAEAk&quot; &quot;aXNAEGk&quot; &quot;aXAEEAR&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">gsub</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;X&quot;</span>, peptides))</code></pre></div>
+<pre><code>## [1] &quot;aXXGEXk&quot; &quot;VTEEXk&quot;  &quot;aSGDPGk&quot; &quot;sXXXEXk&quot; &quot;aXNXEGk&quot; &quot;aXXEEXR&quot;</code></pre>
 </div>
 <div id="analysing-data-from-multiple-files" class="section level2">
 <h2><span class="header-section-number">9.6</span> Analysing data from multiple files</h2>
@@ -338,9 +421,9 @@ res_vec</code></pre></div>
 </ol>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-49" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-49&#39;, &#39;sol-start-49&#39;)"></span>
+► Solution<span id="sol-start-50" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-50&#39;, &#39;sol-start-50&#39;)"></span>
 </p>
-<div id="sol-body-49" class="solution-body" style="display: none;">
+<div id="sol-body-50" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;rWSBIM1207&quot;</span>)
 <span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
 <p class="solution-end">
@@ -353,9 +436,9 @@ res_vec</code></pre></div>
 </ol>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-50" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-50&#39;, &#39;sol-start-50&#39;)"></span>
+► Solution<span id="sol-start-51" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-51&#39;, &#39;sol-start-51&#39;)"></span>
 </p>
-<div id="sol-body-50" class="solution-body" style="display: none;">
+<div id="sol-body-51" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fls &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">interroA.csv</span>(),
          <span class="kw">interroB.csv</span>())
 fls</code></pre></div>
@@ -371,9 +454,9 @@ fls</code></pre></div>
 </ol>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-51" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-51&#39;, &#39;sol-start-51&#39;)"></span>
+► Solution<span id="sol-start-52" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-52&#39;, &#39;sol-start-52&#39;)"></span>
 </p>
-<div id="sol-body-51" class="solution-body" style="display: none;">
+<div id="sol-body-52" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">l &lt;-<span class="st"> </span><span class="kw">as.list</span>(fls)
 <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(fls))
     l[[i]] &lt;-<span class="st"> </span><span class="kw">read_csv</span>(fls[i])</code></pre></div>
@@ -454,9 +537,9 @@ interros</code></pre></div>
 </ol>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-52" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-52&#39;, &#39;sol-start-52&#39;)"></span>
+► Solution<span id="sol-start-53" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-53&#39;, &#39;sol-start-53&#39;)"></span>
 </p>
-<div id="sol-body-52" class="solution-body" style="display: none;">
+<div id="sol-body-53" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">interros <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">group_by</span>(gender) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">summarise</span>(<span class="dt">m1 =</span> <span class="kw">mean</span>(interro1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
@@ -478,9 +561,9 @@ interros</code></pre></div>
 </ol>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-53" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-53&#39;, &#39;sol-start-53&#39;)"></span>
+► Solution<span id="sol-start-54" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-54&#39;, &#39;sol-start-54&#39;)"></span>
 </p>
-<div id="sol-body-53" class="solution-body" style="display: none;">
+<div id="sol-body-54" class="solution-body" style="display: none;">
 <p>To answer this question, we need to be able to tell the two groups apart. This information is however not available in the full dataset. We could analyse the two test individually to answer this particular question, but a preferred approach is the add this information, as it will be needed later anyway.</p>
 <p>One way would be to check the number of students that tool the two tests, and add a new column based on these values. We still have the two dataframes in the <code>l</code> list, which allows us to calculate the respective number of rows and use this information to create a group variables.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sapply</span>(l, nrow)</code></pre></div>
@@ -534,9 +617,9 @@ interros2 &lt;-<span class="st"> </span><span class="kw">rbind</span>(l[[<span c
 </ol>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-54" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-54&#39;, &#39;sol-start-54&#39;)"></span>
+► Solution<span id="sol-start-55" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-55&#39;, &#39;sol-start-55&#39;)"></span>
 </p>
-<div id="sol-body-54" class="solution-body" style="display: none;">
+<div id="sol-body-55" class="solution-body" style="display: none;">
 <p>The produce this visualisation, we first need to convert the data we have in a long format using <code>gather</code>. Below, we create two new variables: <code>test</code>, that contains <code>interro1</code>, …, <code>interro4</code>, and <code>score</code>, that contains the students marks the actual test.</p>
 <p>We obtain a new tibble that contains 4 times more rows that initially, as the tests, that were in 4 different columns, have now been gathered as a single new variable.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">interros2 &lt;-<span class="st"> </span><span class="kw">gather</span>(interros, <span class="dt">key =</span> test,
@@ -564,12 +647,18 @@ interros2</code></pre></div>
 <span class="st">    </span><span class="kw">facet_grid</span>(gender <span class="op">~</span><span class="st"> </span>group)</code></pre></div>
 <pre><code>## Warning: Removed 36 rows containing non-finite values (stat_boxplot).</code></pre>
 <pre><code>## Warning: Removed 36 rows containing missing values (geom_point).</code></pre>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-212-1.png" width="672"  /></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-219-1.png" width="672"  /></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
 </div>
+</div>
+<div id="additional-exercises-7" class="section level2">
+<h2><span class="header-section-number">9.7</span> Additional exercises</h2>
+<ul>
+<li>Read multiple files into one dataframe (prepare data). Note: this will need to be demonstrated in class for many files, as the simple approach above won’t scale.</li>
+</ul>
 
 </div>
 </div>
@@ -578,7 +667,7 @@ interros2</code></pre></div>
 <a href="sec-ccl.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-03-09
+2019-03-10
 </p>
 </div>
 </div>
