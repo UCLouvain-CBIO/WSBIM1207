@@ -253,7 +253,7 @@ identical(res_loop, res_vec)
 
 Even though they produce the same result, the iteration strategies
 above aren't equal, and some should be preferred in different
-situtions.
+situations.
 
 - When a vectorised solution exists, this is the one that should be
   chosen. It is by far the fastest solution, but only applicable to
@@ -271,9 +271,58 @@ situtions.
   during the loop. As opposed to popular belief, they aren't slower
   than using apply functions. They are however the best solution if,
   during the iteration, one has the access another element than the
-  one currently processed (typically, if `i` is the coutner, accessing
+  one currently processed (typically, if `i` is the counter, accessing
   `i + 1` or `i - 1`).
 
+
+`r msmbstyle::question_begin()`
+
+```{r, message = FALSE}
+library(rWSBIM1207)
+fs <- expressions.csv()
+```
+
+Use the `expressions.csv()` function from the `rWSBIM1207` package to
+get the path to `r length(fs)` csv files containing gene expression data 
+for a single gene and hundreds of patience. Read all data in and
+combine them into a single dataframe.
+
+Before starting, open at least two of these files them to familiarise
+yourself with their structure and identify how and with what function
+they need to be combined.
+
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+
+Let's start by loading the required packages and check two file. We
+will also use the *tidyverse* to work with the data.
+
+```{r}
+library("tidyverse")
+library("rWSBIM1207")
+fls <- expressions.csv()
+read_csv(fls[1])
+read_csv(fls[2])
+```
+
+We see that the data will have to be combined column-wise. We could do
+it manually, adding news columns one by on to the first data, but this
+would require to check that the observations are in the same
+order. Instead, we will use a `full_join`, as seen in chapter
+\@ref(sec:join).
+
+```{r}
+## read the first one
+res <- read_csv(fls[1])
+## iterate over the other data
+for (i in 2:length(fls)) {
+    data_i <- read_csv(fls[i])
+    res <- full_join(res, data_i)
+}
+```
+
+`r msmbstyle::solution_end()`
 
 <!-- Possibly also mention `while`. -->
 
