@@ -114,23 +114,6 @@ stopifnot(length(x) > 0)
 stopifnot(ncol(x) > 0, nrow(x) > 0)
 ```
 
-
-## Writing new functions
-
-A function is composed of a name, inputs (inside the parenthesis), a
-body (between curly brackets) and an ouput (last statement or variably
-inside the `return` statement).
-
-```{r myfun}
-my_fun <- function(x, y) {
-    message("First input: ", x)
-    message("Second input: ", y)
-    z <- x * abs(y)
-    return(z)
-}
-my_fun(2, -5)
-```
-
 ## Iteration
 
 Iteration describes the situtation when a specific operation has to be
@@ -339,6 +322,43 @@ log(abs(x))
 x <- rnorm(10)
 log(abs(x))
 ```
+
+## Writing new functions
+
+A function is composed of a name, inputs (inside the parenthesis), a
+body (between curly brackets) and an ouput (last statement or variably
+inside the `return` statement).
+
+```{r myfun}
+my_fun <- function(x, y) {
+    message("First input: ", x)
+    message("Second input: ", y)
+    z <- x * abs(y)
+    return(z)
+}
+my_fun(2, -5)
+```
+
+`r msmbstyle::question_begin()`
+
+
+Complete the following function. It is supposed to take two inputs,
+`x` and `y` and, depending whether the `x > y` or `x <= y`, generates 
+the permutation `sample(x, y)` in the first case or draws a sample
+from `rnorm(1000, x, y)` in the second case.
+
+```{r, eval = FALSE}
+fun <- function(x, y) {
+
+
+}    
+
+```
+
+
+`r msmbstyle::question_end()`
+
+
 
 ## Pattern matching
 
