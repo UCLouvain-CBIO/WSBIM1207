@@ -277,7 +277,7 @@ situations.
 
 `r msmbstyle::question_begin()`
 
-```{r, message = FALSE}
+```{r, message = FALSE, echo = FALSE}
 library(rWSBIM1207)
 fs <- expressions.csv()
 ```
@@ -312,14 +312,15 @@ would require to check that the observations are in the same
 order. Instead, we will use a `full_join`, as seen in chapter
 \@ref(sec:join).
 
-```{r}
+```{r, message = FALSE}
 ## read the first one
 res <- read_csv(fls[1])
 ## iterate over the other data
 for (i in 2:length(fls)) {
-    data_i <- read_csv(fls[i])
+    data_i <- read_csv(fls[i], progress = FALSE)
     res <- full_join(res, data_i)
 }
+res
 ```
 
 `r msmbstyle::solution_end()`
@@ -430,6 +431,8 @@ To check your answer, run it with inputs 5, 15 and 15, 5, after
 setting the random number generator to 1 each time with `set.seed(1)`
 and you should get `r res1` and `r res2`.
 
+`r msmbstyle::question_end()`
+
 `r msmbstyle::solution_begin()`
 
 ```{r}
@@ -441,10 +444,6 @@ res2 <- fun(15, 5)
 ```
 
 `r msmbstyle::solution_end()`
-
-
-`r msmbstyle::question_end()`
-
 
 
 ## Pattern matching
@@ -669,11 +668,6 @@ ggplot(interros2, aes(y = score, x = test)) +
 
 `r msmbstyle::solution_end()`
 
-## Additional exercises
-
-- Read multiple files into one dataframe (prepare data). Note: this
-  will need to be demonstrated in class for many files, as the simple
-  approach above won't scale.
 
 
 
