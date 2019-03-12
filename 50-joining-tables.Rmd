@@ -385,6 +385,11 @@ d4 <- data.frame(x = letters[1:2], y = letters[1:2])
 str(rbind(d1, d4))
 ```
 
+
+**Note**: `rbind` and `cbind` are base R functions. The *tidyverse*
+alternatives from the `dplyr` package are `bind_rows` and `bind_cols`
+and work similarly.
+
 ## Additional exercises
 
 

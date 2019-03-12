@@ -1,6 +1,6 @@
 # Bioinformatics {#sec:bioinfo}
 
-As already alluded to ealier, [Wikipedia
+As already alluded to earlier, [Wikipedia
 defines](https://en.wikipedia.org/wiki/Bioinformatics) bioinformatics
 as
 
@@ -15,7 +15,7 @@ combination of these.
 ## Omics data
 
 So far, we have explored broad data science techniques in R. A
-widespread and successful area of bioinfomatics, and one that you, as
+widespread and successful area of bioinformatics, and one that you, as
 a biology or biomedical science student are likely to be confronted
 with, is the analysis and interpretation of omics data.
 
@@ -29,29 +29,122 @@ application domains. The technologies that focus on DNA, and the
 genome in particular (either whole or parts thereof) are termed
 **genomics**, and are currently based on sequencing, in particular
 high throughput sequencing (HTS). The domain focusing on the study of
-any DNA modification (such as for example methylation) is termed
-**epigenetics**. The study of RNA, and more specifically the
-quantitation of RNA levels in biological samples is termed
-**transcriptomics**, as it assays the transcription of DNA into RNA
-molecules. Without further specification, transcriptomics refers to
-the quantitation of messanger RNA, although one could also focus on
+any DNA (or assiciated proteins) modification (such as for example
+methylation) is termed **epigenetics**. The study of RNA, and more
+specifically the quantitation of RNA levels in biological samples is
+termed **transcriptomics**, as it assays the transcription of DNA into
+RNA molecules. Without further specification, transcriptomics refers
+to the quantitation of message RNA, although one could also focus on
 non-coding RNAs such as micro RNAs. HTS is currently the technology of
 choice for any transcriptomics study, while a decade ago, prior to the
-development of RNA sequencing (called **RNAseq**), microarrays were
+development of RNA sequencing (called **RNA-Seq**), microarrays were
 widely used. **Proteomics** focuses on the identification and
 quantitation of proteins, and can also expand into the study of
 protein interactions, post-translational modifications or sub-cellular
-localisation of proteins. Further downstreams of proteins, small
+localisation of proteins. Further downstream of proteins, small
 molecules or lipids can also be assayed under the umbrella terms of
 **metabolomics** and **lipidomics**. The technology of choice for
 protein, lipids or smaller metabolites is mass spectrometry.
 
-Important concepts
+In the next couple of sections, some important concepts related to
+omics data and their analysis are repeated and emphasised.
 
-- high throughput
-- raw data
-- processed data
-- metadata, including experimental design (see also stats course)
+### High throughput {-}
+
+By it very nature, omics data is high throughput. The goal is to
+measure all, or as many as possible molecules of an omics-domain as
+possible: sequence the whole genome or all exomes; identify all
+epigenetic histone modifications (defining the compactness of DNA and
+hence it's accessibility by the transcription machinery); identify and
+quantify as much as possible from the complete proteomics; etc. As a
+result, omics data is both large in size and complex in nature, and
+requires dedicated software and analysis methods to be processed,
+analysed to infer biologically relevant patterns. 
+
+### Raw and processed data {-}
+
+The omics data that are produced by the instruments are called raw
+data, and their size (generally large), the types of file, and
+structure will depend on the technology that is used. Raw data need to
+be processed using dedicated software before obtaining data that can
+be mapped to the biology that is measured. Below we illustrate two
+such examples using Sanger sequencing and mass spectrometry. 
+
+In Sanger sequencing, DNA is labelled using fluorophores, and
+different nucleotides are marked with different colours. Upon
+acquisition, light signal is acquired and recording of the different
+colours can be used to reconstruct the DNA sequence. 
+
+TODO add figure
+
+In mass spectrometry, charged molecules are separated based on their
+mass-to-charge (M/Z) ratio and their intensities recorded to produce a
+spectrum. In proteomics, the molecules that are assayed are protein
+fragments called peptides. Upon fragmentation of peptides, the
+different between the M/Z peaks of the peptide fragment ions can be
+used to reconstruct the peptide sequence.
+
+TODO add figure
+
+Processed data themselves often need to be further transformed to
+account for a variety of noise that is inheritent to sample
+collection, preparation and measurement acquisition. Data processing
+and transformation will be explored in detail in subsequent course
+such as *Omics data analysis*
+([WSBIM2122](https://github.com/UCLouvain-CBIO/WSBIM2122)).
+
+## Metadata and experimental design {-}
+
+The acquired data, even once processed, is still of very little use
+when it comes to understanding biology. Before samples are collected
+and data are generated, it is essential to carefully design a question
+of interest (research hypothesis) and the experiement that will allow
+to answer it. For example, if we want to understand the effect of a
+particular drug on cancer cells, and more specifically understand the
+effect on the transcription of all the expressed genes, on would need
+to measure gene expression (using for example RNA-Seq) in cancer cells
+in presence and absence of that drug. The table below describes a
+simple experimental design where 3 conditions (control, drug at a
+concentrations of 1 and 5) have been simultaneously processed and
+measured by the same operator in triplicate.
+
+```{r, echo = FALSE}
+expd <- data.frame(sample = paste0(rep(LETTERS[1:3], each = 3), 1:3),
+                   operator = "Kevin", date = '2019-03-02',
+                   group = rep(c("CTRL", "DRUG", "DRUG"), each = 3),
+                   concentration = rep(c(0, 1, 5), each = 3),
+                   stringsAsFactors = FALSE)
+knitr::kable(expd)
+```
+
+We have seen a much more complex experimental desing, involving many
+more samples with the `clinical1` data.
+
+```{r, echo = FALSE, message = FALSE}
+library("rWSBIM1207")
+data(clinical1)
+DT::datatable(clinical1)
+```
+
+When performing experiments, measurements should also be repeated
+several times (typically at least three), to quantify technical
+variability in our measurements and, eventually identify changes that
+related to the conditions of interest (i.e. presence of absence of the
+drug).
+
+```{r, echo = FALSE, fig.cap = "Caption comes here."}
+ge <- tibble(Group = rep(expd$group, each = 3),
+             Concentration = factor(rep(expd$concentration, each = 3)),
+             Sample = rep(expd$sample, each = 3),
+             Gene = rep(c("A1CF", "BRCA1", "TP53"), each = 9),
+             Expression = c(rnorm(9, 6, 2),
+                            c(rnorm(3, 5, 3), rnorm(3, 10, 4), rnorm(3, 13, 5)),
+                            c(rnorm(3, 11, 5), rnorm(3, 10, 4), rnorm(3, 6, 3))))
+                      
+       
+ggplot(ge, aes(x = Sample, y = Expression, colour = Gene)) +
+    geom_boxplot()
+```
 
 Reminder about reproducible research, and need for raw data and
 complete processing script to reproduce the processed data and
