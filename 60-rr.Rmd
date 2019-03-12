@@ -127,7 +127,7 @@ initially developed for Python, but that can run R code as well.
 
 ```{r dtexample}
 ip <- installed.packages()
-DT::datatable(ip)
+DT::datatable(ip[, c(1, 3, 5, 6, 10)], rownames = FALSE)
 ```
 
 - It is always useful to finish a Rmarkdown report with a section
