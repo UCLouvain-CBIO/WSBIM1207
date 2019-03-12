@@ -86,6 +86,12 @@ used to reconstruct the peptide sequence.
 
 TODO add figure
 
+
+The size and computational cost of processing raw data often require
+more serious hardware, including disk space, computer clusters with
+100s or more of compute nodes and/or access to high amounts of memory
+(RAM).
+
 Processed data themselves often need to be further transformed to
 account for a variety of noise that is inheritent to sample
 collection, preparation and measurement acquisition. Data processing
@@ -144,12 +150,8 @@ ge <- tibble(Group = rep(expd$group, each = 3),
                       
        
 ggplot(ge, aes(x = Sample, y = Expression, colour = Gene)) +
-    geom_boxplot()
+    geom_boxplot() 
 ```
-
-Reminder about reproducible research, and need for raw data and
-complete processing script to reproduce the processed data and
-results.
 
 ## Project management reminder
 
@@ -172,7 +174,6 @@ relevant object.
 
 Documenting ones tasks in a bioinformatics project is absolutely
 essential. It is akin a lab notebook for wet lab.
-
 
 
 ## Exercises
