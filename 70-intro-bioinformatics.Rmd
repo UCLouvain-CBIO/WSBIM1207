@@ -133,6 +133,7 @@ related to the conditions of interest (i.e. presence of absence of the
 drug).
 
 ```{r, echo = FALSE, fig.cap = "Caption comes here."}
+set.seed(123)
 ge <- tibble(Group = rep(expd$group, each = 3),
              Concentration = factor(rep(expd$concentration, each = 3)),
              Sample = rep(expd$sample, each = 3),
