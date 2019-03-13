@@ -157,7 +157,7 @@ for (i in x) {
 
 The loop above only prints the results on screen. They aren't stored
 and are lost for any further re-use, which would be very annoying if
-if took much more time to perform all the calculations. In the code
+it took much more time to perform all the calculations. In the code
 chunk below, we are going to first inititalise a vector with the
 appropriate number of `NA` values and, at each iteration, we then
 store the result. We however now need to change our loop and iterate
