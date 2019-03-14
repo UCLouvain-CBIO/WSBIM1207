@@ -283,7 +283,7 @@ fs <- expressions.csv()
 ```
 
 Use the `expressions.csv()` function from the `rWSBIM1207` package to
-get the path to `r length(fs)` csv files containing gene expression data 
+get the path to `r length(fs)` csv files containing gene expression data
 for a single gene and hundreds of patience. Read all data in and
 combine them into a single dataframe.
 
@@ -354,7 +354,7 @@ if (x > 0) {
    print(log(x))
 } else {
    print(log(-x))
-}   
+}
 ```
 
 But note that in the example above, it would be much better to
@@ -409,7 +409,7 @@ res2 <- fun(15, 5)
 
 
 Complete the following function. It is supposed to take two inputs,
-`x` and `y` and, depending whether the `x > y` or `x <= y`, it generates 
+`x` and `y` and, depending whether the `x > y` or `x <= y`, it generates
 the permutation `sample(x, y)` in the first case or draws a sample
 from `rnorm(1000, x, y)` in the second case. Finally, it returns the
 sum of all values.
@@ -493,7 +493,7 @@ head(gsub("A", "X", peptides))
 This exercise recapitulates the most important material that we have
 seem in the course. We are going to analyse the student tests A and B
 results using functionality from the `dplyr` package (seen in chapter
-\ref@(sec:dplyr)). The student test files are available in the
+\@ref(sec:dplyr)). The student test files are available in the
 `rWSBIM1207` package (the `interroA.csv` and `interroB.csv` functions
 return their respective paths). We want to compare how the male and
 female students in groups A and B have performed. To do this, we want
@@ -526,7 +526,7 @@ library("tidyverse")
 2. Using the `interroA.csv()` and `interroB.csv()` functions from the
    `rWSBIM1207` package, create a vector containing the two csv file
    names.
-   
+
 `r msmbstyle::solution_begin()`
 
 ```{r}
@@ -541,7 +541,7 @@ fls
 3. Iterate over the files and read each into an element of a
    list. Then, bind the two elements of the list into a single
    dataframe containing all results.
-   
+
 `r msmbstyle::solution_begin()`
 
 ```{r}
@@ -553,7 +553,7 @@ interros
 dim(interros)
 ```
 
-or 
+or
 
 ```{r}
 l <- lapply(fls, read_csv)
@@ -661,13 +661,9 @@ axes and construct the visualisation.
 ```{r}
 ggplot(interros2, aes(y = score, x = test)) +
     geom_boxplot() +
-    geom_jitter(aes(colour = height)) +  
+    geom_jitter(aes(colour = height)) +
     facet_grid(gender ~ group)
 
-``` 
+```
 
 `r msmbstyle::solution_end()`
-
-
-
-
