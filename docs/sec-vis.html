@@ -641,19 +641,21 @@ arrangements, there are tools for <a href="https://cran.r-project.org/web/packag
 layouts</a>.</p>
 <p>Another, more recent, and very elegant package to arrache plots
 produced with <code>ggplot2</code> is the
-<a href="https://github.com/thomasp85/patchwork"><strong>patchwork</strong></a> package:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;patchwork&quot;</span>)
+<a href="https://github.com/thomasp85/patchwork"><strong>patchwork</strong></a>
+package. Before composing plots, we remove the legend altogether by
+updating the theme.</p>
+<pre class="sourceCode r"><code class="sourceCode r">spp_count_plot &lt;-<span class="st"> </span>spp_count_plot <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;patchwork&quot;</span>)
 spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot</code></pre>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-180-1.png" width="672"  /></p>
 <pre class="sourceCode r"><code class="sourceCode r">spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot <span class="op">+</span><span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>)</code></pre>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-181-1.png" width="672"  /></p>
 <pre class="sourceCode r"><code class="sourceCode r">spp_weight_boxplot <span class="op">/</span><span class="st"> </span>spp_count_plot</code></pre>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-182-1.png" width="672"  /></p>
-<pre class="sourceCode r"><code class="sourceCode r">(spp_weight_boxplot <span class="op">+</span>
+<pre class="sourceCode r"><code class="sourceCode r">spp_weight_boxplot <span class="op">+</span>
 <span class="st"> </span>(spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot) <span class="op">+</span>
 <span class="st"> </span>spp_count_plot <span class="op">+</span>
-<span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>)) <span class="op">*</span>
-<span class="st">    </span><span class="kw">theme_bw</span>()</code></pre>
+<span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>)</code></pre>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-183-1.png" width="672"  /></p>
 </div>
 <div id="exporting-plots" class="section level2">
