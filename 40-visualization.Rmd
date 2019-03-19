@@ -530,7 +530,7 @@ for inspiration. Here are some ideas:
 
 `r msmbstyle::question_end()`
 
-## Arranging and exporting plots
+## Arranging plots
 
 Faceting is a great tool for splitting one plot into multiple plots,
 but sometimes you may want to produce a single figure that contains
@@ -560,11 +560,46 @@ grid.arrange(spp_weight_boxplot, spp_count_plot, ncol = 2, widths = c(4, 6))
 
 ```
 
-In addition to the `ncol` and `nrow` arguments, used to make simple arrangements, there are tools for [constructing more complex layouts](https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html).
+In addition to the `ncol` and `nrow` arguments, used to make simple
+arrangements, there are tools for [constructing more complex
+layouts](https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html).
 
-After creating your plot, you can save it to a file in your favorite format. The Export tab in the **Plot** pane in RStudio will save your plots at low resolution, which will not be accepted by many journals and will not scale well for posters.
 
-Instead, use the `ggsave()` function, which allows you easily change the dimension and resolution of your plot by adjusting the appropriate arguments (`width`, `height` and `dpi`).
+Another, more recent, and very elegant package to arrache plots
+produced with `ggplot2` is the
+[**patchwork**](https://github.com/thomasp85/patchwork) package:
+
+```{r}
+library("patchwork")
+spp_weight_boxplot + spp_count_plot
+```
+
+```{r}
+spp_weight_boxplot + spp_count_plot + plot_layout(ncol = 1)
+```
+
+```{r}
+spp_weight_boxplot / spp_count_plot
+```
+
+```{r}
+(spp_weight_boxplot +
+ (spp_weight_boxplot + spp_count_plot) +
+ spp_count_plot +
+ plot_layout(ncol = 1)) *
+    theme_bw()
+```
+
+## Exporting plots
+
+After creating your plot, you can save it to a file in your favorite
+format. The Export tab in the **Plot** pane in RStudio will save your
+plots at low resolution, which will not be accepted by many journals
+and will not scale well for posters.
+
+Instead, use the `ggsave()` function, which allows you easily change
+the dimension and resolution of your plot by adjusting the appropriate
+arguments (`width`, `height` and `dpi`).
 
 Make sure you have the `fig_output/` folder in your working directory.
 

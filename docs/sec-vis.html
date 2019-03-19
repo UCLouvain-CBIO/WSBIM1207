@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-03-14" />
+<meta name="date" content="2019-03-19" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -149,7 +149,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#faceting"> Faceting</a></li>
 <li class="toc"><a href="#ggplot2-themes"> <strong><code>ggplot2</code></strong> themes</a></li>
 <li class="toc"><a href="#customization"> Customization</a></li>
-<li class="toc"><a href="#arranging-and-exporting-plots"> Arranging and exporting plots</a></li>
+<li class="toc"><a href="#arranging-plots"> Arranging plots</a></li>
+<li class="toc"><a href="#exporting-plots"> Exporting plots</a></li>
 <li class="toc"><a href="#other-packages-for-visualisation"> Other packages for visualisation</a></li>
 <li class="toc"><a href="#additional-exercises-4"> Additional exercises</a></li>
 </ul>
@@ -612,8 +613,8 @@ for inspiration. Here are some ideas:</p>
 </div>
 </div>
 </div>
-<div id="arranging-and-exporting-plots" class="section level2">
-<h2><span class="header-section-number">5.8</span> Arranging and exporting plots</h2>
+<div id="arranging-plots" class="section level2">
+<h2><span class="header-section-number">5.8</span> Arranging plots</h2>
 <p>Faceting is a great tool for splitting one plot into multiple plots,
 but sometimes you may want to produce a single figure that contains
 multiple plots using different variables or even different data
@@ -635,9 +636,35 @@ spp_count_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<spa
 
 <span class="kw">grid.arrange</span>(spp_weight_boxplot, spp_count_plot, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">widths =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>))</code></pre>
 <p><img src="WSBIM1207_files/figure-html/gridarrange-example-1.png" width="960"  /></p>
-<p>In addition to the <code>ncol</code> and <code>nrow</code> arguments, used to make simple arrangements, there are tools for <a href="https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html">constructing more complex layouts</a>.</p>
-<p>After creating your plot, you can save it to a file in your favorite format. The Export tab in the <strong>Plot</strong> pane in RStudio will save your plots at low resolution, which will not be accepted by many journals and will not scale well for posters.</p>
-<p>Instead, use the <code>ggsave()</code> function, which allows you easily change the dimension and resolution of your plot by adjusting the appropriate arguments (<code>width</code>, <code>height</code> and <code>dpi</code>).</p>
+<p>In addition to the <code>ncol</code> and <code>nrow</code> arguments, used to make simple
+arrangements, there are tools for <a href="https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html">constructing more complex
+layouts</a>.</p>
+<p>Another, more recent, and very elegant package to arrache plots
+produced with <code>ggplot2</code> is the
+<a href="https://github.com/thomasp85/patchwork"><strong>patchwork</strong></a> package:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;patchwork&quot;</span>)
+spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot</code></pre>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-180-1.png" width="672"  /></p>
+<pre class="sourceCode r"><code class="sourceCode r">spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot <span class="op">+</span><span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>)</code></pre>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-181-1.png" width="672"  /></p>
+<pre class="sourceCode r"><code class="sourceCode r">spp_weight_boxplot <span class="op">/</span><span class="st"> </span>spp_count_plot</code></pre>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-182-1.png" width="672"  /></p>
+<pre class="sourceCode r"><code class="sourceCode r">(spp_weight_boxplot <span class="op">+</span>
+<span class="st"> </span>(spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot) <span class="op">+</span>
+<span class="st"> </span>spp_count_plot <span class="op">+</span>
+<span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>)) <span class="op">*</span>
+<span class="st">    </span><span class="kw">theme_bw</span>()</code></pre>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-183-1.png" width="672"  /></p>
+</div>
+<div id="exporting-plots" class="section level2">
+<h2><span class="header-section-number">5.9</span> Exporting plots</h2>
+<p>After creating your plot, you can save it to a file in your favorite
+format. The Export tab in the <strong>Plot</strong> pane in RStudio will save your
+plots at low resolution, which will not be accepted by many journals
+and will not scale well for posters.</p>
+<p>Instead, use the <code>ggsave()</code> function, which allows you easily change
+the dimension and resolution of your plot by adjusting the appropriate
+arguments (<code>width</code>, <code>height</code> and <code>dpi</code>).</p>
 <p>Make sure you have the <code>fig_output/</code> folder in your working directory.</p>
 <pre class="sourceCode r"><code class="sourceCode r">my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_counts,
                   <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> sex)) <span class="op">+</span>
@@ -658,7 +685,7 @@ combo_plot &lt;-<span class="st"> </span><span class="kw">grid.arrange</span>(sp
 <p>Note: The parameters <code>width</code> and <code>height</code> also determine the font size in the saved plot.</p>
 </div>
 <div id="other-packages-for-visualisation" class="section level2">
-<h2><span class="header-section-number">5.9</span> Other packages for visualisation</h2>
+<h2><span class="header-section-number">5.10</span> Other packages for visualisation</h2>
 <p><code>ggplot2</code> is a very powerful package that fits very nicely in our
 <em>tidy data</em> and <em>tidy tools</em> pipeline. There are other visualisation
 packages in R that shouldn’t be ignored.</p>
@@ -721,7 +748,7 @@ and has a more convoluted interface.</p>
 </div>
 </div>
 <div id="additional-exercises-4" class="section level2">
-<h2><span class="header-section-number">5.10</span> Additional exercises</h2>
+<h2><span class="header-section-number">5.11</span> Additional exercises</h2>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -732,7 +759,7 @@ and has a more convoluted interface.</p>
 <span class="kw">data</span>(beers)</code></pre>
 <p>Analyse the data to answer the question <em>Do men drink more than women
 according to age and working status?</em> Now reproduce the figure below.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-181"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-185"></span>
 <p class="caption marginnote shownote">
 Figure 5.3: Visualisation of beer consumption, highlighting different patterns of beer consumption in employed and unemployed males and females.
 </p>
@@ -878,7 +905,7 @@ A2ML1 gene.</p></li>
 <a href="sec-join.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-03-14
+2019-03-19
 </p>
 </div>
 </div>
