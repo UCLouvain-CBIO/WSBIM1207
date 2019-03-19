@@ -567,9 +567,12 @@ layouts](https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob
 
 Another, more recent, and very elegant package to arrache plots
 produced with `ggplot2` is the
-[**patchwork**](https://github.com/thomasp85/patchwork) package:
+[**patchwork**](https://github.com/thomasp85/patchwork)
+package. Before composing plots, we remove the legend altogether by
+updating the theme.
 
 ```{r}
+spp_count_plot <- spp_count_plot + theme(legend.position = "none")
 library("patchwork")
 spp_weight_boxplot + spp_count_plot
 ```
@@ -583,11 +586,10 @@ spp_weight_boxplot / spp_count_plot
 ```
 
 ```{r}
-(spp_weight_boxplot +
+spp_weight_boxplot +
  (spp_weight_boxplot + spp_count_plot) +
  spp_count_plot +
- plot_layout(ncol = 1)) *
-    theme_bw()
+ plot_layout(ncol = 1)
 ```
 
 ## Exporting plots
