@@ -1,4 +1,6 @@
-# Session information {-}
+# Session information
+
+The following packages have been used to generate this document.
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
@@ -30,3 +32,5 @@ if (!require("BiocManager"))
    install.packages("BiocManager")
 BiocManager::install(pkgs)
 ```
+
+## References {-}

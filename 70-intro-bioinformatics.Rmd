@@ -104,7 +104,9 @@ and transformation will be explored in detail in subsequent course
 such as *Omics data analysis*
 ([WSBIM2122](https://github.com/UCLouvain-CBIO/WSBIM2122)).
 
-## Metadata and experimental design {-}
+
+## Metadata and experimental design
+
 
 The acquired data, even once processed, is still of very little use
 when it comes to understanding biology. Before samples are collected
@@ -159,7 +161,31 @@ ggplot(ge, aes(x = gene, y = expression, colour = concentration)) +
 
 ## Project management reminder
 
-See also @Noble:2009.
+We have already seen some best practice related to data science
+project management. These are applicable to bioinformatics projects
+too of course[^bioindatascience]. William Noble (@Noble:2009) proposes
+the following directory structure:
+
+[^bioindatascience]: In this course, we consider bioinformatics as
+    data science applied to biological or bio-medical data.
+
+> Directory names are in large typeface, and filenames are in smaller
+> typeface. Only a subset of the files are shown here. Note that the
+> dates are formatted `<year>-<month>-<day>1` so that they can be
+> sorted in chronological order. The source code `src/ms-analysis.c`
+> is compiled to create `bin/ms-analysis` and is documented in
+> `doc/ms-analysis.html`. The `README` files in the data directories
+> specify who downloaded the data files from what URL on what
+> date. The driver script `results/2009-01-15/runall` automatically
+> generates the three subdirectories split1, split2, and split3,
+> corresponding to three cross-validation splits. The
+> `bin/parse-sqt.py` script is called by both of the runall driver
+> scripts.
+
+
+```{r bioinfoproj, fig.cap="Directory structure for a sample bioinformatics project.", out.width='100%', echo=FALSE}
+knitr::include_graphics("./figs/noble-bioinfo-project.png")
+```
 
 ## The Bioconductor project {#sec:bioconductor}
 

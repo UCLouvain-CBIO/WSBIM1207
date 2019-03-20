@@ -146,7 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="sec-rr.html"><span class="toc-section-number">7</span> Reproducible research</a>
 <a id="active-page" href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a><ul class="toc-sections">
 <li class="toc"><a href="#omics-data"> Omics data</a></li>
-<li class="toc"><a href="#metadata-and-experimental-design">NA</a></li>
+<li class="toc"><a href="#metadata-and-experimental-design"> Metadata and experimental design</a></li>
 <li class="toc"><a href="#project-management-reminder"> Project management reminder</a></li>
 <li class="toc"><a href="#sec:bioconductor"> The Bioconductor project</a></li>
 <li class="toc"><a href="#objects"> Objects</a></li>
@@ -155,7 +155,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <a href="sec-prog.html"><span class="toc-section-number">9</span> Additional programming concepts</a>
 <a href="sec-ccl.html"><span class="toc-section-number">10</span> Conclusions</a>
-<a href="session-information.html">Session information</a>
+<a href="session-information.html"><span class="toc-section-number">11</span> Session information</a>
 </div>
 </li>
 </ul>
@@ -271,8 +271,8 @@ such as <em>Omics data analysis</em>
 (<a href="https://github.com/UCLouvain-CBIO/WSBIM2122">WSBIM2122</a>).</p>
 </div>
 </div>
-<div id="metadata-and-experimental-design" class="section level2 unnumbered">
-<h2>Metadata and experimental design</h2>
+<div id="metadata-and-experimental-design" class="section level2">
+<h2><span class="header-section-number">8.2</span> Metadata and experimental design</h2>
 <p>The acquired data, even once processed, is still of very little use
 when it comes to understanding biology. Before samples are collected
 and data are generated, it is essential to carefully design a question
@@ -429,27 +429,51 @@ Figure 8.4: Distribution of the expression of the genes A1CF, BRCA1 and TP53 und
 </div>
 </div>
 <div id="project-management-reminder" class="section level2">
-<h2><span class="header-section-number">8.2</span> Project management reminder</h2>
-<p>See also <span class="citation">Noble (<a href="session-information.html#ref-Noble:2009" role="doc-biblioref">2009</a>)</span>.</p>
+<h2><span class="header-section-number">8.3</span> Project management reminder</h2>
+<p>We have already seen some best practice related to data science
+project management. These are applicable to bioinformatics projects
+too of course<label for="tufte-sn-17" class="margin-toggle sidenote-number">17</label><input type="checkbox" id="tufte-sn-17" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">17</span> In this course, we consider bioinformatics as
+data science applied to biological or bio-medical data.</span>. William Noble (<span class="citation">Noble (<a href="session-information.html#ref-Noble:2009" role="doc-biblioref">2009</a>)</span>) proposes
+the following directory structure:</p>
+<blockquote>
+<p>Directory names are in large typeface, and filenames are in smaller
+typeface. Only a subset of the files are shown here. Note that the
+dates are formatted <code>&lt;year&gt;-&lt;month&gt;-&lt;day&gt;1</code> so that they can be
+sorted in chronological order. The source code <code>src/ms-analysis.c</code>
+is compiled to create <code>bin/ms-analysis</code> and is documented in
+<code>doc/ms-analysis.html</code>. The <code>README</code> files in the data directories
+specify who downloaded the data files from what URL on what
+date. The driver script <code>results/2009-01-15/runall</code> automatically
+generates the three subdirectories split1, split2, and split3,
+corresponding to three cross-validation splits. The
+<code>bin/parse-sqt.py</code> script is called by both of the runall driver
+scripts.</p>
+</blockquote>
+<div class="figure"><span id="fig:bioinfoproj"></span>
+<p class="caption marginnote shownote">
+Figure 8.5: Directory structure for a sample bioinformatics project.
+</p>
+<img src="figs/noble-bioinfo-project.png" alt="Directory structure for a sample bioinformatics project." width="100%"  />
+</div>
 </div>
 <div id="sec:bioconductor" class="section level2">
-<h2><span class="header-section-number">8.3</span> The Bioconductor project</h2>
+<h2><span class="header-section-number">8.4</span> The Bioconductor project</h2>
 <p>The <a href="http://www.bioconductor.org">Bioconductor</a> (<span class="citation">R. C. Gentleman et al. (<a href="session-information.html#ref-Gentleman:2004" role="doc-biblioref">2004</a>)</span>;<span class="citation">Huber et al. (<a href="session-information.html#ref-Huber:2015" role="doc-biblioref">2015</a>)</span>) …</p>
 <p>Package installation: reminder and <code>BiocManager::install</code>.</p>
 </div>
 <div id="objects" class="section level2">
-<h2><span class="header-section-number">8.4</span> Objects</h2>
+<h2><span class="header-section-number">8.5</span> Objects</h2>
 <p>Data in bioinformatics is often more complex than the basic data types
 we have seen so far. Give a short introduction and example to some
 relevant object.</p>
 </div>
 <div id="documentation" class="section level2">
-<h2><span class="header-section-number">8.5</span> Documentation</h2>
+<h2><span class="header-section-number">8.6</span> Documentation</h2>
 <p>Documenting ones tasks in a bioinformatics project is absolutely
 essential. It is akin a lab notebook for wet lab.</p>
 </div>
 <div id="exercises" class="section level2">
-<h2><span class="header-section-number">8.6</span> Exercises</h2>
+<h2><span class="header-section-number">8.7</span> Exercises</h2>
 <p>More exercises, framed in the context of bioinformatics.</p>
 
 </div>
