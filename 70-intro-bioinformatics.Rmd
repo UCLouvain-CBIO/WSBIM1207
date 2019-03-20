@@ -179,13 +179,40 @@ the following directory structure:
 > date. The driver script `results/2009-01-15/runall` automatically
 > generates the three subdirectories split1, split2, and split3,
 > corresponding to three cross-validation splits. The
-> `bin/parse-sqt.py` script is called by both of the runall driver
+> `bin/parse-sqt.py` script is called by both of the `runall` driver
 > scripts.
 
 
 ```{r bioinfoproj, fig.cap="Directory structure for a sample bioinformatics project.", out.width='100%', echo=FALSE}
 knitr::include_graphics("./figs/noble-bioinfo-project.png")
 ```
+
+The most important aspect of a well defined and well documented
+project directory is to enable someone unfamiliar with the
+project[^futureself] to
+
+1. understand what the project is about, what data are available, what
+   analyses were run, and what results were produced and, most
+   importantly to
+
+2. repeat the analysis over again - with new data, or changing some
+   analysis parameters.
+
+[^futureself]: That someone could be, and very likely will be your
+    future self, a couple of months or years after the analyses were
+    run.
+
+
+In addition to the directory structure above, a **lab notebook**,
+describing the different analyses that were done, why they were done,
+and summarising the results are, is useful. The details of the
+analysis are encoded in individual scripts and Rmarkdown or notebook
+files, and don't need to be repeated again - here, it is important to
+document the why something was done, rather then how something was
+done. Such a general lab notebook could be a simple `README.md` file
+or a reproducible Rmarkdown file, that could directly load some
+results from the individual results files.
+
 
 ## The Bioconductor project {#sec:bioconductor}
 

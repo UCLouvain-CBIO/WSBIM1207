@@ -446,7 +446,7 @@ specify who downloaded the data files from what URL on what
 date. The driver script <code>results/2009-01-15/runall</code> automatically
 generates the three subdirectories split1, split2, and split3,
 corresponding to three cross-validation splits. The
-<code>bin/parse-sqt.py</code> script is called by both of the runall driver
+<code>bin/parse-sqt.py</code> script is called by both of the <code>runall</code> driver
 scripts.</p>
 </blockquote>
 <div class="figure"><span id="fig:bioinfoproj"></span>
@@ -455,6 +455,27 @@ Figure 8.5: Directory structure for a sample bioinformatics project.
 </p>
 <img src="figs/noble-bioinfo-project.png" alt="Directory structure for a sample bioinformatics project." width="100%"  />
 </div>
+<p>The most important aspect of a well defined and well documented
+project directory is to enable someone unfamiliar with the
+project<label for="tufte-sn-18" class="margin-toggle sidenote-number">18</label><input type="checkbox" id="tufte-sn-18" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">18</span> That someone could be, and very likely will be your
+future self, a couple of months or years after the analyses were
+run.</span> to</p>
+<ol style="list-style-type: decimal">
+<li><p>understand what the project is about, what data are available, what
+analyses were run, and what results were produced and, most
+importantly to</p></li>
+<li><p>repeat the analysis over again - with new data, or changing some
+analysis parameters.</p></li>
+</ol>
+<p>In addition to the directory structure above, a <strong>lab notebook</strong>,
+describing the different analyses that were done, why they were done,
+and summarising the results are, is useful. The details of the
+analysis are encoded in individual scripts and Rmarkdown or notebook
+files, and don’t need to be repeated again - here, it is important to
+document the why something was done, rather then how something was
+done. Such a general lab notebook could be a simple <code>README.md</code> file
+or a reproducible Rmarkdown file, that could directly load some
+results from the individual results files.</p>
 </div>
 <div id="sec:bioconductor" class="section level2">
 <h2><span class="header-section-number">8.4</span> The Bioconductor project</h2>
