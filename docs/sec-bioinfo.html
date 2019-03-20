@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-03-19" />
+<meta name="date" content="2019-03-20" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -236,18 +236,29 @@ structure will depend on the technology that is used. Raw data need to
 be processed using dedicated software before obtaining data that can
 be mapped to the biology that is measured. Below we illustrate two
 such examples using Sanger sequencing and mass spectrometry.</p>
-<p>In Sanger sequencing, DNA is labelled using fluorophores, and
-different nucleotides are marked with different colours. Upon
-acquisition, light signal is acquired and recording of the different
-colours can be used to reconstruct the DNA sequence.</p>
-<p>TODO add figure</p>
+<p>In Sanger sequencing (Figure <a href="sec-bioinfo.html#fig:sangerseq">8.2</a>), DNA is labelled
+using fluorophores, and different nucleotides are marked with
+different colours. Upon acquisition, light signal is acquired and
+recording of the different colours can be used to reconstruct the DNA
+sequence.</p>
+<div class="figure"><span id="fig:sangerseq"></span>
+<p class="caption marginnote shownote">
+Figure 8.2: Processing Sanger sequencing data to a string. (Source <a href="https://bitesizebio.com/27985/sanger-sequencing-genome-won/">BiteSizeBio</a>).
+</p>
+<img src="figs/sanger-sequencing.jpg" alt="Processing Sanger sequencing data to a string. (Source [BiteSizeBio](https://bitesizebio.com/27985/sanger-sequencing-genome-won/))." width="70%"  />
+</div>
 <p>In mass spectrometry, charged molecules are separated based on their
 mass-to-charge (M/Z) ratio and their intensities recorded to produce a
 spectrum. In proteomics, the molecules that are assayed are protein
 fragments called peptides. Upon fragmentation of peptides, the
 different between the M/Z peaks of the peptide fragment ions can be
-used to reconstruct the peptide sequence.</p>
-<p>TODO add figure</p>
+used to reconstruct the peptide sequence (Figure <a href="sec-bioinfo.html#fig:pepseq">8.3</a>).</p>
+<div class="figure"><span id="fig:pepseq"></span>
+<p class="caption marginnote shownote">
+Figure 8.3: De novo peptide sequencing using mass spectrometry. (Source <a href="https://www.creative-proteomics.com/services/de-novo-peptides-proteins-sequencing-service.htm">Creative Proteomics</a>).
+</p>
+<img src="figs/de-novo-pep-sequencing.jpg" alt="De novo peptide sequencing using mass spectrometry. (Source [Creative Proteomics](https://www.creative-proteomics.com/services/de-novo-peptides-proteins-sequencing-service.htm))." width="100%"  />
+</div>
 <p>The size and computational cost of processing raw data often require
 more serious hardware, including disk space, computer clusters with
 100s or more of compute nodes and/or access to high amounts of memory
@@ -412,7 +423,7 @@ changes that relate to the conditions of interest (i.e. differences in
 genes expression in the presence or absence of the drug).</p>
 <div class="figure"><span id="fig:unnamed-chunk-197"></span>
 <p class="caption marginnote shownote">
-Figure 8.2: Distribution of the expression of the genes A1CF, BRCA1 and TP53 under the control (no drug) and drug at concentrations 1 and 5.
+Figure 8.4: Distribution of the expression of the genes A1CF, BRCA1 and TP53 under the control (no drug) and drug at concentrations 1 and 5.
 </p>
 <img src="WSBIM1207_files/figure-html/unnamed-chunk-197-1.png" alt="Distribution of the expression of the genes A1CF, BRCA1 and TP53 under the control (no drug) and drug at concentrations 1 and 5." width="672"  />
 </div>
@@ -448,7 +459,7 @@ essential. It is akin a lab notebook for wet lab.</p>
 <a href="sec-prog.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-03-19
+2019-03-20
 </p>
 </div>
 </div>

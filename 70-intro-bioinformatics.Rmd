@@ -59,7 +59,7 @@ hence it's accessibility by the transcription machinery); identify and
 quantify as much as possible from the complete proteomics; etc. As a
 result, omics data is both large in size and complex in nature, and
 requires dedicated software and analysis methods to be processed,
-analysed to infer biologically relevant patterns. 
+analysed to infer biologically relevant patterns.
 
 ### Raw and processed data {-}
 
@@ -68,23 +68,28 @@ data, and their size (generally large), the types of file, and
 structure will depend on the technology that is used. Raw data need to
 be processed using dedicated software before obtaining data that can
 be mapped to the biology that is measured. Below we illustrate two
-such examples using Sanger sequencing and mass spectrometry. 
+such examples using Sanger sequencing and mass spectrometry.
 
-In Sanger sequencing, DNA is labelled using fluorophores, and
-different nucleotides are marked with different colours. Upon
-acquisition, light signal is acquired and recording of the different
-colours can be used to reconstruct the DNA sequence. 
+In Sanger sequencing (Figure \@ref(fig:sangerseq)), DNA is labelled
+using fluorophores, and different nucleotides are marked with
+different colours. Upon acquisition, light signal is acquired and
+recording of the different colours can be used to reconstruct the DNA
+sequence.
 
-TODO add figure
+```{r sangerseq, out.width = '70%', fig.cap="Processing Sanger sequencing data to a string. (Source [BiteSizeBio](https://bitesizebio.com/27985/sanger-sequencing-genome-won/)).", echo = FALSE}
+knitr::include_graphics("./figs/sanger-sequencing.jpg")
+```
 
 In mass spectrometry, charged molecules are separated based on their
 mass-to-charge (M/Z) ratio and their intensities recorded to produce a
 spectrum. In proteomics, the molecules that are assayed are protein
 fragments called peptides. Upon fragmentation of peptides, the
 different between the M/Z peaks of the peptide fragment ions can be
-used to reconstruct the peptide sequence.
+used to reconstruct the peptide sequence (Figure \@ref(fig:pepseq)).
 
-TODO add figure
+```{r pepseq, out.width = '100%', fig.cap="De novo peptide sequencing using mass spectrometry. (Source [Creative Proteomics](https://www.creative-proteomics.com/services/de-novo-peptides-proteins-sequencing-service.htm)).", echo = FALSE}
+knitr::include_graphics("./figs/de-novo-pep-sequencing.jpg")
+```
 
 
 The size and computational cost of processing raw data often require
@@ -147,7 +152,7 @@ ge$A1CF <- rnorm(12, 6, 2)
 ge$BRCA1 <- c(abs(rnorm(4, 2, 1)), rnorm(4, 8, 2), rnorm(4, 13, 2))
 ge$TP53 <-  c(rnorm(4, 10, 5), rnorm(4, 10, 3), rnorm(4, 10, 2))
 ge <- gather(ge, key = gene, value = expression, A1CF, BRCA1, TP53)
-       
+
 ggplot(ge, aes(x = gene, y = expression, colour = concentration)) +
     geom_boxplot()
 ```
