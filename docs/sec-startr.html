@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-03-20" />
+<meta name="date" content="2019-03-21" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -57,67 +57,41 @@ if(f.classList.contains('fa-plus-square')) {
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 
@@ -172,128 +146,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 2</span> Starting with R</h1>
 <p><strong>Learning Objectives</strong></p>
 <ul>
-<li><p>Describe the purpose of the RStudio Script, Console, Environment, and Plots
-panes.</p></li>
-<li><p>Organize files and directories for a set of analyses as an R
-project, and understand the purpose of the working directory.</p></li>
-<li><p>Use the built-in RStudio help interface to search for more
-information on R functions.</p></li>
-<li><p>Demonstrate how to provide sufficient information for
-troubleshooting with the R user community.</p></li>
+<li><p>Describe the purpose of the RStudio Script, Console, Environment, and Plots panes.</p></li>
+<li><p>Organize files and directories for a set of analyses as an R project, and understand the purpose of the working directory.</p></li>
+<li><p>Use the built-in RStudio help interface to search for more information on R functions.</p></li>
+<li><p>Demonstrate how to provide sufficient information for troubleshooting with the R user community.</p></li>
 </ul>
 <div id="what-is-r-what-is-rstudio" class="section level2">
 <h2><span class="header-section-number">2.1</span> What is R? What is RStudio?</h2>
-<p>The term <a href="https://www.r-project.org/">R</a> is used to refer to both the
-<em>programming language</em>, the <em>environment for statistical computing</em>
-and <em>the software</em> that interprets the scripts written using it.</p>
-<p><a href="https://rstudio.com">RStudio</a> is currently a very popular way to not
-only write your R scripts but also to interact with the R
-software<label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> As opposed to using R directly from the command line
-console. There exist other software that interface and integrate
-with R, but RStudio is particularly well suited for beginners and
-while providing numerous very advanced features.</span>. To function correctly, RStudio needs R and
-therefore both need to be installed on your computer.</p>
-<p>The <a href="https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf">RStudio IDE Cheat
-Sheet</a>
-provides much more information that will be covered here, but can be
-useful to learn keyboard shortcuts and discover new features.</p>
+<p>The term <a href="https://www.r-project.org/">R</a> is used to refer to both the <em>programming language</em>, the <em>environment for statistical computing</em> and <em>the software</em> that interprets the scripts written using it.</p>
+<p><a href="https://rstudio.com">RStudio</a> is currently a very popular way to not only write your R scripts but also to interact with the R software<label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> As opposed to using R directly from the command line console. There exist other software that interface and integrate with R, but RStudio is particularly well suited for beginners and while providing numerous very advanced features.</span>. To function correctly, RStudio needs R and therefore both need to be installed on your computer.</p>
+<p>The <a href="https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf">RStudio IDE Cheat Sheet</a> provides much more information that will be covered here, but can be useful to learn keyboard shortcuts and discover new features.</p>
 </div>
 <div id="why-learn-r" class="section level2">
 <h2><span class="header-section-number">2.2</span> Why learn R?</h2>
 <div id="r-does-not-involve-lots-of-pointing-and-clicking-and-thats-a-good-thing" class="section level3 unnumbered">
 <h3>R does not involve lots of pointing and clicking, and that’s a good thing</h3>
-<p>The learning curve might be steeper than with other software, but with
-R, the results of your analysis do not rely on remembering a
-succession of pointing and clicking, but instead on a series of
-written commands, and that’s a good thing! So, if you want to redo
-your analysis because you collected more data, you don’t have to
-remember which button you clicked in which order to obtain your
-results; you just have to run your script again.</p>
-<p>Working with scripts makes the steps you used in your analysis clear,
-and the code you write can be inspected by someone else who can give
-you feedback and spot mistakes.</p>
-<p>Working with scripts forces you to have a deeper understanding of what
-you are doing, and facilitates your learning and comprehension of the
-methods you use.</p>
+<p>The learning curve might be steeper than with other software, but with R, the results of your analysis do not rely on remembering a succession of pointing and clicking, but instead on a series of written commands, and that’s a good thing! So, if you want to redo your analysis because you collected more data, you don’t have to remember which button you clicked in which order to obtain your results; you just have to run your script again.</p>
+<p>Working with scripts makes the steps you used in your analysis clear, and the code you write can be inspected by someone else who can give you feedback and spot mistakes.</p>
+<p>Working with scripts forces you to have a deeper understanding of what you are doing, and facilitates your learning and comprehension of the methods you use.</p>
 </div>
 <div id="r-code-is-great-for-reproducibility" class="section level3 unnumbered">
 <h3>R code is great for reproducibility</h3>
-<p>Reproducibility is when someone else (including your future self) can
-obtain the same results from the same dataset when using the same
-analysis.</p>
-<p>R integrates with other tools to generate manuscripts from your
-code. If you collect more data, or fix a mistake in your dataset, the
-figures and the statistical tests in your manuscript are updated
-automatically.</p>
-<p>An increasing number of journals and funding agencies expect analyses
-to be reproducible, so knowing R will give you an edge with these
-requirements.</p>
-<p>We will learn more about reproducibility and reproducible research in
-chapter <a href="sec-rr.html#sec:rr">7</a>.</p>
+<p>Reproducibility is when someone else (including your future self) can obtain the same results from the same dataset when using the same analysis.</p>
+<p>R integrates with other tools to generate manuscripts from your code. If you collect more data, or fix a mistake in your dataset, the figures and the statistical tests in your manuscript are updated automatically.</p>
+<p>An increasing number of journals and funding agencies expect analyses to be reproducible, so knowing R will give you an edge with these requirements.</p>
+<p>We will learn more about reproducibility and reproducible research in chapter <a href="sec-rr.html#sec:rr">7</a>.</p>
 </div>
 <div id="r-is-interdisciplinary-and-extensible" class="section level3 unnumbered">
 <h3>R is interdisciplinary and extensible</h3>
-<p>With 10000+ packages<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> i.e. add-ons that confer R with new functionality,
-such as bioinformatics data analysis - see chapter
-<a href="sec-bioinfo.html#sec:bioinfo">8</a></span> that can be installed to extend its
-capabilities, R provides a framework that allows you to combine
-statistical approaches from many scientific disciplines to best suit
-the analytical framework you need to analyze your data. For instance,
-R has packages for image analysis, GIS, time series, population
-genetics, and a lot more.</p>
+<p>With 10000+ packages<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> i.e. add-ons that confer R with new functionality, such as bioinformatics data analysis - see chapter <a href="sec-bioinfo.html#sec:bioinfo">8</a></span> that can be installed to extend its capabilities, R provides a framework that allows you to combine statistical approaches from many scientific disciplines to best suit the analytical framework you need to analyze your data. For instance, R has packages for image analysis, GIS, time series, population genetics, and a lot more.</p>
 <div class="figure"><span id="fig:unnamed-chunk-19"></span>
 <p class="caption marginnote shownote">
 Figure 2.1: Exponential increase of the number of packages available on <a href="https://cran.r-project.org/">CRAN</a>, the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018.
 </p>
-<img src="figs/cran.png" alt="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018." width="366"  />
+<img src="figs/cran.png" alt="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018."  />
 </div>
 </div>
 <div id="r-works-on-data-of-all-shapes-and-sizes" class="section level3 unnumbered">
 <h3>R works on data of all shapes and sizes</h3>
-<p>The skills you learn with R scale easily with the size of your
-dataset. Whether your dataset has hundreds or millions of lines, it
-won’t make much difference to you.</p>
-<p>R is designed for data analysis. It comes with special data structures
-and data types that make handling of missing data and statistical
-factors convenient.</p>
-<p>R can connect to spreadsheets, databases, and many other data formats,
-on your computer or on the web.</p>
+<p>The skills you learn with R scale easily with the size of your dataset. Whether your dataset has hundreds or millions of lines, it won’t make much difference to you.</p>
+<p>R is designed for data analysis. It comes with special data structures and data types that make handling of missing data and statistical factors convenient.</p>
+<p>R can connect to spreadsheets, databases, and many other data formats, on your computer or on the web.</p>
 </div>
 <div id="r-produces-high-quality-graphics" class="section level3 unnumbered">
 <h3>R produces high-quality graphics</h3>
-<p>The plotting functionalities in R are endless, and allow you to adjust
-any aspect of your graph to convey most effectively the message from
-your data.</p>
+<p>The plotting functionalities in R are endless, and allow you to adjust any aspect of your graph to convey most effectively the message from your data.</p>
 </div>
 <div id="r-has-a-large-and-welcoming-community" class="section level3 unnumbered">
 <h3>R has a large and welcoming community</h3>
-<p>Thousands of people use R daily. Many of them are willing to help you
-through mailing lists and websites such as <a href="https://stackoverflow.com/">Stack
-Overflow</a>, or on the <a href="https://community.rstudio.com/">RStudio
-community</a>. These broad user community
-extends to specialised areas such as bioinformatics.</p>
+<p>Thousands of people use R daily. Many of them are willing to help you through mailing lists and websites such as <a href="https://stackoverflow.com/">Stack Overflow</a>, or on the <a href="https://community.rstudio.com/">RStudio community</a>. These broad user community extends to specialised areas such as bioinformatics.</p>
 </div>
 <div id="not-only-is-r-free-but-it-is-also-open-source-and-cross-platform" class="section level3 unnumbered">
 <h3>Not only is R free, but it is also open-source and cross-platform</h3>
-<p>Anyone can inspect the source code to see how R works. Because of this
-transparency, there is less chance for mistakes, and if you (or
-someone else) find some, you can report and fix bugs.</p>
+<p>Anyone can inspect the source code to see how R works. Because of this transparency, there is less chance for mistakes, and if you (or someone else) find some, you can report and fix bugs.</p>
 </div>
 </div>
 <div id="knowing-your-way-around-rstudio" class="section level2">
 <h2><span class="header-section-number">2.3</span> Knowing your way around RStudio</h2>
-<p>Let’s start by learning about <a href="https://www.rstudio.com/">RStudio</a>,
-which is an Integrated Development Environment (IDE) for working with
-R.</p>
-<p>The RStudio IDE open-source product is free under the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">Affero General
-Public License (AGPL) v3</a>.
-The RStudio IDE is also available with a commercial license and
-priority email support from RStudio, Inc.</p>
-<p>We will use RStudio IDE to write code, navigate the files on our
-computer, inspect the variables we are going to create, and visualize
-the plots we will generate. RStudio can also be used for other things
-(e.g., version control, developing packages, writing Shiny apps) that
-we will not cover during the workshop.</p>
+<p>Let’s start by learning about <a href="https://www.rstudio.com/">RStudio</a>, which is an Integrated Development Environment (IDE) for working with R.</p>
+<p>The RStudio IDE open-source product is free under the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">Affero General Public License (AGPL) v3</a>. The RStudio IDE is also available with a commercial license and priority email support from RStudio, Inc.</p>
+<p>We will use RStudio IDE to write code, navigate the files on our computer, inspect the variables we are going to create, and visualize the plots we will generate. RStudio can also be used for other things (e.g., version control, developing packages, writing Shiny apps) that we will not cover during the workshop.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-20"></span>
 <p class="caption marginnote shownote">
 Figure 2.2: RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.
@@ -302,51 +214,26 @@ Figure 2.2: RStudio interface screenshot. Clockwise from top left: Source, Envir
 </div>
 <p>RStudio is divided into 4 “Panes”:</p>
 <ul>
-<li>the <strong>Source</strong> for your scripts and documents (top-left, in the
-default layout)</li>
+<li>the <strong>Source</strong> for your scripts and documents (top-left, in the default layout)</li>
 <li>your <strong>Environment/History</strong> (top-right),</li>
 <li>your <strong>Files/Plots/Packages/Help/Viewer</strong> (bottom-right), and</li>
 <li>the R <strong>Console</strong> (bottom-left).</li>
 </ul>
-<p>The placement of these panes and their content can be customized (see
-menu, <code>Tools -&gt; Global Options -&gt; Pane Layout</code>).</p>
-<p>One of the advantages of using RStudio is that all the information you
-need to write code is available in a single window. Additionally, with
-many shortcuts, <strong>autocompletion</strong>, and <strong>highlighting</strong> for the major
-file types you use while developing in R, RStudio will make typing
-easier and less error-prone.</p>
+<p>The placement of these panes and their content can be customized (see menu, <code>Tools -&gt; Global Options -&gt; Pane Layout</code>).</p>
+<p>One of the advantages of using RStudio is that all the information you need to write code is available in a single window. Additionally, with many shortcuts, <strong>autocompletion</strong>, and <strong>highlighting</strong> for the major file types you use while developing in R, RStudio will make typing easier and less error-prone.</p>
 </div>
 <div id="getting-set-up" class="section level2">
 <h2><span class="header-section-number">2.4</span> Getting set up</h2>
-<p>It is good practice to keep a set of related data, analyses, and text
-self-contained in a single folder, called the <strong>working
-directory</strong>. All of the scripts within this folder can then use
-<strong>relative paths</strong> to files that indicate where inside the project a
-file is located (as opposed to absolute paths, which point to where a
-file is on a specific computer). Working this way makes it a lot
-easier to move your project around on your computer and share it with
-others without worrying about whether or not the underlying scripts
-will still work.</p>
-<p>RStudio provides a helpful set of tools to do this through its “Projects”
-interface, which not only creates a working directory for you, but also remembers
-its location (allowing you to quickly navigate to it) and optionally preserves
-custom settings and open files to make it easier to resume work after a
-break. Go through the steps for creating an “R Project” for this
-tutorial below.</p>
+<p>It is good practice to keep a set of related data, analyses, and text self-contained in a single folder, called the <strong>working directory</strong>. All of the scripts within this folder can then use <strong>relative paths</strong> to files that indicate where inside the project a file is located (as opposed to absolute paths, which point to where a file is on a specific computer). Working this way makes it a lot easier to move your project around on your computer and share it with others without worrying about whether or not the underlying scripts will still work.</p>
+<p>RStudio provides a helpful set of tools to do this through its “Projects” interface, which not only creates a working directory for you, but also remembers its location (allowing you to quickly navigate to it) and optionally preserves custom settings and open files to make it easier to resume work after a break. Go through the steps for creating an “R Project” for this tutorial below.</p>
 <ol style="list-style-type: decimal">
 <li>Start RStudio.</li>
-<li>Under the <code>File</code> menu, click on <code>New project</code>. Choose <code>New directory</code>, then
-<code>New project</code>.</li>
-<li>Enter a name for this new folder (or “directory”), and choose a
-convenient location for it. This will be your <strong>working directory</strong>
-for this session (or whole course) (e.g., <code>wsbim1207</code>).</li>
+<li>Under the <code>File</code> menu, click on <code>New project</code>. Choose <code>New directory</code>, then <code>New project</code>.</li>
+<li>Enter a name for this new folder (or “directory”), and choose a convenient location for it. This will be your <strong>working directory</strong> for this session (or whole course) (e.g., <code>wsbim1207</code>).</li>
 <li>Click on <code>Create project</code>.</li>
 <li>(Optional) Set Preferences to ‘Never’ save workspace in RStudio.</li>
 </ol>
-<p>RStudio’s default preferences generally work well, but saving a workspace to
-.RData can be cumbersome, especially if you are working with larger datasets.
-To turn that off, go to Tools –&gt; ‘Global Options’ and select the ‘Never’ option
-for ‘Save workspace to .RData’ on exit.’</p>
+<p>RStudio’s default preferences generally work well, but saving a workspace to .RData can be cumbersome, especially if you are working with larger datasets. To turn that off, go to Tools –&gt; ‘Global Options’ and select the ‘Never’ option for ‘Save workspace to .RData’ on exit.’</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-21"></span>
 <p class="caption marginnote shownote">
 Figure 2.3: Set ‘Save workspace to .RData on exit’ to ‘Never’
@@ -355,58 +242,32 @@ Figure 2.3: Set ‘Save workspace to .RData on exit’ to ‘Never’
 </div>
 <div id="organizing-your-working-directory" class="section level3">
 <h3><span class="header-section-number">2.4.1</span> Organizing your working directory</h3>
-<p>Using a consistent folder structure across your projects will help keep things
-organized, and will also make it easy to find/file things in the future. This
-can be especially helpful when you have multiple projects. In general, you may
-create directories (folders) for <strong>scripts</strong>, <strong>data</strong>, and <strong>documents</strong>.</p>
+<p>Using a consistent folder structure across your projects will help keep things organized, and will also make it easy to find/file things in the future. This can be especially helpful when you have multiple projects. In general, you may create directories (folders) for <strong>scripts</strong>, <strong>data</strong>, and <strong>documents</strong>.</p>
 <ul>
-<li><strong><code>data/</code></strong> Use this folder to store your raw data and intermediate
-datasets you may create for the need of a particular analysis. For
-the sake of transparency and
-<a href="https://en.wikipedia.org/wiki/Provenance">provenance</a>, you should
-<em>always</em> keep a copy of your raw data accessible and do as much of
-your data cleanup and preprocessing programmatically (i.e., with
-scripts, rather than manually) as possible. Separating raw data
-from processed data is also a good idea. For example, you could
-have files <code>data/raw/tree_survey.plot1.txt</code> and <code>...plot2.txt</code> kept
-separate from a <code>data/processed/tree.survey.csv</code> file generated by
-the <code>scripts/01.preprocess.tree_survey.R</code> script.</li>
-<li><strong><code>documents/</code></strong> This would be a place to keep outlines, drafts,
-and other text.</li>
-<li><strong><code>scripts/</code></strong> (or <code>src</code>) This would be the location to keep your R
-scripts for different analyses or plotting, and potentially a
-separate folder for your functions (more on that later).</li>
+<li><strong><code>data/</code></strong> Use this folder to store your raw data and intermediate datasets you may create for the need of a particular analysis. For the sake of transparency and <a href="https://en.wikipedia.org/wiki/Provenance">provenance</a>, you should <em>always</em> keep a copy of your raw data accessible and do as much of your data cleanup and preprocessing programmatically (i.e., with scripts, rather than manually) as possible. Separating raw data from processed data is also a good idea. For example, you could have files <code>data/raw/tree_survey.plot1.txt</code> and <code>...plot2.txt</code> kept separate from a <code>data/processed/tree.survey.csv</code> file generated by the <code>scripts/01.preprocess.tree_survey.R</code> script.</li>
+<li><strong><code>documents/</code></strong> This would be a place to keep outlines, drafts, and other text.</li>
+<li><strong><code>scripts/</code></strong> (or <code>src</code>) This would be the location to keep your R scripts for different analyses or plotting, and potentially a separate folder for your functions (more on that later).</li>
 </ul>
-<p>You may want additional directories or subdirectories depending on
-your project needs, but these should form the backbone of your working
-directory.</p>
+<p>You may want additional directories or subdirectories depending on your project needs, but these should form the backbone of your working directory.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22"></span>
 <p class="caption marginnote shownote">
 Figure 2.4: Example of a working directory structure.
 </p>
 <img src="figs/working-directory-structure.png" alt="Example of a working directory structure." width="100%"  />
 </div>
-<p>For this course, we will need a <code>data/</code> folder to store our raw data,
-and we will use <code>data_output/</code> for when we learn how to export data as
-CSV files, and <code>fig_output/</code> folder for the figures that we will save.</p>
+<p>For this course, we will need a <code>data/</code> folder to store our raw data, and we will use <code>data_output/</code> for when we learn how to export data as CSV files, and <code>fig_output/</code> folder for the figures that we will save.</p>
 <div class="question">
 <p class="question-begin">
 ► Question
 </p>
 <div class="question-body">
-<p>Under the <code>Files</code> tab on the right of the screen, click on <code>New Folder</code> and
-create a folder named <code>data</code> within your newly created working directory
-(e.g., <code>~/wsbim1207/data</code>). (Alternatively, type <code>dir.create("data")</code> at
-your R console.) Repeat these operations to create a <code>data_output/</code> and a
-<code>fig_output</code> folders.</p>
+<p>Under the <code>Files</code> tab on the right of the screen, click on <code>New Folder</code> and create a folder named <code>data</code> within your newly created working directory (e.g., <code>~/wsbim1207/data</code>). (Alternatively, type <code>dir.create(&quot;data&quot;)</code> at your R console.) Repeat these operations to create a <code>data_output/</code> and a <code>fig_output</code> folders.</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
 </div>
-<p>We are going to keep the script in the root of our working directory
-because we are only going to use one file and it will make things
-easier.</p>
+<p>We are going to keep the script in the root of our working directory because we are only going to use one file and it will make things easier.</p>
 <p>Your working directory should now look like this:</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-23"></span>
 <p class="caption marginnote shownote">
@@ -417,98 +278,30 @@ Figure 2.5: How it should look like at the beginning of this lesson
 </div>
 <div id="the-working-directory" class="section level3">
 <h3><span class="header-section-number">2.4.2</span> The working directory</h3>
-<p>The working directory is an important concept to understand. It is the
-place from where R will be looking for and saving the files. When you
-write code for your project, it should refer to files in relation to
-the root of your working directory and only need files within this
-structure.</p>
-<p>Using RStudio projects makes this easy and ensures that your working
-directory is set properly. If you need to check it, you can use
-<code>getwd()</code>. If for some reason your working directory is not what it
-should be, you can change it in the RStudio interface by navigating in
-the file browser where your working directory should be, and clicking
-on the blue gear icon <code>More</code>, and select <code>Set As Working Directory</code>.
-Alternatively you can use <code>setwd("/path/to/working/directory")</code> to
-reset your working directory. However, your scripts should not include
-this line because it will fail on someone else’s computer.</p>
+<p>The working directory is an important concept to understand. It is the place from where R will be looking for and saving the files. When you write code for your project, it should refer to files in relation to the root of your working directory and only need files within this structure.</p>
+<p>Using RStudio projects makes this easy and ensures that your working directory is set properly. If you need to check it, you can use <code>getwd()</code>. If for some reason your working directory is not what it should be, you can change it in the RStudio interface by navigating in the file browser where your working directory should be, and clicking on the blue gear icon <code>More</code>, and select <code>Set As Working Directory</code>. Alternatively you can use <code>setwd(&quot;/path/to/working/directory&quot;)</code> to reset your working directory. However, your scripts should not include this line because it will fail on someone else’s computer.</p>
 <p><strong>Example</strong></p>
-<p>The shema below represents the working directory <code>wsbim1207</code> with the
-<code>data</code> and <code>fig_output</code> sub-directories, and 2 files in the latter:</p>
+<p>The shema below represents the working directory <code>wsbim1207</code> with the <code>data</code> and <code>fig_output</code> sub-directories, and 2 files in the latter:</p>
 <pre><code>wsbim1207/data/
          /fig_output/fig1.pdf
          /fig_output/fig2.png</code></pre>
-<p>If we were in the working directory, we could refer to the <code>fig1.pdf</code>
-file using the relative path <code>wsbim1207/fig_output/fig1.pdf</code> or the
-absolute path <code>/home/user/wsbim1207/fig_output/fig1.pdf</code>.</p>
-<p>If we were in the <code>data</code> directory, we would use the relative path
-<code>../fig_output/fig1.pdf</code> or the same absolute path
-<code>/home/user/wsbim1207/fig_output/fig1.pdf</code>.</p>
+<p>If we were in the working directory, we could refer to the <code>fig1.pdf</code> file using the relative path <code>wsbim1207/fig_output/fig1.pdf</code> or the absolute path <code>/home/user/wsbim1207/fig_output/fig1.pdf</code>.</p>
+<p>If we were in the <code>data</code> directory, we would use the relative path <code>../fig_output/fig1.pdf</code> or the same absolute path <code>/home/user/wsbim1207/fig_output/fig1.pdf</code>.</p>
 </div>
 </div>
 <div id="interacting-with-r" class="section level2">
 <h2><span class="header-section-number">2.5</span> Interacting with R</h2>
-<p>The basis of programming is that we write down instructions for the
-computer to follow, and then we tell the computer to follow those
-instructions. We write, or <em>code</em>, instructions in R because it is a
-common language that both the computer and we can understand. We call
-the instructions <em>commands</em> and we tell the computer to follow the
-instructions by <em>executing</em> (also called <em>running</em>) those commands.</p>
-<p>There are two main ways of interacting with R: by using the
-<strong>console</strong> or by using <strong>scripts</strong> (plain text files that contain
-your code). The console pane (in RStudio, the bottom left panel) is
-the place where commands written in the R language can be typed and
-executed immediately by the computer. It is also where the results
-will be shown for commands that have been executed. You can type
-commands directly into the console and press <code>Enter</code> to execute those
-commands, but they will be forgotten when you close the session.</p>
-<p>Because we want our code and workflow to be reproducible, it is better
-to type the commands we want in the script editor, and save the
-script. This way, there is a complete record of what we did, and
-anyone (including our future selves!) can easily replicate the
-results on their computer.</p>
-<p>RStudio allows you to execute commands directly from the script editor
-by using the <code>Ctrl</code> + <code>Enter</code> shortcut (on Macs, <code>Cmd</code> + <code>Return</code> will
-work, too). The command on the current line in the script (indicated
-by the cursor) or all of the commands in the currently selected text
-will be sent to the console and executed when you press <code>Ctrl</code> +
-<code>Enter</code>. You can find other keyboard shortcuts in this <a href="https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf">RStudio
-cheatsheet about the RStudio
-IDE</a>.</p>
-<p>At some point in your analysis you may want to check the content of a
-variable or the structure of an object, without necessarily keeping a
-record of it in your script. You can type these commands and execute
-them directly in the console. RStudio provides the <code>Ctrl</code> + <code>1</code> and
-<code>Ctrl</code> + <code>2</code> shortcuts allow you to jump between the script and the
-console panes.</p>
-<p>If R is ready to accept commands, the R console shows a <code>&gt;</code> prompt. If
-it receives a command (by typing, copy-pasting or sent from the script
-editor using <code>Ctrl</code> + <code>Enter</code>), R will try to execute it, and when
-ready, will show the results and come back with a new <code>&gt;</code> prompt to
-wait for new commands.</p>
-<p>If R is still waiting for you to enter more data because it isn’t
-complete yet, the console will show a <code>+</code> prompt. It means that you
-haven’t finished entering a complete command. This is because you have
-not ‘closed’ a parenthesis or quotation, i.e. you don’t have the same
-number of left-parentheses as right-parentheses, or the same number of
-opening and closing quotation marks. When this happens, and you
-thought you finished typing your command, click inside the console
-window and press <code>Esc</code>; this will cancel the incomplete command and
-return you to the <code>&gt;</code> prompt.</p>
+<p>The basis of programming is that we write down instructions for the computer to follow, and then we tell the computer to follow those instructions. We write, or <em>code</em>, instructions in R because it is a common language that both the computer and we can understand. We call the instructions <em>commands</em> and we tell the computer to follow the instructions by <em>executing</em> (also called <em>running</em>) those commands.</p>
+<p>There are two main ways of interacting with R: by using the <strong>console</strong> or by using <strong>scripts</strong> (plain text files that contain your code). The console pane (in RStudio, the bottom left panel) is the place where commands written in the R language can be typed and executed immediately by the computer. It is also where the results will be shown for commands that have been executed. You can type commands directly into the console and press <code>Enter</code> to execute those commands, but they will be forgotten when you close the session.</p>
+<p>Because we want our code and workflow to be reproducible, it is better to type the commands we want in the script editor, and save the script. This way, there is a complete record of what we did, and anyone (including our future selves!) can easily replicate the results on their computer.</p>
+<p>RStudio allows you to execute commands directly from the script editor by using the <code>Ctrl</code> + <code>Enter</code> shortcut (on Macs, <code>Cmd</code> + <code>Return</code> will work, too). The command on the current line in the script (indicated by the cursor) or all of the commands in the currently selected text will be sent to the console and executed when you press <code>Ctrl</code> + <code>Enter</code>. You can find other keyboard shortcuts in this <a href="https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf">RStudio cheatsheet about the RStudio IDE</a>.</p>
+<p>At some point in your analysis you may want to check the content of a variable or the structure of an object, without necessarily keeping a record of it in your script. You can type these commands and execute them directly in the console. RStudio provides the <code>Ctrl</code> + <code>1</code> and <code>Ctrl</code> + <code>2</code> shortcuts allow you to jump between the script and the console panes.</p>
+<p>If R is ready to accept commands, the R console shows a <code>&gt;</code> prompt. If it receives a command (by typing, copy-pasting or sent from the script editor using <code>Ctrl</code> + <code>Enter</code>), R will try to execute it, and when ready, will show the results and come back with a new <code>&gt;</code> prompt to wait for new commands.</p>
+<p>If R is still waiting for you to enter more data because it isn’t complete yet, the console will show a <code>+</code> prompt. It means that you haven’t finished entering a complete command. This is because you have not ‘closed’ a parenthesis or quotation, i.e. you don’t have the same number of left-parentheses as right-parentheses, or the same number of opening and closing quotation marks. When this happens, and you thought you finished typing your command, click inside the console window and press <code>Esc</code>; this will cancel the incomplete command and return you to the <code>&gt;</code> prompt.</p>
 </div>
 <div id="how-to-learn-more-during-and-after-the-course" class="section level2">
 <h2><span class="header-section-number">2.6</span> How to learn more during and after the course?</h2>
-<p>The material we cover during this course will give you an initial
-taste of how you can use R to analyse data for your own
-research. However, you will need to learn more to do advanced
-operations such as cleaning your dataset, using statistical methods,
-or creating beautiful graphics<label for="tufte-sn-7" class="margin-toggle sidenote-number">7</label><input type="checkbox" id="tufte-sn-7" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">7</span> We will introduce most of these (except statistics)
-here, but will only manage to scratch the surface of the wealth of
-what is possible to do with R.</span>. The best way to become
-proficient and efficient at R, as with any other tool, is to use it to
-address your actual research questions. As a beginner, it can feel
-daunting to have to write a script from scratch, and given that many
-people make their code available online, modifying existing code to
-suit your purpose might make it easier for you to get started.</p>
+<p>The material we cover during this course will give you an initial taste of how you can use R to analyse data for your own research. However, you will need to learn more to do advanced operations such as cleaning your dataset, using statistical methods, or creating beautiful graphics<label for="tufte-sn-7" class="margin-toggle sidenote-number">7</label><input type="checkbox" id="tufte-sn-7" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">7</span> We will introduce most of these (except statistics) here, but will only manage to scratch the surface of the wealth of what is possible to do with R.</span>. The best way to become proficient and efficient at R, as with any other tool, is to use it to address your actual research questions. As a beginner, it can feel daunting to have to write a script from scratch, and given that many people make their code available online, modifying existing code to suit your purpose might make it easier for you to get started.</p>
 <p><img src="figs/kitten-try-things.jpg" width="400px"  style="display: block; margin: auto;" /></p>
 </div>
 <div id="seeking-help" class="section level2">
@@ -521,184 +314,95 @@ Figure 2.6: RStudio help interface.
 </p>
 <img src="figs/rstudiohelp.png" alt="RStudio help interface." width="70%"  />
 </div>
-<p>One of the fastest ways to get help, is to use the RStudio help
-interface. This panel by default can be found at the lower right hand
-panel of RStudio. As seen in the screenshot, by typing the word
-“Mean”, RStudio tries to also give a number of suggestions that you
-might be interested in. The description is then shown in the display
-window.</p>
+<p>One of the fastest ways to get help, is to use the RStudio help interface. This panel by default can be found at the lower right hand panel of RStudio. As seen in the screenshot, by typing the word “Mean”, RStudio tries to also give a number of suggestions that you might be interested in. The description is then shown in the display window.</p>
 </div>
 <div id="i-know-the-name-of-the-function-i-want-to-use-but-im-not-sure-how-to-use-it" class="section level3 unnumbered">
 <h3>I know the name of the function I want to use, but I’m not sure how to use it</h3>
-<p>If you need help with a specific function, let’s say <code>barplot()</code>, you
-can type:</p>
-<pre class="sourceCode r"><code class="sourceCode r">?barplot</code></pre>
+<p>If you need help with a specific function, let’s say <code>barplot()</code>, you can type:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?barplot</code></pre></div>
 <p>If you just need to remind yourself of the names of the arguments, you can use:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">args</span>(lm)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">args</span>(lm)</code></pre></div>
 </div>
 <div id="i-want-to-use-a-function-that-does-x-there-must-be-a-function-for-it-but-i-dont-know-which-one" class="section level3 unnumbered">
 <h3>I want to use a function that does X, there must be a function for it but I don’t know which one…</h3>
-<p>If you are looking for a function to do a particular task, you can use the
-<code>help.search()</code> function, which is called by the double question mark <code>??</code>.
-However, this only looks through the installed packages for help pages with a
-match to your search request</p>
-<pre class="sourceCode r"><code class="sourceCode r">??kruskal</code></pre>
-<p>If you can’t find what you are looking for, you can use
-the <a href="http://www.rdocumentation.org">rdocumentation.org</a> website that searches
-through the help files across all packages available.</p>
-<p>Finally, a generic Google or internet search “R &lt;task&gt;” will often either send
-you to the appropriate package documentation or a helpful forum where someone
-else has already asked your question.</p>
+<p>If you are looking for a function to do a particular task, you can use the <code>help.search()</code> function, which is called by the double question mark <code>??</code>. However, this only looks through the installed packages for help pages with a match to your search request</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">??kruskal</code></pre></div>
+<p>If you can’t find what you are looking for, you can use the <a href="http://www.rdocumentation.org">rdocumentation.org</a> website that searches through the help files across all packages available.</p>
+<p>Finally, a generic Google or internet search “R &lt;task&gt;” will often either send you to the appropriate package documentation or a helpful forum where someone else has already asked your question.</p>
 </div>
 <div id="i-am-stuck-i-get-an-error-message-that-i-dont-understand" class="section level3 unnumbered">
 <h3>I am stuck… I get an error message that I don’t understand</h3>
-<p>Start by googling the error message. However, this doesn’t always work very well
-because often, package developers rely on the error catching provided by R. You
-end up with general error messages that might not be very helpful to diagnose a
-problem (e.g. “subscript out of bounds”). If the message is very generic, you
-might also include the name of the function or package you’re using in your
-query.</p>
-<p>However, you should check Stack Overflow. Search using the <code>[r]</code> tag. Most
-questions have already been answered, but the challenge is to use the right
-words in the search to find the
-answers:</p>
-<p><a href="http://stackoverflow.com/questions/tagged/r">http://stackoverflow.com/questions/tagged/r</a></p>
-<p>The <a href="http://cran.r-project.org/doc/manuals/R-intro.pdf">Introduction to R</a> can
-also be dense for people with little programming experience but it is a good
-place to understand the underpinnings of the R language.</p>
-<p>The <a href="http://cran.r-project.org/doc/FAQ/R-FAQ.html">R FAQ</a> is dense and technical
-but it is full of useful information.</p>
+<p>Start by googling the error message. However, this doesn’t always work very well because often, package developers rely on the error catching provided by R. You end up with general error messages that might not be very helpful to diagnose a problem (e.g. “subscript out of bounds”). If the message is very generic, you might also include the name of the function or package you’re using in your query.</p>
+<p>However, you should check Stack Overflow. Search using the <code>[r]</code> tag. Most questions have already been answered, but the challenge is to use the right words in the search to find the answers:</p>
+<p><a href="http://stackoverflow.com/questions/tagged/r" class="uri">http://stackoverflow.com/questions/tagged/r</a></p>
+<p>The <a href="http://cran.r-project.org/doc/manuals/R-intro.pdf">Introduction to R</a> can also be dense for people with little programming experience but it is a good place to understand the underpinnings of the R language.</p>
+<p>The <a href="http://cran.r-project.org/doc/FAQ/R-FAQ.html">R FAQ</a> is dense and technical but it is full of useful information.</p>
 </div>
 <div id="asking-for-help" class="section level3 unnumbered">
 <h3>Asking for help</h3>
-<p>The key to receiving help from someone is for them to rapidly grasp
-your problem. You should make it as easy as possible to pinpoint where
-the issue might be.</p>
-<p>Try to use the correct words to describe your problem. For instance, a
-package is not the same thing as a library. Most people will
-understand what you meant, but others have really strong feelings
-about the difference in meaning. The key point is that it can make
-things confusing for people trying to help you. Be as precise as
-possible when describing your problem.</p>
-<p>If possible, try to reduce what doesn’t work to a simple <em>reproducible
-example</em>. If you can reproduce the problem using a very small data
-frame instead of your 50000 rows and 10000 columns one, provide the
-small one with the description of your problem. When appropriate, try
-to generalize what you are doing so even people who are not in your
-field can understand the question. For instance instead of using a
-subset of your real dataset, create a small (3 columns, 5 rows)
-generic one. For more information on how to write a reproducible
-example see <a href="http://adv-r.had.co.nz/Reproducibility.html">this article by Hadley
-Wickham</a>.</p>
-<p>To share an object with someone else, if it’s relatively small, you
-can use the function <code>dput()</code>. It will output R code that can be used
-to recreate the exact same object as the one in memory:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## iris is an example data frame that comes with R and head() is a</span>
-<span class="co">## function that returns the first part of the data frame</span>
-<span class="kw">dput</span>(<span class="kw">head</span>(iris))</code></pre>
+<p>The key to receiving help from someone is for them to rapidly grasp your problem. You should make it as easy as possible to pinpoint where the issue might be.</p>
+<p>Try to use the correct words to describe your problem. For instance, a package is not the same thing as a library. Most people will understand what you meant, but others have really strong feelings about the difference in meaning. The key point is that it can make things confusing for people trying to help you. Be as precise as possible when describing your problem.</p>
+<p>If possible, try to reduce what doesn’t work to a simple <em>reproducible example</em>. If you can reproduce the problem using a very small data frame instead of your 50000 rows and 10000 columns one, provide the small one with the description of your problem. When appropriate, try to generalize what you are doing so even people who are not in your field can understand the question. For instance instead of using a subset of your real dataset, create a small (3 columns, 5 rows) generic one. For more information on how to write a reproducible example see <a href="http://adv-r.had.co.nz/Reproducibility.html">this article by Hadley Wickham</a>.</p>
+<p>To share an object with someone else, if it’s relatively small, you can use the function <code>dput()</code>. It will output R code that can be used to recreate the exact same object as the one in memory:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## iris is an example data frame that comes with R and head() is a
+## function that returns the first part of the data frame
+<span class="kw">dput</span>(<span class="kw">head</span>(iris))</code></pre></div>
 <pre><code>## structure(list(Sepal.Length = c(5.1, 4.9, 4.7, 4.6, 5, 5.4), 
 ##     Sepal.Width = c(3.5, 3, 3.2, 3.1, 3.6, 3.9), Petal.Length = c(1.4, 
 ##     1.4, 1.3, 1.5, 1.4, 1.7), Petal.Width = c(0.2, 0.2, 0.2, 
 ##     0.2, 0.2, 0.4), Species = structure(c(1L, 1L, 1L, 1L, 1L, 
 ##     1L), .Label = c(&quot;setosa&quot;, &quot;versicolor&quot;, &quot;virginica&quot;), class = &quot;factor&quot;)), row.names = c(NA, 
 ## 6L), class = &quot;data.frame&quot;)</code></pre>
-<p>If the object is larger, provide either the raw file (i.e., your CSV
-file) with your script up to the point of the error (and after
-removing everything that is not relevant to your
-issue). Alternatively, in particular if your question is not related
-to a data frame, you can save any R object to a file<label for="tufte-sn-8" class="margin-toggle sidenote-number">8</label><input type="checkbox" id="tufte-sn-8" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">8</span> See section <a href="sec-startdata.html#sec:exportandsave">3.10</a> for a better
-introduction about exporting and saving data.</span>:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">saveRDS</span>(iris, <span class="dt">file=</span><span class="st">&quot;/tmp/iris.rds&quot;</span>)</code></pre>
-<p>The content of this file is however not human readable and cannot be
-posted directly on Stack Overflow. Instead, it can be sent to someone
-by email who can read it with the <code>readRDS()</code> command (here it is
-assumed that the downloaded file is in a <code>Downloads</code> folder in the
-user’s home directory):</p>
-<pre class="sourceCode r"><code class="sourceCode r">some_data &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="dt">file=</span><span class="st">&quot;~/Downloads/iris.rds&quot;</span>)</code></pre>
-<p>Last, but certainly not least, <strong>always include the output of <code>sessionInfo()</code></strong>
-as it provides critical information about your platform, the versions of R and
-the packages that you are using, and other information that can be very helpful
-to understand your problem.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre>
-<pre><code>## R version 3.5.2 Patched (2019-01-24 r76018)
+<p>If the object is larger, provide either the raw file (i.e., your CSV file) with your script up to the point of the error (and after removing everything that is not relevant to your issue). Alternatively, in particular if your question is not related to a data frame, you can save any R object to a file<label for="tufte-sn-8" class="margin-toggle sidenote-number">8</label><input type="checkbox" id="tufte-sn-8" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">8</span> See section <a href="sec-startdata.html#sec:exportandsave">3.10</a> for a better introduction about exporting and saving data.</span>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">saveRDS</span>(iris, <span class="dt">file=</span><span class="st">&quot;/tmp/iris.rds&quot;</span>)</code></pre></div>
+<p>The content of this file is however not human readable and cannot be posted directly on Stack Overflow. Instead, it can be sent to someone by email who can read it with the <code>readRDS()</code> command (here it is assumed that the downloaded file is in a <code>Downloads</code> folder in the user’s home directory):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">some_data &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="dt">file=</span><span class="st">&quot;~/Downloads/iris.rds&quot;</span>)</code></pre></div>
+<p>Last, but certainly not least, <strong>always include the output of <code>sessionInfo()</code></strong> as it provides critical information about your platform, the versions of R and the packages that you are using, and other information that can be very helpful to understand your problem.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre></div>
+<pre><code>## R version 3.5.3 Patched (2019-03-11 r76221)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Manjaro Linux
+## Running under: Ubuntu 18.04.2 LTS
 ## 
 ## Matrix products: default
-## BLAS: /usr/lib/libblas.so.3.8.0
-## LAPACK: /usr/lib/liblapack.so.3.8.0
+## BLAS: /usr/lib/x86_64-linux-gnu/libf77blas.so.3.10.3
+## LAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3
 ## 
 ## locale:
 ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [3] LC_TIME=fr_FR.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=fr_FR.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=fr_FR.UTF-8       LC_NAME=C                 
 ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## [11] LC_MEASUREMENT=fr_FR.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.1      bookdown_0.9    msmbstyle_0.0.4 png_0.1-7      
-##  [5] digest_0.6.18   magrittr_1.5    evaluate_0.13   highr_0.7      
-##  [9] stringi_1.4.3   rstudioapi_0.10 xml2_1.2.0      rmarkdown_1.12 
-## [13] tools_3.5.2     stringr_1.4.0   xfun_0.5        yaml_2.2.0     
-## [17] compiler_3.5.2  htmltools_0.3.6 knitr_1.22</code></pre>
+##  [1] Rcpp_1.0.1      bookdown_0.9    msmbstyle_0.0.4 digest_0.6.18  
+##  [5] magrittr_1.5    evaluate_0.13   highr_0.7       stringi_1.4.3  
+##  [9] rstudioapi_0.10 xml2_1.2.0      rmarkdown_1.12  tools_3.5.3    
+## [13] stringr_1.4.0   xfun_0.5        yaml_2.2.0      compiler_3.5.3 
+## [17] htmltools_0.3.6 knitr_1.22</code></pre>
 </div>
 <div id="where-to-ask-for-help" class="section level3 unnumbered">
 <h3>Where to ask for help?</h3>
 <ul>
-<li>The person sitting next to you during the course. Don’t hesitate to
-talk to your neighbour during the workshop, compare your answers,
-and ask for help.</li>
-<li>Your friendly colleagues: if you know someone with more experience
-than you, they might be able and willing to help you.</li>
-<li><a href="http://stackoverflow.com/questions/tagged/r">Stack Overflow</a>: if
-your question hasn’t been answered before and is well crafted,
-chances are you will get an answer in less than 5 min. Remember to
-follow their guidelines on <a href="http://stackoverflow.com/help/how-to-ask">how to ask a good
-question</a>.</li>
-<li>The <a href="https://stat.ethz.ch/mailman/listinfo/r-help">R-help mailing
-list</a>: it is read by a
-lot of people (including most of the R core team), a lot of people
-post to it, but the tone can be pretty dry, and it is not always
-very welcoming to new users. If your question is valid, you are
-likely to get an answer very fast but don’t expect that it will come
-with smiley faces. Also, here more than anywhere else, be sure to
-use correct vocabulary (otherwise you might get an answer pointing
-to the misuse of your words rather than answering your
-question). You will also have more success if your question is about
-a base function rather than a specific package.</li>
-<li>If your question is about a specific package, see if there is a
-mailing list for it. Usually it’s included in the DESCRIPTION file
-of the package that can be accessed using
-<code>packageDescription("name-of-package")</code>. You may also want to try to
-email the author of the package directly, or open an issue on the
-code repository (e.g., GitHub).</li>
-<li>There are also some topic-specific mailing lists (GIS,
-phylogenetics, etc…), the complete list is
-<a href="http://www.r-project.org/mail.html">here</a>.</li>
+<li>The person sitting next to you during the course. Don’t hesitate to talk to your neighbour during the workshop, compare your answers, and ask for help.</li>
+<li>Your friendly colleagues: if you know someone with more experience than you, they might be able and willing to help you.</li>
+<li><a href="http://stackoverflow.com/questions/tagged/r">Stack Overflow</a>: if your question hasn’t been answered before and is well crafted, chances are you will get an answer in less than 5 min. Remember to follow their guidelines on <a href="http://stackoverflow.com/help/how-to-ask">how to ask a good question</a>.</li>
+<li>The <a href="https://stat.ethz.ch/mailman/listinfo/r-help">R-help mailing list</a>: it is read by a lot of people (including most of the R core team), a lot of people post to it, but the tone can be pretty dry, and it is not always very welcoming to new users. If your question is valid, you are likely to get an answer very fast but don’t expect that it will come with smiley faces. Also, here more than anywhere else, be sure to use correct vocabulary (otherwise you might get an answer pointing to the misuse of your words rather than answering your question). You will also have more success if your question is about a base function rather than a specific package.</li>
+<li>If your question is about a specific package, see if there is a mailing list for it. Usually it’s included in the DESCRIPTION file of the package that can be accessed using <code>packageDescription(&quot;name-of-package&quot;)</code>. You may also want to try to email the author of the package directly, or open an issue on the code repository (e.g., GitHub).</li>
+<li>There are also some topic-specific mailing lists (GIS, phylogenetics, etc…), the complete list is <a href="http://www.r-project.org/mail.html">here</a>.</li>
 </ul>
 </div>
 <div id="more-resources" class="section level3 unnumbered">
 <h3>More resources</h3>
 <ul>
-<li><p>The <a href="http://www.r-project.org/posting-guide.html">Posting Guide</a> for
-the R mailing lists.</p></li>
-<li><p><a href="http://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html">How to ask for R
-help</a>
-useful guidelines</p></li>
-<li><p><a href="http://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/">This blog post by Jon
-Skeet</a>
-has quite comprehensive advice on how to ask programming questions.</p></li>
-<li><p>The <a href="https://cran.rstudio.com/web/packages/reprex/">reprex</a> package
-is very helpful to create reproducible examples when asking for
-help. The rOpenSci community call “How to ask questions so they get
-answered” (<a href="https://github.com/ropensci/commcalls/issues/14">Github
-link</a> and <a href="https://vimeo.com/208749032">video
-recording</a>) includes a presentation of
-the reprex package and of its philosophy.</p></li>
+<li><p>The <a href="http://www.r-project.org/posting-guide.html">Posting Guide</a> for the R mailing lists.</p></li>
+<li><p><a href="http://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html">How to ask for R help</a> useful guidelines</p></li>
+<li><p><a href="http://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/">This blog post by Jon Skeet</a> has quite comprehensive advice on how to ask programming questions.</p></li>
+<li><p>The <a href="https://cran.rstudio.com/web/packages/reprex/">reprex</a> package is very helpful to create reproducible examples when asking for help. The rOpenSci community call “How to ask questions so they get answered” (<a href="https://github.com/ropensci/commcalls/issues/14">Github link</a> and <a href="https://vimeo.com/208749032">video recording</a>) includes a presentation of the reprex package and of its philosophy.</p></li>
 </ul>
 </div>
 </div>
@@ -706,33 +410,19 @@ the reprex package and of its philosophy.</p></li>
 <h2><span class="header-section-number">2.8</span> R packages</h2>
 <div id="loading-packages" class="section level3">
 <h3><span class="header-section-number">2.8.1</span> Loading packages</h3>
-<p>As we have seen above, R packages play a fundamental role in R. The
-make use of a package’s functionality, assuming it is installed, we
-first need to load it to be able to use it. This is done with the
-<code>library()</code> function. Below, we load <code>ggplot2</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</code></pre>
+<p>As we have seen above, R packages play a fundamental role in R. The make use of a package’s functionality, assuming it is installed, we first need to load it to be able to use it. This is done with the <code>library()</code> function. Below, we load <code>ggplot2</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</code></pre></div>
 </div>
 <div id="installing-packages" class="section level3">
 <h3><span class="header-section-number">2.8.2</span> Installing packages</h3>
-<p>The default package repository is The <em>Comprehensive R Archive
-Network</em> (CRAN), and any package that is available on CRAN can be
-installed with the <code>install.packages()</code> function. Below, for example,
-we install the <code>dplyr</code> package that we will learn about late.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</code></pre>
-<p>This command will install the <code>dplyr</code> package as well as all its
-dependencies, i.e. all the packages that it relies on to function.</p>
-<p><a href="https://github.com/">Github</a> is a general-pupose online software
-project repository and is well suited for R package development. To
-install a package from Gtihub, one can use the <code>install_github()</code>
-function from the <code>devtools</code> package. Below we first install the
-latter from CRAN (as show above), then we install <code>rWSBIM1207</code>
-directly from the user <code>UCLouvain-CBIO</code> github repository.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
+<p>The default package repository is The <em>Comprehensive R Archive Network</em> (CRAN), and any package that is available on CRAN can be installed with the <code>install.packages()</code> function. Below, for example, we install the <code>dplyr</code> package that we will learn about late.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</code></pre></div>
+<p>This command will install the <code>dplyr</code> package as well as all its dependencies, i.e. all the packages that it relies on to function.</p>
+<p><a href="https://github.com/">Github</a> is a general-pupose online software project repository and is well suited for R package development. To install a package from Gtihub, one can use the <code>install_github()</code> function from the <code>devtools</code> package. Below we first install the latter from CRAN (as show above), then we install <code>rWSBIM1207</code> directly from the user <code>UCLouvain-CBIO</code> github repository.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
 <span class="kw">library</span>(<span class="st">&quot;devtools&quot;</span>)
-<span class="kw">install_github</span>(<span class="st">&quot;UCLouvain-CBIO/rWSBIM1207&quot;</span>)</code></pre>
-<p>In section <a href="sec-bioinfo.html#sec:bioconductor">8.4</a>, we will see how to install
-<a href="http://www.bioconductor.org">Bioconductor</a>, a project dedicated to
-bioinformatics and omics packages.</p>
+<span class="kw">install_github</span>(<span class="st">&quot;UCLouvain-CBIO/rWSBIM1207&quot;</span>)</code></pre></div>
+<p>In section <a href="sec-bioinfo.html#sec:bioconductor">8.4</a>, we will see how to install <a href="http://www.bioconductor.org">Bioconductor</a>, a project dedicated to bioinformatics and omics packages.</p>
 </div>
 </div>
 <div id="introduction-to-r" class="section level2">
@@ -752,93 +442,45 @@ bioinformatics and omics packages.</p>
 <div id="creating-objects-in-r" class="section level3">
 <h3><span class="header-section-number">2.9.1</span> Creating objects in R</h3>
 <p>You can get output from R simply by typing math in the console:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">12</span> <span class="op">/</span><span class="st"> </span><span class="dv">7</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">12</span> <span class="op">/</span><span class="st"> </span><span class="dv">7</span></code></pre></div>
 <pre><code>## [1] 1.714286</code></pre>
-<p>However, to do useful and interesting things, we need to assign <em>values</em> to
-<em>objects</em>. To create an object, we need to give it a name followed by the
-assignment operator <code>&lt;-</code>, and the value we want to give it:</p>
-<pre class="sourceCode r"><code class="sourceCode r">weight_kg &lt;-<span class="st"> </span><span class="dv">55</span></code></pre>
-<p><code>&lt;-</code> is the assignment operator. It assigns values on the right to
-objects on the left. So, after executing <code>x &lt;- 3</code>, the value of <code>x</code> is
-<code>3</code>. The arrow can be read as 3 <strong>goes into</strong> <code>x</code>. For historical
-reasons, you can also use <code>=</code> for assignments, but not in every
-context. Because of the
-<a href="http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html">slight</a>
-<a href="http://r.789695.n4.nabble.com/Is-there-any-difference-between-and-tp878594p878598.html">differences</a>
-in syntax, it is good practice to always use <code>&lt;-</code> for assignments.</p>
-<p>In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd>
-at the same time as the <kbd>-</kbd> key) will write <code>&lt;-</code> in a
-single keystroke in a PC, while typing <kbd>Option</kbd> +
-<kbd>-</kbd> (push <kbd>Option</kbd> at the same time as the
-<kbd>-</kbd> key) does the same in a Mac.</p>
+<p>However, to do useful and interesting things, we need to assign <em>values</em> to <em>objects</em>. To create an object, we need to give it a name followed by the assignment operator <code>&lt;-</code>, and the value we want to give it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_kg &lt;-<span class="st"> </span><span class="dv">55</span></code></pre></div>
+<p><code>&lt;-</code> is the assignment operator. It assigns values on the right to objects on the left. So, after executing <code>x &lt;- 3</code>, the value of <code>x</code> is <code>3</code>. The arrow can be read as 3 <strong>goes into</strong> <code>x</code>. For historical reasons, you can also use <code>=</code> for assignments, but not in every context. Because of the <a href="http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html">slight</a> <a href="http://r.789695.n4.nabble.com/Is-there-any-difference-between-and-tp878594p878598.html">differences</a> in syntax, it is good practice to always use <code>&lt;-</code> for assignments.</p>
+<p>In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd> at the same time as the <kbd>-</kbd> key) will write <code>&lt;-</code> in a single keystroke in a PC, while typing <kbd>Option</kbd> + <kbd>-</kbd> (push <kbd>Option</kbd> at the same time as the <kbd>-</kbd> key) does the same in a Mac.</p>
 </div>
 <div id="naming-variables" class="section level3">
 <h3><span class="header-section-number">2.9.2</span> Naming variables</h3>
-<p>Objects can be given any name such as <code>x</code>, <code>current_temperature</code>, or
-<code>subject_id</code>. You want your object names to be explicit and not too
-long. They cannot start with a number (<code>2x</code> is not valid, but <code>x2</code>
-is). R is case sensitive (e.g., <code>weight_kg</code> is different from
-<code>Weight_kg</code>). There are some names that cannot be used because they
-are the names of fundamental functions in R (e.g., <code>if</code>, <code>else</code>,
-<code>for</code>, see
-<a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html">here</a>
-for a complete list). In general, even if it’s allowed, it’s best to
-not use other function names (e.g., <code>c</code>, <code>T</code>, <code>mean</code>, <code>data</code>, <code>df</code>,
-<code>weights</code>). If in doubt, check the help to see if the name is already
-in use. It’s also best to avoid dots (<code>.</code>) within an object name as in
-<code>my.dataset</code>. There are many functions in R with dots in their names
-for historical reasons, but because dots have a special meaning in R
-(for methods) and other programming languages, it’s best to avoid
-them. It is also recommended to use nouns for object names, and verbs
-for function names. It’s important to be consistent in the styling of
-your code (where you put spaces, how you name objects, etc.). Using a
-consistent coding style makes your code clearer to read for your
-future self and your collaborators. In R, three popular style guides
-are <a href="https://google.github.io/styleguide/Rguide.xml">Google’s</a>, <a href="http://jef.works/R-style-guide/">Jean
-Fan’s</a> and the
-<a href="http://style.tidyverse.org/">tidyverse’s</a>. The tidyverse’s is very
-comprehensive and may seem overwhelming at first. You can install the
-<a href="https://github.com/jimhester/lintr"><strong><code>lintr</code></strong></a> package to
-automatically check for issues in the styling of your code.</p>
+<p>Objects can be given any name such as <code>x</code>, <code>current_temperature</code>, or <code>subject_id</code>. You want your object names to be explicit and not too long. They cannot start with a number (<code>2x</code> is not valid, but <code>x2</code> is). R is case sensitive (e.g., <code>weight_kg</code> is different from <code>Weight_kg</code>). There are some names that cannot be used because they are the names of fundamental functions in R (e.g., <code>if</code>, <code>else</code>, <code>for</code>, see <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html">here</a> for a complete list). In general, even if it’s allowed, it’s best to not use other function names (e.g., <code>c</code>, <code>T</code>, <code>mean</code>, <code>data</code>, <code>df</code>, <code>weights</code>). If in doubt, check the help to see if the name is already in use. It’s also best to avoid dots (<code>.</code>) within an object name as in <code>my.dataset</code>. There are many functions in R with dots in their names for historical reasons, but because dots have a special meaning in R (for methods) and other programming languages, it’s best to avoid them. It is also recommended to use nouns for object names, and verbs for function names. It’s important to be consistent in the styling of your code (where you put spaces, how you name objects, etc.). Using a consistent coding style makes your code clearer to read for your future self and your collaborators. In R, three popular style guides are <a href="https://google.github.io/styleguide/Rguide.xml">Google’s</a>, <a href="http://jef.works/R-style-guide/">Jean Fan’s</a> and the <a href="http://style.tidyverse.org/">tidyverse’s</a>. The tidyverse’s is very comprehensive and may seem overwhelming at first. You can install the <a href="https://github.com/jimhester/lintr"><strong><code>lintr</code></strong></a> package to automatically check for issues in the styling of your code.</p>
 <blockquote>
 <p><strong>Objects vs. variables</strong></p>
-<p>What are known as <code>objects</code> in <code>R</code> are known as <code>variables</code> in many other
-programming languages. Depending on the context, <code>object</code> and <code>variable</code> can
-have drastically different meanings. However, in this lesson, the two words
-are used synonymously. For more information see:
-<a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Objects" class="uri">https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Objects</a></p>
+<p>What are known as <code>objects</code> in <code>R</code> are known as <code>variables</code> in many other programming languages. Depending on the context, <code>object</code> and <code>variable</code> can have drastically different meanings. However, in this lesson, the two words are used synonymously. For more information see: <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Objects" class="uri">https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Objects</a></p>
 </blockquote>
-<p>When assigning a value to an object, R does not print anything. You
-can force R to print the value by using parentheses or by typing the
-object name:</p>
-<pre class="sourceCode r"><code class="sourceCode r">weight_kg &lt;-<span class="st"> </span><span class="dv">55</span>    <span class="co"># doesn&#39;t print anything</span>
-(weight_kg &lt;-<span class="st"> </span><span class="dv">55</span>)  <span class="co"># but putting parenthesis around the call prints the value of `weight_kg`</span></code></pre>
+<p>When assigning a value to an object, R does not print anything. You can force R to print the value by using parentheses or by typing the object name:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_kg &lt;-<span class="st"> </span><span class="dv">55</span>    <span class="co"># doesn&#39;t print anything</span>
+(weight_kg &lt;-<span class="st"> </span><span class="dv">55</span>)  <span class="co"># but putting parenthesis around the call prints the value of `weight_kg`</span></code></pre></div>
 <pre><code>## [1] 55</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">weight_kg          <span class="co"># and so does typing the name of the object</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_kg          <span class="co"># and so does typing the name of the object</span></code></pre></div>
 <pre><code>## [1] 55</code></pre>
-<p>Now that R has <code>weight_kg</code> in memory, we can do arithmetic with it. For
-instance, we may want to convert this weight into pounds (weight in pounds is 2.2 times the weight in kg):</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="fl">2.2</span> <span class="op">*</span><span class="st"> </span>weight_kg</code></pre>
+<p>Now that R has <code>weight_kg</code> in memory, we can do arithmetic with it. For instance, we may want to convert this weight into pounds (weight in pounds is 2.2 times the weight in kg):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">2.2</span> <span class="op">*</span><span class="st"> </span>weight_kg</code></pre></div>
 <pre><code>## [1] 121</code></pre>
 <p>We can also change an object’s value by assigning it a new one:</p>
-<pre class="sourceCode r"><code class="sourceCode r">weight_kg &lt;-<span class="st"> </span><span class="fl">57.5</span>
-<span class="fl">2.2</span> <span class="op">*</span><span class="st"> </span>weight_kg</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_kg &lt;-<span class="st"> </span><span class="fl">57.5</span>
+<span class="fl">2.2</span> <span class="op">*</span><span class="st"> </span>weight_kg</code></pre></div>
 <pre><code>## [1] 126.5</code></pre>
-<p>This means that assigning a value to one object does not change the values of
-other objects For example, let’s store the animal’s weight in pounds in a new
-object, <code>weight_lb</code>:</p>
-<pre class="sourceCode r"><code class="sourceCode r">weight_lb &lt;-<span class="st"> </span><span class="fl">2.2</span> <span class="op">*</span><span class="st"> </span>weight_kg</code></pre>
+<p>This means that assigning a value to one object does not change the values of other objects For example, let’s store the animal’s weight in pounds in a new object, <code>weight_lb</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_lb &lt;-<span class="st"> </span><span class="fl">2.2</span> <span class="op">*</span><span class="st"> </span>weight_kg</code></pre></div>
 <p>and then change <code>weight_kg</code> to 100.</p>
-<pre class="sourceCode r"><code class="sourceCode r">weight_kg &lt;-<span class="st"> </span><span class="dv">100</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_kg &lt;-<span class="st"> </span><span class="dv">100</span></code></pre></div>
 <div class="question">
 <p class="question-begin">
 ► Question
 </p>
 <div class="question-body">
-<p>What do you think is the current content of the object <code>weight_lb</code>?
-126.5 or 220?</p>
+<p>What do you think is the current content of the object <code>weight_lb</code>? 126.5 or 220?</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -847,26 +489,19 @@ object, <code>weight_lb</code>:</p>
 </div>
 <div id="comments" class="section level3">
 <h3><span class="header-section-number">2.9.3</span> Comments</h3>
-<p>The comment character in R is <code>#</code>, anything to the right of a <code>#</code> in a
-script will be ignored by R. It is useful to leave notes, and
-explanations in your scripts.</p>
-<p>RStudio makes it easy to comment or uncomment a paragraph: after
-selecting the lines you want to comment, press at the same time on
-your keyboard <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>. If
-you only want to comment out one line, you can put the cursor at any
-location of that line (i.e. no need to select the whole line), then
-press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>.</p>
+<p>The comment character in R is <code>#</code>, anything to the right of a <code>#</code> in a script will be ignored by R. It is useful to leave notes, and explanations in your scripts.</p>
+<p>RStudio makes it easy to comment or uncomment a paragraph: after selecting the lines you want to comment, press at the same time on your keyboard <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>. If you only want to comment out one line, you can put the cursor at any location of that line (i.e. no need to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>.</p>
 <div class="question">
 <p class="question-begin">
 ► Question
 </p>
 <div class="question-body">
 <p>What are the values after each statement in the following?</p>
-<pre class="sourceCode r"><code class="sourceCode r">mass &lt;-<span class="st"> </span><span class="fl">47.5</span>            <span class="co"># mass?</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mass &lt;-<span class="st"> </span><span class="fl">47.5</span>            <span class="co"># mass?</span>
 age  &lt;-<span class="st"> </span><span class="dv">122</span>             <span class="co"># age?</span>
 mass &lt;-<span class="st"> </span>mass <span class="op">*</span><span class="st"> </span><span class="fl">2.0</span>      <span class="co"># mass?</span>
 age  &lt;-<span class="st"> </span>age <span class="op">-</span><span class="st"> </span><span class="dv">20</span>        <span class="co"># age?</span>
-mass_index &lt;-<span class="st"> </span>mass<span class="op">/</span>age  <span class="co"># mass_index?</span></code></pre>
+mass_index &lt;-<span class="st"> </span>mass<span class="op">/</span>age  <span class="co"># mass_index?</span></code></pre></div>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -875,124 +510,72 @@ mass_index &lt;-<span class="st"> </span>mass<span class="op">/</span>age  <span
 </div>
 <div id="functions-and-their-arguments" class="section level3">
 <h3><span class="header-section-number">2.9.4</span> Functions and their arguments</h3>
-<p>Functions are “canned scripts” that automate more complicated sets of commands
-including operations assignments, etc. Many functions are predefined, or can be
-made available by importing R <em>packages</em> (more on that later). A function
-usually gets one or more inputs called <em>arguments</em>. Functions often (but not
-always) return a <em>value</em>. A typical example would be the function <code>sqrt()</code>. The
-input (the argument) must be a number, and the return value (in fact, the
-output) is the square root of that number. Executing a function (‘running it’)
-is called <em>calling</em> the function. An example of a function call is:</p>
-<pre class="sourceCode r"><code class="sourceCode r">b &lt;-<span class="st"> </span><span class="kw">sqrt</span>(a)</code></pre>
-<p>Here, the value of <code>a</code> is given to the <code>sqrt()</code> function, the <code>sqrt()</code> function
-calculates the square root, and returns the value which is then assigned to
-the object <code>b</code>. This function is very simple, because it takes just one argument.</p>
-<p>The return ‘value’ of a function need not be numerical (like that of <code>sqrt()</code>),
-and it also does not need to be a single item: it can be a set of things, or
-even a dataset. We’ll see that when we read data files into R.</p>
-<p>Arguments can be anything, not only numbers or filenames, but also other
-objects. Exactly what each argument means differs per function, and must be
-looked up in the documentation (see below). Some functions take arguments which
-may either be specified by the user, or, if left out, take on a <em>default</em> value:
-these are called <em>options</em>. Options are typically used to alter the way the
-function operates, such as whether it ignores ‘bad values’, or what symbol to
-use in a plot. However, if you want something specific, you can specify a value
-of your choice which will be used instead of the default.</p>
+<p>Functions are “canned scripts” that automate more complicated sets of commands including operations assignments, etc. Many functions are predefined, or can be made available by importing R <em>packages</em> (more on that later). A function usually gets one or more inputs called <em>arguments</em>. Functions often (but not always) return a <em>value</em>. A typical example would be the function <code>sqrt()</code>. The input (the argument) must be a number, and the return value (in fact, the output) is the square root of that number. Executing a function (‘running it’) is called <em>calling</em> the function. An example of a function call is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b &lt;-<span class="st"> </span><span class="kw">sqrt</span>(a)</code></pre></div>
+<p>Here, the value of <code>a</code> is given to the <code>sqrt()</code> function, the <code>sqrt()</code> function calculates the square root, and returns the value which is then assigned to the object <code>b</code>. This function is very simple, because it takes just one argument.</p>
+<p>The return ‘value’ of a function need not be numerical (like that of <code>sqrt()</code>), and it also does not need to be a single item: it can be a set of things, or even a dataset. We’ll see that when we read data files into R.</p>
+<p>Arguments can be anything, not only numbers or filenames, but also other objects. Exactly what each argument means differs per function, and must be looked up in the documentation (see below). Some functions take arguments which may either be specified by the user, or, if left out, take on a <em>default</em> value: these are called <em>options</em>. Options are typically used to alter the way the function operates, such as whether it ignores ‘bad values’, or what symbol to use in a plot. However, if you want something specific, you can specify a value of your choice which will be used instead of the default.</p>
 <p>Let’s try a function that can take multiple arguments: <code>round()</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="fl">3.14159</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="fl">3.14159</span>)</code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<p>Here, we’ve called <code>round()</code> with just one argument, <code>3.14159</code>, and it has
-returned the value <code>3</code>. That’s because the default is to round to the nearest
-whole number. If we want more digits we can see how to do that by getting
-information about the <code>round</code> function. We can use <code>args(round)</code> or look at the
-help for this function using <code>?round</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">args</span>(round)</code></pre>
+<p>Here, we’ve called <code>round()</code> with just one argument, <code>3.14159</code>, and it has returned the value <code>3</code>. That’s because the default is to round to the nearest whole number. If we want more digits we can see how to do that by getting information about the <code>round</code> function. We can use <code>args(round)</code> or look at the help for this function using <code>?round</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">args</span>(round)</code></pre></div>
 <pre><code>## function (x, digits = 0) 
 ## NULL</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">?round</code></pre>
-<p>We see that if we want a different number of digits, we can
-type <code>digits=2</code> or however many we want.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="fl">3.14159</span>, <span class="dt">digits =</span> <span class="dv">2</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?round</code></pre></div>
+<p>We see that if we want a different number of digits, we can type <code>digits=2</code> or however many we want.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="fl">3.14159</span>, <span class="dt">digits =</span> <span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] 3.14</code></pre>
-<p>If you provide the arguments in the exact same order as they are defined you
-don’t have to name them:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="fl">3.14159</span>, <span class="dv">2</span>)</code></pre>
+<p>If you provide the arguments in the exact same order as they are defined you don’t have to name them:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="fl">3.14159</span>, <span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] 3.14</code></pre>
 <p>And if you do name the arguments, you can switch their order:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">x =</span> <span class="fl">3.14159</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">x =</span> <span class="fl">3.14159</span>)</code></pre></div>
 <pre><code>## [1] 3.14</code></pre>
-<p>It’s good practice to put the non-optional arguments (like the number you’re
-rounding) first in your function call, and to specify the names of all optional
-arguments. If you don’t, someone reading your code might have to look up the
-definition of a function with unfamiliar arguments to understand what you’re
-doing.</p>
+<p>It’s good practice to put the non-optional arguments (like the number you’re rounding) first in your function call, and to specify the names of all optional arguments. If you don’t, someone reading your code might have to look up the definition of a function with unfamiliar arguments to understand what you’re doing.</p>
 </div>
 <div id="vectors-and-data-types" class="section level3">
 <h3><span class="header-section-number">2.9.5</span> Vectors and data types</h3>
-<p>A vector is the most common and basic data type in R, and is pretty much
-the workhorse of R. A vector is composed by a series of values, which can be
-either numbers or characters. We can assign a series of values to a vector using
-the <code>c()</code> function. For example we can create a vector of animal weights and assign
-it to a new object <code>weight_g</code>:</p>
-<pre class="sourceCode r"><code class="sourceCode r">weight_g &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="dv">82</span>)
-weight_g</code></pre>
+<p>A vector is the most common and basic data type in R, and is pretty much the workhorse of R. A vector is composed by a series of values, which can be either numbers or characters. We can assign a series of values to a vector using the <code>c()</code> function. For example we can create a vector of animal weights and assign it to a new object <code>weight_g</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_g &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="dv">82</span>)
+weight_g</code></pre></div>
 <pre><code>## [1] 50 60 65 82</code></pre>
 <p>A vector can also contain characters:</p>
-<pre class="sourceCode r"><code class="sourceCode r">animals &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;mouse&quot;</span>, <span class="st">&quot;rat&quot;</span>, <span class="st">&quot;dog&quot;</span>)
-animals</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">animals &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;mouse&quot;</span>, <span class="st">&quot;rat&quot;</span>, <span class="st">&quot;dog&quot;</span>)
+animals</code></pre></div>
 <pre><code>## [1] &quot;mouse&quot; &quot;rat&quot;   &quot;dog&quot;</code></pre>
-<p>The quotes around “mouse”, “rat”, etc. are essential here. Without the quotes R
-will assume there are objects called <code>mouse</code>, <code>rat</code> and <code>dog</code>. As these objects
-don’t exist in R’s memory, there will be an error message.</p>
-<p>There are many functions that allow you to inspect the content of a
-vector. <code>length()</code> tells you how many elements are in a particular vector:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(weight_g)</code></pre>
+<p>The quotes around “mouse”, “rat”, etc. are essential here. Without the quotes R will assume there are objects called <code>mouse</code>, <code>rat</code> and <code>dog</code>. As these objects don’t exist in R’s memory, there will be an error message.</p>
+<p>There are many functions that allow you to inspect the content of a vector. <code>length()</code> tells you how many elements are in a particular vector:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(weight_g)</code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(animals)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(animals)</code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<p>An important feature of a vector, is that all of the elements are the same type of data.
-The function <code>class()</code> indicates the class (the type of element) of an object:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(weight_g)</code></pre>
+<p>An important feature of a vector, is that all of the elements are the same type of data. The function <code>class()</code> indicates the class (the type of element) of an object:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(weight_g)</code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(animals)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(animals)</code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<p>The function <code>str()</code> provides an overview of the structure of an object and its
-elements. It is a useful function when working with large and complex
-objects:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(weight_g)</code></pre>
+<p>The function <code>str()</code> provides an overview of the structure of an object and its elements. It is a useful function when working with large and complex objects:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(weight_g)</code></pre></div>
 <pre><code>##  num [1:4] 50 60 65 82</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(animals)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(animals)</code></pre></div>
 <pre><code>##  chr [1:3] &quot;mouse&quot; &quot;rat&quot; &quot;dog&quot;</code></pre>
 <p>You can use the <code>c()</code> function to add other elements to your vector:</p>
-<pre class="sourceCode r"><code class="sourceCode r">weight_g &lt;-<span class="st"> </span><span class="kw">c</span>(weight_g, <span class="dv">90</span>) <span class="co"># add to the end of the vector</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_g &lt;-<span class="st"> </span><span class="kw">c</span>(weight_g, <span class="dv">90</span>) <span class="co"># add to the end of the vector</span>
 weight_g &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">30</span>, weight_g) <span class="co"># add to the beginning of the vector</span>
-weight_g</code></pre>
+weight_g</code></pre></div>
 <pre><code>## [1] 30 50 60 65 82 90</code></pre>
-<p>In the first line, we take the original vector <code>weight_g</code>, add the
-value <code>90</code> to the end of it, and save the result back into
-<code>weight_g</code>. Then we add the value <code>30</code> to the beginning, again saving
-the result back into <code>weight_g</code>.</p>
-<p>We can do this over and over again to grow a vector, or assemble a
-dataset. As we program, this may be useful to add results that we are
-collecting or calculating.</p>
-<p>An <strong>atomic vector</strong> is the simplest R <strong>data type</strong> and is a linear
-vector of a single type. Above, we saw 2 of the 6 main <strong>atomic
-vector</strong> types that R uses: <code>"character"</code> and <code>"numeric"</code> (or
-<code>"double"</code>). These are the basic building blocks that all R objects
-are built from. The other 4 <strong>atomic vector</strong> types are:</p>
+<p>In the first line, we take the original vector <code>weight_g</code>, add the value <code>90</code> to the end of it, and save the result back into <code>weight_g</code>. Then we add the value <code>30</code> to the beginning, again saving the result back into <code>weight_g</code>.</p>
+<p>We can do this over and over again to grow a vector, or assemble a dataset. As we program, this may be useful to add results that we are collecting or calculating.</p>
+<p>An <strong>atomic vector</strong> is the simplest R <strong>data type</strong> and is a linear vector of a single type. Above, we saw 2 of the 6 main <strong>atomic vector</strong> types that R uses: <code>&quot;character&quot;</code> and <code>&quot;numeric&quot;</code> (or <code>&quot;double&quot;</code>). These are the basic building blocks that all R objects are built from. The other 4 <strong>atomic vector</strong> types are:</p>
 <ul>
-<li><code>"logical"</code> for <code>TRUE</code> and <code>FALSE</code> (the boolean data type)</li>
-<li><code>"integer"</code> for integer numbers (e.g., <code>2L</code>, the <code>L</code> indicates to R
-that it’s an integer)</li>
-<li><code>"complex"</code> to represent complex numbers with real and imaginary
-parts (e.g., <code>1 + 4i</code>) and that’s all we’re going to say about them</li>
-<li><code>"raw"</code> for bitstreams that we won’t discuss further</li>
+<li><code>&quot;logical&quot;</code> for <code>TRUE</code> and <code>FALSE</code> (the boolean data type)</li>
+<li><code>&quot;integer&quot;</code> for integer numbers (e.g., <code>2L</code>, the <code>L</code> indicates to R that it’s an integer)</li>
+<li><code>&quot;complex&quot;</code> to represent complex numbers with real and imaginary parts (e.g., <code>1 + 4i</code>) and that’s all we’re going to say about them</li>
+<li><code>&quot;raw&quot;</code> for bitstreams that we won’t discuss further</li>
 </ul>
-<p>You can check the type of your vector using the <code>typeof()</code> function
-and inputting your vector as the argument.</p>
-<p>Vectors are one of the many <strong>data structures</strong> that R uses. Other
-important ones are lists (<code>list</code>), matrices (<code>matrix</code>), data frames
-(<code>data.frame</code>), factors (<code>factor</code>) and arrays (<code>array</code>).</p>
+<p>You can check the type of your vector using the <code>typeof()</code> function and inputting your vector as the argument.</p>
+<p>Vectors are one of the many <strong>data structures</strong> that R uses. Other important ones are lists (<code>list</code>), matrices (<code>matrix</code>), data frames (<code>data.frame</code>), factors (<code>factor</code>) and arrays (<code>array</code>).</p>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -1024,12 +607,11 @@ R implicitly converts them to all be the same type
 ► Question
 </p>
 <div class="question-body">
-<p>What will happen in each of these examples? (hint: use <code>class()</code> to
-check the data type of your objects):</p>
-<pre class="sourceCode r"><code class="sourceCode r">num_char &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">&quot;a&quot;</span>)
+<p>What will happen in each of these examples? (hint: use <code>class()</code> to check the data type of your objects):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">num_char &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">&quot;a&quot;</span>)
 num_logical &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="ot">TRUE</span>)
 char_logical &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="ot">TRUE</span>)
-tricky &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">&quot;4&quot;</span>)</code></pre>
+tricky &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">&quot;4&quot;</span>)</code></pre></div>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1040,13 +622,13 @@ tricky &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">
 ► Solution<span id="sol-start-7" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-7&#39;, &#39;sol-start-7&#39;)"></span>
 </p>
 <div id="sol-body-7" class="solution-body" style="display: none;">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(num_char)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(num_char)</code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(num_logical)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(num_logical)</code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(char_logical)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(char_logical)</code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(tricky)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(tricky)</code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1084,11 +666,10 @@ Vectors can be of only one data type. R tries to convert (coerce) the content of
 ► Question
 </p>
 <div class="question-body">
-<p>How many values in <code>combined_logical</code> are <code>"TRUE"</code> (as a character) in
-the following example:</p>
-<pre class="sourceCode r"><code class="sourceCode r">num_logical &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="ot">TRUE</span>)
+<p>How many values in <code>combined_logical</code> are <code>&quot;TRUE&quot;</code> (as a character) in the following example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">num_logical &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="ot">TRUE</span>)
 char_logical &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="ot">TRUE</span>)
-combined_logical &lt;-<span class="st"> </span><span class="kw">c</span>(num_logical, char_logical)</code></pre>
+combined_logical &lt;-<span class="st"> </span><span class="kw">c</span>(num_logical, char_logical)</code></pre></div>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1099,11 +680,8 @@ combined_logical &lt;-<span class="st"> </span><span class="kw">c</span>(num_log
 ► Solution<span id="sol-start-9" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-9&#39;, &#39;sol-start-9&#39;)"></span>
 </p>
 <div id="sol-body-9" class="solution-body" style="display: none;">
-<p>Only one. There is no memory of past data types, and the coercion
-happens the first time the vector is evaluated. Therefore, the <code>TRUE</code>
-in <code>num_logical</code> gets converted into a <code>1</code> before it gets converted
-into <code>"1"</code> in <code>combined_logical</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">combined_logical</code></pre>
+<p>Only one. There is no memory of past data types, and the coercion happens the first time the vector is evaluated. Therefore, the <code>TRUE</code> in <code>num_logical</code> gets converted into a <code>1</code> before it gets converted into <code>&quot;1&quot;</code> in <code>combined_logical</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">combined_logical</code></pre></div>
 <pre><code>## [1] &quot;1&quot;    &quot;2&quot;    &quot;3&quot;    &quot;1&quot;    &quot;a&quot;    &quot;b&quot;    &quot;c&quot;    &quot;TRUE&quot;</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1139,78 +717,61 @@ logical → numeric → character ← logical
 </div>
 <div id="subsetting-vectors" class="section level3">
 <h3><span class="header-section-number">2.9.6</span> Subsetting vectors</h3>
-<p>If we want to extract one or several values from a vector, we must provide one
-or several indices in square brackets. For instance:</p>
-<pre class="sourceCode r"><code class="sourceCode r">animals &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;mouse&quot;</span>, <span class="st">&quot;rat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;cat&quot;</span>)
-animals[<span class="dv">2</span>]</code></pre>
+<p>If we want to extract one or several values from a vector, we must provide one or several indices in square brackets. For instance:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">animals &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;mouse&quot;</span>, <span class="st">&quot;rat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;cat&quot;</span>)
+animals[<span class="dv">2</span>]</code></pre></div>
 <pre><code>## [1] &quot;rat&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">animals[<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)]</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">animals[<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)]</code></pre></div>
 <pre><code>## [1] &quot;dog&quot; &quot;rat&quot;</code></pre>
-<p>We can also repeat the indices to create an object with more elements than the
-original one:</p>
-<pre class="sourceCode r"><code class="sourceCode r">more_animals &lt;-<span class="st"> </span>animals[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>)]
-more_animals</code></pre>
+<p>We can also repeat the indices to create an object with more elements than the original one:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">more_animals &lt;-<span class="st"> </span>animals[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>)]
+more_animals</code></pre></div>
 <pre><code>## [1] &quot;mouse&quot; &quot;rat&quot;   &quot;dog&quot;   &quot;rat&quot;   &quot;mouse&quot; &quot;cat&quot;</code></pre>
-<p>R indices start at 1. Programming languages like Fortran, MATLAB,
-Julia, and R start counting at 1, because that’s what human beings
-typically do. Languages in the C family (including C++, Java, Perl,
-and Python) count from 0 because that’s simpler for computers to do.</p>
-<p>Finally, it is also possible to get all the elements of a vector
-except some specified elements using negative indices:</p>
-<pre class="sourceCode r"><code class="sourceCode r">animals <span class="co">## all animals</span></code></pre>
+<p>R indices start at 1. Programming languages like Fortran, MATLAB, Julia, and R start counting at 1, because that’s what human beings typically do. Languages in the C family (including C++, Java, Perl, and Python) count from 0 because that’s simpler for computers to do.</p>
+<p>Finally, it is also possible to get all the elements of a vector except some specified elements using negative indices:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">animals ## all animals</code></pre></div>
 <pre><code>## [1] &quot;mouse&quot; &quot;rat&quot;   &quot;dog&quot;   &quot;cat&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">animals[<span class="op">-</span><span class="dv">1</span>] <span class="co">## all but the first one</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">animals[<span class="op">-</span><span class="dv">1</span>] ## all but the first one</code></pre></div>
 <pre><code>## [1] &quot;rat&quot; &quot;dog&quot; &quot;cat&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">animals[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)] <span class="co">## all but 1st/3rd ones</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">animals[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)] ## all but 1st/3rd ones</code></pre></div>
 <pre><code>## [1] &quot;rat&quot; &quot;cat&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">animals[<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">-3</span>)] <span class="co">## all but 1st/3rd ones</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">animals[<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">-3</span>)] ## all but 1st/3rd ones</code></pre></div>
 <pre><code>## [1] &quot;rat&quot; &quot;cat&quot;</code></pre>
 </div>
 <div id="conditional-subsetting" class="section level3">
 <h3><span class="header-section-number">2.9.7</span> Conditional subsetting</h3>
-<p>Another common way of subsetting is by using a logical vector. <code>TRUE</code> will
-select the element with the same index, while <code>FALSE</code> will not:</p>
-<pre class="sourceCode r"><code class="sourceCode r">weight_g &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">34</span>, <span class="dv">39</span>, <span class="dv">54</span>, <span class="dv">55</span>)
-weight_g[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)]</code></pre>
+<p>Another common way of subsetting is by using a logical vector. <code>TRUE</code> will select the element with the same index, while <code>FALSE</code> will not:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_g &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">34</span>, <span class="dv">39</span>, <span class="dv">54</span>, <span class="dv">55</span>)
+weight_g[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)]</code></pre></div>
 <pre><code>## [1] 21 39 54</code></pre>
-<p>Typically, these logical vectors are not typed by hand, but are the output of
-other functions or logical tests. For instance, if you wanted to select only the
-values above 50:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## will return logicals with TRUE for the indices that meet</span>
-<span class="co">## the condition</span>
-weight_g <span class="op">&gt;</span><span class="st"> </span><span class="dv">50</span></code></pre>
+<p>Typically, these logical vectors are not typed by hand, but are the output of other functions or logical tests. For instance, if you wanted to select only the values above 50:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## will return logicals with TRUE for the indices that meet
+## the condition
+weight_g <span class="op">&gt;</span><span class="st"> </span><span class="dv">50</span></code></pre></div>
 <pre><code>## [1] FALSE FALSE FALSE  TRUE  TRUE</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## so we can use this to select only the values above 50</span>
-weight_g[weight_g <span class="op">&gt;</span><span class="st"> </span><span class="dv">50</span>]</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## so we can use this to select only the values above 50
+weight_g[weight_g <span class="op">&gt;</span><span class="st"> </span><span class="dv">50</span>]</code></pre></div>
 <pre><code>## [1] 54 55</code></pre>
-<p>You can combine multiple tests using <code>&amp;</code> (both conditions are true, AND) or <code>|</code>
-(at least one of the conditions is true, OR):</p>
-<pre class="sourceCode r"><code class="sourceCode r">weight_g[weight_g <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span> <span class="op">|</span><span class="st"> </span>weight_g <span class="op">&gt;</span><span class="st"> </span><span class="dv">50</span>]</code></pre>
+<p>You can combine multiple tests using <code>&amp;</code> (both conditions are true, AND) or <code>|</code> (at least one of the conditions is true, OR):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_g[weight_g <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span> <span class="op">|</span><span class="st"> </span>weight_g <span class="op">&gt;</span><span class="st"> </span><span class="dv">50</span>]</code></pre></div>
 <pre><code>## [1] 21 54 55</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">weight_g[weight_g <span class="op">&gt;=</span><span class="st"> </span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>weight_g <span class="op">==</span><span class="st"> </span><span class="dv">21</span>]</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_g[weight_g <span class="op">&gt;=</span><span class="st"> </span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>weight_g <span class="op">==</span><span class="st"> </span><span class="dv">21</span>]</code></pre></div>
 <pre><code>## numeric(0)</code></pre>
-<p>Here, <code>&lt;</code> stands for “less than”, <code>&gt;</code> for “greater than”, <code>&gt;=</code> for “greater than
-or equal to”, and <code>==</code> for “equal to”. The double equal sign <code>==</code> is a test for
-numerical equality between the left and right hand sides, and should not be
-confused with the single <code>=</code> sign, which performs variable assignment (similar
-to <code>&lt;-</code>).</p>
-<p>A common task is to search for certain strings in a vector. One could use the
-“or” operator <code>|</code> to test for equality to multiple values, but this can quickly
-become tedious. The function <code>%in%</code> allows you to test if any of the elements of
-a search vector are found:</p>
-<pre class="sourceCode r"><code class="sourceCode r">animals &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;mouse&quot;</span>, <span class="st">&quot;rat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;cat&quot;</span>)
-animals[animals <span class="op">==</span><span class="st"> &quot;cat&quot;</span> <span class="op">|</span><span class="st"> </span>animals <span class="op">==</span><span class="st"> &quot;rat&quot;</span>] <span class="co"># returns both rat and cat</span></code></pre>
+<p>Here, <code>&lt;</code> stands for “less than”, <code>&gt;</code> for “greater than”, <code>&gt;=</code> for “greater than or equal to”, and <code>==</code> for “equal to”. The double equal sign <code>==</code> is a test for numerical equality between the left and right hand sides, and should not be confused with the single <code>=</code> sign, which performs variable assignment (similar to <code>&lt;-</code>).</p>
+<p>A common task is to search for certain strings in a vector. One could use the “or” operator <code>|</code> to test for equality to multiple values, but this can quickly become tedious. The function <code>%in%</code> allows you to test if any of the elements of a search vector are found:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">animals &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;mouse&quot;</span>, <span class="st">&quot;rat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;cat&quot;</span>)
+animals[animals <span class="op">==</span><span class="st"> &quot;cat&quot;</span> <span class="op">|</span><span class="st"> </span>animals <span class="op">==</span><span class="st"> &quot;rat&quot;</span>] <span class="co"># returns both rat and cat</span></code></pre></div>
 <pre><code>## [1] &quot;rat&quot; &quot;cat&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">animals <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;rat&quot;</span>, <span class="st">&quot;cat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;duck&quot;</span>, <span class="st">&quot;goat&quot;</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">animals <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;rat&quot;</span>, <span class="st">&quot;cat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;duck&quot;</span>, <span class="st">&quot;goat&quot;</span>)</code></pre></div>
 <pre><code>## [1] FALSE  TRUE  TRUE  TRUE</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">animals[animals <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;rat&quot;</span>, <span class="st">&quot;cat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;duck&quot;</span>, <span class="st">&quot;goat&quot;</span>)]</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">animals[animals <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;rat&quot;</span>, <span class="st">&quot;cat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;duck&quot;</span>, <span class="st">&quot;goat&quot;</span>)]</code></pre></div>
 <pre><code>## [1] &quot;rat&quot; &quot;dog&quot; &quot;cat&quot;</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
 </p>
 <div class="question-body">
-<p>Can you figure out why <code>"four" &gt; "five"</code> returns <code>TRUE</code>?</p>
+<p>Can you figure out why <code>&quot;four&quot; &gt; &quot;five&quot;</code> returns <code>TRUE</code>?</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1221,10 +782,9 @@ animals[animals <span class="op">==</span><span class="st"> &quot;cat&quot;</spa
 ► Solution<span id="sol-start-11" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-11&#39;, &#39;sol-start-11&#39;)"></span>
 </p>
 <div id="sol-body-11" class="solution-body" style="display: none;">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;four&quot;</span> <span class="op">&gt;</span><span class="st"> &quot;five&quot;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;four&quot;</span> <span class="op">&gt;</span><span class="st"> &quot;five&quot;</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<p>When using “&gt;” or “&lt;” on strings, R compares their alphabetical order.
-Here “four” comes after “five”, and therefore is “greater than” it.</p>
+<p>When using “&gt;” or “&lt;” on strings, R compares their alphabetical order. Here “four” comes after “five”, and therefore is “greater than” it.</p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1233,62 +793,51 @@ Here “four” comes after “five”, and therefore is “greater than” it.<
 </div>
 <div id="names" class="section level3">
 <h3><span class="header-section-number">2.9.8</span> Names</h3>
-<p>It is possible to name each element of a vector. The code chunk below
-show a initial vector without any names, how names are set, and
-retrieved.</p>
-<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">10</span>)
-<span class="kw">names</span>(x) <span class="co">## no names</span></code></pre>
+<p>It is possible to name each element of a vector. The code chunk below show a initial vector without any names, how names are set, and retrieved.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">10</span>)
+<span class="kw">names</span>(x) ## no names</code></pre></div>
 <pre><code>## NULL</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(x) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>)
-<span class="kw">names</span>(x) <span class="co">## now we have names</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(x) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>)
+<span class="kw">names</span>(x) ## now we have names</code></pre></div>
 <pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot;</code></pre>
-<p>When a vector has names, it is possible to access elements by their
-name, in addition to their index.</p>
-<pre class="sourceCode r"><code class="sourceCode r">x[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</code></pre>
+<p>When a vector has names, it is possible to access elements by their name, in addition to their index.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</code></pre></div>
 <pre><code>## A C 
 ## 1 3</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">x[<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;C&quot;</span>)]</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;C&quot;</span>)]</code></pre></div>
 <pre><code>## A C 
 ## 1 3</code></pre>
 </div>
 <div id="missing-data" class="section level3">
 <h3><span class="header-section-number">2.9.9</span> Missing data</h3>
-<p>As R was designed to analyze datasets, it includes the concept of missing data
-(which is uncommon in other programming languages). Missing data are represented
-in vectors as <code>NA</code>.</p>
-<p>When doing operations on numbers, most functions will return <code>NA</code> if the data
-you are working with include missing values. This feature
-makes it harder to overlook the cases where you are dealing with missing data.
-You can add the argument <code>na.rm=TRUE</code> to calculate the result while ignoring
-the missing values.</p>
-<pre class="sourceCode r"><code class="sourceCode r">heights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="ot">NA</span>, <span class="dv">6</span>)
-<span class="kw">mean</span>(heights)</code></pre>
+<p>As R was designed to analyze datasets, it includes the concept of missing data (which is uncommon in other programming languages). Missing data are represented in vectors as <code>NA</code>.</p>
+<p>When doing operations on numbers, most functions will return <code>NA</code> if the data you are working with include missing values. This feature makes it harder to overlook the cases where you are dealing with missing data. You can add the argument <code>na.rm=TRUE</code> to calculate the result while ignoring the missing values.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">heights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="ot">NA</span>, <span class="dv">6</span>)
+<span class="kw">mean</span>(heights)</code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(heights)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(heights)</code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(heights, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(heights, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(heights, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(heights, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>## [1] 6</code></pre>
-<p>If your data include missing values, you may want to become familiar with the
-functions <code>is.na()</code>, <code>na.omit()</code>, and <code>complete.cases()</code>. See below for
-examples.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Extract those elements which are not missing values.</span>
-heights[<span class="op">!</span><span class="kw">is.na</span>(heights)]</code></pre>
+<p>If your data include missing values, you may want to become familiar with the functions <code>is.na()</code>, <code>na.omit()</code>, and <code>complete.cases()</code>. See below for examples.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Extract those elements which are not missing values.
+heights[<span class="op">!</span><span class="kw">is.na</span>(heights)]</code></pre></div>
 <pre><code>## [1] 2 4 4 6</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Returns the object with incomplete cases removed.</span>
-<span class="co">## The returned object is an atomic vector of type `&quot;numeric&quot;`</span>
-<span class="co">## (or `&quot;double&quot;`).</span>
-<span class="kw">na.omit</span>(heights)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Returns the object with incomplete cases removed.
+## The returned object is an atomic vector of type `&quot;numeric&quot;`
+## (or `&quot;double&quot;`).
+<span class="kw">na.omit</span>(heights)</code></pre></div>
 <pre><code>## [1] 2 4 4 6
 ## attr(,&quot;na.action&quot;)
 ## [1] 4
 ## attr(,&quot;class&quot;)
 ## [1] &quot;omit&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Extract those elements which are complete cases.</span>
-<span class="co">## The returned object is an atomic vector of type `&quot;numeric&quot;`</span>
-<span class="co">## (or `&quot;double&quot;`).</span>
-heights[<span class="kw">complete.cases</span>(heights)]</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Extract those elements which are complete cases.
+## The returned object is an atomic vector of type `&quot;numeric&quot;`
+## (or `&quot;double&quot;`).
+heights[<span class="kw">complete.cases</span>(heights)]</code></pre></div>
 <pre><code>## [1] 2 4 4 6</code></pre>
 <div class="question">
 <p class="question-begin">
@@ -1298,7 +847,7 @@ heights[<span class="kw">complete.cases</span>(heights)]</code></pre>
 <ol style="list-style-type: decimal">
 <li>Using this vector of heights in inches, create a new vector with the NAs removed.</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r">heights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">63</span>, <span class="dv">69</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="ot">NA</span>, <span class="dv">68</span>, <span class="dv">61</span>, <span class="dv">70</span>, <span class="dv">61</span>, <span class="dv">59</span>, <span class="dv">64</span>, <span class="dv">69</span>, <span class="dv">63</span>, <span class="dv">63</span>, <span class="ot">NA</span>, <span class="dv">72</span>, <span class="dv">65</span>, <span class="dv">64</span>, <span class="dv">70</span>, <span class="dv">63</span>, <span class="dv">65</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">heights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">63</span>, <span class="dv">69</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="ot">NA</span>, <span class="dv">68</span>, <span class="dv">61</span>, <span class="dv">70</span>, <span class="dv">61</span>, <span class="dv">59</span>, <span class="dv">64</span>, <span class="dv">69</span>, <span class="dv">63</span>, <span class="dv">63</span>, <span class="ot">NA</span>, <span class="dv">72</span>, <span class="dv">65</span>, <span class="dv">64</span>, <span class="dv">70</span>, <span class="dv">63</span>, <span class="dv">65</span>)</code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Use the function <code>median()</code> to calculate the median of the <code>heights</code> vector.</li>
 <li>Use R to figure out how many people in the set are taller than 67 inches.</li>
@@ -1313,13 +862,13 @@ heights[<span class="kw">complete.cases</span>(heights)]</code></pre>
 ► Solution<span id="sol-start-12" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-12&#39;, &#39;sol-start-12&#39;)"></span>
 </p>
 <div id="sol-body-12" class="solution-body" style="display: none;">
-<pre class="sourceCode r"><code class="sourceCode r">heights_no_na &lt;-<span class="st"> </span>heights[<span class="op">!</span><span class="kw">is.na</span>(heights)]
-<span class="co">## or</span>
-heights_no_na &lt;-<span class="st"> </span><span class="kw">na.omit</span>(heights)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(heights, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">heights_no_na &lt;-<span class="st"> </span>heights[<span class="op">!</span><span class="kw">is.na</span>(heights)]
+## or
+heights_no_na &lt;-<span class="st"> </span><span class="kw">na.omit</span>(heights)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(heights, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>## [1] 64</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">heights_above_<span class="dv">67</span> &lt;-<span class="st"> </span>heights_no_na[heights_no_na <span class="op">&gt;</span><span class="st"> </span><span class="dv">67</span>]
-<span class="kw">length</span>(heights_above_<span class="dv">67</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">heights_above_<span class="dv">67</span> &lt;-<span class="st"> </span>heights_no_na[heights_no_na <span class="op">&gt;</span><span class="st"> </span><span class="dv">67</span>]
+<span class="kw">length</span>(heights_above_<span class="dv">67</span>)</code></pre></div>
 <pre><code>## [1] 6</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1332,20 +881,15 @@ heights_no_na &lt;-<span class="st"> </span><span class="kw">na.omit</span>(heig
 <h2><span class="header-section-number">2.10</span> Generating vectors</h2>
 <div id="constructors" class="section level3 unnumbered">
 <h3>Constructors</h3>
-<p>There exists some functions to generate vectors of different type. To
-generate a vector of numerics, one can use the <code>numerics()</code>
-constructor, providing the length of the output vector as
-parameter. The values will be initialised with 0.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">numeric</span>(<span class="dv">3</span>)</code></pre>
+<p>There exists some functions to generate vectors of different type. To generate a vector of numerics, one can use the <code>numerics()</code> constructor, providing the length of the output vector as parameter. The values will be initialised with 0.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">numeric</span>(<span class="dv">3</span>)</code></pre></div>
 <pre><code>## [1] 0 0 0</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">numeric</span>(<span class="dv">10</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">numeric</span>(<span class="dv">10</span>)</code></pre></div>
 <pre><code>##  [1] 0 0 0 0 0 0 0 0 0 0</code></pre>
-<p>Note that if we ask for a vector of numerics of length 0, we obtain
-exactly that:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">numeric</span>(<span class="dv">0</span>)</code></pre>
+<p>Note that if we ask for a vector of numerics of length 0, we obtain exactly that:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">numeric</span>(<span class="dv">0</span>)</code></pre></div>
 <pre><code>## numeric(0)</code></pre>
-<p>There are similar constructors for characters and logicals, named
-<code>character()</code> and <code>logical()</code> respectively.</p>
+<p>There are similar constructors for characters and logicals, named <code>character()</code> and <code>logical()</code> respectively.</p>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -1362,9 +906,9 @@ exactly that:</p>
 ► Solution<span id="sol-start-13" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-13&#39;, &#39;sol-start-13&#39;)"></span>
 </p>
 <div id="sol-body-13" class="solution-body" style="display: none;">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">character</span>(<span class="dv">2</span>) <span class="co">## the empty charater</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">character</span>(<span class="dv">2</span>) ## the empty charater</code></pre></div>
 <pre><code>## [1] &quot;&quot; &quot;&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">logical</span>(<span class="dv">2</span>)   <span class="co">## FALSE</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">logical</span>(<span class="dv">2</span>)   ## FALSE</code></pre></div>
 <pre><code>## [1] FALSE FALSE</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1374,29 +918,21 @@ exactly that:</p>
 </div>
 <div id="replicate-elements" class="section level3 unnumbered">
 <h3>Replicate elements</h3>
-<p>The <code>rep</code> function allow to repeat a value a certain number of
-times. If we want to initiate a vector of numerics of length 5 with
-the value -1, for example, we could do the following:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">5</span>)</code></pre>
+<p>The <code>rep</code> function allow to repeat a value a certain number of times. If we want to initiate a vector of numerics of length 5 with the value -1, for example, we could do the following:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">5</span>)</code></pre></div>
 <pre><code>## [1] -1 -1 -1 -1 -1</code></pre>
-<p>Similarly, to generate a vector populated with missing values, which
-is often a good way to start, without setting assumptions on the data
-to be collected:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">5</span>)</code></pre>
+<p>Similarly, to generate a vector populated with missing values, which is often a good way to start, without setting assumptions on the data to be collected:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">5</span>)</code></pre></div>
 <pre><code>## [1] NA NA NA NA NA</code></pre>
-<p><code>rep</code> can take vectors of any length as input (above, we used vectors
-of length 1) and any type. For example, if we want to repeat the
-values 1, 2 and 3 five times, we would do the following:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dv">5</span>)</code></pre>
+<p><code>rep</code> can take vectors of any length as input (above, we used vectors of length 1) and any type. For example, if we want to repeat the values 1, 2 and 3 five times, we would do the following:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dv">5</span>)</code></pre></div>
 <pre><code>##  [1] 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
 </p>
 <div class="question-body">
-<p>What if we wanted to repeat the values 1, 2 and 3 five times, but
-obtain five 1s, five 2s and five 3s in that order? There are two
-possibilities - see <code>?rep</code> or <code>?sort</code> for help.</p>
+<p>What if we wanted to repeat the values 1, 2 and 3 five times, but obtain five 1s, five 2s and five 3s in that order? There are two possibilities - see <code>?rep</code> or <code>?sort</code> for help.</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1407,9 +943,9 @@ possibilities - see <code>?rep</code> or <code>?sort</code> for help.</p>
 ► Solution<span id="sol-start-14" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-14&#39;, &#39;sol-start-14&#39;)"></span>
 </p>
 <div id="sol-body-14" class="solution-body" style="display: none;">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dt">each =</span> <span class="dv">5</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dt">each =</span> <span class="dv">5</span>)</code></pre></div>
 <pre><code>##  [1] 1 1 1 1 1 2 2 2 2 2 3 3 3 3 3</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sort</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dv">5</span>))</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sort</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dv">5</span>))</code></pre></div>
 <pre><code>##  [1] 1 1 1 1 1 2 2 2 2 2 3 3 3 3 3</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1419,61 +955,40 @@ possibilities - see <code>?rep</code> or <code>?sort</code> for help.</p>
 </div>
 <div id="sequence-generation" class="section level3 unnumbered">
 <h3>Sequence generation</h3>
-<p>Another very useful function is <code>seq</code>, to generate a sequence of
-numbers. For example, to generate a sequence of integers from 1 to 20
-by steps of 2, one would use:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">20</span>, <span class="dt">by =</span> <span class="dv">2</span>)</code></pre>
+<p>Another very useful function is <code>seq</code>, to generate a sequence of numbers. For example, to generate a sequence of integers from 1 to 20 by steps of 2, one would use:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">20</span>, <span class="dt">by =</span> <span class="dv">2</span>)</code></pre></div>
 <pre><code>##  [1]  1  3  5  7  9 11 13 15 17 19</code></pre>
-<p>The default value of <code>by</code> is 1 and, given that the generate of a
-sequence of one value to another with steps of 1 is frequently used,
-there’s a shortcut:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">1</span>)</code></pre>
+<p>The default value of <code>by</code> is 1 and, given that the generate of a sequence of one value to another with steps of 1 is frequently used, there’s a shortcut:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">1</span>)</code></pre></div>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">5</span>) <span class="co">## default by</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">5</span>) ## default by</code></pre></div>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
-<p>To generate a sequence of numbers from 1 to 20 of final length of 3,
-one would use:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">20</span>, <span class="dt">length.out =</span> <span class="dv">3</span>)</code></pre>
+<p>To generate a sequence of numbers from 1 to 20 of final length of 3, one would use:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">20</span>, <span class="dt">length.out =</span> <span class="dv">3</span>)</code></pre></div>
 <pre><code>## [1]  1.0 10.5 20.0</code></pre>
 </div>
 <div id="random-samples-and-permutations" class="section level3 unnumbered">
 <h3>Random samples and permutations</h3>
-<p>A last group of useful functions are those that generate random
-data. The first one, <code>sample</code>, generates a random permutation of
-another vector. For example, to draw a random order to 10 students
-oral example, I first assign each student a number from 1 to then (for
-instance based on the alphabetic order of their name) and then:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
+<p>A last group of useful functions are those that generate random data. The first one, <code>sample</code>, generates a random permutation of another vector. For example, to draw a random order to 10 students oral example, I first assign each student a number from 1 to then (for instance based on the alphabetic order of their name) and then:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
 <pre><code>##  [1]  3  4  5  7  2  8  9  6 10  1</code></pre>
-<p>Without further arguments, <code>sample</code> will return a permutation of all
-elements of the vector. If I want a random sample of a certain size, I
-would set this value as second argument. Below, I sample 5 random
-letters from the alphabet contained in the pre-defined <code>letters</code> vector:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(letters, <span class="dv">5</span>)</code></pre>
+<p>Without further arguments, <code>sample</code> will return a permutation of all elements of the vector. If I want a random sample of a certain size, I would set this value as second argument. Below, I sample 5 random letters from the alphabet contained in the pre-defined <code>letters</code> vector:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(letters, <span class="dv">5</span>)</code></pre></div>
 <pre><code>## [1] &quot;f&quot; &quot;e&quot; &quot;q&quot; &quot;i&quot; &quot;x&quot;</code></pre>
-<p>If I wanted an output larger than the input vector, or being able to
-draw some elements multiple times, I would need to set the <code>replace</code>
-argument to <code>TRUE</code>:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</code></pre>
+<p>If I wanted an output larger than the input vector, or being able to draw some elements multiple times, I would need to set the <code>replace</code> argument to <code>TRUE</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>##  [1] 3 4 5 2 4 5 2 4 1 2</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
 </p>
 <div class="question-body">
-<p>When trying the functions above out, you will have realised that the
-samples are indeed random and that one doesn’t get the same
-permutation twice. To be able to reproduce these random draws, one can
-set the random number generation seed manually with <code>set.seed()</code>
-before drawing the random sample.</p>
+<p>When trying the functions above out, you will have realised that the samples are indeed random and that one doesn’t get the same permutation twice. To be able to reproduce these random draws, one can set the random number generation seed manually with <code>set.seed()</code> before drawing the random sample.</p>
 <ul>
-<li><p>Test this feature with your neighbour. First draw two random
-permutations of <code>1:10</code> independently and observe that you get
-different results.</p></li>
-<li><p>Now set the seed with, for example, <code>set.seed(123)</code> and repeat the
-random draw. Observe that you now get the same random draws.</p></li>
+<li><p>Test this feature with your neighbour. First draw two random permutations of <code>1:10</code> independently and observe that you get different results.</p></li>
+<li><p>Now set the seed with, for example, <code>set.seed(123)</code> and repeat the random draw. Observe that you now get the same random draws.</p></li>
 <li><p>Repeat by setting a different seed.</p></li>
 </ul>
 <p class="question-end">
@@ -1487,23 +1002,23 @@ random draw. Observe that you now get the same random draws.</p></li>
 </p>
 <div id="sol-body-15" class="solution-body" style="display: none;">
 <p>Different permutations</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
 <pre><code>##  [1]  4  1 10  7  3  6  5  2  9  8</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
 <pre><code>##  [1]  7  8  1  6  3  5 10  4  2  9</code></pre>
 <p>Same permutations with seed 123</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
-<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
+<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
 <pre><code>##  [1]  3  8  4  7  6  1 10  9  2  5</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
-<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
+<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
 <pre><code>##  [1]  3  8  4  7  6  1 10  9  2  5</code></pre>
 <p>A different seed</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1</span>)
-<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1</span>)
+<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
 <pre><code>##  [1]  3  4  5  7  2  8  9  6 10  1</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1</span>)
-<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1</span>)
+<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
 <pre><code>##  [1]  3  4  5  7  2  8  9  6 10  1</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1513,28 +1028,21 @@ random draw. Observe that you now get the same random draws.</p></li>
 </div>
 <div id="drawing-samples-from-a-normal-distribution" class="section level3 unnumbered">
 <h3>Drawing samples from a normal distribution</h3>
-<p>The last function we are going to see is <code>rnorm</code>, that draws a random
-sample from a normal distribution. Two normal distributions of means 0
-and 100 and standard deviations 1 and 5, noted noted <em>N(0, 1)</em> and
-<em>N(100, 5)</em>, are shown below</p>
+<p>The last function we are going to see is <code>rnorm</code>, that draws a random sample from a normal distribution. Two normal distributions of means 0 and 100 and standard deviations 1 and 5, noted noted <em>N(0, 1)</em> and <em>N(100, 5)</em>, are shown below</p>
 <div class="figure"><span id="fig:unnamed-chunk-92"></span>
 <p class="caption marginnote shownote">
 Figure 2.7: Two normal distributions: <em>N(0, 1)</em> on the left and <em>N(100, 5)</em> on the right.
 </p>
 <img src="WSBIM1207_files/figure-html/unnamed-chunk-92-1.png" alt="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right." width="1152"  />
 </div>
-<p>The three arguments, <code>n</code>, <code>mean</code> and <code>sd</code>, define the size of the
-sample, and the parameters of the normal distribution, i.e the mean
-and its standard deviation. The defaults of the latter are 0 and 1.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">5</span>)</code></pre>
+<p>The three arguments, <code>n</code>, <code>mean</code> and <code>sd</code>, define the size of the sample, and the parameters of the normal distribution, i.e the mean and its standard deviation. The defaults of the latter are 0 and 1.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">5</span>)</code></pre></div>
 <pre><code>## [1]  0.69641761  0.05351568 -1.31028350 -2.12306606 -0.20807859</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">2</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1]  1.3744268 -0.1164714  2.8344472  1.3690969  3.6510983</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dv">100</span>, <span class="dv">5</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dv">100</span>, <span class="dv">5</span>)</code></pre></div>
 <pre><code>## [1] 106.45636  96.87448  95.62427 100.71678 107.12595</code></pre>
-<p>Now that we have learned how to write scripts, and the basics of R’s
-data structures, we are ready to start working with larger data, and
-learn about data frames.</p>
+<p>Now that we have learned how to write scripts, and the basics of R’s data structures, we are ready to start working with larger data, and learn about data frames.</p>
 </div>
 </div>
 <div id="additional-exercises-1" class="section level2">
@@ -1545,13 +1053,9 @@ learn about data frames.</p>
 </p>
 <div class="question-body">
 <ul>
-<li>Create two vectors <code>x</code> and <code>y</code> containing the numbers 1 to 10 and 10
-to 1 respectively. You can use the <code>seq</code> or <code>:</code> functions rather
-than constructing them by hand.</li>
-<li>Check their type. Depending how they were created, they can be
-integers or doubles.</li>
-<li>Take the sum (see the <code>sum()</code> function) of each vector and verify
-they are identical.</li>
+<li>Create two vectors <code>x</code> and <code>y</code> containing the numbers 1 to 10 and 10 to 1 respectively. You can use the <code>seq</code> or <code>:</code> functions rather than constructing them by hand.</li>
+<li>Check their type. Depending how they were created, they can be integers or doubles.</li>
+<li>Take the sum (see the <code>sum()</code> function) of each vector and verify they are identical.</li>
 <li>Sum vectors element-wise, and verify that all results are identical.</li>
 <li>Swap the value or <code>x</code> and <code>y</code>.</li>
 </ul>
@@ -1566,8 +1070,7 @@ they are identical.</li>
 </p>
 <div class="question-body">
 <ul>
-<li><p>Create a vector named x containing the numbers 20 to 2. Retrieve
-elements that are strictly larger than 5 and smaller or equal than 15.</p></li>
+<li><p>Create a vector named x containing the numbers 20 to 2. Retrieve elements that are strictly larger than 5 and smaller or equal than 15.</p></li>
 <li><p>Remove the first 8 elements from <code>x</code> and store the result in <code>x2</code>.</p></li>
 </ul>
 <p class="question-end">
@@ -1596,13 +1099,10 @@ elements that are strictly larger than 5 and smaller or equal than 15.</p></li>
 ► Question
 </p>
 <div class="question-body">
-<p>You’re doing an colony counting experiment, counting every day, from
-Monday to Friday how many molds you see in your cell cultures.</p>
+<p>You’re doing an colony counting experiment, counting every day, from Monday to Friday how many molds you see in your cell cultures.</p>
 <ul>
-<li><p>Create a vector named <code>molds</code> containing the results of your counts:
-1, 2, 5, 8 and 10.</p></li>
-<li><p>Set the names of <code>molds</code> using week days and extract the number of
-molds identified on Wednesday.</p></li>
+<li><p>Create a vector named <code>molds</code> containing the results of your counts: 1, 2, 5, 8 and 10.</p></li>
+<li><p>Set the names of <code>molds</code> using week days and extract the number of molds identified on Wednesday.</p></li>
 </ul>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1631,12 +1131,9 @@ molds identified on Wednesday.</p></li>
 </p>
 <div class="question-body">
 <ul>
-<li>Calculate the mean of a random distribution <em>N(15, 1)</em> of size 100
-and store it in variable <code>m1</code>.</li>
-<li>Calculate the mean of a random distribution <em>N(0, 1)</em> of size 100
-and store it in variable <code>m2</code>.</li>
-<li>Calculate the mean of another random distribution <em>N(15, 1)</em> of size
-1000 and store it in variable <code>m3</code>.</li>
+<li>Calculate the mean of a random distribution <em>N(15, 1)</em> of size 100 and store it in variable <code>m1</code>.</li>
+<li>Calculate the mean of a random distribution <em>N(0, 1)</em> of size 100 and store it in variable <code>m2</code>.</li>
+<li>Calculate the mean of another random distribution <em>N(15, 1)</em> of size 1000 and store it in variable <code>m3</code>.</li>
 <li>Can you guess with one of <code>m1</code> and <code>m2</code> will be larger? Verify in R.</li>
 <li>Can you guess with one of <code>m1</code> and <code>m3</code> will be larger? Verify in R.</li>
 </ul>
@@ -1651,12 +1148,10 @@ and store it in variable <code>m2</code>.</li>
 </p>
 <div class="question-body">
 <ul>
-<li><p>Using the <code>sample</code> function, simulate a set of 100 students voting
-(randomly) for 1, 2 or 3 breaks during the WSBIM1207 course.</p></li>
+<li><p>Using the <code>sample</code> function, simulate a set of 100 students voting (randomly) for 1, 2 or 3 breaks during the WSBIM1207 course.</p></li>
 <li><p>Display the values as a table of votes.</p></li>
 <li><p>Compute the number of students that wanted more that 1 break.</p></li>
-<li><p>Bonus: as above, but setting the probability for votes to 1/5, 2/5
-and 2/5 respectively. Read <code>?sample</code> to find out how to do that.</p></li>
+<li><p>Bonus: as above, but setting the probability for votes to 1/5, 2/5 and 2/5 respectively. Read <code>?sample</code> to find out how to do that.</p></li>
 </ul>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1734,7 +1229,7 @@ and 2/5 respectively. Read <code>?sample</code> to find out how to do that.</p><
 <a href="sec-startdata.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-03-20
+2019-03-21
 </p>
 </div>
 </div>
