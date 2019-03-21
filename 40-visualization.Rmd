@@ -445,10 +445,11 @@ ggplot(data = yearly_sex_weight,
     facet_grid(. ~ sex)
 ```
 
-## Customization
+## Customisation
 
-Take a look at the [**`ggplot2`** cheat sheet](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf), and
-think of ways you could improve the plot.
+Take a look at the [**`ggplot2`** cheat
+sheet](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf),
+and think of ways you could improve the plot.
 
 Now, let's change names of axes to something more informative than 'year'
 and 'n' and add a title to the figure:
