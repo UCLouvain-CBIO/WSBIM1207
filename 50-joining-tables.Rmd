@@ -100,7 +100,7 @@ in the joined one.
 
 `r msmbstyle::question_begin()`
 Using the `full_join` function demonstrated above, join tables `jdf4`
-and `jdf5`. What has happened for observations `P02468` and `Q9JKF1`?
+and `jdf5`. What has happened for observations `P26039` and `P02468`?
 `r msmbstyle::question_end()`
 
 
@@ -109,7 +109,7 @@ and `jdf5`. What has happened for observations `P02468` and `Q9JKF1`?
 full_join(jdf4, jdf5)
 ```
 
-`P02468` and `Q9JKF1` are only present in `jdf4` and `jdf5`
+`P02468` and `P02468` are only present in `jdf4` and `jdf5`
 respectively, and their respective values for the variables of the
 table have been encoded as missing.
 
