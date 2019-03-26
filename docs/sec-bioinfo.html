@@ -315,11 +315,11 @@ Figure 8.3: De novo peptide sequencing using mass spectrometry. (Source <a href=
 ## #   number_pack_years_smoked &lt;dbl&gt;, year_of_tobacco_smoking_onset &lt;int&gt;,
 ## #   stopped_smoking_year &lt;int&gt;</code></pre>
 <p>When performing experiments, measurements should also be repeated several times (typically at least three), to quantify technical variability in the measured variables and, eventually, identify changes that relate to the conditions of interest (i.e. differences in genes expression in the presence or absence of the drug).</p>
-<div class="figure"><span id="fig:unnamed-chunk-197"></span>
+<div class="figure"><span id="fig:unnamed-chunk-198"></span>
 <p class="caption marginnote shownote">
 Figure 8.4: Distribution of the expression of the genes A1CF, BRCA1 and TP53 under the control (no drug) and drug at concentrations 1 and 5.
 </p>
-<img src="WSBIM1207_files/figure-html/unnamed-chunk-197-1.png" alt="Distribution of the expression of the genes A1CF, BRCA1 and TP53 under the control (no drug) and drug at concentrations 1 and 5." width="672"  />
+<img src="WSBIM1207_files/figure-html/unnamed-chunk-198-1.png" alt="Distribution of the expression of the genes A1CF, BRCA1 and TP53 under the control (no drug) and drug at concentrations 1 and 5." width="672"  />
 </div>
 </div>
 <div id="project-management-reminder" class="section level2">
@@ -460,9 +460,9 @@ Figure 8.7: A data structure to store quantitative data, features (rows) annotat
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-49" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-49&#39;, &#39;sol-start-49&#39;)"></span>
+► Solution<span id="sol-start-50" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-50&#39;, &#39;sol-start-50&#39;)"></span>
 </p>
-<div id="sol-body-49" class="solution-body" style="display: none;">
+<div id="sol-body-50" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nrow</span>(<span class="kw">exprs</span>(msnset)) <span class="op">==</span><span class="st"> </span><span class="kw">nrow</span>(<span class="kw">fData</span>(msnset))</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ncol</span>(<span class="kw">exprs</span>(msnset)) <span class="op">==</span><span class="st"> </span><span class="kw">nrow</span>(<span class="kw">pData</span>(msnset))</code></pre></div>
@@ -626,9 +626,9 @@ Figure 8.7: A data structure to store quantitative data, features (rows) annotat
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-50" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-50&#39;, &#39;sol-start-50&#39;)"></span>
+► Solution<span id="sol-start-51" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-51&#39;, &#39;sol-start-51&#39;)"></span>
 </p>
-<div id="sol-body-50" class="solution-body" style="display: none;">
+<div id="sol-body-51" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;pRolocdata&quot;</span>)</code></pre></div>
 <pre><code>## 
 ## This is pRolocdata version 1.20.0.
@@ -673,10 +673,10 @@ smpls &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">o &lt;-<span class="st"> </span><span class="kw">order</span>(mulvey2015<span class="op">$</span>times)
 p1 &lt;-<span class="st"> </span><span class="kw">exprs</span>(mulvey2015)[<span class="st">&quot;Q9WUA3&quot;</span>, o]
 <span class="kw">plot</span>(p1, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-215-1.png" width="672"  /></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-216-1.png" width="672"  /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p2 &lt;-<span class="st"> </span><span class="kw">exprs</span>(mulvey2015)[<span class="st">&quot;O89017&quot;</span>, o]
 <span class="kw">plot</span>(p2, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-215-2.png" width="672"  /></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-216-2.png" width="672"  /></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>

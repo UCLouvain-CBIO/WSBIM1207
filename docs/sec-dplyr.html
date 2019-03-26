@@ -1327,6 +1327,39 @@ Figure 4.1: Visualisation of beer consumption, highlighting different patterns o
 <p class="solution-end"><span class="fa fa-square-o solution-icon"></span></p></div></div>
 
  -->
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Using the <code>interroA.csv()</code> function from the <code>rWSBIM1207</code> package to get the path to the spreadsheet file, read the data into R using the <code>read_csv</code> function. This data is in the wide format, with the results of each test stored as a separate column.</p>
+<p>Using <code>gather</code>, convert the data into a <em>long</em> table with a column <code>interro</code> informing which test that line refers to and a column <code>result</code> with the student’s mark.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<!-- 
+
+<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-37' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-37', 'sol-start-37')"></span></p><div class="solution-body" id = "sol-body-37" style="display: none;">
+
+ -->
+<!-- ```{r} -->
+<!-- x <- read_csv(interroA.csv()) -->
+<!-- gather(x, key = interro, value = result, -->
+<!--        interro1, interro2, interro3, interro4) -->
+<!-- ## or -->
+<!-- gather(x, key = interro, value = result, -->
+<!--        -id, -height, -gender, -X) -->
+<!-- ## or -->
+<!-- gather(x, key = interro, value = result, -->
+<!--        starts_with("interro")) -->
+<!-- ``` -->
+<!-- 
+
+<p class="solution-end"><span class="fa fa-square-o solution-icon"></span></p></div></div>
+
+ -->
 
 </div>
 </div>

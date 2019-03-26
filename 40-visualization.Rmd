@@ -848,3 +848,23 @@ of 5 genes in each sample.
 
 <!-- ``` -->
 <!-- `r msmbstyle::solution_end()` -->
+
+`r msmbstyle::question_begin()`
+
+After gathering the *interroA* data from the `rWSBIM1207` package in a
+long table format (see additional exercise chapter \@ref(sec:dplyr)),
+visualise the results for each test and make and female students.
+
+`r msmbstyle::question_end()`
+
+
+```{r, echo=FALSE, include=FALSE}
+library("rWSBIM1207")
+x <- read_csv(interroA.csv())
+x <- gather(x, key = interro, value = result,
+       starts_with("interro"))
+ggplot(x, aes(x = gender, y = result)) +
+    geom_boxplot() + facet_grid(. ~ interro)
+```
+
+
