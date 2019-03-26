@@ -298,8 +298,8 @@ data(msnset)
 ```
 
 To illustrate such an omics data container, we'll make use of the
-`msnset` object that comes with the `MSnbase` package, which contains
-data for `r nrow(msnset)` features and `r ncol(msnset)`
+`msnset` object, of class `MSnSet` that comes with the `MSnbase`
+package, which contains data for`r nrow(msnset)` features and `r ncol(msnset)`
 samples.
 
 ```{r}
@@ -546,6 +546,8 @@ to keep up with the latest developments in Bioconductor. More details
 [here](https://bioconductor.org/developers/how-to/version-numbering/).
 
 
+## Exercises
+
 `r msmbstyle::question_begin()`
 
 1. Install a Bioconductor package of your choice, discover the
@@ -557,3 +559,70 @@ to keep up with the latest developments in Bioconductor. More details
    page on the Bioconductor page.
 
 `r msmbstyle::question_end()`
+
+
+`r msmbstyle::question_begin()`
+
+1. If not available, install the Bioconductor `pRolocdata` package.
+
+2. Load the `pRolocdata` package. Then, using the `data` function,
+   load the `mulvey2015` dataset.
+
+3. Find out the class of the object, and the number of features and
+   samples that it containes data for.
+
+4. Extract the quantitative information for the proteins `P17809`,
+   `Q9CR02` and `P02469` for samples `rep2_0hr` and
+   `rep3_16hr`. Subsetting works as we have seen for `data.frames` in
+   chapter 3.
+
+5. Look and interpret the experimental design stored in the sample
+   metadata of this experiment. To help you out, you can also read its
+   documentation.
+
+6. What is the average protein expression in the first replicate of
+   the first time point (`rep1_0hr`)?
+
+7. Compare the expression of proteins `Q9WUA3` and `O89017`.
+
+`r msmbstyle::question_end()`
+
+
+`r msmbstyle::solution_begin()`
+
+```{r}
+library("pRolocdata")
+data(mulvey2015)
+```
+
+```{r}
+class(mulvey2015)
+dim(mulvey2015)
+```
+
+```{r}
+prots <- c("P17809", "Q9CR02", "P02469")
+smpls <- c("rep2_0hr", "rep3_16hr")
+exprs(mulvey2015[prots, smpls])
+```
+
+```{r}
+pData(mulvey2015)
+```
+
+```{r, eval=FALSE}
+?mulvey2015
+```
+
+```{r}
+mean(exprs(mulvey2015)[, "rep1_0hr"])
+```
+
+```{r}
+p1 <- exprs(mulvey2015)["Q9WUA3", o]
+plot(p1, type = "b")
+p2 <- exprs(mulvey2015)["O89017", o]
+plot(p2, type = "b")
+```
+
+`r msmbstyle::solution_end()`

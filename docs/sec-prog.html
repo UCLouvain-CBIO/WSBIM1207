@@ -413,9 +413,9 @@ they need to be combined.</p>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-50" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-50&#39;, &#39;sol-start-50&#39;)"></span>
+► Solution<span id="sol-start-51" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-51&#39;, &#39;sol-start-51&#39;)"></span>
 </p>
-<div id="sol-body-50" class="solution-body" style="display: none;">
+<div id="sol-body-51" class="solution-body" style="display: none;">
 <p>Let’s start by loading the required packages and check two file. We
 will also use the <em>tidyverse</em> to work with the data.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
@@ -574,9 +574,9 @@ and you should get 4825.2778709 and 32.</p>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-51" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-51&#39;, &#39;sol-start-51&#39;)"></span>
+► Solution<span id="sol-start-52" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-52&#39;, &#39;sol-start-52&#39;)"></span>
 </p>
-<div id="sol-body-51" class="solution-body" style="display: none;">
+<div id="sol-body-52" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">fun</code></pre>
 <pre><code>## function(x, y) {
 ##     res &lt;- NA
@@ -587,7 +587,7 @@ and you should get 4825.2778709 and 32.</p>
 ##     }
 ##     return(sum(res))
 ## }
-## &lt;bytecode: 0x55fa557e7ca0&gt;</code></pre>
+## &lt;bytecode: 0x55a23ed2c158&gt;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(1L)
 res1 &lt;-<span class="st"> </span><span class="kw">fun</span>(<span class="dv">5</span>, <span class="dv">15</span>)
 <span class="kw">set.seed</span>(1L)
@@ -673,9 +673,9 @@ all the functionality we will need.</li>
 </ol>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-52" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-52&#39;, &#39;sol-start-52&#39;)"></span>
+► Solution<span id="sol-start-53" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-53&#39;, &#39;sol-start-53&#39;)"></span>
 </p>
-<div id="sol-body-52" class="solution-body" style="display: none;">
+<div id="sol-body-53" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;rWSBIM1207&quot;</span>)
 <span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre>
 <p class="solution-end">
@@ -690,9 +690,9 @@ names.</li>
 </ol>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-53" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-53&#39;, &#39;sol-start-53&#39;)"></span>
+► Solution<span id="sol-start-54" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-54&#39;, &#39;sol-start-54&#39;)"></span>
 </p>
-<div id="sol-body-53" class="solution-body" style="display: none;">
+<div id="sol-body-54" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">fls &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">interroA.csv</span>(),
          <span class="kw">interroB.csv</span>())
 fls</code></pre>
@@ -710,9 +710,9 @@ dataframe containing all results.</li>
 </ol>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-54" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-54&#39;, &#39;sol-start-54&#39;)"></span>
+► Solution<span id="sol-start-55" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-55&#39;, &#39;sol-start-55&#39;)"></span>
 </p>
-<div id="sol-body-54" class="solution-body" style="display: none;">
+<div id="sol-body-55" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">l &lt;-<span class="st"> </span><span class="kw">as.list</span>(fls)
 <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(fls))
     l[[i]] &lt;-<span class="st"> </span><span class="kw">read_csv</span>(fls[i])</code></pre>
@@ -794,9 +794,9 @@ interros</code></pre>
 </ol>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-55" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-55&#39;, &#39;sol-start-55&#39;)"></span>
+► Solution<span id="sol-start-56" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-56&#39;, &#39;sol-start-56&#39;)"></span>
 </p>
-<div id="sol-body-55" class="solution-body" style="display: none;">
+<div id="sol-body-56" class="solution-body" style="display: none;">
 <pre class="sourceCode r"><code class="sourceCode r">interros <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">group_by</span>(gender) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">summarise</span>(<span class="dt">m1 =</span> <span class="kw">mean</span>(interro1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
@@ -819,9 +819,9 @@ interros</code></pre>
 </ol>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-56" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-56&#39;, &#39;sol-start-56&#39;)"></span>
+► Solution<span id="sol-start-57" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-57&#39;, &#39;sol-start-57&#39;)"></span>
 </p>
-<div id="sol-body-56" class="solution-body" style="display: none;">
+<div id="sol-body-57" class="solution-body" style="display: none;">
 <p>To answer this question, we need to be able to tell the two groups
 apart. This information is however not available in the full
 dataset. We could analyse the two test individually to answer this
@@ -889,9 +889,9 @@ to the boxplots, overlay the actual score values (using the
 </ol>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-57" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-57&#39;, &#39;sol-start-57&#39;)"></span>
+► Solution<span id="sol-start-58" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-58&#39;, &#39;sol-start-58&#39;)"></span>
 </p>
-<div id="sol-body-57" class="solution-body" style="display: none;">
+<div id="sol-body-58" class="solution-body" style="display: none;">
 <p>The produce this visualisation, we first need to convert the data we
 have in a long format using <code>gather</code>. Below, we create two new
 variables: <code>test</code>, that contains <code>interro1</code>, …, <code>interro4</code>, and
@@ -925,7 +925,7 @@ axes and construct the visualisation.</p>
 <span class="st">    </span><span class="kw">facet_grid</span>(gender <span class="op">~</span><span class="st"> </span>group)</code></pre>
 <pre><code>## Warning: Removed 36 rows containing non-finite values (stat_boxplot).</code></pre>
 <pre><code>## Warning: Removed 36 rows containing missing values (geom_point).</code></pre>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-240-1.png" width="672"  /></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-246-1.png" width="672"  /></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
