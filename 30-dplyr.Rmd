@@ -1155,3 +1155,35 @@ knitr::kable(clinical_table_ex1)
 
 
 <!-- `r msmbstyle::solution_end()` -->
+
+`r msmbstyle::question_begin()`
+
+Using the `interroA.csv()` function from the `rWSBIM1207` package to
+get the path to the spreadsheet file, read the data into R using the
+`read_csv` function. This data is in the wide format, with the results
+of each test stored as a separate column.
+
+Using `gather`, convert the data into a *long* table with a column
+`interro` informing which test that line refers to and a column
+`result` with the student's mark.
+
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+```{r}
+x <- read_csv(interroA.csv())
+
+gather(x, key = interro, value = result,
+       interro1, interro2, interro3, interro4)
+
+## or
+
+gather(x, key = interro, value = result,
+       -id, -height, -gender, -X)
+
+## or
+
+gather(x, key = interro, value = result,
+       starts_with("interro"))                                                     
+```
+`r msmbstyle::solution_end()`
