@@ -6,11 +6,11 @@ manually encoded in spreadsheet, or handled in R as dataframes or
 tibbles. More complex data, that doesn't fit in tabular data, can be
 modelled into dedicated objects that display specialised
 behaviour. Structured data allows us to reason on that data, without
-having to look it at. Reason and generalisation of data in turn allows
-to manipulate and visualise it, i.e. to explore, analyse and
-understand it. The cherry on the data analysis cake is to be able to
-reproduce an analysis, either oneself or share it in a way that other
-can.
+having to look it at. Reasoning on and generalisation of data in turn
+allows to manipulate and visualise it, i.e. to explore, analyse and
+understand it. The cherry on top of the data analysis cake is to be
+able to reproduce an analysis, either oneself or share it in a way
+that other can.
 
 As mentioned in the preamble, the goal of this course is obviously not
 for students that take it to qualify as bioinformaticians at the
@@ -21,14 +21,19 @@ complexity will hopefully reduce the distinction between
 bioinformaticians and experimental scientists. Indeed, at the end of
 the end, it's useful to remember that
 
-> We are all biologists, in that we study biology. Some use wet lab,
-> others dry lab techniques.
+> We are all biologists, in that we study biology. Some use wet lab
+> experiments, others dry lab techniques.
 
 ## Next steps
 
-- Statistics and machine learning (your statis courses and some of it
-  in [WSBIM1322](https://github.com/UCLouvain-CBIO/WSBIM1322)).
-- getting better at programming and data analysis (Advanced R).
-- evolving scripts into tools/packages (R packages).
-- other tools: unix command line and git (provide refs)
-- omics data analysis ([WSBIM2122](https://github.com/UCLouvain-CBIO/WSBIM2122)).
+- Statistics and machine learning (see your statistics courses and the
+  follow course
+  [WSBIM1322](https://github.com/UCLouvain-CBIO/WSBIM1322)).
+- Getting better at programming and data analysis. See 
+  [@r4ds:2017] and [@advancedR].
+- Evolving scripts into tools/packages [@rpkgs:2015].
+- Other tools: unix command line and git/GitHub [@Perez-Riverol:2016].
+  See also this [short
+  tutorial](https://lgatto.github.io/github-intro/).
+- Omics data analysis (see upcoming
+  [WSBIM2122](https://github.com/UCLouvain-CBIO/WSBIM2122) course).
