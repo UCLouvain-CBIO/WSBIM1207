@@ -588,37 +588,23 @@ to keep up with the latest developments in Bioconductor. More details
 `r msmbstyle::question_end()`
 
 
-`r msmbstyle::solution_begin()`
-
-```{r}
+```{r, echo=FALSE, include=FALSE}
 library("pRolocdata")
 data(mulvey2015)
-```
 
-```{r}
 class(mulvey2015)
 dim(mulvey2015)
-```
 
-```{r}
 prots <- c("P17809", "Q9CR02", "P02469")
 smpls <- c("rep2_0hr", "rep3_16hr")
 exprs(mulvey2015[prots, smpls])
-```
 
-```{r}
 pData(mulvey2015)
-```
+## ?mulvey2015 to read the documentation
 
-```{r, eval=FALSE}
-?mulvey2015
-```
-
-```{r}
 mean(exprs(mulvey2015)[, "rep1_0hr"])
-```
 
-```{r}
+## order accoring to time points
 o <- order(mulvey2015$times)
 p1 <- exprs(mulvey2015)["Q9WUA3", o]
 plot(p1, type = "b")
@@ -626,4 +612,3 @@ p2 <- exprs(mulvey2015)["O89017", o]
 plot(p2, type = "b")
 ```
 
-`r msmbstyle::solution_end()`

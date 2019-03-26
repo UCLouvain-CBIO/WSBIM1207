@@ -422,31 +422,30 @@ environment.
 `r msmbstyle::question_end()`
 
 
-<!-- `r msmbstyle::solution_begin()` -->
-<!-- ```{r} -->
-<!-- library("rWSBIM1207") -->
-<!-- data(expression) -->
-<!-- data(clinical2) -->
 
-<!-- nrow(clinical2) -->
-<!-- nrow(expression) -->
+```{r, echo=FALSE, include=FALSE}
+library("rWSBIM1207")
+data(expression)
+data(clinical2)
 
-<!-- ## Join the `expression` and `clinical2` tables by the patient -->
-<!-- ## reference, using the `left_join` and the `right_join` -->
-<!-- ## functions. Why are the results different? -->
-<!-- right_join(expression, clinical2, by = c("patient" = "patientID")) -->
-<!-- left_join(expression, clinical2, by = c("patient" = "patientID")) -->
+nrow(clinical2)
+nrow(expression)
 
-<!-- ## Difference due to 3 patients recorded in clinical data are not -->
-<!-- ## recorded in expression. -->
-<!-- length(clinical2$patientID) -->
-<!-- length(unique(expression$patient)) -->
+## Join the `expression` and `clinical2` tables by the patient
+## reference, using the `left_join` and the `right_join`
+## functions. Why are the results different?
+right_join(expression, clinical2, by = c("patient" = "patientID"))
+left_join(expression, clinical2, by = c("patient" = "patientID"))
 
-<!-- ## Join `expression` and `clinical2` tables in order to create a table -->
-<!-- ## containing merged data exclusively for normal samples. -->
-<!-- expression %>% -->
-<!--   filter(type == "normal") %>% -->
-<!--   left_join(clinical2, by = c("patient" = "patientID")) -->
+## Difference due to 3 patients recorded in clinical data are not
+## recorded in expression.
+length(clinical2$patientID)
+length(unique(expression$patient))
 
-<!-- ``` -->
-<!-- `r msmbstyle::solution_end()` -->
+## Join `expression` and `clinical2` tables in order to create a table
+## containing merged data exclusively for normal samples.
+expression %>%
+  filter(type == "normal") %>%
+  left_join(clinical2, by = c("patient" = "patientID"))
+```
+

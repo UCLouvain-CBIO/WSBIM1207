@@ -219,9 +219,9 @@ surveys_plot
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-38" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-38&#39;, &#39;sol-start-38&#39;)"></span>
+► Solution<span id="sol-start-32" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-32&#39;, &#39;sol-start-32&#39;)"></span>
 </p>
-<div id="sol-body-38" class="solution-body" style="display: none;">
+<div id="sol-body-32" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;hexbin&quot;</span>)
 <span class="kw">library</span>(<span class="st">&quot;hexbin&quot;</span>)</code></pre></div>
 <p class="solution-end">
@@ -283,12 +283,12 @@ surveys_plot
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-39" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-39&#39;, &#39;sol-start-39&#39;)"></span>
+► Solution<span id="sol-start-33" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-33&#39;, &#39;sol-start-33&#39;)"></span>
 </p>
-<div id="sol-body-39" class="solution-body" style="display: none;">
+<div id="sol-body-33" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> species_id, <span class="dt">y =</span> weight)) <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> plot_type))</code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-177-1.png" width="672"  /></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-188-1.png" width="672"  /></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -390,9 +390,9 @@ surveys_plot
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-40" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-40&#39;, &#39;sol-start-40&#39;)"></span>
+► Solution<span id="sol-start-34" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-34&#39;, &#39;sol-start-34&#39;)"></span>
 </p>
-<div id="sol-body-40" class="solution-body" style="display: none;">
+<div id="sol-body-34" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">yearly_weight &lt;-<span class="st"> </span>surveys_complete <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">group_by</span>(year, species_id) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">summarize</span>(<span class="dt">avg_weight =</span> <span class="kw">mean</span>(weight))
@@ -508,16 +508,16 @@ spp_count_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<spa
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">spp_count_plot &lt;-<span class="st"> </span>spp_count_plot <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)
 <span class="kw">library</span>(<span class="st">&quot;patchwork&quot;</span>)
 spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot</code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-180-1.png" width="672"  /></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-191-1.png" width="672"  /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot <span class="op">+</span><span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>)</code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-181-1.png" width="672"  /></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-192-1.png" width="672"  /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">spp_weight_boxplot <span class="op">/</span><span class="st"> </span>spp_count_plot</code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-182-1.png" width="672"  /></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-193-1.png" width="672"  /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">spp_weight_boxplot <span class="op">+</span>
 <span class="st"> </span>(spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot) <span class="op">+</span>
 <span class="st"> </span>spp_count_plot <span class="op">+</span>
 <span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>)</code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-183-1.png" width="672"  /></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-194-1.png" width="672"  /></p>
 </div>
 <div id="exporting-plots" class="section level2">
 <h2><span class="header-section-number">5.9</span> Exporting plots</h2>
@@ -594,7 +594,7 @@ Figure 5.2: Plotting boxplots (top) and histograms (bottom) vectors (left) or a 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;rWSBIM1207&quot;</span>)
 <span class="kw">data</span>(beers)</code></pre></div>
 <p>Analyse the data to answer the question <em>Do men drink more than women according to age and working status?</em> Now reproduce the figure below.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-185"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-196"></span>
 <p class="caption marginnote shownote">
 Figure 5.3: Visualisation of beer consumption, highlighting different patterns of beer consumption in employed and unemployed males and females.
 </p>
@@ -605,31 +605,6 @@ Figure 5.3: Visualisation of beer consumption, highlighting different patterns o
 </p>
 </div>
 </div>
-<!-- 
-
-<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-41' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-41', 'sol-start-41')"></span></p><div class="solution-body" id = "sol-body-41" style="display: none;">
-
- -->
-<!-- ```{r} -->
-<!-- library("dplyr") -->
-<!-- beers3 <- beers %>% -->
-<!--     filter(!is.na(Consumption)) %>% -->
-<!--     group_by(Gender, Age, Work) %>% -->
-<!--     summarize(mean_consumption = mean(Consumption)) -->
-<!-- library("ggplot2") -->
-<!-- ggplot(data = beers3, -->
-<!--        mapping = aes(x = Age, y = mean_consumption, colour = Work)) + -->
-<!--   geom_line() + -->
-<!--   geom_point() + -->
-<!--   facet_wrap(~ Gender) + -->
-<!--   labs(title = "Mean consumption of beers according to age, employment status and gender", -->
-<!--        y = "Mean consumption (Litre)") -->
-<!-- ``` -->
-<!-- 
-
-<p class="solution-end"><span class="fa fa-square-o solution-icon"></span></p></div></div>
-
- -->
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -657,64 +632,6 @@ Figure 5.3: Visualisation of beer consumption, highlighting different patterns o
 </p>
 </div>
 </div>
-<!-- 
-
-<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-42' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-42', 'sol-start-42')"></span></p><div class="solution-body" id = "sol-body-42" style="display: none;">
-
- -->
-<!-- ```{r} -->
-<!-- library("rWSBIM1207") -->
-<!-- library("readr") -->
-<!-- library("ggplot2") -->
-<!-- expression <- read_csv(expression.csv()) -->
-<!-- ## Using geom_point, draw a plot showing distribution of expression -->
-<!-- ## levels of A2LD1 in normal tissue samples and in primary tumor samples -->
-<!-- ggplot(data = expression, -->
-<!--        mapping = aes(x = type, y = A2LD1)) + -->
-<!--   geom_point() -->
-<!-- ## Repeat this visualisation using this time the geom_jitter. Which -->
-<!-- ## representation is more appropriate? Why? -->
-<!-- ggplot(data = expression, -->
-<!--        mapping = aes(x = type, y = A2LD1)) + -->
-<!--     geom_jitter() -->
-<!-- ## Colour the samples according to the tissue type. -->
-<!-- ggplot(data = expression, -->
-<!--        mapping = aes(x = type, y = A2LD1, colour = type)) + -->
-<!--   geom_jitter() -->
-<!-- ## Colour the samples according to their expression level in A2ML1. -->
-<!-- ggplot(data = expression, -->
-<!--        mapping = aes(x = type, y = A2LD1, colour = A2ML1)) + -->
-<!--   geom_jitter() -->
-<!-- ## Highlight the points corresponding to patient "TCGA-73-4676" -->
-<!-- ggplot(data = expression, -->
-<!--        mapping = aes(x = type, y = A2LD1, -->
-<!--                      colour = patient == "TCGA-73-4676")) + -->
-<!--   geom_jitter() -->
-<!-- ## Add a transparent boxplot to the graph. -->
-<!-- ggplot(data = expression, mapping = aes(x = type, y = A2LD1)) + -->
-<!--   geom_jitter(aes(colour = type)) + -->
-<!--   geom_boxplot(alpha = 0) -->
-<!-- ## Change the y scale to log10 scale. -->
-<!-- ggplot(data = expression, mapping = aes(x = type, y = A2LD1)) + -->
-<!--   geom_jitter(aes(colour = type)) + -->
-<!--   geom_boxplot(alpha = 0) + -->
-<!--     scale_y_log10() -->
-<!-- ## Visualise the expression of A1BG against that of A2LD1 setting the -->
-<!-- ## x axis on the log10 scale. Colours the observations based on their -->
-<!-- ## type and resize the points according to the expression level of the -->
-<!-- ## A2ML1 gene. -->
-<!-- ggplot(data = expression, -->
-<!--        mapping = aes(x = A1BG, y = A2LD1, -->
-<!--                      colour = type, -->
-<!--                      size = A2ML1)) + -->
-<!--     geom_point() + -->
-<!--     scale_x_log10() -->
-<!-- ``` -->
-<!-- 
-
-<p class="solution-end"><span class="fa fa-square-o solution-icon"></span></p></div></div>
-
- -->
 <div class="question">
 <p class="question-begin">
 ► Question

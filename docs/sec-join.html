@@ -240,9 +240,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-43" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-43&#39;, &#39;sol-start-43&#39;)"></span>
+► Solution<span id="sol-start-35" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-35&#39;, &#39;sol-start-35&#39;)"></span>
 </p>
-<div id="sol-body-43" class="solution-body" style="display: none;">
+<div id="sol-body-35" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">full_join</span>(jdf4, jdf5)</code></pre></div>
 <pre><code>## Joining, by = &quot;uniprot&quot;</code></pre>
 <pre><code>## # A tibble: 14 x 6
@@ -275,7 +275,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li>An <strong>inner join</strong> keeps observations that are present in both tables.</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-187"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-200"></span>
 <p class="caption marginnote shownote">
 Figure 6.1: An inner join matches pairs of observation matching in both tables, this dropping those that are unique to one table. Figure taken from <em>R for Data Science</em>.
 </p>
@@ -286,7 +286,7 @@ Figure 6.1: An inner join matches pairs of observation matching in both tables, 
 <li>A <strong>right join</strong> keeps observations that are present in the right (second) table, dropping those that are only present in the other.</li>
 <li>A <strong>full join</strong> keeps all observations.</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-188"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-201"></span>
 <p class="caption marginnote shownote">
 Figure 6.2: Outer joins match observations that appear in at least on table, filling up missing values with <code>NA</code> values. Figure taken from <em>R for Data Science</em>.
 </p>
@@ -305,9 +305,9 @@ Figure 6.2: Outer joins match observations that appear in at least on table, fil
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-44" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-44&#39;, &#39;sol-start-44&#39;)"></span>
+► Solution<span id="sol-start-36" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-36&#39;, &#39;sol-start-36&#39;)"></span>
 </p>
-<div id="sol-body-44" class="solution-body" style="display: none;">
+<div id="sol-body-36" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">left_join</span>(jdf4, jdf5)</code></pre></div>
 <pre><code>## Joining, by = &quot;uniprot&quot;</code></pre>
 <pre><code>## # A tibble: 10 x 6
@@ -341,9 +341,9 @@ Figure 6.2: Outer joins match observations that appear in at least on table, fil
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-45" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-45&#39;, &#39;sol-start-45&#39;)"></span>
+► Solution<span id="sol-start-37" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-37&#39;, &#39;sol-start-37&#39;)"></span>
 </p>
-<div id="sol-body-45" class="solution-body" style="display: none;">
+<div id="sol-body-37" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">right_join</span>(jdf4, jdf5)</code></pre></div>
 <pre><code>## Joining, by = &quot;uniprot&quot;</code></pre>
 <pre><code>## # A tibble: 5 x 6
@@ -372,9 +372,9 @@ Figure 6.2: Outer joins match observations that appear in at least on table, fil
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-46" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-46&#39;, &#39;sol-start-46&#39;)"></span>
+► Solution<span id="sol-start-38" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-38&#39;, &#39;sol-start-38&#39;)"></span>
 </p>
-<div id="sol-body-46" class="solution-body" style="display: none;">
+<div id="sol-body-38" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">inner_join</span>(jdf4, jdf5)</code></pre></div>
 <pre><code>## Joining, by = &quot;uniprot&quot;</code></pre>
 <pre><code>## # A tibble: 1 x 6
@@ -434,11 +434,11 @@ Figure 6.2: Outer joins match observations that appear in at least on table, fil
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-47" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-47&#39;, &#39;sol-start-47&#39;)"></span>
+► Solution<span id="sol-start-39" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-39&#39;, &#39;sol-start-39&#39;)"></span>
 </p>
-<div id="sol-body-47" class="solution-body" style="display: none;">
+<div id="sol-body-39" class="solution-body" style="display: none;">
 <p><code>jdf6</code> has two entries, one for each possible sub-cellular localisation of the protein. <code>jdf7</code> has also two entries, referring to two different quantitative measurements (variable <code>measure</code>). When joining the duplicated keys, you get all possible combinations.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-189"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-202"></span>
 <p class="caption marginnote shownote">
 Figure 6.3: Joins with duplicated keys in both tables, producing all possible combinations. Figure taken from <em>R for Data Science</em>.
 </p>
@@ -476,9 +476,9 @@ Figure 6.3: Joins with duplicated keys in both tables, producing all possible co
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-48" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-48&#39;, &#39;sol-start-48&#39;)"></span>
+► Solution<span id="sol-start-40" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-40&#39;, &#39;sol-start-40&#39;)"></span>
 </p>
-<div id="sol-body-48" class="solution-body" style="display: none;">
+<div id="sol-body-40" class="solution-body" style="display: none;">
 <p>Ideally, the isoform variables should be named identically in the two tables, which would enable and automatic join with the two keys. Below, we first fix the misnamed variable in <code>jdf7</code>. Instead of updating the variable name by checking its index manually, we grep it programmatically and store it in a new variable <code>i</code>. We can then join the two tables without having to specify the two keys explicitly.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">i &lt;-<span class="st"> </span><span class="kw">grep</span>(<span class="st">&quot;isoform&quot;</span>, <span class="kw">names</span>(jdf7))
 <span class="kw">names</span>(jdf7)[i] &lt;-<span class="st"> &quot;isoform&quot;</span>
@@ -606,37 +606,6 @@ Figure 6.4: Matching dimension and names when binding by rows and columns.
 </p>
 </div>
 </div>
-<!-- 
-
-<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-49' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-49', 'sol-start-49')"></span></p><div class="solution-body" id = "sol-body-49" style="display: none;">
-
- -->
-<!-- ```{r} -->
-<!-- library("rWSBIM1207") -->
-<!-- data(expression) -->
-<!-- data(clinical2) -->
-<!-- nrow(clinical2) -->
-<!-- nrow(expression) -->
-<!-- ## Join the `expression` and `clinical2` tables by the patient -->
-<!-- ## reference, using the `left_join` and the `right_join` -->
-<!-- ## functions. Why are the results different? -->
-<!-- right_join(expression, clinical2, by = c("patient" = "patientID")) -->
-<!-- left_join(expression, clinical2, by = c("patient" = "patientID")) -->
-<!-- ## Difference due to 3 patients recorded in clinical data are not -->
-<!-- ## recorded in expression. -->
-<!-- length(clinical2$patientID) -->
-<!-- length(unique(expression$patient)) -->
-<!-- ## Join `expression` and `clinical2` tables in order to create a table -->
-<!-- ## containing merged data exclusively for normal samples. -->
-<!-- expression %>% -->
-<!--   filter(type == "normal") %>% -->
-<!--   left_join(clinical2, by = c("patient" = "patientID")) -->
-<!-- ``` -->
-<!-- 
-
-<p class="solution-end"><span class="fa fa-square-o solution-icon"></span></p></div></div>
-
- -->
 
 </div>
 </div>

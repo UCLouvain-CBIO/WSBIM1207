@@ -716,28 +716,22 @@ knitr::include_graphics("./figs/ggplot-beer.png")
 ```
 `r msmbstyle::question_end()`
 
+```{r, echo=FALSE, include=FALSE}
+library("dplyr")
+beers3 <- beers %>%
+    filter(!is.na(Consumption)) %>%
+    group_by(Gender, Age, Work) %>%
+    summarize(mean_consumption = mean(Consumption))
 
-<!-- `r msmbstyle::solution_begin()` -->
-
-<!-- ```{r} -->
-<!-- library("dplyr") -->
-<!-- beers3 <- beers %>% -->
-<!--     filter(!is.na(Consumption)) %>% -->
-<!--     group_by(Gender, Age, Work) %>% -->
-<!--     summarize(mean_consumption = mean(Consumption)) -->
-
-<!-- library("ggplot2") -->
-<!-- ggplot(data = beers3, -->
-<!--        mapping = aes(x = Age, y = mean_consumption, colour = Work)) + -->
-<!--   geom_line() + -->
-<!--   geom_point() + -->
-<!--   facet_wrap(~ Gender) + -->
-<!--   labs(title = "Mean consumption of beers according to age, employment status and gender", -->
-<!--        y = "Mean consumption (Litre)") -->
-<!-- ``` -->
-
-<!-- `r msmbstyle::solution_end()` -->
-
+library("ggplot2")
+ggplot(data = beers3,
+       mapping = aes(x = Age, y = mean_consumption, colour = Work)) +
+  geom_line() +
+  geom_point() +
+  facet_wrap(~ Gender) +
+  labs(title = "Mean consumption of beers according to age, employment status and gender",
+       y = "Mean consumption (Litre)")
+```
 
 `r msmbstyle::question_begin()`
 
@@ -787,67 +781,64 @@ of 5 genes in each sample.
 `r msmbstyle::question_end()`
 
 
-<!-- `r msmbstyle::solution_begin()` -->
-<!-- ```{r} -->
-<!-- library("rWSBIM1207") -->
-<!-- library("readr") -->
-<!-- library("ggplot2") -->
-<!-- expression <- read_csv(expression.csv()) -->
+```{r, echo=FALSE, include=FALSE}
+library("rWSBIM1207")
+library("readr")
+library("ggplot2")
+expression <- read_csv(expression.csv())
 
-<!-- ## Using geom_point, draw a plot showing distribution of expression -->
-<!-- ## levels of A2LD1 in normal tissue samples and in primary tumor samples -->
-<!-- ggplot(data = expression, -->
-<!--        mapping = aes(x = type, y = A2LD1)) + -->
-<!--   geom_point() -->
+## Using geom_point, draw a plot showing distribution of expression
+## levels of A2LD1 in normal tissue samples and in primary tumor samples
+ggplot(data = expression,
+       mapping = aes(x = type, y = A2LD1)) +
+  geom_point()
 
-<!-- ## Repeat this visualisation using this time the geom_jitter. Which -->
-<!-- ## representation is more appropriate? Why? -->
-<!-- ggplot(data = expression, -->
-<!--        mapping = aes(x = type, y = A2LD1)) + -->
-<!--     geom_jitter() -->
+## Repeat this visualisation using this time the geom_jitter. Which
+## representation is more appropriate? Why?
+ggplot(data = expression,
+       mapping = aes(x = type, y = A2LD1)) +
+    geom_jitter()
 
-<!-- ## Colour the samples according to the tissue type. -->
-<!-- ggplot(data = expression, -->
-<!--        mapping = aes(x = type, y = A2LD1, colour = type)) + -->
-<!--   geom_jitter() -->
-
-
-<!-- ## Colour the samples according to their expression level in A2ML1. -->
-<!-- ggplot(data = expression, -->
-<!--        mapping = aes(x = type, y = A2LD1, colour = A2ML1)) + -->
-<!--   geom_jitter() -->
-
-<!-- ## Highlight the points corresponding to patient "TCGA-73-4676" -->
-<!-- ggplot(data = expression, -->
-<!--        mapping = aes(x = type, y = A2LD1, -->
-<!--                      colour = patient == "TCGA-73-4676")) + -->
-<!--   geom_jitter() -->
-
-<!-- ## Add a transparent boxplot to the graph. -->
-<!-- ggplot(data = expression, mapping = aes(x = type, y = A2LD1)) + -->
-<!--   geom_jitter(aes(colour = type)) + -->
-<!--   geom_boxplot(alpha = 0) -->
-
-<!-- ## Change the y scale to log10 scale. -->
-<!-- ggplot(data = expression, mapping = aes(x = type, y = A2LD1)) + -->
-<!--   geom_jitter(aes(colour = type)) + -->
-<!--   geom_boxplot(alpha = 0) + -->
-<!--     scale_y_log10() -->
+## Colour the samples according to the tissue type.
+ggplot(data = expression,
+       mapping = aes(x = type, y = A2LD1, colour = type)) +
+  geom_jitter()
 
 
-<!-- ## Visualise the expression of A1BG against that of A2LD1 setting the -->
-<!-- ## x axis on the log10 scale. Colours the observations based on their -->
-<!-- ## type and resize the points according to the expression level of the -->
-<!-- ## A2ML1 gene. -->
-<!-- ggplot(data = expression, -->
-<!--        mapping = aes(x = A1BG, y = A2LD1, -->
-<!--                      colour = type, -->
-<!--                      size = A2ML1)) + -->
-<!--     geom_point() + -->
-<!--     scale_x_log10() -->
+## Colour the samples according to their expression level in A2ML1.
+ggplot(data = expression,
+       mapping = aes(x = type, y = A2LD1, colour = A2ML1)) +
+  geom_jitter()
 
-<!-- ``` -->
-<!-- `r msmbstyle::solution_end()` -->
+## Highlight the points corresponding to patient "TCGA-73-4676"
+ggplot(data = expression,
+       mapping = aes(x = type, y = A2LD1,
+                     colour = patient == "TCGA-73-4676")) +
+  geom_jitter()
+
+## Add a transparent boxplot to the graph.
+ggplot(data = expression, mapping = aes(x = type, y = A2LD1)) +
+  geom_jitter(aes(colour = type)) +
+  geom_boxplot(alpha = 0)
+
+## Change the y scale to log10 scale.
+ggplot(data = expression, mapping = aes(x = type, y = A2LD1)) +
+  geom_jitter(aes(colour = type)) +
+  geom_boxplot(alpha = 0) +
+    scale_y_log10()
+
+## Visualise the expression of A1BG against that of A2LD1 setting the
+## x axis on the log10 scale. Colours the observations based on their
+## type and resize the points according to the expression level of the
+## A2ML1 gene.
+ggplot(data = expression,
+       mapping = aes(x = A1BG, y = A2LD1,
+                     colour = type,
+                     size = A2ML1)) +
+    geom_point() +
+    scale_x_log10()
+
+```
 
 `r msmbstyle::question_begin()`
 
@@ -862,7 +853,8 @@ visualise the results for each test and make and female students.
 library("rWSBIM1207")
 x <- read_csv(interroA.csv())
 x <- gather(x, key = interro, value = result,
-       starts_with("interro"))
+            starts_with("interro"))
+
 ggplot(x, aes(x = gender, y = result)) +
     geom_boxplot() + facet_grid(. ~ interro)
 ```

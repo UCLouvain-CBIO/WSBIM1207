@@ -318,9 +318,9 @@ surveys_sml</code></pre></div>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-28" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-28&#39;, &#39;sol-start-28&#39;)"></span>
+► Solution<span id="sol-start-25" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-25&#39;, &#39;sol-start-25&#39;)"></span>
 </p>
-<div id="sol-body-28" class="solution-body" style="display: none;">
+<div id="sol-body-25" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">filter</span>(year <span class="op">&lt;</span><span class="st"> </span><span class="dv">1995</span>) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">select</span>(year, sex, weight)</code></pre></div>
@@ -432,9 +432,9 @@ surveys_sml</code></pre></div>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-29" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-29&#39;, &#39;sol-start-29&#39;)"></span>
+► Solution<span id="sol-start-26" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-26&#39;, &#39;sol-start-26&#39;)"></span>
 </p>
-<div id="sol-body-29" class="solution-body" style="display: none;">
+<div id="sol-body-26" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys_hindfoot_half &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(hindfoot_length)) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">mutate</span>(<span class="dt">hindfoot_half =</span> hindfoot_length <span class="op">/</span><span class="st"> </span><span class="dv">2</span>) <span class="op">%&gt;%</span>
@@ -696,9 +696,9 @@ surveys_sml</code></pre></div>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-30" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-30&#39;, &#39;sol-start-30&#39;)"></span>
+► Solution<span id="sol-start-27" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-27&#39;, &#39;sol-start-27&#39;)"></span>
 </p>
-<div id="sol-body-30" class="solution-body" style="display: none;">
+<div id="sol-body-27" class="solution-body" style="display: none;">
 <ol style="list-style-type: decimal">
 <li>How many animals were caught in each <code>plot_type</code> surveyed?</li>
 </ol>
@@ -925,9 +925,9 @@ surveys_sml</code></pre></div>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-31" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-31&#39;, &#39;sol-start-31&#39;)"></span>
+► Solution<span id="sol-start-28" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-28&#39;, &#39;sol-start-28&#39;)"></span>
 </p>
-<div id="sol-body-31" class="solution-body" style="display: none;">
+<div id="sol-body-28" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rich_time &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(plot_id, year) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n_genera =</span> <span class="kw">n_distinct</span>(genus)) <span class="op">%&gt;%</span>
@@ -965,9 +965,9 @@ surveys_sml</code></pre></div>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-32" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-32&#39;, &#39;sol-start-32&#39;)"></span>
+► Solution<span id="sol-start-29" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-29&#39;, &#39;sol-start-29&#39;)"></span>
 </p>
-<div id="sol-body-32" class="solution-body" style="display: none;">
+<div id="sol-body-29" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rich_time <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">gather</span>(year, n_genera, <span class="op">-</span>plot_id)</code></pre></div>
 <pre><code>## # A tibble: 624 x 3
@@ -1004,9 +1004,9 @@ surveys_sml</code></pre></div>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-33" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-33&#39;, &#39;sol-start-33&#39;)"></span>
+► Solution<span id="sol-start-30" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-30&#39;, &#39;sol-start-30&#39;)"></span>
 </p>
-<div id="sol-body-33" class="solution-body" style="display: none;">
+<div id="sol-body-30" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys_long &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">gather</span>(measurement, value, hindfoot_length, weight)
 <span class="kw">head</span>(surveys_long)</code></pre></div>
@@ -1039,9 +1039,9 @@ surveys_sml</code></pre></div>
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-34" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-34&#39;, &#39;sol-start-34&#39;)"></span>
+► Solution<span id="sol-start-31" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-31&#39;, &#39;sol-start-31&#39;)"></span>
 </p>
-<div id="sol-body-34" class="solution-body" style="display: none;">
+<div id="sol-body-31" class="solution-body" style="display: none;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys_long <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(year, measurement, plot_type) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_value =</span> <span class="kw">mean</span>(value, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)) <span class="op">%&gt;%</span>
@@ -1123,76 +1123,8 @@ surveys_complete &lt;-<span class="st"> </span>surveys_complete <span class="op"
 </p>
 </div>
 </div>
-<!-- 
-
-<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-35' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-35', 'sol-start-35')"></span></p><div class="solution-body" id = "sol-body-35" style="display: none;">
-
- -->
-<!-- ```{r, message = FALSE} -->
-<!-- library("rWSBIM1207") -->
-<!-- library("dplyr") -->
-<!-- library("magrittr") -->
-<!-- data("beers") -->
-<!-- ## Dealing with missing values -->
-<!-- anyNA(beers) -->
-<!-- beers2 <- beers %>% -->
-<!--     filter(!is.na(Consumption)) -->
-<!-- anyNA(beers2) -->
-<!-- ## New Date variable -->
-<!-- library("lubridate") -->
-<!-- beers2 <- beers2 %>% -->
-<!--     mutate(Date = ymd(paste(beers2$Year, -->
-<!--                         beers2$Month, -->
-<!--                         beers2$Day, sep = "-"))) -->
-<!-- class(beers2$Date) -->
-<!-- ## Filter, select and arrange -->
-<!-- tab <- beers2 %>% -->
-<!--     filter(Age > 35) %>% -->
-<!--     filter(Gender == "Female") %>% -->
-<!--     filter(Work == "Employed") %>% -->
-<!--     select(--Day, -Month, -Year) %>% -->
-<!--     arrange(desc(Consumption)) -->
-<!-- tab -->
-<!-- ``` -->
-<!--  ```{r, eval = FALSE} -->
-<!--  write_csv(tab, file = "data_output/tab.csv") -->
-<!--  ## or -->
-<!--  write.csv(tab, file = "data_output/tab.csv") -->
-<!--  ``` -->
-<!-- Beer consumption analysis: -->
-<!-- - Does employment status have an impact on beer consumption? -->
-<!-- ```{r} -->
-<!-- beers2 %>% -->
-<!--   group_by(Work) %>% -->
-<!--   summarize(mean_consumption = mean(Consumption)) -->
-<!-- ``` -->
-<!-- - Do men drink more than women? -->
-<!-- ```{r} -->
-<!-- beers2 %>% -->
-<!--   group_by(Gender) %>% -->
-<!--   summarize(mean_consumption = mean(Consumption)) -->
-<!-- ``` -->
-<!-- - Does employmnet status have an influence on beer consumption according -->
-<!--   to gender? -->
-<!-- ```{r} -->
-<!-- beers2 %>% -->
-<!--   group_by(Gender, Work) %>% -->
-<!--   summarize(mean_consumption = mean(Consumption)) -->
-<!-- ``` -->
-<!-- - Do men drink more than women according to age and employment status? -->
-<!-- ```{r} -->
-<!-- beers3 <- beers2 %>% -->
-<!--   group_by(Gender, Age, Work) %>% -->
-<!--     summarize(mean_consumption = mean(Consumption)) -->
-<!-- beers3 -->
-<!-- ``` -->
-<!-- 
-
-<p class="solution-end"><span class="fa fa-square-o solution-icon"></span></p></div></div>
-
- -->
 <p>As we can see from the last exercise, it become difficult to read and interpret multiple results. In the next chapter, we will see how to complement such analysis questions with visualisations such as the following one, that clearly highlight important patterns in our data.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-169"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-178"></span>
 <p class="caption marginnote shownote">
 Figure 4.1: Visualisation of beer consumption, highlighting different patterns of beer consumption in employed and unemployed males and females.
 </p>
@@ -1245,88 +1177,6 @@ Figure 4.1: Visualisation of beer consumption, highlighting different patterns o
 </p>
 </div>
 </div>
-<!-- 
-
-<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-36' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-36', 'sol-start-36')"></span></p><div class="solution-body" id = "sol-body-36" style="display: none;">
-
- -->
-<!-- ```{r, message = FALSE} -->
-<!-- library("rWSBIM1207") -->
-<!-- library("readr") -->
-<!-- library("dplyr") -->
-<!-- library("magrittr") -->
-<!-- clinical <- read_csv(clinical1.csv()) -->
-<!-- str(clinical) -->
-<!-- ## View(clinical) -->
-<!-- clinical_mini <- clinical %>% -->
-<!--     select(patientID, gender, age_at_diagnosis, -->
-<!--            smoking_history, number_pack_years_smoked, -->
-<!--            year_of_tobacco_smoking_onset, -->
-<!--            stopped_smoking_year) -->
-<!-- clinical_mini -->
-<!-- ## Calculate the number of males and females in the cohort. -->
-<!-- clinical_mini %>% -->
-<!--     group_by(gender) %>% -->
-<!--     count() -->
-<!-- ## Create a new variable `years_at_diagnosis` corresponding to the age -->
-<!-- ## at diagnosis converted from days into years. -->
-<!-- clinical_mini <- clinical_mini %>% -->
-<!--     mutate(years_at_diagnosis = age_at_diagnosis / 365) -->
-<!-- select(clinical_mini, -->
-<!--        years_at_diagnosis, -->
-<!--        age_at_diagnosis) -->
-<!-- ## Calculate the mean and median age at diagnosis (in years). Pay -->
-<!-- ## attention to missing values! -->
-<!-- clinical_mini %>% -->
-<!--     summarize(mean = mean(years_at_diagnosis, na.rm = TRUE), -->
-<!--               median = median(years_at_diagnosis, na.rm = TRUE)) -->
-<!-- ## idem but removing NA values before -->
-<!-- clinical_mini %>% -->
-<!--   filter(!is.na(years_at_diagnosis)) %>% -->
-<!--     summarise(mean = mean(years_at_diagnosis), -->
-<!--               median = median(years_at_diagnosis)) -->
-<!-- ## Calculate the mean and median age at diagnosis for males and -->
-<!-- ## females -->
-<!-- clinical_mini %>% -->
-<!--     group_by(gender) %>% -->
-<!--     summarise(mean = mean(years_at_diagnosis, na.rm = TRUE), -->
-<!--               median = median(years_at_diagnosis, na.rm = TRUE)) -->
-<!-- ## How many patient were diagnosed before 50 years? -->
-<!-- clinical_mini %>% -->
-<!--   filter(years_at_diagnosis < 50) %>% -->
-<!--   count() -->
-<!-- ## Compare the mean age at diagnosis between "current smoker" and -->
-<!-- ## "lifelong non-smoker"? -->
-<!-- clinical_mini %>% -->
-<!--   filter(smoking_history == 'current smoker' | smoking_history == 'lifelong non-smoker') %>% -->
-<!--   group_by(smoking_history) %>% -->
-<!--   summarize(mean = mean(years_at_diagnosis, na.rm = TRUE)) -->
-<!-- ## Select patients who stopped smoking more than 15 years ago and -->
-<!-- ## calculate the number of smoking years for these cases. -->
-<!-- clinical_mini %>% -->
-<!--     filter(smoking_history == "current reformed smoker for > 15 years") %>% -->
-<!--     mutate(years_smoked = stopped_smoking_year - year_of_tobacco_smoking_onset) %>% -->
-<!--     filter(!is.na(years_smoked)) %>% -->
-<!--     select(patientID, years_smoked) -->
-<!-- # How many of them smoked less than 5 years? -->
-<!-- clinical_mini %>% -->
-<!--   filter(smoking_history == "current reformed smoker for > 15 years") %>% -->
-<!--   mutate(years_smoked = stopped_smoking_year - year_of_tobacco_smoking_onset) %>% -->
-<!--   filter(years_smoked < 5) %>% -->
-<!--   count() -->
-<!-- ## Try to recreate the following table, reporting the number of -->
-<!-- ## smokers and lifelong-non smoker between males and females. -->
-<!-- clinical_mini %>% -->
-<!--   filter(smoking_history == 'current smoker' | smoking_history == 'lifelong non-smoker') %>% -->
-<!--   group_by(gender, smoking_history) %>% -->
-<!--     summarize(n = n()) %>% -->
-<!--   tidyr::spread(key = smoking_history, value = n) -->
-<!-- ``` -->
-<!-- 
-
-<p class="solution-end"><span class="fa fa-square-o solution-icon"></span></p></div></div>
-
- -->
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -1339,27 +1189,6 @@ Figure 4.1: Visualisation of beer consumption, highlighting different patterns o
 </p>
 </div>
 </div>
-<!-- 
-
-<div class = "solution"><p class="solution-begin">&#x25BA; Solution<span id='sol-start-37' class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-37', 'sol-start-37')"></span></p><div class="solution-body" id = "sol-body-37" style="display: none;">
-
- -->
-<!-- ```{r} -->
-<!-- x <- read_csv(interroA.csv()) -->
-<!-- gather(x, key = interro, value = result, -->
-<!--        interro1, interro2, interro3, interro4) -->
-<!-- ## or -->
-<!-- gather(x, key = interro, value = result, -->
-<!--        -id, -height, -gender, -X) -->
-<!-- ## or -->
-<!-- gather(x, key = interro, value = result, -->
-<!--        starts_with("interro")) -->
-<!-- ``` -->
-<!-- 
-
-<p class="solution-end"><span class="fa fa-square-o solution-icon"></span></p></div></div>
-
- -->
 
 </div>
 </div>

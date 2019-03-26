@@ -912,85 +912,73 @@ Beer consumption analysis:
 
 `r msmbstyle::question_end()`
 
-<!-- `r msmbstyle::solution_begin()` -->
 
-<!-- ```{r, message = FALSE} -->
-<!-- library("rWSBIM1207") -->
-<!-- library("dplyr") -->
-<!-- library("magrittr") -->
-<!-- data("beers") -->
+```{r, echo=FALSE, include=FALSE}
+library("rWSBIM1207")
+library("dplyr")
+library("magrittr")
+data("beers")
 
-<!-- ## Dealing with missing values -->
-<!-- anyNA(beers) -->
-<!-- beers2 <- beers %>% -->
-<!--     filter(!is.na(Consumption)) -->
+## Dealing with missing values
+anyNA(beers)
+beers2 <- beers %>%
+    filter(!is.na(Consumption))
 
-<!-- anyNA(beers2) -->
+anyNA(beers2)
 
-<!-- ## New Date variable -->
-<!-- library("lubridate") -->
-<!-- beers2 <- beers2 %>% -->
-<!--     mutate(Date = ymd(paste(beers2$Year, -->
-<!--                         beers2$Month, -->
-<!--                         beers2$Day, sep = "-"))) -->
-<!-- class(beers2$Date) -->
+## New Date variable
+library("lubridate")
+beers2 <- beers2 %>%
+    mutate(Date = ymd(paste(beers2$Year,
+                        beers2$Month,
+                        beers2$Day, sep = "-")))
+class(beers2$Date)
 
-<!-- ## Filter, select and arrange -->
-<!-- tab <- beers2 %>% -->
-<!--     filter(Age > 35) %>% -->
-<!--     filter(Gender == "Female") %>% -->
-<!--     filter(Work == "Employed") %>% -->
-<!--     select(--Day, -Month, -Year) %>% -->
-<!--     arrange(desc(Consumption)) -->
+## Filter, select and arrange
+tab <- beers2 %>%
+    filter(Age > 35) %>%
+    filter(Gender == "Female") %>%
+    filter(Work == "Employed") %>%
+    select(--Day, -Month, -Year) %>%
+    arrange(desc(Consumption))
 
-<!-- tab -->
-<!-- ``` -->
+tab
+```
 
-<!--  ```{r, eval = FALSE} -->
-<!--  write_csv(tab, file = "data_output/tab.csv") -->
-<!--  ## or -->
-<!--  write.csv(tab, file = "data_output/tab.csv") -->
-<!--  ``` -->
+```{r, echo=FALSE, eval = FALSE}
+write_csv(tab, file = "data_output/tab.csv")
+## or
+write.csv(tab, file = "data_output/tab.csv")
+```
 
-<!-- Beer consumption analysis: -->
 
-<!-- - Does employment status have an impact on beer consumption? -->
+```{r, echo=FALSE, include=FALSE}
+## Beer consumption analysis:
+## - Does employment status have an impact on beer consumption?
 
-<!-- ```{r} -->
-<!-- beers2 %>% -->
-<!--   group_by(Work) %>% -->
-<!--   summarize(mean_consumption = mean(Consumption)) -->
-<!-- ``` -->
+beers2 %>%
+  group_by(Work) %>%
+  summarize(mean_consumption = mean(Consumption))
 
-<!-- - Do men drink more than women? -->
+## - Do men drink more than women?
+beers2 %>%
+  group_by(Gender) %>%
+  summarize(mean_consumption = mean(Consumption))
 
-<!-- ```{r} -->
-<!-- beers2 %>% -->
-<!--   group_by(Gender) %>% -->
-<!--   summarize(mean_consumption = mean(Consumption)) -->
-<!-- ``` -->
+## - Does employmnet status have an influence on beer consumption
+##   according to gender?
+beers2 %>%
+  group_by(Gender, Work) %>%
+  summarize(mean_consumption = mean(Consumption))
 
-<!-- - Does employmnet status have an influence on beer consumption according -->
-<!--   to gender? -->
+## - Do men drink more than women according to age and employment
+##   status?
+beers3 <- beers2 %>%
+  group_by(Gender, Age, Work) %>%
+    summarize(mean_consumption = mean(Consumption))
 
-<!-- ```{r} -->
-<!-- beers2 %>% -->
-<!--   group_by(Gender, Work) %>% -->
-<!--   summarize(mean_consumption = mean(Consumption)) -->
-<!-- ``` -->
-
-<!-- - Do men drink more than women according to age and employment status? -->
-
-<!-- ```{r} -->
-<!-- beers3 <- beers2 %>% -->
-<!--   group_by(Gender, Age, Work) %>% -->
-<!--     summarize(mean_consumption = mean(Consumption)) -->
-
-<!-- beers3 -->
-<!-- ``` -->
-
-<!-- `r msmbstyle::solution_end()` -->
-
+beers3
+```
 
 As we can see from the last exercise, it become difficult to read and
 interpret multiple results. In the next chapter, we will see how to
@@ -1060,101 +1048,94 @@ knitr::kable(clinical_table_ex1)
 `r msmbstyle::question_end()`
 
 
+```{r, echo=FALSE, include=FALSE}
+library("rWSBIM1207")
+library("readr")
+library("dplyr")
+library("magrittr")
+clinical <- read_csv(clinical1.csv())
 
-<!-- `r msmbstyle::solution_begin()` -->
+str(clinical)
+## View(clinical)
 
-<!-- ```{r, message = FALSE} -->
-<!-- library("rWSBIM1207") -->
-<!-- library("readr") -->
-<!-- library("dplyr") -->
-<!-- library("magrittr") -->
-<!-- clinical <- read_csv(clinical1.csv()) -->
+clinical_mini <- clinical %>%
+    select(patientID, gender, age_at_diagnosis,
+           smoking_history, number_pack_years_smoked,
+           year_of_tobacco_smoking_onset,
+           stopped_smoking_year)
+clinical_mini
 
-<!-- str(clinical) -->
-<!-- ## View(clinical) -->
+## Calculate the number of males and females in the cohort.
+clinical_mini %>%
+    group_by(gender) %>%
+    count()
 
-<!-- clinical_mini <- clinical %>% -->
-<!--     select(patientID, gender, age_at_diagnosis, -->
-<!--            smoking_history, number_pack_years_smoked, -->
-<!--            year_of_tobacco_smoking_onset, -->
-<!--            stopped_smoking_year) -->
-<!-- clinical_mini -->
+## Create a new variable `years_at_diagnosis` corresponding to the age
+## at diagnosis converted from days into years.
+clinical_mini <- clinical_mini %>%
+    mutate(years_at_diagnosis = age_at_diagnosis / 365)
+select(clinical_mini,
+       years_at_diagnosis,
+       age_at_diagnosis)
 
+## Calculate the mean and median age at diagnosis (in years). Pay
+## attention to missing values!
+clinical_mini %>%
+    summarize(mean = mean(years_at_diagnosis, na.rm = TRUE),
+              median = median(years_at_diagnosis, na.rm = TRUE))
 
-<!-- ## Calculate the number of males and females in the cohort. -->
-<!-- clinical_mini %>% -->
-<!--     group_by(gender) %>% -->
-<!--     count() -->
-
-
-<!-- ## Create a new variable `years_at_diagnosis` corresponding to the age -->
-<!-- ## at diagnosis converted from days into years. -->
-<!-- clinical_mini <- clinical_mini %>% -->
-<!--     mutate(years_at_diagnosis = age_at_diagnosis / 365) -->
-<!-- select(clinical_mini, -->
-<!--        years_at_diagnosis, -->
-<!--        age_at_diagnosis) -->
-
-<!-- ## Calculate the mean and median age at diagnosis (in years). Pay -->
-<!-- ## attention to missing values! -->
-<!-- clinical_mini %>% -->
-<!--     summarize(mean = mean(years_at_diagnosis, na.rm = TRUE), -->
-<!--               median = median(years_at_diagnosis, na.rm = TRUE)) -->
-
-<!-- ## idem but removing NA values before -->
-<!-- clinical_mini %>% -->
-<!--   filter(!is.na(years_at_diagnosis)) %>% -->
-<!--     summarise(mean = mean(years_at_diagnosis), -->
-<!--               median = median(years_at_diagnosis)) -->
+## idem but removing NA values before
+clinical_mini %>%
+  filter(!is.na(years_at_diagnosis)) %>%
+    summarise(mean = mean(years_at_diagnosis),
+              median = median(years_at_diagnosis))
 
 
-<!-- ## Calculate the mean and median age at diagnosis for males and -->
-<!-- ## females -->
-<!-- clinical_mini %>% -->
-<!--     group_by(gender) %>% -->
-<!--     summarise(mean = mean(years_at_diagnosis, na.rm = TRUE), -->
-<!--               median = median(years_at_diagnosis, na.rm = TRUE)) -->
+## Calculate the mean and median age at diagnosis for males and
+## females
+clinical_mini %>%
+    group_by(gender) %>%
+    summarise(mean = mean(years_at_diagnosis, na.rm = TRUE),
+              median = median(years_at_diagnosis, na.rm = TRUE))
 
-<!-- ## How many patient were diagnosed before 50 years? -->
-<!-- clinical_mini %>% -->
-<!--   filter(years_at_diagnosis < 50) %>% -->
-<!--   count() -->
+## How many patient were diagnosed before 50 years?
+clinical_mini %>%
+  filter(years_at_diagnosis < 50) %>%
+  count()
 
-<!-- ## Compare the mean age at diagnosis between "current smoker" and -->
-<!-- ## "lifelong non-smoker"? -->
-<!-- clinical_mini %>% -->
-<!--   filter(smoking_history == 'current smoker' | smoking_history == 'lifelong non-smoker') %>% -->
-<!--   group_by(smoking_history) %>% -->
-<!--   summarize(mean = mean(years_at_diagnosis, na.rm = TRUE)) -->
-
-
-<!-- ## Select patients who stopped smoking more than 15 years ago and -->
-<!-- ## calculate the number of smoking years for these cases. -->
-<!-- clinical_mini %>% -->
-<!--     filter(smoking_history == "current reformed smoker for > 15 years") %>% -->
-<!--     mutate(years_smoked = stopped_smoking_year - year_of_tobacco_smoking_onset) %>% -->
-<!--     filter(!is.na(years_smoked)) %>% -->
-<!--     select(patientID, years_smoked) -->
-
-<!-- # How many of them smoked less than 5 years? -->
-<!-- clinical_mini %>% -->
-<!--   filter(smoking_history == "current reformed smoker for > 15 years") %>% -->
-<!--   mutate(years_smoked = stopped_smoking_year - year_of_tobacco_smoking_onset) %>% -->
-<!--   filter(years_smoked < 5) %>% -->
-<!--   count() -->
-
-<!-- ## Try to recreate the following table, reporting the number of -->
-<!-- ## smokers and lifelong-non smoker between males and females. -->
-<!-- clinical_mini %>% -->
-<!--   filter(smoking_history == 'current smoker' | smoking_history == 'lifelong non-smoker') %>% -->
-<!--   group_by(gender, smoking_history) %>% -->
-<!--     summarize(n = n()) %>% -->
-<!--   tidyr::spread(key = smoking_history, value = n) -->
-
-<!-- ``` -->
+## Compare the mean age at diagnosis between "current smoker" and
+## "lifelong non-smoker"?
+clinical_mini %>%
+  filter(smoking_history == 'current smoker' | smoking_history == 'lifelong non-smoker') %>%
+  group_by(smoking_history) %>%
+  summarize(mean = mean(years_at_diagnosis, na.rm = TRUE))
 
 
-<!-- `r msmbstyle::solution_end()` -->
+## Select patients who stopped smoking more than 15 years ago and
+## calculate the number of smoking years for these cases.
+clinical_mini %>%
+    filter(smoking_history == "current reformed smoker for > 15 years") %>%
+    mutate(years_smoked = stopped_smoking_year - year_of_tobacco_smoking_onset) %>%
+    filter(!is.na(years_smoked)) %>%
+    select(patientID, years_smoked)
+
+# How many of them smoked less than 5 years?
+clinical_mini %>%
+  filter(smoking_history == "current reformed smoker for > 15 years") %>%
+  mutate(years_smoked = stopped_smoking_year - year_of_tobacco_smoking_onset) %>%
+  filter(years_smoked < 5) %>%
+  count()
+
+## Try to recreate the following table, reporting the number of
+## smokers and lifelong-non smoker between males and females.
+clinical_mini %>%
+  filter(smoking_history == 'current smoker' | smoking_history == 'lifelong non-smoker') %>%
+  group_by(gender, smoking_history) %>%
+    summarize(n = n()) %>%
+  tidyr::spread(key = smoking_history, value = n)
+```
+
+
 
 `r msmbstyle::question_begin()`
 
@@ -1169,16 +1150,15 @@ Using `gather`, convert the data into a *long* table with a column
 
 `r msmbstyle::question_end()`
 
-<!-- `r msmbstyle::solution_begin()` -->
-<!-- ```{r} -->
-<!-- x <- read_csv(interroA.csv()) -->
-<!-- gather(x, key = interro, value = result, -->
-<!--        interro1, interro2, interro3, interro4) -->
-<!-- ## or -->
-<!-- gather(x, key = interro, value = result, -->
-<!--        -id, -height, -gender, -X) -->
-<!-- ## or -->
-<!-- gather(x, key = interro, value = result, -->
-<!--        starts_with("interro")) -->
-<!-- ``` -->
-<!-- `r msmbstyle::solution_end()` -->
+
+```{r, echo=FALSE, include=FALSE}
+x <- read_csv(interroA.csv())
+gather(x, key = interro, value = result,
+       interro1, interro2, interro3, interro4)
+## or
+gather(x, key = interro, value = result,
+       -id, -height, -gender, -X)	
+## or
+gather(x, key = interro, value = result,
+       starts_with("interro"))
+```
