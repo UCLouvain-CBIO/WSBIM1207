@@ -216,23 +216,344 @@ results from the individual results files.
 
 ## The Bioconductor project {#sec:bioconductor}
 
-The [Bioconductor](http://www.bioconductor.org) (@Gentleman:2004;@Huber:2015) ...
+```{r, echo = FALSE, message = FALSE}
+library("MSnbase")
+library("BiocStyle")
+```
 
-Package installation: reminder and `BiocManager::install`.
+The [Bioconductor](http://www.bioconductor.org) was initiated by
+Robert Gentleman (@Gentleman:2004;@Huber:2015), one of the two
+creators of the R language, and centrally offers dedicated R packages
+for bioinformatics.
 
+> Bioconductor provides tools for the analysis and comprehension of
+> high-throughput genomic data. Bioconductor uses the R statistical
+> programming language, and is open source and open development. It
+> has two releases each year, and an active user community.
 
-## Objects
+```{r biocwww, fig.cap="The Bioconductor web page.", echo=FALSE, out.width = '100%'}
+knitr::include_graphics("./figs/bioc-screenshot.png")
+```
+
+Bioconductor packages are managed installed using a dedicated package,
+namely `BiocManager`, that can be installed from CRAN with
+
+```{r, eval = FALSE}
+install.packages("BiocManager")
+```
+
+Individuals package such as `MSnbase` (for proteomics), `DESeq2` (for
+transcriptomics), `xcms` (metabolomics), ...can then be installed:
+reminder and `BiocManager::install`.
+
+```{r, eval = FALSE}
+BiocManager::install("MSnbase")
+BiocManager::install("DESeq2")
+BiocManager::install("xcms")
+```
+
+Note that we can also use that same function to install packages from GitHub:
+
+```{r, eval = FALSE}
+BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
+```
+
+## Omics data containers
 
 Data in bioinformatics is often more complex than the basic data types
-we have seen so far. Give a short introduction and example to some
-relevant object.
+we have seen so far. In such situations, developers define specialised
+data containers (termed classes that) that match the properties of the
+data they need to handle.
 
-## Documentation
+An example of general data architecture, that is used across many
+omics domains in Bioconductor is represented below:
 
-Documenting ones tasks in a bioinformatics project is absolutely
-essential. It is akin a lab notebook for wet lab.
+```{r msnset, fig.cap="A data structure to store quantitative data, features (rows) annotation, and samples (column) annotations..", echo=FALSE, out.width = '80%'}
+knitr::include_graphics("./figs/msnset.png")
+```
+
+- An assay data slot containing the quantitative omics data
+  (expression data), stored as a `matrix`. Features (genes,
+  transcripts, proteins, ...) are defined along the rows and samples
+  along the columns.
+
+- A sample metadata slot containing sample co-variates, stored as a
+  `data.frame` (or similar). This data frame is stored with rows
+  representing samples and sample covariate along the columns, and its
+  rows match the expression data columns exactly.
+
+- A feature metadata slot containing feature co-variates, stored as an
+  annotated `data.frame` (or similar). This dataframe's rows match the
+  expression data rows exactly.
+
+The coordinated nature of the high throughput data guarantees that the
+dimensions of the different slots will always match (i.e the columns
+in the expression data and then rows in the sample metadata, as well
+as the rows in the expression data and feature metadata) during data
+manipulation. The metadata slots can grow additional co-variates
+(columns) without affecting the other structures.
+
+```{r, echo=FALSE, message=FALSE}
+data(msnset)
+```
+
+To illustrate such an omics data container, we'll make use of the
+`msnset` object that comes with the `MSnbase` package, which contains
+data for `r nrow(msnset)` features and `r ncol(msnset)`
+samples.
+
+```{r}
+library(MSnbase)
+data(msnset)
+dim(msnset)
+msnset
+```
+
+Using this data structure, we can access the expression data with the
+`exprs` function, the feature metadata with the `fData` function, and
+the sample metadata with the `pData` function:
+
+```{r}
+head(exprs(msnset))
+head(fData(msnset))
+pData(msnset)
+```
+
+`r msmbstyle::question_begin()`
+
+Verify that the expression data dimensions match with number of rows
+and columns in the feature and sample data.
+
+`r msmbstyle::question_end()`
 
 
-## Exercises
+`r msmbstyle::solution_begin()`
+```{r}
+nrow(exprs(msnset)) == nrow(fData(msnset))
+ncol(exprs(msnset)) == nrow(pData(msnset))
+```
+`r msmbstyle::solution_end()`
 
-More exercises, framed in the context of bioinformatics.
+
+We can use the `[` operator to subset the whole object: all parts
+thereof will be subset correctly.
+
+```{r}
+msnset2 <- msnset[c(1, 3, 5), c(2, 4)]
+dim(msnset2)
+head(exprs(msnset2))
+```
+
+We can also add information with:
+
+```{r}
+pData(msnset)$group  <- rep(c('A', 'B'), each = 2)
+pData(msnset)
+```
+
+## Bioconductor data infrastructure
+
+An essential aspect that is central to Bioconductor and its success is
+the availability of core data infrastructure that is used across
+packages. Package developers are advised to make use of existing
+infrastructure to provide coherence, interoperability and stability to
+the project as a whole.
+
+Here are some core classes, taken from the [Common Bioconductor
+Methods and
+Classes](https://bioconductor.org/developers/how-to/commonMethodsAndClasses/)
+page:
+
+#### Importing  {-}
+
+- GTF, GFF, BED, BigWig, etc., - `r Biocpkg("rtracklayer")``::import()`
+- VCF – `r Biocpkg("VariantAnnotation")``::readVcf()`
+- SAM / BAM – `r Biocpkg("Rsamtools")``::scanBam()`, `r Biocpkg("GenomicAlignments")``:readGAlignment*()`
+- FASTA – `r Biocpkg("Biostrings")``::readDNAStringSet()`
+- FASTQ – `r Biocpkg("ShortRead")``::readFastq()`
+- Mass spectrometry data (XML-based and mfg formats) – `r Biocpkg("MSnbase")``::readMSData()`, `r Biocpkg("MSnbase")``::readMgfData()`
+
+#### Common Classes {-}
+
+- Rectangular feature x sample data – `r Biocpkg("SummarizedExperiment")``::SummarizedExperiment()` (RNAseq count matrix, microarray, ...)
+- Genomic coordinates – `r Biocpkg("GenomicRanges")``::GRanges()` (1-based, closed interval)
+- DNA / RNA / AA sequences – `r Biocpkg("Biostrings")``::*StringSet()`
+- Gene sets – `r Biocpkg("GSEABase")``::GeneSet()` `r Biocpkg("GSEABase")``::GeneSetCollection()`
+- Multi-omics data – `r Biocpkg("MultiAssayExperiment")``::MultiAssayExperiment()`
+- Single cell data – `r Biocpkg("SingleCellExperiment")``::SingleCellExperiment()`
+- Mass spectrometry data – `r Biocpkg("MSnbase")``::MSnExp()`
+
+
+## Navigating the Bioconductor project
+
+Bioconductor has become a large project proposing many packages across
+many domains of high throughput biology. It continues to grow, at an
+increasing rate, and it can be difficult to get started.
+
+### *biocViews*
+
+One way to find packages of interest is to navigate the *biocViews*
+hierarchy. Every package is tagged with a set of *biocViews*
+labels. The highest level defines 3 types of packages:
+
+- Software: packages providing a specific functionality.
+- AnnotationData: packages providing annotations, such as various
+  ontologies, species annotations, microarray annotations, ...
+- ExperimentData: packages distributing experiments.
+
+The *biocViews* page is available here
+
+- https://bioconductor.org/packages/release/BiocViews.html#___Software
+
+It is most easily accessed by clicking on the *software packages* link
+on the homepage, under *About Bioconductor* (see screenshot above).
+
+See also this
+[page](https://bioconductor.org/developers/how-to/biocViews/) for
+additional information.
+
+### Workflows
+
+On the other hand, people generally don't approach the Bioconductor
+project to learn the whole project, but are interested by a specific
+analysis from a Bioconductor package, that they have read in a paper
+of interest. In my opinion, it is more effective to restrict ones
+attention to a problem or analysis of interest to first immerse
+oneself into Bioconductor, then broaden up ones experience to other
+topics and packages.
+
+To to that, the project offers workflows that provide a general
+introduction to topics such as sequence analysis, annotation
+resources, RNA-Seq data analyis, Mass spectrometry and proteomics,
+CyTOF analysis, ....
+
+- https://bioconductor.org/help/workflows/
+
+A similar set of resources are published
+in [F1000Research](https://f1000research.com/) under the Bioconductor
+gateway
+
+- https://f1000research.com/gateways/bioconductor
+
+These peer-reviewed papers describe more complete pipelines involving
+one or several packages.
+
+### Learning about specific packages
+
+Each Bioconductor package has it's own *landing pages* that provides
+all necessary information about a package, including a short summary,
+its current version, the authors, how the cite the package,
+installation instructions, and links to all package vignettes.
+
+Any Bioconductor package page can be contructed by appending the
+package's name to `https://bioconductor.org/packages/` to produce an
+URL like
+
+- https://bioconductor.org/packages/packagename
+
+This works for any type of package (software, annotation or data). For
+example, the pages for packages `r Biocpkg("DESeq2")` or `r Biocpkg("MSnbase")`
+would be
+
+- https://bioconductor.org/packages/DESeq2
+
+and
+
+- https://bioconductor.org/packages/MSnbase
+
+These short URLs are then resolved to their longer form to redirect to
+the longer package URL leading the user to the current release version
+of the packge.
+
+### Package vignettes
+
+An important quality of every Bioconductor package is the availability
+of a dedicated *vignette*. Vignettes are documentations (generally
+provided as pdf or html files) that provide a generic overview of the
+package, without necessarily going in detail for every function of the
+package.
+
+Below, we show how to list all vignettes available in the `MSnbase`
+package and how to open one in particular.
+
+```{r, eval = FALSE}
+vignette(package = "MSnbase")
+vignette("v01-MSnbase-demo")
+```
+
+Vignettes are special in that respect as they are produced as part of
+the package building process. The code in a vignette is executed and
+its output, whether in the form of simple text, tables and figures,
+are inserted in the vignette before the final file (in pdf or html) is
+produced. Hence, all the code and outputs are guaranteed to be correct
+and reproduced.
+
+Given a vignette, it is this possible to re-generate all the
+results. To make reproducing a long vignette as easy as possible
+without copy and pasting all code chunks one by one, it is possible to
+extract the code into an R script runnung the `Stangle` (from the
+`utils` package -
+see [here](https://bioconductor.org/help/package-vignettes/) for
+details) or `knitr::purl` functions on the vignette source document.
+
+### Getting help
+
+The best way to get help with regard the a Bioconductor package is to
+post the question on the *Bioconductor support forum* at
+https://support.bioconductor.org/. Package developers generally follow
+the support site for questions related to their packages. See this
+page for [some details](https://bioconductor.org/help/support/).
+
+To maximise the chances to obtain a answer promptly, it is important
+to provide details for other to understand the question and, if
+relevant, reproduce the observed errors. The Bioconductor project has
+a dedicated
+[posting guide](https://bioconductor.org/help/support/posting-guide/). Here's
+another useful guide on
+[how to write a reproducible question](http://adv-r.had.co.nz/Reproducibility.html).
+
+
+Packages come with a lot of documentation build in, that users are
+advised to read to familiarise themselves with the package and how to
+use it. In addition to the package vignettes are describe above, every
+function of class in a package is documented in great detail in their
+respective *man* page, that can be accessed with `?function`.
+
+There is also a
+dedicated
+[*developer mailing list*](https://bioconductor.org/help/support/posting-guide/) that
+is dedicated for questions and discussions related to package
+development.
+
+### Versions
+
+It is also useful to know that at any given time, there are two
+Bioconductor versions - there is always a release (stable) and a
+development (devel) versions. For example, in October 2017, the
+release version is 3.6 and the development is 3.7.
+
+The individual packages have a similar scheme. Every package is
+available for the release and the development versions of
+Bioconductor. These two versions of the package have also different
+version numbers, where the last digit is even for the former and off
+for the later. Currently, the `MSnbase` has versions `2.8.2` and
+`2.9.3`, respectively.
+
+Finally, every Bioconductor version is tight to an R version. To
+access the current Bioconductor release, one needs to use the latest R
+version. Hence, it is important to have an up-to-date R installation
+to keep up with the latest developments in Bioconductor. More details
+[here](https://bioconductor.org/developers/how-to/version-numbering/).
+
+
+`r msmbstyle::question_begin()`
+
+1. Install a Bioconductor package of your choice, discover the
+   vignette(s) it offers, open one, and extract the R code of it.
+
+2. Find a package that allows reading raw mass spectrometry data and
+   identify the specific function. Either use the biocViews tree, look
+   for a possible workflow, or look in the common methods and classes
+   page on the Bioconductor page.
+
+`r msmbstyle::question_end()`
