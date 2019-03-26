@@ -619,6 +619,7 @@ mean(exprs(mulvey2015)[, "rep1_0hr"])
 ```
 
 ```{r}
+o <- order(mulvey2015$times)
 p1 <- exprs(mulvey2015)["Q9WUA3", o]
 plot(p1, type = "b")
 p2 <- exprs(mulvey2015)["O89017", o]
