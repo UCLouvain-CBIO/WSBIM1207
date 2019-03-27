@@ -461,7 +461,7 @@ length(peptides)
 head(peptides)
 ```
 
-1. Among the `r length(peptides)` petides, which ones contain the pattern `"TAAE"`?
+1. Among the `r length(peptides)` petides, which ones contain the pattern `"AAGE"`?
 
 ```{r}
 pattern <- "AAGE"
