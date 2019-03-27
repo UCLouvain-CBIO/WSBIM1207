@@ -142,10 +142,11 @@ clinical1
 ```
 
 When performing experiments, measurements should also be repeated
-several times (typically at least three), to quantify technical
-variability in the measured variables and, eventually, identify
-changes that relate to the conditions of interest (i.e. differences in
-genes expression in the presence or absence of the drug).
+several times (typically at least three), to quantify the overall
+variability (technical and biological) in the measured variables and,
+eventually, identify changes that relate to the conditions of interest
+(for example differences in genes expression in the presence or
+absence of the drug).
 
 ```{r, echo = FALSE, fig.cap = "Distribution of the expression of the genes A1CF, BRCA1 and TP53 under the control (no drug) and drug at concentrations 1 and 5."}
 set.seed(1)
