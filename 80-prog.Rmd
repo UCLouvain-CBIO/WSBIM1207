@@ -634,7 +634,7 @@ interros %>%
 6. Instead of comparing the means for the four tests in each group and
    gender, visualise their distributions using boxplots. In addition
    to the boxplots, overlay the actual score values (using the
-   *jitter* geom) and colour the points based on the students height. w
+   *jitter* geom) and colour the points based on the students height. 
 
 
 `r msmbstyle::solution_begin()`
