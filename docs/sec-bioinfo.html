@@ -624,6 +624,26 @@ Figure 8.7: A data structure to store quantitative data, features (rows) annotat
 </p>
 </div>
 </div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<ol style="list-style-type: decimal">
+<li>To be able to access the data for this exercise, make sure you have <code>rWSBIM1207</code> version 0.1.5 or later. If needed, install a more recent version with</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">&quot;UCLouvain-CBIO/rWSBIM1207&quot;</span>)</code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Import the data from two tab-separated files into R. The full paths to the two files can be accessed with <code>kem.tsv()</code>. Read <code>?kem</code> for details on the content of the two files. In brief, the <code>kem_counts.tsv</code> file contains RNA-Seq expression counts for 13 genes and 18 samples and <code>kem_annot.tsv</code> contains annotation about each sample. Read the data into two <code>tibbles</code> names <code>kem</code> and <code>annot</code> respectively and familiarise yourself with the content of the two new tables.</p></li>
+<li><p>Convert the counts data into a long table format and annotation each sample using the experimental design.</p></li>
+<li><p>Identity the three transcript identifiers that have the highest expression count over all samples.</p></li>
+<li><p>Visualise the distribution of the expression for the three transcripts selected above in cell types A and B under both treatments.</p></li>
+</ol>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 
 </div>
 </div>
