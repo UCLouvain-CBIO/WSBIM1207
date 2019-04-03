@@ -1,6 +1,9 @@
 # WSBIM1207: Introduction to bioinformatics and data science
 
-Read the course at http://bit.ly/WSBIM1207.
+[![DOI](https://zenodo.org/badge/147494586.svg)](https://zenodo.org/badge/latestdoi/147494586)
+
+Read the course at http://bit.ly/WSBIM1207
+
 
 ## License
 
