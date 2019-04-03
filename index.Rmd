@@ -148,7 +148,7 @@ Sheets](https://www.rstudio.com/resources/cheatsheets/) are also a
 handy resource and readers will be pointed to specific sheets in the
 respective chapters.
 
-This course is being tought by Prof Laurent Gatto with precious
+This course is being tought by Prof Laurent Gatto with invaluable
 assistance from Dr Axelle Loriot and Mr Kevin Missault at the Faculty
 of Pharmacy and Biomedical Sciences (FASB) at the UCLouvain, Belgium.
 
