@@ -111,12 +111,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <a href="javascript:void(0)" class="dropbtn">&#x25BE; Chapters</a>
 <div class="dropdown-content">
 <a id="active-page" href="index.html">Preamble</a><ul class="toc-sections">
-<li class="toc"><a href="#motivation">Motivation</a></li>
-<li class="toc"><a href="#references-and-credits">References and credits</a></li>
-<li class="toc"><a href="#pre-requisites">Pre-requisites</a></li>
-<li class="toc"><a href="#about-this-course-material">About this course material</a></li>
-<li class="toc"><a href="#setup">Setup</a></li>
-<li class="toc"><a href="#license">License</a></li>
+<li class="toc"><a href="#motivation">NA</a></li>
+<li class="toc"><a href="#references-and-credits">NA</a></li>
+<li class="toc"><a href="#pre-requisites">NA</a></li>
+<li class="toc"><a href="#about-this-course-material">NA</a></li>
+<li class="toc"><a href="#citation"> Citation</a></li>
+<li class="toc"><a href="#license">NA</a></li>
+<li class="toc"><a href="#setup">NA</a></li>
 </ul>
 <a href="sec-dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
 <a href="sec-startr.html"><span class="toc-section-number">2</span> Starting with R</a>
@@ -184,6 +185,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>This material is written in R markdown <span class="citation">(Allaire et al. <label for="tufte-mn-9" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-9" class="margin-toggle">2019<span class="marginnote">Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2019. <em>Rmarkdown: Dynamic Documents for R</em>. <a href="https://CRAN.R-project.org/package=rmarkdown" class="uri">https://CRAN.R-project.org/package=rmarkdown</a>.</span>)</span> and compiled as a book using <code>knitr</code> <span class="citation">(Xie <label for="tufte-mn-10" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-10" class="margin-toggle">2019<span class="marginnote">Xie, Yihui. 2019. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in R</em>. <a href="https://CRAN.R-project.org/package=knitr" class="uri">https://CRAN.R-project.org/package=knitr</a>.</span>)</span> <code>bookdown</code> <span class="citation">(Xie <label for="tufte-mn-11" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-11" class="margin-toggle">2018<span class="marginnote">Xie, Yihui. 2018. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</span>)</span>. The source code is publicly available in a Github repository <a href="https://github.com/uclouvain-cbio/WSBIM1207" class="uri">https://github.com/uclouvain-cbio/WSBIM1207</a> and the compiled material can be read at <a href="http://bit.ly/WSBIM1207" class="uri">http://bit.ly/WSBIM1207</a>.</p>
 <p>Contributions to this material are welcome. The best way to contribute or contact the maintainers is by means of pull requests and <a href="https://github.com/uclouvain-cbio/WSBIM1207/issues">issues</a>. Please familiarise yourself with the <a href="https://github.com/UCLouvain-CBIO/WSBIM1207/blob/master/CONDUCT.md">code of conduct</a>. By participating in this project you agree to abide by its terms.</p>
 </div>
+<div id="citation" class="section level2">
+<h2><span class="header-section-number">0.1</span> Citation</h2>
+<p><a href="https://zenodo.org/record/2626733"><img src="https://zenodo.org/badge/147494586.svg" alt="DOI" /></a></p>
+<p>If you use this course, please cite it as</p>
+<blockquote>
+<p>Laurent Gatto, Kevin Missault &amp; Axelle Loriot. (2019, April 3). UCLouvain-CBIO/WSBIM1207: Introduction to bioinformatics (Version v1.0.0). Zenodo. <a href="http://doi.org/10.5281/zenodo.2626733" class="uri">http://doi.org/10.5281/zenodo.2626733</a></p>
+</blockquote>
+</div>
+<div id="license" class="section level2 unnumbered">
+<h2>License</h2>
+<p>This material is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 License</a>.</p>
+</div>
 <div id="setup" class="section level2 unnumbered">
 <h2>Setup</h2>
 <p>For chapter <a href="sec-dataorg.html#sec:dataorg">1</a> about <em>Data organisation with Spreadsheets</em>, a spreadsheet programme is necessary.</p>
@@ -194,10 +207,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;lgatto/msmbstyle&quot;</span>)</code></pre></div>
 <p>In the course’s work directory, simply type</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;.&quot;</span>)</code></pre></div>
-</div>
-<div id="license" class="section level2 unnumbered">
-<h2>License</h2>
-<p>This material is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 License</a>.</p>
 
 </div>
 </div>
