@@ -111,6 +111,7 @@ ncol(x) > 0
 
 ```{r, eval = FALSE}
 stopifnot(length(x) > 0)
+stopifnot(dim(x) > 0) ## same as next one
 stopifnot(ncol(x) > 0, nrow(x) > 0)
 ```
 
@@ -634,7 +635,7 @@ interros %>%
 6. Instead of comparing the means for the four tests in each group and
    gender, visualise their distributions using boxplots. In addition
    to the boxplots, overlay the actual score values (using the
-   *jitter* geom) and colour the points based on the students height. 
+   *jitter* geom) and colour the points based on the students height.
 
 
 `r msmbstyle::solution_begin()`
