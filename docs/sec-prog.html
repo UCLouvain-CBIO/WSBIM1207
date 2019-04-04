@@ -17,7 +17,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-04-03" />
+<meta name="date" content="2019-04-04" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -182,6 +182,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Failing fast and well! Wrap such test in <code>stopifnot()</code>, so that if they fail, you get immediately an error, rather than risking that you code fails later with obscure error messages or, worse, the code runs to completion but returns meaningless results.</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stopifnot</span>(<span class="kw">length</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)
+<span class="kw">stopifnot</span>(<span class="kw">dim</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) ## same as next one
 <span class="kw">stopifnot</span>(<span class="kw">ncol</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="kw">nrow</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</code></pre></div>
 </div>
 <div id="iteration" class="section level2">
@@ -444,7 +445,7 @@ res</code></pre></div>
 ##     }
 ##     return(sum(res))
 ## }
-## &lt;bytecode: 0x563c57b7b508&gt;</code></pre>
+## &lt;bytecode: 0x557dbfe35ef0&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(1L)
 res1 &lt;-<span class="st"> </span><span class="kw">fun</span>(<span class="dv">5</span>, <span class="dv">15</span>)
 <span class="kw">set.seed</span>(1L)
@@ -753,7 +754,7 @@ interros2</code></pre></div>
 <a href="sec-ccl.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-04-03
+2019-04-04
 </p>
 </div>
 </div>
