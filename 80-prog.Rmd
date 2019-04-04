@@ -582,7 +582,7 @@ interros %>%
 
 
 5. What are the top scores for male and female students in each test
-   (`interro1` to `interro4`) and in each group.
+   (`interro1` to `interro4`) and in each group (A and B).
 
 `r msmbstyle::solution_begin()`
 
