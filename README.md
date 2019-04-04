@@ -1,6 +1,14 @@
 # WSBIM1207: Introduction to bioinformatics and data science
 
-Read the course at http://bit.ly/WSBIM1207.
+[![DOI](https://zenodo.org/badge/147494586.svg)](https://zenodo.org/record/2626733)
+
+Read the course at http://bit.ly/WSBIM1207
+
+If you use this course, please cite it as 
+
+> Laurent Gatto, Kevin Missault & Axelle Loriot. (2019, April
+> 3). UCLouvain-CBIO/WSBIM1207: Introduction to bioinformatics
+> (Version v1.0.0). Zenodo. http://doi.org/10.5281/zenodo.2626733
 
 ## License
 

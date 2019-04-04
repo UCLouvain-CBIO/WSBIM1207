@@ -148,6 +148,10 @@ Sheets](https://www.rstudio.com/resources/cheatsheets/) are also a
 handy resource and readers will be pointed to specific sheets in the
 respective chapters.
 
+This course is being tought by Prof Laurent Gatto with invaluable
+assistance from Dr Axelle Loriot and Mr Kevin Missault at the Faculty
+of Pharmacy and Biomedical Sciences (FASB) at the UCLouvain, Belgium.
+
 ## Pre-requisites {-}
 
 There are no programming or technical pre-requisities for this course,
@@ -171,6 +175,23 @@ or contact the maintainers is by means of pull requests and
 familiarise yourself with the [code of
 conduct](https://github.com/UCLouvain-CBIO/WSBIM1207/blob/master/CONDUCT.md). By
 participating in this project you agree to abide by its terms.
+
+## Citation {-}
+
+If you use this course, please cite it as 
+
+> Laurent Gatto, Kevin Missault & Axelle Loriot. (2019, April
+> 3). UCLouvain-CBIO/WSBIM1207: Introduction to bioinformatics
+> (Version v1.0.0). Zenodo. http://doi.org/10.5281/zenodo.2626733 
+
+[![DOI](https://zenodo.org/badge/147494586.svg)](https://zenodo.org/record/2626733)
+
+
+## License {-}
+
+This material is licensed under the [Creative Commons
+Attribution-ShareAlike 4.0
+License](https://creativecommons.org/licenses/by-sa/4.0/).
 
 
 ## Setup {-}
@@ -205,9 +226,3 @@ In the course's work directory, simply type
 bookdown::render_book(".")
 ```
 
-
-## License {-}
-
-This material is licensed under the [Creative Commons
-Attribution-ShareAlike 4.0
-License](https://creativecommons.org/licenses/by-sa/4.0/).
