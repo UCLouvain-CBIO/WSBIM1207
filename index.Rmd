@@ -155,9 +155,10 @@ of Pharmacy and Biomedical Sciences (FASB) at the UCLouvain, Belgium.
 ## Pre-requisites {-}
 
 There are no programming or technical pre-requisities for this course,
-other than basic computer usage, such as knowing about files (binary
-and text files) and folders and downloading files. Familiarity with a
-spreadsheet editor is helpful for the first paragraph.
+other than basic computer usage, such as general knowledge about files
+(binary and text files) and folders and as well as downloading
+files. Familiarity with a spreadsheet editor is helpful for the first
+chapter.
 
 Software requirements are documented in the *Setup* section below.
 
@@ -178,11 +179,11 @@ participating in this project you agree to abide by its terms.
 
 ## Citation {-}
 
-If you use this course, please cite it as 
+If you use this course, please cite it as
 
 > Laurent Gatto, Kevin Missault & Axelle Loriot. (2019, April
 > 3). UCLouvain-CBIO/WSBIM1207: Introduction to bioinformatics
-> (Version v1.0.0). Zenodo. http://doi.org/10.5281/zenodo.2626733 
+> (Version v1.0.0). Zenodo. http://doi.org/10.5281/zenodo.2626733
 
 [![DOI](https://zenodo.org/badge/147494586.svg)](https://zenodo.org/record/2626733)
 
@@ -225,4 +226,3 @@ In the course's work directory, simply type
 ```{r combilebook2, eval=FALSE}
 bookdown::render_book(".")
 ```
-
