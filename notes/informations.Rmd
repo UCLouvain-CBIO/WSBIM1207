@@ -40,13 +40,12 @@ output: html_document
   voir refuser la participation à l'examen de fin de cours.
 
 - Il y aura des interrogations cotées en début de certaines
-  sessions. Ces cotes seront comptabilisées dans la note finale. Le
+  sessions. Ces cotes compteront pour 25% de la note finale. Le
   meilleur moyen de vous y préparer et de faire et comprendre les
   exercices en cours et à domicile.
 
 - Le nombre et durée des pauses dépendra du [vote des
   étudiant(e)s](https://moodleucl.uclouvain.be/mod/choice/view.php?id=734453).
-
 
 Ce qui est attendu de vous:
 
@@ -86,13 +85,13 @@ sera adaptée en fonction de l'avancée en cours.
 ## Examen
 
 - Il est vous est demandé d'être présent au moins 10 minutes à
-  l'avance pour prendre place et de débuter à l'heures. Les
+  l'avance pour prendre place et de débuter à l'heure. Les
   retardataires ne disposeront pas de temps supplémentaire et pourront
   se faire refuser la participation à l'examen.
-  
+
 - Les étudiants doivent être munis de leur carte d'étudiant, qui sera
   contrôlée lors de la signature de la liste des présences.
-  
+
 - Il est strictement INTERDIT de porter sur soi un appareil
   électronique (GSM, MP3, PDA, appareil photo, ...) pendant
   l'examen. La découverte de l'un de ces appareils pendant l'examen,
@@ -103,7 +102,7 @@ sera adaptée en fonction de l'avancée en cours.
 - Il est interdit de quitter l'auditoire avant d'avoir remis sa copie
   d'examen. L’étudiant qui souhaite aller aux toilettes remet copie et
   son examen est terminé.
-  
+
 - En cas de suspicion de tricherie (port d'un appareil électronique,
   tentative d'entrer en contact avec le voisin, copie sur le voisin,
   transmission de feuilles ou de fichiers, etc), le constat de
@@ -113,7 +112,7 @@ sera adaptée en fonction de l'avancée en cours.
   section 7 du RGEE sera ensuite suivie (sanction académique par le
   jury puis sanction disciplinaire possible par le vice-recteur aux
   affaires étudiantes).
-  
+
 - L'examen consistera en la préparation, sur ordinateur, de [rapport
   reproductible en
   Rmarkdown](https://uclouvain-cbio.github.io/WSBIM1207/sec-rr.html),
@@ -143,5 +142,3 @@ sera adaptée en fonction de l'avancée en cours.
 ----
 
 Dernière mise à jour: `r date()`
-
-
