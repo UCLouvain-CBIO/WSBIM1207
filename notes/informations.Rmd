@@ -128,7 +128,8 @@ sera adaptée en fonction de l'avancée en cours.
   jour en ligne des notes de cours. Vous pourrez également amener vos
   notes manuscrites si vous le désirez. Vous aurez aussi accès à vos
   répertoires personnels avec le projet et les scripts préparés en
-  cours d'année (y compris le projet du professeur).
+  cours d'année (y compris le projet du professeur). Tout autre
+  support est interdit, sauf autorisation exlicite du professeur.
 
 - Vous devrez utiliser l'ordinateur de la salle pour
   l'examen. Ordinateurs portables personnels ainsi que des tablettes
