@@ -142,9 +142,10 @@ demonstrated during the course.
 
 ![](./figs/rmd.png)
 
-RStudio now also support *R Notebook* documents[^jupyter] that execute
-individual code chunks that are displayed directly in the source
-document.
+RStudio also supports
+[Notebook](https://bookdown.org/yihui/rmarkdown/notebook.html)
+documents[^jupyter] that execute individual code chunks independently
+and display directly in the source document.
 
 ![](./figs/rnb.png)
 
