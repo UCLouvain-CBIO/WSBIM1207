@@ -126,7 +126,7 @@ and maintained by RStudio and benefits from excellent documentation,
 support and integrates into the RStudio editor.
 
 
-A Rmarkdown document is composed of 
+An Rmarkdown document is composed of 
 
 - An optional YAML **header**, delimited by `---`. 
 
