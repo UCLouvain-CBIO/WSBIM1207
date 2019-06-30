@@ -646,12 +646,12 @@ packages in R that shouldn't be ignored.
 ### Base graphics {-}
 
 The default graphics system that comes with R, often called *base R
-graphics* is simple and fast. It is based on the *painters model*,
-where different output are directly overlaid on top of each other (see
-figure \@ref(fig:paintermodel)). This is a fundamental difference with
-`ggplot2` (and with `lattice`, described below), that returns
-dedicated objects, that are rendered on screen or in a file, and that
-can even be updated.
+graphics* is simple and fast. It is based on the *painter's or canvas
+model*, where different output are directly overlaid on top of each
+other (see figure \@ref(fig:paintermodel)). This is a fundamental
+difference with `ggplot2` (and with `lattice`, described below), that
+returns dedicated objects, that are rendered on screen or in a file,
+and that can even be updated.
 
 ```{r paintermodel, fig.width = 12, fig.height = 4, fig.cap = 'Successive layers added on top of each other.'}
 par(mfrow = c(1, 3))
