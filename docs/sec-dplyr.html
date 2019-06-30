@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="Chapter 4 Manipulating and analyzing data with dplyr | Introduction to bioinformatics" />
 <meta property="og:type" content="book" />
 
@@ -17,7 +15,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-04-15" />
+<meta name="date" content="2019-06-30" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -47,7 +45,7 @@ if(f.classList.contains('fa-plus-square')) {
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
 <script src="libs/jquery-1.12.4/jquery.min.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.5/datatables.js"></script>
+<script src="libs/datatables-binding-0.7/datatables.js"></script>
 <link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
@@ -478,9 +476,9 @@ surveys_sml</code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   sex   mean_weight
 ##   &lt;chr&gt;       &lt;dbl&gt;
-## 1 &lt;NA&gt;         64.7
-## 2 F            42.2
-## 3 M            43.0</code></pre>
+## 1 F            42.2
+## 2 M            43.0
+## 3 &lt;NA&gt;         64.7</code></pre>
 <p>You may also have noticed that the output from these calls doesn’t run off the screen anymore. It’s one of the advantages of <code>tbl_df</code> over data frame.</p>
 <p>You can also group by multiple columns:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys <span class="op">%&gt;%</span>
@@ -490,16 +488,16 @@ surveys_sml</code></pre></div>
 ## # Groups:   sex [3]
 ##    sex   species_id mean_weight
 ##    &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;
-##  1 &lt;NA&gt;  AB                 NaN
-##  2 &lt;NA&gt;  AH                 NaN
-##  3 &lt;NA&gt;  AS                 NaN
-##  4 &lt;NA&gt;  BA                 NaN
-##  5 &lt;NA&gt;  CB                 NaN
-##  6 &lt;NA&gt;  CM                 NaN
-##  7 &lt;NA&gt;  CQ                 NaN
-##  8 &lt;NA&gt;  CS                 NaN
-##  9 &lt;NA&gt;  CT                 NaN
-## 10 &lt;NA&gt;  CU                 NaN
+##  1 F     BA                9.16
+##  2 F     DM               41.6 
+##  3 F     DO               48.5 
+##  4 F     DS              118.  
+##  5 F     NL              154.  
+##  6 F     OL               31.1 
+##  7 F     OT               24.8 
+##  8 F     OX               21   
+##  9 F     PB               30.2 
+## 10 F     PE               22.8 
 ## # … with 82 more rows</code></pre>
 <p>When grouping both by <code>sex</code> and <code>species_id</code>, the last few rows are for animals that escaped before their sex and body weights could be determined. You may notice that the last column does not contain <code>NA</code> but <code>NaN</code> (which refers to “Not a Number”). To avoid this, we can remove the missing values for weight before we attempt to calculate the summary statistics on weight. Because the missing values are removed first, we can omit <code>na.rm = TRUE</code> when computing the mean:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys <span class="op">%&gt;%</span>
@@ -510,16 +508,16 @@ surveys_sml</code></pre></div>
 ## # Groups:   sex [3]
 ##    sex   species_id mean_weight
 ##    &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;
-##  1 &lt;NA&gt;  DM                38.3
-##  2 &lt;NA&gt;  DO                50.7
-##  3 &lt;NA&gt;  DS               120  
-##  4 &lt;NA&gt;  NL               168. 
-##  5 &lt;NA&gt;  OL                29  
-##  6 &lt;NA&gt;  OT                21.2
-##  7 &lt;NA&gt;  PB                30.6
-##  8 &lt;NA&gt;  PE                17.7
-##  9 &lt;NA&gt;  PF                 6  
-## 10 &lt;NA&gt;  PI                18  
+##  1 F     BA                9.16
+##  2 F     DM               41.6 
+##  3 F     DO               48.5 
+##  4 F     DS              118.  
+##  5 F     NL              154.  
+##  6 F     OL               31.1 
+##  7 F     OT               24.8 
+##  8 F     OX               21   
+##  9 F     PB               30.2 
+## 10 F     PE               22.8 
 ## # … with 54 more rows</code></pre>
 <p>Here, again, the output from these calls doesn’t run off the screen anymore. If you want to display more data, you can use the <code>print()</code> function at the end of your chain with the argument <code>n</code> specifying the number of rows to display:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys <span class="op">%&gt;%</span>
@@ -531,21 +529,21 @@ surveys_sml</code></pre></div>
 ## # Groups:   sex [3]
 ##    sex   species_id mean_weight
 ##    &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;
-##  1 &lt;NA&gt;  DM                38.3
-##  2 &lt;NA&gt;  DO                50.7
-##  3 &lt;NA&gt;  DS               120  
-##  4 &lt;NA&gt;  NL               168. 
-##  5 &lt;NA&gt;  OL                29  
-##  6 &lt;NA&gt;  OT                21.2
-##  7 &lt;NA&gt;  PB                30.6
-##  8 &lt;NA&gt;  PE                17.7
-##  9 &lt;NA&gt;  PF                 6  
-## 10 &lt;NA&gt;  PI                18  
-## 11 &lt;NA&gt;  PL                25  
-## 12 &lt;NA&gt;  PM                20.2
-## 13 &lt;NA&gt;  PP                14.6
-## 14 &lt;NA&gt;  RM                11.1
-## 15 &lt;NA&gt;  SF                40.5
+##  1 F     BA                9.16
+##  2 F     DM               41.6 
+##  3 F     DO               48.5 
+##  4 F     DS              118.  
+##  5 F     NL              154.  
+##  6 F     OL               31.1 
+##  7 F     OT               24.8 
+##  8 F     OX               21   
+##  9 F     PB               30.2 
+## 10 F     PE               22.8 
+## 11 F     PF                7.97
+## 12 F     PH               30.8 
+## 13 F     PL               19.3 
+## 14 F     PM               22.1 
+## 15 F     PP               17.2 
 ## # … with 49 more rows</code></pre>
 <p>Once the data are grouped, you can also summarize multiple variables at the same time (and not necessarily on the same variable). For instance, we could add a column indicating the minimum weight for each species for each sex:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys <span class="op">%&gt;%</span>
@@ -557,16 +555,16 @@ surveys_sml</code></pre></div>
 ## # Groups:   sex [3]
 ##    sex   species_id mean_weight min_weight
 ##    &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;
-##  1 &lt;NA&gt;  DM                38.3         24
-##  2 &lt;NA&gt;  DO                50.7         44
-##  3 &lt;NA&gt;  DS               120           78
-##  4 &lt;NA&gt;  NL               168.          83
-##  5 &lt;NA&gt;  OL                29           21
-##  6 &lt;NA&gt;  OT                21.2         18
-##  7 &lt;NA&gt;  PB                30.6         20
-##  8 &lt;NA&gt;  PE                17.7         17
-##  9 &lt;NA&gt;  PF                 6            4
-## 10 &lt;NA&gt;  PI                18           18
+##  1 F     BA                9.16          6
+##  2 F     DM               41.6          10
+##  3 F     DO               48.5          12
+##  4 F     DS              118.           45
+##  5 F     NL              154.           32
+##  6 F     OL               31.1          10
+##  7 F     OT               24.8           5
+##  8 F     OX               21            20
+##  9 F     PB               30.2          12
+## 10 F     PE               22.8          11
 ## # … with 54 more rows</code></pre>
 <p>It is sometimes useful to rearrange the result of a query to inspect the values. For instance, we can sort on <code>min_weight</code> to put the lighter species first:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys <span class="op">%&gt;%</span>
@@ -579,12 +577,12 @@ surveys_sml</code></pre></div>
 ## # Groups:   sex [3]
 ##    sex   species_id mean_weight min_weight
 ##    &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;
-##  1 &lt;NA&gt;  PF                6             4
-##  2 F     PF                7.97          4
-##  3 F     RM               11.1           4
-##  4 M     PF                7.89          4
-##  5 M     PP               17.2           4
-##  6 M     RM               10.1           4
+##  1 F     PF                7.97          4
+##  2 F     RM               11.1           4
+##  3 M     PF                7.89          4
+##  4 M     PP               17.2           4
+##  5 M     RM               10.1           4
+##  6 &lt;NA&gt;  PF                6             4
 ##  7 F     OT               24.8           5
 ##  8 F     PP               17.2           5
 ##  9 F     BA                9.16          6
@@ -604,8 +602,8 @@ surveys_sml</code></pre></div>
 ##  1 &lt;NA&gt;  NL               168.          83
 ##  2 M     NL               166.          30
 ##  3 F     NL               154.          32
-##  4 &lt;NA&gt;  SH               130          130
-##  5 M     SS               130          130
+##  4 M     SS               130          130
+##  5 &lt;NA&gt;  SH               130          130
 ##  6 M     DS               122.          12
 ##  7 &lt;NA&gt;  DS               120           78
 ##  8 F     DS               118.          45
@@ -621,9 +619,9 @@ surveys_sml</code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   sex       n
 ##   &lt;chr&gt; &lt;int&gt;
-## 1 &lt;NA&gt;   1748
-## 2 F     15690
-## 3 M     17348</code></pre>
+## 1 F     15690
+## 2 M     17348
+## 3 &lt;NA&gt;   1748</code></pre>
 <p>The <code>count()</code> function is shorthand for something we’ve already seen: grouping by a variable, and summarizing it by counting the number of observations in that group. In other words, <code>surveys %&gt;% count()</code> is equivalent to:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">group_by</span>(sex) <span class="op">%&gt;%</span>
@@ -631,9 +629,9 @@ surveys_sml</code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   sex   count
 ##   &lt;chr&gt; &lt;int&gt;
-## 1 &lt;NA&gt;   1748
-## 2 F     15690
-## 3 M     17348</code></pre>
+## 1 F     15690
+## 2 M     17348
+## 3 &lt;NA&gt;   1748</code></pre>
 <p>For convenience, <code>count()</code> provides the <code>sort</code> argument:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">count</span>(sex, <span class="dt">sort =</span> <span class="ot">TRUE</span>)</code></pre></div>
@@ -647,18 +645,18 @@ surveys_sml</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">count</span>(sex, species)</code></pre></div>
 <pre><code>## # A tibble: 81 x 3
-##    sex   species             n
-##    &lt;chr&gt; &lt;chr&gt;           &lt;int&gt;
-##  1 &lt;NA&gt;  albigula           75
-##  2 &lt;NA&gt;  audubonii          75
-##  3 &lt;NA&gt;  baileyi            29
-##  4 &lt;NA&gt;  bilineata         303
-##  5 &lt;NA&gt;  brunneicapillus    50
-##  6 &lt;NA&gt;  chlorurus          39
-##  7 &lt;NA&gt;  clarki              1
-##  8 &lt;NA&gt;  eremicus           22
-##  9 &lt;NA&gt;  flavus             24
-## 10 &lt;NA&gt;  fulviventer         3
+##    sex   species         n
+##    &lt;chr&gt; &lt;chr&gt;       &lt;int&gt;
+##  1 F     albigula      675
+##  2 F     baileyi      1646
+##  3 F     eremicus      579
+##  4 F     flavus        757
+##  5 F     fulvescens     57
+##  6 F     fulviventer    17
+##  7 F     hispidus       99
+##  8 F     leucogaster   475
+##  9 F     leucopus       16
+## 10 F     maniculatus   382
 ## # … with 71 more rows</code></pre>
 <p>With the above code, we can proceed with <code>arrange()</code> to sort the table according to a number of criteria so that we have a better comparison. For instance, we might want to arrange the table above in (i) an alphabetical order of the levels of the species and (ii) in descending order of the count:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys <span class="op">%&gt;%</span>
@@ -1197,7 +1195,7 @@ Figure 4.1: Visualisation of beer consumption, highlighting different patterns o
 <a href="sec-vis.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-04-15
+2019-06-30
 </p>
 </div>
 </div>

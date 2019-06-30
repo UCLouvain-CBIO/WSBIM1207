@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="Chapter 2 Starting with R | Introduction to bioinformatics" />
 <meta property="og:type" content="book" />
 
@@ -17,7 +15,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-04-15" />
+<meta name="date" content="2019-06-30" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -47,7 +45,7 @@ if(f.classList.contains('fa-plus-square')) {
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
 <script src="libs/jquery-1.12.4/jquery.min.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.5/datatables.js"></script>
+<script src="libs/datatables-binding-0.7/datatables.js"></script>
 <link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
@@ -179,7 +177,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p class="caption marginnote shownote">
 Figure 2.1: Exponential increase of the number of packages available on <a href="https://cran.r-project.org/">CRAN</a>, the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018.
 </p>
-<img src="figs/cran.png" alt="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018."  />
+<img src="figs/cran.png" alt="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018." width="366"  />
 </div>
 </div>
 <div id="r-works-on-data-of-all-shapes-and-sizes" class="section level3 unnumbered">
@@ -359,12 +357,12 @@ Figure 2.6: RStudio help interface.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">some_data &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="dt">file=</span><span class="st">&quot;~/Downloads/iris.rds&quot;</span>)</code></pre></div>
 <p>Last, but certainly not least, <strong>always include the output of <code>sessionInfo()</code></strong> as it provides critical information about your platform, the versions of R and the packages that you are using, and other information that can be very helpful to understand your problem.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre></div>
-<pre><code>## R version 3.5.3 Patched (2019-03-11 r76221)
+<pre><code>## R version 3.6.0 RC (2019-04-21 r76417)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Ubuntu 18.04.2 LTS
 ## 
 ## Matrix products: default
-## BLAS: /usr/lib/x86_64-linux-gnu/libf77blas.so.3.10.3
+## BLAS:   /usr/lib/x86_64-linux-gnu/libf77blas.so.3.10.3
 ## LAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3
 ## 
 ## locale:
@@ -379,11 +377,11 @@ Figure 2.6: RStudio help interface.
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.1      bookdown_0.9    msmbstyle_0.0.4 digest_0.6.18  
-##  [5] magrittr_1.5    evaluate_0.13   highr_0.8       stringi_1.4.3  
-##  [9] rstudioapi_0.10 xml2_1.2.0      rmarkdown_1.12  tools_3.5.3    
-## [13] stringr_1.4.0   xfun_0.6        yaml_2.2.0      compiler_3.5.3 
-## [17] htmltools_0.3.6 knitr_1.22</code></pre>
+##  [1] Rcpp_1.0.1      bookdown_0.11   msmbstyle_0.0.4 png_0.1-7      
+##  [5] digest_0.6.19   magrittr_1.5    evaluate_0.14   highr_0.8      
+##  [9] stringi_1.4.3   rstudioapi_0.10 xml2_1.2.0      rmarkdown_1.13 
+## [13] tools_3.6.0     stringr_1.4.0   xfun_0.8        yaml_2.2.0     
+## [17] compiler_3.6.0  htmltools_0.3.6 knitr_1.23</code></pre>
 </div>
 <div id="where-to-ask-for-help" class="section level3 unnumbered">
 <h3>Where to ask for help?</h3>
@@ -973,13 +971,13 @@ heights_no_na &lt;-<span class="st"> </span><span class="kw">na.omit</span>(heig
 <h3>Random samples and permutations</h3>
 <p>A last group of useful functions are those that generate random data. The first one, <code>sample</code>, generates a random permutation of another vector. For example, to draw a random order to 10 students oral example, I first assign each student a number from 1 to then (for instance based on the alphabetic order of their name) and then:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
-<pre><code>##  [1]  3  4  5  7  2  8  9  6 10  1</code></pre>
+<pre><code>##  [1]  9  4  7  1  2  5  3 10  6  8</code></pre>
 <p>Without further arguments, <code>sample</code> will return a permutation of all elements of the vector. If I want a random sample of a certain size, I would set this value as second argument. Below, I sample 5 random letters from the alphabet contained in the pre-defined <code>letters</code> vector:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(letters, <span class="dv">5</span>)</code></pre></div>
-<pre><code>## [1] &quot;f&quot; &quot;e&quot; &quot;q&quot; &quot;i&quot; &quot;x&quot;</code></pre>
+<pre><code>## [1] &quot;s&quot; &quot;a&quot; &quot;u&quot; &quot;x&quot; &quot;j&quot;</code></pre>
 <p>If I wanted an output larger than the input vector, or being able to draw some elements multiple times, I would need to set the <code>replace</code> argument to <code>TRUE</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>##  [1] 3 4 5 2 4 5 2 4 1 2</code></pre>
+<pre><code>##  [1] 2 1 5 5 1 1 5 5 2 2</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -1003,23 +1001,23 @@ heights_no_na &lt;-<span class="st"> </span><span class="kw">na.omit</span>(heig
 <div id="sol-body-15" class="solution-body" style="display: none;">
 <p>Different permutations</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
-<pre><code>##  [1]  4  1 10  7  3  6  5  2  9  8</code></pre>
+<pre><code>##  [1]  9  1  4  3  6  2  5  8 10  7</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
-<pre><code>##  [1]  7  8  1  6  3  5 10  4  2  9</code></pre>
+<pre><code>##  [1]  4  9  7  6  1 10  8  3  2  5</code></pre>
 <p>Same permutations with seed 123</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
 <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
-<pre><code>##  [1]  3  8  4  7  6  1 10  9  2  5</code></pre>
+<pre><code>##  [1]  3 10  2  8  6  9  1  7  5  4</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
 <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
-<pre><code>##  [1]  3  8  4  7  6  1 10  9  2  5</code></pre>
+<pre><code>##  [1]  3 10  2  8  6  9  1  7  5  4</code></pre>
 <p>A different seed</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1</span>)
 <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
-<pre><code>##  [1]  3  4  5  7  2  8  9  6 10  1</code></pre>
+<pre><code>##  [1]  9  4  7  1  2  5  3 10  6  8</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1</span>)
 <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
-<pre><code>##  [1]  3  4  5  7  2  8  9  6 10  1</code></pre>
+<pre><code>##  [1]  9  4  7  1  2  5  3 10  6  8</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1172,7 +1170,7 @@ p3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</s
 <a href="sec-startdata.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-04-15
+2019-06-30
 </p>
 </div>
 </div>

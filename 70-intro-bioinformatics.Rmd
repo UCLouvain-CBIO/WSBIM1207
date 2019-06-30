@@ -656,9 +656,9 @@ BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
 library("rWSBIM1207")
 library("tidyverse")
 fls <- kem.tsv()
-annot <- read_tsv(fls[1])
+annot <- read_tsv(fls[2])
 
-kem <- read_tsv(fls[2]) %>%
+kem <- read_tsv(fls[1]) %>%
     gather(key = sample_id, value = expression, -ref) %>%
     left_join(annot)
 
