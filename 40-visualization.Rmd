@@ -99,10 +99,10 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
   geom_point()
 ```
 
-The `+` in the **`ggplot2`** package is particularly useful because it allows you
-to modify existing `ggplot` objects. This means you can easily set up plot
-templates and conveniently explore different types of plots, so the above
-plot can also be generated with code like this:
+The `+` in the **`ggplot2`** package is particularly useful because it
+allows you to modify existing `ggplot` objects. This means you can
+easily set up plot templates and conveniently explore different types
+of plots, so the above plot can also be generated with code like this:
 
 ```{r, first-ggplot-with-plus, eval=FALSE}
 # Assign plot to a variable
