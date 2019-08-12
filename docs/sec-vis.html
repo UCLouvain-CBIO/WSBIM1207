@@ -232,10 +232,10 @@ let’s use <code>geom_point()</code> first:</p>
 <div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="sec-vis.html#cb369-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span></span>
 <span id="cb369-2"><a href="sec-vis.html#cb369-2"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/first-ggplot-1.png" width="672"  /></p>
-<p>The <code>+</code> in the <strong><code>ggplot2</code></strong> package is particularly useful because it allows you
-to modify existing <code>ggplot</code> objects. This means you can easily set up plot
-templates and conveniently explore different types of plots, so the above
-plot can also be generated with code like this:</p>
+<p>The <code>+</code> in the <strong><code>ggplot2</code></strong> package is particularly useful because it
+allows you to modify existing <code>ggplot</code> objects. This means you can
+easily set up plot templates and conveniently explore different types
+of plots, so the above plot can also be generated with code like this:</p>
 <div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="sec-vis.html#cb370-1"></a><span class="co"># Assign plot to a variable</span></span>
 <span id="cb370-2"><a href="sec-vis.html#cb370-2"></a>surveys_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete,</span>
 <span id="cb370-3"><a href="sec-vis.html#cb370-3"></a>                       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length))</span>
@@ -694,12 +694,12 @@ packages in R that shouldn’t be ignored.</p>
 <div id="base-graphics" class="section level3 unnumbered">
 <h3>Base graphics</h3>
 <p>The default graphics system that comes with R, often called <em>base R
-graphics</em> is simple and fast. It is based on the <em>painters model</em>,
-where different output are directly overlaid on top of each other (see
-figure <a href="sec-vis.html#fig:paintermodel">5.1</a>). This is a fundamental difference with
-<code>ggplot2</code> (and with <code>lattice</code>, described below), that returns
-dedicated objects, that are rendered on screen or in a file, and that
-can even be updated.</p>
+graphics</em> is simple and fast. It is based on the <em>painter’s or canvas
+model</em>, where different output are directly overlaid on top of each
+other (see figure <a href="sec-vis.html#fig:paintermodel">5.1</a>). This is a fundamental
+difference with <code>ggplot2</code> (and with <code>lattice</code>, described below), that
+returns dedicated objects, that are rendered on screen or in a file,
+and that can even be updated.</p>
 <div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="sec-vis.html#cb405-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
 <span id="cb405-2"><a href="sec-vis.html#cb405-2"></a><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">main =</span> <span class="st">&quot;First layer, produced with plot(1:20)&quot;</span>)</span>
 <span id="cb405-3"><a href="sec-vis.html#cb405-3"></a><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">main =</span> <span class="st">&quot;A horizontal red line, added with abline(h = 10)&quot;</span>)</span>

@@ -90,34 +90,76 @@ chapter). Originally, these were written in LaTeX, interleaved with R
 code chunks, forming so called Sweave documents (with extension
 `.Rnw`).
 
+```{r rmarkdownsticker, results='asis', fig.margin=TRUE, fig.cap="The rmarkdown sticker", fig.width=7, fig.height=4, echo=FALSE, purl=FALSE}
+knitr::include_graphics("./figs/rmarkdown-200x232.png")
+```
+
 More recently, it has become to use the
 [markdown](https://daringfireball.net/projects/markdown/) syntax
 markup language, rather than LaTeX. Once interleaved with R code
-chunks, these documents become Rmarkdown files (`.Rmd`). The can be
+chunks, these documents become **Rmarkdown** files (`.Rmd`). The can be
 converted into markdown using `knitr::knit`, that executes the code
 chunk and incorporates their output in the resulting markdown
 documents, which itself is converted to one of many output formats,
 typically pdf of html using [pandoc](http://pandoc.org/). In R, this
 final conversion is done using `rmarkdown::render` (that relies on
-pandoc). The [rmarkdown](http://rmarkdown.rstudio.com/) package is
-developed and maintained by RStudio and benefits from excellent
-documentation, support and integrates into the RStudio editor.
+pandoc). 
+
+- `knitr::knit` converts the `Rmd` into `md` by executing the code
+  chunks and replacing the code by its output (text, tables, figures,
+  ...).
+
+- The `md` file is then compiled into the desired [output
+  format](https://rmarkdown.rstudio.com/lesson-9.html) (typically html
+  or pdf) using `pandoc`.
+  
+- In practice, in R, these two steps are automatically handled in one
+  go by `rmarkdown::render()`.
+
+
+```{r rmarkdownflow, results='asis', fig.cap="The rmarkdown workflow (image from RStudio)", out.width = '100%', echo=FALSE, purl=FALSE}
+knitr::include_graphics("./figs/rmarkdownflow.png")
+```
+
+The [rmarkdown](http://rmarkdown.rstudio.com/) package is developed
+and maintained by RStudio and benefits from excellent documentation,
+support and integrates into the RStudio editor.
+
+
+An Rmarkdown document is composed of 
+
+- An optional YAML **header**, delimited by `---`. 
+
+- Text in [simple **markdown**
+  format](https://pandoc.org/MANUAL.html#pandocs-markdown).
+
+- One or more R **code chunks** delimited by three backticks. Each
+  code chunk can be uniquely named and parametrised with a set of code
+  chunk [options](http://yihui.name/knitr/options/).
+
+These respective parts of an Rmd file are show below and will be
+demonstrated during the course.
 
 ![](./figs/rmd.png)
 
-RStudio now also support *R Notebook* documents[^jupyter] that execute
-individual code chunks that are displayed directly in the source
-document.
+RStudio also supports
+[Notebook](https://bookdown.org/yihui/rmarkdown/notebook.html)
+documents[^jupyter] that execute individual code chunks independently
+and display directly in the source document.
 
 ![](./figs/rnb.png)
 
 [^jupyter]: See also [Jupyter notebooks](https://jupyter.org/)
 initially developed for Python, but that can run R code as well.
 
+Here is an [R markdown cheat
+sheet](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+provided by RStudio.
+
 ## Additional features
 
 - Among the most options that can set for code chunks is
-  `cache`. Setting `cache=TRUE` will avoid that specific code chunk to
+  `cache`. Setting `cache = TRUE` will avoid that specific code chunk to
   be cached and not recomputed every time the documented in *knitted*,
   unless the code chunk was modified. This is an important feature
   when long computations are necessary.
@@ -136,6 +178,13 @@ DT::datatable(ip[, c(1, 3, 5, 6, 10)], rownames = FALSE)
   allows readers to review the version of R itself and all the
   packages that were used to produce the report.
 
+
+Using Rmarkdown, it is also possible to produce
+[slides](https://rmarkdown.rstudio.com/lesson-11.html),
+[websites](https://rmarkdown.rstudio.com/lesson-13.html), and
+[complete books](https://bookdown.org/), [interactive
+documents](https://rmarkdown.rstudio.com/lesson-14.html) and [R
+package vignettes](http://bioconductor.org/help/package-vignettes/).
 
 
 `r msmbstyle::question_begin()`

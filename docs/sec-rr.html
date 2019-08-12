@@ -247,29 +247,70 @@ project (more about Bioconductor in it’s dedicated
 chapter). Originally, these were written in LaTeX, interleaved with R
 code chunks, forming so called Sweave documents (with extension
 <code>.Rnw</code>).</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:rmarkdownsticker"></span>
+<img src="figs/rmarkdown-200x232.png" alt="The rmarkdown sticker" width="100"  />
+<!--
+<p class="caption marginnote">-->Figure 7.1: The rmarkdown sticker<!--</p>-->
+<!--</div>--></span>
+</p>
 <p>More recently, it has become to use the
 <a href="https://daringfireball.net/projects/markdown/">markdown</a> syntax
 markup language, rather than LaTeX. Once interleaved with R code
-chunks, these documents become Rmarkdown files (<code>.Rmd</code>). The can be
+chunks, these documents become <strong>Rmarkdown</strong> files (<code>.Rmd</code>). The can be
 converted into markdown using <code>knitr::knit</code>, that executes the code
 chunk and incorporates their output in the resulting markdown
 documents, which itself is converted to one of many output formats,
 typically pdf of html using <a href="http://pandoc.org/">pandoc</a>. In R, this
 final conversion is done using <code>rmarkdown::render</code> (that relies on
-pandoc). The <a href="http://rmarkdown.rstudio.com/">rmarkdown</a> package is
-developed and maintained by RStudio and benefits from excellent
-documentation, support and integrates into the RStudio editor.</p>
+pandoc).</p>
+<ul>
+<li><p><code>knitr::knit</code> converts the <code>Rmd</code> into <code>md</code> by executing the code
+chunks and replacing the code by its output (text, tables, figures,
+…).</p></li>
+<li><p>The <code>md</code> file is then compiled into the desired <a href="https://rmarkdown.rstudio.com/lesson-9.html">output
+format</a> (typically html
+or pdf) using <code>pandoc</code>.</p></li>
+<li><p>In practice, in R, these two steps are automatically handled in one
+go by <code>rmarkdown::render()</code>.</p></li>
+</ul>
+<div class="figure"><span id="fig:rmarkdownflow"></span>
+<p class="caption marginnote shownote">
+Figure 7.2: The rmarkdown workflow (image from RStudio)
+</p>
+<img src="figs/rmarkdownflow.png" alt="The rmarkdown workflow (image from RStudio)" width="100%"  />
+</div>
+<p>The <a href="http://rmarkdown.rstudio.com/">rmarkdown</a> package is developed
+and maintained by RStudio and benefits from excellent documentation,
+support and integrates into the RStudio editor.</p>
+<p>An Rmarkdown document is composed of</p>
+<ul>
+<li><p>An optional YAML <strong>header</strong>, delimited by <code>---</code>.</p></li>
+<li><p>Text in <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">simple <strong>markdown</strong>
+format</a>.</p></li>
+<li><p>One or more R <strong>code chunks</strong> delimited by three backticks. Each
+code chunk can be uniquely named and parametrised with a set of code
+chunk <a href="http://yihui.name/knitr/options/">options</a>.</p></li>
+</ul>
+<p>These respective parts of an Rmd file are show below and will be
+demonstrated during the course.</p>
 <p><img src="figs/rmd.png" /></p>
-<p>RStudio now also support <em>R Notebook</em> documents<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> that execute
-individual code chunks that are displayed directly in the source
-document.</p>
+<p>RStudio also supports
+<a href="https://bookdown.org/yihui/rmarkdown/notebook.html">Notebook</a>
+documents<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> that execute individual code chunks independently
+and display directly in the source document.</p>
 <p><img src="figs/rnb.png" /></p>
+<p>Here is an <a href="https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf">R markdown cheat
+sheet</a>
+provided by RStudio.</p>
 </div>
 <div id="additional-features" class="section level2">
 <h2><span class="header-section-number">7.2</span> Additional features</h2>
 <ul>
 <li><p>Among the most options that can set for code chunks is
-<code>cache</code>. Setting <code>cache=TRUE</code> will avoid that specific code chunk to
+<code>cache</code>. Setting <code>cache = TRUE</code> will avoid that specific code chunk to
 be cached and not recomputed every time the documented in <em>knitted</em>,
 unless the code chunk was modified. This is an important feature
 when long computations are necessary.</p></li>
@@ -287,6 +328,12 @@ providing all the session information details with the
 allows readers to review the version of R itself and all the
 packages that were used to produce the report.</li>
 </ul>
+<p>Using Rmarkdown, it is also possible to produce
+<a href="https://rmarkdown.rstudio.com/lesson-11.html">slides</a>,
+<a href="https://rmarkdown.rstudio.com/lesson-13.html">websites</a>, and
+<a href="https://bookdown.org/">complete books</a>, <a href="https://rmarkdown.rstudio.com/lesson-14.html">interactive
+documents</a> and <a href="http://bioconductor.org/help/package-vignettes/">R
+package vignettes</a>.</p>
 <div class="question">
 <p class="question-begin">
 ► Question
