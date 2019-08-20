@@ -134,8 +134,10 @@ bioinformatics point of view:
   representation bisulfite sequencing experiments using
   edgeR](https://f1000research.com/articles/6-2055/v2)
 
-And more generally, at Google, Pfizer, Merck, Bank of America, the
-InterContinental Hotels Group, Shell, ...
+- ...
+
+And more generally, at Google, Pfizer, Merck, GSK, Bank of America,
+the InterContinental Hotels Group, Shell, ...
 
 - [Data Analysts Captivated by R's
   Power](https://www.nytimes.com/2009/01/07/technology/business-computing/07program.html)
