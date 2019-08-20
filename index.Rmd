@@ -102,9 +102,8 @@ motivation of this choice is the availability of numerous
 R/[Bionductor](https://www.bioconductor.org/) packages [@Huber:2015]
 for the analysis of high throughput biology data.
 
-
 Another reason why the focus of the course ought to be on data skills
-is that an notable difficulty in modern, multidisciplinary research is
+is that a notable difficulty in modern, multidisciplinary research is
 communication. Wetlab biomedical scientists aren't required to become
 bioinformaticians, statisticians, programmers, ... to be outstanding
 researchers, but they will need to communicate efficiency with these
@@ -116,8 +115,31 @@ facilities, only a minority of projects were purely routine and that
 most researchers came to the bioinformatics core seeking customized
 analysis, rather than a standardized package [@Chang:2015].
 
+To illustrate the reasons why R in general (and in the case of
+biomedical sciences, Bioconductor in particular) are worth learning, I
+provide here some examples where these software are used. From a
+bioinformatics point of view:
 
-The overall learning objectives of this course are:
+- Single cell transcriptomics data: [Bioconductor workflow for
+  single-cell RNA sequencing: Normalization, dimensionality reduction,
+  clustering, and lineage
+  inference](https://f1000research.com/articles/6-1158/v1)
+
+- Quantitative proteomics data: [A Bioconductor workflow for
+  processing and analysing spatial proteomics
+  data](https://f1000research.com/articles/5-2926/v2).
+
+- Epigenetic data: [Differential methylation analysis of reduced
+  representation bisulfite sequencing experiments using
+  edgeR](https://f1000research.com/articles/6-2055/v2)
+
+And more generally, at Google, Pfizer, Merck, Bank of America, the
+InterContinental Hotels Group, Shell, ...
+
+- [Data Analysts Captivated by R's
+  Power](https://www.nytimes.com/2009/01/07/technology/business-computing/07program.html)
+
+In summary, the overall learning objectives of this course are:
 
 - for students to apply and adapt the general data analysis techniques
   and principles that are presented to new data and new contexts;
