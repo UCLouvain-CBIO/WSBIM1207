@@ -11,6 +11,7 @@ output:
     toc_depth: 1
     split_by: chapter
     split_bib: no
+    css: style.css	      
 link-citations: yes
 bibliography: [refs.bib, packages.bib]
 ---
