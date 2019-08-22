@@ -372,7 +372,7 @@ page:
 - SAM / BAM – `r Biocpkg("Rsamtools")``::scanBam()`, `r Biocpkg("GenomicAlignments")``:readGAlignment*()`
 - FASTA – `r Biocpkg("Biostrings")``::readDNAStringSet()`
 - FASTQ – `r Biocpkg("ShortRead")``::readFastq()`
-- Mass spectrometry data (XML-based and mfg formats) – `r Biocpkg("MSnbase")``::readMSData()`, `r Biocpkg("MSnbase")``::readMgfData()`
+- Mass spectrometry data (XML-based and peaklist formats) –`r Biocpkg("MSnbase")``::readMSData()`, `r Biocpkg("MSnbase")``::readMgfData()`
 
 #### Common Classes {-}
 
