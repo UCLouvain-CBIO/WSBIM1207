@@ -217,7 +217,7 @@ results from the individual results files.
 
 ## The Bioconductor project {#sec:bioconductor}
 
-```{r, echo = FALSE, message = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 library("MSnbase")
 library("BiocStyle")
 ```
