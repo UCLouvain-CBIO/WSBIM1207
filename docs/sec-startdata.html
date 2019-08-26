@@ -15,7 +15,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-08-23" />
+<meta name="date" content="2019-08-26" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -614,11 +614,11 @@ surveys<span class="op">$</span>plot_type &lt;-<span class="st"> </span><span cl
 <p>Let’s generate a matrix containing information about all packages that are currently installed on our respective computers using the <code>installed.packages()</code> function. We will use the same function to explore this matrix as those used for dataframes above.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ip &lt;-<span class="st"> </span><span class="kw">installed.packages</span>()
 <span class="kw">dim</span>(ip)</code></pre></div>
-<pre><code>## [1] 487  16</code></pre>
+<pre><code>## [1] 489  16</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">colnames</span>(ip))</code></pre></div>
 <pre><code>## [1] "Package"  "LibPath"  "Version"  "Priority" "Depends"  "Imports"</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">rownames</span>(ip)) ## these are the package names</code></pre></div>
-<pre><code>## [1] "abind"   "acepack" "ade4"    "affy"    "affyio"  "ALL"</code></pre>
+<pre><code>## [1] "abind"   "acepack" "ade4"    "affy"    "affyio"  "airway"</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## View(ip)</code></pre></div>
 <div class="question">
 <p class="question-begin">
@@ -794,9 +794,9 @@ missing_dates &lt;-<span class="st"> </span>surveys[is_missing_date,  date_colum
 <pre><code>## List of 5
 ##  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##  $ : chr [1:26] "a" "b" "c" "d" ...
-##  $ : chr [1:487, 1:16] "abind" "acepack" "ade4" "affy" ...
+##  $ : chr [1:489, 1:16] "abind" "acepack" "ade4" "affy" ...
 ##   ..- attr(*, "dimnames")=List of 2
-##   .. ..$ : chr [1:487] "abind" "acepack" "ade4" "affy" ...
+##   .. ..$ : chr [1:489] "abind" "acepack" "ade4" "affy" ...
 ##   .. ..$ : chr [1:16] "Package" "LibPath" "Version" "Priority" ...
 ##  $ :'data.frame':    50 obs. of  2 variables:
 ##   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...
@@ -994,7 +994,7 @@ surveys &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span clas
 <a href="sec-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-08-23
+2019-08-26
 </p>
 </div>
 </div>
