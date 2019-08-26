@@ -52,7 +52,9 @@ plot to a scatterplot. This helps in creating publication quality
 plots with minimal amounts of adjustments and tweaking.
 
 There is a book about `ggplot2` (@ggplot2book) that provides a good
-overview, but it is outdated. The `ggplot2` webpage
+overview, but it is outdated. The 3rd edition is in preparation and
+will be [freely available onlin](https://ggplot2-book.org/). The
+`ggplot2` webpage
 ([https://ggplot2.tidyverse.org](https://ggplot2.tidyverse.org))
 provides ample documentation.
 
@@ -858,5 +860,3 @@ x <- gather(x, key = interro, value = result,
 ggplot(x, aes(x = gender, y = result)) +
     geom_boxplot() + facet_grid(. ~ interro)
 ```
-
-
