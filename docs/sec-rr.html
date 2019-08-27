@@ -15,7 +15,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-08-26" />
+<meta name="date" content="2019-08-27" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -211,7 +211,7 @@ Figure 7.2: The rmarkdown workflow (image from RStudio)
 <li><p>Text in <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">simple <strong>markdown</strong> format</a>.</p></li>
 <li><p>One or more R <strong>code chunks</strong> delimited by three backticks. Each code chunk can be uniquely named and parametrised with a set of code chunk <a href="http://yihui.name/knitr/options/">options</a>.</p></li>
 </ul>
-<p>These respective parts of an Rmd file are show below and will be demonstrated during the course.</p>
+<p>These respective parts of an <code>Rmd</code> file are show below and will be demonstrated during the course.</p>
 <div class="figure">
 <img src="figs/rmd.png">
 </div>
@@ -247,6 +247,7 @@ DT<span class="op">::</span><span class="kw">datatable</span>(ip[, <span class="
 </div>
 </div>
 <p>The <a href="https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf">R Markdown Cheat Sheet</a> and <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">Reference Guide</a> will help you with the markdown synatax, R code chunk options, and RStudio utlisation.</p>
+<p><strong>Note</strong>: When you prepare an <code>Rmd</code> report, it is advised to start with a code chunk that load all packages, and update that code chunk as you proceed with your analysis and use new packages. This avoids the situation where some commands work in your R console (where you initially loaded the package) but fail when you compile your report. Indeed, an <code>Rmd</code> file is compiled in a new, clean R session, without access to your working session, the packages that were loaded, and the variables that were created.</p>
 </div>
 <div id="docker-containers" class="section level2">
 <h2>
@@ -277,7 +278,7 @@ DT<span class="op">::</span><span class="kw">datatable</span>(ip[, <span class="
 <a href="sec-bioinfo.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-08-26
+2019-08-27
 </p>
 </div>
 </div>
