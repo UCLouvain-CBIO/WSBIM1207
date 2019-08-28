@@ -137,7 +137,7 @@ An Rmarkdown document is composed of
   code chunk can be uniquely named and parametrised with a set of code
   chunk [options](http://yihui.name/knitr/options/).
 
-These respective parts of an Rmd file are show below and will be
+These respective parts of an `Rmd` file are show below and will be
 demonstrated during the course.
 
 ![](./figs/rmd.png)
@@ -204,6 +204,15 @@ and [Reference
 Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 will help you with the markdown synatax, R code chunk options, and
 RStudio utlisation.
+
+**Note**: When you prepare an `Rmd` report, it is advised to start
+with a code chunk that load all packages, and update that code chunk
+as you proceed with your analysis and use new packages. This avoids
+the situation where some commands work in your R console (where you
+initially loaded the package) but fail when you compile your
+report. Indeed, an `Rmd` file is compiled in a new, clean R session,
+without access to your working session, the packages that were loaded,
+and the variables that were created.
 
 
 ## Docker containers

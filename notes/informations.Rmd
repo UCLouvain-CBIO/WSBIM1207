@@ -1,13 +1,13 @@
 ---
-title: "Informations WSBIM1207 2018 - 2019"
+title: "Informations WSBIM1207 2019 - 2020"
 output: html_document
 ---
 
 ## Information générales
 
-- [Descriptif du cours](https://uclouvain.be/cours-2018-wsbim1207.html)
+- [Descriptif du cours](https://uclouvain.be/cours-2019-wsbim1207.html)
 - Titulaire: Prof Laurent Gatto
-- Assistants: M. Kevin Missault et Dr. Axelle Loriot
+- Assistants: Dr. Axelle Loriot
 - Notes de cours: http://bit.ly/WSBIM1207
 - Informations aux étudiants (ce document): http://bit.ly/WSBIM1207info
 
@@ -33,19 +33,21 @@ output: html_document
   proposés comme travail à domicile.
 
 - La **présence des étudiants à l'ensemble des cours (volumes 1 et 2)
-  est obligatoire**. Les présences seront comptabilisées. **N'oubliez
-  pas de signer en début de chaque cours!**
+  est obligatoire**. Ceci est aussi valable pour les bisseurs. Il est
+  essentiel de prendre contact avec le titulaire du cours au plus vite
+  si vous n'êtes pas en mesure de suivre le cours. Les présences
+  seront comptabilisées. **N'oubliez pas de signer en début de chaque
+  cours!**
 
 - En case de trois absences non justifiées, l'étudiant(e) pourra se
-  voir refuser la participation à l'examen de fin de cours.
+  voir refuser la participation **aux examens** de fin de cours.
 
 - Il y aura des interrogations cotées en début de certaines
   sessions. Ces cotes compteront pour 25% de la note finale. Le
   meilleur moyen de vous y préparer et de faire et comprendre les
   exercices en cours et à domicile.
 
-- Le nombre et durée des pauses dépendra du [vote des
-  étudiant(e)s](https://moodleucl.uclouvain.be/mod/choice/view.php?id=734453).
+- Le nombre et durée des pauses dépendra du [vote des étudiant(e)s]().
 
 Ce qui est attendu de vous:
 
@@ -69,15 +71,18 @@ Ce qui est attendu de vous:
 
 |   | Jour              | Horaire       | Matière                                         |
 |---|-------------------|---------------|-------------------------------------------------|
-| 1 | Jeudi  07/02/2019 | 08h30 - 12h30 | Intro et tableurs                               |
-| 2 | Jeudi  14/02/2019 | 08h30 - 12h30 | Introduction à R/RStudio et `data.frames`       |
-| 3 | Jeudi  21/02/2019 | 08h30 - 12h30 | Analyses de données                             |
-| 4 | Jeudi  28/02/2019 | 08h30 - 12h30 | Analyses de données (suite)                     |
-| 5 | Jeudi  07/03/2019 | 08h30 - 12h30 | Analyses de données (suite)                     |
-| 6 | Jeudi  14/03/2019 | 08h30 - 12h30 | Visualisation de données                        |
-| 7 | Jeudi  21/03/2019 | 08h30 - 12h30 | Jointures et recherche reproductible            |
-| 8 | Jeudi  28/03/2019 | 08h30 - 12h30 | bioinformatique et éléments de programmation    |
-| 9 | Jeudi  04/04/2019 | 08h30 - 12h30 | Exercices supplémentaires et questions/réponses |
+| 1 | Jeudi  06/02/2020 | 08h30 - 12h30 | Intro et tableurs                               |
+| 2 | Jeudi  13/02/2020 | 08h30 - 12h30 | Introduction à R/RStudio et `data.frames`       |
+| 3 | Jeudi  20/02/2020 | 08h30 - 12h30 | Analyses de données                             |
+| 4 | Jeudi  27/02/2020 | 08h30 - 12h30 | Analyses de données (suite)                     |
+| 5 | Jeudi  05/03/2020 | 08h30 - 12h30 | Analyses de données (suite)                     |
+| 6 | Jeudi  12/03/2020 | 08h30 - 12h30 | Visualisation de données                        |
+| 7 | Jeudi  19/03/2020 | 08h30 - 12h30 | Jointures et recherche reproductible            |
+| 8 | Jeudi  26/03/2020 | 08h30 - 12h30 | bioinformatique et éléments de programmation    |
+| 9 | Jeudi  02/04/2020 | 08h30 - 12h30 | Exercices supplémentaires et questions/réponses |
+|   | Jeudi  14/05/2020 | 08h30 - 12h30 | Examen hors session (à confirmer)               |
+
+
 
 NB: la matière reprise ci-dessus est à titre indicatif uniquement, et
 sera adaptée en fonction de l'avancée en cours.
@@ -139,6 +144,9 @@ sera adaptée en fonction de l'avancée en cours.
   aussi en français.
 
 - Nous ne répondrons **pas** aux questions durant l'examen.
+
+Vous aurez un document reprenant des informations détaillées sur
+l'examen et sont déroulement en temps voulu.
 
 ----
 
