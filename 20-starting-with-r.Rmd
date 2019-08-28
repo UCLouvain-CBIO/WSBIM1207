@@ -204,6 +204,16 @@ for 'Save workspace to .RData' on exit.'
 knitr::include_graphics("./figs/rstudio-preferences.png")
 ```
 
+To avoid [character encoding issue between Windows and other operating
+systems](https://yihui.name/en/2018/11/biggest-regret-knitr/), we are
+going to set UTF-8 by default:
+
+
+```{r, results='markup', fig.cap="Set the default text encoding to UTF-8 to save us headache in the coming future. (Figure from the link above).", echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
+knitr::include_graphics("./figs/utf8.png")
+```
+
+
 ### Organizing your working directory
 
 Using a consistent folder structure across your projects will help keep things
@@ -1568,4 +1578,3 @@ names(p3) <- c("D1", "D2", "A10", "D5", "D15", "A16", "B22")
 - What command would you use to get the vote for student `D2` from vector `p`?
 
 `r msmbstyle::question_end()`
-
