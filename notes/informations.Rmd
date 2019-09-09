@@ -36,7 +36,7 @@ output: html_document
   est obligatoire**. Ceci est aussi valable pour les bisseurs. Il est
   essentiel de prendre contact avec le titulaire du cours au plus vite
   si vous n'êtes pas en mesure de suivre le cours. Les présences
-  seront comptabilisées. **N'oubliez pas de signer en début de chaque
+  seront comptabilisées. **N'oubliez pas de signer à chaque
   cours!**
 
 - En case de trois absences non justifiées, l'étudiant(e) pourra se
