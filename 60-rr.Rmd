@@ -156,6 +156,13 @@ Here is an [R markdown cheat
 sheet](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
 provided by RStudio.
 
+
+The following video, [*R Markdown: The bigger
+picture*](https://resources.rstudio.com/rstudio-conf-2019/r-markdown-the-bigger-picture)
+by Garrett Grolemund at a 2019 RStudio conference provides a very nice
+introduction on the many reasons why writing reproducible documents in
+essential in data science and biomedical research. 
+
 ## Additional features
 
 - Among the most options that can set for code chunks is

@@ -15,7 +15,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2019-08-28" />
+<meta name="date" content="2019-09-18" />
 
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
@@ -55,41 +55,68 @@ if(f.classList.contains('fa-plus-square')) {
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -160,7 +187,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="presentation-of-the-survey-data" class="section level2">
 <h2>
 <span class="header-section-number">3.1</span> Presentation of the Survey Data</h2>
-<p>We are studying the species repartition and weight of animals caught in plots in our study area. The dataset is stored as a comma separated value (CSV) file. Each row holds information for a single animal, and the columns represent:</p>
+<p>We are studying the species repartition and weight of animals caught
+in plots in our study area. The dataset is stored as a comma separated
+value (CSV) file. Each row holds information for a single animal, and
+the columns represent:</p>
 <table>
 <thead><tr class="header">
 <th>Column</th>
@@ -221,14 +251,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<p>We are going to use the R function <code>download.file()</code> to download the CSV file that contains the survey data from figshare, and we will use <code>read.csv()</code> to load into memory the content of the CSV file as an object of class <code>data.frame</code>. Inside the download.file command, the first entry is a character string with the source URL (“<a href="https://ndownloader.figshare.com/files/2292169" class="uri">https://ndownloader.figshare.com/files/2292169</a>”). This source URL downloads a CSV file from figshare. The text after the comma (“data/portal_data_joined.csv”) is the destination of the file on your local machine. You’ll need to have a folder on your machine called “data” where you’ll download the file. So this command downloads a file from figshare, names it “portal_data_joined.csv,” and adds it to a preexisting folder named “data.”</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">download.file</span>(<span class="dt">url=</span><span class="st">"https://ndownloader.figshare.com/files/2292169"</span>,
-              <span class="dt">destfile =</span> <span class="st">"data/portal_data_joined.csv"</span>)</code></pre></div>
+<p>We are going to use the R function <code>download.file()</code> to download the
+CSV file that contains the survey data from figshare, and we will use
+<code>read.csv()</code> to load into memory the content of the CSV file as an
+object of class <code>data.frame</code>. Inside the download.file command, the
+first entry is a character string with the source URL
+(“<a href="https://ndownloader.figshare.com/files/2292169" class="uri">https://ndownloader.figshare.com/files/2292169</a>”). This source URL
+downloads a CSV file from figshare. The text after the comma
+(“data/portal_data_joined.csv”) is the destination of the file on your
+local machine. You’ll need to have a folder on your machine called
+“data” where you’ll download the file. So this command downloads a
+file from figshare, names it “portal_data_joined.csv,” and adds it to
+a preexisting folder named “data.”</p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="sec-startdata.html#cb201-1"></a><span class="kw">download.file</span>(<span class="dt">url=</span><span class="st">"https://ndownloader.figshare.com/files/2292169"</span>,</span>
+<span id="cb201-2"><a href="sec-startdata.html#cb201-2"></a>              <span class="dt">destfile =</span> <span class="st">"data/portal_data_joined.csv"</span>)</span></code></pre></div>
 <p>You are now ready to load the data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">"data/portal_data_joined.csv"</span>)</code></pre></div>
-<p>This statement doesn’t produce any output because, as you might recall, assignments don’t display anything. If we want to check that our data has been loaded, we can see the contents of the data frame by typing its name: <code>surveys</code>.</p>
-<p>Wow… that was a lot of output. At least it means the data loaded properly. Let’s check the top (the first 6 lines) of this data frame using the function <code>head()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(surveys)</code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="sec-startdata.html#cb202-1"></a>surveys &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">"data/portal_data_joined.csv"</span>)</span></code></pre></div>
+<p>This statement doesn’t produce any output because, as you might
+recall, assignments don’t display anything. If we want to check that
+our data has been loaded, we can see the contents of the data frame by
+typing its name: <code>surveys</code>.</p>
+<p>Wow… that was a lot of output. At least it means the data loaded
+properly. Let’s check the top (the first 6 lines) of this data frame
+using the function <code>head()</code>:</p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="sec-startdata.html#cb203-1"></a><span class="kw">head</span>(surveys)</span></code></pre></div>
 <pre><code>##   record_id month day year plot_id species_id sex hindfoot_length weight
 ## 1         1     7  16 1977       2         NL   M              32     NA
 ## 2        72     8  19 1977       2         NL   M              31     NA
@@ -243,24 +289,45 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## 4 Neotoma albigula Rodent   Control
 ## 5 Neotoma albigula Rodent   Control
 ## 6 Neotoma albigula Rodent   Control</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Try also
-## View(surveys)</code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="sec-startdata.html#cb205-1"></a><span class="co">## Try also</span></span>
+<span id="cb205-2"><a href="sec-startdata.html#cb205-2"></a><span class="co">## View(surveys)</span></span></code></pre></div>
 <p><strong>Note</strong></p>
-<p><code>read.csv</code> assumes that fields are delineated by commas, however, in several countries, the comma is used as a decimal separator and the semicolon (;) is used as a field delineator. If you want to read in this type of files in R, you can use the <code>read.csv2</code> function. It behaves exactly like <code>read.csv</code> but uses different parameters for the decimal and the field separators. If you are working with another format, they can be both specified by the user. Check out the help for <code>read.csv()</code> by typing <code>?read.csv</code> to learn more. There is also the <code>read.delim()</code> for in tab separated data files. It is important to note that all of these functions are actually wrapper functions for the main <code>read.table()</code> function with different arguments. As such, the surveys data above could have also been loaded by using <code>read.table()</code> with the separation argument as <code>,</code>. The code is as follows:</p>
+<p><code>read.csv</code> assumes that fields are delineated by commas, however, in
+several countries, the comma is used as a decimal separator and the
+semicolon (;) is used as a field delineator. If you want to read in
+this type of files in R, you can use the <code>read.csv2</code> function. It
+behaves exactly like <code>read.csv</code> but uses different parameters for the
+decimal and the field separators. If you are working with another
+format, they can be both specified by the user. Check out the help for
+<code>read.csv()</code> by typing <code>?read.csv</code> to learn more. There is also the
+<code>read.delim()</code> for in tab separated data files. It is important to
+note that all of these functions are actually wrapper functions for
+the main <code>read.table()</code> function with different arguments. As such,
+the surveys data above could have also been loaded by using
+<code>read.table()</code> with the separation argument as <code>,</code>. The code is as
+follows:</p>
 <pre><code>surveys &lt;- read.table(file="data/portal_data_joined.csv", sep=",", header=TRUE)</code></pre>
-<p>The header argument has to be set to TRUE to be able to read the headers as by default <code>read.table()</code> has the header argument set to FALSE.</p>
+<p>The header argument has to be set to TRUE to be able to read the
+headers as by default <code>read.table()</code> has the header argument set to
+FALSE.</p>
 </div>
 <div id="what-are-data-frames" class="section level2">
 <h2>
 <span class="header-section-number">3.2</span> What are data frames?</h2>
-<p>Data frames are the <em>de facto</em> data structure for most tabular data, and what we use for statistics and plotting.</p>
-<p>A data frame can be created by hand, but most commonly they are generated by the functions <code>read.csv()</code> or <code>read.table()</code>; in other words, when importing spreadsheets from your hard drive (or the web).</p>
-<p>A data frame is the representation of data in the format of a table where the columns are vectors that all have the same length. Because columns are vectors, each column must contain a single type of data (e.g., characters, integers, factors). For example, here is a figure depicting a data frame comprising a numeric, a character, and a logical vector.</p>
-<div class="figure">
-<img src="figs/data-frame.svg">
-</div>
-<p>We can see this when inspecting the <b>str</b>ucture of a data frame with the function <code>str()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(surveys)</code></pre></div>
+<p>Data frames are the <em>de facto</em> data structure for most tabular data,
+and what we use for statistics and plotting.</p>
+<p>A data frame can be created by hand, but most commonly they are generated by the
+functions <code>read.csv()</code> or <code>read.table()</code>; in other words, when importing
+spreadsheets from your hard drive (or the web).</p>
+<p>A data frame is the representation of data in the format of a table where the
+columns are vectors that all have the same length. Because columns are
+vectors, each column must contain a single type of data (e.g., characters, integers,
+factors). For example, here is a figure depicting a data frame comprising a
+numeric, a character, and a logical vector.</p>
+<p><img src="figs/data-frame.svg"></p>
+<p>We can see this when inspecting the <b>str</b>ucture of a data frame
+with the function <code>str()</code>:</p>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="sec-startdata.html#cb207-1"></a><span class="kw">str</span>(surveys)</span></code></pre></div>
 <pre><code>## 'data.frame':    34786 obs. of  13 variables:
 ##  $ record_id      : int  1 72 224 266 349 363 435 506 588 661 ...
 ##  $ month          : int  7 8 9 10 11 11 12 1 2 3 ...
@@ -279,11 +346,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="inspecting-data.frame-objects" class="section level2">
 <h2>
 <span class="header-section-number">3.3</span> Inspecting <code>data.frame</code> Objects</h2>
-<p>We already saw how the functions <code>head()</code> and <code>str()</code> can be useful to check the content and the structure of a data frame. Here is a non-exhaustive list of functions to get a sense of the content/structure of the data. Let’s try them out!</p>
+<p>We already saw how the functions <code>head()</code> and <code>str()</code> can be useful to check the
+content and the structure of a data frame. Here is a non-exhaustive list of
+functions to get a sense of the content/structure of the data. Let’s try them out!</p>
 <p><strong>Size</strong>:</p>
 <ul>
 <li>
-<code>dim(surveys)</code> - returns a vector with the number of rows in the first element, and the number of columns as the second element (the <strong>dim</strong>ensions of the object)</li>
+<code>dim(surveys)</code> - returns a vector with the number of rows in the
+first element, and the number of columns as the second element (the
+<strong>dim</strong>ensions of the object)</li>
 <li>
 <code>nrow(surveys)</code> - returns the number of rows</li>
 <li>
@@ -299,28 +370,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><strong>Names</strong>:</p>
 <ul>
 <li>
-<code>names(surveys)</code> - returns the column names (synonym of <code>colnames()</code> for <code>data.frame</code> objects)</li>
+<code>names(surveys)</code> - returns the column names (synonym of <code>colnames()</code>
+for <code>data.frame</code> objects)</li>
 <li>
 <code>rownames(surveys)</code> - returns the row names</li>
 </ul>
 <p><strong>Summary</strong>:</p>
 <ul>
 <li>
-<code>str(surveys)</code> - structure of the object and information about the class, length and content of each column</li>
+<code>str(surveys)</code> - structure of the object and information about the
+class, length and content of each column</li>
 <li>
 <code>summary(surveys)</code> - summary statistics for each column</li>
 </ul>
-<p>Note: most of these functions are “generic”, they can be used on other types of objects besides <code>data.frame</code>.</p>
+<p>Note: most of these functions are “generic”, they can be used on other types of
+objects besides <code>data.frame</code>.</p>
 <div class="question">
 <p class="question-begin">
 ► Question
 </p>
 <div class="question-body">
-<p>Based on the output of <code>str(surveys)</code>, can you answer the following questions?</p>
+<p>Based on the output of <code>str(surveys)</code>, can you answer the following
+questions?</p>
 <ul>
 <li>What is the class of the object <code>surveys</code>?</li>
 <li>How many rows and how many columns are in this object?</li>
-<li>How many species (as defined by the <code>species_id</code> variable) have been recorded during these surveys?</li>
+<li>How many species (as defined by the <code>species_id</code> variable) have been
+recorded during these surveys?</li>
 </ul>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -346,49 +422,64 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="indexing-and-subsetting-data-frames" class="section level2">
 <h2>
 <span class="header-section-number">3.4</span> Indexing and subsetting data frames</h2>
-<p>Our survey data frame has rows and columns (it has 2 dimensions), if we want to extract some specific data from it, we need to specify the “coordinates” we want from it. Row numbers come first, followed by column numbers. However, note that different ways of specifying these coordinates lead to results with different classes.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first element in the first column of the data frame (as a vector)</span>
-surveys[<span class="dv">1</span>, <span class="dv">1</span>]
-<span class="co"># first element in the 6th column (as a vector)</span>
-surveys[<span class="dv">1</span>, <span class="dv">6</span>]
-<span class="co"># first column of the data frame (as a vector)</span>
-surveys[, <span class="dv">1</span>]
-<span class="co"># first column of the data frame (as a data.frame)</span>
-surveys[<span class="dv">1</span>]
-<span class="co"># first three elements in the 7th column (as a vector)</span>
-surveys[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">7</span>]
-<span class="co"># the 3rd row of the data frame (as a data.frame)</span>
-surveys[<span class="dv">3</span>, ]
-<span class="co"># equivalent to head_surveys &lt;- head(surveys)</span>
-head_surveys &lt;-<span class="st"> </span>surveys[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, ]</code></pre></div>
-<p><code>:</code> is a special function that creates numeric vectors of integers in increasing or decreasing order, test <code>1:10</code> and <code>10:1</code> for instance. See section <a href="sec-startr.html#sec:genvec">2.10</a> for details.</p>
+<p>Our survey data frame has rows and columns (it has 2 dimensions), if
+we want to extract some specific data from it, we need to specify the
+“coordinates” we want from it. Row numbers come first, followed by
+column numbers. However, note that different ways of specifying these
+coordinates lead to results with different classes.</p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="sec-startdata.html#cb209-1"></a><span class="co"># first element in the first column of the data frame (as a vector)</span></span>
+<span id="cb209-2"><a href="sec-startdata.html#cb209-2"></a>surveys[<span class="dv">1</span>, <span class="dv">1</span>]</span>
+<span id="cb209-3"><a href="sec-startdata.html#cb209-3"></a><span class="co"># first element in the 6th column (as a vector)</span></span>
+<span id="cb209-4"><a href="sec-startdata.html#cb209-4"></a>surveys[<span class="dv">1</span>, <span class="dv">6</span>]</span>
+<span id="cb209-5"><a href="sec-startdata.html#cb209-5"></a><span class="co"># first column of the data frame (as a vector)</span></span>
+<span id="cb209-6"><a href="sec-startdata.html#cb209-6"></a>surveys[, <span class="dv">1</span>]</span>
+<span id="cb209-7"><a href="sec-startdata.html#cb209-7"></a><span class="co"># first column of the data frame (as a data.frame)</span></span>
+<span id="cb209-8"><a href="sec-startdata.html#cb209-8"></a>surveys[<span class="dv">1</span>]</span>
+<span id="cb209-9"><a href="sec-startdata.html#cb209-9"></a><span class="co"># first three elements in the 7th column (as a vector)</span></span>
+<span id="cb209-10"><a href="sec-startdata.html#cb209-10"></a>surveys[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">7</span>]</span>
+<span id="cb209-11"><a href="sec-startdata.html#cb209-11"></a><span class="co"># the 3rd row of the data frame (as a data.frame)</span></span>
+<span id="cb209-12"><a href="sec-startdata.html#cb209-12"></a>surveys[<span class="dv">3</span>, ]</span>
+<span id="cb209-13"><a href="sec-startdata.html#cb209-13"></a><span class="co"># equivalent to head_surveys &lt;- head(surveys)</span></span>
+<span id="cb209-14"><a href="sec-startdata.html#cb209-14"></a>head_surveys &lt;-<span class="st"> </span>surveys[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, ]</span></code></pre></div>
+<p><code>:</code> is a special function that creates numeric vectors of integers in
+increasing or decreasing order, test <code>1:10</code> and <code>10:1</code> for
+instance. See section <a href="sec-startr.html#sec:genvec">2.10</a> for details.</p>
 <p>You can also exclude certain indices of a data frame using the “<code>-</code>” sign:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys[, <span class="dv">-1</span>]          ## The whole data frame, except the first column
-surveys[<span class="op">-</span><span class="kw">c</span>(<span class="dv">7</span><span class="op">:</span><span class="dv">34786</span>), ] ## Equivalent to head(surveys)</code></pre></div>
-<p>Data frames can be subset by calling indices (as shown previously), but also by calling their column names directly:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys[<span class="st">"species_id"</span>]       <span class="co"># Result is a data.frame</span>
-surveys[, <span class="st">"species_id"</span>]     <span class="co"># Result is a vector</span>
-surveys[[<span class="st">"species_id"</span>]]     <span class="co"># Result is a vector</span>
-surveys<span class="op">$</span>species_id          <span class="co"># Result is a vector</span></code></pre></div>
-<p>In RStudio, you can use the autocompletion feature to get the full and correct names of the columns.</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="sec-startdata.html#cb210-1"></a>surveys[, <span class="dv">-1</span>]          <span class="co">## The whole data frame, except the first column</span></span>
+<span id="cb210-2"><a href="sec-startdata.html#cb210-2"></a>surveys[<span class="op">-</span><span class="kw">c</span>(<span class="dv">7</span><span class="op">:</span><span class="dv">34786</span>), ] <span class="co">## Equivalent to head(surveys)</span></span></code></pre></div>
+<p>Data frames can be subset by calling indices (as shown previously),
+but also by calling their column names directly:</p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="sec-startdata.html#cb211-1"></a>surveys[<span class="st">"species_id"</span>]       <span class="co"># Result is a data.frame</span></span>
+<span id="cb211-2"><a href="sec-startdata.html#cb211-2"></a>surveys[, <span class="st">"species_id"</span>]     <span class="co"># Result is a vector</span></span>
+<span id="cb211-3"><a href="sec-startdata.html#cb211-3"></a>surveys[[<span class="st">"species_id"</span>]]     <span class="co"># Result is a vector</span></span>
+<span id="cb211-4"><a href="sec-startdata.html#cb211-4"></a>surveys<span class="op">$</span>species_id          <span class="co"># Result is a vector</span></span></code></pre></div>
+<p>In RStudio, you can use the autocompletion feature to get the full and
+correct names of the columns.</p>
 <div class="question">
 <p class="question-begin">
 ► Question
 </p>
 <div class="question-body">
 <ol style="list-style-type: decimal">
-<li><p>Create a <code>data.frame</code> (<code>surveys_200</code>) containing only the data in row 200 of the <code>surveys</code> dataset.</p></li>
+<li><p>Create a <code>data.frame</code> (<code>surveys_200</code>) containing only the data in
+row 200 of the <code>surveys</code> dataset.</p></li>
 <li><p>Notice how <code>nrow()</code> gave you the number of rows in a <code>data.frame</code>?</p></li>
 </ol>
 <ul>
-<li><p>Use that number to pull out just that last row in the inital <code>surveys</code> data frame.</p></li>
-<li><p>Compare that with what you see as the last row using <code>tail()</code> to make sure it’s meeting expectations.</p></li>
+<li><p>Use that number to pull out just that last row in the inital
+<code>surveys</code> data frame.</p></li>
+<li><p>Compare that with what you see as the last row using <code>tail()</code> to make
+sure it’s meeting expectations.</p></li>
 <li><p>Pull out that last row using <code>nrow()</code> instead of the row number.</p></li>
 <li><p>Create a new data frame (<code>surveys_last</code>) from that last row.</p></li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
-<li><p>Use <code>nrow()</code> to extract the row that is in the middle of the <code>surveys</code> dataframe. Store the content of this row in an object named <code>surveys_middle</code>.</p></li>
-<li><p>Combine <code>nrow()</code> with the <code>-</code> notation above to reproduce the behavior of <code>head(surveys)</code>, keeping just the first through 6th rows of the surveys dataset.</p></li>
+<li><p>Use <code>nrow()</code> to extract the row that is in the middle of the
+<code>surveys</code> dataframe. Store the content of this row in an object
+named <code>surveys_middle</code>.</p></li>
+<li><p>Combine <code>nrow()</code> with the <code>-</code> notation above to reproduce the
+behavior of <code>head(surveys)</code>, keeping just the first through 6th
+rows of the surveys dataset.</p></li>
 </ol>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -401,16 +492,16 @@ surveys<span class="op">$</span>species_id          <span class="co"># Result is
 </p>
 <div id="sol-body-17" class="solution-body" style="display: none;">
 <blockquote>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 1.
-surveys_<span class="dv">200</span> &lt;-<span class="st"> </span>surveys[<span class="dv">200</span>, ]
-## 2.
-## Saving `n_rows` to improve readability and reduce duplication
-n_rows &lt;-<span class="st"> </span><span class="kw">nrow</span>(surveys)
-surveys_last &lt;-<span class="st"> </span>surveys[n_rows, ]
-## 3.
-surveys_middle &lt;-<span class="st"> </span>surveys[n_rows <span class="op">/</span><span class="st"> </span><span class="dv">2</span>, ]
-## 4.
-surveys_head &lt;-<span class="st"> </span>surveys[<span class="op">-</span>(<span class="dv">7</span><span class="op">:</span>n_rows), ]</code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="sec-startdata.html#cb212-1"></a><span class="co">## 1.</span></span>
+<span id="cb212-2"><a href="sec-startdata.html#cb212-2"></a>surveys_<span class="dv">200</span> &lt;-<span class="st"> </span>surveys[<span class="dv">200</span>, ]</span>
+<span id="cb212-3"><a href="sec-startdata.html#cb212-3"></a><span class="co">## 2.</span></span>
+<span id="cb212-4"><a href="sec-startdata.html#cb212-4"></a><span class="co">## Saving `n_rows` to improve readability and reduce duplication</span></span>
+<span id="cb212-5"><a href="sec-startdata.html#cb212-5"></a>n_rows &lt;-<span class="st"> </span><span class="kw">nrow</span>(surveys)</span>
+<span id="cb212-6"><a href="sec-startdata.html#cb212-6"></a>surveys_last &lt;-<span class="st"> </span>surveys[n_rows, ]</span>
+<span id="cb212-7"><a href="sec-startdata.html#cb212-7"></a><span class="co">## 3.</span></span>
+<span id="cb212-8"><a href="sec-startdata.html#cb212-8"></a>surveys_middle &lt;-<span class="st"> </span>surveys[n_rows <span class="op">/</span><span class="st"> </span><span class="dv">2</span>, ]</span>
+<span id="cb212-9"><a href="sec-startdata.html#cb212-9"></a><span class="co">## 4.</span></span>
+<span id="cb212-10"><a href="sec-startdata.html#cb212-10"></a>surveys_head &lt;-<span class="st"> </span>surveys[<span class="op">-</span>(<span class="dv">7</span><span class="op">:</span>n_rows), ]</span></code></pre></div>
 </blockquote>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -421,29 +512,54 @@ surveys_head &lt;-<span class="st"> </span>surveys[<span class="op">-</span>(<sp
 <div id="factors" class="section level2">
 <h2>
 <span class="header-section-number">3.5</span> Factors</h2>
-<p>When we did <code>str(surveys)</code> we saw that several of the columns consist of integers. The columns <code>genus</code>, <code>species</code>, <code>sex</code>, <code>plot_type</code>, … however, are of a special class called <code>factor</code>. Factors are very useful and actually contribute to making R particularly well suited to working with data. So we are going to spend a little time introducing them.</p>
-<p>Factors represent <strong>categorical data</strong>. They are stored as integers associated with labels and they can be ordered or unordered. While factors look (and often behave) like character vectors, they are actually treated as integer vectors by R. So you need to be very careful when treating them as strings.</p>
-<p>Once created, factors can only contain a pre-defined set of values, known as <em>levels</em>. By default, R always sorts levels in alphabetical order. For instance, if you have a factor with 2 levels:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sex &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"female"</span>, <span class="st">"male"</span>))</code></pre></div>
-<p>R will assign <code>1</code> to the level <code>"female"</code> and <code>2</code> to the level <code>"male"</code> (because <code>f</code> comes before <code>m</code>, even though the first element in this vector is <code>"male"</code>). You can see this by using the function <code>levels()</code> and you can find the number of levels using <code>nlevels()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(sex)</code></pre></div>
+<p>When we did <code>str(surveys)</code> we saw that several of the columns consist
+of integers. The columns <code>genus</code>, <code>species</code>, <code>sex</code>, <code>plot_type</code>,
+… however, are of a special class called <code>factor</code>. Factors are very
+useful and actually contribute to making R particularly well suited to
+working with data. So we are going to spend a little time introducing
+them.</p>
+<p>Factors represent <strong>categorical data</strong>. They are stored as integers
+associated with labels and they can be ordered or unordered. While
+factors look (and often behave) like character vectors, they are
+actually treated as integer vectors by R. So you need to be very
+careful when treating them as strings.</p>
+<p>Once created, factors can only contain a pre-defined set of values,
+known as <em>levels</em>. By default, R always sorts levels in alphabetical
+order. For instance, if you have a factor with 2 levels:</p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="sec-startdata.html#cb213-1"></a>sex &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"female"</span>, <span class="st">"male"</span>))</span></code></pre></div>
+<p>R will assign <code>1</code> to the level <code>"female"</code> and <code>2</code> to the level
+<code>"male"</code> (because <code>f</code> comes before <code>m</code>, even though the first element
+in this vector is <code>"male"</code>). You can see this by using the function
+<code>levels()</code> and you can find the number of levels using <code>nlevels()</code>:</p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="sec-startdata.html#cb214-1"></a><span class="kw">levels</span>(sex)</span></code></pre></div>
 <pre><code>## [1] "female" "male"</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nlevels</span>(sex)</code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="sec-startdata.html#cb216-1"></a><span class="kw">nlevels</span>(sex)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<p>Sometimes, the order of the factors does not matter, other times you might want to specify the order because it is meaningful (e.g., “low”, “medium”, “high”), it improves your visualization, or it is required by a particular type of analysis. Here, one way to reorder our levels in the <code>sex</code> vector would be:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sex ## current order</code></pre></div>
+<p>Sometimes, the order of the factors does not matter, other times you
+might want to specify the order because it is meaningful (e.g., “low”,
+“medium”, “high”), it improves your visualization, or it is required
+by a particular type of analysis. Here, one way to reorder our levels
+in the <code>sex</code> vector would be:</p>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="sec-startdata.html#cb218-1"></a>sex <span class="co">## current order</span></span></code></pre></div>
 <pre><code>## [1] male   female female male  
 ## Levels: female male</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sex &lt;-<span class="st"> </span><span class="kw">factor</span>(sex, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>))
-sex ## after re-ordering</code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="sec-startdata.html#cb220-1"></a>sex &lt;-<span class="st"> </span><span class="kw">factor</span>(sex, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>))</span>
+<span id="cb220-2"><a href="sec-startdata.html#cb220-2"></a>sex <span class="co">## after re-ordering</span></span></code></pre></div>
 <pre><code>## [1] male   female female male  
 ## Levels: male female</code></pre>
-<p>In R’s memory, these factors are represented by integers (1, 2, 3), but are more informative than integers because factors are self describing: <code>"female"</code>, <code>"male"</code> is more descriptive than <code>1</code>, <code>2</code>. Which one is “male”? You wouldn’t be able to tell just from the integer data. Factors, on the other hand, have this information built in. It is particularly helpful when there are many levels (like the species names in our example dataset).</p>
+<p>In R’s memory, these factors are represented by integers (1, 2, 3),
+but are more informative than integers because factors are self
+describing: <code>"female"</code>, <code>"male"</code> is more descriptive than <code>1</code>,
+<code>2</code>. Which one is “male”? You wouldn’t be able to tell just from the
+integer data. Factors, on the other hand, have this information built
+in. It is particularly helpful when there are many levels (like the
+species names in our example dataset).</p>
 <div id="converting-to-factors" class="section level3">
 <h3>
 <span class="header-section-number">3.5.1</span> Converting to factors</h3>
-<p>If you need to convert a factor to a character vector, you use <code>as.character(x)</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.character</span>(sex)</code></pre></div>
+<p>If you need to convert a factor to a character vector, you use
+<code>as.character(x)</code>.</p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="sec-startdata.html#cb222-1"></a><span class="kw">as.character</span>(sex)</span></code></pre></div>
 <pre><code>## [1] "male"   "female" "female" "male"</code></pre>
 <!-- ### Numeric factors {-} -->
 <!-- Converting factors where the levels appear as numbers (such as -->
@@ -469,8 +585,11 @@ sex ## after re-ordering</code></pre></div>
 <div id="renaming-factors" class="section level3">
 <h3>
 <span class="header-section-number">3.5.2</span> Renaming factors</h3>
-<p>When your data is stored as a factor, you can use the <code>plot()</code> function to get a quick glance at the number of observations represented by each factor level. Let’s look at the number of males and females captured over the course of the experiment:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(surveys<span class="op">$</span>sex)</code></pre></div>
+<p>When your data is stored as a factor, you can use the <code>plot()</code>
+function to get a quick glance at the number of observations
+represented by each factor level. Let’s look at the number of males
+and females captured over the course of the experiment:</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="sec-startdata.html#cb224-1"></a><span class="kw">plot</span>(surveys<span class="op">$</span>sex)</span></code></pre></div>
 <div class="figure">
 <span id="fig:firstfactorplot"></span>
 <p class="caption marginnote shownote">
@@ -478,17 +597,23 @@ Figure 3.1: Bar plot of the number of females and males captured during the expe
 </p>
 <img src="WSBIM1207_files/figure-html/firstfactorplot-1.png" alt="Bar plot of the number of females and males captured during the experiment." width="672">
 </div>
-<p>In addition to males and females, there are about 1700 individuals for which the sex information hasn’t been recorded. Additionally, for these individuals, there is no label to indicate that the information is missing or undetermined. Let’s rename this label to something more meaningful. Before doing that, we’re going to pull out the data on sex and work with that data, so we’re not modifying the working copy of the data frame:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sex &lt;-<span class="st"> </span>surveys<span class="op">$</span>sex
-<span class="kw">head</span>(sex)</code></pre></div>
+<p>In addition to males and females, there are about 1700 individuals for
+which the sex information hasn’t been recorded. Additionally, for
+these individuals, there is no label to indicate that the information
+is missing or undetermined. Let’s rename this label to something more
+meaningful. Before doing that, we’re going to pull out the data on sex
+and work with that data, so we’re not modifying the working copy of
+the data frame:</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="sec-startdata.html#cb225-1"></a>sex &lt;-<span class="st"> </span>surveys<span class="op">$</span>sex</span>
+<span id="cb225-2"><a href="sec-startdata.html#cb225-2"></a><span class="kw">head</span>(sex)</span></code></pre></div>
 <pre><code>## [1] M M        
 ## Levels:  F M</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(sex)</code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="sec-startdata.html#cb227-1"></a><span class="kw">levels</span>(sex)</span></code></pre></div>
 <pre><code>## [1] ""  "F" "M"</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(sex)[<span class="dv">1</span>] &lt;-<span class="st"> "undetermined"</span>
-<span class="kw">levels</span>(sex)</code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="sec-startdata.html#cb229-1"></a><span class="kw">levels</span>(sex)[<span class="dv">1</span>] &lt;-<span class="st"> "undetermined"</span></span>
+<span id="cb229-2"><a href="sec-startdata.html#cb229-2"></a><span class="kw">levels</span>(sex)</span></code></pre></div>
 <pre><code>## [1] "undetermined" "F"            "M"</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(sex)</code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="sec-startdata.html#cb231-1"></a><span class="kw">head</span>(sex)</span></code></pre></div>
 <pre><code>## [1] M            M            undetermined undetermined undetermined
 ## [6] undetermined
 ## Levels: undetermined F M</code></pre>
@@ -499,7 +624,9 @@ Figure 3.1: Bar plot of the number of females and males captured during the expe
 <div class="question-body">
 <ul>
 <li><p>Rename “F” and “M” to “female” and “male” respectively.</p></li>
-<li><p>Now that we have renamed the factor level to “undetermined”, can you recreate the barplot such that “undetermined” is last (after “male”)?</p></li>
+<li><p>Now that we have renamed the factor level to “undetermined”, can you
+recreate the barplot such that “undetermined” is last (after
+“male”)?</p></li>
 </ul>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -511,9 +638,9 @@ Figure 3.1: Bar plot of the number of females and males captured during the expe
 ► Solution<span id="sol-start-18" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-18', 'sol-start-18')"></span>
 </p>
 <div id="sol-body-18" class="solution-body" style="display: none;">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(sex)[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"female"</span>, <span class="st">"male"</span>)
-sex &lt;-<span class="st"> </span><span class="kw">factor</span>(sex, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">"female"</span>, <span class="st">"male"</span>, <span class="st">"undetermined"</span>))
-<span class="kw">plot</span>(sex)</code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="sec-startdata.html#cb233-1"></a><span class="kw">levels</span>(sex)[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"female"</span>, <span class="st">"male"</span>)</span>
+<span id="cb233-2"><a href="sec-startdata.html#cb233-2"></a>sex &lt;-<span class="st"> </span><span class="kw">factor</span>(sex, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">"female"</span>, <span class="st">"male"</span>, <span class="st">"undetermined"</span>))</span>
+<span id="cb233-3"><a href="sec-startdata.html#cb233-3"></a><span class="kw">plot</span>(sex)</span></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-114-1.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -525,25 +652,35 @@ sex &lt;-<span class="st"> </span><span class="kw">factor</span>(sex, <span clas
 <h3>
 <span class="header-section-number">3.5.3</span> Using <code>stringsAsFactors=FALSE</code>
 </h3>
-<p>By default, when building or importing a data frame, the columns that contain characters (i.e. text) are coerced (= converted) into factors. Depending on what you want to do with the data, you may want to keep these columns as <code>character</code>. To do so, <code>read.csv()</code> and <code>read.table()</code> have an argument called <code>stringsAsFactors</code> which can be set to <code>FALSE</code>.</p>
-<p>In most cases, it is preferable to set <code>stringsAsFactors = FALSE</code> when importing data and to convert as a factor only the columns that require this data type.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Compare the difference between our data read as `factor` vs `character`.
-surveys &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">"data/portal_data_joined.csv"</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">TRUE</span>)
-<span class="kw">str</span>(surveys)
-surveys &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">"data/portal_data_joined.csv"</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
-<span class="kw">str</span>(surveys)
-## Convert the column "plot_type" into a factor
-surveys<span class="op">$</span>plot_type &lt;-<span class="st"> </span><span class="kw">factor</span>(surveys<span class="op">$</span>plot_type)</code></pre></div>
+<p>By default, when building or importing a data frame, the columns that
+contain characters (i.e. text) are coerced (= converted) into
+factors. Depending on what you want to do with the data, you may want
+to keep these columns as <code>character</code>. To do so, <code>read.csv()</code> and
+<code>read.table()</code> have an argument called <code>stringsAsFactors</code> which can be
+set to <code>FALSE</code>.</p>
+<p>In most cases, it is preferable to set <code>stringsAsFactors = FALSE</code> when
+importing data and to convert as a factor only the columns that
+require this data type.</p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="sec-startdata.html#cb234-1"></a><span class="co">## Compare the difference between our data read as `factor` vs `character`.</span></span>
+<span id="cb234-2"><a href="sec-startdata.html#cb234-2"></a>surveys &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">"data/portal_data_joined.csv"</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb234-3"><a href="sec-startdata.html#cb234-3"></a><span class="kw">str</span>(surveys)</span>
+<span id="cb234-4"><a href="sec-startdata.html#cb234-4"></a>surveys &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">"data/portal_data_joined.csv"</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb234-5"><a href="sec-startdata.html#cb234-5"></a><span class="kw">str</span>(surveys)</span>
+<span id="cb234-6"><a href="sec-startdata.html#cb234-6"></a><span class="co">## Convert the column "plot_type" into a factor</span></span>
+<span id="cb234-7"><a href="sec-startdata.html#cb234-7"></a>surveys<span class="op">$</span>plot_type &lt;-<span class="st"> </span><span class="kw">factor</span>(surveys<span class="op">$</span>plot_type)</span></code></pre></div>
 <div class="question">
 <p class="question-begin">
 ► Question
 </p>
 <div class="question-body">
-<p>We have seen how data frames are created when using <code>read.csv()</code>, but they can also be created by hand with the <code>data.frame()</code> function. There are a few mistakes in this hand-crafted <code>data.frame</code>. Can you spot and fix them? Don’t hesitate to experiment!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">animal_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
-       <span class="dt">animal =</span> <span class="kw">c</span>(dog, cat, sea cucumber, sea urchin),
-       <span class="dt">feel =</span> <span class="kw">c</span>(<span class="st">"furry"</span>, <span class="st">"squishy"</span>, <span class="st">"spiny"</span>),
-       <span class="dt">weight =</span> <span class="kw">c</span>(<span class="dv">45</span>, <span class="dv">8</span> <span class="fl">1.1</span>, <span class="fl">0.8</span>))</code></pre></div>
+<p>We have seen how data frames are created when using <code>read.csv()</code>, but
+they can also be created by hand with the <code>data.frame()</code> function.
+There are a few mistakes in this hand-crafted <code>data.frame</code>. Can you
+spot and fix them? Don’t hesitate to experiment!</p>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="sec-startdata.html#cb235-1"></a>animal_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb235-2"><a href="sec-startdata.html#cb235-2"></a>       <span class="dt">animal =</span> <span class="kw">c</span>(dog, cat, sea cucumber, sea urchin),</span>
+<span id="cb235-3"><a href="sec-startdata.html#cb235-3"></a>       <span class="dt">feel =</span> <span class="kw">c</span>(<span class="st">"furry"</span>, <span class="st">"squishy"</span>, <span class="st">"spiny"</span>),</span>
+<span id="cb235-4"><a href="sec-startdata.html#cb235-4"></a>       <span class="dt">weight =</span> <span class="kw">c</span>(<span class="dv">45</span>, <span class="dv">8</span> <span class="fl">1.1</span>, <span class="fl">0.8</span>))</span></code></pre></div>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -569,20 +706,22 @@ surveys<span class="op">$</span>plot_type &lt;-<span class="st"> </span><span cl
 ► Question
 </p>
 <div class="question-body">
-<p>Can you predict the class for each of the columns in the following example?</p>
+<p>Can you predict the class for each of the columns in the following
+example?</p>
 <p>Check your guesses using <code>str(country_climate)</code>:</p>
 <ul>
 <li><p>Are they what you expected? Why? Why not?</p></li>
-<li><p>What would have been different if we had added <code>stringsAsFactors =   FALSE</code> when creating the data frame?</p></li>
-<li><p>What would you need to change to ensure that each column had the accurate data type?</p></li>
+<li><p>What would have been different if we had added <code>stringsAsFactors = FALSE</code> when creating the data frame?</p></li>
+<li><p>What would you need to change to ensure that each column had the
+accurate data type?</p></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">country_climate &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
-       <span class="dt">country =</span> <span class="kw">c</span>(<span class="st">"Canada"</span>, <span class="st">"Panama"</span>, <span class="st">"South Africa"</span>, <span class="st">"Australia"</span>),
-       <span class="dt">climate =</span> <span class="kw">c</span>(<span class="st">"cold"</span>, <span class="st">"hot"</span>, <span class="st">"temperate"</span>, <span class="st">"hot/temperate"</span>),
-       <span class="dt">temperature =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">18</span>, <span class="st">"15"</span>),
-       <span class="dt">northern_hemisphere =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="st">"FALSE"</span>),
-       <span class="dt">has_kangaroo =</span> <span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="dv">1</span>)
-       )</code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="sec-startdata.html#cb236-1"></a>country_climate &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb236-2"><a href="sec-startdata.html#cb236-2"></a>       <span class="dt">country =</span> <span class="kw">c</span>(<span class="st">"Canada"</span>, <span class="st">"Panama"</span>, <span class="st">"South Africa"</span>, <span class="st">"Australia"</span>),</span>
+<span id="cb236-3"><a href="sec-startdata.html#cb236-3"></a>       <span class="dt">climate =</span> <span class="kw">c</span>(<span class="st">"cold"</span>, <span class="st">"hot"</span>, <span class="st">"temperate"</span>, <span class="st">"hot/temperate"</span>),</span>
+<span id="cb236-4"><a href="sec-startdata.html#cb236-4"></a>       <span class="dt">temperature =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">18</span>, <span class="st">"15"</span>),</span>
+<span id="cb236-5"><a href="sec-startdata.html#cb236-5"></a>       <span class="dt">northern_hemisphere =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="st">"FALSE"</span>),</span>
+<span id="cb236-6"><a href="sec-startdata.html#cb236-6"></a>       <span class="dt">has_kangaroo =</span> <span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="dv">1</span>)</span>
+<span id="cb236-7"><a href="sec-startdata.html#cb236-7"></a>       )</span></code></pre></div>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -594,32 +733,49 @@ surveys<span class="op">$</span>plot_type &lt;-<span class="st"> </span><span cl
 </p>
 <div id="sol-body-20" class="solution-body" style="display: none;">
 <ul>
-<li><p><code>country</code>, <code>climate</code>, <code>temperature</code>, and <code>northern_hemisphere</code> are factors; <code>has_kangaroo</code> is numeric.</p></li>
-<li><p>Using <code>stringsAsFactors = FALSE</code> would have made them character instead of factors.</p></li>
-<li><p>Removing the quotes in temperature and northern_hemisphere and replacing 1 by TRUE in the <code>has_kangaroo</code> column would give what was probably intended.</p></li>
+<li><p><code>country</code>, <code>climate</code>, <code>temperature</code>, and <code>northern_hemisphere</code> are
+factors; <code>has_kangaroo</code> is numeric.</p></li>
+<li><p>Using <code>stringsAsFactors = FALSE</code> would have made them character
+instead of factors.</p></li>
+<li><p>Removing the quotes in temperature and northern_hemisphere and
+replacing 1 by TRUE in the <code>has_kangaroo</code> column would give what was
+probably intended.</p></li>
 </ul>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
 </div>
-<p>The automatic conversion of data type is sometimes a blessing, sometimes an annoyance. Be aware that it exists, learn the rules, and double check that data you import in R are of the correct type within your data frame. If not, use it to your advantage to detect mistakes that might have been introduced during data entry (a letter in a column that should only contain numbers for instance).</p>
-<p>Learn more in this <a href="https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio">RStudio tutorial</a></p>
+<p>The automatic conversion of data type is sometimes a blessing, sometimes an
+annoyance. Be aware that it exists, learn the rules, and double check that data
+you import in R are of the correct type within your data frame. If not, use it
+to your advantage to detect mistakes that might have been introduced during data
+entry (a letter in a column that should only contain numbers for instance).</p>
+<p>Learn more in this <a href="https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio">RStudio
+tutorial</a></p>
 </div>
 </div>
 <div id="matrices" class="section level2">
 <h2>
 <span class="header-section-number">3.6</span> Matrices</h2>
-<p>Before proceeding, now that we have learnt about dataframes, let’s recap package installation and learn about a new data type, namely the <code>matrix</code>. Like a <code>data.frame</code>, a matrix has two dimensions, rows and columns. But the major difference is that all cells in a <code>matrix</code> must be of the same type: <code>numeric</code>, <code>character</code>, <code>logical</code>, … In that respect, matrices are closer to a <code>vector</code> than a <code>data.frame</code>.</p>
-<p>Let’s generate a matrix containing information about all packages that are currently installed on our respective computers using the <code>installed.packages()</code> function. We will use the same function to explore this matrix as those used for dataframes above.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ip &lt;-<span class="st"> </span><span class="kw">installed.packages</span>()
-<span class="kw">dim</span>(ip)</code></pre></div>
-<pre><code>## [1] 489  16</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">colnames</span>(ip))</code></pre></div>
+<p>Before proceeding, now that we have learnt about dataframes, let’s
+recap package installation and learn about a new data type, namely the
+<code>matrix</code>. Like a <code>data.frame</code>, a matrix has two dimensions, rows and
+columns. But the major difference is that all cells in a <code>matrix</code> must
+be of the same type: <code>numeric</code>, <code>character</code>, <code>logical</code>, … In that
+respect, matrices are closer to a <code>vector</code> than a <code>data.frame</code>.</p>
+<p>Let’s generate a matrix containing information about all packages that
+are currently installed on our respective computers using the
+<code>installed.packages()</code> function. We will use the same function to
+explore this matrix as those used for dataframes above.</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="sec-startdata.html#cb237-1"></a>ip &lt;-<span class="st"> </span><span class="kw">installed.packages</span>()</span>
+<span id="cb237-2"><a href="sec-startdata.html#cb237-2"></a><span class="kw">dim</span>(ip)</span></code></pre></div>
+<pre><code>## [1] 494  16</code></pre>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="sec-startdata.html#cb239-1"></a><span class="kw">head</span>(<span class="kw">colnames</span>(ip))</span></code></pre></div>
 <pre><code>## [1] "Package"  "LibPath"  "Version"  "Priority" "Depends"  "Imports"</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">rownames</span>(ip)) ## these are the package names</code></pre></div>
-<pre><code>## [1] "abind"   "acepack" "ade4"    "affy"    "affyio"  "airway"</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## View(ip)</code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="sec-startdata.html#cb241-1"></a><span class="kw">head</span>(<span class="kw">rownames</span>(ip)) <span class="co">## these are the package names</span></span></code></pre></div>
+<pre><code>## [1] "acepack"  "affy"     "affyio"   "airway"   "ALL"      "annotate"</code></pre>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="sec-startdata.html#cb243-1"></a><span class="co">## View(ip)</span></span></code></pre></div>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -638,25 +794,31 @@ Using the function <code>installed.packages()</code>, verify if the <code>lubrid
 ► Solution<span id="sol-start-21" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-21', 'sol-start-21')"></span>
 </p>
 <div id="sol-body-21" class="solution-body" style="display: none;">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 1. get the names of all installed packages
-ip &lt;-<span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())
-## 2. TRUE if installed, FALSE otherwise
-<span class="st">"lubridate"</span> <span class="op">%in%</span><span class="st"> </span>ip
-## 3. install the package
-<span class="kw">install.package</span>(<span class="st">"lubridate"</span>)</code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="sec-startdata.html#cb244-1"></a><span class="co">## 1. get the names of all installed packages</span></span>
+<span id="cb244-2"><a href="sec-startdata.html#cb244-2"></a>ip &lt;-<span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())</span>
+<span id="cb244-3"><a href="sec-startdata.html#cb244-3"></a><span class="co">## 2. TRUE if installed, FALSE otherwise</span></span>
+<span id="cb244-4"><a href="sec-startdata.html#cb244-4"></a><span class="st">"lubridate"</span> <span class="op">%in%</span><span class="st"> </span>ip</span>
+<span id="cb244-5"><a href="sec-startdata.html#cb244-5"></a><span class="co">## 3. install the package</span></span>
+<span id="cb244-6"><a href="sec-startdata.html#cb244-6"></a><span class="kw">install.package</span>(<span class="st">"lubridate"</span>)</span></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
 </div>
-<p>The default constructor for a matrix is <code>matrix</code>. It takes a vector of values to populate the matrix and the number of row and/or columns<label for="tufte-sn-9" class="margin-toggle sidenote-number">9</label><input type="checkbox" id="tufte-sn-9" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">9</span> Either the number of rows or columns are enough, as the other one can be deduced from the length of the values. Try out what happens if the values and number of rows/columns don’t add up.</span>. The values are sorted along the columns, as illustrated below.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">ncol =</span> <span class="dv">3</span>, <span class="dt">nrow =</span> <span class="dv">3</span>)
-m</code></pre></div>
+<p>The default constructor for a matrix is <code>matrix</code>. It takes a vector of
+values to populate the matrix and the number of row and/or
+columns<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>. The values are sorted along the columns, as illustrated
+below.</p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="sec-startdata.html#cb245-1"></a>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">ncol =</span> <span class="dv">3</span>, <span class="dt">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb245-2"><a href="sec-startdata.html#cb245-2"></a>m</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    4    7
 ## [2,]    2    5    8
 ## [3,]    3    6    9</code></pre>
-<p>It is often useful to create large random data matrices as test data. The exercise below asks you to create such a matrix with random data drawn from a normal distribution of mean 0 and standard deviation 1, which can be done with the <code>rnorm()</code> function.</p>
+<p>It is often useful to create large random data matrices as test
+data. The exercise below asks you to create such a matrix with random
+data drawn from a normal distribution of mean 0 and standard deviation
+1, which can be done with the <code>rnorm()</code> function.</p>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -675,11 +837,11 @@ Construct a matrix of dimension 1000 by 3 of normally distributed data (mean 0, 
 ► Solution<span id="sol-start-22" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-22', 'sol-start-22')"></span>
 </p>
 <div id="sol-body-22" class="solution-body" style="display: none;">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
-m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">3000</span>), <span class="dt">ncol =</span> <span class="dv">3</span>)
-<span class="kw">dim</span>(m)</code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="sec-startdata.html#cb247-1"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb247-2"><a href="sec-startdata.html#cb247-2"></a>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">3000</span>), <span class="dt">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb247-3"><a href="sec-startdata.html#cb247-3"></a><span class="kw">dim</span>(m)</span></code></pre></div>
 <pre><code>## [1] 1000    3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(m)</code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="sec-startdata.html#cb249-1"></a><span class="kw">head</span>(m)</span></code></pre></div>
 <pre><code>##             [,1]        [,2]       [,3]
 ## [1,] -0.56047565 -0.99579872 -0.5116037
 ## [2,] -0.23017749 -1.03995504  0.2369379
@@ -696,34 +858,53 @@ m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">
 <div id="formatting-dates" class="section level2">
 <h2>
 <span class="header-section-number">3.7</span> Formatting Dates</h2>
-<p>One of the most common issues that new (and experienced!) R users have is converting date and time information into a variable that is appropriate and usable during analyses. As a reminder from earlier in this lesson, the best practice for dealing with date data is to ensure that each component of your date is stored as a separate variable. Using <code>str()</code>, We can confirm that our data frame has a separate column for day, month, and year, and that each contains integer values.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(surveys)</code></pre></div>
-<p>We are going to use the <code>ymd()</code> function from the package <strong><code>lubridate</code></strong> (which belongs to the <strong><code>tidyverse</code></strong>; learn more <a href="https://www.tidyverse.org/">here</a>). . <strong><code>lubridate</code></strong> gets installed as part as the <strong><code>tidyverse</code></strong> installation. When you load the <strong><code>tidyverse</code></strong> (<code>library(tidyverse)</code>), the core packages (the packages used in most data analyses) get loaded. <strong><code>lubridate</code></strong> however does not belong to the core tidyverse, so you have to load it explicitly with <code>library(lubridate)</code></p>
+<p>One of the most common issues that new (and experienced!) R users have is
+converting date and time information into a variable that is appropriate and
+usable during analyses. As a reminder from earlier in this lesson, the best
+practice for dealing with date data is to ensure that each component of your
+date is stored as a separate variable. Using <code>str()</code>, We can confirm that our
+data frame has a separate column for day, month, and year, and that each contains
+integer values.</p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="sec-startdata.html#cb251-1"></a><span class="kw">str</span>(surveys)</span></code></pre></div>
+<p>We are going to use
+the <code>ymd()</code> function from the package <strong><code>lubridate</code></strong> (which belongs
+to the <strong><code>tidyverse</code></strong>; learn more
+<a href="https://www.tidyverse.org/">here</a>). . <strong><code>lubridate</code></strong> gets installed
+as part as the <strong><code>tidyverse</code></strong> installation. When you load the
+<strong><code>tidyverse</code></strong> (<code>library(tidyverse)</code>), the core packages (the
+packages used in most data analyses) get loaded. <strong><code>lubridate</code></strong>
+however does not belong to the core tidyverse, so you have to load it
+explicitly with <code>library(lubridate)</code></p>
 <p>Start by loading the required package:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">"lubridate"</span>)</code></pre></div>
-<p><code>ymd()</code> takes a vector representing year, month, and day, and converts it to a <code>Date</code> vector. <code>Date</code> is a class of data recognized by R as being a date and can be manipulated as such. The argument that the function requires is flexible, but, as a best practice, is a character vector formatted as “YYYY-MM-DD”.</p>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="sec-startdata.html#cb252-1"></a><span class="kw">library</span>(<span class="st">"lubridate"</span>)</span></code></pre></div>
+<p><code>ymd()</code> takes a vector representing year, month, and day, and converts it to a
+<code>Date</code> vector. <code>Date</code> is a class of data recognized by R as being a date and can
+be manipulated as such. The argument that the function requires is flexible,
+but, as a best practice, is a character vector formatted as “YYYY-MM-DD”.</p>
 <p>Let’s create a date object and inspect the structure:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_date &lt;-<span class="st"> </span><span class="kw">ymd</span>(<span class="st">"2015-01-01"</span>)
-<span class="kw">str</span>(my_date)</code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="sec-startdata.html#cb253-1"></a>my_date &lt;-<span class="st"> </span><span class="kw">ymd</span>(<span class="st">"2015-01-01"</span>)</span>
+<span id="cb253-2"><a href="sec-startdata.html#cb253-2"></a><span class="kw">str</span>(my_date)</span></code></pre></div>
 <pre><code>##  Date[1:1], format: "2015-01-01"</code></pre>
 <p>Now let’s paste the year, month, and day separately - we get the same result:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># sep indicates the character to use to separate each component</span>
-my_date &lt;-<span class="st"> </span><span class="kw">ymd</span>(<span class="kw">paste</span>(<span class="st">"2015"</span>, <span class="st">"1"</span>, <span class="st">"1"</span>, <span class="dt">sep =</span> <span class="st">"-"</span>))
-<span class="kw">str</span>(my_date)</code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="sec-startdata.html#cb255-1"></a><span class="co"># sep indicates the character to use to separate each component</span></span>
+<span id="cb255-2"><a href="sec-startdata.html#cb255-2"></a>my_date &lt;-<span class="st"> </span><span class="kw">ymd</span>(<span class="kw">paste</span>(<span class="st">"2015"</span>, <span class="st">"1"</span>, <span class="st">"1"</span>, <span class="dt">sep =</span> <span class="st">"-"</span>))</span>
+<span id="cb255-3"><a href="sec-startdata.html#cb255-3"></a><span class="kw">str</span>(my_date)</span></code></pre></div>
 <pre><code>##  Date[1:1], format: "2015-01-01"</code></pre>
-<p>Now we apply this function to the surveys dataset. Create a character vector from the <code>year</code>, <code>month</code>, and <code>day</code> columns of <code>surveys</code> using <code>paste()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">paste</span>(surveys<span class="op">$</span>year, surveys<span class="op">$</span>month, surveys<span class="op">$</span>day, <span class="dt">sep =</span> <span class="st">"-"</span>))</code></pre></div>
+<p>Now we apply this function to the surveys dataset. Create a character
+vector from the <code>year</code>, <code>month</code>, and <code>day</code> columns of <code>surveys</code> using
+<code>paste()</code>:</p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="sec-startdata.html#cb257-1"></a><span class="kw">head</span>(<span class="kw">paste</span>(surveys<span class="op">$</span>year, surveys<span class="op">$</span>month, surveys<span class="op">$</span>day, <span class="dt">sep =</span> <span class="st">"-"</span>))</span></code></pre></div>
 <pre><code>## [1] "1977-7-16"  "1977-8-19"  "1977-9-13"  "1977-10-16" "1977-11-12"
 ## [6] "1977-11-12"</code></pre>
 <p>This character vector can be used as the argument for <code>ymd()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">ymd</span>(<span class="kw">paste</span>(surveys<span class="op">$</span>year, surveys<span class="op">$</span>month, surveys<span class="op">$</span>day, <span class="dt">sep =</span> <span class="st">"-"</span>)))</code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="sec-startdata.html#cb259-1"></a><span class="kw">head</span>(<span class="kw">ymd</span>(<span class="kw">paste</span>(surveys<span class="op">$</span>year, surveys<span class="op">$</span>month, surveys<span class="op">$</span>day, <span class="dt">sep =</span> <span class="st">"-"</span>)))</span></code></pre></div>
 <pre><code>## Warning: 129 failed to parse.</code></pre>
 <pre><code>## [1] "1977-07-16" "1977-08-19" "1977-09-13" "1977-10-16" "1977-11-12"
 ## [6] "1977-11-12"</code></pre>
 <p>The resulting <code>Date</code> vector can be added to <code>surveys</code> as a new column called <code>date</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys<span class="op">$</span>date &lt;-<span class="st"> </span><span class="kw">ymd</span>(<span class="kw">paste</span>(surveys<span class="op">$</span>year, surveys<span class="op">$</span>month, surveys<span class="op">$</span>day, <span class="dt">sep =</span> <span class="st">"-"</span>))</code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="sec-startdata.html#cb262-1"></a>surveys<span class="op">$</span>date &lt;-<span class="st"> </span><span class="kw">ymd</span>(<span class="kw">paste</span>(surveys<span class="op">$</span>year, surveys<span class="op">$</span>month, surveys<span class="op">$</span>day, <span class="dt">sep =</span> <span class="st">"-"</span>))</span></code></pre></div>
 <pre><code>## Warning: 129 failed to parse.</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(surveys) <span class="co"># notice the new column, with 'date' as the class</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="sec-startdata.html#cb264-1"></a><span class="kw">str</span>(surveys) <span class="co"># notice the new column, with 'date' as the class</span></span></code></pre></div>
 <pre><code>## 'data.frame':    34786 obs. of  14 variables:
 ##  $ record_id      : int  1 72 224 266 349 363 435 506 588 661 ...
 ##  $ month          : int  7 8 9 10 11 11 12 1 2 3 ...
@@ -739,19 +920,26 @@ my_date &lt;-<span class="st"> </span><span class="kw">ymd</span>(<span class="k
 ##  $ taxa           : Factor w/ 4 levels "Bird","Rabbit",..: 4 4 4 4 4 4 4 4 4 4 ...
 ##  $ plot_type      : Factor w/ 5 levels "Control","Long-term Krat Exclosure",..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ date           : Date, format: "1977-07-16" "1977-08-19" ...</code></pre>
-<p>Let’s make sure everything worked correctly. One way to inspect the new column is to use <code>summary()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(surveys<span class="op">$</span>date)</code></pre></div>
+<p>Let’s make sure everything worked correctly. One way to inspect the
+new column is to use <code>summary()</code>:</p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="sec-startdata.html#cb266-1"></a><span class="kw">summary</span>(surveys<span class="op">$</span>date)</span></code></pre></div>
 <pre><code>##         Min.      1st Qu.       Median         Mean      3rd Qu. 
 ## "1977-07-16" "1984-03-12" "1990-07-22" "1990-12-15" "1997-07-29" 
 ##         Max.         NA's 
 ## "2002-12-31"        "129"</code></pre>
-<p>Something went wrong: some dates have missing values. Let’s investigate where they are coming from.</p>
-<p>We can use the functions we saw previously to deal with missing data to identify the rows in our data frame that are failing. If we combine them with what we learned about subsetting data frames earlier, we can extract the columns “year,”month“,”day" from the records that have <code>NA</code> in our new column <code>date</code>. We will also use <code>head()</code> so we don’t clutter the output:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">is_missing_date &lt;-<span class="st"> </span><span class="kw">is.na</span>(surveys<span class="op">$</span>date)
-date_columns &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"year"</span>, <span class="st">"month"</span>, <span class="st">"day"</span>)
-missing_dates &lt;-<span class="st"> </span>surveys[is_missing_date,  date_columns]
-
-<span class="kw">head</span>(missing_dates)</code></pre></div>
+<p>Something went wrong: some dates have missing values. Let’s
+investigate where they are coming from.</p>
+<p>We can use the functions we saw previously to deal with missing data
+to identify the rows in our data frame that are failing. If we combine
+them with what we learned about subsetting data frames earlier, we can
+extract the columns “year,”month“,”day" from the records that have
+<code>NA</code> in our new column <code>date</code>. We will also use <code>head()</code> so we don’t
+clutter the output:</p>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="sec-startdata.html#cb268-1"></a>is_missing_date &lt;-<span class="st"> </span><span class="kw">is.na</span>(surveys<span class="op">$</span>date)</span>
+<span id="cb268-2"><a href="sec-startdata.html#cb268-2"></a>date_columns &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"year"</span>, <span class="st">"month"</span>, <span class="st">"day"</span>)</span>
+<span id="cb268-3"><a href="sec-startdata.html#cb268-3"></a>missing_dates &lt;-<span class="st"> </span>surveys[is_missing_date,  date_columns]</span>
+<span id="cb268-4"><a href="sec-startdata.html#cb268-4"></a></span>
+<span id="cb268-5"><a href="sec-startdata.html#cb268-5"></a><span class="kw">head</span>(missing_dates)</span></code></pre></div>
 <pre><code>##      year month day
 ## 3144 2000     9  31
 ## 3817 2000     4  31
@@ -759,12 +947,15 @@ missing_dates &lt;-<span class="st"> </span>surveys[is_missing_date,  date_colum
 ## 3819 2000     4  31
 ## 3820 2000     4  31
 ## 3856 2000     9  31</code></pre>
-<p>Why did these dates fail to parse? If you had to use these data for your analyses, how would you deal with this situation?</p>
+<p>Why did these dates fail to parse? If you had to use these data for your
+analyses, how would you deal with this situation?</p>
 </div>
 <div id="summary-of-r-objects" class="section level2">
 <h2>
 <span class="header-section-number">3.8</span> Summary of R objects</h2>
-<p>So far, we have seen several types of R object varying in the number of dimensions and whether they could store a single of multiple data types:</p>
+<p>So far, we have seen several types of R object varying in the number
+of dimensions and whether they could store a single of multiple data
+types:</p>
 <ul>
 <li>
 <strong><code>vector</code></strong>: one dimension (they have a length), single type of data.</li>
@@ -777,26 +968,29 @@ missing_dates &lt;-<span class="st"> </span>surveys[is_missing_date,  date_colum
 <div id="lists" class="section level2">
 <h2>
 <span class="header-section-number">3.9</span> Lists</h2>
-<p>A data type that we haven’t seen yet, but that is useful to know, and follows from the summary that we have just seen are lists:</p>
+<p>A data type that we haven’t seen yet, but that is useful to know, and
+follows from the summary that we have just seen are lists:</p>
 <ul>
 <li>
-<strong><code>list</code></strong>: one dimension, every item can be of a different data type.</li>
+<strong><code>list</code></strong>: one dimension, every item can be of a different data
+type.</li>
 </ul>
-<p>Below, let’s create a list containing a vector of numbers, characters, a matrix, a dataframe and another list:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, ## numeric
-          letters, ## character
-          <span class="kw">installed.packages</span>(), ## a matric
-          cars, ## a data.frame
-          <span class="kw">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)) ## a list
-<span class="kw">length</span>(l)</code></pre></div>
+<p>Below, let’s create a list containing a vector of numbers, characters,
+a matrix, a dataframe and another list:</p>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="sec-startdata.html#cb270-1"></a>l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="co">## numeric</span></span>
+<span id="cb270-2"><a href="sec-startdata.html#cb270-2"></a>          letters, <span class="co">## character</span></span>
+<span id="cb270-3"><a href="sec-startdata.html#cb270-3"></a>          <span class="kw">installed.packages</span>(), <span class="co">## a matric</span></span>
+<span id="cb270-4"><a href="sec-startdata.html#cb270-4"></a>          cars, <span class="co">## a data.frame</span></span>
+<span id="cb270-5"><a href="sec-startdata.html#cb270-5"></a>          <span class="kw">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)) <span class="co">## a list</span></span>
+<span id="cb270-6"><a href="sec-startdata.html#cb270-6"></a><span class="kw">length</span>(l)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(l)</code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="sec-startdata.html#cb272-1"></a><span class="kw">str</span>(l)</span></code></pre></div>
 <pre><code>## List of 5
 ##  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##  $ : chr [1:26] "a" "b" "c" "d" ...
-##  $ : chr [1:489, 1:16] "abind" "acepack" "ade4" "affy" ...
+##  $ : chr [1:494, 1:16] "acepack" "affy" "affyio" "airway" ...
 ##   ..- attr(*, "dimnames")=List of 2
-##   .. ..$ : chr [1:489] "abind" "acepack" "ade4" "affy" ...
+##   .. ..$ : chr [1:494] "acepack" "affy" "affyio" "airway" ...
 ##   .. ..$ : chr [1:16] "Package" "LibPath" "Version" "Priority" ...
 ##  $ :'data.frame':    50 obs. of  2 variables:
 ##   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...
@@ -805,17 +999,19 @@ missing_dates &lt;-<span class="st"> </span>surveys[is_missing_date,  date_colum
 ##   ..$ : num 1
 ##   ..$ : num 2
 ##   ..$ : num 3</code></pre>
-<p>List subsetting is done using <code>[]</code> to subset a new sub-list or <code>[[]]</code> to extract a single element of that list (using indices or names, of the list is named).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">l[[<span class="dv">1</span>]] ## first element</code></pre></div>
+<p>List subsetting is done using <code>[]</code> to subset a new sub-list or <code>[[]]</code>
+to extract a single element of that list (using indices or names, of
+the list is named).</p>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="sec-startdata.html#cb274-1"></a>l[[<span class="dv">1</span>]] <span class="co">## first element</span></span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">l[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] ## a list of length 2</code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="sec-startdata.html#cb276-1"></a>l[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] <span class="co">## a list of length 2</span></span></code></pre></div>
 <pre><code>## [[1]]
 ##  [1]  1  2  3  4  5  6  7  8  9 10
 ## 
 ## [[2]]
 ##  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q"
 ## [18] "r" "s" "t" "u" "v" "w" "x" "y" "z"</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">l[<span class="dv">1</span>]   ## a list of length 1</code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="sec-startdata.html#cb278-1"></a>l[<span class="dv">1</span>]   <span class="co">## a list of length 1</span></span></code></pre></div>
 <pre><code>## [[1]]
 ##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 </div>
@@ -824,24 +1020,46 @@ missing_dates &lt;-<span class="st"> </span>surveys[is_missing_date,  date_colum
 <span class="header-section-number">3.10</span> Exporting and saving data</h2>
 <div id="exporting-tabular-data" class="section level3 unnumbered">
 <h3>Exporting tabular data</h3>
-<p>We have seen how to read a text-based spreadsheet into R using the <code>read.table</code> family of functions. To export a <code>data.frame</code> to a text-based spreadsheet, we can use the <code>write.table</code> set of functions (<code>write.csv</code>, <code>write.delim</code>, …). They all take the variable to be exported and the file to be exported to. For example, to export the <code>surveys</code> data to the <code>my_surveys.csv</code> file in the <code>data_output</code> directory, we would execute:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write.csv</span>(surveys, <span class="dt">file =</span> <span class="st">"data_output/my_surveys.csv"</span>)</code></pre></div>
-<p>This new csv file can now be shared with other collaborators who aren’t familiar with R.</p>
+<p>We have seen how to read a text-based spreadsheet into R using the
+<code>read.table</code> family of functions. To export a <code>data.frame</code> to a
+text-based spreadsheet, we can use the <code>write.table</code> set of functions
+(<code>write.csv</code>, <code>write.delim</code>, …). They all take the variable to be
+exported and the file to be exported to. For example, to export the
+<code>surveys</code> data to the <code>my_surveys.csv</code> file in the <code>data_output</code>
+directory, we would execute:</p>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="sec-startdata.html#cb280-1"></a><span class="kw">write.csv</span>(surveys, <span class="dt">file =</span> <span class="st">"data_output/my_surveys.csv"</span>)</span></code></pre></div>
+<p>This new csv file can now be shared with other collaborators who
+aren’t familiar with R.</p>
 </div>
 <div id="saving-data" class="section level3 unnumbered">
 <h3>Saving data</h3>
-<p>Exporting data to a spreadsheet has several limitations, such as those described in the first chapter such as possible inconsistencies with <code>,</code> and <code>.</code> for decimal separators and lack of variable type definitions. Furthermore, exporting data to a spreadsheet is only relevant for rectangular data such as dataframes and matrices.</p>
-<p>A more general way to save data, that is specific to R and is guaranteed to work on any operating system, is to use the <code>save</code> function. Saving objects will generate a binary representation of the object on disk, a <em>R Data</em> file (<code>rda</code> extension) that guarantees to produce the same object once loaded back into R using the <code>load</code> function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">save</span>(surveys, <span class="dt">file =</span> <span class="st">"data_output/surveys.rda"</span>)
-<span class="kw">rm</span>(surveys)
-<span class="kw">load</span>(<span class="st">"data_output/surveys.rda"</span>)
-<span class="kw">head</span>(surveys)</code></pre></div>
-<p>Note about how the function <code>load</code> loads the object in the file directly in the global environment.</p>
-<p>There is also the <code>saveRDS</code> and <code>readRDS</code> functions that save R objects to binary files (using the <code>rds</code> extension here) and read these back into R. From a user’s perspective, main different is that, <code>load</code> loads an object in the gloval environment while <code>readRDS</code> reads the data from disk and returns it. It is this necessary to store the output of <code>readRDS</code> in a variable:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">saveRDS</span>(surveys, <span class="dt">file =</span> <span class="st">"data_output/surveys.rds"</span>)
-<span class="kw">rm</span>(surveys)
-surveys &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">"data_output/surveys.rds"</span>)
-<span class="kw">head</span>(surveys)</code></pre></div>
+<p>Exporting data to a spreadsheet has several limitations, such as those
+described in the first chapter such as possible inconsistencies with
+<code>,</code> and <code>.</code> for decimal separators and lack of variable type
+definitions. Furthermore, exporting data to a spreadsheet is only
+relevant for rectangular data such as dataframes and matrices.</p>
+<p>A more general way to save data, that is specific to R and is
+guaranteed to work on any operating system, is to use the <code>save</code>
+function. Saving objects will generate a binary representation of the
+object on disk, a <em>R Data</em> file (<code>rda</code> extension) that guarantees to
+produce the same object once loaded back into R using the <code>load</code>
+function.</p>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="sec-startdata.html#cb281-1"></a><span class="kw">save</span>(surveys, <span class="dt">file =</span> <span class="st">"data_output/surveys.rda"</span>)</span>
+<span id="cb281-2"><a href="sec-startdata.html#cb281-2"></a><span class="kw">rm</span>(surveys)</span>
+<span id="cb281-3"><a href="sec-startdata.html#cb281-3"></a><span class="kw">load</span>(<span class="st">"data_output/surveys.rda"</span>)</span>
+<span id="cb281-4"><a href="sec-startdata.html#cb281-4"></a><span class="kw">head</span>(surveys)</span></code></pre></div>
+<p>Note about how the function <code>load</code> loads the object in the file
+directly in the global environment.</p>
+<p>There is also the <code>saveRDS</code> and <code>readRDS</code> functions that save R
+objects to binary files (using the <code>rds</code> extension here) and read
+these back into R. From a user’s perspective, main different is that,
+<code>load</code> loads an object in the gloval environment while <code>readRDS</code> reads
+the data from disk and returns it. It is this necessary to store the
+output of <code>readRDS</code> in a variable:</p>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="sec-startdata.html#cb282-1"></a><span class="kw">saveRDS</span>(surveys, <span class="dt">file =</span> <span class="st">"data_output/surveys.rds"</span>)</span>
+<span id="cb282-2"><a href="sec-startdata.html#cb282-2"></a><span class="kw">rm</span>(surveys)</span>
+<span id="cb282-3"><a href="sec-startdata.html#cb282-3"></a>surveys &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">"data_output/surveys.rds"</span>)</span>
+<span id="cb282-4"><a href="sec-startdata.html#cb282-4"></a><span class="kw">head</span>(surveys)</span></code></pre></div>
 <pre><code>##   record_id month day year plot_id species_id sex hindfoot_length weight
 ## 1         1     7  16 1977       2         NL   M              32     NA
 ## 2        72     8  19 1977       2         NL   M              31     NA
@@ -856,7 +1074,10 @@ surveys &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span clas
 ## 4 Neotoma albigula Rodent   Control 1977-10-16
 ## 5 Neotoma albigula Rodent   Control 1977-11-12
 ## 6 Neotoma albigula Rodent   Control 1977-11-12</code></pre>
-<p>To conclude, when it comes to saving data from R that will be loaded again in R, saving and loading is the preferred approach. If tabular data need to be shared with somebody that is not using R, then exporting to a text-based spreadsheet is a good alternative.</p>
+<p>To conclude, when it comes to saving data from R that will be loaded
+again in R, saving and loading is the preferred approach. If tabular
+data need to be shared with somebody that is not using R, then
+exporting to a text-based spreadsheet is a good alternative.</p>
 </div>
 </div>
 <div id="additional-exercises-2" class="section level2">
@@ -867,15 +1088,26 @@ surveys &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span clas
 ► Question
 </p>
 <div class="question-body">
-<p>You’re doing an colony counting experiment, counting every day how many molds you see in your cell cultures.</p>
+<p>You’re doing an colony counting experiment, counting every day how
+many molds you see in your cell cultures.</p>
 <ul>
-<li><p>Create a vector named <code>molds</code> containing the results of your counts: 1, 2, 5, 8 and 10. Create a vector <code>days</code> containing the week day, from Monday to Friday. Use these two vector to create a <code>data.frame</code> named <code>molds_study</code> containing two variables, <code>Day</code> and <code>Molds_count</code>.</p></li>
-<li><p>Create a new <code>data.frame</code> that contains the observations where more that 2 colonies were counted. How many observations are there? How many counts are there in total for these observations.</p></li>
+<li><p>Create a vector named <code>molds</code> containing the results of your counts:
+1, 2, 5, 8 and 10. Create a vector <code>days</code> containing the week day,
+from Monday to Friday. Use these two vector to create a <code>data.frame</code>
+named <code>molds_study</code> containing two variables, <code>Day</code> and
+<code>Molds_count</code>.</p></li>
+<li><p>Create a new <code>data.frame</code> that contains the observations where more
+that 2 colonies were counted. How many observations are there? How
+many counts are there in total for these observations.</p></li>
 </ul>
-<p>You repeat the molds study experiment the following week and count the following numbers of molds: 1, 6, 6, 5 and 4.</p>
+<p>You repeat the molds study experiment the following week and count the
+following numbers of molds: 1, 6, 6, 5 and 4.</p>
 <ul>
-<li><p>Add these data as a third column to the <code>molds_study</code> <code>data.frame</code> and rename the variables as <code>Day</code>, <code>Molds_1</code> and <code>Molds_2</code>.</p></li>
-<li><p>Calculate for each experiment the total number of molds counted. Check if the first experiment counted more molds than the second one.</p></li>
+<li><p>Add these data as a third column to the <code>molds_study</code> <code>data.frame</code>
+and rename the variables as <code>Day</code>, <code>Molds_1</code> and <code>Molds_2</code>.</p></li>
+<li><p>Calculate for each experiment the total number of molds
+counted. Check if the first experiment counted more molds than the
+second one.</p></li>
 <li><p>Save the <code>molds_study</code> variable in a file named <code>molds_study.rda</code>.</p></li>
 </ul>
 <p class="question-end">
@@ -917,15 +1149,31 @@ surveys &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span clas
 ► Question
 </p>
 <div class="question-body">
-<p>We are going to analyse beer consumption in 48 individuals. The data are available in the <code>rWSBIM1207</code> package. The data illustrated the fictive beer consumption in liters per year at different age according to gender and employment.</p>
+<p>We are going to analyse beer consumption in 48 individuals. The data
+are available in the <code>rWSBIM1207</code> package. The data illustrated the
+fictive beer consumption in liters per year at different age according
+to gender and employment.</p>
 <ul>
-<li><p>Load the <code>rWSBIM1207</code> package. If the package isn’t installed of its version is greater than 0.1.1, install it from the <code>UCLouvain-CBIO/rWSBIM1207</code> GitHub repository using the <code>devtools::install_github</code> function.</p></li>
-<li><p>Using the <code>beers.csv()</code> function from <code>rWSBIM1207</code>, find the path the <code>beers.csv</code> file and read it to produce a <code>data.frame</code> named <code>beers</code>. The spreadsheet uses semi-colons <code>;</code> to separate cells. Use <code>read.csv2</code> and <code>read.delim</code> and set the separator appropriately, and verify that the two variables are identical.</p></li>
-<li><p>Check the number of observations and identify the variables that are available. Calculate a summary of each variable using the <code>summary</code> function directly on the <code>data.frame</code>.</p></li>
+<li><p>Load the <code>rWSBIM1207</code> package. If the package isn’t installed of its
+version is greater than 0.1.1, install it from the
+<code>UCLouvain-CBIO/rWSBIM1207</code> GitHub repository using the
+<code>devtools::install_github</code> function.</p></li>
+<li><p>Using the <code>beers.csv()</code> function from <code>rWSBIM1207</code>, find the path
+the <code>beers.csv</code> file and read it to produce a <code>data.frame</code> named
+<code>beers</code>. The spreadsheet uses semi-colons <code>;</code> to separate cells. Use
+<code>read.csv2</code> and <code>read.delim</code> and set the separator appropriately,
+and verify that the two variables are identical.</p></li>
+<li><p>Check the number of observations and identify the variables that are
+available. Calculate a summary of each variable using the <code>summary</code>
+function directly on the <code>data.frame</code>.</p></li>
 <li><p>Calculate the mean and the median age and consumption.</p></li>
-<li><p>Do men consume more beer than women on average? To answer this question, calculate the mean consumption for men only, selecting the observations with <code>Gender</code> equal to <code>Male</code>. Then do the same for observations with <code>Gender</code> equal to <code>Female</code>.</p></li>
+<li><p>Do men consume more beer than women on average? To answer this
+question, calculate the mean consumption for men only, selecting the
+observations with <code>Gender</code> equal to <code>Male</code>. Then do the same for
+observations with <code>Gender</code> equal to <code>Female</code>.</p></li>
 <li><p>Calculate a two-way table of gender and employment status.</p></li>
-<li><p>Remove observations with missing values and export the data into a new <code>csv</code> file called <code>beers_no_na.csv</code>.</p></li>
+<li><p>Remove observations with missing values and export the data into a
+new <code>csv</code> file called <code>beers_no_na.csv</code>.</p></li>
 </ul>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -937,18 +1185,35 @@ surveys &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span clas
 ► Question
 </p>
 <div class="question-body">
-<p>We are going to analyse clinical data from The Cancer Genome Atlas (TCGA). The data are available in the <code>rWSBIM1207</code> package.</p>
+<p>We are going to analyse clinical data from The Cancer Genome Atlas
+(TCGA). The data are available in the <code>rWSBIM1207</code> package.</p>
 <ul>
-<li><p>Load the <code>rWSBIM1207</code> package. If the package isn’t installed of its version is greater than 0.1.1, install it from the <code>UCLouvain-CBIO/rWSBIM1207</code> GitHub repository using the <code>devtools::install_github</code> function.</p></li>
-<li><p>Obtain the path to th csv file containing the clinical data need for this exercise using the <code>clinical1.csv</code> function and read it into R as a <code>data.frame</code> called <code>clinical</code>.</p></li>
-<li><p>Inspect the data using <code>str</code> and <code>View</code>. How many patients are recorded in the table?</p></li>
+<li><p>Load the <code>rWSBIM1207</code> package. If the package isn’t installed of its
+version is greater than 0.1.1, install it from the
+<code>UCLouvain-CBIO/rWSBIM1207</code> GitHub repository using the
+<code>devtools::install_github</code> function.</p></li>
+<li><p>Obtain the path to th csv file containing the clinical data need for
+this exercise using the <code>clinical1.csv</code> function and read it into R
+as a <code>data.frame</code> called <code>clinical</code>.</p></li>
+<li><p>Inspect the data using <code>str</code> and <code>View</code>. How many patients are
+recorded in the table?</p></li>
 <li><p>Print the column names using two different functions.</p></li>
-<li><p>Create a smaller data frame called <code>clinical_mini</code> containing only the columns corresponding to the <code>patientID</code>, <code>gender</code>, <code>age_at_diagnosis</code> and <code>smoking_history</code>. Try to do this using column indices and column names.</p></li>
-<li><p>Inspect the <code>smoking_history</code> column. How many categories are recorded? How many observations are there for each category?</p></li>
-<li><p>The column age at diagnosis is recorded in days. Create a new column <code>years_at_diagnosis</code> corresponding to the age at diagnosis converted in years.</p></li>
-<li><p>Calculate the mean and median age at diagnosis. Hint: pay attention to missing values!</p></li>
-<li><p>Is there a difference between the <code>years_at_diagnosis</code> for male and female patients?</p></li>
-<li><p>Use the <code>quantile</code> function to calculate the first and last quartile of age at diagnosis. Use the help function (<code>?quantile</code>) to see how to use the <code>quantile</code> function.</p></li>
+<li><p>Create a smaller data frame called <code>clinical_mini</code> containing only
+the columns corresponding to the <code>patientID</code>, <code>gender</code>,
+<code>age_at_diagnosis</code> and <code>smoking_history</code>. Try to do this using
+column indices and column names.</p></li>
+<li><p>Inspect the <code>smoking_history</code> column. How many categories are
+recorded? How many observations are there for each category?</p></li>
+<li><p>The column age at diagnosis is recorded in days. Create a new column
+<code>years_at_diagnosis</code> corresponding to the age at diagnosis converted
+in years.</p></li>
+<li><p>Calculate the mean and median age at diagnosis. Hint: pay attention
+to missing values!</p></li>
+<li><p>Is there a difference between the <code>years_at_diagnosis</code> for male and
+female patients?</p></li>
+<li><p>Use the <code>quantile</code> function to calculate the first and last quartile
+of age at diagnosis. Use the help function (<code>?quantile</code>) to see how
+to use the <code>quantile</code> function.</p></li>
 <li><p>Use the <code>summary</code> function to confirm your previous results.</p></li>
 </ul>
 <p class="question-end">
@@ -994,7 +1259,7 @@ surveys &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span clas
 <a href="sec-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-08-28
+2019-09-18
 </p>
 </div>
 </div>
