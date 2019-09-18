@@ -68,9 +68,9 @@ Ce qui est attendu de vous:
   au cours. N'attendez pas la fin du cours pour vous y mettre!
 
 La figure ci-dessous vous montre la
-correlation entre la moyennes des interrogations et la cote à l'examen
+corrélation entre la moyennes des interrogations et la cote à l'examen
 final. La conclusion étant que de travail régulier, qui se traduit par
-des bons résultats durant les interrogations, est un bon predicteur du
+des bons résultats durant les interrogations, est un bon prédicateur du
 succès à l'examen.
 
 
