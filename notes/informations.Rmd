@@ -47,7 +47,8 @@ output: html_document
   meilleur moyen de vous y préparer et de faire et comprendre les
   exercices en cours et à domicile.
 
-- Le nombre et durée des pauses dépendra du [vote des étudiant(e)s]().
+- Le nombre et durée des pauses dépendra du [vote des
+  étudiant(e)s](https://moodleucl.uclouvain.be/mod/choice/view.php?id=734453).
 
 Ce qui est attendu de vous:
 
