@@ -45,7 +45,15 @@ output: html_document
 - Il y aura des interrogations cotées en début de certaines
   sessions. Ces cotes compteront pour 25% de la note finale. Le
   meilleur moyen de vous y préparer et de faire et comprendre les
-  exercices en cours et à domicile.
+  exercices en cours et à domicile. La figure ci-dessous vous montre
+  l'importance de travail régulier qui se traduit par des bons
+  résultats durant les interrogations et une bonne cote à l'examen
+  final.
+
+```{r scores, fig.cap = "Correlation between the average score at the tests and the final exam (June 2019).", echo = FALSE}
+knitr::include_graphics("./2019-06-corr-exam-interro.png")
+```
+
 
 - Le nombre et durée des pauses dépendra du [vote des étudiant(e)s]().
 
