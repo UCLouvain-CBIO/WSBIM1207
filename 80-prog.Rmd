@@ -439,9 +439,9 @@ and you should get `r res1` and `r res2`.
 ```{r}
 fun
 set.seed(1L)
-res1 <- fun(5, 15)
+fun(5, 15)
 set.seed(1L)
-res2 <- fun(15, 5)
+fun(15, 5)
 ```
 
 `r msmbstyle::solution_end()`
@@ -668,3 +668,32 @@ ggplot(interros2, aes(y = score, x = test)) +
 ```
 
 `r msmbstyle::solution_end()`
+
+
+## Additional exercises
+
+`r msmbstyle::question_begin()`
+
+Complete the following function that converts meters to yards, knowing
+that that 1 yard corresponds to 0.9144 meters
+
+```{r, eval = FALSE}
+meters_to_yards <- function(argument goes here) {
+  yards <- _code goes here!_
+  return(yards)
+}
+
+```
+`r msmbstyle::question_end()`
+
+`r msmbstyle::question_begin()`
+
+Write functions that convert temperatures:
+
+- from Fahrenheit to Kelvin, where $T_K = (T_F - 32) \times 5/9 + 273.15$
+- fom Celsius to Kelvin, where $T_K = T_C + 273.15$
+- from Kelvin to Celsis
+- from Fahrenheit to Celsius
+
+`r msmbstyle::question_end()`
+
