@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="Preamble | Introduction to bioinformatics" />
@@ -15,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2020-01-07" />
+<meta name="date" content="2020-02-20" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -51,37 +50,36 @@ if(f.classList.contains('fa-plus-square')) {
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/jquery-1.12.4/jquery.min.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.10/datatables.js"></script>
-<link href="libs/dt-core-1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.19/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="libs/datatables-binding-0.12/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -90,9 +88,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -213,13 +211,14 @@ at the centre of this evolution. And while bioinformatics has been
 playing a central role in bio-medical research for many years now,
 bioinformatics skills aren’t well integrated in life science
 curricula, limiting students in their career prospects and research
-horizon <span class="citation">(Wilson Sayres et al. <label for="tufte-mn-1" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle">2018<span class="marginnote">Wilson Sayres, M A, C Hauser, M Sierk, S Robic, A G Rosenwald, T M Smith, E W Triplett, et al. 2018. “Bioinformatics Core Competencies for Undergraduate Life Sciences Education.” <em>PLoS One</em> 13 (6): e0196878. <a href="https://doi.org/10.1371/journal.pone.0196878">https://doi.org/10.1371/journal.pone.0196878</a>.</span>)</span>. It is important for young researchers to
+horizon <span class="citation">(Wilson Sayres et al. <label for="tufte-mn-1" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle">2018<span class="marginnote">Wilson Sayres, M A, C Hauser, M Sierk, S Robic, A G Rosenwald, T M Smith, E W Triplett, et al. 2018. “Bioinformatics Core Competencies for Undergraduate Life Sciences Education.” <em>PLoS One</em> 13 (6): e0196878. <a href="https://doi.org/10.1371/journal.pone.0196878" class="uri">https://doi.org/10.1371/journal.pone.0196878</a>.</span>)</span>. It is important for young researchers to
 acquire quantitative, computational and data skills to address the
 challenges that lie ahead.</p>
 <p>This first course will focus on the data skills. It will not teach to
 use any specific piece of bioinformatics software. Once one has
 identified a relevant piece of software, running it shouldn’t be a
-major problem<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. The important part will be to understand
+major problem<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> Although, in all fairness, some bioinformatics software
+are notoriously difficult to install and run.</span>. The important part will be to understand
 what it does, why it does it and how to assess if the output can be
 trusted. The latter requires to explore and understand the data and
 the results, i.e. data skills. As described by <span class="citation">Buffalo (<label for="tufte-mn-2" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle">2015<span class="marginnote">Buffalo, Vince. 2015. <em>Bioinformatics Data Skills</em>. O’Reilly Media, Inc.</span>)</span>, equating
@@ -237,13 +236,13 @@ while specific software become obsolete and are replaced, or are
 specific to one specific field of research, critical investigation of
 data will always be required and will never be replaced.</p>
 <p>We will be using the <a href="https://www.R-project.org/">R</a> language and
-environment <span class="citation">(R Core Team <label for="tufte-mn-3" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle">2019<span class="marginnote">R Core Team. 2019. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</span>)</span> and the <a href="https://www.rstudio.com/products/RStudio/">RStudio integrated development
+environment <span class="citation">(R Core Team <label for="tufte-mn-3" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle">2019<span class="marginnote">R Core Team. 2019. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</span>)</span> and the <a href="https://www.rstudio.com/products/RStudio/">RStudio integrated development
 environment</a> to acquire
 these data skills. Other interactive language such as
 <a href="https://www.R-project.org/">Python</a> and the interactive <a href="https://jupyter.org/">jupyer
 notebooks</a> would also have been a good fit. One
 motivation of this choice is the availability of numerous
-R/<a href="https://www.bioconductor.org/">Bionductor</a> packages <span class="citation">(Huber et al. <label for="tufte-mn-4" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle">2015<span class="marginnote">Huber, W, V J Carey, R Gentleman, S Anders, M Carlson, B S Carvalho, H C Bravo, et al. 2015. “Orchestrating High-Throughput Genomic Analysis with Bioconductor.” <em>Nat Methods</em> 12 (2): 115–21. <a href="https://doi.org/10.1038/nmeth.3252">https://doi.org/10.1038/nmeth.3252</a>.</span>)</span>
+R/<a href="https://www.bioconductor.org/">Bionductor</a> packages <span class="citation">(Huber et al. <label for="tufte-mn-4" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle">2015<span class="marginnote">Huber, W, V J Carey, R Gentleman, S Anders, M Carlson, B S Carvalho, H C Bravo, et al. 2015. “Orchestrating High-Throughput Genomic Analysis with Bioconductor.” <em>Nat Methods</em> 12 (2): 115–21. <a href="https://doi.org/10.1038/nmeth.3252" class="uri">https://doi.org/10.1038/nmeth.3252</a>.</span>)</span>
 for the analysis of high throughput biology data.</p>
 <p>Another reason why the focus of the course ought to be on data skills
 is that a notable difficulty in modern, multidisciplinary research is
@@ -256,7 +255,7 @@ critical thinking and communication around data becomes more evident
 when one realises that, when tracking work in bioinformatics core
 facilities, only a minority of projects were purely routine and that
 most researchers came to the bioinformatics core seeking customized
-analysis, rather than a standardized package <span class="citation">(Chang <label for="tufte-mn-5" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-5" class="margin-toggle">2015<span class="marginnote">Chang, J. 2015. “Core Services: Reward Bioinformaticians.” <em>Nature</em> 520 (7546): 151–2. <a href="https://doi.org/10.1038/520151a">https://doi.org/10.1038/520151a</a>.</span>)</span>.</p>
+analysis, rather than a standardized package <span class="citation">(Chang <label for="tufte-mn-5" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-5" class="margin-toggle">2015<span class="marginnote">Chang, J. 2015. “Core Services: Reward Bioinformaticians.” <em>Nature</em> 520 (7546): 151–2. <a href="https://doi.org/10.1038/520151a" class="uri">https://doi.org/10.1038/520151a</a>.</span>)</span>.</p>
 <p>To illustrate the reasons why R in general (and in the case of
 biomedical sciences, Bioconductor in particular) are worth learning, I
 provide here some examples where these software are used. From a
@@ -299,9 +298,9 @@ however, as they cover large parts of the material or provide
 complementary resources.</p>
 <p>The material for the first chapters, covering the <em>Introduction to
 data science with R</em>, is based on the <a href="https://datacarpentry.org/lessons/#ecology-workshop"><strong>Data Carpentry</strong> Ecology
-curiculum</a> <span class="citation">(Michonneau and Fournier <label for="tufte-mn-6" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-6" class="margin-toggle">2019<span class="marginnote">Michonneau, Francois, and Auriel Fournier, eds. 2019. “Data Carpentry: R for Data Analysis and Visualization of Ecological Data.” <a href="https://doi.org/10.5281/zenodo.569338">https://doi.org/10.5281/zenodo.569338</a>.</span>)</span>.</p>
+curiculum</a> <span class="citation">(Michonneau and Fournier <label for="tufte-mn-6" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-6" class="margin-toggle">2019<span class="marginnote">Michonneau, Francois, and Auriel Fournier, eds. 2019. “Data Carpentry: R for Data Analysis and Visualization of Ecological Data.” <a href="https://doi.org/10.5281/zenodo.569338" class="uri">https://doi.org/10.5281/zenodo.569338</a>.</span>)</span>.</p>
 <p>General references for this course are <em>R for Data Science</em>
-<span class="citation">(Grolemund and Wickham <label for="tufte-mn-7" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-7" class="margin-toggle">2017<span class="marginnote">Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. O’Reilly Media. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.</span>)</span> and <em>Bioinformatics Data Skills</em> <span class="citation">(Buffalo <label for="tufte-mn-8" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-8" class="margin-toggle">2015<span class="marginnote">Buffalo, Vince. 2015. <em>Bioinformatics Data Skills</em>. O’Reilly Media, Inc.</span>)</span>.</p>
+<span class="citation">(Grolemund and Wickham <label for="tufte-mn-7" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-7" class="margin-toggle">2017<span class="marginnote">Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. O’Reilly Media. <a href="https://r4ds.had.co.nz/" class="uri">https://r4ds.had.co.nz/</a>.</span>)</span> and <em>Bioinformatics Data Skills</em> <span class="citation">(Buffalo <label for="tufte-mn-8" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-8" class="margin-toggle">2015<span class="marginnote">Buffalo, Vince. 2015. <em>Bioinformatics Data Skills</em>. O’Reilly Media, Inc.</span>)</span>.</p>
 <p>The <a href="https://www.rstudio.com/resources/cheatsheets/">RStudio Cheat
 Sheets</a> are also a
 handy resource and readers will be pointed to specific sheets in the
@@ -321,10 +320,10 @@ chapter.</p>
 </div>
 <div id="about-this-course-material" class="section level2 unnumbered">
 <h2>About this course material</h2>
-<p>This material is written in R markdown <span class="citation">(Allaire et al. <label for="tufte-mn-9" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-9" class="margin-toggle">2019<span class="marginnote">Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2019. <em>Rmarkdown: Dynamic Documents for R</em>. <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a>.</span>)</span> and compiled as a
-book using <code>knitr</code> <span class="citation">(Xie <label for="tufte-mn-10" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-10" class="margin-toggle">2019b<span class="marginnote">Xie, Yihui. 2019b. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in R</em>. <a href="https://CRAN.R-project.org/package=knitr">https://CRAN.R-project.org/package=knitr</a>.</span>)</span> <code>bookdown</code> <span class="citation">(Xie <label for="tufte-mn-11" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-11" class="margin-toggle">2019a<span class="marginnote">Xie, Yihui. 2019a. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</span>)</span>. The source
+<p>This material is written in R markdown <span class="citation">(Allaire et al. <label for="tufte-mn-9" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-9" class="margin-toggle">2020<span class="marginnote">Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2020. <em>Rmarkdown: Dynamic Documents for R</em>. <a href="https://CRAN.R-project.org/package=rmarkdown" class="uri">https://CRAN.R-project.org/package=rmarkdown</a>.</span>)</span> and compiled as a
+book using <code>knitr</code> <span class="citation">(Xie <label for="tufte-mn-10" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-10" class="margin-toggle">2020b<span class="marginnote">Xie, Yihui. 2020b. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in R</em>. <a href="https://CRAN.R-project.org/package=knitr" class="uri">https://CRAN.R-project.org/package=knitr</a>.</span>)</span> <code>bookdown</code> <span class="citation">(Xie <label for="tufte-mn-11" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-11" class="margin-toggle">2020a<span class="marginnote">Xie, Yihui. 2020a. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</span>)</span>. The source
 code is publicly available in a Github repository
-<a href="https://github.com/uclouvain-cbio/WSBIM1207">https://github.com/uclouvain-cbio/WSBIM1207</a>
+<a href="https://github.com/uclouvain-cbio/WSBIM1207" class="uri">https://github.com/uclouvain-cbio/WSBIM1207</a>
 and the compiled material can be read at <a href="http://bit.ly/WSBIM1207" class="uri">http://bit.ly/WSBIM1207</a>.</p>
 <p>Contributions to this material are welcome. The best way to contribute
 or contact the maintainers is by means of pull requests and
@@ -361,13 +360,13 @@ interact with R and write scripts and reports. Both R and RStudio are
 easy to install and works on all major operating systems.</p>
 <p>Once R and RStudio are installed, a set of packages will need to be
 installed. See section <a href="session-information.html#sec:setup2">11.1</a> for details.</p>
-<p>To build this book, you’ll need <code>bookdown</code> <span class="citation">(Xie <label for="tufte-mn-12" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-12" class="margin-toggle">2019a<span class="marginnote">Xie, Yihui. 2019a. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</span>)</span> and a
-fork<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> of <a href="https://github.com/grimbough/msmbstyle/"><code>msmbstyle</code>
+<p>To build this book, you’ll need <code>bookdown</code> <span class="citation">(Xie <label for="tufte-mn-12" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-12" class="margin-toggle">2020a<span class="marginnote">Xie, Yihui. 2020a. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</span>)</span> and a
+fork<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> <a href="https://github.com/lgatto/msmbstyle" class="uri">https://github.com/lgatto/msmbstyle</a></span> of <a href="https://github.com/grimbough/msmbstyle/"><code>msmbstyle</code>
 style</a> <span class="citation">(Smith <label for="tufte-mn-13" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-13" class="margin-toggle">2019<span class="marginnote">Smith, Mike. 2019. <em>Msmbstyle: MSMB Styles for R Markdown Documents</em>.</span>)</span>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">"bookdown"</span>)</span>
-<span id="cb1-2"><a href="index.html#cb1-2"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"lgatto/msmbstyle"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">"bookdown"</span>)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"lgatto/msmbstyle"</span>)</a></code></pre></div>
 <p>In the course’s work directory, simply type</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1"></a>bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">"."</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">"."</span>)</a></code></pre></div>
 
 </div>
 </div></body></html>
@@ -376,7 +375,7 @@ style</a> <span class="citation">(Smith <label for="tufte-mn-13" class="margin-t
 <a href="sec-dataorg.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-01-07
+2020-02-20
 </p>
 </div>
 </div>
