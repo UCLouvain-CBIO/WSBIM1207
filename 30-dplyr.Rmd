@@ -939,7 +939,7 @@ tab <- beers2 %>%
     filter(Age > 35) %>%
     filter(Gender == "Female") %>%
     filter(Work == "Employed") %>%
-    select(--Day, -Month, -Year) %>%
+    select(-Day, -Month, -Year) %>%
     arrange(desc(Consumption))
 
 tab
