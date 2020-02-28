@@ -21,13 +21,12 @@ MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" } }
 });
 </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
 <title>Chapter 8 Bioinformatics | Introduction to bioinformatics</title>
 
-<script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -51,37 +50,36 @@ if(f.classList.contains('fa-plus-square')) {
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/jquery-1.12.4/jquery.min.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.11/datatables.js"></script>
-<link href="libs/dt-core-1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.19/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="libs/datatables-binding-0.12/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -90,9 +88,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -172,7 +170,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="row">
 <div class="col-sm-12">
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html><body><div id="sec:bioinfo" class="section level1" number="8">
+<html><body><div id="sec:bioinfo" class="section level1">
 <h1>
 <span class="header-section-number">Chapter 8</span> Bioinformatics</h1>
 <p>As already alluded to earlier, <a href="https://en.wikipedia.org/wiki/Bioinformatics">Wikipedia
@@ -186,7 +184,7 @@ and software tools for understanding biological data.</p>
 analysis, to software development, computational or statistical
 methodological development, more theoretical work, as well as any
 combination of these.</p>
-<div id="omics-data" class="section level2" number="8.1">
+<div id="omics-data" class="section level2">
 <h2>
 <span class="header-section-number">8.1</span> Omics data</h2>
 <p>So far, we have explored broad data science techniques in R. A
@@ -225,7 +223,7 @@ molecules or lipids can also be assayed under the umbrella terms of
 protein, lipids or smaller metabolites is mass spectrometry.</p>
 <p>In the next couple of sections, some important concepts related to
 omics data and their analysis are repeated and emphasised.</p>
-<div id="high-throughput" class="section level3 unnumbered" number="">
+<div id="high-throughput" class="section level3 unnumbered">
 <h3>High throughput</h3>
 <p>By it very nature, omics data is high throughput. The goal is to
 measure all, or as many as possible molecules of an omics-domain as
@@ -237,7 +235,7 @@ result, omics data is both large in size and complex in nature, and
 requires dedicated software and analysis methods to be processed,
 analysed to infer biologically relevant patterns.</p>
 </div>
-<div id="raw-and-processed-data" class="section level3 unnumbered" number="">
+<div id="raw-and-processed-data" class="section level3 unnumbered">
 <h3>Raw and processed data</h3>
 <p>The omics data that are produced by the instruments are called raw
 data, and their size (generally large), the types of file, and
@@ -282,7 +280,7 @@ such as <em>Omics data analysis</em>
 (<a href="https://github.com/UCLouvain-CBIO/WSBIM2122">WSBIM2122</a>).</p>
 </div>
 </div>
-<div id="metadata-and-experimental-design" class="section level2" number="8.2">
+<div id="metadata-and-experimental-design" class="section level2">
 <h2>
 <span class="header-section-number">8.2</span> Metadata and experimental design</h2>
 <p>The acquired data, even once processed, is still of very little use
@@ -439,12 +437,13 @@ Figure 8.4: Distribution of the expression of the genes A1CF, BRCA1 and TP53 und
 <img src="WSBIM1207_files/figure-html/unnamed-chunk-213-1.png" alt="Distribution of the expression of the genes A1CF, BRCA1 and TP53 under the control (no drug) and drug at concentrations 1 and 5." width="672">
 </div>
 </div>
-<div id="project-management-reminder" class="section level2" number="8.3">
+<div id="project-management-reminder" class="section level2">
 <h2>
 <span class="header-section-number">8.3</span> Project management reminder</h2>
 <p>We have already seen some best practice related to data science
 project management. These are applicable to bioinformatics projects
-too of course<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a>. William Noble (<span class="citation">Noble (<a href="session-information.html#ref-Noble:2009" role="doc-biblioref">2009</a>)</span>) proposes
+too of course<label for="tufte-sn-17" class="margin-toggle sidenote-number">17</label><input type="checkbox" id="tufte-sn-17" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">17</span> In this course, we consider bioinformatics as
+data science applied to biological or bio-medical data.</span>. William Noble (<span class="citation">Noble (<label for="tufte-mn-26" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-26" class="margin-toggle">2009<span class="marginnote">Noble, William Stafford. 2009. “A Quick Guide to Organizing Computational Biology Projects.” <em>PLOS Computational Biology</em> 5 (7). Public Library of Science: 1–5. <a href="https://doi.org/10.1371/journal.pcbi.1000424" class="uri">https://doi.org/10.1371/journal.pcbi.1000424</a>.</span>)</span>) proposes
 the following directory structure:</p>
 <blockquote>
 <p>Directory names are in large typeface, and filenames are in smaller
@@ -469,7 +468,9 @@ Figure 8.5: Directory structure for a sample bioinformatics project.
 </div>
 <p>The most important aspect of a well defined and well documented
 project directory is to enable someone unfamiliar with the
-project<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a> to</p>
+project<label for="tufte-sn-18" class="margin-toggle sidenote-number">18</label><input type="checkbox" id="tufte-sn-18" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">18</span> That someone could be, and very likely will be your
+future self, a couple of months or years after the analyses were
+run.</span> to</p>
 <ol style="list-style-type: decimal">
 <li><p>understand what the project is about, what data are available, what
 analyses were run, and what results were produced and, most
@@ -487,11 +488,11 @@ done. Such a general lab notebook could be a simple <code>README.md</code> file
 or a reproducible Rmarkdown file, that could directly load some
 results from the individual results files.</p>
 </div>
-<div id="sec:bioconductor" class="section level2" number="8.4">
+<div id="sec:bioconductor" class="section level2">
 <h2>
 <span class="header-section-number">8.4</span> The Bioconductor project</h2>
 <p>The <a href="http://www.bioconductor.org">Bioconductor</a> was initiated by
-Robert Gentleman (<span class="citation">R. C. Gentleman et al. (<a href="session-information.html#ref-Gentleman:2004" role="doc-biblioref">2004</a>)</span>;<span class="citation">Huber et al. (<a href="session-information.html#ref-Huber:2015" role="doc-biblioref">2015</a>)</span>), one of the two
+Robert Gentleman (<span class="citation">R. C. Gentleman et al. (<label for="tufte-mn-27" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-27" class="margin-toggle">2004<span class="marginnote">Gentleman, Robert C., Vincent J. Carey, Douglas M. Bates, Ben Bolstad, Marcel Dettling, Sandrine Dudoit, Byron Ellis, et al. 2004. “Bioconductor: Open Software Development for Computational Biology and Bioinformatics.” <em>Genome Biol</em> 5 (10): –80. <a href="https://doi.org/10.1186/gb-2004-5-10-r80" class="uri">https://doi.org/10.1186/gb-2004-5-10-r80</a>.</span>)</span>;<span class="citation">Huber et al. (<label for="tufte-mn-28" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-28" class="margin-toggle">2015<span class="marginnote">Huber, W, V J Carey, R Gentleman, S Anders, M Carlson, B S Carvalho, H C Bravo, et al. 2015. “Orchestrating High-Throughput Genomic Analysis with Bioconductor.” <em>Nat Methods</em> 12 (2): 115–21. <a href="https://doi.org/10.1038/nmeth.3252" class="uri">https://doi.org/10.1038/nmeth.3252</a>.</span>)</span>), one of the two
 creators of the R language, and centrally offers dedicated R packages
 for bioinformatics.</p>
 <blockquote>
@@ -509,17 +510,17 @@ Figure 8.6: The Bioconductor web page.
 </div>
 <p>Bioconductor packages are managed installed using a dedicated package,
 namely <code>BiocManager</code>, that can be installed from CRAN with</p>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="sec-bioinfo.html#cb461-1"></a><span class="kw">install.packages</span>(<span class="st">"BiocManager"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb461-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">"BiocManager"</span>)</a></code></pre></div>
 <p>Individuals package such as <code>MSnbase</code> (for proteomics), <code>DESeq2</code> (for
 transcriptomics), <code>xcms</code> (metabolomics), …can then be installed:
 reminder and <code>BiocManager::install</code>.</p>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="sec-bioinfo.html#cb462-1"></a>BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">"MSnbase"</span>)</span>
-<span id="cb462-2"><a href="sec-bioinfo.html#cb462-2"></a>BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">"DESeq2"</span>)</span>
-<span id="cb462-3"><a href="sec-bioinfo.html#cb462-3"></a>BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">"xcms"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb462-1" data-line-number="1">BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">"MSnbase"</span>)</a>
+<a class="sourceLine" id="cb462-2" data-line-number="2">BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">"DESeq2"</span>)</a>
+<a class="sourceLine" id="cb462-3" data-line-number="3">BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">"xcms"</span>)</a></code></pre></div>
 <p>Note that we can also use that same function to install packages from GitHub:</p>
-<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="sec-bioinfo.html#cb463-1"></a>BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb463-1" data-line-number="1">BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</a></code></pre></div>
 </div>
-<div id="omics-data-containers" class="section level2" number="8.5">
+<div id="omics-data-containers" class="section level2">
 <h2>
 <span class="header-section-number">8.5</span> Omics data containers</h2>
 <p>Data in bioinformatics is often more complex than the basic data types
@@ -558,11 +559,11 @@ manipulation. The metadata slots can grow additional co-variates
 <code>msnset</code> object, of class <code>MSnSet</code> that comes with the <code>MSnbase</code>
 package, which contains data for55 features and 4
 samples.</p>
-<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="sec-bioinfo.html#cb464-1"></a><span class="kw">library</span>(MSnbase)</span>
-<span id="cb464-2"><a href="sec-bioinfo.html#cb464-2"></a><span class="kw">data</span>(msnset)</span>
-<span id="cb464-3"><a href="sec-bioinfo.html#cb464-3"></a><span class="kw">dim</span>(msnset)</span></code></pre></div>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb464-1" data-line-number="1"><span class="kw">library</span>(MSnbase)</a>
+<a class="sourceLine" id="cb464-2" data-line-number="2"><span class="kw">data</span>(msnset)</a>
+<a class="sourceLine" id="cb464-3" data-line-number="3"><span class="kw">dim</span>(msnset)</a></code></pre></div>
 <pre><code>## [1] 55  4</code></pre>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="sec-bioinfo.html#cb466-1"></a>msnset</span></code></pre></div>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb466-1" data-line-number="1">msnset</a></code></pre></div>
 <pre><code>## MSnSet (storageMode: lockedEnvironment)
 ## assayData: 55 features, 4 samples 
 ##   element names: exprs 
@@ -584,7 +585,7 @@ samples.</p>
 <p>Using this data structure, we can access the expression data with the
 <code>exprs</code> function, the feature metadata with the <code>fData</code> function, and
 the sample metadata with the <code>pData</code> function:</p>
-<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="sec-bioinfo.html#cb468-1"></a><span class="kw">head</span>(<span class="kw">exprs</span>(msnset))</span></code></pre></div>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb468-1" data-line-number="1"><span class="kw">head</span>(<span class="kw">exprs</span>(msnset))</a></code></pre></div>
 <pre><code>##     iTRAQ4.114 iTRAQ4.115 iTRAQ4.116 iTRAQ4.117
 ## X1   1347.6158  2247.3097  3927.6931  7661.1463
 ## X10   739.9861   799.3501   712.5983   940.6793
@@ -592,7 +593,7 @@ the sample metadata with the <code>pData</code> function:</p>
 ## X12 31892.8928 33634.6980 37674.7272 37227.7119
 ## X13 26143.7542 29677.4781 29089.0593 27902.5608
 ## X14  6448.0829  6234.1957  6902.8903  6437.2303</code></pre>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="sec-bioinfo.html#cb470-1"></a><span class="kw">head</span>(<span class="kw">fData</span>(msnset))</span></code></pre></div>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb470-1" data-line-number="1"><span class="kw">head</span>(<span class="kw">fData</span>(msnset))</a></code></pre></div>
 <pre><code>##     spectrum ProteinAccession                       ProteinDescription
 ## X1         1              BSA                     bovine serum albumin
 ## X10       10          ECA1422 glucose-1-phosphate cytidylyltransferase
@@ -614,7 +615,7 @@ the sample metadata with the <code>pData</code> function:</p>
 ## X12        2397   0 247323187        2                 13               40
 ## X13        2574   0 207247502        2                 14               40
 ## X14        1829   0 115317275        2                 15               40</code></pre>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="sec-bioinfo.html#cb472-1"></a><span class="kw">pData</span>(msnset)</span></code></pre></div>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb472-1" data-line-number="1"><span class="kw">pData</span>(msnset)</a></code></pre></div>
 <pre><code>##               mz reporters
 ## iTRAQ4.114 114.1    iTRAQ4
 ## iTRAQ4.115 115.1    iTRAQ4
@@ -637,9 +638,9 @@ and columns in the feature and sample data.</p>
 ► Solution<span id="sol-start-41" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-41', 'sol-start-41')"></span>
 </p>
 <div id="sol-body-41" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="sec-bioinfo.html#cb474-1"></a><span class="kw">nrow</span>(<span class="kw">exprs</span>(msnset)) <span class="op">==</span><span class="st"> </span><span class="kw">nrow</span>(<span class="kw">fData</span>(msnset))</span></code></pre></div>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb474-1" data-line-number="1"><span class="kw">nrow</span>(<span class="kw">exprs</span>(msnset)) <span class="op">==</span><span class="st"> </span><span class="kw">nrow</span>(<span class="kw">fData</span>(msnset))</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="sec-bioinfo.html#cb476-1"></a><span class="kw">ncol</span>(<span class="kw">exprs</span>(msnset)) <span class="op">==</span><span class="st"> </span><span class="kw">nrow</span>(<span class="kw">pData</span>(msnset))</span></code></pre></div>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb476-1" data-line-number="1"><span class="kw">ncol</span>(<span class="kw">exprs</span>(msnset)) <span class="op">==</span><span class="st"> </span><span class="kw">nrow</span>(<span class="kw">pData</span>(msnset))</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -648,24 +649,24 @@ and columns in the feature and sample data.</p>
 </div>
 <p>We can use the <code>[</code> operator to subset the whole object: all parts
 thereof will be subset correctly.</p>
-<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="sec-bioinfo.html#cb478-1"></a>msnset2 &lt;-<span class="st"> </span>msnset[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span>
-<span id="cb478-2"><a href="sec-bioinfo.html#cb478-2"></a><span class="kw">dim</span>(msnset2)</span></code></pre></div>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb478-1" data-line-number="1">msnset2 &lt;-<span class="st"> </span>msnset[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</a>
+<a class="sourceLine" id="cb478-2" data-line-number="2"><span class="kw">dim</span>(msnset2)</a></code></pre></div>
 <pre><code>## [1] 3 2</code></pre>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="sec-bioinfo.html#cb480-1"></a><span class="kw">head</span>(<span class="kw">exprs</span>(msnset2))</span></code></pre></div>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb480-1" data-line-number="1"><span class="kw">head</span>(<span class="kw">exprs</span>(msnset2))</a></code></pre></div>
 <pre><code>##     iTRAQ4.115 iTRAQ4.117
 ## X1     2247.31   7661.146
 ## X11   33394.03  26628.728
 ## X13   29677.48  27902.561</code></pre>
 <p>We can also add information with:</p>
-<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="sec-bioinfo.html#cb482-1"></a><span class="kw">pData</span>(msnset)<span class="op">$</span>group  &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">'A'</span>, <span class="st">'B'</span>), <span class="dt">each =</span> <span class="dv">2</span>)</span>
-<span id="cb482-2"><a href="sec-bioinfo.html#cb482-2"></a><span class="kw">pData</span>(msnset)</span></code></pre></div>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb482-1" data-line-number="1"><span class="kw">pData</span>(msnset)<span class="op">$</span>group  &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">'A'</span>, <span class="st">'B'</span>), <span class="dt">each =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb482-2" data-line-number="2"><span class="kw">pData</span>(msnset)</a></code></pre></div>
 <pre><code>##               mz reporters group
 ## iTRAQ4.114 114.1    iTRAQ4     A
 ## iTRAQ4.115 115.1    iTRAQ4     A
 ## iTRAQ4.116 116.1    iTRAQ4     B
 ## iTRAQ4.117 117.1    iTRAQ4     B</code></pre>
 </div>
-<div id="bioconductor-data-infrastructure" class="section level2" number="8.6">
+<div id="bioconductor-data-infrastructure" class="section level2">
 <h2>
 <span class="header-section-number">8.6</span> Bioconductor data infrastructure</h2>
 <p>An essential aspect that is central to Bioconductor and its success is
@@ -677,7 +678,7 @@ the project as a whole.</p>
 Methods and
 Classes</a>
 page:</p>
-<div id="importing" class="section level4 unnumbered" number="">
+<div id="importing" class="section level4 unnumbered">
 <h4>Importing</h4>
 <ul>
 <li>GTF, GFF, BED, BigWig, etc., - <em><a href="https://bioconductor.org/packages/3.10/rtracklayer">rtracklayer</a></em><code>::import()</code>
@@ -694,7 +695,7 @@ page:</p>
 </li>
 </ul>
 </div>
-<div id="common-classes" class="section level4 unnumbered" number="">
+<div id="common-classes" class="section level4 unnumbered">
 <h4>Common Classes</h4>
 <ul>
 <li>Rectangular feature x sample data – <em><a href="https://bioconductor.org/packages/3.10/SummarizedExperiment">SummarizedExperiment</a></em><code>::SummarizedExperiment()</code> (RNAseq count matrix, microarray, …)</li>
@@ -712,13 +713,13 @@ page:</p>
 </ul>
 </div>
 </div>
-<div id="navigating-the-bioconductor-project" class="section level2" number="8.7">
+<div id="navigating-the-bioconductor-project" class="section level2">
 <h2>
 <span class="header-section-number">8.7</span> Navigating the Bioconductor project</h2>
 <p>Bioconductor has become a large project proposing many packages across
 many domains of high throughput biology. It continues to grow, at an
 increasing rate, and it can be difficult to get started.</p>
-<div id="biocviews" class="section level3" number="8.7.1">
+<div id="biocviews" class="section level3">
 <h3>
 <span class="header-section-number">8.7.1</span> <em>biocViews</em>
 </h3>
@@ -741,7 +742,7 @@ on the homepage, under <em>About Bioconductor</em> (see screenshot above).</p>
 <a href="https://bioconductor.org/developers/how-to/biocViews/">page</a> for
 additional information.</p>
 </div>
-<div id="workflows" class="section level3" number="8.7.2">
+<div id="workflows" class="section level3">
 <h3>
 <span class="header-section-number">8.7.2</span> Workflows</h3>
 <p>On the other hand, people generally don’t approach the Bioconductor
@@ -767,7 +768,7 @@ gateway</p>
 <p>These peer-reviewed papers describe more complete pipelines involving
 one or several packages.</p>
 </div>
-<div id="learning-about-specific-packages" class="section level3" number="8.7.3">
+<div id="learning-about-specific-packages" class="section level3">
 <h3>
 <span class="header-section-number">8.7.3</span> Learning about specific packages</h3>
 <p>Each Bioconductor package has it’s own <em>landing pages</em> that provides
@@ -794,7 +795,7 @@ would be</p>
 the longer package URL leading the user to the current release version
 of the packge.</p>
 </div>
-<div id="package-vignettes" class="section level3" number="8.7.4">
+<div id="package-vignettes" class="section level3">
 <h3>
 <span class="header-section-number">8.7.4</span> Package vignettes</h3>
 <p>An important quality of every Bioconductor package is the availability
@@ -804,8 +805,8 @@ package, without necessarily going in detail for every function of the
 package.</p>
 <p>Below, we show how to list all vignettes available in the <code>MSnbase</code>
 package and how to open one in particular.</p>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="sec-bioinfo.html#cb484-1"></a><span class="kw">vignette</span>(<span class="dt">package =</span> <span class="st">"MSnbase"</span>)</span>
-<span id="cb484-2"><a href="sec-bioinfo.html#cb484-2"></a><span class="kw">vignette</span>(<span class="st">"v01-MSnbase-demo"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb484-1" data-line-number="1"><span class="kw">vignette</span>(<span class="dt">package =</span> <span class="st">"MSnbase"</span>)</a>
+<a class="sourceLine" id="cb484-2" data-line-number="2"><span class="kw">vignette</span>(<span class="st">"v01-MSnbase-demo"</span>)</a></code></pre></div>
 <p>Vignettes are special in that respect as they are produced as part of
 the package building process. The code in a vignette is executed and
 its output, whether in the form of simple text, tables and figures,
@@ -820,7 +821,7 @@ extract the code into an R script runnung the <code>Stangle</code> (from the
 see <a href="https://bioconductor.org/help/package-vignettes/">here</a> for
 details) or <code>knitr::purl</code> functions on the vignette source document.</p>
 </div>
-<div id="getting-help" class="section level3" number="8.7.5">
+<div id="getting-help" class="section level3">
 <h3>
 <span class="header-section-number">8.7.5</span> Getting help</h3>
 <p>The best way to get help with regard the a Bioconductor package is to
@@ -846,7 +847,7 @@ dedicated
 is dedicated for questions and discussions related to package
 development.</p>
 </div>
-<div id="versions" class="section level3" number="8.7.6">
+<div id="versions" class="section level3">
 <h3>
 <span class="header-section-number">8.7.6</span> Versions</h3>
 <p>It is also useful to know that at any given time, there are two
@@ -866,7 +867,7 @@ to keep up with the latest developments in Bioconductor. More details
 <a href="https://bioconductor.org/developers/how-to/version-numbering/">here</a>.</p>
 </div>
 </div>
-<div id="exercises" class="section level2" number="8.8">
+<div id="exercises" class="section level2">
 <h2>
 <span class="header-section-number">8.8</span> Exercises</h2>
 <div class="question">
@@ -924,7 +925,7 @@ the first time point (<code>rep1_0hr</code>)?</p></li>
 <code>rWSBIM1207</code> version 0.1.5 or later. If needed, install a more
 recent version with</li>
 </ol>
-<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="sec-bioinfo.html#cb485-1"></a>BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb485-1" data-line-number="1">BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</a></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Import the data from two tab-separated files into R. The full paths
 to the two files can be accessed with <code>kem.tsv()</code>. Read <code>?kem</code> for

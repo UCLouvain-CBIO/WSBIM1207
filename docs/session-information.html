@@ -21,13 +21,12 @@ MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" } }
 });
 </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
 <title>Chapter 11 Session information | Introduction to bioinformatics</title>
 
-<script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -51,37 +50,36 @@ if(f.classList.contains('fa-plus-square')) {
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/jquery-1.12.4/jquery.min.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.11/datatables.js"></script>
-<link href="libs/dt-core-1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.19/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="libs/datatables-binding-0.12/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -90,9 +88,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -165,26 +163,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="row">
 <div class="col-sm-12">
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html><body><div id="session-information" class="section level1" number="11">
+<html><body><div id="session-information" class="section level1">
 <h1>
 <span class="header-section-number">Chapter 11</span> Session information</h1>
 <p>The following packages have been used to generate this document.</p>
-<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="session-information.html#cb580-1"></a><span class="kw">sessionInfo</span>()</span></code></pre></div>
-<pre><code>## R version 3.6.2 Patched (2019-12-14 r77584)
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb580-1" data-line-number="1"><span class="kw">sessionInfo</span>()</a></code></pre></div>
+<pre><code>## R version 3.6.2 (2019-12-12)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Manjaro Linux
+## Running under: Ubuntu 18.04.4 LTS
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/libblas.so.3.9.0
-## LAPACK: /usr/lib/liblapack.so.3.9.0
+## BLAS:   /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3
+## LAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3
 ## 
 ## locale:
 ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [3] LC_TIME=fr_FR.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=fr_FR.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=fr_FR.UTF-8       LC_NAME=C                 
 ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## [11] LC_MEASUREMENT=fr_FR.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats4    parallel  stats     graphics  grDevices utils     datasets 
@@ -196,42 +194,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  [7] Rcpp_1.0.3          Biobase_2.46.0      BiocGenerics_0.32.0
 ## [10] patchwork_1.0.0     gridExtra_2.3       magrittr_1.5       
 ## [13] rWSBIM1207_0.1.9    forcats_0.4.0       stringr_1.4.0      
-## [16] dplyr_0.8.3         purrr_0.3.3         readr_1.3.1        
-## [19] tidyr_1.0.0         tibble_2.1.3        ggplot2_3.2.1      
+## [16] dplyr_0.8.4         purrr_0.3.3         readr_1.3.1        
+## [19] tidyr_1.0.2         tibble_2.1.3        ggplot2_3.2.1      
 ## [22] tidyverse_1.3.0     lubridate_1.7.4    
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] nlme_3.1-143          fs_1.3.1              doParallel_1.0.15    
+##  [1] nlme_3.1-144          fs_1.3.1              doParallel_1.0.15    
 ##  [4] httr_1.4.1            tools_3.6.2           backports_1.1.5      
 ##  [7] affyio_1.56.0         utf8_1.1.4            R6_2.4.1             
-## [10] DT_0.11               DBI_1.1.0             lazyeval_0.2.2       
-## [13] colorspace_1.4-1      withr_2.1.2           tidyselect_0.2.5     
+## [10] DT_0.12               DBI_1.1.0             lazyeval_0.2.2       
+## [13] colorspace_1.4-1      withr_2.1.2           tidyselect_1.0.0     
 ## [16] preprocessCore_1.48.0 compiler_3.6.2        cli_2.0.1            
 ## [19] rvest_0.3.5           xml2_1.2.2            labeling_0.3         
 ## [22] bookdown_0.17         scales_1.1.0          affy_1.64.0          
-## [25] digest_0.6.23         rmarkdown_2.1         pkgconfig_2.0.3      
-## [28] htmltools_0.4.0       limma_3.42.0          dbplyr_1.4.2         
+## [25] digest_0.6.24         rmarkdown_2.1         pkgconfig_2.0.3      
+## [28] htmltools_0.4.0       limma_3.42.2          dbplyr_1.4.2         
 ## [31] fastmap_1.0.1         highr_0.8             htmlwidgets_1.5.1    
-## [34] rlang_0.4.2           readxl_1.3.1          impute_1.60.0        
-## [37] rstudioapi_0.10       shiny_1.4.0           farver_2.0.3         
-## [40] generics_0.0.2        jsonlite_1.6          mzID_1.24.0          
+## [34] rlang_0.4.4           readxl_1.3.1          impute_1.60.0        
+## [37] rstudioapi_0.11       shiny_1.4.0           farver_2.0.3         
+## [40] generics_0.0.2        jsonlite_1.6.1        mzID_1.24.0          
 ## [43] BiocParallel_1.20.1   crosstalk_1.0.0       MALDIquant_1.19.3    
 ## [46] munsell_0.5.0         fansi_0.4.1           vsn_3.54.0           
-## [49] lifecycle_0.1.0       stringi_1.4.5         yaml_2.2.0           
-## [52] zlibbioc_1.32.0       MASS_7.3-51.4         plyr_1.8.5           
+## [49] lifecycle_0.1.0       stringi_1.4.5         yaml_2.2.1           
+## [52] zlibbioc_1.32.0       MASS_7.3-51.5         plyr_1.8.5           
 ## [55] grid_3.6.2            msmbstyle_0.0.11      promises_1.1.0       
-## [58] crayon_1.3.4          lattice_0.20-38       haven_2.2.0          
-## [61] hms_0.5.3             zeallot_0.1.0         knitr_1.27.2         
-## [64] pillar_1.4.3          reshape2_1.4.3        codetools_0.2-16     
-## [67] XML_3.99-0.3          reprex_0.3.0          glue_1.3.1           
-## [70] evaluate_0.14         BiocManager_1.30.10   pcaMethods_1.78.0    
-## [73] modelr_0.1.5          foreach_1.4.7         png_0.1-7            
-## [76] vctrs_0.2.1           httpuv_1.5.2          cellranger_1.1.0     
-## [79] gtable_0.3.0          assertthat_0.2.1      xfun_0.12            
-## [82] mime_0.8              xtable_1.8-4          broom_0.5.3          
-## [85] later_1.0.0           ncdf4_1.17            iterators_1.0.12     
-## [88] IRanges_2.20.2        ellipsis_0.3.0</code></pre>
-<div id="sec:setup2" class="section level2" number="11.1">
+## [58] crayon_1.3.4          lattice_0.20-40       haven_2.2.0          
+## [61] hms_0.5.3             knitr_1.28            pillar_1.4.3         
+## [64] reshape2_1.4.3        codetools_0.2-16      XML_3.99-0.3         
+## [67] reprex_0.3.0          glue_1.3.1            evaluate_0.14        
+## [70] BiocManager_1.30.10   pcaMethods_1.78.0     modelr_0.1.5         
+## [73] foreach_1.4.8         png_0.1-7             vctrs_0.2.2          
+## [76] httpuv_1.5.2          cellranger_1.1.0      gtable_0.3.0         
+## [79] assertthat_0.2.1      xfun_0.12             mime_0.9             
+## [82] xtable_1.8-4          broom_0.5.4           later_1.0.0          
+## [85] ncdf4_1.17            iterators_1.0.12      IRanges_2.20.2       
+## [88] ellipsis_0.3.0</code></pre>
+<div id="sec:setup2" class="section level2">
 <h2>
 <span class="header-section-number">11.1</span> R package setup</h2>
 <p>To install all necessary packages to run all the code, please execute
@@ -242,90 +240,10 @@ the following code:</p>
           "patchwork", "pRolocdata", "ProtGenerics", "purrr", "Rcpp", "readr",
           "rWSBIM1207", "S4Vectors", "stats", "stats4", "stringr", "tibble",
           "tidyr", "tidyverse", "utils")</code></pre>
-<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="session-information.html#cb583-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">"BiocManager"</span>))</span>
-<span id="cb583-2"><a href="session-information.html#cb583-2"></a>   <span class="kw">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
-<span id="cb583-3"><a href="session-information.html#cb583-3"></a>BiocManager<span class="op">::</span><span class="kw">install</span>(pkgs)</span></code></pre></div>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb583-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">"BiocManager"</span>))</a>
+<a class="sourceLine" id="cb583-2" data-line-number="2">   <span class="kw">install.packages</span>(<span class="st">"BiocManager"</span>)</a>
+<a class="sourceLine" id="cb583-3" data-line-number="3">BiocManager<span class="op">::</span><span class="kw">install</span>(pkgs)</a></code></pre></div>
 
-<div id="refs" class="references hanging-indent">
-<div id="ref-R-rmarkdown">
-<p>Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2020. <em>Rmarkdown: Dynamic Documents for R</em>. <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a>.</p>
-</div>
-<div id="ref-Broman:2018">
-<p>Broman, Karl W., and Kara H. Woo. 2018. “Data Organization in Spreadsheets.” <em>The American Statistician</em> 72 (1): 2–10. <a href="https://doi.org/10.1080/00031305.2017.1375989">https://doi.org/10.1080/00031305.2017.1375989</a>.</p>
-</div>
-<div id="ref-Buffalo:2015">
-<p>Buffalo, Vince. 2015. <em>Bioinformatics Data Skills</em>. O’Reilly Media, Inc.</p>
-</div>
-<div id="ref-Chang:2015">
-<p>Chang, J. 2015. “Core Services: Reward Bioinformaticians.” <em>Nature</em> 520 (7546): 151–2. <a href="https://doi.org/10.1038/520151a">https://doi.org/10.1038/520151a</a>.</p>
-</div>
-<div id="ref-latticebook">
-<p>Deepayan, Sarkar. 2008. <em>Lattice: Multivariate Data Visualization with R</em>. New York: Springer. <a href="http://lmdvr.r-forge.r-project.org">http://lmdvr.r-forge.r-project.org</a>.</p>
-</div>
-<div id="ref-Gentleman:2004">
-<p>Gentleman, Robert C., Vincent J. Carey, Douglas M. Bates, Ben Bolstad, Marcel Dettling, Sandrine Dudoit, Byron Ellis, et al. 2004. “Bioconductor: Open Software Development for Computational Biology and Bioinformatics.” <em>Genome Biol</em> 5 (10): –80. <a href="https://doi.org/10.1186/gb-2004-5-10-r80">https://doi.org/10.1186/gb-2004-5-10-r80</a>.</p>
-</div>
-<div id="ref-biocwp2">
-<p>Gentleman, Robert, and Duncan Temple Lang. 2004. “Statistical Analyses and Reproducible Research.” <em>Bioconductor Project Working Papers. Working Paper 2</em>. <a href="https://biostats.bepress.com/bioconductor/paper2">https://biostats.bepress.com/bioconductor/paper2</a>.</p>
-</div>
-<div id="ref-r4ds:2017">
-<p>Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. O’Reilly Media. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.</p>
-</div>
-<div id="ref-Huber:2015">
-<p>Huber, W, V J Carey, R Gentleman, S Anders, M Carlson, B S Carvalho, H C Bravo, et al. 2015. “Orchestrating High-Throughput Genomic Analysis with Bioconductor.” <em>Nat Methods</em> 12 (2): 115–21. <a href="https://doi.org/10.1038/nmeth.3252">https://doi.org/10.1038/nmeth.3252</a>.</p>
-</div>
-<div id="ref-Markowetz:2015">
-<p>Markowetz, Florian. 2015. “Five Selfish Reasons to Work Reproducibly.” <em>Genome Biology</em> 16 (1): 274. <a href="https://doi.org/10.1186/s13059-015-0850-7">https://doi.org/10.1186/s13059-015-0850-7</a>.</p>
-</div>
-<div id="ref-DCRecol">
-<p>Michonneau, Francois, and Auriel Fournier, eds. 2019. “Data Carpentry: R for Data Analysis and Visualization of Ecological Data.” <a href="https://doi.org/10.5281/zenodo.569338">https://doi.org/10.5281/zenodo.569338</a>.</p>
-</div>
-<div id="ref-Noble:2009">
-<p>Noble, William Stafford. 2009. “A Quick Guide to Organizing Computational Biology Projects.” <em>PLOS Computational Biology</em> 5 (7): 1–5. <a href="https://doi.org/10.1371/journal.pcbi.1000424">https://doi.org/10.1371/journal.pcbi.1000424</a>.</p>
-</div>
-<div id="ref-Perez-Riverol:2016">
-<p>Perez-Riverol, Yasset, Laurent Gatto, Rui Wang, Timo Sachsenberg, Julian Uszkoreit, Felipe da Veiga Leprevost, Christian Fufezan, et al. 2016. “Ten Simple Rules for Taking Advantage of Git and GitHub.” <em>PLOS Computational Biology</em> 12 (7): 1–11. <a href="https://doi.org/10.1371/journal.pcbi.1004947">https://doi.org/10.1371/journal.pcbi.1004947</a>.</p>
-</div>
-<div id="ref-Pouzat:2015">
-<p>Pouzat, Christophe, Andrew Davison, and Konrad Hinsen. 2015. “La Recherche Reproductible : Une Communication Scientifique Explicite.” <em>Statistique et Société</em> 3 (1). <a href="http://www.publications-sfds.fr/index.php/stat_soc/article/view/448">http://www.publications-sfds.fr/index.php/stat_soc/article/view/448</a>.</p>
-</div>
-<div id="ref-R">
-<p>R Core Team. 2019. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
-</div>
-<div id="ref-R-msmbstyle">
-<p>Smith, Mike. 2019. <em>Msmbstyle: MSMB Styles for R Markdown Documents</em>.</p>
-</div>
-<div id="ref-White:2013">
-<p>White, Ethan P., Elita Baldridge, Zachary T. Brym, Kenneth J. Locey, Daniel J. McGlinn, and Sarah R. Supp. 2013. “Nine Simple Ways to Make It Easier to (Re)use Your Data.” <em>PeerJ PrePrints</em> 1 (July): e7v2. <a href="https://doi.org/10.7287/peerj.preprints.7v2">https://doi.org/10.7287/peerj.preprints.7v2</a>.</p>
-</div>
-<div id="ref-advancedR">
-<p>Wickham, Hadley. 2014a. <em>Advanced R</em>. Chapman &amp; Hall/Crc the R Series. Taylor &amp; Francis.</p>
-</div>
-<div id="ref-Wickham:2014">
-<p>———. 2014b. “Tidy Data.” <em>Journal of Statistical Software, Articles</em> 59 (10): 1–23. <a href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>.</p>
-</div>
-<div id="ref-rpkgs:2015">
-<p>———. 2015. <em>R Packages</em>. 1st ed. O’Reilly Media, Inc.</p>
-</div>
-<div id="ref-ggplot2book">
-<p>———. 2016. <em>ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="http://ggplot2.org">http://ggplot2.org</a>.</p>
-</div>
-<div id="ref-Wilkinson:2005">
-<p>Wilkinson, Leland. 2005. <em>The Grammar of Graphics (Statistics and Computing)</em>. Berlin, Heidelberg: Springer-Verlag.</p>
-</div>
-<div id="ref-WilsonSayres:2018">
-<p>Wilson Sayres, M A, C Hauser, M Sierk, S Robic, A G Rosenwald, T M Smith, E W Triplett, et al. 2018. “Bioinformatics Core Competencies for Undergraduate Life Sciences Education.” <em>PLoS One</em> 13 (6): e0196878. <a href="https://doi.org/10.1371/journal.pone.0196878">https://doi.org/10.1371/journal.pone.0196878</a>.</p>
-</div>
-<div id="ref-R-bookdown">
-<p>Xie, Yihui. 2020a. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</p>
-</div>
-<div id="ref-R-knitr">
-<p>———. 2020b. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in R</em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.</p>
-</div>
-<div id="ref-Zeeberg:2004">
-<p>Zeeberg, Barry R., Joseph Riss, David W. Kane, Kimberly J. Bussey, Edward Uchio, W. Marston Linehan, J. Carl Barrett, and John N. Weinstein. 2004. “Mistaken Identifiers: Gene Name Errors Can Be Introduced Inadvertently When Using Excel in Bioinformatics.” <em>BMC Bioinformatics</em> 5 (1): 80. <a href="https://doi.org/10.1186/1471-2105-5-80">https://doi.org/10.1186/1471-2105-5-80</a>.</p>
-</div>
-</div>
 </div>
 </div></body></html>
 
