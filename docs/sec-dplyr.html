@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="Chapter 4 Manipulating and analyzing data with dplyr | Introduction to bioinformatics" />
@@ -15,19 +14,20 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2020-01-07" />
+<meta name="date" content="2020-02-28" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" } }
 });
 </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
 <title>Chapter 4 Manipulating and analyzing data with dplyr | Introduction to bioinformatics</title>
 
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -51,7 +51,7 @@ if(f.classList.contains('fa-plus-square')) {
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/jquery-1.12.4/jquery.min.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.10/datatables.js"></script>
+<script src="libs/datatables-binding-0.11/datatables.js"></script>
 <link href="libs/dt-core-1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.19/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="libs/dt-core-1.10.19/js/jquery.dataTables.min.js"></script>
@@ -173,7 +173,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="row">
 <div class="col-sm-12">
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html><body><div id="sec:dplyr" class="section level1">
+<html><body><div id="sec:dplyr" class="section level1" number="4">
 <h1>
 <span class="header-section-number">Chapter 4</span> Manipulating and analyzing data with dplyr</h1>
 <p><strong>Learning Objectives</strong></p>
@@ -197,7 +197,7 @@ purpose those formats are useful.</p></li>
 <li><p>Reshape a data frame from long to wide format and back with the
 <code>spread</code> and <code>gather</code> commands from the <strong><code>tidyr</code></strong> package.</p></li>
 </ul>
-<div id="data-manipulation-using-dplyr-and-tidyr" class="section level2">
+<div id="data-manipulation-using-dplyr-and-tidyr" class="section level2" number="4.1">
 <h2>
 <span class="header-section-number">4.1</span> Data Manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong>
 </h2>
@@ -241,7 +241,7 @@ Sheet</a>
 provides an overview of the <code>dplyr</code> grammar, offering more details and
 functions that we will see in this chapter.</p>
 </div>
-<div id="what-are-dplyr-and-tidyr" class="section level2">
+<div id="what-are-dplyr-and-tidyr" class="section level2" number="4.2">
 <h2>
 <span class="header-section-number">4.2</span> What are <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong>?</h2>
 <p>The package <strong><code>dplyr</code></strong> provides easy tools for the most common data manipulation
@@ -321,7 +321,7 @@ screen.</li>
 <code>count()</code>: count discrete values</li>
 </ul>
 </div>
-<div id="selecting-columns-and-filtering-rows" class="section level2">
+<div id="selecting-columns-and-filtering-rows" class="section level2" number="4.3">
 <h2>
 <span class="header-section-number">4.3</span> Selecting columns and filtering rows</h2>
 <p>To select columns of a data frame, use <code>select()</code>. The first argument
@@ -351,7 +351,7 @@ and <code>species_id</code>.</p>
 ## # … with 1,170 more rows, and 4 more variables: genus &lt;chr&gt;, species &lt;chr&gt;,
 ## #   taxa &lt;chr&gt;, plot_type &lt;chr&gt;</code></pre>
 </div>
-<div id="pipes" class="section level2">
+<div id="pipes" class="section level2" number="4.4">
 <h2>
 <span class="header-section-number">4.4</span> Pipes</h2>
 <p>What if you want to select and filter at the same time? There are three
@@ -475,7 +475,7 @@ before 1995 and retain only the columns <code>year</code>, <code>sex</code>, and
 </div>
 </div>
 </div>
-<div id="mutate" class="section level2">
+<div id="mutate" class="section level2" number="4.5">
 <h2>
 <span class="header-section-number">4.5</span> Mutate</h2>
 <p>Frequently you’ll want to create new columns based on the values in existing
@@ -587,7 +587,7 @@ this data frame!</p>
 </div>
 </div>
 </div>
-<div id="split-apply-combine-data-analysis" class="section level2">
+<div id="split-apply-combine-data-analysis" class="section level2" number="4.6">
 <h2>
 <span class="header-section-number">4.6</span> Split-apply-combine data analysis</h2>
 <p>Many data analysis tasks can be approached using the
@@ -618,7 +618,7 @@ groups the data into subsets: in the example above, our initial
 3 groups based on the <code>sex</code> variable.</p>
 <p>Once the data have been combined, subsequent operations will be
 applied on each group independently.</p>
-<div id="the-summarize-function" class="section level3">
+<div id="the-summarize-function" class="section level3" number="4.6.1">
 <h3>
 <span class="header-section-number">4.6.1</span> The <code>summarize()</code> function</h3>
 <p><code>group_by()</code> is often used together with <code>summarize()</code>, which
@@ -778,7 +778,7 @@ column indicating the minimum weight for each species for each sex:</p>
 ## 10 F     SF                69           46
 ## # … with 54 more rows</code></pre>
 </div>
-<div id="counting" class="section level3">
+<div id="counting" class="section level3" number="4.6.2">
 <h3>
 <span class="header-section-number">4.6.2</span> Counting</h3>
 <p>When working with data, we often want to know the number of observations found
@@ -951,7 +951,7 @@ number of observations (hint: see <code>?n</code>).</li>
 </div>
 </div>
 </div>
-<div id="reshaping-with-gather-and-spread" class="section level2">
+<div id="reshaping-with-gather-and-spread" class="section level2" number="4.7">
 <h2>
 <span class="header-section-number">4.7</span> Reshaping with gather and spread</h2>
 <p>In the spreadsheet lesson (chapter <a href="sec-dataorg.html#sec:dataorg">1</a>), we discussed how
@@ -987,7 +987,7 @@ of recordings per date.</p>
 values of a variable.</p>
 <p>We can do both these of transformations with two <code>tidyr</code> functions,
 <code>spread()</code> and <code>gather()</code>.</p>
-<div id="spreading" class="section level3">
+<div id="spreading" class="section level3" number="4.7.1">
 <h3>
 <span class="header-section-number">4.7.1</span> Spreading</h3>
 <p><code>spread()</code> takes three principal arguments:</p>
@@ -1083,7 +1083,7 @@ first.</p>
 ## # … with 3 more variables: Reithrodontomys &lt;dbl&gt;, Sigmodon &lt;dbl&gt;,
 ## #   Spermophilus &lt;dbl&gt;</code></pre>
 </div>
-<div id="gathering" class="section level3">
+<div id="gathering" class="section level3" number="4.7.2">
 <h3>
 <span class="header-section-number">4.7.2</span> Gathering</h3>
 <p>The opposing situation could occur if we had been provided with data in the
@@ -1301,7 +1301,7 @@ a data set with a column for <code>hindfoot_length</code> and <code>weight</code
 </div>
 </div>
 </div>
-<div id="exporting-data-1" class="section level2">
+<div id="exporting-data-1" class="section level2" number="4.8">
 <h2>
 <span class="header-section-number">4.8</span> Exporting data</h2>
 <p>Now that you have learned how to use <strong><code>dplyr</code></strong> to extract information from
@@ -1346,7 +1346,7 @@ typing <code>dim(surveys_complete)</code>.</p>
 folder.</p>
 <div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="sec-dplyr.html#cb361-1"></a><span class="kw">write_csv</span>(surveys_complete, <span class="dt">path =</span> <span class="st">"data_output/surveys_complete.csv"</span>)</span></code></pre></div>
 </div>
-<div id="additional-exercises-3" class="section level2">
+<div id="additional-exercises-3" class="section level2" number="4.9">
 <h2>
 <span class="header-section-number">4.9</span> Additional exercises</h2>
 <div class="question">
@@ -1488,7 +1488,7 @@ of each test stored as a separate column.</p>
 <a href="sec-vis.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-01-07
+2020-02-28
 </p>
 </div>
 </div>

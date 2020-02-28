@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="Chapter 6 Joining tables | Introduction to bioinformatics" />
@@ -15,19 +14,20 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2020-01-07" />
+<meta name="date" content="2020-02-28" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" } }
 });
 </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
 <title>Chapter 6 Joining tables | Introduction to bioinformatics</title>
 
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -51,7 +51,7 @@ if(f.classList.contains('fa-plus-square')) {
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/jquery-1.12.4/jquery.min.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.10/datatables.js"></script>
+<script src="libs/datatables-binding-0.11/datatables.js"></script>
 <link href="libs/dt-core-1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.19/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="libs/dt-core-1.10.19/js/jquery.dataTables.min.js"></script>
@@ -171,7 +171,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="row">
 <div class="col-sm-12">
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html><body><div id="sec:join" class="section level1">
+<html><body><div id="sec:join" class="section level1" number="6">
 <h1>
 <span class="header-section-number">Chapter 6</span> Joining tables</h1>
 <p><strong>Learning Objectives</strong></p>
@@ -195,11 +195,11 @@ set of join functions for combining two data frames based on matches
 within specified columns.</p>
 <p>For further reading, please refer to the chapter about <a href="https://r4ds.had.co.nz/relational-data.html#understanding-joins">table
 joins</a>
-in <span class="citation">Grolemund and Wickham (<label for="tufte-mn-22" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-22" class="margin-toggle">2017<span class="marginnote">Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. O’Reilly Media. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.</span>)</span>.</p>
+in <span class="citation">Grolemund and Wickham (<a href="session-information.html#ref-r4ds:2017" role="doc-biblioref">2017</a>)</span>.</p>
 <p>The <a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf">Data Transformation Cheat
 Sheet</a>
 also provides a short overview on table joins.</p>
-<div id="combining-tables" class="section level2">
+<div id="combining-tables" class="section level2" number="6.1">
 <h2>
 <span class="header-section-number">6.1</span> Combining tables</h2>
 <p>We are going to illustrate join using a common example from the
@@ -342,7 +342,7 @@ table have been encoded as missing.</p>
 </div>
 </div>
 </div>
-<div id="different-types-of-joins" class="section level2">
+<div id="different-types-of-joins" class="section level2" number="6.2">
 <h2>
 <span class="header-section-number">6.2</span> Different types of joins</h2>
 <p>Above, we have used the <code>full_join</code> function, that fully joins two
@@ -469,7 +469,7 @@ Figure 6.2: Outer joins match observations that appear in at least on table, fil
 </div>
 </div>
 </div>
-<div id="multiple-matches" class="section level2">
+<div id="multiple-matches" class="section level2" number="6.3">
 <h2>
 <span class="header-section-number">6.3</span> Multiple matches</h2>
 <p>Sometimes, keys aren’t unique. In the <code>jdf6</code> table below, we see that
@@ -550,7 +550,7 @@ in the GA both have value 102 and 3.</p>
 </div>
 </div>
 </div>
-<div id="matching-across-multiple-keys" class="section level2">
+<div id="matching-across-multiple-keys" class="section level2" number="6.4">
 <h2>
 <span class="header-section-number">6.4</span> Matching across multiple keys</h2>
 <p>So far, we have matched tables using a single key (possibly with
@@ -616,7 +616,7 @@ the two tables without having to specify the two keys explicitly.</p>
 </div>
 </div>
 </div>
-<div id="merge-in-base-r" class="section level2">
+<div id="merge-in-base-r" class="section level2" number="6.5">
 <h2>
 <span class="header-section-number">6.5</span> Merge in base R</h2>
 <p>Above, we have used several join functions from the <code>dplyr</code> package as
@@ -651,7 +651,7 @@ function. The table below shows how these are related:</p>
 important to be aware of the other one, especially given the
 widespread usage of <code>merge</code> in many packages and in R itself.</p>
 </div>
-<div id="row-and-column-binding" class="section level2">
+<div id="row-and-column-binding" class="section level2" number="6.6">
 <h2>
 <span class="header-section-number">6.6</span> Row and column binding</h2>
 <p>There are other two important functions in R, that can be used to
@@ -718,7 +718,7 @@ characters.</p>
 alternatives from the <code>dplyr</code> package are <code>bind_rows</code> and <code>bind_cols</code>
 and work similarly.</p>
 </div>
-<div id="additional-exercises-5" class="section level2">
+<div id="additional-exercises-5" class="section level2" number="6.7">
 <h2>
 <span class="header-section-number">6.7</span> Additional exercises</h2>
 <div class="question">
@@ -765,7 +765,7 @@ containing merged data exclusively for normal samples.</p></li>
 <a href="sec-rr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-01-07
+2020-02-28
 </p>
 </div>
 </div>

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="Chapter 3 Starting with data | Introduction to bioinformatics" />
@@ -15,19 +14,20 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2020-01-07" />
+<meta name="date" content="2020-02-28" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" } }
 });
 </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
 <title>Chapter 3 Starting with data | Introduction to bioinformatics</title>
 
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -51,7 +51,7 @@ if(f.classList.contains('fa-plus-square')) {
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/jquery-1.12.4/jquery.min.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.10/datatables.js"></script>
+<script src="libs/datatables-binding-0.11/datatables.js"></script>
 <link href="libs/dt-core-1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.19/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="libs/dt-core-1.10.19/js/jquery.dataTables.min.js"></script>
@@ -175,7 +175,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="row">
 <div class="col-sm-12">
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html><body><div id="sec:startdata" class="section level1">
+<html><body><div id="sec:startdata" class="section level1" number="3">
 <h1>
 <span class="header-section-number">Chapter 3</span> Starting with data</h1>
 <p><strong>Learning Objectives</strong></p>
@@ -190,7 +190,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Format dates.</li>
 <li>Export and save data.</li>
 </ul>
-<div id="presentation-of-the-survey-data" class="section level2">
+<div id="presentation-of-the-survey-data" class="section level2" number="3.1">
 <h2>
 <span class="header-section-number">3.1</span> Presentation of the Survey Data</h2>
 <p>We are studying the species repartition and weight of animals caught
@@ -317,7 +317,7 @@ follows:</p>
 headers as by default <code>read.table()</code> has the header argument set to
 FALSE.</p>
 </div>
-<div id="what-are-data-frames" class="section level2">
+<div id="what-are-data-frames" class="section level2" number="3.2">
 <h2>
 <span class="header-section-number">3.2</span> What are data frames?</h2>
 <p>Data frames are the <em>de facto</em> data structure for most tabular data,
@@ -349,7 +349,7 @@ with the function <code>str()</code>:</p>
 ##  $ taxa           : Factor w/ 4 levels "Bird","Rabbit",..: 4 4 4 4 4 4 4 4 4 4 ...
 ##  $ plot_type      : Factor w/ 5 levels "Control","Long-term Krat Exclosure",..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
 </div>
-<div id="inspecting-data.frame-objects" class="section level2">
+<div id="inspecting-data.frame-objects" class="section level2" number="3.3">
 <h2>
 <span class="header-section-number">3.3</span> Inspecting <code>data.frame</code> Objects</h2>
 <p>We already saw how the functions <code>head()</code> and <code>str()</code> can be useful to check the
@@ -425,7 +425,7 @@ recorded during these surveys?</li>
 </div>
 </div>
 </div>
-<div id="indexing-and-subsetting-data-frames" class="section level2">
+<div id="indexing-and-subsetting-data-frames" class="section level2" number="3.4">
 <h2>
 <span class="header-section-number">3.4</span> Indexing and subsetting data frames</h2>
 <p>Our survey data frame has rows and columns (it has 2 dimensions), if
@@ -515,7 +515,7 @@ rows of the surveys dataset.</p></li>
 </div>
 </div>
 </div>
-<div id="factors" class="section level2">
+<div id="factors" class="section level2" number="3.5">
 <h2>
 <span class="header-section-number">3.5</span> Factors</h2>
 <p>When we did <code>str(surveys)</code> we saw that several of the columns consist
@@ -560,7 +560,7 @@ describing: <code>"female"</code>, <code>"male"</code> is more descriptive than 
 integer data. Factors, on the other hand, have this information built
 in. It is particularly helpful when there are many levels (like the
 species names in our example dataset).</p>
-<div id="converting-to-factors" class="section level3">
+<div id="converting-to-factors" class="section level3" number="3.5.1">
 <h3>
 <span class="header-section-number">3.5.1</span> Converting to factors</h3>
 <p>If you need to convert a factor to a character vector, you use
@@ -588,7 +588,7 @@ species names in our example dataset).</p>
 <!-- * We then access these numeric values using the underlying integers of the -->
 <!--   vector `year_fct` inside the square brackets -->
 </div>
-<div id="renaming-factors" class="section level3">
+<div id="renaming-factors" class="section level3" number="3.5.2">
 <h3>
 <span class="header-section-number">3.5.2</span> Renaming factors</h3>
 <p>When your data is stored as a factor, you can use the <code>plot()</code>
@@ -654,7 +654,7 @@ recreate the barplot such that “undetermined” is last (after
 </div>
 </div>
 </div>
-<div id="using-stringsasfactorsfalse" class="section level3">
+<div id="using-stringsasfactorsfalse" class="section level3" number="3.5.3">
 <h3>
 <span class="header-section-number">3.5.3</span> Using <code>stringsAsFactors=FALSE</code>
 </h3>
@@ -717,7 +717,7 @@ example?</p>
 <p>Check your guesses using <code>str(country_climate)</code>:</p>
 <ul>
 <li><p>Are they what you expected? Why? Why not?</p></li>
-<li><p>What would have been different if we had added <code>stringsAsFactors = FALSE</code> when creating the data frame?</p></li>
+<li><p>What would have been different if we had added <code>stringsAsFactors =   FALSE</code> when creating the data frame?</p></li>
 <li><p>What would you need to change to ensure that each column had the
 accurate data type?</p></li>
 </ul>
@@ -761,7 +761,7 @@ entry (a letter in a column that should only contain numbers for instance).</p>
 tutorial</a></p>
 </div>
 </div>
-<div id="matrices" class="section level2">
+<div id="matrices" class="section level2" number="3.6">
 <h2>
 <span class="header-section-number">3.6</span> Matrices</h2>
 <p>Before proceeding, now that we have learnt about dataframes, let’s
@@ -776,7 +776,7 @@ are currently installed on our respective computers using the
 explore this matrix as those used for dataframes above.</p>
 <div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="sec-startdata.html#cb237-1"></a>ip &lt;-<span class="st"> </span><span class="kw">installed.packages</span>()</span>
 <span id="cb237-2"><a href="sec-startdata.html#cb237-2"></a><span class="kw">dim</span>(ip)</span></code></pre></div>
-<pre><code>## [1] 579  16</code></pre>
+<pre><code>## [1] 586  16</code></pre>
 <div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="sec-startdata.html#cb239-1"></a><span class="kw">head</span>(<span class="kw">colnames</span>(ip))</span></code></pre></div>
 <pre><code>## [1] "Package"  "LibPath"  "Version"  "Priority" "Depends"  "Imports"</code></pre>
 <div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="sec-startdata.html#cb241-1"></a><span class="kw">head</span>(<span class="kw">rownames</span>(ip)) <span class="co">## these are the package names</span></span></code></pre></div>
@@ -861,7 +861,7 @@ Construct a matrix of dimension 1000 by 3 of normally distributed data (mean 0, 
 </div>
 </div>
 </div>
-<div id="formatting-dates" class="section level2">
+<div id="formatting-dates" class="section level2" number="3.7">
 <h2>
 <span class="header-section-number">3.7</span> Formatting Dates</h2>
 <p>One of the most common issues that new (and experienced!) R users have is
@@ -956,7 +956,7 @@ clutter the output:</p>
 <p>Why did these dates fail to parse? If you had to use these data for your
 analyses, how would you deal with this situation?</p>
 </div>
-<div id="summary-of-r-objects" class="section level2">
+<div id="summary-of-r-objects" class="section level2" number="3.8">
 <h2>
 <span class="header-section-number">3.8</span> Summary of R objects</h2>
 <p>So far, we have seen several types of R object varying in the number
@@ -971,7 +971,7 @@ types:</p>
 <strong><code>data.frame</code></strong>: two dimensions, one type per column.</li>
 </ul>
 </div>
-<div id="lists" class="section level2">
+<div id="lists" class="section level2" number="3.9">
 <h2>
 <span class="header-section-number">3.9</span> Lists</h2>
 <p>A data type that we haven’t seen yet, but that is useful to know, and
@@ -994,9 +994,9 @@ a matrix, a dataframe and another list:</p>
 <pre><code>## List of 5
 ##  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##  $ : chr [1:26] "a" "b" "c" "d" ...
-##  $ : chr [1:579, 1:16] "abind" "acepack" "ade4" "affy" ...
+##  $ : chr [1:586, 1:16] "abind" "acepack" "ade4" "affy" ...
 ##   ..- attr(*, "dimnames")=List of 2
-##   .. ..$ : chr [1:579] "abind" "acepack" "ade4" "affy" ...
+##   .. ..$ : chr [1:586] "abind" "acepack" "ade4" "affy" ...
 ##   .. ..$ : chr [1:16] "Package" "LibPath" "Version" "Priority" ...
 ##  $ :'data.frame':    50 obs. of  2 variables:
 ##   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...
@@ -1021,10 +1021,10 @@ the list is named).</p>
 <pre><code>## [[1]]
 ##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 </div>
-<div id="sec:exportandsave" class="section level2">
+<div id="sec:exportandsave" class="section level2" number="3.10">
 <h2>
 <span class="header-section-number">3.10</span> Exporting and saving data</h2>
-<div id="exporting-tabular-data" class="section level3 unnumbered">
+<div id="exporting-tabular-data" class="section level3 unnumbered" number="">
 <h3>Exporting tabular data</h3>
 <p>We have seen how to read a text-based spreadsheet into R using the
 <code>read.table</code> family of functions. To export a <code>data.frame</code> to a
@@ -1037,7 +1037,7 @@ directory, we would execute:</p>
 <p>This new csv file can now be shared with other collaborators who
 aren’t familiar with R.</p>
 </div>
-<div id="saving-data" class="section level3 unnumbered">
+<div id="saving-data" class="section level3 unnumbered" number="">
 <h3>Saving data</h3>
 <p>Exporting data to a spreadsheet has several limitations, such as those
 described in the first chapter such as possible inconsistencies with
@@ -1086,7 +1086,7 @@ data need to be shared with somebody that is not using R, then
 exporting to a text-based spreadsheet is a good alternative.</p>
 </div>
 </div>
-<div id="additional-exercises-2" class="section level2">
+<div id="additional-exercises-2" class="section level2" number="3.11">
 <h2>
 <span class="header-section-number">3.11</span> Additional exercises</h2>
 <div class="question">
@@ -1265,7 +1265,7 @@ to use the <code>quantile</code> function.</p></li>
 <a href="sec-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-01-07
+2020-02-28
 </p>
 </div>
 </div>

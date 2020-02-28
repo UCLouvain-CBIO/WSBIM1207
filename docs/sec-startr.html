@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="Chapter 2 Starting with R | Introduction to bioinformatics" />
@@ -15,19 +14,20 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2020-01-07" />
+<meta name="date" content="2020-02-28" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" } }
 });
 </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
 <title>Chapter 2 Starting with R | Introduction to bioinformatics</title>
 
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -51,7 +51,7 @@ if(f.classList.contains('fa-plus-square')) {
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/jquery-1.12.4/jquery.min.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.10/datatables.js"></script>
+<script src="libs/datatables-binding-0.11/datatables.js"></script>
 <link href="libs/dt-core-1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.19/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="libs/dt-core-1.10.19/js/jquery.dataTables.min.js"></script>
@@ -175,7 +175,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="row">
 <div class="col-sm-12">
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html><body><div id="sec:startr" class="section level1">
+<html><body><div id="sec:startr" class="section level1" number="2">
 <h1>
 <span class="header-section-number">Chapter 2</span> Starting with R</h1>
 <p><strong>Learning Objectives</strong></p>
@@ -189,7 +189,7 @@ information on R functions.</p></li>
 <li><p>Demonstrate how to provide sufficient information for
 troubleshooting with the R user community.</p></li>
 </ul>
-<div id="what-is-r-what-is-rstudio" class="section level2">
+<div id="what-is-r-what-is-rstudio" class="section level2" number="2.1">
 <h2>
 <span class="header-section-number">2.1</span> What is R? What is RStudio?</h2>
 <p>The term <a href="https://www.r-project.org/">R</a> is used to refer to both the
@@ -204,10 +204,10 @@ Sheet</a>
 provides much more information that will be covered here, but can be
 useful to learn keyboard shortcuts and discover new features.</p>
 </div>
-<div id="why-learn-r" class="section level2">
+<div id="why-learn-r" class="section level2" number="2.2">
 <h2>
 <span class="header-section-number">2.2</span> Why learn R?</h2>
-<div id="r-does-not-involve-lots-of-pointing-and-clicking-and-thats-a-good-thing" class="section level3 unnumbered">
+<div id="r-does-not-involve-lots-of-pointing-and-clicking-and-thats-a-good-thing" class="section level3 unnumbered" number="">
 <h3>R does not involve lots of pointing and clicking, and that’s a good thing</h3>
 <p>The learning curve might be steeper than with other software, but with
 R, the results of your analysis do not rely on remembering a
@@ -223,7 +223,7 @@ you feedback and spot mistakes.</p>
 you are doing, and facilitates your learning and comprehension of the
 methods you use.</p>
 </div>
-<div id="r-code-is-great-for-reproducibility" class="section level3 unnumbered">
+<div id="r-code-is-great-for-reproducibility" class="section level3 unnumbered" number="">
 <h3>R code is great for reproducibility</h3>
 <p>Reproducibility is when someone else (including your future self) can
 obtain the same results from the same dataset when using the same
@@ -238,7 +238,7 @@ requirements.</p>
 <p>We will learn more about reproducibility and reproducible research in
 chapter <a href="sec-rr.html#sec:rr">7</a>.</p>
 </div>
-<div id="r-is-interdisciplinary-and-extensible" class="section level3 unnumbered">
+<div id="r-is-interdisciplinary-and-extensible" class="section level3 unnumbered" number="">
 <h3>R is interdisciplinary and extensible</h3>
 <p>With 10000+ packages<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> that can be installed to extend its
 capabilities, R provides a framework that allows you to combine
@@ -254,7 +254,7 @@ Figure 2.1: Exponential increase of the number of packages available on <a href=
 <img src="figs/cran.png" alt="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018." width="366">
 </div>
 </div>
-<div id="r-works-on-data-of-all-shapes-and-sizes" class="section level3 unnumbered">
+<div id="r-works-on-data-of-all-shapes-and-sizes" class="section level3 unnumbered" number="">
 <h3>R works on data of all shapes and sizes</h3>
 <p>The skills you learn with R scale easily with the size of your
 dataset. Whether your dataset has hundreds or millions of lines, it
@@ -265,13 +265,13 @@ factors convenient.</p>
 <p>R can connect to spreadsheets, databases, and many other data formats,
 on your computer or on the web.</p>
 </div>
-<div id="r-produces-high-quality-graphics" class="section level3 unnumbered">
+<div id="r-produces-high-quality-graphics" class="section level3 unnumbered" number="">
 <h3>R produces high-quality graphics</h3>
 <p>The plotting functionalities in R are endless, and allow you to adjust
 any aspect of your graph to convey most effectively the message from
 your data.</p>
 </div>
-<div id="r-has-a-large-and-welcoming-community" class="section level3 unnumbered">
+<div id="r-has-a-large-and-welcoming-community" class="section level3 unnumbered" number="">
 <h3>R has a large and welcoming community</h3>
 <p>Thousands of people use R daily. Many of them are willing to help you
 through mailing lists and websites such as <a href="https://stackoverflow.com/">Stack
@@ -279,14 +279,14 @@ Overflow</a>, or on the <a href="https://community.rstudio.com/">RStudio
 community</a>. These broad user community
 extends to specialised areas such as bioinformatics.</p>
 </div>
-<div id="not-only-is-r-free-but-it-is-also-open-source-and-cross-platform" class="section level3 unnumbered">
+<div id="not-only-is-r-free-but-it-is-also-open-source-and-cross-platform" class="section level3 unnumbered" number="">
 <h3>Not only is R free, but it is also open-source and cross-platform</h3>
 <p>Anyone can inspect the source code to see how R works. Because of this
 transparency, there is less chance for mistakes, and if you (or
 someone else) find some, you can report and fix bugs.</p>
 </div>
 </div>
-<div id="knowing-your-way-around-rstudio" class="section level2">
+<div id="knowing-your-way-around-rstudio" class="section level2" number="2.3">
 <h2>
 <span class="header-section-number">2.3</span> Knowing your way around RStudio</h2>
 <p>Let’s start by learning about <a href="https://www.rstudio.com/">RStudio</a>,
@@ -324,7 +324,7 @@ many shortcuts, <strong>autocompletion</strong>, and <strong>highlighting</stron
 file types you use while developing in R, RStudio will make typing
 easier and less error-prone.</p>
 </div>
-<div id="getting-set-up" class="section level2">
+<div id="getting-set-up" class="section level2" number="2.4">
 <h2>
 <span class="header-section-number">2.4</span> Getting set up</h2>
 <p>It is good practice to keep a set of related data, analyses, and text
@@ -373,7 +373,7 @@ Figure 2.4: Set the default text encoding to UTF-8 to save us headache in the co
 </p>
 <img src="figs/utf8.png" alt="Set the default text encoding to UTF-8 to save us headache in the coming future. (Figure from the link above)." width="70%">
 </div>
-<div id="organizing-your-working-directory" class="section level3">
+<div id="organizing-your-working-directory" class="section level3" number="2.4.1">
 <h3>
 <span class="header-section-number">2.4.1</span> Organizing your working directory</h3>
 <p>Using a consistent folder structure across your projects will help keep things
@@ -441,7 +441,7 @@ Figure 2.6: How it should look like at the beginning of this lesson
 <img src="figs/r-starting-how-it-should-look-like.png" alt="How it should look like at the beginning of this lesson" width="100%">
 </div>
 </div>
-<div id="the-working-directory" class="section level3">
+<div id="the-working-directory" class="section level3" number="2.4.2">
 <h3>
 <span class="header-section-number">2.4.2</span> The working directory</h3>
 <p>The working directory is an important concept to understand. It is the
@@ -472,7 +472,7 @@ absolute path <code>/home/user/wsbim1207/fig_output/fig1.pdf</code>.</p>
 <code>/home/user/wsbim1207/fig_output/fig1.pdf</code>.</p>
 </div>
 </div>
-<div id="interacting-with-r" class="section level2">
+<div id="interacting-with-r" class="section level2" number="2.5">
 <h2>
 <span class="header-section-number">2.5</span> Interacting with R</h2>
 <p>The basis of programming is that we write down instructions for the
@@ -523,7 +523,7 @@ thought you finished typing your command, click inside the console
 window and press <code>Esc</code>; this will cancel the incomplete command and
 return you to the <code>&gt;</code> prompt.</p>
 </div>
-<div id="how-to-learn-more-during-and-after-the-course" class="section level2">
+<div id="how-to-learn-more-during-and-after-the-course" class="section level2" number="2.6">
 <h2>
 <span class="header-section-number">2.6</span> How to learn more during and after the course?</h2>
 <p>The material we cover during this course will give you an initial
@@ -538,10 +538,10 @@ people make their code available online, modifying existing code to
 suit your purpose might make it easier for you to get started.</p>
 <p><img src="figs/kitten-try-things.jpg" width="400px" style="display: block; margin: auto;"></p>
 </div>
-<div id="seeking-help" class="section level2">
+<div id="seeking-help" class="section level2" number="2.7">
 <h2>
 <span class="header-section-number">2.7</span> Seeking help</h2>
-<div id="use-the-built-in-rstudio-help-interface-to-search-for-more-information-on-r-functions" class="section level3 unnumbered">
+<div id="use-the-built-in-rstudio-help-interface-to-search-for-more-information-on-r-functions" class="section level3 unnumbered" number="">
 <h3>Use the built-in RStudio help interface to search for more information on R functions</h3>
 <div class="figure" style="text-align: center">
 <span id="fig:rstudiohelp"></span>
@@ -557,7 +557,7 @@ panel of RStudio. As seen in the screenshot, by typing the word
 might be interested in. The description is then shown in the display
 window.</p>
 </div>
-<div id="i-know-the-name-of-the-function-i-want-to-use-but-im-not-sure-how-to-use-it" class="section level3 unnumbered">
+<div id="i-know-the-name-of-the-function-i-want-to-use-but-im-not-sure-how-to-use-it" class="section level3 unnumbered" number="">
 <h3>I know the name of the function I want to use, but I’m not sure how to use it</h3>
 <p>If you need help with a specific function, let’s say <code>barplot()</code>, you
 can type:</p>
@@ -565,7 +565,7 @@ can type:</p>
 <p>If you just need to remind yourself of the names of the arguments, you can use:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="sec-startr.html#cb15-1"></a><span class="kw">args</span>(lm)</span></code></pre></div>
 </div>
-<div id="i-want-to-use-a-function-that-does-x-there-must-be-a-function-for-it-but-i-dont-know-which-one" class="section level3 unnumbered">
+<div id="i-want-to-use-a-function-that-does-x-there-must-be-a-function-for-it-but-i-dont-know-which-one" class="section level3 unnumbered" number="">
 <h3>I want to use a function that does X, there must be a function for it but I don’t know which one…</h3>
 <p>If you are looking for a function to do a particular task, you can use the
 <code>help.search()</code> function, which is called by the double question mark <code>??</code>.
@@ -579,7 +579,7 @@ through the help files across all packages available.</p>
 you to the appropriate package documentation or a helpful forum where someone
 else has already asked your question.</p>
 </div>
-<div id="i-am-stuck-i-get-an-error-message-that-i-dont-understand" class="section level3 unnumbered">
+<div id="i-am-stuck-i-get-an-error-message-that-i-dont-understand" class="section level3 unnumbered" number="">
 <h3>I am stuck… I get an error message that I don’t understand</h3>
 <p>Start by googling the error message. However, this doesn’t always work very well
 because often, package developers rely on the error catching provided by R. You
@@ -598,7 +598,7 @@ place to understand the underpinnings of the R language.</p>
 <p>The <a href="http://cran.r-project.org/doc/FAQ/R-FAQ.html">R FAQ</a> is dense and technical
 but it is full of useful information.</p>
 </div>
-<div id="asking-for-help" class="section level3 unnumbered">
+<div id="asking-for-help" class="section level3 unnumbered" number="">
 <h3>Asking for help</h3>
 <p>The key to receiving help from someone is for them to rapidly grasp
 your problem. You should make it as easy as possible to pinpoint where
@@ -668,13 +668,13 @@ to understand your problem.</p>
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.3       bookdown_0.16    msmbstyle_0.0.11 png_0.1-7       
+##  [1] Rcpp_1.0.3       bookdown_0.17    msmbstyle_0.0.11 png_0.1-7       
 ##  [5] digest_0.6.23    magrittr_1.5     evaluate_0.14    highr_0.8       
-##  [9] rlang_0.4.2      stringi_1.4.3    rstudioapi_0.10  xml2_1.2.2      
-## [13] rmarkdown_2.0    tools_3.6.2      stringr_1.4.0    xfun_0.11       
-## [17] yaml_2.2.0       compiler_3.6.2   htmltools_0.4.0  knitr_1.26</code></pre>
+##  [9] rlang_0.4.2      stringi_1.4.5    rstudioapi_0.10  xml2_1.2.2      
+## [13] rmarkdown_2.1    tools_3.6.2      stringr_1.4.0    xfun_0.12       
+## [17] yaml_2.2.0       compiler_3.6.2   htmltools_0.4.0  knitr_1.27.2</code></pre>
 </div>
-<div id="where-to-ask-for-help" class="section level3 unnumbered">
+<div id="where-to-ask-for-help" class="section level3 unnumbered" number="">
 <h3>Where to ask for help?</h3>
 <ul>
 <li>The person sitting next to you during the course. Don’t hesitate to
@@ -710,7 +710,7 @@ phylogenetics, etc…), the complete list is
 <a href="http://www.r-project.org/mail.html">here</a>.</li>
 </ul>
 </div>
-<div id="more-resources" class="section level3 unnumbered">
+<div id="more-resources" class="section level3 unnumbered" number="">
 <h3>More resources</h3>
 <ul>
 <li><p>The <a href="http://www.r-project.org/posting-guide.html">Posting Guide</a> for
@@ -731,10 +731,10 @@ the reprex package and of its philosophy.</p></li>
 </ul>
 </div>
 </div>
-<div id="r-packages" class="section level2">
+<div id="r-packages" class="section level2" number="2.8">
 <h2>
 <span class="header-section-number">2.8</span> R packages</h2>
-<div id="loading-packages" class="section level3">
+<div id="loading-packages" class="section level3" number="2.8.1">
 <h3>
 <span class="header-section-number">2.8.1</span> Loading packages</h3>
 <p>As we have seen above, R packages play a fundamental role in R. The
@@ -743,7 +743,7 @@ first need to load it to be able to use it. This is done with the
 <code>library()</code> function. Below, we load <code>ggplot2</code>.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="sec-startr.html#cb23-1"></a><span class="kw">library</span>(<span class="st">"ggplot2"</span>)</span></code></pre></div>
 </div>
-<div id="installing-packages" class="section level3">
+<div id="installing-packages" class="section level3" number="2.8.2">
 <h3>
 <span class="header-section-number">2.8.2</span> Installing packages</h3>
 <p>The default package repository is The <em>Comprehensive R Archive
@@ -767,7 +767,7 @@ directly from the user <code>UCLouvain-CBIO</code> github repository.</p>
 bioinformatics and omics packages.</p>
 </div>
 </div>
-<div id="introduction-to-r" class="section level2">
+<div id="introduction-to-r" class="section level2" number="2.9">
 <h2>
 <span class="header-section-number">2.9</span> Introduction to R</h2>
 <p><strong>Learning Objectives</strong></p>
@@ -782,7 +782,7 @@ bioinformatics and omics packages.</p>
 <li>Subset and extract values from vectors.</li>
 <li>Analyze vectors with missing data.</li>
 </ul>
-<div id="creating-objects-in-r" class="section level3">
+<div id="creating-objects-in-r" class="section level3" number="2.9.1">
 <h3>
 <span class="header-section-number">2.9.1</span> Creating objects in R</h3>
 <p>You can get output from R simply by typing math in the console:</p>
@@ -808,7 +808,7 @@ single keystroke in a PC, while typing <kbd>Option</kbd> +
 <kbd>-</kbd> (push <kbd>Option</kbd> at the same time as the
 <kbd>-</kbd> key) does the same in a Mac.</p>
 </div>
-<div id="naming-variables" class="section level3">
+<div id="naming-variables" class="section level3" number="2.9.2">
 <h3>
 <span class="header-section-number">2.9.2</span> Naming variables</h3>
 <p>Objects can be given any name such as <code>x</code>, <code>current_temperature</code>, or
@@ -880,7 +880,7 @@ object, <code>weight_lb</code>:</p>
 </div>
 </div>
 </div>
-<div id="comments" class="section level3">
+<div id="comments" class="section level3" number="2.9.3">
 <h3>
 <span class="header-section-number">2.9.3</span> Comments</h3>
 <p>The comment character in R is <code>#</code>, anything to the right of a <code>#</code> in a
@@ -909,7 +909,7 @@ press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>.</p>
 </div>
 </div>
 </div>
-<div id="functions-and-their-arguments" class="section level3">
+<div id="functions-and-their-arguments" class="section level3" number="2.9.4">
 <h3>
 <span class="header-section-number">2.9.4</span> Functions and their arguments</h3>
 <p>Functions are “canned scripts” that automate more complicated sets of commands
@@ -964,7 +964,7 @@ arguments. If you don’t, someone reading your code might have to look up the
 definition of a function with unfamiliar arguments to understand what you’re
 doing.</p>
 </div>
-<div id="vectors-and-data-types" class="section level3">
+<div id="vectors-and-data-types" class="section level3" number="2.9.5">
 <h3>
 <span class="header-section-number">2.9.5</span> Vectors and data types</h3>
 <p>A vector is the most common and basic data type in R, and is pretty much
@@ -1179,7 +1179,7 @@ logical → numeric → character ← logical
 </div>
 </div>
 </div>
-<div id="subsetting-vectors" class="section level3">
+<div id="subsetting-vectors" class="section level3" number="2.9.6">
 <h3>
 <span class="header-section-number">2.9.6</span> Subsetting vectors</h3>
 <p>If we want to extract one or several values from a vector, we must provide one
@@ -1209,7 +1209,7 @@ except some specified elements using negative indices:</p>
 <div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="sec-startr.html#cb96-1"></a>animals[<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">-3</span>)] <span class="co">## all but 1st/3rd ones</span></span></code></pre></div>
 <pre><code>## [1] "rat" "cat"</code></pre>
 </div>
-<div id="conditional-subsetting" class="section level3">
+<div id="conditional-subsetting" class="section level3" number="2.9.7">
 <h3>
 <span class="header-section-number">2.9.7</span> Conditional subsetting</h3>
 <p>Another common way of subsetting is by using a logical vector. <code>TRUE</code> will
@@ -1275,7 +1275,7 @@ Here “four” comes after “five”, and therefore is “greater than” it.<
 </div>
 </div>
 </div>
-<div id="names" class="section level3">
+<div id="names" class="section level3" number="2.9.8">
 <h3>
 <span class="header-section-number">2.9.8</span> Names</h3>
 <p>It is possible to name each element of a vector. The code chunk below
@@ -1296,7 +1296,7 @@ name, in addition to their index.</p>
 <pre><code>## A C 
 ## 1 3</code></pre>
 </div>
-<div id="missing-data" class="section level3">
+<div id="missing-data" class="section level3" number="2.9.9">
 <h3>
 <span class="header-section-number">2.9.9</span> Missing data</h3>
 <p>As R was designed to analyze datasets, it includes the concept of missing data
@@ -1374,10 +1374,10 @@ examples.</p>
 </div>
 </div>
 </div>
-<div id="sec:genvec" class="section level2">
+<div id="sec:genvec" class="section level2" number="2.10">
 <h2>
 <span class="header-section-number">2.10</span> Generating vectors</h2>
-<div id="constructors" class="section level3 unnumbered">
+<div id="constructors" class="section level3 unnumbered" number="">
 <h3>Constructors</h3>
 <p>There exists some functions to generate vectors of different type. To
 generate a vector of numerics, one can use the <code>numerics()</code>
@@ -1419,7 +1419,7 @@ exactly that:</p>
 </div>
 </div>
 </div>
-<div id="replicate-elements" class="section level3 unnumbered">
+<div id="replicate-elements" class="section level3 unnumbered" number="">
 <h3>Replicate elements</h3>
 <p>The <code>rep</code> function allow to repeat a value a certain number of
 times. If we want to initiate a vector of numerics of length 5 with
@@ -1464,7 +1464,7 @@ possibilities - see <code>?rep</code> or <code>?sort</code> for help.</p>
 </div>
 </div>
 </div>
-<div id="sequence-generation" class="section level3 unnumbered">
+<div id="sequence-generation" class="section level3 unnumbered" number="">
 <h3>Sequence generation</h3>
 <p>Another very useful function is <code>seq</code>, to generate a sequence of
 numbers. For example, to generate a sequence of integers from 1 to 20
@@ -1485,7 +1485,7 @@ one would use:</p>
 <div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="sec-startr.html#cb172-1"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">20</span>, <span class="dt">length.out =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1]  1.0 10.5 20.0</code></pre>
 </div>
-<div id="random-samples-and-permutations" class="section level3 unnumbered">
+<div id="random-samples-and-permutations" class="section level3 unnumbered" number="">
 <h3>Random samples and permutations</h3>
 <p>A last group of useful functions are those that generate random
 data. The first one, <code>sample</code>, generates a random permutation of
@@ -1558,7 +1558,7 @@ random draw. Observe that you now get the same random draws.</p></li>
 </div>
 </div>
 </div>
-<div id="drawing-samples-from-a-normal-distribution" class="section level3 unnumbered">
+<div id="drawing-samples-from-a-normal-distribution" class="section level3 unnumbered" number="">
 <h3>Drawing samples from a normal distribution</h3>
 <p>The last function we are going to see is <code>rnorm</code>, that draws a random
 sample from a normal distribution. Two normal distributions of means 0
@@ -1585,7 +1585,7 @@ data structures, we are ready to start working with larger data, and
 learn about data frames.</p>
 </div>
 </div>
-<div id="additional-exercises-1" class="section level2">
+<div id="additional-exercises-1" class="section level2" number="2.11">
 <h2>
 <span class="header-section-number">2.11</span> Additional exercises</h2>
 <div class="question">
@@ -1654,8 +1654,8 @@ and store it in variable <code>m1</code>.</li>
 and store it in variable <code>m2</code>.</li>
 <li>Calculate the mean of another random distribution <em>N(15, 1)</em> of size
 1000 and store it in variable <code>m3</code>.</li>
-<li>Can you guess with one of <code>m1</code> and <code>m2</code> will be larger? Verify in R.</li>
-<li>Can you guess with one of <code>m1</code> and <code>m3</code> will be larger? Verify in R.</li>
+<li>Can you guess which one of <code>m1</code> and <code>m2</code> will be larger? Verify in R.</li>
+<li>Can you guess which one of <code>m1</code> and <code>m3</code> will be larger? Verify in R.</li>
 </ul>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1731,7 +1731,7 @@ answers?</li>
 <a href="sec-startdata.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-01-07
+2020-02-28
 </p>
 </div>
 </div>
