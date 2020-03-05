@@ -3,26 +3,26 @@
 
 ```{r dplyrsetup, echo=FALSE, purl=FALSE, message=FALSE}
 if (!file.exists("data/surveys.csv"))
-    download.file("https://ndownloader.figshare.com/files/2292172",
-                  "data/surveys.csv")
+	download.file("https://ndownloader.figshare.com/files/2292172",
+				  "data/surveys.csv")
 
 if (!file.exists("data/species.csv"))
-    download.file("https://ndownloader.figshare.com/files/3299483",
-                  "data/species.csv")
+	download.file("https://ndownloader.figshare.com/files/3299483",
+				  "data/species.csv")
 
 if (!file.exists("data/plots.csv"))
-    download.file("https://ndownloader.figshare.com/files/3299474",
-                  "data/plots.csv")
+	download.file("https://ndownloader.figshare.com/files/3299474",
+				  "data/plots.csv")
 
 if (!file.exists("data/portal_data_joined.csv"))
-    download.file("https://ndownloader.figshare.com/files/2292169",
-                  "data/portal_data_joined.csv")
+	download.file("https://ndownloader.figshare.com/files/2292169",
+				  "data/portal_data_joined.csv")
 
 surveys <- read.csv("data/portal_data_joined.csv")
 suppressWarnings(surveys$date <- lubridate::ymd(paste(surveys$year,
-                                                      surveys$month,
-                                                      surveys$day,
-                                                      sep = "-")))
+													  surveys$month,
+													  surveys$day,
+													  sep = "-")))
 ```
 
 **Learning Objectives**
@@ -280,8 +280,8 @@ before 1995 and retain only the columns `year`, `sex`, and `weight`.
 `r msmbstyle::solution_begin()`
 ```{r, eval=TRUE, purl=FALSE}
 surveys %>%
-    filter(year < 1995) %>%
-    select(year, sex, weight)
+	filter(year < 1995) %>%
+	select(year, sex, weight)
 ```
 `r msmbstyle::solution_end()`
 
@@ -304,7 +304,7 @@ You can also create a second new column based on the first new column within the
 ```{r, purl = FALSE}
 surveys %>%
   mutate(weight_kg = weight / 1000,
-         weight_kg2 = weight_kg * 2)
+		 weight_kg2 = weight_kg * 2)
 ```
 
 If this runs off your screen and you just want to see the first few rows, you
@@ -346,10 +346,10 @@ this data frame!
 `r msmbstyle::solution_begin()`
 ```{r, eval=TRUE, purl=FALSE}
 surveys_hindfoot_half <- surveys %>%
-    filter(!is.na(hindfoot_length)) %>%
-    mutate(hindfoot_half = hindfoot_length / 2) %>%
-    filter(hindfoot_half < 30) %>%
-    select(species_id, hindfoot_half)
+	filter(!is.na(hindfoot_length)) %>%
+	mutate(hindfoot_half = hindfoot_length / 2) %>%
+	filter(hindfoot_half < 30) %>%
+	select(species_id, hindfoot_half)
 ```
 `r msmbstyle::solution_end()`
 
@@ -436,7 +436,7 @@ surveys %>%
   filter(!is.na(weight)) %>%
   group_by(sex, species_id) %>%
   summarize(mean_weight = mean(weight),
-            min_weight = min(weight))
+			min_weight = min(weight))
 ```
 
 It is sometimes useful to rearrange the result of a query to inspect the values. For instance, we can sort on `min_weight` to put the lighter species first:
@@ -447,7 +447,7 @@ surveys %>%
   filter(!is.na(weight)) %>%
   group_by(sex, species_id) %>%
   summarize(mean_weight = mean(weight),
-            min_weight = min(weight)) %>%
+			min_weight = min(weight)) %>%
   arrange(min_weight)
 ```
 
@@ -458,7 +458,7 @@ surveys %>%
   filter(!is.na(weight)) %>%
   group_by(sex, species_id) %>%
   summarize(mean_weight = mean(weight),
-            min_weight = min(weight)) %>%
+			min_weight = min(weight)) %>%
   arrange(desc(mean_weight))
 ```
 
@@ -472,22 +472,22 @@ each sex, we would do:
 
 ```{r, purl = FALSE}
 surveys %>%
-    count(sex)
+	count(sex)
 ```
 
 The `count()` function is shorthand for something we've already seen: grouping by a variable, and summarizing it by counting the number of observations in that group. In other words, `surveys %>% count()` is equivalent to:
 
 ```{r, purl = FALSE}
 surveys %>%
-    group_by(sex) %>%
-    summarise(count = n())
+	group_by(sex) %>%
+	summarise(count = n())
 ```
 
 For convenience, `count()` provides the `sort` argument:
 
 ```{r, purl = FALSE}
 surveys %>%
-    count(sex, sort = TRUE)
+	count(sex, sort = TRUE)
 ```
 
 Previous example shows the use of `count()` to count the number of rows/observations
@@ -534,7 +534,7 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 
 ```{r, purl=FALSE}
 surveys %>%
-     count(plot_type)
+	 count(plot_type)
 ```
 
 2. Use `group_by()` and `summarize()` to find the mean, min, and max
@@ -543,14 +543,14 @@ surveys %>%
 
 ```{r, purl=FALSE}
 surveys %>%
-    filter(!is.na(hindfoot_length)) %>%
-    group_by(species_id) %>%
-    summarize(
-        mean_hindfoot_length = mean(hindfoot_length),
-        min_hindfoot_length = min(hindfoot_length),
-        max_hindfoot_length = max(hindfoot_length),
-        n = n()
-    )
+	filter(!is.na(hindfoot_length)) %>%
+	group_by(species_id) %>%
+	summarize(
+		mean_hindfoot_length = mean(hindfoot_length),
+		min_hindfoot_length = min(hindfoot_length),
+		max_hindfoot_length = max(hindfoot_length),
+		n = n()
+	)
 ```
 
 3. What was the heaviest animal measured in each year? Return the columns `year`,
@@ -558,11 +558,11 @@ surveys %>%
 
 ```{r, purl=FALSE}
 surveys %>%
-    filter(!is.na(weight)) %>%
-    group_by(year) %>%
-    filter(weight == max(weight)) %>%
-    select(year, genus, species, weight) %>%
-    arrange(year)
+	filter(!is.na(weight)) %>%
+	group_by(year) %>%
+	filter(weight == max(weight)) %>%
+	select(year, genus, species, weight) %>%
+	arrange(year)
 ```
 
 `r msmbstyle::solution_end()`
@@ -754,7 +754,7 @@ on the value of either `hindfoot_length` or `weight`.
 `r msmbstyle::solution_begin()`
 ```{r, answer=TRUE, purl=FALSE}
 surveys_long <- surveys %>%
-    gather(measurement, value, hindfoot_length, weight)
+	gather(measurement, value, hindfoot_length, weight)
 head(surveys_long)
 ```
 `r msmbstyle::solution_end()`
@@ -779,6 +779,14 @@ surveys_long %>%
   spread(measurement, mean_value)
 ```
 `r msmbstyle::solution_end()`
+
+
+**Note** Recently, the new `pivot_longer()` and `pivot_wider()`
+functions [have been
+introduced](https://tidyr.tidyverse.org/dev/articles/pivot.html). They
+come as a replacement for `gather()` and `spread()`, enabling more
+advanced uses. The latter will remain available for the foreseeable
+future.
 
 
 ## Exporting data
@@ -809,8 +817,8 @@ Let's start by removing observations of animals for which `weight` and
 ```{r, purl=FALSE}
 surveys_complete <- surveys %>%
   filter(!is.na(weight),           ## remove missing weight
-         !is.na(hindfoot_length),  ## remove missing hindfoot_length
-         !is.na(sex))              ## remove missing sex
+		 !is.na(hindfoot_length),  ## remove missing hindfoot_length
+		 !is.na(sex))              ## remove missing sex
 ```
 
 Because we are interested in plotting how species abundances have changed
@@ -823,8 +831,8 @@ observations for these more common species:
 ```{r, purl=FALSE}
 ## Extract the most common species_id
 species_counts <- surveys_complete %>%
-    count(species_id) %>%
-    filter(n >= 50)
+	count(species_id) %>%
+	filter(n >= 50)
 
 ## Only keep the most common species
 surveys_complete <- surveys_complete %>%
@@ -836,21 +844,21 @@ surveys_complete <- surveys_complete %>%
 ##  Start by removing observations for which the `species_id`, `weight`,
 ##  `hindfoot_length`, or `sex` data are missing:
 surveys_complete <- surveys %>%
-    filter(species_id != "",        ## remove missing species_id
-           !is.na(weight),          ## remove missing weight
-           !is.na(hindfoot_length), ## remove missing hindfoot_length
-           sex != "")               ## remove missing sex
+	filter(species_id != "",        ## remove missing species_id
+		   !is.na(weight),          ## remove missing weight
+		   !is.na(hindfoot_length), ## remove missing hindfoot_length
+		   sex != "")               ## remove missing sex
 
 ##  Now remove rare species in two steps. First, make a list of species which
 ##  appear at least 50 times in our dataset:
 species_counts <- surveys_complete %>%
-    count(species_id) %>%
-    filter(n >= 50) %>%
-    select(species_id)
+	count(species_id) %>%
+	filter(n >= 50) %>%
+	select(species_id)
 
 ##  Second, keep only those species:
 surveys_complete <- surveys_complete %>%
-    filter(species_id %in% species_counts$species_id)
+	filter(species_id %in% species_counts$species_id)
 ```
 
 To make sure that everyone has the same data set, check that `surveys_complete`
@@ -922,25 +930,25 @@ data("beers")
 ## Dealing with missing values
 anyNA(beers)
 beers2 <- beers %>%
-    filter(!is.na(Consumption))
+	filter(!is.na(Consumption))
 
 anyNA(beers2)
 
 ## New Date variable
 library("lubridate")
 beers2 <- beers2 %>%
-    mutate(Date = ymd(paste(beers2$Year,
-                        beers2$Month,
-                        beers2$Day, sep = "-")))
+	mutate(Date = ymd(paste(beers2$Year,
+						beers2$Month,
+						beers2$Day, sep = "-")))
 class(beers2$Date)
 
 ## Filter, select and arrange
 tab <- beers2 %>%
-    filter(Age > 35) %>%
-    filter(Gender == "Female") %>%
-    filter(Work == "Employed") %>%
-    select(-Day, -Month, -Year) %>%
-    arrange(desc(Consumption))
+	filter(Age > 35) %>%
+	filter(Gender == "Female") %>%
+	filter(Work == "Employed") %>%
+	select(-Day, -Month, -Year) %>%
+	arrange(desc(Consumption))
 
 tab
 ```
@@ -975,7 +983,7 @@ beers2 %>%
 ##   status?
 beers3 <- beers2 %>%
   group_by(Gender, Age, Work) %>%
-    summarize(mean_consumption = mean(Consumption))
+	summarize(mean_consumption = mean(Consumption))
 
 beers3
 ```
@@ -1059,44 +1067,44 @@ str(clinical)
 ## View(clinical)
 
 clinical_mini <- clinical %>%
-    select(patientID, gender, age_at_diagnosis,
-           smoking_history, number_pack_years_smoked,
-           year_of_tobacco_smoking_onset,
-           stopped_smoking_year)
+	select(patientID, gender, age_at_diagnosis,
+		   smoking_history, number_pack_years_smoked,
+		   year_of_tobacco_smoking_onset,
+		   stopped_smoking_year)
 clinical_mini
 
 ## Calculate the number of males and females in the cohort.
 clinical_mini %>%
-    group_by(gender) %>%
-    count()
+	group_by(gender) %>%
+	count()
 
 ## Create a new variable `years_at_diagnosis` corresponding to the age
 ## at diagnosis converted from days into years.
 clinical_mini <- clinical_mini %>%
-    mutate(years_at_diagnosis = age_at_diagnosis / 365)
+	mutate(years_at_diagnosis = age_at_diagnosis / 365)
 select(clinical_mini,
-       years_at_diagnosis,
-       age_at_diagnosis)
+	   years_at_diagnosis,
+	   age_at_diagnosis)
 
 ## Calculate the mean and median age at diagnosis (in years). Pay
 ## attention to missing values!
 clinical_mini %>%
-    summarize(mean = mean(years_at_diagnosis, na.rm = TRUE),
-              median = median(years_at_diagnosis, na.rm = TRUE))
+	summarize(mean = mean(years_at_diagnosis, na.rm = TRUE),
+			  median = median(years_at_diagnosis, na.rm = TRUE))
 
 ## idem but removing NA values before
 clinical_mini %>%
   filter(!is.na(years_at_diagnosis)) %>%
-    summarise(mean = mean(years_at_diagnosis),
-              median = median(years_at_diagnosis))
+	summarise(mean = mean(years_at_diagnosis),
+			  median = median(years_at_diagnosis))
 
 
 ## Calculate the mean and median age at diagnosis for males and
 ## females
 clinical_mini %>%
-    group_by(gender) %>%
-    summarise(mean = mean(years_at_diagnosis, na.rm = TRUE),
-              median = median(years_at_diagnosis, na.rm = TRUE))
+	group_by(gender) %>%
+	summarise(mean = mean(years_at_diagnosis, na.rm = TRUE),
+			  median = median(years_at_diagnosis, na.rm = TRUE))
 
 ## How many patient were diagnosed before 50 years?
 clinical_mini %>%
@@ -1114,10 +1122,10 @@ clinical_mini %>%
 ## Select patients who stopped smoking more than 15 years ago and
 ## calculate the number of smoking years for these cases.
 clinical_mini %>%
-    filter(smoking_history == "current reformed smoker for > 15 years") %>%
-    mutate(years_smoked = stopped_smoking_year - year_of_tobacco_smoking_onset) %>%
-    filter(!is.na(years_smoked)) %>%
-    select(patientID, years_smoked)
+	filter(smoking_history == "current reformed smoker for > 15 years") %>%
+	mutate(years_smoked = stopped_smoking_year - year_of_tobacco_smoking_onset) %>%
+	filter(!is.na(years_smoked)) %>%
+	select(patientID, years_smoked)
 
 # How many of them smoked less than 5 years?
 clinical_mini %>%
@@ -1131,7 +1139,7 @@ clinical_mini %>%
 clinical_mini %>%
   filter(smoking_history == 'current smoker' | smoking_history == 'lifelong non-smoker') %>%
   group_by(gender, smoking_history) %>%
-    summarize(n = n()) %>%
+	summarize(n = n()) %>%
   tidyr::spread(key = smoking_history, value = n)
 ```
 
@@ -1154,11 +1162,11 @@ Using `gather`, convert the data into a *long* table with a column
 ```{r, echo=FALSE, include=FALSE}
 x <- read_csv(interroA.csv())
 gather(x, key = interro, value = result,
-       interro1, interro2, interro3, interro4)
+	   interro1, interro2, interro3, interro4)
 ## or
 gather(x, key = interro, value = result,
-       -id, -height, -gender, -X)	
+	   -id, -height, -gender, -X)
 ## or
 gather(x, key = interro, value = result,
-       starts_with("interro"))
+	   starts_with("interro"))
 ```
