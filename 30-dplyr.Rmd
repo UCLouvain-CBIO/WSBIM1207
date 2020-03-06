@@ -53,7 +53,8 @@ suppressWarnings(surveys$date <- lubridate::ymd(paste(surveys$year,
 - Describe what key-value pairs are.
 
 - Reshape a data frame from long to wide format and back with the
-  `spread` and `gather` commands from the **`tidyr`** package.
+  `spread`/`pivot_wider` and `gather`/`pivot_longer` commands from the
+  **`tidyr`** package.
 
 
 
@@ -568,7 +569,7 @@ surveys %>%
 `r msmbstyle::solution_end()`
 
 
-## Reshaping with gather and spread
+## Reshaping data
 
 In the spreadsheet lesson (chapter \@ref(sec:dataorg)), we discussed how
 to structure our data leading to the four rules defining a tidy
@@ -606,24 +607,32 @@ The opposite transformation would be to transform column names into
 values of a variable.
 
 We can do both these of transformations with two `tidyr` functions,
-`spread()` and `gather()`.
+`spread()` and `gather()`. Recently, the new `pivot_longer()` and
+`pivot_wider()` functions [have been
+introduced](https://tidyr.tidyverse.org/dev/articles/pivot.html). They
+come as a replacement for `gather()` and `spread()`, enabling more
+advanced uses. The latter will remain available for the foreseeable
+future.
 
-### Spreading
 
-`spread()` takes three principal arguments:
+### Spreading the data into a wide format
+
+`spread()` and `pivot_wide` take three principal arguments:
 
 1. the data
-2. the *key* column variable whose values will become new column names.
-3. the *value* column variable whose values will fill the new column variables.
+2. the `key` for `spread()` or `names_from` for `pivot_wider()` column
+   variable whose values will become new column names.
+3. the `value` for `spread()` or `values_from` for `pivot_wider()`
+   column variable whose values will fill the new column variables.
 
 Further arguments include `fill` which, if set, fills in missing
 values with the value provided.
 
-Let's use `spread()` to transform surveys to find the mean weight of
-each species in each plot over the entire survey period. We use
-`filter()`, `group_by()` and `summarise()` to filter our observations
-and variables of interest, and create a new variable for the
-`mean_weight`. We use the pipe as before too.
+Let's use `spread()` (and `pivot_wider()` below) to transform surveys
+to find the mean weight of each species in each plot over the entire
+survey period. We use `filter()`, `group_by()` and `summarise()` to
+filter our observations and variables of interest, and create a new
+variable for the `mean_weight`. We use the pipe as before too.
 
 ```{r, purl=FALSE}
 surveys_gw <- surveys %>%
@@ -631,7 +640,7 @@ surveys_gw <- surveys %>%
   group_by(genus, plot_id) %>%
   summarize(mean_weight = mean(weight))
 
-str(surveys_gw)
+surveys_gw
 ```
 
 This yields `surveys_gw` where the observations for each plot are
@@ -644,7 +653,7 @@ again use pipes:
 surveys_spread <- surveys_gw %>%
   spread(key = genus, value = mean_weight)
 
-str(surveys_spread)
+surveys_spread
 ```
 
 ![](./figs/spread_data_R.png)
@@ -655,11 +664,27 @@ first.
 
 ```{r, purl=FALSE}
 surveys_gw %>%
-  spread(genus, mean_weight, fill = 0) %>%
-  head()
+  spread(genus, mean_weight, fill = 0) 
 ```
 
-### Gathering
+The equivalent call using the new `pivot_wider()` function is
+
+```{r}
+surveys_gw %>%
+    pivot_wider(names_from = genus,
+                values_from = mean_weight)
+```
+
+To fill in the missing *mean_weigth* values with a 0, one would use
+
+```{r}
+surveys_gw %>%
+    pivot_wider(names_from = genus,
+                values_from = mean_weight,
+                values_fill = list(mean_weight = 0))
+```
+
+### Gathering data into a long format
 
 The opposing situation could occur if we had been provided with data in the
 form of `surveys_spread`, where the genus names are column names, but we
@@ -669,13 +694,16 @@ In this situation we are gathering the column names and turning them into a
 pair of new variables. One variable represents the column names as values, and
 the other variable contains the values previously associated with the column names.
 
-`gather()` takes four principal arguments:
+`gather()` and `pivot_longer()` takes four principal arguments:
 
 1. the data
-2. the *key* column variable we wish to create from column names.
-3. the *values* column variable we wish to create and fill with values
-associated with the key.
-4. the names of the columns we use to fill the key variable (or to drop).
+2. the `key` for `gather()` or `names_to` for `pivot_longer()`
+   column variable we wish to create from column names.
+3. the `values` for `gather()` or `values_to` for `pivot_longer()`
+   column variable we wish to create and fill with values associated
+   with the key.
+4. the names of the columns we use to fill the key variable (or to
+   drop).
 
 To recreate `surveys_gw` from `surveys_spread` we would create a key called
 `genus` and value called `mean_weight` and use all columns except `plot_id` for
@@ -685,10 +713,31 @@ the key variable. Here we drop `plot_id` column with a minus sign.
 surveys_gather <- surveys_spread %>%
   gather(key = genus, value = mean_weight, -plot_id)
 
-str(surveys_gather)
+surveys_gather
 ```
 
 ![](./figs/gather_data_R.png)
+
+
+Using the `pivot_longer()` function, we would write
+
+```{r}
+surveys_spread %>%
+    pivot_longer(names_to = "genus",
+                 values_to = "mean_weight",
+                 -plot_id)
+```
+
+Note how the new variable names are to be quoted here. To get the same
+output as previously, we can arrange the data by `plot_id`:
+
+```{r}
+surveys_spread %>%
+    pivot_longer(names_to = "genus",
+                 values_to = "mean_weight",
+                 -plot_id) %>%
+    arrange(plot_id)
+```
 
 Note that now the `NA` genera are included in the re-gathered format. Spreading
 and then gathering can be a useful way to balance out a dataset so every
@@ -701,8 +750,18 @@ row, we don't even need to list them all out - just use the `:` operator!
 
 ```{r, purl=FALSE}
 surveys_spread %>%
-  gather(key = genus, value = mean_weight, Baiomys:Spermophilus) %>%
-  head()
+    gather(key = genus, value = mean_weight,
+           Baiomys:Spermophilus) 
+```
+
+And with `pivot_longer()`:
+
+```{r}
+surveys_spread %>%
+    pivot_longer(names_to = "genus",
+                 values_to = "mean_weight",
+                 Baiomys:Spermophilus) %>%
+    arrange(genus, plot_id)
 ```
 
 `r msmbstyle::question_begin()`
@@ -760,7 +819,6 @@ head(surveys_long)
 `r msmbstyle::solution_end()`
 
 
-
 `r msmbstyle::question_begin()`
 With this new data set, calculate the average of each `measurement` in
 each `year` for each different `plot_type`. Then `spread()` them into
@@ -779,14 +837,6 @@ surveys_long %>%
   spread(measurement, mean_value)
 ```
 `r msmbstyle::solution_end()`
-
-
-**Note** Recently, the new `pivot_longer()` and `pivot_wider()`
-functions [have been
-introduced](https://tidyr.tidyverse.org/dev/articles/pivot.html). They
-come as a replacement for `gather()` and `spread()`, enabling more
-advanced uses. The latter will remain available for the foreseeable
-future.
 
 
 ## Exporting data
