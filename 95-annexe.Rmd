@@ -27,7 +27,7 @@ important packages for the course.
 3. Start Rstudio and install the following packages:
 
 ```{r, eval = FALSE}
-install.packages(c("tidyverse", "remotes", "devtools"))
+install.packages(c("tidyverse", "rmarkdown", "remotes", "devtools"))
 install.packages("BiocManager")
 BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
 ```
@@ -42,6 +42,22 @@ Update all/some/none? [a/s/n]:
 ```
 
 You can answer `a` to update all your packages.
+
+4. To be able to compile Rmd files into pdf, you will also need to
+   install an additional software. On Windows, you will need to
+   install the **full** version of
+   [MiKTeX](https://miktex.org/download). See the
+   [tutorial](https://miktex.org/howto/install-miktex) for detailed
+   steps. See also [this
+   post](https://medium.com/@sorenlind/create-pdf-reports-using-r-r-markdown-latex-and-knitr-on-windows-10-952b0c48bfa9)
+   for details. For Max OSX, you will need to install
+   [MacTeX](https://medium.com/@sorenlind/create-pdf-reports-using-r-r-markdown-latex-and-knitr-on-windows-10-952b0c48bfa9). [This
+   post](https://medium.com/@sorenlind/create-pdf-reports-using-r-r-markdown-latex-and-knitr-on-macos-high-sierra-e7b5705c9fd)
+   provides details. For linux, use your package manager to install
+   the tex-live suite.
+
+   Compilation to html will not require any additional installations
+   and can also be used.
 
 ## Using a cloud R/RStudio instance
 
