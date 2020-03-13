@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Chapter 11 Annexe | Introduction to bioinformatics" />
+<meta property="og:title" content="Chapter 11 Annex | Introduction to bioinformatics" />
 <meta property="og:type" content="book" />
 
 
@@ -25,7 +25,7 @@ MathJax.Hub.Config({
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
-<title>Chapter 11 Annexe | Introduction to bioinformatics</title>
+<title>Chapter 11 Annex | Introduction to bioinformatics</title>
 
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
@@ -151,8 +151,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="sec-bioinfo.html"><span class="toc-section-number">8</span> Bioinformatics</a>
 <a href="sec-prog.html"><span class="toc-section-number">9</span> Additional programming concepts</a>
 <a href="sec-ccl.html"><span class="toc-section-number">10</span> Conclusions</a>
-<a id="active-page" href="sec-anx.html"><span class="toc-section-number">11</span> Annexe</a><ul class="toc-sections">
-<li class="toc"><a href="#installation"> Installation</a></li>
+<a id="active-page" href="sec-anx.html"><span class="toc-section-number">11</span> Annex</a><ul class="toc-sections">
+<li class="toc"><a href="#local-installation"> Local installation</a></li>
+<li class="toc"><a href="#using-a-cloud-rrstudio-instance"> Using a cloud R/RStudio instance</a></li>
 </ul>
 <a href="session-information.html"><span class="toc-section-number">12</span> Session information</a>
 </div>
@@ -166,10 +167,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html><body><div id="sec:anx" class="section level1">
 <h1>
-<span class="header-section-number">Chapter 11</span> Annexe</h1>
-<div id="installation" class="section level2">
+<span class="header-section-number">Chapter 11</span> Annex</h1>
+<div id="local-installation" class="section level2">
 <h2>
-<span class="header-section-number">11.1</span> Installation</h2>
+<span class="header-section-number">11.1</span> Local installation</h2>
 <p>This section describes how to install R, Rstudio, and a set of
 important packages for the course.</p>
 <ol style="list-style-type: decimal">
@@ -180,7 +181,7 @@ the top of that page, choose the <em>Download R</em> link corresponding to
 your operating system.</p>
 <p>If you use Windows, follow <em>install R for the first time</em>, then
 click the link to download R. The installation procedure is like
-any other software, and you can safely use all default opions.</p>
+any other software, and you can safely use all default options.</p>
 <p>If you use Mac (OS X), download the <em>pkg</em> installer that matches
 you OS version and install like any other software</p>
 <p>Linux users are advised to use their package manager.</p>
@@ -196,19 +197,33 @@ other software.</p></li>
 <a class="sourceLine" id="cb590-3" data-line-number="3">BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</a></code></pre></div>
 <p>If during any of the package installation steps, you get asked to
 update some packages, for example with a message like</p>
-<pre><code>Old packages: 'AsioHeaders', 'blogdown', 'bookdown', 'broom', 'car', 'cli',
-  'covr', 'dendextend', 'deSolve', 'digest', 'dplyr', 'edgeR', 'emdbook',
-  'FactoMineR', 'forcats', 'fs', 'GenomicFeatures', 'ggplot2', 'ggplotify',
-  'ggrepel', 'glue', 'gplots', 'gridGraphics', 'Gviz', 'HDF5Array', 'insight',
-  'lava', 'lifecycle', 'manipulateWidget', 'MLInterfaces', 'modelr',
-  'modeltools', 'MSstats', 'MultiAssayExperiment', 'mvtnorm', 'naivebayes',
-  'naniar', 'nloptr', 'party', 'partykit', 'pbkrtest', 'plyr', 'protViz',
-  'rapidjsonr', 'rgl', 'rlang', 'rmdformats', 'roxygen2', 'Rsamtools',
-  'rvcheck', 'servr', 'shiny', 'sp', 'SQUAREM', 'statmod', 'stringi', 'styler',
-  'testthat', 'tinytex', 'TSP', 'tximeta', 'umap', 'vctrs', 'waveslim',
-  'xaringan', 'xcms', 'xlsx', 'xml2'
+<pre><code>Old packages: 'tinytex', 'TSP', 'tximeta', 'umap', 'vctrs', 'waveslim',
+  'xcms', 'xlsx', 'xml2'
 Update all/some/none? [a/s/n]: </code></pre>
-<p>You can anser <code>a</code> to update all your packages.</p>
+<p>You can answer <code>a</code> to update all your packages.</p>
+</div>
+<div id="using-a-cloud-rrstudio-instance" class="section level2">
+<h2>
+<span class="header-section-number">11.2</span> Using a cloud R/RStudio instance</h2>
+<p>An alternative to local installation is to use <em>virtual machines</em> that
+run in the cloud. Here, we will use Renku platform provided by the
+Swiss Data Science Center.</p>
+<ol style="list-style-type: decimal">
+<li>
+<p>Create a new renku user - click to <em>Login - Sign up</em> button on
+<a href="https://renkulab.io/" class="uri">https://renkulab.io/</a>, click <em>Register</em> at
+the bottom of the login screen and follow instructions.</p>
+<p>Once completed, you will get to the following (or similar) screen.</p>
+</li>
+</ol>
+<div class="figure">
+<span id="fig:unnamed-chunk-267"></span>
+<p class="caption marginnote shownote">
+Figure 11.1: Renky labding page.
+</p>
+<img src="figs/renku_screen1.png" alt="Renky labding page." width="948">
+</div>
+<p>More details to come…</p>
 
 </div>
 </div></body></html>

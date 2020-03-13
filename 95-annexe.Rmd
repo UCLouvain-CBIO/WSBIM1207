@@ -1,7 +1,6 @@
-# Annexe {#sec:anx}
+# Annex {#sec:anx}
 
-## Installation
-
+## Local installation
 
 This section describes how to install R, Rstudio, and a set of
 important packages for the course.
@@ -13,7 +12,7 @@ important packages for the course.
    
    If you use Windows, follow *install R for the first time*, then
    click the link to download R. The installation procedure is like
-   any other software, and you can safely use all default opions.
+   any other software, and you can safely use all default options.
    
    If you use Mac (OS X), download the *pkg* installer that matches
    you OS version and install like any other software
@@ -37,18 +36,28 @@ If during any of the package installation steps, you get asked to
 update some packages, for example with a message like 
 
 ```
-Old packages: 'AsioHeaders', 'blogdown', 'bookdown', 'broom', 'car', 'cli',
-  'covr', 'dendextend', 'deSolve', 'digest', 'dplyr', 'edgeR', 'emdbook',
-  'FactoMineR', 'forcats', 'fs', 'GenomicFeatures', 'ggplot2', 'ggplotify',
-  'ggrepel', 'glue', 'gplots', 'gridGraphics', 'Gviz', 'HDF5Array', 'insight',
-  'lava', 'lifecycle', 'manipulateWidget', 'MLInterfaces', 'modelr',
-  'modeltools', 'MSstats', 'MultiAssayExperiment', 'mvtnorm', 'naivebayes',
-  'naniar', 'nloptr', 'party', 'partykit', 'pbkrtest', 'plyr', 'protViz',
-  'rapidjsonr', 'rgl', 'rlang', 'rmdformats', 'roxygen2', 'Rsamtools',
-  'rvcheck', 'servr', 'shiny', 'sp', 'SQUAREM', 'statmod', 'stringi', 'styler',
-  'testthat', 'tinytex', 'TSP', 'tximeta', 'umap', 'vctrs', 'waveslim',
-  'xaringan', 'xcms', 'xlsx', 'xml2'
+Old packages: 'tinytex', 'TSP', 'tximeta', 'umap', 'vctrs', 'waveslim',
+  'xcms', 'xlsx', 'xml2'
 Update all/some/none? [a/s/n]: 
 ```
 
-You can anser `a` to update all your packages.
+You can answer `a` to update all your packages.
+
+## Using a cloud R/RStudio instance
+
+An alternative to local installation is to use *virtual machines* that
+run in the cloud. Here, we will use Renku platform provided by the
+Swiss Data Science Center.
+
+1. Create a new renku user - click to *Login - Sign up* button on
+   [https://renkulab.io/](https://renkulab.io/), click *Register* at
+   the bottom of the login screen and follow instructions. 
+   
+   Once completed, you will get to the following (or similar) screen.
+   
+```{r, fig.cap = "Renky labding page.", echo = FALSE, message = FALSE}
+knitr::include_graphics("./figs/renku_screen1.png")
+```
+
+
+More details to come...
