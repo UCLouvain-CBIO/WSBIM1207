@@ -1,0 +1,54 @@
+# Annexe {#sec:anx}
+
+## Installation
+
+
+This section describes how to install R, Rstudio, and a set of
+important packages for the course.
+
+1. Download R from the CRAN page:
+   [https://cloud.r-project.org/](https://cloud.r-project.org/). At
+   the top of that page, choose the *Download R* link corresponding to
+   your operating system. 
+   
+   If you use Windows, follow *install R for the first time*, then
+   click the link to download R. The installation procedure is like
+   any other software, and you can safely use all default opions.
+   
+   If you use Mac (OS X), download the *pkg* installer that matches
+   you OS version and install like any other software
+   
+   Linux users are advised to use their package manager.
+   
+2. Download and install the Rstudio Desktop Open source edition:
+   [https://rstudio.com/products/rstudio/download/#download](https://rstudio.com/products/rstudio/download/#download). Choose
+   the installer for your operating system and version. Install as any
+   other software.
+
+3. Start Rstudio and install the following packages:
+
+```{r, eval = FALSE}
+install.packages(c("tidyverse", "remotes", "devtools"))
+install.packages("BiocManager")
+BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
+```
+
+If during any of the package installation steps, you get asked to
+update some packages, for example with a message like 
+
+```
+Old packages: 'AsioHeaders', 'blogdown', 'bookdown', 'broom', 'car', 'cli',
+  'covr', 'dendextend', 'deSolve', 'digest', 'dplyr', 'edgeR', 'emdbook',
+  'FactoMineR', 'forcats', 'fs', 'GenomicFeatures', 'ggplot2', 'ggplotify',
+  'ggrepel', 'glue', 'gplots', 'gridGraphics', 'Gviz', 'HDF5Array', 'insight',
+  'lava', 'lifecycle', 'manipulateWidget', 'MLInterfaces', 'modelr',
+  'modeltools', 'MSstats', 'MultiAssayExperiment', 'mvtnorm', 'naivebayes',
+  'naniar', 'nloptr', 'party', 'partykit', 'pbkrtest', 'plyr', 'protViz',
+  'rapidjsonr', 'rgl', 'rlang', 'rmdformats', 'roxygen2', 'Rsamtools',
+  'rvcheck', 'servr', 'shiny', 'sp', 'SQUAREM', 'statmod', 'stringi', 'styler',
+  'testthat', 'tinytex', 'TSP', 'tximeta', 'umap', 'vctrs', 'waveslim',
+  'xaringan', 'xcms', 'xlsx', 'xml2'
+Update all/some/none? [a/s/n]: 
+```
+
+You can anser `a` to update all your packages.
