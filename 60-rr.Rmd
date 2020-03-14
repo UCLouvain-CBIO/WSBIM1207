@@ -252,3 +252,56 @@ follow[^asinexam].
     understandable and reproducible document.
 
 `r msmbstyle::question_end()`
+
+`r msmbstyle::question_begin()`
+
+1. Create a new R markdown file called `student_results.Rmd`, to be
+   compiled in either pdf or html. Remove everything but the lines
+   containing the header. In the example below, the header is composed
+   of the 6 first lines, starting and ending with `---`.
+
+```
+---
+title: "Student results"
+author: "Laurent"
+date: "March 14, 2020"
+output: pdf_document
+---
+```
+
+2. Add a first section called *Data input*, in which you will load the
+   `rWSBIM1207` package, use the `interroA.csv()` function to get the
+   name of a csv file containing test results for a set of students,
+   and read these data into R using `read_csv`. [^readf] Display the
+   few first observations and write a short sentence explaining the
+   data.
+   
+   
+[^readf]: It is important here **not** to copy/paste the filename
+    returned by `interroA.csv()`. That file is distributed with the
+    `rWSBIM1207` package, and has a computer-specific path. Because we
+    want our reports to be reproducible, we want to use the filename
+    as returned by the function on any computer, not the one of a
+    specific computer. Make sure you either pass `interroA.csv()`
+    directly to `read_csv()` or store its output into a variable that
+    is passed to `read_csv()`.
+
+3. Make sure that you can compile you `Rmd` file into either pdf or html.
+
+4. Create a new section called *Data visualisation*. 
+
+   Here, the goal is to visualise the score distributions for the four
+   tests using `ggplot2`. These distributions will be visualised using
+   boxplots. You will need to visualise these distribution for each
+   test separately, and for male and female students.
+   
+5. As discussed during the course, we need data in a long format to be
+   able to use `ggplot2`. Start by converting these data into a long
+   format using `pivot_longer()` (or `gather()`). Display the first
+   rows of these new data and write a short sentence describing them
+   and the transformation you just applied.
+   
+6. Use `ggplot2` to visualise the score distributions along boxplots
+   for each test and for female and male students.
+
+`r msmbstyle::question_end()`

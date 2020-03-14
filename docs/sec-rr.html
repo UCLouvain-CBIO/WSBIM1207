@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2020-03-13" />
+<meta name="date" content="2020-03-14" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -276,6 +276,37 @@ DT<span class="op">::</span><span class="kw">datatable</span>(ip[, <span class="
 </p>
 </div>
 </div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<ol style="list-style-type: decimal">
+<li>Create a new R markdown file called <code>student_results.Rmd</code>, to be compiled in either pdf or html. Remove everything but the lines containing the header. In the example below, the header is composed of the 6 first lines, starting and ending with <code>---</code>.</li>
+</ol>
+<pre><code>---
+title: "Student results"
+author: "Laurent"
+date: "March 14, 2020"
+output: pdf_document
+---</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Add a first section called <em>Data input</em>, in which you will load the <code>rWSBIM1207</code> package, use the <code>interroA.csv()</code> function to get the name of a csv file containing test results for a set of students, and read these data into R using <code>read_csv</code>.<label for="tufte-sn-17" class="margin-toggle sidenote-number">17</label><input type="checkbox" id="tufte-sn-17" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">17</span> It is important here <strong>not</strong> to copy/paste the filename returned by <code>interroA.csv()</code>. That file is distributed with the <code>rWSBIM1207</code> package, and has a computer-specific path. Because we want our reports to be reproducible, we want to use the filename as returned by the function on any computer, not the one of a specific computer. Make sure you either pass <code>interroA.csv()</code> directly to <code>read_csv()</code> or store its output into a variable that is passed to <code>read_csv()</code>.</span> Display the few first observations and write a short sentence explaining the data.</li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Make sure that you can compile you <code>Rmd</code> file into either pdf or html.</p></li>
+<li><p>Create a new section called <em>Data visualisation</em>.</p></li>
+</ol>
+<p>Here, the goal is to visualise the score distributions for the four tests using <code>ggplot2</code>. These distributions will be visualised using boxplots. You will need to visualise these distribution for each test separately, and for male and female students.</p>
+<ol start="5" style="list-style-type: decimal">
+<li><p>As discussed during the course, we need data in a long format to be able to use <code>ggplot2</code>. Start by converting these data into a long format using <code>pivot_longer()</code> (or <code>gather()</code>). Display the first rows of these new data and write a short sentence describing them and the transformation you just applied.</p></li>
+<li><p>Use <code>ggplot2</code> to visualise the score distributions along boxplots for each test and for female and male students.</p></li>
+</ol>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 
 </div>
 </div></body></html>
@@ -285,7 +316,7 @@ DT<span class="op">::</span><span class="kw">datatable</span>(ip[, <span class="
 <a href="sec-bioinfo.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-03-13
+2020-03-14
 </p>
 </div>
 </div>
