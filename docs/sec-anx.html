@@ -128,6 +128,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <a id="active-page" href="sec-anx.html"><span class="toc-section-number">11</span> Annex</a><ul class="toc-sections">
 <li class="toc"><a href="#local-installation"> Local installation</a></li>
 <li class="toc"><a href="#using-a-cloud-rrstudio-instance"> Using a cloud R/RStudio instance</a></li>
+<li class="toc"><a href="#NA"> Universal Desktop Service at UCLouvain.</a></li>
 </ul>
 <a href="session-information.html"><span class="toc-section-number">12</span> Session information</a>
 </div>
@@ -172,11 +173,11 @@ Update all/some/none? [a/s/n]: </code></pre>
 <div id="using-a-cloud-rrstudio-instance" class="section level2">
 <h2>
 <span class="header-section-number">11.2</span> Using a cloud R/RStudio instance</h2>
-<p>An alternative to local installation is to use <em>virtual machines</em> that run in the cloud. Here, we will use Renku platform provided by the Swiss Data Science Center.</p>
+<p>An alternative to local installation is to use <em>virtual machines</em> that run in the cloud. Here, we will use Renku platform provided by the Swiss Data Science Center (SDSC).</p>
 <ol style="list-style-type: decimal">
 <li>Create a new renku user - click to <em>Login - Sign up</em> button on <a href="https://renkulab.io/" class="uri">https://renkulab.io/</a>, click <em>Register</em> at the bottom of the login screen and follow instructions.</li>
 </ol>
-<p>Once completed, you will get to the following (or similar) screen.</p>
+<p>Once completed, you will get to the following (or similar) screen, belonging here to user <code>WSBIM1207.student</code>.</p>
 <div class="figure">
 <span id="fig:unnamed-chunk-267"></span>
 <p class="caption marginnote shownote">
@@ -184,7 +185,97 @@ Figure 11.1: Renky labding page.
 </p>
 <img src="figs/renku_screen1.png" alt="Renky labding page." width="948">
 </div>
-<p>More details to come…</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Now that you have created a Renku account, you will need to fork (i.e. copy) the course renku project into your own account. To do so, open the following link: <a href="https://renkulab.io/projects/laurent.gatto/wsbim1207/" class="uri">https://renkulab.io/projects/laurent.gatto/wsbim1207/</a>
+</li>
+</ol>
+<div class="figure">
+<span id="fig:unnamed-chunk-268"></span>
+<p class="caption marginnote shownote">
+Figure 11.2: The WSBIM1207 renku project page.
+</p>
+<img src="figs/renku_screen2.png" alt="The WSBIM1207 renku project page." width="936">
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Fork the project under your own account by click the <code>fork</code> button in the rop right corner (see previous screenshot). You can keep all the default values in the popup window and click on <code>Fork</code> again.</li>
+</ol>
+<div class="figure">
+<span id="fig:unnamed-chunk-269"></span>
+<p class="caption marginnote shownote">
+Figure 11.3: Forking the WSBIM1207 renku project page.
+</p>
+<img src="figs/renku_screen3.png" alt="Forking the WSBIM1207 renku project page." width="327">
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>The next window shows your personal copy of the <code>wsbim1207</code> Renku project.</li>
+</ol>
+<div class="figure">
+<span id="fig:unnamed-chunk-270"></span>
+<p class="caption marginnote shownote">
+Figure 11.4: Forked WSBIM1207 renku project page.
+</p>
+<img src="figs/renku_screen4.png" alt="Forked WSBIM1207 renku project page." width="940">
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>Click the <code>Environments</code> tab and the <code>New</code> button to create a runnable cloud environment that contains R, RStudio, and all pre-installed packages. The building will about 50 minutes. You can safely shut your computer down at this stage, as the environment is build in the cloud.</li>
+</ol>
+<div class="figure">
+<span id="fig:unnamed-chunk-271"></span>
+<p class="caption marginnote shownote">
+Figure 11.5: The <em>Interactive Environment</em> tab.
+</p>
+<img src="figs/renku_screen5.png" alt="The *Interactive Environment* tab." width="946">
+</div>
+<div class="figure">
+<span id="fig:unnamed-chunk-272"></span>
+<p class="caption marginnote shownote">
+Figure 11.6: The Renku environment is being build.
+</p>
+<img src="figs/renku_screen6.png" alt="The Renku environment is being build." width="947">
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li>Once build, you can start the cloud environment. Make sure you keep the default settings, i.e default environment <code>/rstudio</code> and <code>0.25</code> CPUs and <code>1G</code> of RAM. For this course, these low resources are enough<label for="tufte-sn-26" class="margin-toggle sidenote-number">26</label><input type="checkbox" id="tufte-sn-26" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">26</span> Given that the resources are provided for free by the SDSC and are shared by all users, it is good practice to only use the resources that are needed.</span>.</li>
+</ol>
+<div class="figure">
+<span id="fig:unnamed-chunk-273"></span>
+<p class="caption marginnote shownote">
+Figure 11.7: The environment build settings.
+</p>
+<img src="figs/renku_screen7.png" alt="The environment build settings." width="673">
+</div>
+<ol start="7" style="list-style-type: decimal">
+<li>It will take some more time to get the environment started, shown below.</li>
+</ol>
+<div class="figure">
+<span id="fig:unnamed-chunk-274"></span>
+<p class="caption marginnote shownote">
+Figure 11.8: The Renku environment is being build.
+</p>
+<img src="figs/renku_screen8.png" alt="The Renku environment is being build." width="705">
+</div>
+<ol start="8" style="list-style-type: decimal">
+<li>Once ready, you now only have to click the blue <code>Connect</code> button to start RStudio in the cloud.</li>
+</ol>
+<div class="figure">
+<span id="fig:unnamed-chunk-275"></span>
+<p class="caption marginnote shownote">
+Figure 11.9: The Renku environment is now built.
+</p>
+<img src="figs/renku_screen9.png" alt="The Renku environment is now built." width="684">
+</div>
+<div class="figure fullwidth">
+<span id="fig:unnamed-chunk-276"></span>
+<img src="figs/renku_screen10.png" alt="The Renku environment running RStudio." width="956"><p class="caption marginnote shownote">
+Figure 11.10: The Renku environment running RStudio.
+</p>
+</div>
+<p>The RStudio instance has already all the required packages pre-installed. To close the remote RStudio, either use <code>q()</code> in the R console, click <code>File</code> and <code>Quit Session</code>, or the red round icon in the top corner.</p>
+<p>Next time, it won’t be necessary to repeat all the steps. Simply navigate to your environments to connect again.</p>
+</div>
+<div id="universal-desktop-service-at-uclouvain." class="section level2">
+<h2>
+<span class="header-section-number">11.3</span> Universal Desktop Service at UCLouvain.</h2>
+<p>Students at the UCLouvain can use the <a href="https://intranet.uclouvain.be/fr/myucl/services-informatiques/uds-universal-desktop-service.html">Universal Desktop Service</a> (UDS) to access the software and files installed on the university network through a virtual working environment.</p>
 
 </div>
 </div></body></html>
