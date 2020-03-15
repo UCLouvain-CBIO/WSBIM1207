@@ -230,7 +230,10 @@ disseminate more than code and data. Docker containers for example
 enable to share the complete image of an operating system, including
 all system dependencies and software/data to repeat a complete
 analysis. These are useful tools, even though their aren't necessarily
-ideal, and beyond the aim of this course.
+ideal, and beyond the aim of this course. In the annex, (chapter
+\@ref(sec:anx)), we show how to use a pre-build course-specific
+RStudio cloud instance based on the [Renku](https://renkulab.io/)
+infrastructure.
 
 ## Additional exercises
 
