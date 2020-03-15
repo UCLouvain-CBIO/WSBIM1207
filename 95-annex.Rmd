@@ -104,14 +104,18 @@ knitr::include_graphics("./figs/renku_screen4.png")
 
 5. Click the `Environments` tab and the `New` button to create a
    runnable cloud environment that contains R, RStudio, and all
-   pre-installed packages. The building will about 50 minutes. You can
-   safely shut your computer down at this stage, as the environment is
-   build in the cloud.
+   pre-installed packages. At this stage, if you already see an
+   interactive environment (with a green tick box), you can
+   immediately skip to step 8. Otherwise, the building could take up
+   to 50 minutes (depending on caching). You can safely shut your
+   computer down at this stage, as the environment is build in the
+   cloud.
 
 
 ```{r, fig.cap = "The *Interactive Environment* tab.", echo = FALSE, message = FALSE}
 knitr::include_graphics("./figs/renku_screen5.png")
 ```
+
 
 ```{r, fig.cap = "The Renku environment is being build.", echo = FALSE, message = FALSE}
 knitr::include_graphics("./figs/renku_screen6.png")
