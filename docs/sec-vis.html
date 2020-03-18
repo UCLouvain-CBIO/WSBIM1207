@@ -14,14 +14,14 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2020-03-15" />
+<meta name="date" content="2020-03-18" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" } }
 });
 </script>
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
@@ -60,41 +60,67 @@ if(f.classList.contains('fa-plus-square')) {
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -159,73 +185,111 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Modify the aesthetics of an existing ggplot plot (including axis labels and color).</li>
 <li>Build complex and customized plots from data in a data frame.</li>
 </ul>
-<p>We start by loading the required packages. <strong><code>ggplot2</code></strong> is included in the <strong><code>tidyverse</code></strong> package.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">"tidyverse"</span>)</code></pre></div>
+<p>We start by loading the required packages. <strong><code>ggplot2</code></strong> is included
+in the <strong><code>tidyverse</code></strong> package.</p>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb373-1" data-line-number="1"><span class="kw">library</span>(<span class="st">"tidyverse"</span>)</a></code></pre></div>
 <p>If not still in the workspace, load the data we saved in the previous lesson.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys_complete &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">"data_output/surveys_complete.csv"</span>)</code></pre></div>
-<p>The <a href="https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf">Data Visualization Cheat Sheet</a> will cover the basics and more advanced features of <code>ggplot2</code> and will help, in addition to serve as a reminder, getting an overview of the many data representations available in the package.</p>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb374-1" data-line-number="1">surveys_complete &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">"data_output/surveys_complete.csv"</span>)</a></code></pre></div>
+<p>The <a href="https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf">Data Visualization Cheat
+Sheet</a>
+will cover the basics and more advanced features of <code>ggplot2</code> and will
+help, in addition to serve as a reminder, getting an overview of the
+many data representations available in the package.</p>
 <div id="plotting-with-ggplot2" class="section level2">
 <h2>
 <span class="header-section-number">5.1</span> Plotting with <strong><code>ggplot2</code></strong>
 </h2>
-<p><strong><code>ggplot2</code></strong> is a plotting package that makes it simple to create complex plots from data in a data frame. It provides a more programmatic interface for specifying what variables to plot, how they are displayed, and general visual properties. The theoretical foundation that supports the <code>ggplot2</code> is the <em>Grammar of Graphics</em> (<span class="citation">Wilkinson (<label for="tufte-mn-19" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-19" class="margin-toggle">2005<span class="marginnote">Wilkinson, Leland. 2005. <em>The Grammar of Graphics (Statistics and Computing)</em>. Berlin, Heidelberg: Springer-Verlag.</span>)</span>). Using this approach, we only need minimal changes if the underlying data change or if we decide to change from a bar plot to a scatterplot. This helps in creating publication quality plots with minimal amounts of adjustments and tweaking.</p>
-<p>There is a book about <code>ggplot2</code> (<span class="citation">Wickham (<label for="tufte-mn-20" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-20" class="margin-toggle">2016<span class="marginnote">Wickham, Hadley. 2016. <em>ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="http://ggplot2.org" class="uri">http://ggplot2.org</a>.</span>)</span>) that provides a good overview, but it is outdated. The 3rd edition is in preparation and will be <a href="https://ggplot2-book.org/">freely available onlin</a>. The <code>ggplot2</code> webpage (<a href="https://ggplot2.tidyverse.org" class="uri">https://ggplot2.tidyverse.org</a>) provides ample documentation.</p>
-<p><code>ggplot2</code> functions like data in the ‘long’ format, i.e., a column for every dimension, and a row for every observation. Well-structured data will save you lots of time when making figures with <code>ggplot2</code>.</p>
-<p>ggplot graphics are built step by step by adding new elements. Adding layers in this fashion allows for extensive flexibility and customization of plots.</p>
-<p>To build a ggplot, we will use the following basic template that can be used for different types of plots:</p>
+<p><strong><code>ggplot2</code></strong> is a plotting package that makes it simple to create
+complex plots from data in a data frame. It provides a more
+programmatic interface for specifying what variables to plot, how they
+are displayed, and general visual properties. The theoretical
+foundation that supports the <code>ggplot2</code> is the <em>Grammar of Graphics</em>
+(<span class="citation">Wilkinson (<label for="tufte-mn-19" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-19" class="margin-toggle">2005<span class="marginnote">Wilkinson, Leland. 2005. <em>The Grammar of Graphics (Statistics and Computing)</em>. Berlin, Heidelberg: Springer-Verlag.</span>)</span>). Using this approach, we only need minimal changes
+if the underlying data change or if we decide to change from a bar
+plot to a scatterplot. This helps in creating publication quality
+plots with minimal amounts of adjustments and tweaking.</p>
+<p>There is a book about <code>ggplot2</code> (<span class="citation">Wickham (<label for="tufte-mn-20" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-20" class="margin-toggle">2016<span class="marginnote">Wickham, Hadley. 2016. <em>ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="http://ggplot2.org" class="uri">http://ggplot2.org</a>.</span>)</span>) that provides a good
+overview, but it is outdated. The 3rd edition is in preparation and
+will be <a href="https://ggplot2-book.org/">freely available onlin</a>. The
+<code>ggplot2</code> webpage
+(<a href="https://ggplot2.tidyverse.org" class="uri">https://ggplot2.tidyverse.org</a>)
+provides ample documentation.</p>
+<p><code>ggplot2</code> functions like data in the ‘long’ format, i.e., a column for
+every dimension, and a row for every observation. Well-structured data
+will save you lots of time when making figures with <code>ggplot2</code>.</p>
+<p>ggplot graphics are built step by step by adding new elements. Adding layers in
+this fashion allows for extensive flexibility and customization of plots.</p>
+<p>To build a ggplot, we will use the following basic template that can
+be used for different types of plots:</p>
 <pre><code>ggplot(data = &lt;DATA&gt;, mapping = aes(&lt;MAPPINGS&gt;)) +  &lt;GEOM_FUNCTION&gt;()</code></pre>
 <ul>
-<li>use the <code>ggplot()</code> function and bind the plot to a specific data frame using the <code>data</code> argument</li>
+<li>use the <code>ggplot()</code> function and bind the plot to a specific data frame using the
+<code>data</code> argument</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete)</code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb376-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete)</a></code></pre></div>
 <ul>
 <li>define a mapping (using the aesthetic (<code>aes</code>) function), by selecting the variables to be plotted and specifying how to present them in the graph, e.g. as x/y positions or characteristics such as size, shape, color, etc.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length))</code></pre></div>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb377-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length))</a></code></pre></div>
 <ul>
 <li>
-<p>add ‘geoms’ – graphical representations of the data in the plot (points, lines, bars). <strong><code>ggplot2</code></strong> offers many different geoms; we will use some common ones today, including:</p>
-<ul>
-<li>
-<code>geom_point()</code> for scatter plots, dot plots, etc.</li>
-<li>
-<code>geom_boxplot()</code> for, well, boxplots!</li>
-<li>
-<code>geom_line()</code> for trend lines, time series, etc.</li>
-</ul>
+<p>add ‘geoms’ – graphical representations of the data in the plot (points,
+lines, bars). <strong><code>ggplot2</code></strong> offers many different geoms; we will use some
+common ones today, including:</p>
+<pre><code>* `geom_point()` for scatter plots, dot plots, etc.
+* `geom_boxplot()` for, well, boxplots!
+* `geom_line()` for trend lines, time series, etc.</code></pre>
 </li>
 </ul>
-<p>To add a geom to the plot use the <code>+</code> operator. Because we have two continuous variables, let’s use <code>geom_point()</code> first:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<p>To add a geom to the plot use the <code>+</code> operator. Because we have two continuous variables,
+let’s use <code>geom_point()</code> first:</p>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb379-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb379-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/first-ggplot-1.png" width="672"></p>
-<p>The <code>+</code> in the <strong><code>ggplot2</code></strong> package is particularly useful because it allows you to modify existing <code>ggplot</code> objects. This means you can easily set up plot templates and conveniently explore different types of plots, so the above plot can also be generated with code like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Assign plot to a variable</span>
-surveys_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete,
-                       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length))
-
-<span class="co"># Draw the plot</span>
-surveys_plot <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_point</span>()</code></pre></div>
+<p>The <code>+</code> in the <strong><code>ggplot2</code></strong> package is particularly useful because it
+allows you to modify existing <code>ggplot</code> objects. This means you can
+easily set up plot templates and conveniently explore different types
+of plots, so the above plot can also be generated with code like this:</p>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb380-1" data-line-number="1"><span class="co"># Assign plot to a variable</span></a>
+<a class="sourceLine" id="cb380-2" data-line-number="2">surveys_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete,</a>
+<a class="sourceLine" id="cb380-3" data-line-number="3">                       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length))</a>
+<a class="sourceLine" id="cb380-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb380-5" data-line-number="5"><span class="co"># Draw the plot</span></a>
+<a class="sourceLine" id="cb380-6" data-line-number="6">surveys_plot <span class="op">+</span></a>
+<a class="sourceLine" id="cb380-7" data-line-number="7"><span class="st">    </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <p><strong>Notes</strong></p>
 <ul>
-<li>Anything you put in the <code>ggplot()</code> function can be seen by any geom layers that you add (i.e., these are universal plot settings). This includes the x- and y-axis mapping you set up in <code>aes()</code>.</li>
-<li>You can also specify mappings for a given geom independently of the mappings defined globally in the <code>ggplot()</code> function.</li>
-<li>The <code>+</code> sign used to add new layers must be placed at the end of the line containing the <em>previous</em> layer. If, instead, the <code>+</code> sign is added at the beginning of the line containing the new layer, <strong><code>ggplot2</code></strong> will not add the new layer and will return an error message.</li>
+<li>Anything you put in the <code>ggplot()</code> function can be seen by any geom layers
+that you add (i.e., these are universal plot settings). This includes the x- and
+y-axis mapping you set up in <code>aes()</code>.</li>
+<li>You can also specify mappings for a given geom independently of the
+mappings defined globally in the <code>ggplot()</code> function.</li>
+<li>The <code>+</code> sign used to add new layers must be placed at the end of the line containing
+the <em>previous</em> layer. If, instead, the <code>+</code> sign is added at the beginning of the line
+containing the new layer, <strong><code>ggplot2</code></strong> will not add the new layer and will return an
+error message.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This is the correct syntax for adding layers</span>
-surveys_plot <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>()
-
-<span class="co"># This will not add the new layer and will return an error message</span>
-surveys_plot
-  <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb381-1" data-line-number="1"><span class="co"># This is the correct syntax for adding layers</span></a>
+<a class="sourceLine" id="cb381-2" data-line-number="2">surveys_plot <span class="op">+</span></a>
+<a class="sourceLine" id="cb381-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a>
+<a class="sourceLine" id="cb381-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb381-5" data-line-number="5"><span class="co"># This will not add the new layer and will return an error message</span></a>
+<a class="sourceLine" id="cb381-6" data-line-number="6">surveys_plot</a>
+<a class="sourceLine" id="cb381-7" data-line-number="7">  <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <div class="question">
 <p class="question-begin">
 ► Question
 </p>
 <div class="question-body">
-<p>Scatter plots can be useful exploratory tools for small datasets. For data sets with large numbers of observations, such as the <code>surveys_complete</code> data set, overplotting of points can be a limitation of scatter plots. One strategy for handling such settings is to use hexagonal binning of observations. The plot space is tessellated into hexagons. Each hexagon is assigned a color based on the number of observations that fall within its boundaries. To use hexagonal binning <code>ggplot2</code>, first install the R package <code>hexbin</code> from CRAN and load it.</p>
+<p>Scatter plots can be useful exploratory tools for small datasets. For
+data sets with large numbers of observations, such as the
+<code>surveys_complete</code> data set, overplotting of points can be a
+limitation of scatter plots. One strategy for handling such settings
+is to use hexagonal binning of observations. The plot space is
+tessellated into hexagons. Each hexagon is assigned a color based on
+the number of observations that fall within its boundaries. To use
+hexagonal binning <code>ggplot2</code>, first install the R package <code>hexbin</code> from
+CRAN and load it.</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -236,8 +300,8 @@ surveys_plot
 ► Solution<span id="sol-start-32" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-32', 'sol-start-32')"></span>
 </p>
 <div id="sol-body-32" class="solution-body" style="display: none;">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"hexbin"</span>)
-<span class="kw">library</span>(<span class="st">"hexbin"</span>)</code></pre></div>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb382-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">"hexbin"</span>)</a>
+<a class="sourceLine" id="cb382-2" data-line-number="2"><span class="kw">library</span>(<span class="st">"hexbin"</span>)</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -249,9 +313,11 @@ surveys_plot
 </p>
 <div class="question-body">
 <p>Then use the <code>geom_hex()</code> function</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys_plot <span class="op">+</span>
-<span class="st"> </span><span class="kw">geom_hex</span>()</code></pre></div>
-<p>What are the relative strengths and weaknesses of a hexagonal bin plot compared to a scatter plot? Examine the above scatter plot and compare it with the hexagonal bin plot that you created.</p>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb383-1" data-line-number="1">surveys_plot <span class="op">+</span></a>
+<a class="sourceLine" id="cb383-2" data-line-number="2"><span class="st"> </span><span class="kw">geom_hex</span>()</a></code></pre></div>
+<p>What are the relative strengths and weaknesses of a hexagonal bin plot
+compared to a scatter plot? Examine the above scatter plot and compare
+it with the hexagonal bin plot that you created.</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -261,36 +327,40 @@ surveys_plot
 <div id="building-your-plots-iteratively" class="section level2">
 <h2>
 <span class="header-section-number">5.2</span> Building your plots iteratively</h2>
-<p>Building plots with <strong><code>ggplot2</code></strong> is typically an iterative process. We start by defining the dataset we’ll use, lay out the axes, and choose a geom:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_point</span>()</code></pre></div>
+<p>Building plots with <strong><code>ggplot2</code></strong> is typically an iterative process. We start by
+defining the dataset we’ll use, lay out the axes, and choose a geom:</p>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb384-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb384-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/create-ggplot-object-1.png" width="672"></p>
-<p>Then, we start modifying this plot to extract more information from it. For instance, we can add transparency (<code>alpha</code>) to avoid overplotting:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>)</code></pre></div>
+<p>Then, we start modifying this plot to extract more information from it. For
+instance, we can add transparency (<code>alpha</code>) to avoid overplotting:</p>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb385-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb385-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>)</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/adding-transparency-1.png" width="672"></p>
 <p>We can also add colors for all the points:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>, <span class="dt">color =</span> <span class="st">"blue"</span>)</code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb386-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb386-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>, <span class="dt">color =</span> <span class="st">"blue"</span>)</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/adding-colors-1.png" width="672"></p>
 <p>Or to color each species in the plot differently, you could use a vector as an input to the argument <strong>color</strong>. <strong><code>ggplot2</code></strong> will provide a different color corresponding to different values in the vector. Here is an example where we color with <strong><code>species_id</code></strong>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>, <span class="kw">aes</span>(<span class="dt">color =</span> species_id))</code></pre></div>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb387-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb387-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>, <span class="kw">aes</span>(<span class="dt">color =</span> species_id))</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/color-by-species1-1.png" width="672"></p>
 <p>We can also specify the colors directly inside the mapping provided in the <code>ggplot()</code> function. This will be seen by any geom layers and the mapping will be determined by the x- and y-axis set up in <code>aes()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length, <span class="dt">color =</span> species_id)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>)</code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb388-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length, <span class="dt">color =</span> species_id)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb388-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>)</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/color-by-species2-1.png" width="672"></p>
 <p>Notice that we can change the geom layer and colors will be still determined by <strong><code>species_id</code></strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length, <span class="dt">color =</span> species_id)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>)</code></pre></div>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb389-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length, <span class="dt">color =</span> species_id)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb389-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>)</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/color-by-species3-1.png" width="672"></p>
 <div class="question">
 <p class="question-begin">
 ► Question
 </p>
 <div class="question-body">
-<p>Use what you just learned to create a scatter plot of <code>weight</code> over <code>species_id</code> with the plot types showing in different colors. Is this a good way to show this type of data?</p>
+<p>Use what you just learned to create a scatter plot of <code>weight</code> over
+<code>species_id</code> with the plot types showing in different colors. Is this a good
+way to show this type of data?</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -301,8 +371,8 @@ surveys_plot
 ► Solution<span id="sol-start-33" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-33', 'sol-start-33')"></span>
 </p>
 <div id="sol-body-33" class="solution-body" style="display: none;">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> species_id, <span class="dt">y =</span> weight)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> plot_type))</code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb390-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> species_id, <span class="dt">y =</span> weight)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb390-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> plot_type))</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-194-1.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -314,32 +384,47 @@ surveys_plot
 <h2>
 <span class="header-section-number">5.3</span> Boxplot</h2>
 <p>We can use boxplots to visualize the distribution of weight within each species:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> species_id, <span class="dt">y =</span> weight)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_boxplot</span>()</code></pre></div>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb391-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> species_id, <span class="dt">y =</span> weight)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb391-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/boxplot-1.png" width="672"></p>
-<p>By adding points to boxplot, we can have a better idea of the number of measurements and of their distribution:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> species_id, <span class="dt">y =</span> weight)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">alpha =</span> <span class="dv">0</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> <span class="fl">0.3</span>, <span class="dt">color =</span> <span class="st">"tomato"</span>)</code></pre></div>
+<p>By adding points to boxplot, we can have a better idea of the number of
+measurements and of their distribution:</p>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb392-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> species_id, <span class="dt">y =</span> weight)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb392-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">alpha =</span> <span class="dv">0</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb392-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> <span class="fl">0.3</span>, <span class="dt">color =</span> <span class="st">"tomato"</span>)</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/boxplot-with-points-1.png" width="672"></p>
-<p>Notice how the boxplot layer is behind the jitter layer? What do you need to change in the code to put the boxplot in front of the points such that it’s not hidden?</p>
+<p>Notice how the boxplot layer is behind the jitter layer? What do you
+need to change in the code to put the boxplot in front of the points
+such that it’s not hidden?</p>
 <div class="question">
 <p class="question-begin">
 ► Question
 </p>
 <div class="question-body">
-<p>Boxplots are useful summaries, but hide the <em>shape</em> of the distribution. For example, if the distribution is bimodal, we would not see it in a boxplot. An alternative to the boxplot is the violin plot, where the shape (of the density of points) is drawn.</p>
+<p>Boxplots are useful summaries, but hide the <em>shape</em> of the
+distribution. For example, if the distribution is bimodal, we would
+not see it in a boxplot. An alternative to the boxplot is the violin
+plot, where the shape (of the density of points) is drawn.</p>
 <ul>
 <li>Replace the box plot with a violin plot; see <code>geom_violin()</code>.</li>
 </ul>
-<p>In many types of data, it is important to consider the <em>scale</em> of the observations. For example, it may be worth changing the scale of the axis to better distribute the observations in the space of the plot. Changing the scale of the axes is done similarly to adding/modifying other components (i.e., by incrementally adding commands). Try making these modifications:</p>
+<p>In many types of data, it is important to consider the <em>scale</em> of the
+observations. For example, it may be worth changing the scale of the
+axis to better distribute the observations in the space of the
+plot. Changing the scale of the axes is done similarly to
+adding/modifying other components (i.e., by incrementally adding
+commands). Try making these modifications:</p>
 <ul>
 <li>Represent weight on the log<sub>10</sub> scale; see <code>scale_y_log10()</code>.</li>
 </ul>
-<p>So far, we’ve looked at the distribution of weight within species. Try making a new plot to explore the distribution of another variable within each species.</p>
+<p>So far, we’ve looked at the distribution of weight within species. Try
+making a new plot to explore the distribution of another variable
+within each species.</p>
 <ul>
-<li><p>Create a boxplot for <code>hindfoot_length</code>. Overlay the boxplot layer on a jitter layer to show actual measurements.</p></li>
-<li><p>Add color to the data points on your boxplot according to the plot from which the sample was taken (<code>plot_id</code>).</p></li>
+<li><p>Create a boxplot for <code>hindfoot_length</code>. Overlay the boxplot layer on a jitter
+layer to show actual measurements.</p></li>
+<li><p>Add color to the data points on your boxplot according to the plot from which
+the sample was taken (<code>plot_id</code>).</p></li>
 </ul>
 <p><em>Hint:</em> Check the class for <code>plot_id</code>. Consider changing the class of <code>plot_id</code> from integer to factor. Why does this change how R makes the graph?</p>
 <p class="question-end">
@@ -351,57 +436,78 @@ surveys_plot
 <div id="plotting-time-series-data" class="section level2">
 <h2>
 <span class="header-section-number">5.4</span> Plotting time series data</h2>
-<p>Let’s calculate number of counts per year for each species. First we need to group the data and count records within each group:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">yearly_counts &lt;-<span class="st"> </span>surveys_complete <span class="op">%&gt;%</span>
-<span class="st">                 </span><span class="kw">count</span>(year, species_id)</code></pre></div>
-<p>Time series data can be visualized as a line plot with years on the x axis and counts on the y axis:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n)) <span class="op">+</span>
-<span class="st">     </span><span class="kw">geom_line</span>()</code></pre></div>
+<p>Let’s calculate number of counts per year for each species. First we need
+to group the data and count records within each group:</p>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb393-1" data-line-number="1">yearly_counts &lt;-<span class="st"> </span>surveys_complete <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb393-2" data-line-number="2"><span class="st">                 </span><span class="kw">count</span>(year, species_id)</a></code></pre></div>
+<p>Time series data can be visualized as a line plot with years on the x axis and counts
+on the y axis:</p>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb394-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb394-2" data-line-number="2"><span class="st">     </span><span class="kw">geom_line</span>()</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/first-time-series-1.png" width="672"></p>
-<p>Unfortunately, this does not work because we plotted data for all the species together. We need to tell ggplot to draw a line for each species by modifying the aesthetic function to include <code>group = species_id</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">group =</span> species_id)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_line</span>()</code></pre></div>
+<p>Unfortunately, this does not work because we plotted data for all the species
+together. We need to tell ggplot to draw a line for each species by modifying
+the aesthetic function to include <code>group = species_id</code>:</p>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">group =</span> species_id)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb395-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_line</span>()</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/time-series-by-species-1.png" width="672"></p>
 <p>We will be able to distinguish species in the plot if we add colors (using <code>color</code> also automatically groups the data):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> species_id)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_line</span>()</code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb396-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> species_id)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb396-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_line</span>()</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/time-series-with-colors-1.png" width="672"></p>
 </div>
 <div id="faceting" class="section level2">
 <h2>
 <span class="header-section-number">5.5</span> Faceting</h2>
-<p><strong><code>ggplot2</code></strong> has a special technique called <em>faceting</em> that allows the user to split one plot into multiple plots based on a factor included in the dataset. We will use it to make a time series plot for each species:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id)</code></pre></div>
+<p><strong><code>ggplot2</code></strong> has a special technique called <em>faceting</em> that allows the user to split one
+plot into multiple plots based on a factor included in the dataset. We will use it to
+make a time series plot for each species:</p>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb397-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb397-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb397-3" data-line-number="3"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id)</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/first-facet-1.png" width="672"></p>
-<p>Now we would like to split the line in each plot by the sex of each individual measured. To do that we need to make counts in the data frame grouped by <code>year</code>, <code>species_id</code>, and <code>sex</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> yearly_sex_counts &lt;-<span class="st"> </span>surveys_complete <span class="op">%&gt;%</span>
-<span class="st">                      </span><span class="kw">count</span>(year, species_id, sex)</code></pre></div>
+<p>Now we would like to split the line in each plot by the sex of each individual
+measured. To do that we need to make counts in the data frame grouped by <code>year</code>,
+<code>species_id</code>, and <code>sex</code>:</p>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb398-1" data-line-number="1"> yearly_sex_counts &lt;-<span class="st"> </span>surveys_complete <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb398-2" data-line-number="2"><span class="st">                      </span><span class="kw">count</span>(year, species_id, sex)</a></code></pre></div>
 <p>We can now make the faceted plot by splitting further by sex using <code>color</code> (within a single plot):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> sex)) <span class="op">+</span>
-<span class="st">     </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">     </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id)</code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" data-line-number="1"> <span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> sex)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb399-2" data-line-number="2"><span class="st">     </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb399-3" data-line-number="3"><span class="st">     </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id)</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/facet-by-species-and-sex-1.png" width="672"></p>
-<p>Usually plots with white background look more readable when printed. We can set the background to white using the function <code>theme_bw()</code>. Additionally, you can remove the grid:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> sex)) <span class="op">+</span>
-<span class="st">     </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">     </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id) <span class="op">+</span>
-<span class="st">     </span><span class="kw">theme_bw</span>() <span class="op">+</span>
-<span class="st">     </span><span class="kw">theme</span>(<span class="dt">panel.grid =</span> <span class="kw">element_blank</span>())</code></pre></div>
+<p>Usually plots with white background look more readable when printed. We can set
+the background to white using the function <code>theme_bw()</code>. Additionally, you can remove
+the grid:</p>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb400-1" data-line-number="1"> <span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> sex)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb400-2" data-line-number="2"><span class="st">     </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb400-3" data-line-number="3"><span class="st">     </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id) <span class="op">+</span></a>
+<a class="sourceLine" id="cb400-4" data-line-number="4"><span class="st">     </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb400-5" data-line-number="5"><span class="st">     </span><span class="kw">theme</span>(<span class="dt">panel.grid =</span> <span class="kw">element_blank</span>())</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/facet-by-species-and-sex-white-bg-1.png" width="672"></p>
 </div>
 <div id="ggplot2-themes" class="section level2">
 <h2>
 <span class="header-section-number">5.6</span> <strong><code>ggplot2</code></strong> themes</h2>
-<p>In addition to <code>theme_bw()</code>, which changes the plot background to white, <strong><code>ggplot2</code></strong> comes with several other themes which can be useful to quickly change the look of your visualization. The complete list of themes is available at <a href="http://docs.ggplot2.org/current/ggtheme.html" class="uri">http://docs.ggplot2.org/current/ggtheme.html</a>. <code>theme_minimal()</code> and <code>theme_light()</code> are popular, and <code>theme_void()</code> can be useful as a starting point to create a new hand-crafted theme.</p>
-<p>The <a href="https://jrnold.github.io/ggthemes/reference/index.html">ggthemes</a> package provides a wide variety of options (including an Excel 2003 theme). The <a href="https://www.ggplot2-exts.org"><strong><code>ggplot2</code></strong> extensions website</a> provides a list of packages that extend the capabilities of <strong><code>ggplot2</code></strong>, including additional themes.</p>
+<p>In addition to <code>theme_bw()</code>, which changes the plot background to white, <strong><code>ggplot2</code></strong>
+comes with several other themes which can be useful to quickly change the look
+of your visualization. The complete list of themes is available
+at <a href="http://docs.ggplot2.org/current/ggtheme.html" class="uri">http://docs.ggplot2.org/current/ggtheme.html</a>. <code>theme_minimal()</code> and
+<code>theme_light()</code> are popular, and <code>theme_void()</code> can be useful as a starting
+point to create a new hand-crafted theme.</p>
+<p>The
+<a href="https://jrnold.github.io/ggthemes/reference/index.html">ggthemes</a> package
+provides a wide variety of options (including an Excel 2003 theme).
+The <a href="https://www.ggplot2-exts.org"><strong><code>ggplot2</code></strong> extensions website</a> provides a list
+of packages that extend the capabilities of <strong><code>ggplot2</code></strong>, including additional
+themes.</p>
 <div class="question">
 <p class="question-begin">
 ► Question
 </p>
 <div class="question-body">
-<p>Use what you just learned to create a plot that depicts how the average weight of each species changes through the years.</p>
+<p>Use what you just learned to create a plot that depicts how the average weight
+of each species changes through the years.</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -412,91 +518,114 @@ surveys_plot
 ► Solution<span id="sol-start-34" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-34', 'sol-start-34')"></span>
 </p>
 <div id="sol-body-34" class="solution-body" style="display: none;">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">yearly_weight &lt;-<span class="st"> </span>surveys_complete <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">group_by</span>(year, species_id) <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">summarize</span>(<span class="dt">avg_weight =</span> <span class="kw">mean</span>(weight))
-<span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_weight, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>avg_weight)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id) <span class="op">+</span>
-<span class="st">    </span><span class="kw">theme_bw</span>()</code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" data-line-number="1">yearly_weight &lt;-<span class="st"> </span>surveys_complete <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb401-2" data-line-number="2"><span class="st">    </span><span class="kw">group_by</span>(year, species_id) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb401-3" data-line-number="3"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">avg_weight =</span> <span class="kw">mean</span>(weight))</a>
+<a class="sourceLine" id="cb401-4" data-line-number="4"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_weight, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>avg_weight)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb401-5" data-line-number="5"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb401-6" data-line-number="6"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id) <span class="op">+</span></a>
+<a class="sourceLine" id="cb401-7" data-line-number="7"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/average-weight-time-series-1.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
 </div>
-<p>The <code>facet_wrap</code> geometry extracts plots into an arbitrary number of dimensions to allow them to cleanly fit on one page. On the other hand, the <code>facet_grid</code> geometry allows you to explicitly specify how you want your plots to be arranged via formula notation (<code>rows ~ columns</code>; a <code>.</code> can be used as a placeholder that indicates only one row or column).</p>
-<p>Let’s modify the previous plot to compare how the weights of males and females has changed through time:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># One column, facet by rows</span>
-yearly_sex_weight &lt;-<span class="st"> </span>surveys_complete <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">group_by</span>(year, sex, species_id) <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">summarize</span>(<span class="dt">avg_weight =</span> <span class="kw">mean</span>(weight))
-<span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_weight,
-       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> avg_weight, <span class="dt">color =</span> species_id)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw">facet_grid</span>(sex <span class="op">~</span><span class="st"> </span>.)</code></pre></div>
+<p>The <code>facet_wrap</code> geometry extracts plots into an arbitrary number of dimensions
+to allow them to cleanly fit on one page. On the other hand, the <code>facet_grid</code>
+geometry allows you to explicitly specify how you want your plots to be
+arranged via formula notation (<code>rows ~ columns</code>; a <code>.</code> can be used as
+a placeholder that indicates only one row or column).</p>
+<p>Let’s modify the previous plot to compare how the weights of males and females
+has changed through time:</p>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb402-1" data-line-number="1"><span class="co"># One column, facet by rows</span></a>
+<a class="sourceLine" id="cb402-2" data-line-number="2">yearly_sex_weight &lt;-<span class="st"> </span>surveys_complete <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb402-3" data-line-number="3"><span class="st">    </span><span class="kw">group_by</span>(year, sex, species_id) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb402-4" data-line-number="4"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">avg_weight =</span> <span class="kw">mean</span>(weight))</a>
+<a class="sourceLine" id="cb402-5" data-line-number="5"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_weight,</a>
+<a class="sourceLine" id="cb402-6" data-line-number="6">       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> avg_weight, <span class="dt">color =</span> species_id)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb402-7" data-line-number="7"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb402-8" data-line-number="8"><span class="st">    </span><span class="kw">facet_grid</span>(sex <span class="op">~</span><span class="st"> </span>.)</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/average-weight-time-facet-sex-rows-1.png" width="672"></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># One row, facet by column</span>
-<span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_weight,
-       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> avg_weight, <span class="dt">color =</span> species_id)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>sex)</code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" data-line-number="1"><span class="co"># One row, facet by column</span></a>
+<a class="sourceLine" id="cb403-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_weight,</a>
+<a class="sourceLine" id="cb403-3" data-line-number="3">       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> avg_weight, <span class="dt">color =</span> species_id)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb403-4" data-line-number="4"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb403-5" data-line-number="5"><span class="st">    </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>sex)</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/average-weight-time-facet-sex-columns-1.png" width="672"></p>
 </div>
 <div id="customisation" class="section level2">
 <h2>
 <span class="header-section-number">5.7</span> Customisation</h2>
-<p>Take a look at the <a href="https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf"><strong><code>ggplot2</code></strong> cheat sheet</a>, and think of ways you could improve the plot.</p>
-<p>Now, let’s change names of axes to something more informative than ‘year’ and ‘n’ and add a title to the figure:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> sex)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id) <span class="op">+</span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">"Observed species in time"</span>,
-         <span class="dt">x =</span> <span class="st">"Year of observation"</span>,
-         <span class="dt">y =</span> <span class="st">"Number of species"</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">theme_bw</span>()</code></pre></div>
+<p>Take a look at the <a href="https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf"><strong><code>ggplot2</code></strong> cheat
+sheet</a>,
+and think of ways you could improve the plot.</p>
+<p>Now, let’s change names of axes to something more informative than ‘year’
+and ‘n’ and add a title to the figure:</p>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb404-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> sex)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb404-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb404-3" data-line-number="3"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id) <span class="op">+</span></a>
+<a class="sourceLine" id="cb404-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">"Observed species in time"</span>,</a>
+<a class="sourceLine" id="cb404-5" data-line-number="5">         <span class="dt">x =</span> <span class="st">"Year of observation"</span>,</a>
+<a class="sourceLine" id="cb404-6" data-line-number="6">         <span class="dt">y =</span> <span class="st">"Number of species"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb404-7" data-line-number="7"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/number-species-year-with-right-labels-1.png" width="672"></p>
-<p>The axes have more informative names, but their readability can be improved by increasing the font size:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> sex)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id) <span class="op">+</span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">"Observed species in time"</span>,
-        <span class="dt">x =</span> <span class="st">"Year of observation"</span>,
-        <span class="dt">y =</span> <span class="st">"Number of species"</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw">theme</span>(<span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>))</code></pre></div>
+<p>The axes have more informative names, but their readability can be improved by
+increasing the font size:</p>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> sex)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb405-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb405-3" data-line-number="3"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id) <span class="op">+</span></a>
+<a class="sourceLine" id="cb405-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">"Observed species in time"</span>,</a>
+<a class="sourceLine" id="cb405-5" data-line-number="5">        <span class="dt">x =</span> <span class="st">"Year of observation"</span>,</a>
+<a class="sourceLine" id="cb405-6" data-line-number="6">        <span class="dt">y =</span> <span class="st">"Number of species"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb405-7" data-line-number="7"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb405-8" data-line-number="8"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>))</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/number-species-year-with-right-labels-xfont-size-1.png" width="672"></p>
-<p>Note that it is also possible to change the fonts of your plots. If you are on Windows, you may have to install the <a href="https://github.com/wch/extrafont"><strong><code>extrafont</code></strong> package</a>, and follow the instructions included in the README for this package.</p>
-<p>After our manipulations, you may notice that the values on the x-axis are still not properly readable. Let’s change the orientation of the labels and adjust them vertically and horizontally so they don’t overlap. You can use a 90-degree angle, or experiment to find the appropriate angle for diagonally oriented labels:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> sex)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id) <span class="op">+</span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">"Observed species in time"</span>,
-        <span class="dt">x =</span> <span class="st">"Year of observation"</span>,
-        <span class="dt">y =</span> <span class="st">"Number of species"</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">colour =</span> <span class="st">"grey20"</span>, <span class="dt">size =</span> <span class="dv">12</span>, <span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="fl">0.5</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>),
-                        <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">colour =</span> <span class="st">"grey20"</span>, <span class="dt">size =</span> <span class="dv">12</span>),
-          <span class="dt">text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>))</code></pre></div>
+<p>Note that it is also possible to change the fonts of your plots. If you are on
+Windows, you may have to install
+the <a href="https://github.com/wch/extrafont"><strong><code>extrafont</code></strong> package</a>, and follow the
+instructions included in the README for this package.</p>
+<p>After our manipulations, you may notice that the values on the x-axis are still not
+properly readable. Let’s change the orientation of the labels and adjust them
+vertically and horizontally so they don’t overlap. You can use a 90-degree
+angle, or experiment to find the appropriate angle for diagonally oriented
+labels:</p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb406-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> sex)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb406-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb406-3" data-line-number="3"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id) <span class="op">+</span></a>
+<a class="sourceLine" id="cb406-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">"Observed species in time"</span>,</a>
+<a class="sourceLine" id="cb406-5" data-line-number="5">        <span class="dt">x =</span> <span class="st">"Year of observation"</span>,</a>
+<a class="sourceLine" id="cb406-6" data-line-number="6">        <span class="dt">y =</span> <span class="st">"Number of species"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb406-7" data-line-number="7"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb406-8" data-line-number="8"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">colour =</span> <span class="st">"grey20"</span>, <span class="dt">size =</span> <span class="dv">12</span>, <span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="fl">0.5</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>),</a>
+<a class="sourceLine" id="cb406-9" data-line-number="9">                        <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">colour =</span> <span class="st">"grey20"</span>, <span class="dt">size =</span> <span class="dv">12</span>),</a>
+<a class="sourceLine" id="cb406-10" data-line-number="10">          <span class="dt">text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>))</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/number-species-year-with-theme-1.png" width="672"></p>
-<p>If you like the changes you created better than the default theme, you can save them as an object to be able to easily apply them to other plots you may create:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grey_theme &lt;-<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">colour =</span> <span class="st">"grey20"</span>, <span class="dt">size =</span> <span class="dv">12</span>, <span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="fl">0.5</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>),
-                          <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">colour =</span> <span class="st">"grey20"</span>, <span class="dt">size =</span> <span class="dv">12</span>),
-                          <span class="dt">text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>))
-<span class="kw">ggplot</span>(surveys_complete, <span class="kw">aes</span>(<span class="dt">x =</span> species_id, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
-<span class="st">    </span>grey_theme</code></pre></div>
+<p>If you like the changes you created better than the default theme, you can save them as
+an object to be able to easily apply them to other plots you may create:</p>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" data-line-number="1">grey_theme &lt;-<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">colour =</span> <span class="st">"grey20"</span>, <span class="dt">size =</span> <span class="dv">12</span>, <span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="fl">0.5</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>),</a>
+<a class="sourceLine" id="cb407-2" data-line-number="2">                          <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">colour =</span> <span class="st">"grey20"</span>, <span class="dt">size =</span> <span class="dv">12</span>),</a>
+<a class="sourceLine" id="cb407-3" data-line-number="3">                          <span class="dt">text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>))</a>
+<a class="sourceLine" id="cb407-4" data-line-number="4"><span class="kw">ggplot</span>(surveys_complete, <span class="kw">aes</span>(<span class="dt">x =</span> species_id, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb407-5" data-line-number="5"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb407-6" data-line-number="6"><span class="st">    </span>grey_theme</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/number-species-year-with-right-labels-xfont-orientation-1.png" width="672"></p>
 <div class="question">
 <p class="question-begin">
 ► Question
 </p>
 <div class="question-body">
-<p>With all of this information in hand, please take another five minutes to either improve one of the plots generated in this exercise or create a beautiful graph of your own. Use the RStudio <a href="https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf"><strong><code>ggplot2</code></strong> cheat sheet</a> for inspiration. Here are some ideas:</p>
+<p>With all of this information in hand, please take another five minutes
+to either improve one of the plots generated in this exercise or
+create a beautiful graph of your own. Use the RStudio <a href="https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf"><strong><code>ggplot2</code></strong>
+cheat
+sheet</a>
+for inspiration. Here are some ideas:</p>
 <ul>
 <li>See if you can change the thickness of the lines.</li>
 <li>Can you find a way to change the name of the legend? What about its labels?</li>
-<li>Try using a different color palette (see <a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/" class="uri">http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/</a>).</li>
+<li>Try using a different color palette (see
+<a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/" class="uri">http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/</a>).</li>
 </ul>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -507,77 +636,100 @@ yearly_sex_weight &lt;-<span class="st"> </span>surveys_complete <span class="op
 <div id="arranging-plots" class="section level2">
 <h2>
 <span class="header-section-number">5.8</span> Arranging plots</h2>
-<p>Faceting is a great tool for splitting one plot into multiple plots, but sometimes you may want to produce a single figure that contains multiple plots using different variables or even different data frames. The <strong><code>gridExtra</code></strong> package allows us to combine separate ggplots into a single figure using <code>grid.arrange()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"gridExtra"</span>)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gridExtra)
-
-spp_weight_boxplot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete,
-                             <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> species_id, <span class="dt">y =</span> weight)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Species"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"Weight (g)"</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_y_log10</span>()
-
-spp_count_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_counts,
-                         <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> species_id)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Year"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"Abundance"</span>)
-
-<span class="kw">grid.arrange</span>(spp_weight_boxplot, spp_count_plot, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">widths =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>))</code></pre></div>
+<p>Faceting is a great tool for splitting one plot into multiple plots,
+but sometimes you may want to produce a single figure that contains
+multiple plots using different variables or even different data
+frames. The <strong><code>gridExtra</code></strong> package allows us to combine separate
+ggplots into a single figure using <code>grid.arrange()</code>:</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">"gridExtra"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" data-line-number="1"><span class="kw">library</span>(gridExtra)</a>
+<a class="sourceLine" id="cb409-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb409-3" data-line-number="3">spp_weight_boxplot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete,</a>
+<a class="sourceLine" id="cb409-4" data-line-number="4">                             <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> species_id, <span class="dt">y =</span> weight)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-6" data-line-number="6"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Species"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"Weight (g)"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-7" data-line-number="7"><span class="st">  </span><span class="kw">scale_y_log10</span>()</a>
+<a class="sourceLine" id="cb409-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb409-9" data-line-number="9">spp_count_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_counts,</a>
+<a class="sourceLine" id="cb409-10" data-line-number="10">                         <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> species_id)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-12" data-line-number="12"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Year"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"Abundance"</span>)</a>
+<a class="sourceLine" id="cb409-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb409-14" data-line-number="14"><span class="kw">grid.arrange</span>(spp_weight_boxplot, spp_count_plot, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">widths =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>))</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/gridarrange-example-1.png" width="960"></p>
-<p>In addition to the <code>ncol</code> and <code>nrow</code> arguments, used to make simple arrangements, there are tools for <a href="https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html">constructing more complex layouts</a>.</p>
-<p>Another, more recent, and very elegant package to arrache plots produced with <code>ggplot2</code> is the <a href="https://github.com/thomasp85/patchwork"><strong>patchwork</strong></a> package. Before composing plots, we remove the legend altogether by updating the theme.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">spp_count_plot &lt;-<span class="st"> </span>spp_count_plot <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)
-<span class="kw">library</span>(<span class="st">"patchwork"</span>)
-spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot</code></pre></div>
+<p>In addition to the <code>ncol</code> and <code>nrow</code> arguments, used to make simple
+arrangements, there are tools for <a href="https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html">constructing more complex
+layouts</a>.</p>
+<p>Another, more recent, and very elegant package to arrache plots
+produced with <code>ggplot2</code> is the
+<a href="https://github.com/thomasp85/patchwork"><strong>patchwork</strong></a>
+package. Before composing plots, we remove the legend altogether by
+updating the theme.</p>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" data-line-number="1">spp_count_plot &lt;-<span class="st"> </span>spp_count_plot <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</a>
+<a class="sourceLine" id="cb410-2" data-line-number="2"><span class="kw">library</span>(<span class="st">"patchwork"</span>)</a>
+<a class="sourceLine" id="cb410-3" data-line-number="3">spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-197-1.png" width="672"></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot <span class="op">+</span><span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>)</code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" data-line-number="1">spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot <span class="op">+</span><span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>)</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-198-1.png" width="672"></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">spp_weight_boxplot <span class="op">/</span><span class="st"> </span>spp_count_plot</code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" data-line-number="1">spp_weight_boxplot <span class="op">/</span><span class="st"> </span>spp_count_plot</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-199-1.png" width="672"></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">spp_weight_boxplot <span class="op">+</span>
-<span class="st"> </span>(spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot) <span class="op">+</span>
-<span class="st"> </span>spp_count_plot <span class="op">+</span>
-<span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>)</code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" data-line-number="1">spp_weight_boxplot <span class="op">+</span></a>
+<a class="sourceLine" id="cb413-2" data-line-number="2"><span class="st"> </span>(spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot) <span class="op">+</span></a>
+<a class="sourceLine" id="cb413-3" data-line-number="3"><span class="st"> </span>spp_count_plot <span class="op">+</span></a>
+<a class="sourceLine" id="cb413-4" data-line-number="4"><span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>)</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-200-1.png" width="672"></p>
 </div>
 <div id="exporting-plots" class="section level2">
 <h2>
 <span class="header-section-number">5.9</span> Exporting plots</h2>
-<p>After creating your plot, you can save it to a file in your favorite format. The Export tab in the <strong>Plot</strong> pane in RStudio will save your plots at low resolution, which will not be accepted by many journals and will not scale well for posters.</p>
-<p>Instead, use the <code>ggsave()</code> function, which allows you easily change the dimension and resolution of your plot by adjusting the appropriate arguments (<code>width</code>, <code>height</code> and <code>dpi</code>).</p>
+<p>After creating your plot, you can save it to a file in your favorite
+format. The Export tab in the <strong>Plot</strong> pane in RStudio will save your
+plots at low resolution, which will not be accepted by many journals
+and will not scale well for posters.</p>
+<p>Instead, use the <code>ggsave()</code> function, which allows you easily change
+the dimension and resolution of your plot by adjusting the appropriate
+arguments (<code>width</code>, <code>height</code> and <code>dpi</code>).</p>
 <p>Make sure you have the <code>fig_output/</code> folder in your working directory.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_counts,
-                  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> sex)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id) <span class="op">+</span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">"Observed species in time"</span>,
-        <span class="dt">x =</span> <span class="st">"Year of observation"</span>,
-        <span class="dt">y =</span> <span class="st">"Number of species"</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">colour =</span> <span class="st">"grey20"</span>, <span class="dt">size =</span> <span class="dv">12</span>, <span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="fl">0.5</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>),
-                        <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">colour =</span> <span class="st">"grey20"</span>, <span class="dt">size =</span> <span class="dv">12</span>),
-          <span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>))
-<span class="kw">ggsave</span>(<span class="st">"fig_output/yearly_sex_counts.png"</span>, my_plot, <span class="dt">width =</span> <span class="dv">15</span>, <span class="dt">height =</span> <span class="dv">10</span>)
-
-<span class="co"># This also works for grid.arrange() plots</span>
-combo_plot &lt;-<span class="st"> </span><span class="kw">grid.arrange</span>(spp_weight_boxplot, spp_count_plot, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">widths =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>))
-<span class="kw">ggsave</span>(<span class="st">"fig_output/combo_plot_abun_weight.png"</span>, combo_plot, <span class="dt">width =</span> <span class="dv">10</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)</code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb414-1" data-line-number="1">my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_counts,</a>
+<a class="sourceLine" id="cb414-2" data-line-number="2">                  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> sex)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb414-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb414-4" data-line-number="4"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id) <span class="op">+</span></a>
+<a class="sourceLine" id="cb414-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">"Observed species in time"</span>,</a>
+<a class="sourceLine" id="cb414-6" data-line-number="6">        <span class="dt">x =</span> <span class="st">"Year of observation"</span>,</a>
+<a class="sourceLine" id="cb414-7" data-line-number="7">        <span class="dt">y =</span> <span class="st">"Number of species"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb414-8" data-line-number="8"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb414-9" data-line-number="9"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">colour =</span> <span class="st">"grey20"</span>, <span class="dt">size =</span> <span class="dv">12</span>, <span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="fl">0.5</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>),</a>
+<a class="sourceLine" id="cb414-10" data-line-number="10">                        <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">colour =</span> <span class="st">"grey20"</span>, <span class="dt">size =</span> <span class="dv">12</span>),</a>
+<a class="sourceLine" id="cb414-11" data-line-number="11">          <span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>))</a>
+<a class="sourceLine" id="cb414-12" data-line-number="12"><span class="kw">ggsave</span>(<span class="st">"fig_output/yearly_sex_counts.png"</span>, my_plot, <span class="dt">width =</span> <span class="dv">15</span>, <span class="dt">height =</span> <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb414-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb414-14" data-line-number="14"><span class="co"># This also works for grid.arrange() plots</span></a>
+<a class="sourceLine" id="cb414-15" data-line-number="15">combo_plot &lt;-<span class="st"> </span><span class="kw">grid.arrange</span>(spp_weight_boxplot, spp_count_plot, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">widths =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>))</a>
+<a class="sourceLine" id="cb414-16" data-line-number="16"><span class="kw">ggsave</span>(<span class="st">"fig_output/combo_plot_abun_weight.png"</span>, combo_plot, <span class="dt">width =</span> <span class="dv">10</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)</a></code></pre></div>
 <p>Note: The parameters <code>width</code> and <code>height</code> also determine the font size in the saved plot.</p>
 </div>
 <div id="other-packages-for-visualisation" class="section level2">
 <h2>
 <span class="header-section-number">5.10</span> Other packages for visualisation</h2>
-<p><code>ggplot2</code> is a very powerful package that fits very nicely in our <em>tidy data</em> and <em>tidy tools</em> pipeline. There are other visualisation packages in R that shouldn’t be ignored.</p>
+<p><code>ggplot2</code> is a very powerful package that fits very nicely in our
+<em>tidy data</em> and <em>tidy tools</em> pipeline. There are other visualisation
+packages in R that shouldn’t be ignored.</p>
 <div id="base-graphics" class="section level3 unnumbered">
 <h3>Base graphics</h3>
-<p>The default graphics system that comes with R, often called <em>base R graphics</em> is simple and fast. It is based on the <em>painter’s or canvas model</em>, where different output are directly overlaid on top of each other (see figure <a href="sec-vis.html#fig:paintermodel">5.1</a>). This is a fundamental difference with <code>ggplot2</code> (and with <code>lattice</code>, described below), that returns dedicated objects, that are rendered on screen or in a file, and that can even be updated.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))
-<span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">main =</span> <span class="st">"First layer, produced with plot(1:20)"</span>)
-<span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">main =</span> <span class="st">"A horizontal red line, added with abline(h = 10)"</span>)
-<span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">10</span>, <span class="dt">col =</span> <span class="st">"red"</span>)
-<span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">main =</span> <span class="st">"A rectangle, added with rect(5, 5, 15, 15)"</span>)
-<span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">10</span>, <span class="dt">col =</span> <span class="st">"red"</span>)
-<span class="kw">rect</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">15</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</code></pre></div>
+<p>The default graphics system that comes with R, often called <em>base R
+graphics</em> is simple and fast. It is based on the <em>painter’s or canvas
+model</em>, where different output are directly overlaid on top of each
+other (see figure <a href="sec-vis.html#fig:paintermodel">5.1</a>). This is a fundamental
+difference with <code>ggplot2</code> (and with <code>lattice</code>, described below), that
+returns dedicated objects, that are rendered on screen or in a file,
+and that can even be updated.</p>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb415-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb415-2" data-line-number="2"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">main =</span> <span class="st">"First layer, produced with plot(1:20)"</span>)</a>
+<a class="sourceLine" id="cb415-3" data-line-number="3"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">main =</span> <span class="st">"A horizontal red line, added with abline(h = 10)"</span>)</a>
+<a class="sourceLine" id="cb415-4" data-line-number="4"><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">10</span>, <span class="dt">col =</span> <span class="st">"red"</span>)</a>
+<a class="sourceLine" id="cb415-5" data-line-number="5"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">main =</span> <span class="st">"A rectangle, added with rect(5, 5, 15, 15)"</span>)</a>
+<a class="sourceLine" id="cb415-6" data-line-number="6"><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">10</span>, <span class="dt">col =</span> <span class="st">"red"</span>)</a>
+<a class="sourceLine" id="cb415-7" data-line-number="7"><span class="kw">rect</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">15</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</a></code></pre></div>
 <div class="figure">
 <span id="fig:paintermodel"></span>
 <p class="caption marginnote shownote">
@@ -585,14 +737,19 @@ Figure 5.1: Successive layers added on top of each other.
 </p>
 <img src="WSBIM1207_files/figure-html/paintermodel-1.png" alt="Successive layers added on top of each other." width="1152">
 </div>
-<p>Another main difference is that base graphics’ plotting function try to do <em>the right</em> thing based on their input type, i.e. they will adapt their behaviour based on the class of their input. This is again very different from what we have in <code>ggplot2</code>, that only accepts dataframes as input, and that requires plots to be constructed bit by bit.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
-<span class="kw">boxplot</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>),
-        <span class="dt">main =</span> <span class="st">"Boxplot of rnorm(100)"</span>)
-<span class="kw">boxplot</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dt">ncol =</span> <span class="dv">10</span>),
-        <span class="dt">main =</span> <span class="st">"Boxplot of matrix(rnorm(100), ncol = 10)"</span>)
-<span class="kw">hist</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>))
-<span class="kw">hist</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dt">ncol =</span> <span class="dv">10</span>))</code></pre></div>
+<p>Another main difference is that base graphics’ plotting function try
+to do <em>the right</em> thing based on their input type, i.e. they will
+adapt their behaviour based on the class of their input. This is again
+very different from what we have in <code>ggplot2</code>, that only accepts
+dataframes as input, and that requires plots to be constructed bit by
+bit.</p>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb416-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb416-2" data-line-number="2"><span class="kw">boxplot</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>),</a>
+<a class="sourceLine" id="cb416-3" data-line-number="3">        <span class="dt">main =</span> <span class="st">"Boxplot of rnorm(100)"</span>)</a>
+<a class="sourceLine" id="cb416-4" data-line-number="4"><span class="kw">boxplot</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dt">ncol =</span> <span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb416-5" data-line-number="5">        <span class="dt">main =</span> <span class="st">"Boxplot of matrix(rnorm(100), ncol = 10)"</span>)</a>
+<a class="sourceLine" id="cb416-6" data-line-number="6"><span class="kw">hist</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>))</a>
+<a class="sourceLine" id="cb416-7" data-line-number="7"><span class="kw">hist</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dt">ncol =</span> <span class="dv">10</span>))</a></code></pre></div>
 <div class="figure">
 <span id="fig:plotmethod"></span>
 <p class="caption marginnote shownote">
@@ -600,11 +757,20 @@ Figure 5.2: Plotting boxplots (top) and histograms (bottom) vectors (left) or a 
 </p>
 <img src="WSBIM1207_files/figure-html/plotmethod-1.png" alt="Plotting boxplots (top) and histograms (bottom) vectors (left) or a matrices (right)." width="768">
 </div>
-<p>The out-of-the-box approach in base graphics can be very efficient for simple, standard figures, that can be produced very quickly with a single line of code and a single function such as <code>plot</code>, or <code>hist</code>, or <code>boxplot</code>, … The defaults are however not always the most appealing and tuning of figures, especially when they become more complex (for example to produce facets), can become lengthy and cumbersome.</p>
+<p>The out-of-the-box approach in base graphics can be very efficient for
+simple, standard figures, that can be produced very quickly with a
+single line of code and a single function such as <code>plot</code>, or <code>hist</code>,
+or <code>boxplot</code>, … The defaults are however not always the most
+appealing and tuning of figures, especially when they become more
+complex (for example to produce facets), can become lengthy and
+cumbersome.</p>
 </div>
 <div id="the-lattice-package" class="section level3 unnumbered">
 <h3>The lattice package</h3>
-<p>The <code>lattice</code> package is similar to <code>ggplot2</code> in that is uses dataframes as input, returns graphical objects and supports faceting. <code>lattice</code> however isn’t based on the grammar of graphics and has a more convoluted interface.</p>
+<p>The <code>lattice</code> package is similar to <code>ggplot2</code> in that is uses
+dataframes as input, returns graphical objects and supports
+faceting. <code>lattice</code> however isn’t based on the grammar of graphics
+and has a more convoluted interface.</p>
 <p>A good reference for the <code>lattice</code> package is <span class="citation">Deepayan (<label for="tufte-mn-21" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-21" class="margin-toggle">2008<span class="marginnote">Deepayan, Sarkar. 2008. <em>Lattice: Multivariate Data Visualization with R</em>. New York: Springer. <a href="http://lmdvr.r-forge.r-project.org" class="uri">http://lmdvr.r-forge.r-project.org</a>.</span>)</span>.</p>
 </div>
 </div>
@@ -617,9 +783,10 @@ Figure 5.2: Plotting boxplots (top) and histograms (bottom) vectors (left) or a 
 </p>
 <div class="question-body">
 <p>Load the beer consuption data with</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">"rWSBIM1207"</span>)
-<span class="kw">data</span>(beers)</code></pre></div>
-<p>Analyse the data to answer the question <em>Do men drink more than women according to age and working status?</em> Now reproduce the figure below.</p>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb417-1" data-line-number="1"><span class="kw">library</span>(<span class="st">"rWSBIM1207"</span>)</a>
+<a class="sourceLine" id="cb417-2" data-line-number="2"><span class="kw">data</span>(beers)</a></code></pre></div>
+<p>Analyse the data to answer the question <em>Do men drink more than women
+according to age and working status?</em> Now reproduce the figure below.</p>
 <div class="figure" style="text-align: center">
 <span id="fig:unnamed-chunk-202"></span>
 <p class="caption marginnote shownote">
@@ -637,22 +804,39 @@ Figure 5.3: Visualisation of beer consumption, highlighting different patterns o
 ► Question
 </p>
 <div class="question-body">
-<p>We are now going to analyse transcriptomics data from the TCGA project.</p>
+<p>We are now going to analyse transcriptomics data from the TCGA
+project.</p>
 <ul>
-<li><p>Using the file returned by the <code>expression.csv()</code> function from the <code>rWSBIM1207</code> package, create a table called <code>expression</code>.</p></li>
+<li><p>Using the file returned by the <code>expression.csv()</code> function from the
+<code>rWSBIM1207</code> package, create a table called <code>expression</code>.</p></li>
 <li><p>Inspect the data.</p></li>
 </ul>
-<p>The <code>sampleID</code> column gives the TCGA reference of the sample and sample is unique. The 12 first characters (TCGA-XX-XXXX) of the samples ID are unique to each patient. The 3 last characters of the samples ID indicate the type of sample: samples ending with ‘-01A’ (TCGA-XX-XXXX-01A) correspond to tumors and samples ending with ‘-11A’ (TCGA-XX-XXXX-11A) correspond to normal peritumoral tissues.</p>
-<p>The <code>patient</code> column gives the reference of each patient. Note that some patient for which both tumor and normal tissue were analysed are recorded twice. The <code>type</code> column gives the nature of each sample (tumor or normal tissue). The 5 next column give the expression levels of 5 genes in each sample.</p>
+<p>The <code>sampleID</code> column gives the TCGA reference of the sample and
+sample is unique. The 12 first characters (TCGA-XX-XXXX) of the
+samples ID are unique to each patient. The 3 last characters of the
+samples ID indicate the type of sample: samples ending with ‘-01A’
+(TCGA-XX-XXXX-01A) correspond to tumors and samples ending with ‘-11A’
+(TCGA-XX-XXXX-11A) correspond to normal peritumoral tissues.</p>
+<p>The <code>patient</code> column gives the reference of each patient. Note that
+some patient for which both tumor and normal tissue were analysed are
+recorded twice. The <code>type</code> column gives the nature of each sample
+(tumor or normal tissue). The 5 next column give the expression levels
+of 5 genes in each sample.</p>
 <ul>
-<li><p>Using geom_point, draw a plot showing distribution of expression levels of A2LD1 in normal tissue samples and in primary tumor samples.</p></li>
-<li><p>Repeat this visualisation using this time the geom_jitter. Which representation is more appropriate? Why?</p></li>
+<li><p>Using geom_point, draw a plot showing distribution of expression
+levels of A2LD1 in normal tissue samples and in primary tumor
+samples.</p></li>
+<li><p>Repeat this visualisation using this time the geom_jitter. Which
+representation is more appropriate? Why?</p></li>
 <li><p>Colour the samples according to the tissue type.</p></li>
 <li><p>Colour the samples according to their expression level in A2ML1.</p></li>
 <li><p>Highlight the points corresponding to patient “TCGA-73-4676”.</p></li>
 <li><p>Add a transparent boxplot to the graph.</p></li>
 <li><p>Change the y scale to log10 scale.</p></li>
-<li><p>Visualise the expression of A1BG against that of A2LD1 setting the x axis on the log10 scale. Colours the observations based on their type and resize the points according to the expression level of the A2ML1 gene.</p></li>
+<li><p>Visualise the expression of A1BG against that of A2LD1 setting the x
+axis on the log10 scale. Colours the observations based on their
+type and resize the points according to the expression level of the
+A2ML1 gene.</p></li>
 </ul>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -664,7 +848,9 @@ Figure 5.3: Visualisation of beer consumption, highlighting different patterns o
 ► Question
 </p>
 <div class="question-body">
-<p>After gathering the <em>interroA</em> data from the <code>rWSBIM1207</code> package in a long table format (see additional exercise chapter <a href="sec-dplyr.html#sec:dplyr">4</a>), visualise the results for each test and male/female students.</p>
+<p>After gathering the <em>interroA</em> data from the <code>rWSBIM1207</code> package in a
+long table format (see additional exercise chapter <a href="sec-dplyr.html#sec:dplyr">4</a>),
+visualise the results for each test and male/female students.</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -679,7 +865,7 @@ Figure 5.3: Visualisation of beer consumption, highlighting different patterns o
 <a href="sec-join.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-03-15
+2020-03-18
 </p>
 </div>
 </div>
