@@ -222,6 +222,7 @@ report. Indeed, an `Rmd` file is compiled in a new, clean R session,
 without access to your working session, the packages that were loaded,
 and the variables that were created.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4OXyyMIM6A8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Docker containers
 
