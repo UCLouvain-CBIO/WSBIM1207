@@ -551,7 +551,7 @@ for inspiration. Here are some ideas:
 
 `r msmbstyle::question_end()`
 
-## Arranging plots
+## Composing plots
 
 Faceting is a great tool for splitting one plot into multiple
 subplots, but sometimes you may want to produce a single figure that
@@ -585,8 +585,9 @@ spp_count_plot
 
 The [**patchwork**](https://github.com/thomasp85/patchwork) package
 provides an elegant approach to combining figures using the `+` to
-arrange figures side by side and the `/` to stack them on top of each
-other.
+arrange figures (typically side by side). More specifically the `|`
+explicitly arranges them side by side and `/` stacks them on top of
+each other.
 
 ```{r install-patchwork, message=FALSE, eval=FALSE}
 install.packages("patchwork")
@@ -595,6 +596,7 @@ install.packages("patchwork")
 ```{r}
 library("patchwork")
 spp_weight_boxplot + spp_count_plot
+## or spp_weight_boxplot | spp_count_plot
 ```
 
 ```{r}
@@ -615,6 +617,17 @@ spp_weight_boxplot +
  plot_layout(ncol = 1)
 ```
 
+The last plot can also be created using the `|` and `/` composers:
+
+```{r}
+spp_weight_boxplot /
+ (spp_weight_boxplot | spp_count_plot) /
+ spp_count_plot
+```
+
+Learn more about `patchwork` on its
+[webpage](https://patchwork.data-imaginist.com/) or in this
+[video](https://www.youtube.com/watch?v=0m4yywqNPVY).
 
 Another option is the **`gridExtra`** package that allows to combine
 separate ggplots into a single figure using `grid.arrange()`:
