@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2020-04-03" />
+<meta name="date" content="2020-04-04" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -236,16 +236,16 @@ be used for different types of plots:</p>
 <div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb377-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length))</a></code></pre></div>
 <ul>
 <li>
-<p>add ‘geoms’ – graphical representations of the data in the plot (points,
-lines, bars). <strong><code>ggplot2</code></strong> offers many different geoms; we will use some
-common ones today, including:</p>
+<p>add ‘geoms’ – geometries, or graphical representations of the data
+in the plot (points, lines, bars). <strong><code>ggplot2</code></strong> offers many
+different geoms; we will use some common ones today, including:</p>
 <pre><code>* `geom_point()` for scatter plots, dot plots, etc.
 * `geom_boxplot()` for, well, boxplots!
 * `geom_line()` for trend lines, time series, etc.</code></pre>
 </li>
 </ul>
-<p>To add a geom to the plot use the <code>+</code> operator. Because we have two continuous variables,
-let’s use <code>geom_point()</code> first:</p>
+<p>To add a geom(etry) to the plot use the <code>+</code> operator. Because we have
+two continuous variables, let’s use <code>geom_point()</code> first:</p>
 <div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb379-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb379-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/first-ggplot-1.png" width="672"></p>
@@ -262,15 +262,16 @@ of plots, so the above plot can also be generated with code like this:</p>
 <a class="sourceLine" id="cb380-7" data-line-number="7"><span class="st">    </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <p><strong>Notes</strong></p>
 <ul>
-<li>Anything you put in the <code>ggplot()</code> function can be seen by any geom layers
-that you add (i.e., these are universal plot settings). This includes the x- and
-y-axis mapping you set up in <code>aes()</code>.</li>
+<li>Anything you put in the <code>ggplot()</code> function can be seen by any geom
+layers that you add (i.e., these are global plot settings). This
+includes the x- and y-axis mapping you set up in <code>aes()</code>.</li>
 <li>You can also specify mappings for a given geom independently of the
 mappings defined globally in the <code>ggplot()</code> function.</li>
-<li>The <code>+</code> sign used to add new layers must be placed at the end of the line containing
-the <em>previous</em> layer. If, instead, the <code>+</code> sign is added at the beginning of the line
-containing the new layer, <strong><code>ggplot2</code></strong> will not add the new layer and will return an
-error message.</li>
+<li>The <code>+</code> sign used to add new layers must be placed at the end of the
+line containing the <em>previous</em> layer. If, instead, the <code>+</code> sign is
+added at the beginning of the line containing the new layer,
+<strong><code>ggplot2</code></strong> will not add the new layer and will return an error
+message.</li>
 </ul>
 <div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb381-1" data-line-number="1"><span class="co"># This is the correct syntax for adding layers</span></a>
 <a class="sourceLine" id="cb381-2" data-line-number="2">surveys_plot <span class="op">+</span></a>
@@ -344,15 +345,21 @@ instance, we can add transparency (<code>alpha</code>) to avoid overplotting:</p
 <div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb386-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb386-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>, <span class="dt">color =</span> <span class="st">"blue"</span>)</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/adding-colors-1.png" width="672"></p>
-<p>Or to color each species in the plot differently, you could use a vector as an input to the argument <strong>color</strong>. <strong><code>ggplot2</code></strong> will provide a different color corresponding to different values in the vector. Here is an example where we color with <strong><code>species_id</code></strong>:</p>
+<p>Or to color each species in the plot differently, you could use a
+vector as an input to the argument <strong>color</strong>. <strong><code>ggplot2</code></strong> will
+provide a different color corresponding to different values in the
+vector. Here is an example where we color with <strong><code>species_id</code></strong>:</p>
 <div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb387-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb387-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>, <span class="kw">aes</span>(<span class="dt">color =</span> species_id))</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/color-by-species1-1.png" width="672"></p>
-<p>We can also specify the colors directly inside the mapping provided in the <code>ggplot()</code> function. This will be seen by any geom layers and the mapping will be determined by the x- and y-axis set up in <code>aes()</code>.</p>
+<p>We can also specify the colors directly inside the mapping provided in
+the <code>ggplot()</code> function. This will be seen by any geom layers and the
+mapping will be determined by the x- and y-axis set up in <code>aes()</code>.</p>
 <div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb388-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length, <span class="dt">color =</span> species_id)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb388-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>)</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/color-by-species2-1.png" width="672"></p>
-<p>Notice that we can change the geom layer and colors will be still determined by <strong><code>species_id</code></strong></p>
+<p>Notice that we can change the geom layer and colors will be still
+determined by <strong><code>species_id</code></strong></p>
 <div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb389-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length, <span class="dt">color =</span> species_id)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb389-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>)</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/color-by-species3-1.png" width="672"></p>
@@ -429,7 +436,9 @@ layer to show actual measurements.</p></li>
 <li><p>Add color to the data points on your boxplot according to the plot from which
 the sample was taken (<code>plot_id</code>).</p></li>
 </ul>
-<p><em>Hint:</em> Check the class for <code>plot_id</code>. Consider changing the class of <code>plot_id</code> from integer to factor. Why does this change how R makes the graph?</p>
+<p><em>Hint:</em> Check the class for <code>plot_id</code>. Consider changing the class of
+<code>plot_id</code> from integer to factor. Why does this change how R makes the
+graph?</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -443,8 +452,8 @@ the sample was taken (<code>plot_id</code>).</p></li>
 to group the data and count records within each group:</p>
 <div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb393-1" data-line-number="1">yearly_counts &lt;-<span class="st"> </span>surveys_complete <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb393-2" data-line-number="2"><span class="st">                 </span><span class="kw">count</span>(year, species_id)</a></code></pre></div>
-<p>Time series data can be visualized as a line plot with years on the x axis and counts
-on the y axis:</p>
+<p>Time series data can be visualized as a line plot with years on the x
+axis and counts on the y axis:</p>
 <div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb394-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb394-2" data-line-number="2"><span class="st">     </span><span class="kw">geom_line</span>()</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/first-time-series-1.png" width="672"></p>
@@ -454,7 +463,8 @@ the aesthetic function to include <code>group = species_id</code>:</p>
 <div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">group =</span> species_id)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb395-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_line</span>()</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/time-series-by-species-1.png" width="672"></p>
-<p>We will be able to distinguish species in the plot if we add colors (using <code>color</code> also automatically groups the data):</p>
+<p>We will be able to distinguish species in the plot if we add colors
+(using <code>color</code> also automatically groups the data):</p>
 <div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb396-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> species_id)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb396-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_line</span>()</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/time-series-with-colors-1.png" width="672"></p>
@@ -868,7 +878,7 @@ visualise the results for each test and male/female students.</p>
 <a href="sec-join.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-04-03
+2020-04-04
 </p>
 </div>
 </div>

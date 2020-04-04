@@ -89,16 +89,16 @@ ggplot(data = surveys_complete)
 ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length))
 ```
 
-- add 'geoms' – graphical representations of the data in the plot (points,
-  lines, bars). **`ggplot2`** offers many different geoms; we will use some
-  common ones today, including:
+- add 'geoms' – geometries, or graphical representations of the data
+  in the plot (points, lines, bars). **`ggplot2`** offers many
+  different geoms; we will use some common ones today, including:
 
 	  * `geom_point()` for scatter plots, dot plots, etc.
 	  * `geom_boxplot()` for, well, boxplots!
 	  * `geom_line()` for trend lines, time series, etc.
 
-To add a geom to the plot use the `+` operator. Because we have two continuous variables,
-let's use `geom_point()` first:
+To add a geom(etry) to the plot use the `+` operator. Because we have
+two continuous variables, let's use `geom_point()` first:
 
 ```{r first-ggplot, cache=TRUE}
 ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) +
@@ -129,15 +129,17 @@ surveys_plot +
 
 **Notes**
 
-- Anything you put in the `ggplot()` function can be seen by any geom layers
-  that you add (i.e., these are universal plot settings). This includes the x- and
-  y-axis mapping you set up in `aes()`.
+- Anything you put in the `ggplot()` function can be seen by any geom
+  layers that you add (i.e., these are global plot settings). This
+  includes the x- and y-axis mapping you set up in `aes()`.
 - You can also specify mappings for a given geom independently of the
   mappings defined globally in the `ggplot()` function.
-- The `+` sign used to add new layers must be placed at the end of the line containing
-the *previous* layer. If, instead, the `+` sign is added at the beginning of the line
-containing the new layer, **`ggplot2`** will not add the new layer and will return an
-error message.
+- The `+` sign used to add new layers must be placed at the end of the
+  line containing the *previous* layer. If, instead, the `+` sign is
+  added at the beginning of the line containing the new layer,
+  **`ggplot2`** will not add the new layer and will return an error
+  message.
+
 
 ```{r, ggplot-with-plus-position, eval=FALSE}
 # This is the correct syntax for adding layers
@@ -214,7 +216,10 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
 	geom_point(alpha = 0.1, color = "blue")
 ```
 
-Or to color each species in the plot differently, you could use a vector as an input to the argument **color**. **`ggplot2`** will provide a different color corresponding to different values in the vector. Here is an example where we color with **`species_id`**:
+Or to color each species in the plot differently, you could use a
+vector as an input to the argument **color**. **`ggplot2`** will
+provide a different color corresponding to different values in the
+vector. Here is an example where we color with **`species_id`**:
 
 
 ```{r color-by-species1, cache=TRUE}
@@ -222,14 +227,17 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
 	geom_point(alpha = 0.1, aes(color = species_id))
 ```
 
-We can also specify the colors directly inside the mapping provided in the `ggplot()` function. This will be seen by any geom layers and the mapping will be determined by the x- and y-axis set up in `aes()`.
+We can also specify the colors directly inside the mapping provided in
+the `ggplot()` function. This will be seen by any geom layers and the
+mapping will be determined by the x- and y-axis set up in `aes()`.
 
 ```{r color-by-species2, cache=TRUE}
 ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length, color = species_id)) +
 	geom_point(alpha = 0.1)
 ```
 
-Notice that we can change the geom layer and colors will be still determined by **`species_id`**
+Notice that we can change the geom layer and colors will be still
+determined by **`species_id`**
 
 ```{r color-by-species3, cache=TRUE}
 ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length, color = species_id)) +
@@ -304,7 +312,9 @@ within each species.
 - Add color to the data points on your boxplot according to the plot from which
   the sample was taken (`plot_id`).
 
-*Hint:* Check the class for `plot_id`. Consider changing the class of `plot_id` from integer to factor. Why does this change how R makes the graph?
+*Hint:* Check the class for `plot_id`. Consider changing the class of
+`plot_id` from integer to factor. Why does this change how R makes the
+graph?
 
 `r msmbstyle::question_end()`
 
@@ -319,8 +329,8 @@ yearly_counts <- surveys_complete %>%
 				 count(year, species_id)
 ```
 
-Time series data can be visualized as a line plot with years on the x axis and counts
-on the y axis:
+Time series data can be visualized as a line plot with years on the x
+axis and counts on the y axis:
 
 ```{r first-time-series}
 ggplot(data = yearly_counts, mapping = aes(x = year, y = n)) +
@@ -336,7 +346,8 @@ ggplot(data = yearly_counts, mapping = aes(x = year, y = n, group = species_id))
 	geom_line()
 ```
 
-We will be able to distinguish species in the plot if we add colors (using `color` also automatically groups the data):
+We will be able to distinguish species in the plot if we add colors
+(using `color` also automatically groups the data):
 
 ```{r time-series-with-colors}
 ggplot(data = yearly_counts, mapping = aes(x = year, y = n, color = species_id)) +
