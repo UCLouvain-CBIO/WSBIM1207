@@ -356,9 +356,12 @@ ggplot(data = yearly_counts, mapping = aes(x = year, y = n, color = species_id))
 
 ## Faceting
 
-**`ggplot2`** has a special technique called *faceting* that allows the user to split one
-plot into multiple plots based on a factor included in the dataset. We will use it to
-make a time series plot for each species:
+**`ggplot2`** has a special technique called *faceting* that allows
+the user to split one plot into multiple (sub) plots based on a factor
+included in the dataset. These different subplots inherit the same
+properties (axies limits, ticks, ...) to facilitate their direct
+comparison. We will use it to make a time series plot for each
+species:
 
 ```{r first-facet}
 ggplot(data = yearly_counts, mapping = aes(x = year, y = n)) +
@@ -550,57 +553,59 @@ for inspiration. Here are some ideas:
 
 ## Arranging plots
 
-Faceting is a great tool for splitting one plot into multiple plots,
-but sometimes you may want to produce a single figure that contains
-multiple plots using different variables or even different data
-frames. The **`gridExtra`** package allows us to combine separate
-ggplots into a single figure using `grid.arrange()`:
+Faceting is a great tool for splitting one plot into multiple
+subplots, but sometimes you may want to produce a single figure that
+contains multiple independent plots, i.e. plots that are based on
+different variables or even different data frames. 
 
-```{r install-gridextra, message=FALSE, purl=TRUE, eval=FALSE}
-install.packages("gridExtra")
-```
+Let's start by creating the two plots that we want to arrange next to
+each other:
 
-```{r gridarrange-example, message=FALSE, fig.width=10}
-library(gridExtra)
-
+```{r sub1}
 spp_weight_boxplot <- ggplot(data = surveys_complete,
 							 mapping = aes(x = species_id, y = weight)) +
   geom_boxplot() +
   xlab("Species") + ylab("Weight (g)") +
   scale_y_log10()
-
-spp_count_plot <- ggplot(data = yearly_counts,
-						 mapping = aes(x = year, y = n, color = species_id)) +
-  geom_line() +
-  xlab("Year") + ylab("Abundance")
-
-grid.arrange(spp_weight_boxplot, spp_count_plot, ncol = 2, widths = c(4, 6))
-
+spp_weight_boxplot
 ```
 
-In addition to the `ncol` and `nrow` arguments, used to make simple
-arrangements, there are tools for [constructing more complex
-layouts](https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html).
+Below, we also remove the legend altogether by setting the
+`legend.position` to `"none"`.
+
+```{r sub2}
+spp_count_plot <- ggplot(data = yearly_counts,
+						 mapping = aes(x = year, y = n, color = species_id)) +
+    geom_line() +
+    xlab("Year") + ylab("Abundance") +
+    theme(legend.position = "none")    
+spp_count_plot
+```
 
 
-Another, more recent, and very elegant package to arrache plots
-produced with `ggplot2` is the
-[**patchwork**](https://github.com/thomasp85/patchwork)
-package. Before composing plots, we remove the legend altogether by
-updating the theme.
+The [**patchwork**](https://github.com/thomasp85/patchwork) package
+provides an elegant approach to combining figures using the `+` to
+arrange figures side by side and the `/` to stack them on top of each
+other.
+
+```{r install-patchwork, message=FALSE, eval=FALSE}
+install.packages("patchwork")
+```
 
 ```{r}
-spp_count_plot <- spp_count_plot + theme(legend.position = "none")
 library("patchwork")
 spp_weight_boxplot + spp_count_plot
 ```
 
 ```{r}
-spp_weight_boxplot + spp_count_plot + plot_layout(ncol = 1)
+spp_weight_boxplot / spp_count_plot
 ```
 
+We can combine further control the layout of the final composition
+with `plot_layout` to create more complex layouts:
+
 ```{r}
-spp_weight_boxplot / spp_count_plot
+spp_weight_boxplot + spp_count_plot + plot_layout(ncol = 1)
 ```
 
 ```{r}
@@ -609,6 +614,23 @@ spp_weight_boxplot +
  spp_count_plot +
  plot_layout(ncol = 1)
 ```
+
+
+Another option is the **`gridExtra`** package that allows to combine
+separate ggplots into a single figure using `grid.arrange()`:
+
+```{r install-gridextra, message=FALSE, eval=FALSE}
+install.packages("gridExtra")
+```
+
+```{r gridarrange-example, message=FALSE, fig.width=10}
+library(gridExtra)
+grid.arrange(spp_weight_boxplot, spp_count_plot, ncol = 2, widths = c(4, 6))
+```
+
+In addition to the `ncol` and `nrow` arguments, used to make simple
+arrangements, there are tools for [constructing more complex
+layouts](https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html).
 
 ## Exporting plots
 

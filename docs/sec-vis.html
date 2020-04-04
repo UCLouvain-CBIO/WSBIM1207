@@ -472,9 +472,12 @@ the aesthetic function to include <code>group = species_id</code>:</p>
 <div id="faceting" class="section level2">
 <h2>
 <span class="header-section-number">5.5</span> Faceting</h2>
-<p><strong><code>ggplot2</code></strong> has a special technique called <em>faceting</em> that allows the user to split one
-plot into multiple plots based on a factor included in the dataset. We will use it to
-make a time series plot for each species:</p>
+<p><strong><code>ggplot2</code></strong> has a special technique called <em>faceting</em> that allows
+the user to split one plot into multiple (sub) plots based on a factor
+included in the dataset. These different subplots inherit the same
+properties (axies limits, ticks, …) to facilitate their direct
+comparison. We will use it to make a time series plot for each
+species:</p>
 <div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb397-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb397-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb397-3" data-line-number="3"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id)</a></code></pre></div>
@@ -649,48 +652,56 @@ for inspiration. Here are some ideas:</p>
 <div id="arranging-plots" class="section level2">
 <h2>
 <span class="header-section-number">5.8</span> Arranging plots</h2>
-<p>Faceting is a great tool for splitting one plot into multiple plots,
-but sometimes you may want to produce a single figure that contains
-multiple plots using different variables or even different data
-frames. The <strong><code>gridExtra</code></strong> package allows us to combine separate
-ggplots into a single figure using <code>grid.arrange()</code>:</p>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">"gridExtra"</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" data-line-number="1"><span class="kw">library</span>(gridExtra)</a>
-<a class="sourceLine" id="cb409-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb409-3" data-line-number="3">spp_weight_boxplot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete,</a>
-<a class="sourceLine" id="cb409-4" data-line-number="4">                             <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> species_id, <span class="dt">y =</span> weight)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb409-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb409-6" data-line-number="6"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Species"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"Weight (g)"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb409-7" data-line-number="7"><span class="st">  </span><span class="kw">scale_y_log10</span>()</a>
-<a class="sourceLine" id="cb409-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb409-9" data-line-number="9">spp_count_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_counts,</a>
-<a class="sourceLine" id="cb409-10" data-line-number="10">                         <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> species_id)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb409-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb409-12" data-line-number="12"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Year"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"Abundance"</span>)</a>
-<a class="sourceLine" id="cb409-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb409-14" data-line-number="14"><span class="kw">grid.arrange</span>(spp_weight_boxplot, spp_count_plot, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">widths =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>))</a></code></pre></div>
+<p>Faceting is a great tool for splitting one plot into multiple
+subplots, but sometimes you may want to produce a single figure that
+contains multiple independent plots, i.e. plots that are based on
+different variables or even different data frames.</p>
+<p>Let’s start by creating the two plots that we want to arrange next to
+each other:</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" data-line-number="1">spp_weight_boxplot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete,</a>
+<a class="sourceLine" id="cb408-2" data-line-number="2">                             <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> species_id, <span class="dt">y =</span> weight)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb408-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb408-4" data-line-number="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Species"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"Weight (g)"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb408-5" data-line-number="5"><span class="st">  </span><span class="kw">scale_y_log10</span>()</a>
+<a class="sourceLine" id="cb408-6" data-line-number="6">spp_weight_boxplot</a></code></pre></div>
+<p><img src="WSBIM1207_files/figure-html/sub1-1.png" width="672"></p>
+<p>Below, we also remove the legend altogether by setting the
+<code>legend.position</code> to <code>"none"</code>.</p>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" data-line-number="1">spp_count_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_counts,</a>
+<a class="sourceLine" id="cb409-2" data-line-number="2">                         <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> species_id)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-4" data-line-number="4"><span class="st">    </span><span class="kw">xlab</span>(<span class="st">"Year"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"Abundance"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-5" data-line-number="5"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)    </a>
+<a class="sourceLine" id="cb409-6" data-line-number="6">spp_count_plot</a></code></pre></div>
+<p><img src="WSBIM1207_files/figure-html/sub2-1.png" width="672"></p>
+<p>The <a href="https://github.com/thomasp85/patchwork"><strong>patchwork</strong></a> package
+provides an elegant approach to combining figures using the <code>+</code> to
+arrange figures side by side and the <code>/</code> to stack them on top of each
+other.</p>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">"patchwork"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" data-line-number="1"><span class="kw">library</span>(<span class="st">"patchwork"</span>)</a>
+<a class="sourceLine" id="cb411-2" data-line-number="2">spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot</a></code></pre></div>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-197-1.png" width="672"></p>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" data-line-number="1">spp_weight_boxplot <span class="op">/</span><span class="st"> </span>spp_count_plot</a></code></pre></div>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-198-1.png" width="672"></p>
+<p>We can combine further control the layout of the final composition
+with <code>plot_layout</code> to create more complex layouts:</p>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" data-line-number="1">spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot <span class="op">+</span><span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>)</a></code></pre></div>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-199-1.png" width="672"></p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb414-1" data-line-number="1">spp_weight_boxplot <span class="op">+</span></a>
+<a class="sourceLine" id="cb414-2" data-line-number="2"><span class="st"> </span>(spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot) <span class="op">+</span></a>
+<a class="sourceLine" id="cb414-3" data-line-number="3"><span class="st"> </span>spp_count_plot <span class="op">+</span></a>
+<a class="sourceLine" id="cb414-4" data-line-number="4"><span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>)</a></code></pre></div>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-200-1.png" width="672"></p>
+<p>Another option is the <strong><code>gridExtra</code></strong> package that allows to combine
+separate ggplots into a single figure using <code>grid.arrange()</code>:</p>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb415-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">"gridExtra"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb416-1" data-line-number="1"><span class="kw">library</span>(gridExtra)</a>
+<a class="sourceLine" id="cb416-2" data-line-number="2"><span class="kw">grid.arrange</span>(spp_weight_boxplot, spp_count_plot, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">widths =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>))</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/gridarrange-example-1.png" width="960"></p>
 <p>In addition to the <code>ncol</code> and <code>nrow</code> arguments, used to make simple
 arrangements, there are tools for <a href="https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html">constructing more complex
 layouts</a>.</p>
-<p>Another, more recent, and very elegant package to arrache plots
-produced with <code>ggplot2</code> is the
-<a href="https://github.com/thomasp85/patchwork"><strong>patchwork</strong></a>
-package. Before composing plots, we remove the legend altogether by
-updating the theme.</p>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" data-line-number="1">spp_count_plot &lt;-<span class="st"> </span>spp_count_plot <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</a>
-<a class="sourceLine" id="cb410-2" data-line-number="2"><span class="kw">library</span>(<span class="st">"patchwork"</span>)</a>
-<a class="sourceLine" id="cb410-3" data-line-number="3">spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot</a></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-197-1.png" width="672"></p>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" data-line-number="1">spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot <span class="op">+</span><span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>)</a></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-198-1.png" width="672"></p>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" data-line-number="1">spp_weight_boxplot <span class="op">/</span><span class="st"> </span>spp_count_plot</a></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-199-1.png" width="672"></p>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" data-line-number="1">spp_weight_boxplot <span class="op">+</span></a>
-<a class="sourceLine" id="cb413-2" data-line-number="2"><span class="st"> </span>(spp_weight_boxplot <span class="op">+</span><span class="st"> </span>spp_count_plot) <span class="op">+</span></a>
-<a class="sourceLine" id="cb413-3" data-line-number="3"><span class="st"> </span>spp_count_plot <span class="op">+</span></a>
-<a class="sourceLine" id="cb413-4" data-line-number="4"><span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>)</a></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-200-1.png" width="672"></p>
 </div>
 <div id="exporting-plots" class="section level2">
 <h2>
@@ -703,22 +714,22 @@ and will not scale well for posters.</p>
 the dimension and resolution of your plot by adjusting the appropriate
 arguments (<code>width</code>, <code>height</code> and <code>dpi</code>).</p>
 <p>Make sure you have the <code>fig_output/</code> folder in your working directory.</p>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb414-1" data-line-number="1">my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_counts,</a>
-<a class="sourceLine" id="cb414-2" data-line-number="2">                  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> sex)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb414-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb414-4" data-line-number="4"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id) <span class="op">+</span></a>
-<a class="sourceLine" id="cb414-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">"Observed species in time"</span>,</a>
-<a class="sourceLine" id="cb414-6" data-line-number="6">        <span class="dt">x =</span> <span class="st">"Year of observation"</span>,</a>
-<a class="sourceLine" id="cb414-7" data-line-number="7">        <span class="dt">y =</span> <span class="st">"Number of species"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb414-8" data-line-number="8"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb414-9" data-line-number="9"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">colour =</span> <span class="st">"grey20"</span>, <span class="dt">size =</span> <span class="dv">12</span>, <span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="fl">0.5</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>),</a>
-<a class="sourceLine" id="cb414-10" data-line-number="10">                        <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">colour =</span> <span class="st">"grey20"</span>, <span class="dt">size =</span> <span class="dv">12</span>),</a>
-<a class="sourceLine" id="cb414-11" data-line-number="11">          <span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>))</a>
-<a class="sourceLine" id="cb414-12" data-line-number="12"><span class="kw">ggsave</span>(<span class="st">"fig_output/yearly_sex_counts.png"</span>, my_plot, <span class="dt">width =</span> <span class="dv">15</span>, <span class="dt">height =</span> <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb414-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb414-14" data-line-number="14"><span class="co"># This also works for grid.arrange() plots</span></a>
-<a class="sourceLine" id="cb414-15" data-line-number="15">combo_plot &lt;-<span class="st"> </span><span class="kw">grid.arrange</span>(spp_weight_boxplot, spp_count_plot, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">widths =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>))</a>
-<a class="sourceLine" id="cb414-16" data-line-number="16"><span class="kw">ggsave</span>(<span class="st">"fig_output/combo_plot_abun_weight.png"</span>, combo_plot, <span class="dt">width =</span> <span class="dv">10</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb417-1" data-line-number="1">my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> yearly_sex_counts,</a>
+<a class="sourceLine" id="cb417-2" data-line-number="2">                  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> n, <span class="dt">color =</span> sex)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb417-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb417-4" data-line-number="4"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>species_id) <span class="op">+</span></a>
+<a class="sourceLine" id="cb417-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">"Observed species in time"</span>,</a>
+<a class="sourceLine" id="cb417-6" data-line-number="6">        <span class="dt">x =</span> <span class="st">"Year of observation"</span>,</a>
+<a class="sourceLine" id="cb417-7" data-line-number="7">        <span class="dt">y =</span> <span class="st">"Number of species"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb417-8" data-line-number="8"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb417-9" data-line-number="9"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">colour =</span> <span class="st">"grey20"</span>, <span class="dt">size =</span> <span class="dv">12</span>, <span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="fl">0.5</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>),</a>
+<a class="sourceLine" id="cb417-10" data-line-number="10">                        <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">colour =</span> <span class="st">"grey20"</span>, <span class="dt">size =</span> <span class="dv">12</span>),</a>
+<a class="sourceLine" id="cb417-11" data-line-number="11">          <span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>))</a>
+<a class="sourceLine" id="cb417-12" data-line-number="12"><span class="kw">ggsave</span>(<span class="st">"fig_output/yearly_sex_counts.png"</span>, my_plot, <span class="dt">width =</span> <span class="dv">15</span>, <span class="dt">height =</span> <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb417-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb417-14" data-line-number="14"><span class="co"># This also works for grid.arrange() plots</span></a>
+<a class="sourceLine" id="cb417-15" data-line-number="15">combo_plot &lt;-<span class="st"> </span><span class="kw">grid.arrange</span>(spp_weight_boxplot, spp_count_plot, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">widths =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>))</a>
+<a class="sourceLine" id="cb417-16" data-line-number="16"><span class="kw">ggsave</span>(<span class="st">"fig_output/combo_plot_abun_weight.png"</span>, combo_plot, <span class="dt">width =</span> <span class="dv">10</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)</a></code></pre></div>
 <p>Note: The parameters <code>width</code> and <code>height</code> also determine the font size in the saved plot.</p>
 </div>
 <div id="other-packages-for-visualisation" class="section level2">
@@ -736,13 +747,13 @@ other (see figure <a href="sec-vis.html#fig:paintermodel">5.1</a>). This is a fu
 difference with <code>ggplot2</code> (and with <code>lattice</code>, described below), that
 returns dedicated objects, that are rendered on screen or in a file,
 and that can even be updated.</p>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb415-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb415-2" data-line-number="2"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">main =</span> <span class="st">"First layer, produced with plot(1:20)"</span>)</a>
-<a class="sourceLine" id="cb415-3" data-line-number="3"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">main =</span> <span class="st">"A horizontal red line, added with abline(h = 10)"</span>)</a>
-<a class="sourceLine" id="cb415-4" data-line-number="4"><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">10</span>, <span class="dt">col =</span> <span class="st">"red"</span>)</a>
-<a class="sourceLine" id="cb415-5" data-line-number="5"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">main =</span> <span class="st">"A rectangle, added with rect(5, 5, 15, 15)"</span>)</a>
-<a class="sourceLine" id="cb415-6" data-line-number="6"><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">10</span>, <span class="dt">col =</span> <span class="st">"red"</span>)</a>
-<a class="sourceLine" id="cb415-7" data-line-number="7"><span class="kw">rect</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">15</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb418-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb418-2" data-line-number="2"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">main =</span> <span class="st">"First layer, produced with plot(1:20)"</span>)</a>
+<a class="sourceLine" id="cb418-3" data-line-number="3"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">main =</span> <span class="st">"A horizontal red line, added with abline(h = 10)"</span>)</a>
+<a class="sourceLine" id="cb418-4" data-line-number="4"><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">10</span>, <span class="dt">col =</span> <span class="st">"red"</span>)</a>
+<a class="sourceLine" id="cb418-5" data-line-number="5"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">main =</span> <span class="st">"A rectangle, added with rect(5, 5, 15, 15)"</span>)</a>
+<a class="sourceLine" id="cb418-6" data-line-number="6"><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">10</span>, <span class="dt">col =</span> <span class="st">"red"</span>)</a>
+<a class="sourceLine" id="cb418-7" data-line-number="7"><span class="kw">rect</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">15</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</a></code></pre></div>
 <div class="figure">
 <span id="fig:paintermodel"></span>
 <p class="caption marginnote shownote">
@@ -756,13 +767,13 @@ adapt their behaviour based on the class of their input. This is again
 very different from what we have in <code>ggplot2</code>, that only accepts
 dataframes as input, and that requires plots to be constructed bit by
 bit.</p>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb416-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb416-2" data-line-number="2"><span class="kw">boxplot</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>),</a>
-<a class="sourceLine" id="cb416-3" data-line-number="3">        <span class="dt">main =</span> <span class="st">"Boxplot of rnorm(100)"</span>)</a>
-<a class="sourceLine" id="cb416-4" data-line-number="4"><span class="kw">boxplot</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dt">ncol =</span> <span class="dv">10</span>),</a>
-<a class="sourceLine" id="cb416-5" data-line-number="5">        <span class="dt">main =</span> <span class="st">"Boxplot of matrix(rnorm(100), ncol = 10)"</span>)</a>
-<a class="sourceLine" id="cb416-6" data-line-number="6"><span class="kw">hist</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>))</a>
-<a class="sourceLine" id="cb416-7" data-line-number="7"><span class="kw">hist</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dt">ncol =</span> <span class="dv">10</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb419-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb419-2" data-line-number="2"><span class="kw">boxplot</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>),</a>
+<a class="sourceLine" id="cb419-3" data-line-number="3">        <span class="dt">main =</span> <span class="st">"Boxplot of rnorm(100)"</span>)</a>
+<a class="sourceLine" id="cb419-4" data-line-number="4"><span class="kw">boxplot</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dt">ncol =</span> <span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb419-5" data-line-number="5">        <span class="dt">main =</span> <span class="st">"Boxplot of matrix(rnorm(100), ncol = 10)"</span>)</a>
+<a class="sourceLine" id="cb419-6" data-line-number="6"><span class="kw">hist</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>))</a>
+<a class="sourceLine" id="cb419-7" data-line-number="7"><span class="kw">hist</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dt">ncol =</span> <span class="dv">10</span>))</a></code></pre></div>
 <div class="figure">
 <span id="fig:plotmethod"></span>
 <p class="caption marginnote shownote">
@@ -796,8 +807,8 @@ and has a more convoluted interface.</p>
 </p>
 <div class="question-body">
 <p>Load the beer consuption data with</p>
-<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb417-1" data-line-number="1"><span class="kw">library</span>(<span class="st">"rWSBIM1207"</span>)</a>
-<a class="sourceLine" id="cb417-2" data-line-number="2"><span class="kw">data</span>(beers)</a></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb420-1" data-line-number="1"><span class="kw">library</span>(<span class="st">"rWSBIM1207"</span>)</a>
+<a class="sourceLine" id="cb420-2" data-line-number="2"><span class="kw">data</span>(beers)</a></code></pre></div>
 <p>Analyse the data to answer the question <em>Do men drink more than women
 according to age and working status?</em> Now reproduce the figure below.</p>
 <div class="figure" style="text-align: center">
