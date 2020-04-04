@@ -625,7 +625,7 @@ install.packages("gridExtra")
 
 ```{r gridarrange-example, message=FALSE, fig.width=10}
 library(gridExtra)
-grid.arrange(spp_weight_boxplot, spp_count_plot, ncol = 2, widths = c(4, 6))
+grid.arrange(spp_weight_boxplot, spp_count_plot, ncol = 2)
 ```
 
 In addition to the `ncol` and `nrow` arguments, used to make simple

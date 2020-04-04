@@ -697,7 +697,7 @@ with <code>plot_layout</code> to create more complex layouts:</p>
 separate ggplots into a single figure using <code>grid.arrange()</code>:</p>
 <div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb415-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">"gridExtra"</span>)</a></code></pre></div>
 <div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb416-1" data-line-number="1"><span class="kw">library</span>(gridExtra)</a>
-<a class="sourceLine" id="cb416-2" data-line-number="2"><span class="kw">grid.arrange</span>(spp_weight_boxplot, spp_count_plot, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">widths =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>))</a></code></pre></div>
+<a class="sourceLine" id="cb416-2" data-line-number="2"><span class="kw">grid.arrange</span>(spp_weight_boxplot, spp_count_plot, <span class="dt">ncol =</span> <span class="dv">2</span>)</a></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/gridarrange-example-1.png" width="960"></p>
 <p>In addition to the <code>ncol</code> and <code>nrow</code> arguments, used to make simple
 arrangements, there are tools for <a href="https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html">constructing more complex
