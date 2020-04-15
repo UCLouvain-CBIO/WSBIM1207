@@ -641,18 +641,20 @@ interros %>%
 `r msmbstyle::solution_begin()`
 
 The produce this visualisation, we first need to convert the data we
-have in a long format using `gather`. Below, we create two new
-variables: `test`, that contains `interro1`, ..., `interro4`, and
-`score`, that contains the students marks the actual test.
+have in a long format using `pivot_longer()` (or `gather()`). Below,
+we create two new variables: `test`, that contains `interro1`, ...,
+`interro4`, and `score`, that contains the students marks the actual
+test.
 
 We obtain a new tibble that contains 4 times more rows that initially,
 as the tests, that were in 4 different columns, have now been gathered
 as a single new variable.
 
 ```{r}
-interros2 <- gather(interros, key = test,
-                    value = score,
-                    starts_with("interro"))
+interros2 <- pivot_longer(interros,
+                          names_to = "test",
+                          values_to = "score",
+                          starts_with("interro"))
 interros2
 ```
 

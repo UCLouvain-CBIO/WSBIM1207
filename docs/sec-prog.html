@@ -600,7 +600,7 @@ and you should get 4825.2778709 and 23.</p>
 ##     }
 ##     return(sum(res))
 ## }
-## &lt;bytecode: 0x5609f79ede58&gt;</code></pre>
+## &lt;bytecode: 0x55cce9b405c0&gt;</code></pre>
 <div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb543-1" data-line-number="1"><span class="kw">set.seed</span>(1L)</a>
 <a class="sourceLine" id="cb543-2" data-line-number="2"><span class="kw">fun</span>(<span class="dv">5</span>, <span class="dv">15</span>)</a></code></pre></div>
 <pre><code>## [1] 4825.278</code></pre>
@@ -910,29 +910,31 @@ to the boxplots, overlay the actual score values (using the
 </p>
 <div id="sol-body-49" class="solution-body" style="display: none;">
 <p>The produce this visualisation, we first need to convert the data we
-have in a long format using <code>gather</code>. Below, we create two new
-variables: <code>test</code>, that contains <code>interro1</code>, …, <code>interro4</code>, and
-<code>score</code>, that contains the students marks the actual test.</p>
+have in a long format using <code>pivot_longer()</code> (or <code>gather()</code>). Below,
+we create two new variables: <code>test</code>, that contains <code>interro1</code>, …,
+<code>interro4</code>, and <code>score</code>, that contains the students marks the actual
+test.</p>
 <p>We obtain a new tibble that contains 4 times more rows that initially,
 as the tests, that were in 4 different columns, have now been gathered
 as a single new variable.</p>
-<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb590-1" data-line-number="1">interros2 &lt;-<span class="st"> </span><span class="kw">gather</span>(interros, <span class="dt">key =</span> test,</a>
-<a class="sourceLine" id="cb590-2" data-line-number="2">                    <span class="dt">value =</span> score,</a>
-<a class="sourceLine" id="cb590-3" data-line-number="3">                    <span class="kw">starts_with</span>(<span class="st">"interro"</span>))</a>
-<a class="sourceLine" id="cb590-4" data-line-number="4">interros2</a></code></pre></div>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb590-1" data-line-number="1">interros2 &lt;-<span class="st"> </span><span class="kw">pivot_longer</span>(interros,</a>
+<a class="sourceLine" id="cb590-2" data-line-number="2">                          <span class="dt">names_to =</span> <span class="st">"test"</span>,</a>
+<a class="sourceLine" id="cb590-3" data-line-number="3">                          <span class="dt">values_to =</span> <span class="st">"score"</span>,</a>
+<a class="sourceLine" id="cb590-4" data-line-number="4">                          <span class="kw">starts_with</span>(<span class="st">"interro"</span>))</a>
+<a class="sourceLine" id="cb590-5" data-line-number="5">interros2</a></code></pre></div>
 <pre><code>## # A tibble: 820 x 7
-##    id     height gender      X group test     score
-##    &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;
-##  1 A74890    168 M       1.43  A     interro1    16
-##  2 A85494    167 M       1.05  A     interro1    15
-##  3 A51820    166 M       0.435 A     interro1     4
-##  4 A98669    164 M       0.715 A     interro1    15
-##  5 A75521    171 M       0.917 A     interro1    18
-##  6 A96704    178 F      -2.66  A     interro1    11
-##  7 A23214    155 M       1.11  A     interro1    12
-##  8 A31124    177 M      -0.485 A     interro1    19
-##  9 A80471    187 F       0.231 A     interro1    19
-## 10 A21783    195 F      -0.295 A     interro1    13
+##    id     height gender     X group test     score
+##    &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;
+##  1 A74890    168 M      1.43  A     interro1    16
+##  2 A74890    168 M      1.43  A     interro2    18
+##  3 A74890    168 M      1.43  A     interro3     7
+##  4 A74890    168 M      1.43  A     interro4    10
+##  5 A85494    167 M      1.05  A     interro1    15
+##  6 A85494    167 M      1.05  A     interro2    18
+##  7 A85494    167 M      1.05  A     interro3    13
+##  8 A85494    167 M      1.05  A     interro4    NA
+##  9 A51820    166 M      0.435 A     interro1     4
+## 10 A51820    166 M      0.435 A     interro2    10
 ## # … with 810 more rows</code></pre>
 <p>We can now map the new <code>test</code> and <code>score</code> variables to the <em>x</em> and <em>y</em>
 axes and construct the visualisation.</p>
