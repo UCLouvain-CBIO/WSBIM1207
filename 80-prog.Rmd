@@ -374,6 +374,41 @@ x <- rnorm(10)
 log(abs(x))
 ```
 
+There are also in-line, vectorised versions of the `if/else`
+statements seen above: the `ifelse` function that ships with the
+`base` package, and `if_else` from `dplyr`. Both work similarly (the
+differences are beyond the scope of this course) and have the form:
+
+```
+if_else(condition, true, false)
+```
+
+- where `condition` is the condition to be tested, and will return
+  either `TRUE` or `FALSE`;
+- `true` is the expression that is executed if the condition is
+  `TRUE`;
+- `false` is the expression that is executed otherwise (i.e if the
+  condition is `FALSE`).
+
+Here is an example, that will return 1 if `x` is strictly positive,
+and 0 otherwise:
+
+
+```{r}
+x <- 0.5
+if_else(x > 0, 1, 0)
+```
+
+The function being vectorised, the condition can be a vector of length
+greater than 1:
+
+
+```{r}
+x <- rnorm(10)
+x
+if_else(x > 0, 1, 0)
+```
+
 ## Writing new functions
 
 A function is composed of a name, inputs (inside the parenthesis), a
