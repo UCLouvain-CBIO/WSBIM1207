@@ -409,6 +409,20 @@ x
 if_else(x > 0, 1, 0)
 ```
 
+The vectorised conditional functions can directly be used in a
+standard data analysis pipeline:
+
+```{r, echo=FALSE}
+set.seed(1)
+```
+
+```{r}
+x <- tibble(x = letters[1:5],
+            y = rnorm(5))
+x
+mutate(x, z = if_else(y > 0, 1, 0))
+```
+
 ## Writing new functions
 
 A function is composed of a name, inputs (inside the parenthesis), a
