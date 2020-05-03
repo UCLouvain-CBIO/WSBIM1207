@@ -159,8 +159,10 @@ pre-installed. To close the remote RStudio, either use `q()` in the R
 console, click `File` and `Quit Session`, or the red round icon in the
 top corner. Next time, it won't be necessary to repeat all the
 steps. Simply navigate to your project's environment tab, rebuild the
-environment in a matter of seconds and connect.
+environment in a matter of seconds and connect. The video below
+illustrates these very same steps.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/veSrycUFcVs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 It is easey to upload files directly to the remote RStudio instance by
 using the `Upload` button in RStudio's file navigator menu. To

@@ -91,7 +91,7 @@ knitr::include_graphics("./2019-06-corr-exam-interro.png")
 | 7 | **Lundi**  16/03/2020 | **13h00 - 17h00** | Jointures et recherche reproductible            |
 | 8 | **Lundi**  30/03/2020 | 08h30 - 12h30     | Bioinformatique et éléments de programmation    |
 | 9 | Jeudi  23/04/2020     | 08h30 - 12h30     | Exercices supplémentaires et questions/réponses |
-|   | Jeudi  14/05/2020     | 08h30 - 12h30     | **Examen hors session**                         |
+|   | Jeudi  14/05/2020     | 08h30 - 12h30     | ~~Examen hors session~~                         |
 
 
 NB: la matière reprise ci-dessus est à titre indicatif uniquement, et
