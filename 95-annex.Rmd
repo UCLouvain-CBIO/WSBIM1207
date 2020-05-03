@@ -167,9 +167,11 @@ illustrates these very same steps.
 It is easey to upload files directly to the remote RStudio instance by
 using the `Upload` button in RStudio's file navigator menu. To
 download files or directories, select the files/folders in the file
-menu and click on `More` and then `Export`. The third video below
-documents how to save any changes (including new files and folders)
-back to Renku.
+menu and click on `More` and then `Export`. The video below briefly
+illustrates this and demonstrates how to save any changes (including
+new files and folders) back to Renku.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0DQhX7Kwbgo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ### More about Renku
