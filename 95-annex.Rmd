@@ -174,7 +174,7 @@ new files and folders) back to Renku.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0DQhX7Kwbgo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-### More about Renku
+### More about Renku {-}
 
 Here are a set of introductory videos (in French) prepared by
 [Christine Choirat](https://scholar.harvard.edu/cchoirat/home):
