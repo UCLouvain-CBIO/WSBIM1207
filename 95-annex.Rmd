@@ -174,6 +174,21 @@ new files and folders) back to Renku.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0DQhX7Kwbgo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
+Note that projects can only be forked once. If you want or need to
+fork the WSBIM1207 Renku project again, you first need to delete your
+existing fork:
+
+1. Navigate to your project page.
+2. In the top right corner, click on **View in GitLab**.
+3. In the bottom left corner, click on **Settings**.
+4. Click on **Advanced** at the bottom of the page.
+5. Navigate to the very bottom and click on the red button **Remove
+   project**.
+6. You will be to type the name of the project (wsbim1207) en then
+   confirm that you want to permanently delete it.
+   
+You can not restart the procedure described above.
+
 ### More about Renku {-}
 
 Here are a set of introductory videos (in French) prepared by
