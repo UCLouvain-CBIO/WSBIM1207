@@ -632,7 +632,7 @@ BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
    `annot` respectively and familiarise yourself with the content of
    the two new tables.
 
-3. Convert the counts data into a long table format and annotation
+3. Convert the counts data into a long table format and annotate
    each sample using the experimental design.
 
 4. Identity the three transcript identifiers that have the highest
