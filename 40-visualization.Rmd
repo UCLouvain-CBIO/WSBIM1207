@@ -795,10 +795,10 @@ project.
 
 - Inspect the data.
 
-The `sampleID` column gives the TCGA reference of the sample and
-sample is unique. The 12 first characters (TCGA-XX-XXXX) of the
-samples ID are unique to each patient. The 3 last characters of the
-samples ID indicate the type of sample: samples ending with '-01A'
+The `sampleID` column gives the TCGA reference of the sample and is
+unique. The 12 first characters (TCGA-XX-XXXX) of the samples ID are
+unique to each patient. The 3 last characters of the samples ID
+indicate the type of sample: samples ending with '-01A'
 (TCGA-XX-XXXX-01A) correspond to tumors and samples ending with '-11A'
 (TCGA-XX-XXXX-11A) correspond to normal peritumoral tissues.
 

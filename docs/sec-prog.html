@@ -14,14 +14,14 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2020-08-10" />
+<meta name="date" content="2020-08-16" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" } }
 });
 </script>
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
@@ -60,41 +60,67 @@ if(f.classList.contains('fa-plus-square')) {
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -155,52 +181,106 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>good coding practice</li>
 <li>code re-use through functions</li>
 </ul>
-<p>When the size and the complexity of the data increases, or the data science question of interest becomes more complex, the data analysis techniques as we have seen them so far need to be complemented with programming techniques. From a data science point of view, there is no clear delimitation between data analysis and (data) programming, both morphing into each other<label for="tufte-sn-20" class="margin-toggle sidenote-number">20</label><input type="checkbox" id="tufte-sn-20" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">20</span> A fundamental difference however is how data analysis and programming are taught. When it comes to researchers, and biomedical researchers in particular, teaching programming to analyse data isn’t successful. Teaching data analysis to eventually programme with data, however, has proven a successful strategy.</span>.</p>
-<p>This chapter will introduce some additional programming skills and demonstrate how to use them in the context of high troughput omics data.</p>
+<p>When the size and the complexity of the data increases, or the data
+science question of interest becomes more complex, the data analysis
+techniques as we have seen them so far need to be complemented with
+programming techniques. From a data science point of view, there is no
+clear delimitation between data analysis and (data) programming, both
+morphing into each other<label for="tufte-sn-20" class="margin-toggle sidenote-number">20</label><input type="checkbox" id="tufte-sn-20" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">20</span> A fundamental difference however is how data analysis and
+programming are taught. When it comes to researchers, and
+biomedical researchers in particular, teaching programming to
+analyse data isn’t successful. Teaching data analysis to
+eventually programme with data, however, has proven a successful
+strategy.</span>.</p>
+<p>This chapter will introduce some additional programming skills and
+demonstrate how to use them in the context of high troughput omics
+data.</p>
 <div id="writing-clean-code" class="section level2">
 <h2>
 <span class="header-section-number">9.1</span> Writing clean code</h2>
-<p>Writing clean code means writing easily readable code, hence easily understable code and, eventually code with less bugs. One easy way to achieve this is through consistency, i.e. stick to a <strong>style guide</strong>. This issue is that there are several style guides available, often with conflicting suggestions. Two widely used ones are the <a href="http://bioconductor.org/developers/how-to/coding-style/">Bioconductor style guide</a> and <a href="http://r-pkgs.had.co.nz/style.html">Hadley Wickhams’s R Style Guide</a>. The advice from for naming variables seen in the first and second chapters are also relevant.</p>
+<p>Writing clean code means writing easily readable code, hence easily
+understable code and, eventually code with less bugs. One easy way to
+achieve this is through consistency, i.e. stick to a <strong>style
+guide</strong>. This issue is that there are several style guides available,
+often with conflicting suggestions. Two widely used ones are the
+<a href="http://bioconductor.org/developers/how-to/coding-style/">Bioconductor style
+guide</a> and
+<a href="http://r-pkgs.had.co.nz/style.html">Hadley Wickhams’s R Style
+Guide</a>. The advice from for naming
+variables seen in the first and second chapters are also relevant.</p>
 <p>Here are a couple of suggestions:</p>
 <ul>
-<li>Use <code>&lt;-</code> to assign variables. Use <code>=</code> is also valid, but make sure that you stick with one.</li>
-<li>Use either camel case (<code>camelCaseNaming</code>) of snake case (<code>snake_case_naming</code>), and avoid using dots (don’t use <code>dot.variable.names</code>). These conventions apply to functions, variables and files (for the latter, a <code>-</code> instead of <code>_</code> is also acceptable).</li>
-<li>Always spell out <code>TRUE</code> and <code>FALSE</code>, and resist the temptation to use <code>T</code> and <code>F</code> instead<label for="tufte-sn-21" class="margin-toggle sidenote-number">21</label><input type="checkbox" id="tufte-sn-21" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">21</span> <code>TRUE</code> and <code>FALSE</code> are reserved words; one can’t use them as variable names. This however doesn’t hold for <code>T</code> and <code>F</code>. One can use <code>T</code> and <code>F</code> as regular variable names such, as for example, <code>T &lt;- FALSE</code> and <code>F &lt;- TRUE</code>!</span>.</li>
+<li>Use <code>&lt;-</code> to assign variables. Use <code>=</code> is also valid, but make sure
+that you stick with one.</li>
+<li>Use either camel case (<code>camelCaseNaming</code>) of snake case
+(<code>snake_case_naming</code>), and avoid using dots (don’t use
+<code>dot.variable.names</code>). These conventions apply to functions,
+variables and files (for the latter, a <code>-</code> instead of <code>_</code> is also
+acceptable).</li>
+<li>Always spell out <code>TRUE</code> and <code>FALSE</code>, and resist the temptation to
+use <code>T</code> and <code>F</code> instead<label for="tufte-sn-21" class="margin-toggle sidenote-number">21</label><input type="checkbox" id="tufte-sn-21" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">21</span> <code>TRUE</code> and <code>FALSE</code> are reserved words; one can’t use them as
+variable names. This however doesn’t hold for <code>T</code> and <code>F</code>. One can use
+<code>T</code> and <code>F</code> as regular variable names such, as for example,
+<code>T &lt;- FALSE</code> and <code>F &lt;- TRUE</code>!</span>.</li>
 <li>Use 4 spaces for indenting. No tabs.</li>
 <li>No lines longer than 80 characters.</li>
 <li>Use spaces around binary operators.</li>
 <li>No spaces between a function name and the opening parenthesis.</li>
 </ul>
-<p>Another good advise is to avoid re-writing the same code many times. We will see below two strategies to do that, namely iteration and writing new functions. This firstly reduces the amount of code typed and hence the number of bugs, but more importantly enables consistency. If something in your code changes, there’s only one change and it applies everywhere, rather than doing that same change repeatedly (at the first of adding bugs and to miss some updates).</p>
-<p>When writing code, <strong>keep it simple and short</strong><label for="tufte-sn-22" class="margin-toggle sidenote-number">22</label><input type="checkbox" id="tufte-sn-22" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">22</span> The official motto is <a href="https://en.wikipedia.org/wiki/KISS_principle">KISS</a>, <em>keep your functions simple, stupid</em>, widely used in programming.</span>. Ideally, the code should be evident. But when the questions tackled are not trivial, is becomes essential to add <strong>comments</strong> to clarify aspects of the script/programme. Make sure to use them to describe why something is done, rather than explaining how things are done (which is tyically best done by the code itself).</p>
-<p>A general guideline to avoid bugs is to apply <strong>defensive programming</strong>:</p>
+<p>Another good advise is to avoid re-writing the same code many
+times. We will see below two strategies to do that, namely iteration
+and writing new functions. This firstly reduces the amount of code
+typed and hence the number of bugs, but more importantly enables
+consistency. If something in your code changes, there’s only one
+change and it applies everywhere, rather than doing that same change
+repeatedly (at the first of adding bugs and to miss some updates).</p>
+<p>When writing code, <strong>keep it simple and short</strong><label for="tufte-sn-22" class="margin-toggle sidenote-number">22</label><input type="checkbox" id="tufte-sn-22" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">22</span> The official motto is
+<a href="https://en.wikipedia.org/wiki/KISS_principle">KISS</a>, <em>keep your
+functions simple, stupid</em>, widely used in programming.</span>. Ideally, the
+code should be evident. But when the questions tackled are not
+trivial, is becomes essential to add <strong>comments</strong> to clarify aspects
+of the script/programme. Make sure to use them to describe why
+something is done, rather than explaining how things are done (which
+is tyically best done by the code itself).</p>
+<p>A general guideline to avoid bugs is to apply <strong>defensive
+programming</strong>:</p>
 <ul>
 <li>making the code work in a predicable manner</li>
 <li>writing code that fails in a well-defined manner</li>
-<li>if something weird happens, either properly deal with it, of fail quickly and loudly</li>
+<li>if something weird happens, either properly deal with it, of fail
+quickly and loudly</li>
 </ul>
 <p>Here are some examples of how to do this:</p>
 <ul>
-<li><p>use functions like <code>is.numeric(x)</code>, <code>is.character(x)</code>, <code>is.data.frame(x)</code>, … for make sure that the variable you are going to use is of the expected type.</p></li>
-<li><p>Make sure the length or dimensions of what you are going to use are what you expect:</p></li>
+<li><p>use functions like <code>is.numeric(x)</code>, <code>is.character(x)</code>,
+<code>is.data.frame(x)</code>, … for make sure that the variable you are
+going to use is of the expected type.</p></li>
+<li><p>Make sure the length or dimensions of what you are going to use are
+what you expect:</p></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>
-<span class="kw">nrow</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>
-<span class="kw">ncol</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span></code></pre></div>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb502-1" data-line-number="1"><span class="kw">length</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb502-2" data-line-number="2"><span class="kw">nrow</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb502-3" data-line-number="3"><span class="kw">ncol</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span></a></code></pre></div>
 <ul>
-<li>Failing fast and well! Wrap such test in <code>stopifnot()</code>, so that if they fail, you get immediately an error, rather than risking that you code fails later with obscure error messages or, worse, the code runs to completion but returns meaningless results.</li>
+<li>Failing fast and well! Wrap such test in <code>stopifnot()</code>, so that if
+they fail, you get immediately an error, rather than risking that
+you code fails later with obscure error messages or, worse, the code
+runs to completion but returns meaningless results.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stopifnot</span>(<span class="kw">length</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)
-<span class="kw">stopifnot</span>(<span class="kw">dim</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) ## same as next one
-<span class="kw">stopifnot</span>(<span class="kw">ncol</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="kw">nrow</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb503-1" data-line-number="1"><span class="kw">stopifnot</span>(<span class="kw">length</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb503-2" data-line-number="2"><span class="kw">stopifnot</span>(<span class="kw">dim</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) <span class="co">## same as next one</span></a>
+<a class="sourceLine" id="cb503-3" data-line-number="3"><span class="kw">stopifnot</span>(<span class="kw">ncol</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="kw">nrow</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</a></code></pre></div>
 </div>
 <div id="iteration" class="section level2">
 <h2>
 <span class="header-section-number">9.2</span> Iteration</h2>
-<p>Iteration describes the situtation when a specific operation has to be repeated many times on different inputs of the same type. For example, if we have a vector of numeric <code>x</code> shown below,</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
+<p>Iteration describes the situtation when a specific operation has to be
+repeated many times on different inputs of the same type. For example,
+if we have a vector of numeric <code>x</code> shown below,</p>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb504-1" data-line-number="1">(x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</a></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<p>and we wanted to apply the logarithm operation on each element of <code>x</code>, it wouldn’t be convenient to type</p>
+<p>and we wanted to apply the logarithm operation on each element of <code>x</code>,
+it wouldn’t be convenient to type</p>
 <pre><code>log(1)
 log(2)
 log(3)
@@ -217,9 +297,9 @@ log(10)</code></pre>
 <p>We will see different ways of implementing such an iteration.</p>
 <div id="using-a-for-loop" class="section level3 unnumbered">
 <h3>Using a <code>for</code> loop</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span> (i <span class="cf">in</span> x) {
-    <span class="kw">print</span>(<span class="kw">log</span>(i))
-}</code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb507-1" data-line-number="1"><span class="cf">for</span> (i <span class="cf">in</span> x) {</a>
+<a class="sourceLine" id="cb507-2" data-line-number="2">    <span class="kw">print</span>(<span class="kw">log</span>(i))</a>
+<a class="sourceLine" id="cb507-3" data-line-number="3">}</a></code></pre></div>
 <pre><code>## [1] 0
 ## [1] 0.6931472
 ## [1] 1.098612
@@ -230,18 +310,26 @@ log(10)</code></pre>
 ## [1] 2.079442
 ## [1] 2.197225
 ## [1] 2.302585</code></pre>
-<p>The loop above only prints the results on screen. They aren’t stored and are lost for any further re-use, which would be very annoying if it took much more time to perform all the calculations. In the code chunk below, we are going to first inititalise a vector with the appropriate number of <code>NA</code> values and, at each iteration, we then store the result. We however now need to change our loop and iterate of the indices of the input vector, so that we can re-use these indices to save the results in the output vector.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res_loop &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="kw">length</span>(x))
-<span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(x)) {
-    res_loop[i] &lt;-<span class="st"> </span><span class="kw">log</span>(x[i])
-}
-res_loop</code></pre></div>
+<p>The loop above only prints the results on screen. They aren’t stored
+and are lost for any further re-use, which would be very annoying if
+it took much more time to perform all the calculations. In the code
+chunk below, we are going to first inititalise a vector with the
+appropriate number of <code>NA</code> values and, at each iteration, we then
+store the result. We however now need to change our loop and iterate
+of the indices of the input vector, so that we can re-use these
+indices to save the results in the output vector.</p>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb509-1" data-line-number="1">res_loop &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="kw">length</span>(x))</a>
+<a class="sourceLine" id="cb509-2" data-line-number="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(x)) {</a>
+<a class="sourceLine" id="cb509-3" data-line-number="3">    res_loop[i] &lt;-<span class="st"> </span><span class="kw">log</span>(x[i])</a>
+<a class="sourceLine" id="cb509-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb509-5" data-line-number="5">res_loop</a></code></pre></div>
 <pre><code>##  [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
 ##  [8] 2.0794415 2.1972246 2.3025851</code></pre>
 </div>
 <div id="using-the-apply-function" class="section level3 unnumbered">
 <h3>Using the <code>apply</code> function</h3>
-<p>The apply family of functions implements our defintion of iteration quite literally</p>
+<p>The apply family of functions implements our defintion of iteration
+quite literally</p>
 <blockquote>
 <p>Repeat <code>log</code> for each value of my input <code>x</code></p>
 </blockquote>
@@ -250,47 +338,85 @@ res_loop</code></pre></div>
 <p>For each value of my input <code>x</code>, apply <code>log</code></p>
 </blockquote>
 <p>and coded as</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res_apply &lt;-<span class="st"> </span><span class="kw">sapply</span>(x, log)
-res_apply</code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb511-1" data-line-number="1">res_apply &lt;-<span class="st"> </span><span class="kw">sapply</span>(x, log)</a>
+<a class="sourceLine" id="cb511-2" data-line-number="2">res_apply</a></code></pre></div>
 <pre><code>##  [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
 ##  [8] 2.0794415 2.1972246 2.3025851</code></pre>
 <p>There are three such function that <em>apply</em> a function iteratively:</p>
 <ul>
-<li><p><code>sapply</code> iterates over a vector and returns a new vector of the same length as the input vector<label for="tufte-sn-23" class="margin-toggle sidenote-number">23</label><input type="checkbox" id="tufte-sn-23" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">23</span> This is a simplification of how <code>sapply</code> works, that is partly defined by the the <code>simplify</code> argument and whether the result of applying the function on each element of the input can be returned as a vector. The alternative is to return a <code>list</code>, like <code>lapply</code>.</span>.</p></li>
-<li><p><code>lapply</code> iterates over a linear input (a vector of a list) and returns a list of the same length as the input.</p></li>
-<li><p><code>apply</code> iterates of the rows or the columns of a <code>data.frame</code> or <code>matrix</code> and returns a list or vector or approritate length (number of rows or columns). The dimension over which the iterations proceeds is defined by the second argument, where <code>1</code> defines rows and <code>2</code> defined columns<label for="tufte-sn-24" class="margin-toggle sidenote-number">24</label><input type="checkbox" id="tufte-sn-24" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">24</span> This generalises to arrays with more than 2 dimensions.</span>.</p></li>
+<li><p><code>sapply</code> iterates over a vector and returns a new vector of the same
+length as the input vector<label for="tufte-sn-23" class="margin-toggle sidenote-number">23</label><input type="checkbox" id="tufte-sn-23" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">23</span> This is a simplification of how <code>sapply</code> works,
+that is partly defined by the the <code>simplify</code> argument and whether
+the result of applying the function on each element of the input
+can be returned as a vector. The alternative is to return a
+<code>list</code>, like <code>lapply</code>.</span>.</p></li>
+<li><p><code>lapply</code> iterates over a linear input (a vector of a list) and
+returns a list of the same length as the input.</p></li>
+<li><p><code>apply</code> iterates of the rows or the columns of a <code>data.frame</code> or
+<code>matrix</code> and returns a list or vector or approritate length (number
+of rows or columns). The dimension over which the iterations
+proceeds is defined by the second argument, where <code>1</code> defines rows
+and <code>2</code> defined columns<label for="tufte-sn-24" class="margin-toggle sidenote-number">24</label><input type="checkbox" id="tufte-sn-24" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">24</span> This generalises to arrays with more than 2 dimensions.</span>.</p></li>
 </ul>
-<p>When performing the same operations in different ways (using different implementations), it is essential to verify that the results are identical or, if not, at least compatible. The most direct way to do the former is to use the <code>identical</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(res_loop, res_apply)</code></pre></div>
+<p>When performing the same operations in different ways (using different
+implementations), it is essential to verify that the results are
+identical or, if not, at least compatible. The most direct way to do
+the former is to use the <code>identical</code> function:</p>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb513-1" data-line-number="1"><span class="kw">identical</span>(res_loop, res_apply)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<p>The <code>purrr</code> package a set of <code>map</code> functions similar to the <code>apply</code> set described above.</p>
+<p>The <code>purrr</code> package a set of <code>map</code> functions similar to the <code>apply</code>
+set described above.</p>
 </div>
 <div id="vectorisation" class="section level3 unnumbered">
 <h3>Vectorisation</h3>
-<p>We must not forget the obvious, which is vectorisation. Many R functions work by default iteratively on every element of a vectors, i.e. they work irrespectively whether the vector is of length 1<label for="tufte-sn-25" class="margin-toggle sidenote-number">25</label><input type="checkbox" id="tufte-sn-25" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">25</span> A vector of length 1 would be called a scalar in other programming languages.</span> or longer.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res_vec &lt;-<span class="st"> </span><span class="kw">log</span>(x)
-res_vec</code></pre></div>
+<p>We must not forget the obvious, which is vectorisation. Many R
+functions work by default iteratively on every element of a vectors,
+i.e. they work irrespectively whether the vector is of length
+1<label for="tufte-sn-25" class="margin-toggle sidenote-number">25</label><input type="checkbox" id="tufte-sn-25" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">25</span> A vector of length 1 would be called a scalar in other
+programming languages.</span> or longer.</p>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb515-1" data-line-number="1">res_vec &lt;-<span class="st"> </span><span class="kw">log</span>(x)</a>
+<a class="sourceLine" id="cb515-2" data-line-number="2">res_vec</a></code></pre></div>
 <pre><code>##  [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
 ##  [8] 2.0794415 2.1972246 2.3025851</code></pre>
 <p>And, as before, we check that we obtain identical results:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(res_loop, res_vec)</code></pre></div>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb517-1" data-line-number="1"><span class="kw">identical</span>(res_loop, res_vec)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
 <div id="which-iteration-to-use" class="section level3 unnumbered">
 <h3>Which iteration to use?</h3>
-<p>Even though they produce the same result, the iteration strategies above aren’t equal, and some should be preferred in different situations.</p>
+<p>Even though they produce the same result, the iteration strategies
+above aren’t equal, and some should be preferred in different
+situations.</p>
 <ul>
-<li><p>When a vectorised solution exists, this is the one that should be chosen. It is by far the fastest solution, but only applicable to existing <em>vectorised</em> functions. If you were to write your own function to iterate over, it is advisable to write a vectorised function.</p></li>
-<li><p>The apply functions are extremely convenient and concise, and hence widely used. They have a couple of advantages, including that there is no need to explicitly initialise a result variable and that they can easily be parallelised.</p></li>
-<li><p>For loops are the most generic solution for iteration, and they require to initialise the result variable that will be populated during the loop. As opposed to popular belief, they aren’t slower than using apply functions. They are however the best solution if, during the iteration, one has the access another element than the one currently processed (typically, if <code>i</code> is the counter, accessing <code>i + 1</code> or <code>i - 1</code>).</p></li>
+<li><p>When a vectorised solution exists, this is the one that should be
+chosen. It is by far the fastest solution, but only applicable to
+existing <em>vectorised</em> functions. If you were to write your own
+function to iterate over, it is advisable to write a vectorised
+function.</p></li>
+<li><p>The apply functions are extremely convenient and concise, and hence
+widely used. They have a couple of advantages, including that there
+is no need to explicitly initialise a result variable and that they
+can easily be parallelised.</p></li>
+<li><p>For loops are the most generic solution for iteration, and they
+require to initialise the result variable that will be populated
+during the loop. As opposed to popular belief, they aren’t slower
+than using apply functions. They are however the best solution if,
+during the iteration, one has the access another element than the
+one currently processed (typically, if <code>i</code> is the counter, accessing
+<code>i + 1</code> or <code>i - 1</code>).</p></li>
 </ul>
 <div class="question">
 <p class="question-begin">
 ► Question
 </p>
 <div class="question-body">
-<p>Use the <code>expressions.csv()</code> function from the <code>rWSBIM1207</code> package to get the path to 5 csv files containing gene expression data for a single gene and hundreds of patience. Read all data in and combine them into a single dataframe.</p>
-<p>Before starting, open at least two of these files them to familiarise yourself with their structure and identify how and with what function they need to be combined.</p>
+<p>Use the <code>expressions.csv()</code> function from the <code>rWSBIM1207</code> package to
+get the path to 5 csv files containing gene expression data
+for a single gene and hundreds of patience. Read all data in and
+combine them into a single dataframe.</p>
+<p>Before starting, open at least two of these files them to familiarise
+yourself with their structure and identify how and with what function
+they need to be combined.</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -301,11 +427,12 @@ res_vec</code></pre></div>
 ► Solution<span id="sol-start-42" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-42', 'sol-start-42')"></span>
 </p>
 <div id="sol-body-42" class="solution-body" style="display: none;">
-<p>Let’s start by loading the required packages and check two file. We will also use the <em>tidyverse</em> to work with the data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">"tidyverse"</span>)
-<span class="kw">library</span>(<span class="st">"rWSBIM1207"</span>)
-fls &lt;-<span class="st"> </span><span class="kw">expressions.csv</span>()
-<span class="kw">read_csv</span>(fls[<span class="dv">1</span>])</code></pre></div>
+<p>Let’s start by loading the required packages and check two file. We
+will also use the <em>tidyverse</em> to work with the data.</p>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb519-1" data-line-number="1"><span class="kw">library</span>(<span class="st">"tidyverse"</span>)</a>
+<a class="sourceLine" id="cb519-2" data-line-number="2"><span class="kw">library</span>(<span class="st">"rWSBIM1207"</span>)</a>
+<a class="sourceLine" id="cb519-3" data-line-number="3">fls &lt;-<span class="st"> </span><span class="kw">expressions.csv</span>()</a>
+<a class="sourceLine" id="cb519-4" data-line-number="4"><span class="kw">read_csv</span>(fls[<span class="dv">1</span>])</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   sampleID = col_character(),
@@ -327,7 +454,7 @@ fls &lt;-<span class="st"> </span><span class="kw">expressions.csv</span>()
 ##  9 TCGA-05-4396-01A TCGA-05-4396 tumor  17.4
 ## 10 TCGA-05-4397-01A TCGA-05-4397 tumor 127. 
 ## # … with 560 more rows</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read_csv</span>(fls[<span class="dv">2</span>])</code></pre></div>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb522-1" data-line-number="1"><span class="kw">read_csv</span>(fls[<span class="dv">2</span>])</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   sampleID = col_character(),
@@ -349,15 +476,19 @@ fls &lt;-<span class="st"> </span><span class="kw">expressions.csv</span>()
 ##  9 TCGA-05-4396-01A TCGA-05-4396 tumor 15.9  
 ## 10 TCGA-05-4397-01A TCGA-05-4397 tumor  0    
 ## # … with 560 more rows</code></pre>
-<p>We see that the data will have to be combined column-wise. We could do it manually, adding news columns one by on to the first data, but this would require to check that the observations are in the same order. Instead, we will use a <code>full_join</code>, as seen in chapter <a href="sec-join.html#sec:join">6</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## read the first one
-res &lt;-<span class="st"> </span><span class="kw">read_csv</span>(fls[<span class="dv">1</span>])
-## iterate over the other data
-<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="kw">length</span>(fls)) {
-    data_i &lt;-<span class="st"> </span><span class="kw">read_csv</span>(fls[i], <span class="dt">progress =</span> <span class="ot">FALSE</span>)
-    res &lt;-<span class="st"> </span><span class="kw">full_join</span>(res, data_i)
-}
-res</code></pre></div>
+<p>We see that the data will have to be combined column-wise. We could do
+it manually, adding news columns one by on to the first data, but this
+would require to check that the observations are in the same
+order. Instead, we will use a <code>full_join</code>, as seen in chapter
+<a href="sec-join.html#sec:join">6</a>.</p>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb525-1" data-line-number="1"><span class="co">## read the first one</span></a>
+<a class="sourceLine" id="cb525-2" data-line-number="2">res &lt;-<span class="st"> </span><span class="kw">read_csv</span>(fls[<span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb525-3" data-line-number="3"><span class="co">## iterate over the other data</span></a>
+<a class="sourceLine" id="cb525-4" data-line-number="4"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="kw">length</span>(fls)) {</a>
+<a class="sourceLine" id="cb525-5" data-line-number="5">    data_i &lt;-<span class="st"> </span><span class="kw">read_csv</span>(fls[i], <span class="dt">progress =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb525-6" data-line-number="6">    res &lt;-<span class="st"> </span><span class="kw">full_join</span>(res, data_i)</a>
+<a class="sourceLine" id="cb525-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb525-8" data-line-number="8">res</a></code></pre></div>
 <pre><code>## # A tibble: 570 x 8
 ##    sampleID         patient      type   A1BG   A1CF A2BP1 A2LD1   A2ML1
 ##    &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
@@ -383,53 +514,66 @@ res</code></pre></div>
 <div id="conditionals" class="section level2">
 <h2>
 <span class="header-section-number">9.3</span> Conditionals</h2>
-<p>When an operation has to be executed when a condition is met, one typically uses a <code>if</code> and <code>else</code> construct:</p>
+<p>When an operation has to be executed when a condition is met, one
+typically uses a <code>if</code> and <code>else</code> construct:</p>
 <pre><code>if (CONDITION) {
    ## DO SOMETHING
 } else {
   ## DO SOMETHING ELSE
 }</code></pre>
 <p>For examples</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1</span>))</code></pre></div>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb528-1" data-line-number="1">(x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1</span>))</a></code></pre></div>
 <pre><code>## [1] -0.6264538</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) {
-   <span class="kw">print</span>(<span class="kw">log</span>(x))
-} <span class="cf">else</span> {
-   <span class="kw">print</span>(<span class="kw">log</span>(<span class="op">-</span>x))
-}</code></pre></div>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb530-1" data-line-number="1"><span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb530-2" data-line-number="2">   <span class="kw">print</span>(<span class="kw">log</span>(x))</a>
+<a class="sourceLine" id="cb530-3" data-line-number="3">} <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb530-4" data-line-number="4">   <span class="kw">print</span>(<span class="kw">log</span>(<span class="op">-</span>x))</a>
+<a class="sourceLine" id="cb530-5" data-line-number="5">}</a></code></pre></div>
 <pre><code>## [1] -0.4676802</code></pre>
-<p>But note that in the example above, it would be much better to simplify the code and use the absolute value of <code>x</code> before taking the log, which will generalise the calculation for positive and negative values …</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log</span>(<span class="kw">abs</span>(x))</code></pre></div>
+<p>But note that in the example above, it would be much better to
+simplify the code and use the absolute value of <code>x</code> before taking the
+log, which will generalise the calculation for positive and negative
+values …</p>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb532-1" data-line-number="1"><span class="kw">log</span>(<span class="kw">abs</span>(x))</a></code></pre></div>
 <pre><code>## [1] -0.4676802</code></pre>
 <p>… and works for vectors of any length thanks to vectorisation.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>)
-<span class="kw">log</span>(<span class="kw">abs</span>(x))</code></pre></div>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb534-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb534-2" data-line-number="2"><span class="kw">log</span>(<span class="kw">abs</span>(x))</a></code></pre></div>
 <pre><code>##  [1] -1.6947599 -0.1795710  0.4670498 -1.1101553 -0.1978799 -0.7186105
 ##  [7] -0.3033716 -0.5520273 -1.1861709  0.4132885</code></pre>
-<p>There are also in-line, vectorised versions of the <code>if/else</code> statements seen above: the <code>ifelse</code> function that ships with the <code>base</code> package, and <code>if_else</code> from <code>dplyr</code>. Both work similarly (the differences are beyond the scope of this course) and have the form:</p>
+<p>There are also in-line, vectorised versions of the <code>if/else</code>
+statements seen above: the <code>ifelse</code> function that ships with the
+<code>base</code> package, and <code>if_else</code> from <code>dplyr</code>. Both work similarly (the
+differences are beyond the scope of this course) and have the form:</p>
 <pre><code>if_else(condition, true, false)</code></pre>
 <ul>
-<li>where <code>condition</code> is the condition to be tested, and will return either <code>TRUE</code> or <code>FALSE</code>;</li>
+<li>where <code>condition</code> is the condition to be tested, and will return
+either <code>TRUE</code> or <code>FALSE</code>;</li>
 <li>
-<code>true</code> is the expression that is executed if the condition is <code>TRUE</code>;</li>
+<code>true</code> is the expression that is executed if the condition is
+<code>TRUE</code>;</li>
 <li>
-<code>false</code> is the expression that is executed otherwise (i.e if the condition is <code>FALSE</code>).</li>
+<code>false</code> is the expression that is executed otherwise (i.e if the
+condition is <code>FALSE</code>).</li>
 </ul>
-<p>Here is an example, that will return 1 if <code>x</code> is strictly positive, and 0 otherwise:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="fl">0.5</span>
-<span class="kw">if_else</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)</code></pre></div>
+<p>Here is an example, that will return 1 if <code>x</code> is strictly positive,
+and 0 otherwise:</p>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb537-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="fl">0.5</span></a>
+<a class="sourceLine" id="cb537-2" data-line-number="2"><span class="kw">if_else</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)</a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<p>The function being vectorised, the condition can be a vector of length greater than 1:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>)
-x</code></pre></div>
+<p>The function being vectorised, the condition can be a vector of length
+greater than 1:</p>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb539-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb539-2" data-line-number="2">x</a></code></pre></div>
 <pre><code>##  [1]  0.38984324 -0.62124058 -2.21469989  1.12493092 -0.04493361 -0.01619026
 ##  [7]  0.94383621  0.82122120  0.59390132  0.91897737</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">if_else</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)</code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb541-1" data-line-number="1"><span class="kw">if_else</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)</a></code></pre></div>
 <pre><code>##  [1] 1 0 0 1 0 0 1 1 1 1</code></pre>
-<p>The vectorised conditional functions can directly be used in a standard data analysis pipeline:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">x =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>],
-            <span class="dt">y =</span> <span class="kw">rnorm</span>(<span class="dv">5</span>))
-x</code></pre></div>
+<p>The vectorised conditional functions can directly be used in a
+standard data analysis pipeline:</p>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb543-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">x =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>],</a>
+<a class="sourceLine" id="cb543-2" data-line-number="2">            <span class="dt">y =</span> <span class="kw">rnorm</span>(<span class="dv">5</span>))</a>
+<a class="sourceLine" id="cb543-3" data-line-number="3">x</a></code></pre></div>
 <pre><code>## # A tibble: 5 x 2
 ##   x          y
 ##   &lt;chr&gt;  &lt;dbl&gt;
@@ -438,7 +582,7 @@ x</code></pre></div>
 ## 3 c     -0.836
 ## 4 d      1.60 
 ## 5 e      0.330</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mutate</span>(x, <span class="dt">z =</span> <span class="kw">if_else</span>(y <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb545-1" data-line-number="1"><span class="kw">mutate</span>(x, <span class="dt">z =</span> <span class="kw">if_else</span>(y <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 5 x 3
 ##   x          y     z
 ##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;
@@ -451,14 +595,16 @@ x</code></pre></div>
 <div id="writing-new-functions" class="section level2">
 <h2>
 <span class="header-section-number">9.4</span> Writing new functions</h2>
-<p>A function is composed of a name, inputs (inside the parenthesis), a body (between curly brackets) and an ouput (last statement or variably inside the <code>return</code> statement).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_fun &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {
-    <span class="kw">message</span>(<span class="st">"First input: "</span>, x)
-    <span class="kw">message</span>(<span class="st">"Second input: "</span>, y)
-    z &lt;-<span class="st"> </span>x <span class="op">*</span><span class="st"> </span><span class="kw">abs</span>(y)
-    <span class="kw">return</span>(z)
-}
-<span class="kw">my_fun</span>(<span class="dv">2</span>, <span class="dv">-5</span>)</code></pre></div>
+<p>A function is composed of a name, inputs (inside the parenthesis), a
+body (between curly brackets) and an ouput (last statement or variably
+inside the <code>return</code> statement).</p>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb547-1" data-line-number="1">my_fun &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</a>
+<a class="sourceLine" id="cb547-2" data-line-number="2">    <span class="kw">message</span>(<span class="st">"First input: "</span>, x)</a>
+<a class="sourceLine" id="cb547-3" data-line-number="3">    <span class="kw">message</span>(<span class="st">"Second input: "</span>, y)</a>
+<a class="sourceLine" id="cb547-4" data-line-number="4">    z &lt;-<span class="st"> </span>x <span class="op">*</span><span class="st"> </span><span class="kw">abs</span>(y)</a>
+<a class="sourceLine" id="cb547-5" data-line-number="5">    <span class="kw">return</span>(z)</a>
+<a class="sourceLine" id="cb547-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb547-7" data-line-number="7"><span class="kw">my_fun</span>(<span class="dv">2</span>, <span class="dv">-5</span>)</a></code></pre></div>
 <pre><code>## First input: 2</code></pre>
 <pre><code>## Second input: -5</code></pre>
 <pre><code>## [1] 10</code></pre>
@@ -467,17 +613,23 @@ x</code></pre></div>
 ► Question
 </p>
 <div class="question-body">
-<p>Complete the following function. It is supposed to take two inputs, <code>x</code> and <code>y</code> and, depending whether the <code>x &gt; y</code> or <code>x &lt;= y</code>, it generates the permutation <code>sample(x, y)</code> in the first case or draws a sample from <code>rnorm(1000, x, y)</code> in the second case. Finally, it returns the sum of all values.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fun &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {
-    res &lt;-<span class="st"> </span><span class="ot">NA</span>
-    <span class="cf">if</span> (   ) {
-        res &lt;-<span class="st"> </span><span class="kw">sample</span>(, )
-    } <span class="cf">else</span> {
-        res &lt;-<span class="st"> </span><span class="kw">rnorm</span>(, , )
-    }
-    <span class="kw">return</span>()
-}</code></pre></div>
-<p>To check your answer, run it with inputs 5, 15 and 15, 5, after setting the random number generator to 1 each time with <code>set.seed(1)</code> and you should get 4825.2778709 and 23.</p>
+<p>Complete the following function. It is supposed to take two inputs,
+<code>x</code> and <code>y</code> and, depending whether the <code>x &gt; y</code> or <code>x &lt;= y</code>, it generates
+the permutation <code>sample(x, y)</code> in the first case or draws a sample
+from <code>rnorm(1000, x, y)</code> in the second case. Finally, it returns the
+sum of all values.</p>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb551-1" data-line-number="1">fun &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</a>
+<a class="sourceLine" id="cb551-2" data-line-number="2">    res &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb551-3" data-line-number="3">    <span class="cf">if</span> (   ) {</a>
+<a class="sourceLine" id="cb551-4" data-line-number="4">        res &lt;-<span class="st"> </span><span class="kw">sample</span>(, )</a>
+<a class="sourceLine" id="cb551-5" data-line-number="5">    } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb551-6" data-line-number="6">        res &lt;-<span class="st"> </span><span class="kw">rnorm</span>(, , )</a>
+<a class="sourceLine" id="cb551-7" data-line-number="7">    }</a>
+<a class="sourceLine" id="cb551-8" data-line-number="8">    <span class="kw">return</span>()</a>
+<a class="sourceLine" id="cb551-9" data-line-number="9">}</a></code></pre></div>
+<p>To check your answer, run it with inputs 5, 15 and 15, 5, after
+setting the random number generator to 1 each time with <code>set.seed(1)</code>
+and you should get 4825.2778709 and 23.</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -488,7 +640,7 @@ x</code></pre></div>
 ► Solution<span id="sol-start-43" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-43', 'sol-start-43')"></span>
 </p>
 <div id="sol-body-43" class="solution-body" style="display: none;">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fun</code></pre></div>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb552-1" data-line-number="1">fun</a></code></pre></div>
 <pre><code>## function(x, y) {
 ##     res &lt;- NA
 ##     if (x &gt; y) {
@@ -498,12 +650,12 @@ x</code></pre></div>
 ##     }
 ##     return(sum(res))
 ## }
-## &lt;bytecode: 0x55686215ea40&gt;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(1L)
-<span class="kw">fun</span>(<span class="dv">5</span>, <span class="dv">15</span>)</code></pre></div>
+## &lt;bytecode: 0x55ff08f4fc70&gt;</code></pre>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb554-1" data-line-number="1"><span class="kw">set.seed</span>(1L)</a>
+<a class="sourceLine" id="cb554-2" data-line-number="2"><span class="kw">fun</span>(<span class="dv">5</span>, <span class="dv">15</span>)</a></code></pre></div>
 <pre><code>## [1] 4825.278</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(1L)
-<span class="kw">fun</span>(<span class="dv">15</span>, <span class="dv">5</span>)</code></pre></div>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb556-1" data-line-number="1"><span class="kw">set.seed</span>(1L)</a>
+<a class="sourceLine" id="cb556-2" data-line-number="2"><span class="kw">fun</span>(<span class="dv">15</span>, <span class="dv">5</span>)</a></code></pre></div>
 <pre><code>## [1] 23</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -514,84 +666,103 @@ x</code></pre></div>
 <div id="pattern-matching" class="section level2">
 <h2>
 <span class="header-section-number">9.5</span> Pattern matching</h2>
-<p>One skill that comes handy more often than not is the ability to find patterns in text and replace these. We are going to see two functions out of many to perform such tasks. As an illustration, we are going to mine a vector or peptides identified by mass spectrometry. The data can be loaded from the <code>rWSBIM1207</code> data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">"rWSBIM1207"</span>)
-<span class="kw">data</span>(peptides)
-<span class="kw">length</span>(peptides)</code></pre></div>
+<p>One skill that comes handy more often than not is the ability to find
+patterns in text and replace these. We are going to see two functions
+out of many to perform such tasks. As an illustration, we are going to
+mine a vector or peptides identified by mass spectrometry. The data
+can be loaded from the <code>rWSBIM1207</code> data:</p>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb558-1" data-line-number="1"><span class="kw">library</span>(<span class="st">"rWSBIM1207"</span>)</a>
+<a class="sourceLine" id="cb558-2" data-line-number="2"><span class="kw">data</span>(peptides)</a>
+<a class="sourceLine" id="cb558-3" data-line-number="3"><span class="kw">length</span>(peptides)</a></code></pre></div>
 <pre><code>## [1] 26796</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(peptides)</code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb560-1" data-line-number="1"><span class="kw">head</span>(peptides)</a></code></pre></div>
 <pre><code>## [1] "aAAGEAk" "VTEEAk"  "aSGDPGk" "sAAAEAk" "aANAEGk" "aAAEEAR"</code></pre>
 <ol style="list-style-type: decimal">
 <li>Among the 26796 petides, which ones contain the pattern <code>"AAGE"</code>?</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pattern &lt;-<span class="st"> "AAGE"</span>
-## indices of matching peptides
-<span class="kw">grep</span>(pattern, peptides)</code></pre></div>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb562-1" data-line-number="1">pattern &lt;-<span class="st"> "AAGE"</span></a>
+<a class="sourceLine" id="cb562-2" data-line-number="2"><span class="co">## indices of matching peptides</span></a>
+<a class="sourceLine" id="cb562-3" data-line-number="3"><span class="kw">grep</span>(pattern, peptides)</a></code></pre></div>
 <pre><code>## [1]     1  7026 17140 21912 23423 24947 25257 26658</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## matching peptides
-<span class="kw">grep</span>(pattern, peptides, <span class="dt">value =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb564-1" data-line-number="1"><span class="co">## matching peptides</span></a>
+<a class="sourceLine" id="cb564-2" data-line-number="2"><span class="kw">grep</span>(pattern, peptides, <span class="dt">value =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] "aAAGEAk"              "aFHGAAGEAGAAFGNHGANR" "eAIDAAGEGGR"         
 ## [4] "sAAGEFADDPcSSVkR"     "eAAGEGPVLYEDPPDQk"    "eIEAAGEk"            
 ## [7] "dVQELYAAGENR"         "sAAGEFADDPcSSVk"</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## position of matching peptides
-<span class="kw">head</span>(<span class="kw">grepl</span>(pattern, peptides))</code></pre></div>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb566-1" data-line-number="1"><span class="co">## position of matching peptides</span></a>
+<a class="sourceLine" id="cb566-2" data-line-number="2"><span class="kw">head</span>(<span class="kw">grepl</span>(pattern, peptides))</a></code></pre></div>
 <pre><code>## [1]  TRUE FALSE FALSE FALSE FALSE FALSE</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Replace a pattern by another string.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(peptides)</code></pre></div>
+<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb568-1" data-line-number="1"><span class="kw">head</span>(peptides)</a></code></pre></div>
 <pre><code>## [1] "aAAGEAk" "VTEEAk"  "aSGDPGk" "sAAAEAk" "aANAEGk" "aAAEEAR"</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">sub</span>(<span class="st">"AE"</span>, <span class="st">"XX"</span>, peptides))</code></pre></div>
+<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb570-1" data-line-number="1"><span class="kw">head</span>(<span class="kw">sub</span>(<span class="st">"AE"</span>, <span class="st">"XX"</span>, peptides))</a></code></pre></div>
 <pre><code>## [1] "aAAGEAk" "VTEEAk"  "aSGDPGk" "sAAXXAk" "aANXXGk" "aAXXEAR"</code></pre>
 <p>But careful that <code>sub</code> only replaced the first occurrence in a string!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(peptides)</code></pre></div>
+<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb572-1" data-line-number="1"><span class="kw">head</span>(peptides)</a></code></pre></div>
 <pre><code>## [1] "aAAGEAk" "VTEEAk"  "aSGDPGk" "sAAAEAk" "aANAEGk" "aAAEEAR"</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">sub</span>(<span class="st">"A"</span>, <span class="st">"X"</span>, peptides))</code></pre></div>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb574-1" data-line-number="1"><span class="kw">head</span>(<span class="kw">sub</span>(<span class="st">"A"</span>, <span class="st">"X"</span>, peptides))</a></code></pre></div>
 <pre><code>## [1] "aXAGEAk" "VTEEXk"  "aSGDPGk" "sXAAEAk" "aXNAEGk" "aXAEEAR"</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">gsub</span>(<span class="st">"A"</span>, <span class="st">"X"</span>, peptides))</code></pre></div>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb576-1" data-line-number="1"><span class="kw">head</span>(<span class="kw">gsub</span>(<span class="st">"A"</span>, <span class="st">"X"</span>, peptides))</a></code></pre></div>
 <pre><code>## [1] "aXXGEXk" "VTEEXk"  "aSGDPGk" "sXXXEXk" "aXNXEGk" "aXXEEXR"</code></pre>
 </div>
 <div id="analysing-data-from-multiple-files" class="section level2">
 <h2>
 <span class="header-section-number">9.6</span> Analysing data from multiple files</h2>
-<p>This exercise recapitulates the most important material that we have seem in the course. We are going to analyse the student tests A and B results using functionality from the <code>dplyr</code> package (seen in chapter <a href="sec-dplyr.html#sec:dplyr">4</a>). The student test files are available in the <code>rWSBIM1207</code> package (the <code>interroA.csv</code> and <code>interroB.csv</code> functions return their respective paths). We want to compare how the male and female students in groups A and B have performed. To do this, we want to calculate the mean scores and visualise the score distributions in each groups.</p>
+<p>This exercise recapitulates the most important material that we have
+seem in the course. We are going to analyse the student tests A and B
+results using functionality from the <code>dplyr</code> package (seen in chapter
+<a href="sec-dplyr.html#sec:dplyr">4</a>). The student test files are available in the
+<code>rWSBIM1207</code> package (the <code>interroA.csv</code> and <code>interroB.csv</code> functions
+return their respective paths). We want to compare how the male and
+female students in groups A and B have performed. To do this, we want
+to calculate the mean scores and visualise the score distributions in
+each groups.</p>
 <div class="question">
 <p class="question-begin">
 ► Question
 </p>
 <div class="question-body">
-<p>Before writing any code to answer the questions above, take a couple of minutes to think about what packages are needed to answer the questions above and identify the individual steps needed to first prepare the data needed to find the answers and then to produce the answers.</p>
+<p>Before writing any code to answer the questions above, take a couple
+of minutes to think about what packages are needed to answer the
+questions above and identify the individual steps needed to first
+prepare the data needed to find the answers and then to produce the
+answers.</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
 </div>
 <ol style="list-style-type: decimal">
-<li>Start by loading the <code>rWSBIM1207</code> and <code>tidyverse</code> package, to get all the functionality we will need.</li>
+<li>Start by loading the <code>rWSBIM1207</code> and <code>tidyverse</code> package, to get
+all the functionality we will need.</li>
 </ol>
 <div class="solution">
 <p class="solution-begin">
 ► Solution<span id="sol-start-44" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-44', 'sol-start-44')"></span>
 </p>
 <div id="sol-body-44" class="solution-body" style="display: none;">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">"rWSBIM1207"</span>)
-<span class="kw">library</span>(<span class="st">"tidyverse"</span>)</code></pre></div>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb578-1" data-line-number="1"><span class="kw">library</span>(<span class="st">"rWSBIM1207"</span>)</a>
+<a class="sourceLine" id="cb578-2" data-line-number="2"><span class="kw">library</span>(<span class="st">"tidyverse"</span>)</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
 </div>
 <ol start="2" style="list-style-type: decimal">
-<li>Using the <code>interroA.csv()</code> and <code>interroB.csv()</code> functions from the <code>rWSBIM1207</code> package, create a vector containing the two csv file names.</li>
+<li>Using the <code>interroA.csv()</code> and <code>interroB.csv()</code> functions from the
+<code>rWSBIM1207</code> package, create a vector containing the two csv file
+names.</li>
 </ol>
 <div class="solution">
 <p class="solution-begin">
 ► Solution<span id="sol-start-45" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-45', 'sol-start-45')"></span>
 </p>
 <div id="sol-body-45" class="solution-body" style="display: none;">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fls &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">interroA.csv</span>(),
-         <span class="kw">interroB.csv</span>())
-fls</code></pre></div>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb579-1" data-line-number="1">fls &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">interroA.csv</span>(),</a>
+<a class="sourceLine" id="cb579-2" data-line-number="2">         <span class="kw">interroB.csv</span>())</a>
+<a class="sourceLine" id="cb579-3" data-line-number="3">fls</a></code></pre></div>
 <pre><code>## [1] "/home/lgatto/R/x86_64-pc-linux-gnu-library/3.6/rWSBIM1207/extdata/interroA.csv"
 ## [2] "/home/lgatto/R/x86_64-pc-linux-gnu-library/3.6/rWSBIM1207/extdata/interroB.csv"</code></pre>
 <p class="solution-end">
@@ -600,16 +771,18 @@ fls</code></pre></div>
 </div>
 </div>
 <ol start="3" style="list-style-type: decimal">
-<li>Iterate over the files and read each into an element of a list. Then, bind the two elements of the list into a single dataframe containing all results.</li>
+<li>Iterate over the files and read each into an element of a
+list. Then, bind the two elements of the list into a single
+dataframe containing all results.</li>
 </ol>
 <div class="solution">
 <p class="solution-begin">
 ► Solution<span id="sol-start-46" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-46', 'sol-start-46')"></span>
 </p>
 <div id="sol-body-46" class="solution-body" style="display: none;">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">l &lt;-<span class="st"> </span><span class="kw">as.list</span>(fls)
-<span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(fls))
-    l[[i]] &lt;-<span class="st"> </span><span class="kw">read_csv</span>(fls[i])</code></pre></div>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb581-1" data-line-number="1">l &lt;-<span class="st"> </span><span class="kw">as.list</span>(fls)</a>
+<a class="sourceLine" id="cb581-2" data-line-number="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(fls))</a>
+<a class="sourceLine" id="cb581-3" data-line-number="3">    l[[i]] &lt;-<span class="st"> </span><span class="kw">read_csv</span>(fls[i])</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   id = col_character(),
@@ -632,8 +805,8 @@ fls</code></pre></div>
 ##   interro3 = col_double(),
 ##   interro4 = col_double()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">interros &lt;-<span class="st"> </span><span class="kw">rbind</span>(l[[<span class="dv">1</span>]], l[[<span class="dv">2</span>]])
-interros</code></pre></div>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb583-1" data-line-number="1">interros &lt;-<span class="st"> </span><span class="kw">rbind</span>(l[[<span class="dv">1</span>]], l[[<span class="dv">2</span>]])</a>
+<a class="sourceLine" id="cb583-2" data-line-number="2">interros</a></code></pre></div>
 <pre><code>## # A tibble: 205 x 8
 ##    id     height gender      X interro1 interro2 interro3 interro4
 ##    &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
@@ -648,10 +821,10 @@ interros</code></pre></div>
 ##  9 A80471    187 F       0.231       19       16       16        8
 ## 10 A21783    195 F      -0.295       13       11        8       20
 ## # … with 195 more rows</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(interros)</code></pre></div>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb585-1" data-line-number="1"><span class="kw">dim</span>(interros)</a></code></pre></div>
 <pre><code>## [1] 205   8</code></pre>
 <p>or</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">l &lt;-<span class="st"> </span><span class="kw">lapply</span>(fls, read_csv)</code></pre></div>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb587-1" data-line-number="1">l &lt;-<span class="st"> </span><span class="kw">lapply</span>(fls, read_csv)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   id = col_character(),
@@ -674,8 +847,8 @@ interros</code></pre></div>
 ##   interro3 = col_double(),
 ##   interro4 = col_double()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">interros2 &lt;-<span class="st"> </span><span class="kw">rbind</span>(l[[<span class="dv">1</span>]], l[[<span class="dv">2</span>]])
-<span class="kw">identical</span>(interros, interros2)</code></pre></div>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb589-1" data-line-number="1">interros2 &lt;-<span class="st"> </span><span class="kw">rbind</span>(l[[<span class="dv">1</span>]], l[[<span class="dv">2</span>]])</a>
+<a class="sourceLine" id="cb589-2" data-line-number="2"><span class="kw">identical</span>(interros, interros2)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -683,19 +856,20 @@ interros</code></pre></div>
 </div>
 </div>
 <ol start="4" style="list-style-type: decimal">
-<li>What are the mean scores for male and female students in each test (<code>interro1</code> to <code>interro4</code>).</li>
+<li>What are the mean scores for male and female students in each test
+(<code>interro1</code> to <code>interro4</code>).</li>
 </ol>
 <div class="solution">
 <p class="solution-begin">
 ► Solution<span id="sol-start-47" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-47', 'sol-start-47')"></span>
 </p>
 <div id="sol-body-47" class="solution-body" style="display: none;">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">interros <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">group_by</span>(gender) <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">summarise</span>(<span class="dt">m1 =</span> <span class="kw">mean</span>(interro1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
-              <span class="dt">m2 =</span> <span class="kw">mean</span>(interro2, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
-              <span class="dt">m3 =</span> <span class="kw">mean</span>(interro3, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
-              <span class="dt">m4 =</span> <span class="kw">mean</span>(interro4, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</code></pre></div>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb591-1" data-line-number="1">interros <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb591-2" data-line-number="2"><span class="st">    </span><span class="kw">group_by</span>(gender) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb591-3" data-line-number="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">m1 =</span> <span class="kw">mean</span>(interro1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb591-4" data-line-number="4">              <span class="dt">m2 =</span> <span class="kw">mean</span>(interro2, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb591-5" data-line-number="5">              <span class="dt">m3 =</span> <span class="kw">mean</span>(interro3, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb591-6" data-line-number="6">              <span class="dt">m4 =</span> <span class="kw">mean</span>(interro4, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 2 x 5
 ##   gender    m1    m2    m3    m4
 ##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -707,20 +881,29 @@ interros</code></pre></div>
 </div>
 </div>
 <ol start="5" style="list-style-type: decimal">
-<li>What are the mean scores for male and female students in each test (<code>interro1</code> to <code>interro4</code>) and in each group (A and B).</li>
+<li>What are the mean scores for male and female students in each test
+(<code>interro1</code> to <code>interro4</code>) and in each group (A and B).</li>
 </ol>
 <div class="solution">
 <p class="solution-begin">
 ► Solution<span id="sol-start-48" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-48', 'sol-start-48')"></span>
 </p>
 <div id="sol-body-48" class="solution-body" style="display: none;">
-<p>To answer this question, we need to be able to tell the two groups apart. This information is however not available in the full dataset. We could analyse the two test individually to answer this particular question, but a preferred approach is the add this information, as it will be needed later anyway.</p>
-<p>One way would be to check the number of students that tool the two tests, and add a new column based on these values. We still have the two dataframes in the <code>l</code> list, which allows us to calculate the respective number of rows and use this information to create a group variables.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sapply</span>(l, nrow)</code></pre></div>
+<p>To answer this question, we need to be able to tell the two groups
+apart. This information is however not available in the full
+dataset. We could analyse the two test individually to answer this
+particular question, but a preferred approach is the add this
+information, as it will be needed later anyway.</p>
+<p>One way would be to check the number of students that tool the two
+tests, and add a new column based on these values. We still have the
+two dataframes in the <code>l</code> list, which allows us to calculate the
+respective number of rows and use this information to create a group
+variables.</p>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb593-1" data-line-number="1"><span class="kw">sapply</span>(l, nrow)</a></code></pre></div>
 <pre><code>## [1] 100 105</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">interros<span class="op">$</span>group &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">"A"</span>, <span class="kw">nrow</span>(l[[<span class="dv">1</span>]])),
-                    <span class="kw">rep</span>(<span class="st">"B"</span>, <span class="kw">nrow</span>(l[[<span class="dv">2</span>]])))
-interros</code></pre></div>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb595-1" data-line-number="1">interros<span class="op">$</span>group &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">"A"</span>, <span class="kw">nrow</span>(l[[<span class="dv">1</span>]])),</a>
+<a class="sourceLine" id="cb595-2" data-line-number="2">                    <span class="kw">rep</span>(<span class="st">"B"</span>, <span class="kw">nrow</span>(l[[<span class="dv">2</span>]])))</a>
+<a class="sourceLine" id="cb595-3" data-line-number="3">interros</a></code></pre></div>
 <pre><code>## # A tibble: 205 x 9
 ##    id     height gender      X interro1 interro2 interro3 interro4 group
 ##    &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;
@@ -735,20 +918,23 @@ interros</code></pre></div>
 ##  9 A80471    187 F       0.231       19       16       16        8 A    
 ## 10 A21783    195 F      -0.295       13       11        8       20 A    
 ## # … with 195 more rows</code></pre>
-<p>The assumption here is that the order of the observations in the large dataframe hasn’t changed!</p>
-<p>An alternative is to add the group information before combining the dataframes.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">l[[<span class="dv">1</span>]]<span class="op">$</span>group &lt;-<span class="st"> "A"</span>
-l[[<span class="dv">2</span>]]<span class="op">$</span>group &lt;-<span class="st"> "B"</span>
-interros2 &lt;-<span class="st"> </span><span class="kw">rbind</span>(l[[<span class="dv">1</span>]], l[[<span class="dv">2</span>]])
-<span class="kw">identical</span>(interros, interros2)</code></pre></div>
+<p>The assumption here is that the order of the observations in the large
+dataframe hasn’t changed!</p>
+<p>An alternative is to add the group information before combining the
+dataframes.</p>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb597-1" data-line-number="1">l[[<span class="dv">1</span>]]<span class="op">$</span>group &lt;-<span class="st"> "A"</span></a>
+<a class="sourceLine" id="cb597-2" data-line-number="2">l[[<span class="dv">2</span>]]<span class="op">$</span>group &lt;-<span class="st"> "B"</span></a>
+<a class="sourceLine" id="cb597-3" data-line-number="3">interros2 &lt;-<span class="st"> </span><span class="kw">rbind</span>(l[[<span class="dv">1</span>]], l[[<span class="dv">2</span>]])</a>
+<a class="sourceLine" id="cb597-4" data-line-number="4"><span class="kw">identical</span>(interros, interros2)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<p>Now we can group by <code>gender</code> and <code>group</code> to perform our summary calculations:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">interros <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">group_by</span>(gender, group) <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">summarise</span>(<span class="dt">m1 =</span> <span class="kw">mean</span>(interro1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
-              <span class="dt">m2 =</span> <span class="kw">mean</span>(interro2, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
-              <span class="dt">m3 =</span> <span class="kw">mean</span>(interro3, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
-              <span class="dt">m4 =</span> <span class="kw">mean</span>(interro4, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</code></pre></div>
+<p>Now we can group by <code>gender</code> and <code>group</code> to perform our summary
+calculations:</p>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb599-1" data-line-number="1">interros <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb599-2" data-line-number="2"><span class="st">    </span><span class="kw">group_by</span>(gender, group) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb599-3" data-line-number="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">m1 =</span> <span class="kw">mean</span>(interro1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb599-4" data-line-number="4">              <span class="dt">m2 =</span> <span class="kw">mean</span>(interro2, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb599-5" data-line-number="5">              <span class="dt">m3 =</span> <span class="kw">mean</span>(interro3, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb599-6" data-line-number="6">              <span class="dt">m4 =</span> <span class="kw">mean</span>(interro4, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 4 x 6
 ## # Groups:   gender [2]
 ##   gender group    m1    m2    m3    m4
@@ -763,20 +949,29 @@ interros2 &lt;-<span class="st"> </span><span class="kw">rbind</span>(l[[<span c
 </div>
 </div>
 <ol start="6" style="list-style-type: decimal">
-<li>Instead of comparing the means for the four tests in each group and gender, visualise their distributions using boxplots. In addition to the boxplots, overlay the actual score values (using the <em>jitter</em> geom) and colour the points based on the students height.</li>
+<li>Instead of comparing the means for the four tests in each group and
+gender, visualise their distributions using boxplots. In addition
+to the boxplots, overlay the actual score values (using the
+<em>jitter</em> geom) and colour the points based on the students height.</li>
 </ol>
 <div class="solution">
 <p class="solution-begin">
 ► Solution<span id="sol-start-49" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-49', 'sol-start-49')"></span>
 </p>
 <div id="sol-body-49" class="solution-body" style="display: none;">
-<p>The produce this visualisation, we first need to convert the data we have in a long format using <code>pivot_longer()</code> (or <code>gather()</code>). Below, we create two new variables: <code>test</code>, that contains <code>interro1</code>, …, <code>interro4</code>, and <code>score</code>, that contains the students marks the actual test.</p>
-<p>We obtain a new tibble that contains 4 times more rows that initially, as the tests, that were in 4 different columns, have now been gathered as a single new variable.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">interros2 &lt;-<span class="st"> </span><span class="kw">pivot_longer</span>(interros,
-                          <span class="dt">names_to =</span> <span class="st">"test"</span>,
-                          <span class="dt">values_to =</span> <span class="st">"score"</span>,
-                          <span class="kw">starts_with</span>(<span class="st">"interro"</span>))
-interros2</code></pre></div>
+<p>The produce this visualisation, we first need to convert the data we
+have in a long format using <code>pivot_longer()</code> (or <code>gather()</code>). Below,
+we create two new variables: <code>test</code>, that contains <code>interro1</code>, …,
+<code>interro4</code>, and <code>score</code>, that contains the students marks the actual
+test.</p>
+<p>We obtain a new tibble that contains 4 times more rows that initially,
+as the tests, that were in 4 different columns, have now been gathered
+as a single new variable.</p>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb601-1" data-line-number="1">interros2 &lt;-<span class="st"> </span><span class="kw">pivot_longer</span>(interros,</a>
+<a class="sourceLine" id="cb601-2" data-line-number="2">                          <span class="dt">names_to =</span> <span class="st">"test"</span>,</a>
+<a class="sourceLine" id="cb601-3" data-line-number="3">                          <span class="dt">values_to =</span> <span class="st">"score"</span>,</a>
+<a class="sourceLine" id="cb601-4" data-line-number="4">                          <span class="kw">starts_with</span>(<span class="st">"interro"</span>))</a>
+<a class="sourceLine" id="cb601-5" data-line-number="5">interros2</a></code></pre></div>
 <pre><code>## # A tibble: 820 x 7
 ##    id     height gender     X group test     score
 ##    &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;
@@ -791,11 +986,12 @@ interros2</code></pre></div>
 ##  9 A51820    166 M      0.435 A     interro1     4
 ## 10 A51820    166 M      0.435 A     interro2    10
 ## # … with 810 more rows</code></pre>
-<p>We can now map the new <code>test</code> and <code>score</code> variables to the <em>x</em> and <em>y</em> axes and construct the visualisation.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(interros2, <span class="kw">aes</span>(<span class="dt">y =</span> score, <span class="dt">x =</span> test)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> height)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">facet_grid</span>(gender <span class="op">~</span><span class="st"> </span>group)</code></pre></div>
+<p>We can now map the new <code>test</code> and <code>score</code> variables to the <em>x</em> and <em>y</em>
+axes and construct the visualisation.</p>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb603-1" data-line-number="1"><span class="kw">ggplot</span>(interros2, <span class="kw">aes</span>(<span class="dt">y =</span> score, <span class="dt">x =</span> test)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb603-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb603-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> height)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb603-4" data-line-number="4"><span class="st">    </span><span class="kw">facet_grid</span>(gender <span class="op">~</span><span class="st"> </span>group)</a></code></pre></div>
 <pre><code>## Warning: Removed 36 rows containing non-finite values (stat_boxplot).</code></pre>
 <pre><code>## Warning: Removed 36 rows containing missing values (geom_point).</code></pre>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-269-1.png" width="672"></p>
@@ -813,11 +1009,12 @@ interros2</code></pre></div>
 ► Question
 </p>
 <div class="question-body">
-<p>Complete the following function that converts meters to yards, knowing that that 1 yard corresponds to 0.9144 meters</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">meters_to_yards &lt;-<span class="st"> </span><span class="cf">function</span>(argument goes here) {
-  yards &lt;-<span class="st"> </span>_code goes here<span class="op">!</span>_
-  <span class="kw">return</span>(yards)
-}</code></pre></div>
+<p>Complete the following function that converts meters to yards, knowing
+that that 1 yard corresponds to 0.9144 meters</p>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb606-1" data-line-number="1">meters_to_yards &lt;-<span class="st"> </span><span class="cf">function</span>(argument goes here) {</a>
+<a class="sourceLine" id="cb606-2" data-line-number="2">  yards &lt;-<span class="st"> </span>_code goes here<span class="op">!</span>_</a>
+<a class="sourceLine" id="cb606-3" data-line-number="3">  <span class="kw">return</span>(yards)</a>
+<a class="sourceLine" id="cb606-4" data-line-number="4">}</a></code></pre></div>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -851,7 +1048,7 @@ interros2</code></pre></div>
 <a href="sec-ccl.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-08-10
+2020-08-16
 </p>
 </div>
 </div>
