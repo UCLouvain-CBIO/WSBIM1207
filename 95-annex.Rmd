@@ -191,16 +191,16 @@ You can now restart the procedure described above.
 
 ### Saving your work
 
+```{r, fig.cap = "Save your files to RenkuLab.", fig.margin = TRUE,  echo = FALSE, message = FALSE}
+knitr::include_graphics("./figs/renku_save.png")
+```
+
 1. Make sure you regularly save the scripts that you are editing, to
    save you from intermittent connection issues.
 2. Once you have finished working, save you data back to RenkuLab
    files using the `Addins` and `Save to RenkuLab`. This will make
    sure that your files are safe even when the environment is closed
    completely.
-
-```{r, fig.cap = "Save your files to RenkuLab.", fig.margin = TRUE,  echo = FALSE, message = FALSE}
-knitr::include_graphics("./figs/renku_save.png")
-```
 3. In addition, it is recommended to download (export) all your files
    as an additional backup. 
 
@@ -218,7 +218,7 @@ Here are a set of introductory videos (in French) prepared by
    the *Save to RenkuLab* Addin).
 
 
-## Universal Desktop Service at UCLouvain.
+## Universal Desktop Service at UCLouvain
 
 Students at the UCLouvain can use the [Universal Desktop
 Service](https://intranet.uclouvain.be/fr/myucl/services-informatiques/uds-universal-desktop-service.html)
