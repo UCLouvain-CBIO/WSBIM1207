@@ -369,7 +369,8 @@ represented by each factor level. Let's look at the number of males
 and females captured over the course of the experiment:
 
 ```{r firstfactorplot, fig.cap = "Bar plot of the number of females and males captured during the experiment."}
-plot(surveys$sex)
+surv_sex <- factor(surveys$sex)
+plot(surv_sex)
 ```
 
 In addition to males and females, there are about 1700 individuals for
@@ -381,12 +382,11 @@ and work with that data, so we're not modifying the working copy of
 the data frame:
 
 ```{r, results=TRUE, purl=FALSE}
-sex <- surveys$sex
-head(sex)
-levels(sex)
-levels(sex)[1] <- "undetermined"
-levels(sex)
-head(sex)
+head(surv_sex)
+levels(surv_sex)
+levels(surv_sex)[1] <- "undetermined"
+levels(surv_sex)
+head(surv_sex)
 ```
 
 `r msmbstyle::question_begin()`
@@ -402,9 +402,9 @@ head(sex)
 `r msmbstyle::solution_begin()`
 
 ```{r}
-levels(sex)[2:3] <- c("female", "male")
-sex <- factor(sex, levels = c("female", "male", "undetermined"))
-plot(sex)
+levels(surv_sex)[2:3] <- c("female", "male")
+surv_sex <- factor(surv_sex, levels = c("female", "male", "undetermined"))
+plot(surv_sex)
 ```
 
 `r msmbstyle::solution_end()`
