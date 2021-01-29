@@ -481,11 +481,11 @@ eventually, identify changes that relate to the conditions of interest
 (for example differences in genes expression in the presence or
 absence of the drug).</p>
 <div class="figure">
-<span id="fig:unnamed-chunk-201"></span>
+<span id="fig:unnamed-chunk-200"></span>
 <p class="caption marginnote shownote">
 Figure 9.4: Distribution of the expression of the genes A1CF, BRCA1 and TP53 under the control (no drug) and drug at concentrations 1 and 5.
 </p>
-<img src="WSBIM1207_files/figure-html/unnamed-chunk-201-1.png" alt="Distribution of the expression of the genes A1CF, BRCA1 and TP53 under the control (no drug) and drug at concentrations 1 and 5." width="672">
+<img src="WSBIM1207_files/figure-html/unnamed-chunk-200-1.png" alt="Distribution of the expression of the genes A1CF, BRCA1 and TP53 under the control (no drug) and drug at concentrations 1 and 5." width="672">
 </div>
 </div>
 <div id="project-management-reminder" class="section level2" number="9.3">
@@ -563,15 +563,15 @@ Figure 9.6: The Bioconductor web page.
 </div>
 <p>Bioconductor packages are managed installed using a dedicated package,
 namely <code>BiocManager</code>, that can be installed from CRAN with</p>
-<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="sec-bioinfo.html#cb485-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="sec-bioinfo.html#cb484-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span></code></pre></div>
 <p>Individuals package such as <code>MSnbase</code> (for proteomics), <code>DESeq2</code> (for
 transcriptomics), <code>xcms</code> (metabolomics), …can then be installed:
 reminder and <code>BiocManager::install</code>.</p>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="sec-bioinfo.html#cb486-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"MSnbase"</span>)</span>
-<span id="cb486-2"><a href="sec-bioinfo.html#cb486-2" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"DESeq2"</span>)</span>
-<span id="cb486-3"><a href="sec-bioinfo.html#cb486-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"xcms"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="sec-bioinfo.html#cb485-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"MSnbase"</span>)</span>
+<span id="cb485-2"><a href="sec-bioinfo.html#cb485-2" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"DESeq2"</span>)</span>
+<span id="cb485-3"><a href="sec-bioinfo.html#cb485-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"xcms"</span>)</span></code></pre></div>
 <p>Note that we can also use that same function to install packages from GitHub:</p>
-<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="sec-bioinfo.html#cb487-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="sec-bioinfo.html#cb486-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
 </div>
 <div id="omics-data-containers" class="section level2" number="9.5">
 <h2>
@@ -613,11 +613,11 @@ manipulation. The metadata slots can grow additional co-variates
 <code>msnset</code> object, of class <code>MSnSet</code> that comes with the <code>MSnbase</code>
 package, which contains data for55 features and 4
 samples.</p>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="sec-bioinfo.html#cb488-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MSnbase)</span>
-<span id="cb488-2"><a href="sec-bioinfo.html#cb488-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(msnset)</span>
-<span id="cb488-3"><a href="sec-bioinfo.html#cb488-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(msnset)</span></code></pre></div>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="sec-bioinfo.html#cb487-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MSnbase)</span>
+<span id="cb487-2"><a href="sec-bioinfo.html#cb487-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(msnset)</span>
+<span id="cb487-3"><a href="sec-bioinfo.html#cb487-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(msnset)</span></code></pre></div>
 <pre><code>## [1] 55  4</code></pre>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="sec-bioinfo.html#cb490-1" aria-hidden="true" tabindex="-1"></a>msnset</span></code></pre></div>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="sec-bioinfo.html#cb489-1" aria-hidden="true" tabindex="-1"></a>msnset</span></code></pre></div>
 <pre><code>## MSnSet (storageMode: lockedEnvironment)
 ## assayData: 55 features, 4 samples 
 ##   element names: exprs 
@@ -639,7 +639,7 @@ samples.</p>
 <p>Using this data structure, we can access the expression data with the
 <code>exprs</code> function, the feature metadata with the <code>fData</code> function, and
 the sample metadata with the <code>pData</code> function:</p>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="sec-bioinfo.html#cb492-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">exprs</span>(msnset))</span></code></pre></div>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="sec-bioinfo.html#cb491-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">exprs</span>(msnset))</span></code></pre></div>
 <pre><code>##     iTRAQ4.114 iTRAQ4.115 iTRAQ4.116 iTRAQ4.117
 ## X1   1347.6158  2247.3097  3927.6931  7661.1463
 ## X10   739.9861   799.3501   712.5983   940.6793
@@ -647,7 +647,7 @@ the sample metadata with the <code>pData</code> function:</p>
 ## X12 31892.8928 33634.6980 37674.7272 37227.7119
 ## X13 26143.7542 29677.4781 29089.0593 27902.5608
 ## X14  6448.0829  6234.1957  6902.8903  6437.2303</code></pre>
-<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="sec-bioinfo.html#cb494-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">fData</span>(msnset))</span></code></pre></div>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="sec-bioinfo.html#cb493-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">fData</span>(msnset))</span></code></pre></div>
 <pre><code>##     spectrum ProteinAccession                       ProteinDescription
 ## X1         1              BSA                     bovine serum albumin
 ## X10       10          ECA1422 glucose-1-phosphate cytidylyltransferase
@@ -669,7 +669,7 @@ the sample metadata with the <code>pData</code> function:</p>
 ## X12        2397   0 247323187        2                 13               40
 ## X13        2574   0 207247502        2                 14               40
 ## X14        1829   0 115317275        2                 15               40</code></pre>
-<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="sec-bioinfo.html#cb496-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pData</span>(msnset)</span></code></pre></div>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="sec-bioinfo.html#cb495-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pData</span>(msnset)</span></code></pre></div>
 <pre><code>##               mz reporters
 ## iTRAQ4.114 114.1    iTRAQ4
 ## iTRAQ4.115 115.1    iTRAQ4
@@ -689,12 +689,12 @@ and columns in the feature and sample data.</p>
 </div>
 <div class="msmb-solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-36" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-36', 'sol-start-36')"></span>
+► Solution<span id="sol-start-35" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-35', 'sol-start-35')"></span>
 </p>
-<div id="sol-body-36" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="sec-bioinfo.html#cb498-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">exprs</span>(msnset)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">fData</span>(msnset))</span></code></pre></div>
+<div id="sol-body-35" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="sec-bioinfo.html#cb497-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">exprs</span>(msnset)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">fData</span>(msnset))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="sec-bioinfo.html#cb500-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(<span class="fu">exprs</span>(msnset)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">pData</span>(msnset))</span></code></pre></div>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="sec-bioinfo.html#cb499-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(<span class="fu">exprs</span>(msnset)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">pData</span>(msnset))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -703,17 +703,17 @@ and columns in the feature and sample data.</p>
 </div>
 <p>We can use the <code>[</code> operator to subset the whole object: all parts
 thereof will be subset correctly.</p>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="sec-bioinfo.html#cb502-1" aria-hidden="true" tabindex="-1"></a>msnset2 <span class="ot">&lt;-</span> msnset[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span>
-<span id="cb502-2"><a href="sec-bioinfo.html#cb502-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(msnset2)</span></code></pre></div>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="sec-bioinfo.html#cb501-1" aria-hidden="true" tabindex="-1"></a>msnset2 <span class="ot">&lt;-</span> msnset[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span>
+<span id="cb501-2"><a href="sec-bioinfo.html#cb501-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(msnset2)</span></code></pre></div>
 <pre><code>## [1] 3 2</code></pre>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="sec-bioinfo.html#cb504-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">exprs</span>(msnset2))</span></code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="sec-bioinfo.html#cb503-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">exprs</span>(msnset2))</span></code></pre></div>
 <pre><code>##     iTRAQ4.115 iTRAQ4.117
 ## X1     2247.31   7661.146
 ## X11   33394.03  26628.728
 ## X13   29677.48  27902.561</code></pre>
 <p>We can also add information with:</p>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="sec-bioinfo.html#cb506-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pData</span>(msnset)<span class="sc">$</span>group  <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">'A'</span>, <span class="st">'B'</span>), <span class="at">each =</span> <span class="dv">2</span>)</span>
-<span id="cb506-2"><a href="sec-bioinfo.html#cb506-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pData</span>(msnset)</span></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="sec-bioinfo.html#cb505-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pData</span>(msnset)<span class="sc">$</span>group  <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">'A'</span>, <span class="st">'B'</span>), <span class="at">each =</span> <span class="dv">2</span>)</span>
+<span id="cb505-2"><a href="sec-bioinfo.html#cb505-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pData</span>(msnset)</span></code></pre></div>
 <pre><code>##               mz reporters group
 ## iTRAQ4.114 114.1    iTRAQ4     A
 ## iTRAQ4.115 115.1    iTRAQ4     A
@@ -865,8 +865,8 @@ package, without necessarily going in detail for every function of the
 package.</p>
 <p>Below, we show how to list all vignettes available in the <code>MSnbase</code>
 package and how to open one in particular.</p>
-<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="sec-bioinfo.html#cb508-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="at">package =</span> <span class="st">"MSnbase"</span>)</span>
-<span id="cb508-2"><a href="sec-bioinfo.html#cb508-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">"v01-MSnbase-demo"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="sec-bioinfo.html#cb507-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="at">package =</span> <span class="st">"MSnbase"</span>)</span>
+<span id="cb507-2"><a href="sec-bioinfo.html#cb507-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">"v01-MSnbase-demo"</span>)</span></code></pre></div>
 <p>Vignettes are special in that respect as they are produced as part of
 the package building process. The code in a vignette is executed and
 its output, whether in the form of simple text, tables and figures,
@@ -988,7 +988,7 @@ the first time point (<code>rep1_0hr</code>)?</p></li>
 <code>rWSBIM1207</code> version 0.1.5 or later. If needed, install a more
 recent version with</li>
 </ol>
-<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="sec-bioinfo.html#cb509-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="sec-bioinfo.html#cb508-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Import the data from two tab-separated files into R. The full paths
 to the two files can be accessed with <code>kem.tsv()</code>. Read <code>?kem</code> for
