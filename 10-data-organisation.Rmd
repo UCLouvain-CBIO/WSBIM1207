@@ -1,21 +1,29 @@
 # Data organisation with Spreadsheets {#sec:dataorg}
 
-Questions:
+**Learning Objectives**
+
+- Learn about spreadsheets, their strenghts and weaknesses
+- How do we format data in spreadsheets for effective data use?
+- Learn about common spreadsheet errors and how to correct them.
+- Organize your data according to tidy data principles.
+- Learn about text-based spreadsheet formats such as the
+  comma-separated (CSV) or tab-separated formats.
+
+## Spreadsheet programs
+
+**Question**
 
 - What are basic principles for using spreadsheets for good data
   organization?
 
-Objectives:
+**Objective**
 
 - Describe best practices for organizing data so computers can make
-the best use of data sets.
+  the best use of data sets.
 
-Keypoints:
+**Keypoint**
 
 - Good data organization is the foundation of any research project.
-
-
-## Introduction
 
 Good data organization is the foundation of your research
 project. Most researchers have data or do data entry in
@@ -24,14 +32,6 @@ interfaces for designing data tables and handling very basic data
 quality control functions. See also @Broman:2018.
 
 ### Spreadsheet outline {-}
-
-After this lesson, you will be able to:
-
-- Implement best practices in data table formatting
-- Identify and address common formatting mistakes
-- Understand approaches for handling dates in spreadsheets
-- Utilise basic quality control features and data manipulation practices
-- Effectively export data from spreadsheet programs
 
 Spreadsheets are good for data entry. Therefore we have a lot of data
 in spreadsheets.  Much of your time as a researcher will be spent in
@@ -47,7 +47,7 @@ some practices for more effective data wrangling.
 
 If you're looking to do this, a good reference is [Head First
 Excel](https://www.amazon.com/Head-First-Excel-learners-spreadsheets/dp/0596807694/),
-published by O'Reilly
+published by O'Reilly.
 
 
 ### Why aren't we teaching data analysis in spreadsheets {-}
@@ -61,16 +61,14 @@ published by O'Reilly
   analyses done in spreadsheet programs when you want to go back to
   your work or someone asks for details of your analysis.
 
-### Spreadsheet programs {-}
-
 Many spreadsheet programs are available. Since most participants
 utilise Excel as their primary spreadsheet program, this lesson will
 make use of Excel examples. A free spreadsheet program that can also
 be used is LibreOffice. Commands may differ a bit between programs,
 but the general idea is the same.
 
-Spreadsheets encompass a lot of the things we need to be able to do as
-researchers. We can use them for:
+Spreadsheet programs encompass a lot of the things we need to be able
+to do as researchers. We can use them for:
 
 - Data entry
 - Organizing data
@@ -78,25 +76,31 @@ researchers. We can use them for:
 - Statistics
 - Plotting
 
-
-Here are three examples from research papers:
-
-```{r, results='markup', fig.cap="A figure from a bioinformatics paper ([Hugues et al. (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3866554/)) that compares different proteomics data processing methods (along the columns) and how (1) these methods control false positive rate for spiked-in data, (2) their effect on the variabilty due to different operators, and (2) how they affect the root mean square error (RMSE).", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
-knitr::include_graphics("./figs/tab1.png")
-```
+Spreadsheet programs use tables to represent and display data. Data
+formatted as tables is also the main theme of this chapter, and we
+will see how to organise data into tables in a standardised way to
+ensure efficient downstream analysis.
 
 
-```{r, results='markup', fig.cap="This table summarises the spatial proteomics experiments that were re-analysed as part a meta-analysis by [Gatto et al. (2018)](https://www.sciencedirect.com/science/article/pii/S1367593118301339). ", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
-knitr::include_graphics("./figs/tab2.png")
-```
+<!-- Here are three examples from research papers: -->
 
-```{r, results='markup', fig.cap="Parts of the quantitative data of a spatial proteomics dataset by [Geladaki et al. (2019)](https://www.nature.com/articles/s41467-018-08191-w). The supplementary table is available [here](https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-08191-w/MediaObjects/41467_2018_8191_MOESM4_ESM.xlsx)", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
-knitr::include_graphics("./figs/tab3a.png")
-```
 
-```{r, results='markup', fig.cap="Luminescence read-out of a 96 well plate. The file is available [here](https://github.com/UCLouvain-CBIO/WSBIM1207/files/2836821/luminescence.xlsx).", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
-knitr::include_graphics("./figs/tab4.png")
-```
+<!-- ```{r, results='markup', fig.cap="A figure from a bioinformatics paper ([Hugues et al. (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3866554/)) that compares different proteomics data processing methods (along the columns) and how (1) these methods control false positive rate for spiked-in data, (2) their effect on the variabilty due to different operators, and (2) how they affect the root mean square error (RMSE).", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'} -->
+<!-- knitr::include_graphics("./figs/tab1.png") -->
+<!-- ``` -->
+
+
+<!-- ```{r, results='markup', fig.cap="This table summarises the spatial proteomics experiments that were re-analysed as part a meta-analysis by [Gatto et al. (2018)](https://www.sciencedirect.com/science/article/pii/S1367593118301339). ", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'} -->
+<!-- knitr::include_graphics("./figs/tab2.png") -->
+<!-- ``` -->
+
+<!-- ```{r, results='markup', fig.cap="Parts of the quantitative data of a spatial proteomics dataset by [Geladaki et al. (2019)](https://www.nature.com/articles/s41467-018-08191-w). The supplementary table is available [here](https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-08191-w/MediaObjects/41467_2018_8191_MOESM4_ESM.xlsx)", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'} -->
+<!-- knitr::include_graphics("./figs/tab3a.png") -->
+<!-- ``` -->
+
+<!-- ```{r, results='markup', fig.cap="Luminescence read-out of a 96 well plate. The file is available [here](https://github.com/UCLouvain-CBIO/WSBIM1207/files/2836821/luminescence.xlsx).", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'} -->
+<!-- knitr::include_graphics("./figs/tab4.png") -->
+<!-- ``` -->
 
 
 `r msmbstyle::question_begin()`
@@ -110,7 +114,7 @@ Discuss the following points with your neighbour
   frustrated or sad?
 `r msmbstyle::question_end()`
 
-## Problems with Spreadsheets
+### Problems with Spreadsheets {-}
 
 Spreadsheets are good for data entry, but in reality we tend to
 use spreadsheet programs for much more than data entry. We use them
@@ -655,207 +659,20 @@ University of Edinburgh. MANTRA is licensed under a [Creative Commons
 Attribution 4.0 International
 License](https://creativecommons.org/licenses/by/4.0/).)
 
-## Dates as data {#dates}
-
-Questions:
-
-- What are good approaches for handling dates in spreadsheets?
-
-Objectives:
-
-- Describe how dates are stored and formatted in spreadsheets.
-- Describe the advantages of alternative date formatting in spreadsheets.
-- Demonstrate best practices for entering dates in spreadsheets.
-
-Keypoints:
-
-- Treating dates as multiple pieces of data rather than one makes them
-  easier to handle.
-
-Dates in spreadsheets are stored in a single column. While this seems the
-most natural way to record dates, it actually is not best
-practice. A spreadsheet application will display the dates in a
-seemingly correct way (to a human observer) but how it actually handles
-and stores the dates may be problematic.
-
-In particular, please remember that functions that are valid for a given
-spreadsheet program (be it LibreOffice, Microsoft Excel, OpenOffice,
-Gnumeric, etc.) are usually guaranteed to be compatible only within the same
-family of products. If you will later need to export the data and need to
-conserve the timestamps, you are better off handling them using one of the solutions discussed below.
-
-Additionally, Excel can [turn things that aren't dates into
-dates](https://nsaunders.wordpress.com/2012/10/22/gene-name-errors-and-excel-lessons-not-learned/)
-(@Zeeberg:2004), for example names or identifiers like MAR1, DEC1,
-OCT4. So if you're avoiding the date format overall, it's easier to
-identify these issues.
-
-### Preferred date format
-
-It is much safer to store dates with [YEAR, MONTH, DAY](#day) in
-separate columns or as [YEAR and DAY-OF-YEAR](#doy) in separate
-columns.
-
-**Note**: Excel is unable to parse dates from before 1899-12-31, and
-will thus leave these untouched.  If you’re mixing historic data from
-before and after this date, Excel will translate only the post-1900
-dates into its internal format, thus resulting in mixed data.  If
-you’re working with historic data, be extremely careful with your
-dates!
-
-Excel also entertains a second date system, the 1904 date system, as
-the default in Excel for Macintosh. This system will assign a
-different serial number than the [1900 date
-system](https://support.microsoft.com/en-us/help/214330/differences-between-the-1900-and-the-1904-date-system-in-excel). Because
-of this, [dates must be checked for accuracy when exporting data from
-Excel](http://uc3.cdlib.org/2014/04/09/abandon-all-hope-ye-who-enter-dates-in-excel/)
-(look for dates that are ~4 years off).
-
-### Data formats in spreadsheets
-
-Spreadsheet programs have numerous “useful features” which allow them to handle dates in a variety of ways.
-
-
-```{r, results='markup', fig.cap="Many formats, many ambiguities", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
-knitr::include_graphics("./figs/5_excel_dates_1.jpg")
-```
-
-But these "features" often allow ambiguity to creep into your data. Ideally, data should be as unambiguous as possible.
-
-### Dates stored as integers
-
-The first thing you need to know is that Excel stores dates as numbers
-- see the last column in the above figure. Essentially, it counts the
-days from a default of December 31, 1899, and thus stores July 2, 2014
-as the serial number 41822[^excel1].
-
-[^excel1]: But wait. That's the default on my version of Excel. We'll
-           get into how this can introduce problems down the line
-           later in this lesson.
-
-
-This serial number thing can actually be useful in some circumstances. By using
-the above functions we can easily add days, months or years to a given date.
-Say you had a sampling plan where you needed to sample every thirty seven days.
-In another cell, you could type:
-
-    =B2+37
-
-And it would return
-
-    8-Aug
-
-because it understands the date as a number `41822`, and `41822 + 37 =
-41859` which Excel interprets as August 8, 2014. It retains the format
-(for the most part) of the cell that is being operated upon, (unless
-you did some sort of formatting to the cell before, and then all bets
-are off). Month and year rollovers are internally tracked and applied.
-
-**Note** Adding years and months and days is slightly trickier because
-we need to make sure that we are adding the amount to the correct
-entity.
-
-- First we extract the single entities (day, month or year)
-- We can then add values to to that
-- Finally the complete date string is reconstructed using the `DATE()` function.
-
-As for dates, times are handled in a similar way; seconds can be
-directly added but to add hour and minutes we need to make sure that
-we are adding the quantities to the correct entities.
-
-Which brings us to the many different ways Excel provides in how it
-displays dates. If you refer to the figure above, you’ll see that
-there are many ways that ambiguity creeps into your data depending on
-the format you chose when you enter your data, and if you’re not fully
-aware of which format you’re using, you can end up actually entering
-your data in a way that Excel will badly misinterpret.
-
-
-**Note** You will notice that when exporting into a text-based format
-(such as CSV), Excel will export its internal date integer instead of
-a useful value (that is, the dates will be represented as integer
-numbers). This can potentially lead to problems if you use other
-software to manipulate the file.
-
-### Advantages of Alternative Date Formatting
-
-#### Storing dates as YEAR, MONTH, DAY {-}
-
-Storing dates in YEAR, MONTH, DAY format helps remove this
-ambiguity. Let's look at this issue a bit closer.
-
-For instance this is a spreadsheet representing insect counts that
-were taken every few days over the summer, and things went something
-like this:
-
-```{r, results='markup', fig.cap="So, so ambiguous, it's even confusing Excel.", echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
-knitr::include_graphics("./figs/6_excel_dates_2.jpg")
-```
-
-If Excel was to be believed, this person had been collecting bugs **in
-the future**. Now, we have no doubt this person is highly capable, but
-I believe time travel was beyond even their grasp.
-
-Entering dates in one cell is helpful but due to the fact that the
-spreadsheet programs may interpret and save the data in different ways
-(doing that somewhat behind the scenes), there is a better practice.
-
-In dealing with dates in spreadsheets, separate date data into
-separate fields (day, month, year), which will eliminate any chance of
-ambiguity.
-
-#### Storing dates as YEAR, DAY-OF-YEAR {-}
-
-There is also another option. You can also store dates as year and day
-of year (DOY). Why? Because depending on your question, this might be
-what's useful to you, and there is practically no possibility for
-ambiguity creeping in.
-
-Statistical models often incorporate year as a factor, or a
-categorical variable, rather than a numeric variable, to account for
-year-to-year variation, and DOY can be used to measure the passage of
-time within a year.
-
-So, can you convert all your dates into DOY format? Well, in Excel,
-here’s a useful guide:
-
-
-```{r, results='markup', fig.cap="Kill that ambiguity before it bites you!", echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
-knitr::include_graphics("./figs/7_excel_dates_3.jpg")
-```
-
-#### Storing dates as a single string {-}
-
-Another alternative could be to convert the date string into a single
-string using the `YYYYMMDDhhmmss` format.  For example the date `March
-24, 2015 17:25:35` would become `20150324172535`, where:
-
-```
-YYYY:   the full year, i.e. 2015
-MM:     the month, i.e. 03
-DD:     the day of month, i.e. 24
-hh:     hour of day, i.e. 17
-mm:     minutes, i.e. 25
-ss:     seconds, i.e. 35
-```
-
-Such strings will be correctly sorted in ascending or descending order, and by
-knowing the format they can then be correctly processed by the receiving
-software.
 
 ## Exporting data
 
-Questions:
+**Question**
 
 - How can we export data from spreadsheets in a way that is useful for
   downstream applications?
 
-Objectives:
+**Objectives**
 
 - Store spreadsheet data in universal file formats.
 - Export data from a spreadsheet to a CSV file.
 
-Keypoints:
+**Keypoints**
 
 - Data stored in common spreadsheet formats will often not be read
   correctly into data analysis software, introducing errors into your
@@ -876,7 +693,8 @@ version) isn't a good idea. Why?
   proprietary Excel format.
 
 - Different versions of Excel may handle data differently, leading to
-  inconsistencies.
+  inconsistencies. [Dates](https://datacarpentry.org/spreadsheet-ecology-lesson/03-dates-as-data/index.html)
+  is a well-documented example of inconsistencies in data storage.
 
 - Finally, more journals and grant agencies are requiring you to
   deposit your data in a data repository, and most of them don't
@@ -888,17 +706,6 @@ version) isn't a good idea. Why?
   static and do not get parsed the same way by different software
   packages.
 
-As an example of inconsistencies in data storage, do you remember how
-we talked about how Excel stores dates earlier? It turns out that
-there are multiple defaults for different versions of the software,
-and you can switch between them all. So, say you’re compiling
-Excel-stored data from multiple sources. There’s dates in each file-
-Excel interprets them as their own internally consistent serial
-numbers. When you combine the data, Excel will take the serial number
-from the place you’re importing it from, and interpret it using the
-rule set for the version of Excel you’re using. Essentially, you could
-be adding errors to your data, and it wouldn’t necessarily be flagged
-by any data cleaning methods if your ranges overlap.
 
 Storing data in a universal, open, and static format will help deal
 with this problem. Try tab-delimited (tab separated values or TSV) or
@@ -930,81 +737,9 @@ in Excel!
 knitr::include_graphics("./figs/excel-to-csv.png")
 ```
 
-#### A Note on Cross-platform Operability {-}
-
-By default, most coding and statistical environments expect UNIX-style
-line endings (`\n`) as representing line breaks.  However, Windows
-uses an alternate line ending signifier (`\r\n`) by default for legacy
-compatibility with Teletype-based systems.
-
-As such, when exporting to CSV using Excel, your data in text format
-will look like this:
-
-```
-data1,data2\r\n1,2\r\n4,5\r\n
-```
-
-When opening your CSV file in Excel again, it will parse it as
-follows:
-
-```{r, results='markup', echo=FALSE, purl=FALSE, out.width='40%', fig.align='center'}
-knitr::include_graphics("./figs/db4a5786-1643-11e7-931a-ca2c72336878.png")
-```
-
-However, if you open your CSV file on a different system that does not
-parse the `\r` it will interpret your CSV file differently:
-
-Your data in text format then look like this:
-
-```
-data1
-data2\r
-1
-2\r
-...
-```
-
-This will then in turn parse as:
-
-```{r, results='markup', echo=FALSE, purl=FALSE, out.width='40%', fig.align='center'}
-knitr::include_graphics("./figs/a990327c-1645-11e7-90b5-35a44e90f8d9.png")
-```
-
-thus causing terrible things to happen to your data.  For example,
-`2\r` is not a valid integer, and thus will throw an error (if you’re
-lucky) when you attempt to operate on it in R or Python.  Note that
-this happens on Excel for OSX as well as Windows, due to legacy
-Windows compatibility.
-
-There are a handful of solutions for enforcing uniform UNIX-style line
-endings on your exported CSV files:
-
-1. When exporting from Excel, save as a “Windows comma separated
-   (.csv)” file
-
-2. If you store your data file under version control using Git, edit
-   the `.git/config` file in your repository to automatically
-   translate `\r\n` line endings into `\n`.  Add the following to the
-   file ([see the detailed
-   tutorial](http://nicercode.github.io/blog/2013-04-30-excel-and-line-endings)):
-
-                [filter "cr"]
-                clean = LC_CTYPE=C awk '{printf(\"%s\\n\", $0)}' | LC_CTYPE=C tr '\\r' '\\n'
-                smudge = tr '\\n' '\\r'`
-
-and then create a file `.gitattributes` that contains the line:
-
-                *.csv filter=cr
-
-
-3. Use [dos2unix](http://dos2unix.sourceforge.net/) (available on OSX,
-   *nix, and Cygwin) on local files to standardize line endings.
-
-#### A note on R and `xls` {-}
-
-There are R packages that can read `xls` files (as well as Google
-spreadsheets). It is even possible to access different worksheets in
-the `xls` documents.
+**A note on R and `xls`**: There are R packages that can read `xls`
+files (as well as Google spreadsheets). It is even possible to access
+different worksheets in the `xls` documents.
 
 **But**
 
@@ -1015,7 +750,7 @@ the `xls` documents.
 - Is there really a good reason why `csv` (or similar) is not
   adequate?
 
-#### Caveats on commas {-}
+### Caveats on commas {-}
 
 In some datasets, the data values themselves may include commas
 (,). In that case, the software which you use (including Excel) will
@@ -1122,7 +857,7 @@ having to look at it and/or fix it.
 Download the supplementary
 [table](https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-08191-w/MediaObjects/41467_2018_8191_MOESM4_ESM.xlsx)
 from [Geladaki et
-al. (2019)](https://www.nature.com/articles/s41467-018-08191-w) that we discussed above.
+al. (2019)](https://www.nature.com/articles/s41467-018-08191-w).
 
 Using the best practice documented above, export the file to a
 text-based spreadsheet (`csv`, `tsv`, ...). If necessary, manually fix
@@ -1132,17 +867,13 @@ document your modifications.
 
 `r msmbstyle::question_begin()`
 
-- Download the *'Luminescence read-out of a 96 well plate'* table
-  presented as example above and reformat it in a way that makes it
-  amenable to data analysis. Hint: The letters A to H and the numbers
-  1 to 12 represent respectively the rows and the columns of the
-  plate.
+Download this
+[table](https://github.com/UCLouvain-CBIO/WSBIM1207/files/2836821/luminescence.xlsx)
+that presents luminescence read-out of a 96 well plate. Reformat it in
+a way that makes it amenable to data analysis. Hint: The letters A to
+H and the numbers 1 to 12 represent respectively the rows and the
+columns of the plate.
 
-- The quantitative values in that data were formatted conditionally,
-  using a colour scale to highlight different colour intensities. We
-  have seen that this can be a useful feature for quality control. Can
-  you interpret the colour pattern and make conclusion with respect to
-  possibly quality implications.
 
 `r msmbstyle::question_end()`
 

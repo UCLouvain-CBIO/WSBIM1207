@@ -187,11 +187,9 @@ div.csl-indent {
 <div class="dropdown-content">
 <a href="index.html">Preamble</a>
 <a id="active-page" href="sec-dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a><ul class="toc-sections">
-<li class="toc"><a href="#introduction"> Introduction</a></li>
-<li class="toc"><a href="#problems-with-spreadsheets"> Problems with Spreadsheets</a></li>
+<li class="toc"><a href="#spreadsheet-programs"> Spreadsheet programs</a></li>
 <li class="toc"><a href="#formatting-data-tables-in-spreadsheets"> Formatting data tables in spreadsheets</a></li>
 <li class="toc"><a href="#common-spreadsheet-errors"> Common Spreadsheet Errors</a></li>
-<li class="toc"><a href="#dates"> Dates as data</a></li>
 <li class="toc"><a href="#exporting-data"> Exporting data</a></li>
 <li class="toc"><a href="#summary"> Summary</a></li>
 <li class="toc"><a href="#additional-exercises"> Additional exercises</a></li>
@@ -220,24 +218,33 @@ div.csl-indent {
 <html><body><div id="sec:dataorg" class="section level1" number="1">
 <h1>
 <span class="header-section-number">Chapter 1</span> Data organisation with Spreadsheets</h1>
-<p>Questions:</p>
+<p><strong>Learning Objectives</strong></p>
+<ul>
+<li>Learn about spreadsheets, their strenghts and weaknesses</li>
+<li>How do we format data in spreadsheets for effective data use?</li>
+<li>Learn about common spreadsheet errors and how to correct them.</li>
+<li>Organize your data according to tidy data principles.</li>
+<li>Learn about text-based spreadsheet formats such as the
+comma-separated (CSV) or tab-separated formats.</li>
+</ul>
+<div id="spreadsheet-programs" class="section level2" number="1.1">
+<h2>
+<span class="header-section-number">1.1</span> Spreadsheet programs<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('spreadsheet-programs')" onmouseout="reset_tooltip('spreadsheet-programs-tooltip')"><span class="tooltiptext" id="spreadsheet-programs-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+</h2>
+<p><strong>Question</strong></p>
 <ul>
 <li>What are basic principles for using spreadsheets for good data
 organization?</li>
 </ul>
-<p>Objectives:</p>
+<p><strong>Objective</strong></p>
 <ul>
 <li>Describe best practices for organizing data so computers can make
 the best use of data sets.</li>
 </ul>
-<p>Keypoints:</p>
+<p><strong>Keypoint</strong></p>
 <ul>
 <li>Good data organization is the foundation of any research project.</li>
 </ul>
-<div id="introduction" class="section level2" number="1.1">
-<h2>
-<span class="header-section-number">1.1</span> Introduction<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('introduction')" onmouseout="reset_tooltip('introduction-tooltip')"><span class="tooltiptext" id="introduction-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h2>
 <p>Good data organization is the foundation of your research
 project. Most researchers have data or do data entry in
 spreadsheets. Spreadsheet programs are very useful graphical
@@ -246,14 +253,6 @@ quality control functions. See also <span class="citation"><label for="tufte-mn-
 <div id="spreadsheet-outline" class="section level3 unnumbered">
 <h3>Spreadsheet outline<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('spreadsheet-outline')" onmouseout="reset_tooltip('spreadsheet-outline-tooltip')"><span class="tooltiptext" id="spreadsheet-outline-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
-<p>After this lesson, you will be able to:</p>
-<ul>
-<li>Implement best practices in data table formatting</li>
-<li>Identify and address common formatting mistakes</li>
-<li>Understand approaches for handling dates in spreadsheets</li>
-<li>Utilise basic quality control features and data manipulation practices</li>
-<li>Effectively export data from spreadsheet programs</li>
-</ul>
 <p>Spreadsheets are good for data entry. Therefore we have a lot of data
 in spreadsheets. Much of your time as a researcher will be spent in
 this ‘data wrangling’ stage. It’s not the most fun, but it’s
@@ -270,7 +269,7 @@ some practices for more effective data wrangling.</p>
 </ul>
 <p>If you’re looking to do this, a good reference is <a href="https://www.amazon.com/Head-First-Excel-learners-spreadsheets/dp/0596807694/">Head First
 Excel</a>,
-published by O’Reilly</p>
+published by O’Reilly.</p>
 </div>
 <div id="why-arent-we-teaching-data-analysis-in-spreadsheets" class="section level3 unnumbered">
 <h3>Why aren’t we teaching data analysis in spreadsheets<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('why-arent-we-teaching-data-analysis-in-spreadsheets')" onmouseout="reset_tooltip('why-arent-we-teaching-data-analysis-in-spreadsheets-tooltip')"><span class="tooltiptext" id="why-arent-we-teaching-data-analysis-in-spreadsheets-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
@@ -284,17 +283,13 @@ know that you can create macros, but see the next point.)</p></li>
 analyses done in spreadsheet programs when you want to go back to
 your work or someone asks for details of your analysis.</p></li>
 </ul>
-</div>
-<div id="spreadsheet-programs" class="section level3 unnumbered">
-<h3>Spreadsheet programs<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('spreadsheet-programs')" onmouseout="reset_tooltip('spreadsheet-programs-tooltip')"><span class="tooltiptext" id="spreadsheet-programs-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h3>
 <p>Many spreadsheet programs are available. Since most participants
 utilise Excel as their primary spreadsheet program, this lesson will
 make use of Excel examples. A free spreadsheet program that can also
 be used is LibreOffice. Commands may differ a bit between programs,
 but the general idea is the same.</p>
-<p>Spreadsheets encompass a lot of the things we need to be able to do as
-researchers. We can use them for:</p>
+<p>Spreadsheet programs encompass a lot of the things we need to be able
+to do as researchers. We can use them for:</p>
 <ul>
 <li>Data entry</li>
 <li>Organizing data</li>
@@ -302,35 +297,23 @@ researchers. We can use them for:</p>
 <li>Statistics</li>
 <li>Plotting</li>
 </ul>
-<p>Here are three examples from research papers:</p>
-<div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-1"></span>
-<p class="caption marginnote shownote">
-Figure 1.1: A figure from a bioinformatics paper (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3866554/">Hugues et al. (2014)</a>) that compares different proteomics data processing methods (along the columns) and how (1) these methods control false positive rate for spiked-in data, (2) their effect on the variabilty due to different operators, and (2) how they affect the root mean square error (RMSE).
-</p>
-<img src="figs/tab1.png" alt="A figure from a bioinformatics paper ([Hugues et al. (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3866554/)) that compares different proteomics data processing methods (along the columns) and how (1) these methods control false positive rate for spiked-in data, (2) their effect on the variabilty due to different operators, and (2) how they affect the root mean square error (RMSE)." width="100%">
-</div>
-<div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-2"></span>
-<p class="caption marginnote shownote">
-Figure 1.2: This table summarises the spatial proteomics experiments that were re-analysed as part a meta-analysis by <a href="https://www.sciencedirect.com/science/article/pii/S1367593118301339">Gatto et al. (2018)</a>.
-</p>
-<img src="figs/tab2.png" alt="This table summarises the spatial proteomics experiments that were re-analysed as part a meta-analysis by [Gatto et al. (2018)](https://www.sciencedirect.com/science/article/pii/S1367593118301339). " width="100%">
-</div>
-<div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-3"></span>
-<p class="caption marginnote shownote">
-Figure 1.3: Parts of the quantitative data of a spatial proteomics dataset by <a href="https://www.nature.com/articles/s41467-018-08191-w">Geladaki et al. (2019)</a>. The supplementary table is available <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-08191-w/MediaObjects/41467_2018_8191_MOESM4_ESM.xlsx">here</a>
-</p>
-<img src="figs/tab3a.png" alt="Parts of the quantitative data of a spatial proteomics dataset by [Geladaki et al. (2019)](https://www.nature.com/articles/s41467-018-08191-w). The supplementary table is available [here](https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-08191-w/MediaObjects/41467_2018_8191_MOESM4_ESM.xlsx)" width="100%">
-</div>
-<div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-4"></span>
-<p class="caption marginnote shownote">
-Figure 1.4: Luminescence read-out of a 96 well plate. The file is available <a href="https://github.com/UCLouvain-CBIO/WSBIM1207/files/2836821/luminescence.xlsx">here</a>.
-</p>
-<img src="figs/tab4.png" alt="Luminescence read-out of a 96 well plate. The file is available [here](https://github.com/UCLouvain-CBIO/WSBIM1207/files/2836821/luminescence.xlsx)." width="100%">
-</div>
+<p>Spreadsheet programs use tables to represent and display data. Data
+formatted as tables is also the main theme of this chapter, and we
+will see how to organise data into tables in a standardised way to
+ensure efficient downstream analysis.</p>
+<!-- Here are three examples from research papers: -->
+<!-- ```{r, results='markup', fig.cap="A figure from a bioinformatics paper ([Hugues et al. (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3866554/)) that compares different proteomics data processing methods (along the columns) and how (1) these methods control false positive rate for spiked-in data, (2) their effect on the variabilty due to different operators, and (2) how they affect the root mean square error (RMSE).", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'} -->
+<!-- knitr::include_graphics("./figs/tab1.png") -->
+<!-- ``` -->
+<!-- ```{r, results='markup', fig.cap="This table summarises the spatial proteomics experiments that were re-analysed as part a meta-analysis by [Gatto et al. (2018)](https://www.sciencedirect.com/science/article/pii/S1367593118301339). ", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'} -->
+<!-- knitr::include_graphics("./figs/tab2.png") -->
+<!-- ``` -->
+<!-- ```{r, results='markup', fig.cap="Parts of the quantitative data of a spatial proteomics dataset by [Geladaki et al. (2019)](https://www.nature.com/articles/s41467-018-08191-w). The supplementary table is available [here](https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-08191-w/MediaObjects/41467_2018_8191_MOESM4_ESM.xlsx)", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'} -->
+<!-- knitr::include_graphics("./figs/tab3a.png") -->
+<!-- ``` -->
+<!-- ```{r, results='markup', fig.cap="Luminescence read-out of a 96 well plate. The file is available [here](https://github.com/UCLouvain-CBIO/WSBIM1207/files/2836821/luminescence.xlsx).", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'} -->
+<!-- knitr::include_graphics("./figs/tab4.png") -->
+<!-- ``` -->
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -351,11 +334,9 @@ frustrated or sad?</li>
 </div>
 </div>
 </div>
-</div>
-<div id="problems-with-spreadsheets" class="section level2" number="1.2">
-<h2>
-<span class="header-section-number">1.2</span> Problems with Spreadsheets<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('problems-with-spreadsheets')" onmouseout="reset_tooltip('problems-with-spreadsheets-tooltip')"><span class="tooltiptext" id="problems-with-spreadsheets-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h2>
+<div id="problems-with-spreadsheets" class="section level3 unnumbered">
+<h3>Problems with Spreadsheets<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('problems-with-spreadsheets')" onmouseout="reset_tooltip('problems-with-spreadsheets-tooltip')"><span class="tooltiptext" id="problems-with-spreadsheets-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+</h3>
 <p>Spreadsheets are good for data entry, but in reality we tend to
 use spreadsheet programs for much more than data entry. We use them
 to create data tables for publications, to generate summary
@@ -376,6 +357,7 @@ slightly different formula to multiple adjacent cells. When using a
 command-line based statistics program like R or SAS, it’s practically
 impossible to apply a calculation to one observation in your
 dataset but not another unless you’re doing it on purpose.</p>
+</div>
 <div id="using-spreadsheets-for-data-entry-and-cleaning" class="section level3 unnumbered">
 <h3>Using Spreadsheets for Data Entry and Cleaning<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('using-spreadsheets-for-data-entry-and-cleaning')" onmouseout="reset_tooltip('using-spreadsheets-for-data-entry-and-cleaning-tooltip')"><span class="tooltiptext" id="using-spreadsheets-for-data-entry-and-cleaning-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
@@ -400,9 +382,9 @@ to be the program most used by biologists and biomedical researchers.</p>
 </ol>
 </div>
 </div>
-<div id="formatting-data-tables-in-spreadsheets" class="section level2" number="1.3">
+<div id="formatting-data-tables-in-spreadsheets" class="section level2" number="1.2">
 <h2>
-<span class="header-section-number">1.3</span> Formatting data tables in spreadsheets<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('formatting-data-tables-in-spreadsheets')" onmouseout="reset_tooltip('formatting-data-tables-in-spreadsheets-tooltip')"><span class="tooltiptext" id="formatting-data-tables-in-spreadsheets-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">1.2</span> Formatting data tables in spreadsheets<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('formatting-data-tables-in-spreadsheets')" onmouseout="reset_tooltip('formatting-data-tables-in-spreadsheets-tooltip')"><span class="tooltiptext" id="formatting-data-tables-in-spreadsheets-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h2>
 <p><strong>Questions</strong></p>
 <ul>
@@ -450,9 +432,9 @@ interfaces) for data entry and data analysis might be different. It
 is important to take this into account, and ideally automate the
 conversion from one to another.</p>
 </blockquote>
-<div id="keeping-track-of-your-analyses" class="section level3" number="1.3.1">
+<div id="keeping-track-of-your-analyses" class="section level3" number="1.2.1">
 <h3>
-<span class="header-section-number">1.3.1</span> Keeping track of your analyses<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('keeping-track-of-your-analyses')" onmouseout="reset_tooltip('keeping-track-of-your-analyses-tooltip')"><span class="tooltiptext" id="keeping-track-of-your-analyses-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">1.2.1</span> Keeping track of your analyses<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('keeping-track-of-your-analyses')" onmouseout="reset_tooltip('keeping-track-of-your-analyses-tooltip')"><span class="tooltiptext" id="keeping-track-of-your-analyses-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p>When you’re working with spreadsheets, during data clean up or
 analyses, it’s very easy to end up with a spreadsheet that looks very
@@ -479,9 +461,9 @@ quick tutorial or <span class="citation"><label for="tufte-mn-15" class="margin-
 use-case.</p>
 </blockquote>
 </div>
-<div id="structuring-data-in-spreadsheets" class="section level3" number="1.3.2">
+<div id="structuring-data-in-spreadsheets" class="section level3" number="1.2.2">
 <h3>
-<span class="header-section-number">1.3.2</span> Structuring data in spreadsheets<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('structuring-data-in-spreadsheets')" onmouseout="reset_tooltip('structuring-data-in-spreadsheets-tooltip')"><span class="tooltiptext" id="structuring-data-in-spreadsheets-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">1.2.2</span> Structuring data in spreadsheets<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('structuring-data-in-spreadsheets')" onmouseout="reset_tooltip('structuring-data-in-spreadsheets-tooltip')"><span class="tooltiptext" id="structuring-data-in-spreadsheets-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p>The cardinal rules of using spreadsheet programs for data:</p>
 <ol style="list-style-type: decimal">
@@ -571,9 +553,9 @@ with this data and how you would fix it.</p>
 is the <em>Tidy Data</em> paper <span class="citation"><label for="tufte-mn-16" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-16" class="margin-toggle">Wickham (2014b)<span class="marginnote">Wickham, Hadley. 2014b. <span>“Tidy Data.”</span> <em>Journal of Statistical Software, Articles</em> 59 (10): 1–23. <a href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>.</span></span>.</p>
 </div>
 </div>
-<div id="common-spreadsheet-errors" class="section level2" number="1.4">
+<div id="common-spreadsheet-errors" class="section level2" number="1.3">
 <h2>
-<span class="header-section-number">1.4</span> Common Spreadsheet Errors<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('common-spreadsheet-errors')" onmouseout="reset_tooltip('common-spreadsheet-errors-tooltip')"><span class="tooltiptext" id="common-spreadsheet-errors-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">1.3</span> Common Spreadsheet Errors<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('common-spreadsheet-errors')" onmouseout="reset_tooltip('common-spreadsheet-errors-tooltip')"><span class="tooltiptext" id="common-spreadsheet-errors-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h2>
 <p>Questions:</p>
 <ul>
@@ -618,11 +600,11 @@ and analysis.</p>
 <li><a href="sec-dataorg.html#field_name">Using problematic field names</a></li>
 <li><a href="sec-dataorg.html#special">Using special characters in data</a></li>
 <li><a href="sec-dataorg.html#metadata">Inclusion of metadata in data table</a></li>
-<li><a href="sec-dataorg.html#dates">Date formatting</a></li>
+<li><a href="#dates">Date formatting</a></li>
 </ul>
-<div id="tables" class="section level3" number="1.4.1">
+<div id="tables" class="section level3" number="1.3.1">
 <h3>
-<span class="header-section-number">1.4.1</span> Using multiple tables<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('tables')" onmouseout="reset_tooltip('tables-tooltip')"><span class="tooltiptext" id="tables-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">1.3.1</span> Using multiple tables<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('tables')" onmouseout="reset_tooltip('tables-tooltip')"><span class="tooltiptext" id="tables-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p>A common strategy is creating multiple data tables within
 one spreadsheet. This confuses the computer, so don’t do this!
@@ -637,9 +619,9 @@ refer to the same sample. This row actually represents four distinct samples
 (sample 1 for each of four different collection dates - May 29th, June 12th, June 19th, and June 26th),
 as well as some calculated summary statistics (an average (avr) and standard error of measurement (SEM)) for two of those samples. Other rows are similarly problematic.</p>
 </div>
-<div id="tabs" class="section level3" number="1.4.2">
+<div id="tabs" class="section level3" number="1.3.2">
 <h3>
-<span class="header-section-number">1.4.2</span> Using multiple tabs<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('tabs')" onmouseout="reset_tooltip('tabs-tooltip')"><span class="tooltiptext" id="tabs-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">1.3.2</span> Using multiple tabs<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('tabs')" onmouseout="reset_tooltip('tabs-tooltip')"><span class="tooltiptext" id="tabs-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p>But what about workbook tabs? That seems like an easy way to organize
 data, right? Well, yes and no. When you create extra tabs, you fail to
@@ -672,9 +654,9 @@ down the road.</p>
 <p>Instead you can freeze the column headers so that they remain visible even when you have a spreadsheet with many rows.</p>
 <p><a href="https://support.office.com/en-ca/article/Freeze-column-headings-for-easy-scrolling-57ccce0c-cf85-4725-9579-c5d13106ca6a">Documentation on how to freeze column headers</a></p>
 </div>
-<div id="zeros" class="section level3" number="1.4.3">
+<div id="zeros" class="section level3" number="1.3.3">
 <h3>
-<span class="header-section-number">1.4.3</span> Not filling in zeros<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('zeros')" onmouseout="reset_tooltip('zeros-tooltip')"><span class="tooltiptext" id="zeros-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">1.3.3</span> Not filling in zeros<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('zeros')" onmouseout="reset_tooltip('zeros-tooltip')"><span class="tooltiptext" id="zeros-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p>It might be that when you’re measuring something, it’s usually a zero,
 say the number of times a rabbit is observed in the survey. Why bother
@@ -694,9 +676,9 @@ computer can’t guess the value of the missing observations). Because
 of this, it’s very important to record zeros as zeros and truly
 missing data as nulls.</p>
 </div>
-<div id="null" class="section level3" number="1.4.4">
+<div id="null" class="section level3" number="1.3.4">
 <h3>
-<span class="header-section-number">1.4.4</span> Using problematic null values<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('null')" onmouseout="reset_tooltip('null-tooltip')"><span class="tooltiptext" id="null-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">1.3.4</span> Using problematic null values<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('null')" onmouseout="reset_tooltip('null-tooltip')"><span class="tooltiptext" id="null-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p><strong>Example</strong>: using -999 or other numerical values (or zero) to
 represent missing data.</p>
@@ -725,9 +707,9 @@ choices. <span class="citation"><label for="tufte-mn-17" class="margin-toggle">�
 for different software applications in their article:</p>
 <p><img src="figs/3_white_table_1.jpg"></p>
 </div>
-<div id="formatting" class="section level3" number="1.4.5">
+<div id="formatting" class="section level3" number="1.3.5">
 <h3>
-<span class="header-section-number">1.4.5</span> Using formatting to convey information<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('formatting')" onmouseout="reset_tooltip('formatting-tooltip')"><span class="tooltiptext" id="formatting-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">1.3.5</span> Using formatting to convey information<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('formatting')" onmouseout="reset_tooltip('formatting-tooltip')"><span class="tooltiptext" id="formatting-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p><strong>Example</strong>: highlighting cells, rows or columns that should be
 excluded from an analysis, leaving blank rows to indicate
@@ -737,9 +719,9 @@ separations in data.</p>
 excluded.</p>
 <p><img src="figs/good_formatting.png"></p>
 </div>
-<div id="formatting_pretty" class="section level3" number="1.4.6">
+<div id="formatting_pretty" class="section level3" number="1.3.6">
 <h3>
-<span class="header-section-number">1.4.6</span> Using formatting to make the data sheet look pretty<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('formatting_pretty')" onmouseout="reset_tooltip('formatting_pretty-tooltip')"><span class="tooltiptext" id="formatting_pretty-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">1.3.6</span> Using formatting to make the data sheet look pretty<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('formatting_pretty')" onmouseout="reset_tooltip('formatting_pretty-tooltip')"><span class="tooltiptext" id="formatting_pretty-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p><strong>Example</strong>: merging cells.</p>
 <p><strong>Solution</strong>: If you’re not careful, formatting a worksheet to be more
@@ -748,9 +730,9 @@ associations in the data. Merged cells will make your data unreadable
 by statistics software. Consider restructuring your data in such a way
 that you will not need to merge cells to organize your data.</p>
 </div>
-<div id="units" class="section level3" number="1.4.7">
+<div id="units" class="section level3" number="1.3.7">
 <h3>
-<span class="header-section-number">1.4.7</span> Placing comments or units in cells<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('units')" onmouseout="reset_tooltip('units-tooltip')"><span class="tooltiptext" id="units-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">1.3.7</span> Placing comments or units in cells<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('units')" onmouseout="reset_tooltip('units-tooltip')"><span class="tooltiptext" id="units-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p><strong>Example</strong>: Your data was collected, in part, by a summer student who
 you later found out was mis-identifying some of your species, some of
@@ -763,9 +745,9 @@ ideally, all the measurements you place in one column should be in the
 same unit, but if for some reason they aren’t, create another field
 and specify the units the cell is in.</p>
 </div>
-<div id="info" class="section level3" number="1.4.8">
+<div id="info" class="section level3" number="1.3.8">
 <h3>
-<span class="header-section-number">1.4.8</span> Entering more than one piece of information in a cell<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('info')" onmouseout="reset_tooltip('info-tooltip')"><span class="tooltiptext" id="info-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">1.3.8</span> Entering more than one piece of information in a cell<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('info')" onmouseout="reset_tooltip('info-tooltip')"><span class="tooltiptext" id="info-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p><strong>Example</strong>: You find one male, and one female of the same
 species. You enter this as <code>1M</code>, <code>1F</code>.</p>
@@ -775,9 +757,9 @@ you need both these measurements, design your data sheet to include
 this information. For example, include one column for number of
 individuals and a separate column for sex.</p>
 </div>
-<div id="field_name" class="section level3" number="1.4.9">
+<div id="field_name" class="section level3" number="1.3.9">
 <h3>
-<span class="header-section-number">1.4.9</span> Using problematic field names<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('field_name')" onmouseout="reset_tooltip('field_name-tooltip')"><span class="tooltiptext" id="field_name-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">1.3.9</span> Using problematic field names<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('field_name')" onmouseout="reset_tooltip('field_name-tooltip')"><span class="tooltiptext" id="field_name-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p>Choose descriptive field names, but be careful not to include spaces,
 numbers, or special characters of any kind. Spaces can be
@@ -836,9 +818,9 @@ confusion and enables others to readily interpret your fields.</p>
 </tbody>
 </table>
 </div>
-<div id="special" class="section level3" number="1.4.10">
+<div id="special" class="section level3" number="1.3.10">
 <h3>
-<span class="header-section-number">1.4.10</span> Using special characters in data<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('special')" onmouseout="reset_tooltip('special-tooltip')"><span class="tooltiptext" id="special-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">1.3.10</span> Using special characters in data<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('special')" onmouseout="reset_tooltip('special-tooltip')"><span class="tooltiptext" id="special-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p><strong>Example</strong>: You treat your spreadsheet program as a word processor
 when writing notes, for example copying data directly from Word or
@@ -855,9 +837,9 @@ such as lines being cut in half and encoding errors being thrown.</p>
 tabs, and vertical tabs. In other words, treat a text cell as if it
 were a simple web form that can only contain text and spaces.</p>
 </div>
-<div id="metadata" class="section level3" number="1.4.11">
+<div id="metadata" class="section level3" number="1.3.11">
 <h3>
-<span class="header-section-number">1.4.11</span> Inclusion of metadata in data table<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('metadata')" onmouseout="reset_tooltip('metadata-tooltip')"><span class="tooltiptext" id="metadata-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">1.3.11</span> Inclusion of metadata in data table<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('metadata')" onmouseout="reset_tooltip('metadata-tooltip')"><span class="tooltiptext" id="metadata-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p><strong>Example</strong>: You add a legend at the top or bottom of your data table
 explaining column meaning, units, exceptions, etc.</p>
@@ -900,198 +882,21 @@ Attribution 4.0 International
 License</a>.)</p>
 </div>
 </div>
-<div id="dates" class="section level2" number="1.5">
+<div id="exporting-data" class="section level2" number="1.4">
 <h2>
-<span class="header-section-number">1.5</span> Dates as data<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('dates')" onmouseout="reset_tooltip('dates-tooltip')"><span class="tooltiptext" id="dates-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">1.4</span> Exporting data<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('exporting-data')" onmouseout="reset_tooltip('exporting-data-tooltip')"><span class="tooltiptext" id="exporting-data-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h2>
-<p>Questions:</p>
-<ul>
-<li>What are good approaches for handling dates in spreadsheets?</li>
-</ul>
-<p>Objectives:</p>
-<ul>
-<li>Describe how dates are stored and formatted in spreadsheets.</li>
-<li>Describe the advantages of alternative date formatting in spreadsheets.</li>
-<li>Demonstrate best practices for entering dates in spreadsheets.</li>
-</ul>
-<p>Keypoints:</p>
-<ul>
-<li>Treating dates as multiple pieces of data rather than one makes them
-easier to handle.</li>
-</ul>
-<p>Dates in spreadsheets are stored in a single column. While this seems the
-most natural way to record dates, it actually is not best
-practice. A spreadsheet application will display the dates in a
-seemingly correct way (to a human observer) but how it actually handles
-and stores the dates may be problematic.</p>
-<p>In particular, please remember that functions that are valid for a given
-spreadsheet program (be it LibreOffice, Microsoft Excel, OpenOffice,
-Gnumeric, etc.) are usually guaranteed to be compatible only within the same
-family of products. If you will later need to export the data and need to
-conserve the timestamps, you are better off handling them using one of the solutions discussed below.</p>
-<p>Additionally, Excel can <a href="https://nsaunders.wordpress.com/2012/10/22/gene-name-errors-and-excel-lessons-not-learned/">turn things that aren’t dates into
-dates</a>
-(<span class="citation"><label for="tufte-mn-18" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-18" class="margin-toggle">Zeeberg et al. (2004)<span class="marginnote">Zeeberg, Barry R., Joseph Riss, David W. Kane, Kimberly J. Bussey, Edward Uchio, W. Marston Linehan, J. Carl Barrett, and John N. Weinstein. 2004. <span>“Mistaken Identifiers: Gene Name Errors Can Be Introduced Inadvertently When Using Excel in Bioinformatics.”</span> <em>BMC Bioinformatics</em> 5 (1): 80. <a href="https://doi.org/10.1186/1471-2105-5-80">https://doi.org/10.1186/1471-2105-5-80</a>.</span></span>), for example names or identifiers like MAR1, DEC1,
-OCT4. So if you’re avoiding the date format overall, it’s easier to
-identify these issues.</p>
-<div id="preferred-date-format" class="section level3" number="1.5.1">
-<h3>
-<span class="header-section-number">1.5.1</span> Preferred date format<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('preferred-date-format')" onmouseout="reset_tooltip('preferred-date-format-tooltip')"><span class="tooltiptext" id="preferred-date-format-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h3>
-<p>It is much safer to store dates with <a href="#day">YEAR, MONTH, DAY</a> in
-separate columns or as <a href="#doy">YEAR and DAY-OF-YEAR</a> in separate
-columns.</p>
-<p><strong>Note</strong>: Excel is unable to parse dates from before 1899-12-31, and
-will thus leave these untouched. If you’re mixing historic data from
-before and after this date, Excel will translate only the post-1900
-dates into its internal format, thus resulting in mixed data. If
-you’re working with historic data, be extremely careful with your
-dates!</p>
-<p>Excel also entertains a second date system, the 1904 date system, as
-the default in Excel for Macintosh. This system will assign a
-different serial number than the <a href="https://support.microsoft.com/en-us/help/214330/differences-between-the-1900-and-the-1904-date-system-in-excel">1900 date
-system</a>. Because
-of this, <a href="http://uc3.cdlib.org/2014/04/09/abandon-all-hope-ye-who-enter-dates-in-excel/">dates must be checked for accuracy when exporting data from
-Excel</a>
-(look for dates that are ~4 years off).</p>
-</div>
-<div id="data-formats-in-spreadsheets" class="section level3" number="1.5.2">
-<h3>
-<span class="header-section-number">1.5.2</span> Data formats in spreadsheets<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('data-formats-in-spreadsheets')" onmouseout="reset_tooltip('data-formats-in-spreadsheets-tooltip')"><span class="tooltiptext" id="data-formats-in-spreadsheets-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h3>
-<p>Spreadsheet programs have numerous “useful features” which allow them to handle dates in a variety of ways.</p>
-<div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-5"></span>
-<p class="caption marginnote shownote">
-Figure 1.5: Many formats, many ambiguities
-</p>
-<img src="figs/5_excel_dates_1.jpg" alt="Many formats, many ambiguities" width="100%">
-</div>
-<p>But these “features” often allow ambiguity to creep into your data. Ideally, data should be as unambiguous as possible.</p>
-</div>
-<div id="dates-stored-as-integers" class="section level3" number="1.5.3">
-<h3>
-<span class="header-section-number">1.5.3</span> Dates stored as integers<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('dates-stored-as-integers')" onmouseout="reset_tooltip('dates-stored-as-integers-tooltip')"><span class="tooltiptext" id="dates-stored-as-integers-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h3>
-<p>The first thing you need to know is that Excel stores dates as numbers
-- see the last column in the above figure. Essentially, it counts the
-days from a default of December 31, 1899, and thus stores July 2, 2014
-as the serial number 41822<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> But wait. That’s the default on my version of Excel. We’ll
-get into how this can introduce problems down the line
-later in this lesson.</span>.</p>
-<p>This serial number thing can actually be useful in some circumstances. By using
-the above functions we can easily add days, months or years to a given date.
-Say you had a sampling plan where you needed to sample every thirty seven days.
-In another cell, you could type:</p>
-<pre><code>=B2+37</code></pre>
-<p>And it would return</p>
-<pre><code>8-Aug</code></pre>
-<p>because it understands the date as a number <code>41822</code>, and <code>41822 + 37 = 41859</code> which Excel interprets as August 8, 2014. It retains the format
-(for the most part) of the cell that is being operated upon, (unless
-you did some sort of formatting to the cell before, and then all bets
-are off). Month and year rollovers are internally tracked and applied.</p>
-<p><strong>Note</strong> Adding years and months and days is slightly trickier because
-we need to make sure that we are adding the amount to the correct
-entity.</p>
-<ul>
-<li>First we extract the single entities (day, month or year)</li>
-<li>We can then add values to to that</li>
-<li>Finally the complete date string is reconstructed using the <code>DATE()</code> function.</li>
-</ul>
-<p>As for dates, times are handled in a similar way; seconds can be
-directly added but to add hour and minutes we need to make sure that
-we are adding the quantities to the correct entities.</p>
-<p>Which brings us to the many different ways Excel provides in how it
-displays dates. If you refer to the figure above, you’ll see that
-there are many ways that ambiguity creeps into your data depending on
-the format you chose when you enter your data, and if you’re not fully
-aware of which format you’re using, you can end up actually entering
-your data in a way that Excel will badly misinterpret.</p>
-<p><strong>Note</strong> You will notice that when exporting into a text-based format
-(such as CSV), Excel will export its internal date integer instead of
-a useful value (that is, the dates will be represented as integer
-numbers). This can potentially lead to problems if you use other
-software to manipulate the file.</p>
-</div>
-<div id="advantages-of-alternative-date-formatting" class="section level3" number="1.5.4">
-<h3>
-<span class="header-section-number">1.5.4</span> Advantages of Alternative Date Formatting<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('advantages-of-alternative-date-formatting')" onmouseout="reset_tooltip('advantages-of-alternative-date-formatting-tooltip')"><span class="tooltiptext" id="advantages-of-alternative-date-formatting-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h3>
-<div id="storing-dates-as-year-month-day" class="section level4 unnumbered">
-<h4>Storing dates as YEAR, MONTH, DAY</h4>
-<p>Storing dates in YEAR, MONTH, DAY format helps remove this
-ambiguity. Let’s look at this issue a bit closer.</p>
-<p>For instance this is a spreadsheet representing insect counts that
-were taken every few days over the summer, and things went something
-like this:</p>
-<div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-6"></span>
-<p class="caption marginnote shownote">
-Figure 1.6: So, so ambiguous, it’s even confusing Excel.
-</p>
-<img src="figs/6_excel_dates_2.jpg" alt="So, so ambiguous, it's even confusing Excel." width="70%">
-</div>
-<p>If Excel was to be believed, this person had been collecting bugs <strong>in
-the future</strong>. Now, we have no doubt this person is highly capable, but
-I believe time travel was beyond even their grasp.</p>
-<p>Entering dates in one cell is helpful but due to the fact that the
-spreadsheet programs may interpret and save the data in different ways
-(doing that somewhat behind the scenes), there is a better practice.</p>
-<p>In dealing with dates in spreadsheets, separate date data into
-separate fields (day, month, year), which will eliminate any chance of
-ambiguity.</p>
-</div>
-<div id="storing-dates-as-year-day-of-year" class="section level4 unnumbered">
-<h4>Storing dates as YEAR, DAY-OF-YEAR</h4>
-<p>There is also another option. You can also store dates as year and day
-of year (DOY). Why? Because depending on your question, this might be
-what’s useful to you, and there is practically no possibility for
-ambiguity creeping in.</p>
-<p>Statistical models often incorporate year as a factor, or a
-categorical variable, rather than a numeric variable, to account for
-year-to-year variation, and DOY can be used to measure the passage of
-time within a year.</p>
-<p>So, can you convert all your dates into DOY format? Well, in Excel,
-here’s a useful guide:</p>
-<div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-7"></span>
-<p class="caption marginnote shownote">
-Figure 1.7: Kill that ambiguity before it bites you!
-</p>
-<img src="figs/7_excel_dates_3.jpg" alt="Kill that ambiguity before it bites you!" width="70%">
-</div>
-</div>
-<div id="storing-dates-as-a-single-string" class="section level4 unnumbered">
-<h4>Storing dates as a single string</h4>
-<p>Another alternative could be to convert the date string into a single
-string using the <code>YYYYMMDDhhmmss</code> format. For example the date <code>March 24, 2015 17:25:35</code> would become <code>20150324172535</code>, where:</p>
-<pre><code>YYYY:   the full year, i.e. 2015
-MM:     the month, i.e. 03
-DD:     the day of month, i.e. 24
-hh:     hour of day, i.e. 17
-mm:     minutes, i.e. 25
-ss:     seconds, i.e. 35</code></pre>
-<p>Such strings will be correctly sorted in ascending or descending order, and by
-knowing the format they can then be correctly processed by the receiving
-software.</p>
-</div>
-</div>
-</div>
-<div id="exporting-data" class="section level2" number="1.6">
-<h2>
-<span class="header-section-number">1.6</span> Exporting data<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('exporting-data')" onmouseout="reset_tooltip('exporting-data-tooltip')"><span class="tooltiptext" id="exporting-data-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h2>
-<p>Questions:</p>
+<p><strong>Question</strong></p>
 <ul>
 <li>How can we export data from spreadsheets in a way that is useful for
 downstream applications?</li>
 </ul>
-<p>Objectives:</p>
+<p><strong>Objectives</strong></p>
 <ul>
 <li>Store spreadsheet data in universal file formats.</li>
 <li>Export data from a spreadsheet to a CSV file.</li>
 </ul>
-<p>Keypoints:</p>
+<p><strong>Keypoints</strong></p>
 <ul>
 <li><p>Data stored in common spreadsheet formats will often not be read
 correctly into data analysis software, introducing errors into your
@@ -1109,7 +914,8 @@ make it inconvenient, if not impossible, to open the file.</p></li>
 <li><p>Other spreadsheet software may not be able to open files saved in a
 proprietary Excel format.</p></li>
 <li><p>Different versions of Excel may handle data differently, leading to
-inconsistencies.</p></li>
+inconsistencies. <a href="https://datacarpentry.org/spreadsheet-ecology-lesson/03-dates-as-data/index.html">Dates</a>
+is a well-documented example of inconsistencies in data storage.</p></li>
 <li><p>Finally, more journals and grant agencies are requiring you to
 deposit your data in a data repository, and most of them don’t
 accept Excel format. It needs to be in one of the formats discussed
@@ -1119,17 +925,6 @@ formats used by LibreOffice / Open Office. These formats are not
 static and do not get parsed the same way by different software
 packages.</p></li>
 </ul>
-<p>As an example of inconsistencies in data storage, do you remember how
-we talked about how Excel stores dates earlier? It turns out that
-there are multiple defaults for different versions of the software,
-and you can switch between them all. So, say you’re compiling
-Excel-stored data from multiple sources. There’s dates in each file-
-Excel interprets them as their own internally consistent serial
-numbers. When you combine the data, Excel will take the serial number
-from the place you’re importing it from, and interpret it using the
-rule set for the version of Excel you’re using. Essentially, you could
-be adding errors to your data, and it wouldn’t necessarily be flagged
-by any data cleaning methods if your ranges overlap.</p>
 <p>Storing data in a universal, open, and static format will help deal
 with this problem. Try tab-delimited (tab separated values or TSV) or
 comma-delimited (comma separated values or CSV). CSV files are plain
@@ -1155,68 +950,15 @@ it and hit ‘Save.’</li>
 <p>An important note for backwards compatibility: you can open CSV files
 in Excel!</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-8"></span>
+<span id="fig:unnamed-chunk-1"></span>
 <p class="caption marginnote shownote">
-Figure 1.8: Saving an Excel file to CSV.
+Figure 1.1: Saving an Excel file to CSV.
 </p>
 <img src="figs/excel-to-csv.png" alt="Saving an Excel file to CSV." width="70%">
 </div>
-<div id="a-note-on-cross-platform-operability" class="section level4 unnumbered">
-<h4>A Note on Cross-platform Operability</h4>
-<p>By default, most coding and statistical environments expect UNIX-style
-line endings (<code>\n</code>) as representing line breaks. However, Windows
-uses an alternate line ending signifier (<code>\r\n</code>) by default for legacy
-compatibility with Teletype-based systems.</p>
-<p>As such, when exporting to CSV using Excel, your data in text format
-will look like this:</p>
-<pre><code>data1,data2\r\n1,2\r\n4,5\r\n</code></pre>
-<p>When opening your CSV file in Excel again, it will parse it as
-follows:</p>
-<p><img src="figs/db4a5786-1643-11e7-931a-ca2c72336878.png" width="40%" style="display: block; margin: auto;"></p>
-<p>However, if you open your CSV file on a different system that does not
-parse the <code>\r</code> it will interpret your CSV file differently:</p>
-<p>Your data in text format then look like this:</p>
-<pre><code>data1
-data2\r
-1
-2\r
-...</code></pre>
-<p>This will then in turn parse as:</p>
-<p><img src="figs/a990327c-1645-11e7-90b5-35a44e90f8d9.png" width="40%" style="display: block; margin: auto;"></p>
-<p>thus causing terrible things to happen to your data. For example,
-<code>2\r</code> is not a valid integer, and thus will throw an error (if you’re
-lucky) when you attempt to operate on it in R or Python. Note that
-this happens on Excel for OSX as well as Windows, due to legacy
-Windows compatibility.</p>
-<p>There are a handful of solutions for enforcing uniform UNIX-style line
-endings on your exported CSV files:</p>
-<ol style="list-style-type: decimal">
-<li><p>When exporting from Excel, save as a “Windows comma separated
-(.csv)” file</p></li>
-<li>
-<p>If you store your data file under version control using Git, edit
-the <code>.git/config</code> file in your repository to automatically
-translate <code>\r\n</code> line endings into <code>\n</code>. Add the following to the
-file (<a href="http://nicercode.github.io/blog/2013-04-30-excel-and-line-endings">see the detailed
-tutorial</a>):</p>
-<pre><code>         [filter "cr"]
-         clean = LC_CTYPE=C awk '{printf(\"%s\\n\", $0)}' | LC_CTYPE=C tr '\\r' '\\n'
-         smudge = tr '\\n' '\\r'`</code></pre>
-</li>
-</ol>
-<p>and then create a file <code>.gitattributes</code> that contains the line:</p>
-<pre><code>            *.csv filter=cr</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li>Use <a href="http://dos2unix.sourceforge.net/">dos2unix</a> (available on OSX,
-*nix, and Cygwin) on local files to standardize line endings.</li>
-</ol>
-</div>
-<div id="a-note-on-r-and-xls" class="section level4 unnumbered">
-<h4>A note on R and <code>xls</code>
-</h4>
-<p>There are R packages that can read <code>xls</code> files (as well as Google
-spreadsheets). It is even possible to access different worksheets in
-the <code>xls</code> documents.</p>
+<p><strong>A note on R and <code>xls</code></strong>: There are R packages that can read <code>xls</code>
+files (as well as Google spreadsheets). It is even possible to access
+different worksheets in the <code>xls</code> documents.</p>
 <p><strong>But</strong></p>
 <ul>
 <li>some of these only work on Windows</li>
@@ -1226,9 +968,9 @@ additional complexity/dependencies in the data analysis R code</li>
 <li>Is there really a good reason why <code>csv</code> (or similar) is not
 adequate?</li>
 </ul>
-</div>
-<div id="caveats-on-commas" class="section level4 unnumbered">
-<h4>Caveats on commas</h4>
+<div id="caveats-on-commas" class="section level3 unnumbered">
+<h3>Caveats on commas<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('caveats-on-commas')" onmouseout="reset_tooltip('caveats-on-commas-tooltip')"><span class="tooltiptext" id="caveats-on-commas-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+</h3>
 <p>In some datasets, the data values themselves may include commas
 (,). In that case, the software which you use (including Excel) will
 most likely incorrectly display the data in columns. This is because
@@ -1245,9 +987,9 @@ value for <code>taxa</code> includes a comma (<code>Rodent, not censused</code>)
 to read the above into Excel (or other spreadsheet program), we will
 get something like this:</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-11"></span>
+<span id="fig:unnamed-chunk-2"></span>
 <p class="caption marginnote shownote">
-Figure 1.9: The risks of having commas inside comma-separated data.
+Figure 1.2: The risks of having commas inside comma-separated data.
 </p>
 <img src="figs/csv-mistake.png" alt="The risks of having commas inside comma-separated data." width="80%">
 </div>
@@ -1271,7 +1013,7 @@ column, because Excel will only use commas that fall outside of
 quotation marks as delimiting characters.</p>
 <p>Alternatively, if you are working with data that contains commas, you
 likely will need to use another delimiter when working in a
-spreadsheet<label for="tufte-sn-4" class="margin-toggle sidenote-number">4</label><input type="checkbox" id="tufte-sn-4" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">4</span> This is of course particularly relevant in European
+spreadsheet<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> This is of course particularly relevant in European
 countries where the comma is used as a decimal
 separator. In such cases, the default value separator in a
 csv file will be the semi-colon (;), or values will be
@@ -1294,20 +1036,20 @@ Python and R lessons will give you the basis for developing skills to
 build relevant scripts.</p>
 </div>
 </div>
-<div id="summary" class="section level2" number="1.7">
+<div id="summary" class="section level2" number="1.5">
 <h2>
-<span class="header-section-number">1.7</span> Summary<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('summary')" onmouseout="reset_tooltip('summary-tooltip')"><span class="tooltiptext" id="summary-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">1.5</span> Summary<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('summary')" onmouseout="reset_tooltip('summary-tooltip')"><span class="tooltiptext" id="summary-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h2>
 <p>
 <span class="marginnote shownote">
 <!--
 <div class="figure">--><span id="fig:analysis"></span>
 <img src="figs/analysis.png" alt="A typical data analysis workflow." width="362"><!--
-<p class="caption marginnote">-->Figure 1.10: A typical data analysis workflow.<!--</p>-->
+<p class="caption marginnote">-->Figure 1.3: A typical data analysis workflow.<!--</p>-->
 <!--</div>--></span>
 </p>
 <p>A typical data analysis worflow is illustrated in figure
-<a href="sec-dataorg.html#fig:analysis">1.10</a>, where data is repeatedly tranformed, visualised,
+<a href="sec-dataorg.html#fig:analysis">1.3</a>, where data is repeatedly tranformed, visualised,
 modelled. This iteration is repeated multiple times until the data is
 understood. In many real-life cases, however, most time is spend in
 clearning up and preparing the data, rather than actually analysing
@@ -1317,9 +1059,9 @@ transform/visualise/model cycle are only feasible is the data is
 formatted in a predictable way and one can reason on the data without
 having to look at it and/or fix it.</p>
 </div>
-<div id="additional-exercises" class="section level2" number="1.8">
+<div id="additional-exercises" class="section level2" number="1.6">
 <h2>
-<span class="header-section-number">1.8</span> Additional exercises<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('additional-exercises')" onmouseout="reset_tooltip('additional-exercises-tooltip')"><span class="tooltiptext" id="additional-exercises-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">1.6</span> Additional exercises<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('additional-exercises')" onmouseout="reset_tooltip('additional-exercises-tooltip')"><span class="tooltiptext" id="additional-exercises-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h2>
 <div class="question">
 <p class="question-begin">
@@ -1329,7 +1071,7 @@ having to look at it and/or fix it.</p>
 <p>Download the supplementary
 <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-08191-w/MediaObjects/41467_2018_8191_MOESM4_ESM.xlsx">table</a>
 from <a href="https://www.nature.com/articles/s41467-018-08191-w">Geladaki et
-al. (2019)</a> that we discussed above.</p>
+al. (2019)</a>.</p>
 <p>Using the best practice documented above, export the file to a
 text-based spreadsheet (<code>csv</code>, <code>tsv</code>, …). If necessary, manually fix
 the table, but making sure you keep a copy of the original data and
@@ -1344,18 +1086,12 @@ document your modifications.</p>
 ► Question
 </p>
 <div class="question-body">
-<ul>
-<li><p>Download the <em>‘Luminescence read-out of a 96 well plate’</em> table
-presented as example above and reformat it in a way that makes it
-amenable to data analysis. Hint: The letters A to H and the numbers
-1 to 12 represent respectively the rows and the columns of the
-plate.</p></li>
-<li><p>The quantitative values in that data were formatted conditionally,
-using a colour scale to highlight different colour intensities. We
-have seen that this can be a useful feature for quality control. Can
-you interpret the colour pattern and make conclusion with respect to
-possibly quality implications.</p></li>
-</ul>
+<p>Download this
+<a href="https://github.com/UCLouvain-CBIO/WSBIM1207/files/2836821/luminescence.xlsx">table</a>
+that presents luminescence read-out of a 96 well plate. Reformat it in
+a way that makes it amenable to data analysis. Hint: The letters A to
+H and the numbers 1 to 12 represent respectively the rows and the
+columns of the plate.</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>

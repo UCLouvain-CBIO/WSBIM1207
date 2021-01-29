@@ -585,13 +585,38 @@ head(m)
 
 ## Formatting Dates
 
-One of the most common issues that new (and experienced!) R users have is
-converting date and time information into a variable that is appropriate and
-usable during analyses. As a reminder from earlier in this lesson, the best
-practice for dealing with date data is to ensure that each component of your
-date is stored as a separate variable. Using `str()`, We can confirm that our
-data frame has a separate column for day, month, and year, and that each contains
-integer values.
+One of the most common issues that new (and experienced!) R users have
+is converting date and time information into a variable that is
+appropriate and usable during analyses.
+
+### Note on dates in spreadsheet programs {-}
+
+Dates in spreadsheets are generally stored in a single column. While
+this seems the most natural way to record dates, it actually is not
+best practice. A spreadsheet application will display the dates in a
+seemingly correct way (to a human observer) but how it actually
+handles and stores the dates may be problematic. It is often much
+safer to store dates with YEAR, MONTH and DAY in separate columns or
+as YEAR and DAY-OF-YEAR in separate columns.
+
+Spreadsheet programs such as LibreOffice, Microsoft Excel, OpenOffice,
+Gnumeric, ... have different (and often incompatible) ways of encoding
+dates (even for the same program between versions and operating
+systems). Additionally, Excel can [turn things that aren't dates into
+dates](https://nsaunders.wordpress.com/2012/10/22/gene-name-errors-and-excel-lessons-not-learned/)
+(@Zeeberg:2004), for example names or identifiers like MAR1, DEC1,
+OCT4. So if you're avoiding the date format overall, it's easier to
+identify these issues.
+
+The [Dates as
+data](https://datacarpentry.org/spreadsheet-ecology-lesson/03-dates-as-data/index.html)
+section of the Data Carpentry lesson provides additional insights
+about pitfalls of dates with spreadsheets.
+
+
+Going back to our survey data, let's use `str()`, to confirm that our
+data frame has a separate column for day, month, and year, and that
+each contains integer values.
 
 ```{r, eval=FALSE, purl=FALSE}
 str(surveys)
