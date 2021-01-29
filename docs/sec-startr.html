@@ -189,6 +189,14 @@ div.csl-indent {
 <a href="sec-dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
 <a href="sec-rrstudio.html"><span class="toc-section-number">2</span> R and RStudio</a>
 <a id="active-page" href="sec-startr.html"><span class="toc-section-number">3</span> Introduction to R</a><ul class="toc-sections">
+<li class="toc"><a href="#creating-objects-in-r"> Creating objects in R</a></li>
+<li class="toc"><a href="#comments"> Comments</a></li>
+<li class="toc"><a href="#functions-and-their-arguments"> Functions and their arguments</a></li>
+<li class="toc"><a href="#vectors-and-data-types"> Vectors and data types</a></li>
+<li class="toc"><a href="#subsetting-vectors"> Subsetting vectors</a></li>
+<li class="toc"><a href="#conditional-subsetting"> Conditional subsetting</a></li>
+<li class="toc"><a href="#names"> Names</a></li>
+<li class="toc"><a href="#missing-data"> Missing data</a></li>
 <li class="toc"><a href="#sec:genvec"> Generating vectors</a></li>
 <li class="toc"><a href="#additional-exercises-1"> Additional exercises</a></li>
 </ul>
@@ -227,10 +235,10 @@ call, function, arguments, options.</li>
 <li>Subset and extract values from vectors.</li>
 <li>Analyze vectors with missing data.</li>
 </ul>
-<div id="creating-objects-in-r" class="section level3" number="3.0.1">
-<h3>
-<span class="header-section-number">3.0.1</span> Creating objects in R<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('creating-objects-in-r')" onmouseout="reset_tooltip('creating-objects-in-r-tooltip')"><span class="tooltiptext" id="creating-objects-in-r-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h3>
+<div id="creating-objects-in-r" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> Creating objects in R<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('creating-objects-in-r')" onmouseout="reset_tooltip('creating-objects-in-r-tooltip')"><span class="tooltiptext" id="creating-objects-in-r-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+</h2>
 <p>You can get output from R simply by typing math in the console:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="sec-startr.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span></span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
@@ -253,10 +261,8 @@ at the same time as the <kbd>-</kbd> key) will write <code>&lt;-</code> in a
 single keystroke in a PC, while typing <kbd>Option</kbd> +
 <kbd>-</kbd> (push <kbd>Option</kbd> at the same time as the
 <kbd>-</kbd> key) does the same in a Mac.</p>
-</div>
-<div id="naming-variables" class="section level3" number="3.0.2">
-<h3>
-<span class="header-section-number">3.0.2</span> Naming variables<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('naming-variables')" onmouseout="reset_tooltip('naming-variables-tooltip')"><span class="tooltiptext" id="naming-variables-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<div id="naming-variables" class="section level3 unnumbered">
+<h3>Naming variables<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('naming-variables')" onmouseout="reset_tooltip('naming-variables-tooltip')"><span class="tooltiptext" id="naming-variables-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p>Objects can be given any name such as <code>x</code>, <code>current_temperature</code>, or
 <code>subject_id</code>. You want your object names to be explicit and not too
@@ -329,10 +335,11 @@ object, <code>weight_lb</code>:</p>
 </div>
 </div>
 </div>
-<div id="comments" class="section level3" number="3.0.3">
-<h3>
-<span class="header-section-number">3.0.3</span> Comments<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('comments')" onmouseout="reset_tooltip('comments-tooltip')"><span class="tooltiptext" id="comments-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h3>
+</div>
+<div id="comments" class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">3.2</span> Comments<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('comments')" onmouseout="reset_tooltip('comments-tooltip')"><span class="tooltiptext" id="comments-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+</h2>
 <p>The comment character in R is <code>#</code>, anything to the right of a <code>#</code> in a
 script will be ignored by R. It is useful to leave notes, and
 explanations in your scripts.</p>
@@ -359,10 +366,10 @@ press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>.</p>
 </div>
 </div>
 </div>
-<div id="functions-and-their-arguments" class="section level3" number="3.0.4">
-<h3>
-<span class="header-section-number">3.0.4</span> Functions and their arguments<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('functions-and-their-arguments')" onmouseout="reset_tooltip('functions-and-their-arguments-tooltip')"><span class="tooltiptext" id="functions-and-their-arguments-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h3>
+<div id="functions-and-their-arguments" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> Functions and their arguments<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('functions-and-their-arguments')" onmouseout="reset_tooltip('functions-and-their-arguments-tooltip')"><span class="tooltiptext" id="functions-and-their-arguments-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+</h2>
 <p>Functions are “canned scripts” that automate more complicated sets of commands
 including operations assignments, etc. Many functions are predefined, or can be
 made available by importing R <em>packages</em> (more on that later). A function
@@ -415,10 +422,10 @@ arguments. If you don’t, someone reading your code might have to look up the
 definition of a function with unfamiliar arguments to understand what you’re
 doing.</p>
 </div>
-<div id="vectors-and-data-types" class="section level3" number="3.0.5">
-<h3>
-<span class="header-section-number">3.0.5</span> Vectors and data types<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('vectors-and-data-types')" onmouseout="reset_tooltip('vectors-and-data-types-tooltip')"><span class="tooltiptext" id="vectors-and-data-types-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h3>
+<div id="vectors-and-data-types" class="section level2" number="3.4">
+<h2>
+<span class="header-section-number">3.4</span> Vectors and data types<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('vectors-and-data-types')" onmouseout="reset_tooltip('vectors-and-data-types-tooltip')"><span class="tooltiptext" id="vectors-and-data-types-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+</h2>
 <p>A vector is the most common and basic data type in R, and is pretty much
 the workhorse of R. A vector is composed by a series of values, which can be
 either numbers or characters. We can assign a series of values to a vector using
@@ -428,31 +435,33 @@ it to a new object <code>weight_g</code>:</p>
 <span id="cb46-2"><a href="sec-startr.html#cb46-2" aria-hidden="true" tabindex="-1"></a>weight_g</span></code></pre></div>
 <pre><code>## [1] 50 60 65 82</code></pre>
 <p>A vector can also contain characters:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="sec-startr.html#cb48-1" aria-hidden="true" tabindex="-1"></a>animals <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"mouse"</span>, <span class="st">"rat"</span>, <span class="st">"dog"</span>)</span>
-<span id="cb48-2"><a href="sec-startr.html#cb48-2" aria-hidden="true" tabindex="-1"></a>animals</span></code></pre></div>
-<pre><code>## [1] "mouse" "rat"   "dog"</code></pre>
-<p>The quotes around “mouse,” “rat,” etc. are essential here. Without the quotes R
-will assume there are objects called <code>mouse</code>, <code>rat</code> and <code>dog</code>. As these objects
-don’t exist in R’s memory, there will be an error message.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="sec-startr.html#cb48-1" aria-hidden="true" tabindex="-1"></a>molecules <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"dna"</span>, <span class="st">"rna"</span>, <span class="st">"protein"</span>)</span>
+<span id="cb48-2"><a href="sec-startr.html#cb48-2" aria-hidden="true" tabindex="-1"></a>molecules</span></code></pre></div>
+<pre><code>## [1] "dna"     "rna"     "protein"</code></pre>
+<p>The quotes around “dna,” “rna,” etc. are essential here. Without the
+quotes R will assume there are objects called <code>dna</code>, <code>rna</code> and
+<code>protein</code>. As these objects don’t exist in R’s memory, there will be
+an error message.</p>
 <p>There are many functions that allow you to inspect the content of a
 vector. <code>length()</code> tells you how many elements are in a particular vector:</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="sec-startr.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(weight_g)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="sec-startr.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(animals)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="sec-startr.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(molecules)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<p>An important feature of a vector, is that all of the elements are the same type of data.
-The function <code>class()</code> indicates the class (the type of element) of an object:</p>
+<p>An important feature of a vector, is that all of the elements are the
+same type of data. The function <code>class()</code> indicates the class (the
+type of element) of an object:</p>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="sec-startr.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(weight_g)</span></code></pre></div>
 <pre><code>## [1] "numeric"</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="sec-startr.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(animals)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="sec-startr.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(molecules)</span></code></pre></div>
 <pre><code>## [1] "character"</code></pre>
-<p>The function <code>str()</code> provides an overview of the structure of an object and its
-elements. It is a useful function when working with large and complex
-objects:</p>
+<p>The function <code>str()</code> provides an overview of the structure of an
+object and its elements. It is a useful function when working with
+large and complex objects:</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="sec-startr.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(weight_g)</span></code></pre></div>
 <pre><code>##  num [1:4] 50 60 65 82</code></pre>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="sec-startr.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(animals)</span></code></pre></div>
-<pre><code>##  chr [1:3] "mouse" "rat" "dog"</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="sec-startr.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(molecules)</span></code></pre></div>
+<pre><code>##  chr [1:3] "dna" "rna" "protein"</code></pre>
 <p>You can use the <code>c()</code> function to add other elements to your vector:</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="sec-startr.html#cb62-1" aria-hidden="true" tabindex="-1"></a>weight_g <span class="ot">&lt;-</span> <span class="fu">c</span>(weight_g, <span class="dv">90</span>) <span class="co"># add to the end of the vector</span></span>
 <span id="cb62-2"><a href="sec-startr.html#cb62-2" aria-hidden="true" tabindex="-1"></a>weight_g <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">30</span>, weight_g) <span class="co"># add to the beginning of the vector</span></span>
@@ -631,49 +640,49 @@ logical → numeric → character ← logical
 </div>
 </div>
 </div>
-<div id="subsetting-vectors" class="section level3" number="3.0.6">
-<h3>
-<span class="header-section-number">3.0.6</span> Subsetting vectors<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('subsetting-vectors')" onmouseout="reset_tooltip('subsetting-vectors-tooltip')"><span class="tooltiptext" id="subsetting-vectors-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h3>
-<p>If we want to extract one or several values from a vector, we must provide one
-or several indices in square brackets. For instance:</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="sec-startr.html#cb76-1" aria-hidden="true" tabindex="-1"></a>animals <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"mouse"</span>, <span class="st">"rat"</span>, <span class="st">"dog"</span>, <span class="st">"cat"</span>)</span>
-<span id="cb76-2"><a href="sec-startr.html#cb76-2" aria-hidden="true" tabindex="-1"></a>animals[<span class="dv">2</span>]</span></code></pre></div>
-<pre><code>## [1] "rat"</code></pre>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="sec-startr.html#cb78-1" aria-hidden="true" tabindex="-1"></a>animals[<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)]</span></code></pre></div>
-<pre><code>## [1] "dog" "rat"</code></pre>
-<p>We can also repeat the indices to create an object with more elements than the
-original one:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="sec-startr.html#cb80-1" aria-hidden="true" tabindex="-1"></a>more_animals <span class="ot">&lt;-</span> animals[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>)]</span>
-<span id="cb80-2"><a href="sec-startr.html#cb80-2" aria-hidden="true" tabindex="-1"></a>more_animals</span></code></pre></div>
-<pre><code>## [1] "mouse" "rat"   "dog"   "rat"   "mouse" "cat"</code></pre>
+<div id="subsetting-vectors" class="section level2" number="3.5">
+<h2>
+<span class="header-section-number">3.5</span> Subsetting vectors<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('subsetting-vectors')" onmouseout="reset_tooltip('subsetting-vectors-tooltip')"><span class="tooltiptext" id="subsetting-vectors-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+</h2>
+<p>If we want to extract one or several values from a vector, we must
+provide one or several indices in square brackets. For instance:</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="sec-startr.html#cb76-1" aria-hidden="true" tabindex="-1"></a>molecules <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"dna"</span>, <span class="st">"rna"</span>, <span class="st">"peptide"</span>, <span class="st">"protein"</span>)</span>
+<span id="cb76-2"><a href="sec-startr.html#cb76-2" aria-hidden="true" tabindex="-1"></a>molecules[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] "rna"</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="sec-startr.html#cb78-1" aria-hidden="true" tabindex="-1"></a>molecules[<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)]</span></code></pre></div>
+<pre><code>## [1] "peptide" "rna"</code></pre>
+<p>We can also repeat the indices to create an object with more elements
+than the original one:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="sec-startr.html#cb80-1" aria-hidden="true" tabindex="-1"></a>more_molecules <span class="ot">&lt;-</span> molecules[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>)]</span>
+<span id="cb80-2"><a href="sec-startr.html#cb80-2" aria-hidden="true" tabindex="-1"></a>more_molecules</span></code></pre></div>
+<pre><code>## [1] "dna"     "rna"     "peptide" "rna"     "dna"     "protein"</code></pre>
 <p>R indices start at 1. Programming languages like Fortran, MATLAB,
 Julia, and R start counting at 1, because that’s what human beings
 typically do. Languages in the C family (including C++, Java, Perl,
 and Python) count from 0 because that’s simpler for computers to do.</p>
 <p>Finally, it is also possible to get all the elements of a vector
 except some specified elements using negative indices:</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="sec-startr.html#cb82-1" aria-hidden="true" tabindex="-1"></a>animals <span class="do">## all animals</span></span></code></pre></div>
-<pre><code>## [1] "mouse" "rat"   "dog"   "cat"</code></pre>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="sec-startr.html#cb84-1" aria-hidden="true" tabindex="-1"></a>animals[<span class="sc">-</span><span class="dv">1</span>] <span class="do">## all but the first one</span></span></code></pre></div>
-<pre><code>## [1] "rat" "dog" "cat"</code></pre>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="sec-startr.html#cb86-1" aria-hidden="true" tabindex="-1"></a>animals[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)] <span class="do">## all but 1st/3rd ones</span></span></code></pre></div>
-<pre><code>## [1] "rat" "cat"</code></pre>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="sec-startr.html#cb88-1" aria-hidden="true" tabindex="-1"></a>animals[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">3</span>)] <span class="do">## all but 1st/3rd ones</span></span></code></pre></div>
-<pre><code>## [1] "rat" "cat"</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="sec-startr.html#cb82-1" aria-hidden="true" tabindex="-1"></a>molecules <span class="do">## all molecules</span></span></code></pre></div>
+<pre><code>## [1] "dna"     "rna"     "peptide" "protein"</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="sec-startr.html#cb84-1" aria-hidden="true" tabindex="-1"></a>molecules[<span class="sc">-</span><span class="dv">1</span>] <span class="do">## all but the first one</span></span></code></pre></div>
+<pre><code>## [1] "rna"     "peptide" "protein"</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="sec-startr.html#cb86-1" aria-hidden="true" tabindex="-1"></a>molecules[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)] <span class="do">## all but 1st/3rd ones</span></span></code></pre></div>
+<pre><code>## [1] "rna"     "protein"</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="sec-startr.html#cb88-1" aria-hidden="true" tabindex="-1"></a>molecules[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">3</span>)] <span class="do">## all but 1st/3rd ones</span></span></code></pre></div>
+<pre><code>## [1] "rna"     "protein"</code></pre>
 </div>
-<div id="conditional-subsetting" class="section level3" number="3.0.7">
-<h3>
-<span class="header-section-number">3.0.7</span> Conditional subsetting<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('conditional-subsetting')" onmouseout="reset_tooltip('conditional-subsetting-tooltip')"><span class="tooltiptext" id="conditional-subsetting-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h3>
+<div id="conditional-subsetting" class="section level2" number="3.6">
+<h2>
+<span class="header-section-number">3.6</span> Conditional subsetting<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('conditional-subsetting')" onmouseout="reset_tooltip('conditional-subsetting-tooltip')"><span class="tooltiptext" id="conditional-subsetting-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+</h2>
 <p>Another common way of subsetting is by using a logical vector. <code>TRUE</code> will
 select the element with the same index, while <code>FALSE</code> will not:</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="sec-startr.html#cb90-1" aria-hidden="true" tabindex="-1"></a>weight_g <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">21</span>, <span class="dv">34</span>, <span class="dv">39</span>, <span class="dv">54</span>, <span class="dv">55</span>)</span>
 <span id="cb90-2"><a href="sec-startr.html#cb90-2" aria-hidden="true" tabindex="-1"></a>weight_g[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span></code></pre></div>
 <pre><code>## [1] 21 39 54</code></pre>
-<p>Typically, these logical vectors are not typed by hand, but are the output of
-other functions or logical tests. For instance, if you wanted to select only the
-values above 50:</p>
+<p>Typically, these logical vectors are not typed by hand, but are the
+output of other functions or logical tests. For instance, if you
+wanted to select only the values above 50:</p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="sec-startr.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="do">## will return logicals with TRUE for the indices that meet</span></span>
 <span id="cb92-2"><a href="sec-startr.html#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="do">## the condition</span></span>
 <span id="cb92-3"><a href="sec-startr.html#cb92-3" aria-hidden="true" tabindex="-1"></a>weight_g <span class="sc">&gt;</span> <span class="dv">50</span></span></code></pre></div>
@@ -681,28 +690,28 @@ values above 50:</p>
 <div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="sec-startr.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="do">## so we can use this to select only the values above 50</span></span>
 <span id="cb94-2"><a href="sec-startr.html#cb94-2" aria-hidden="true" tabindex="-1"></a>weight_g[weight_g <span class="sc">&gt;</span> <span class="dv">50</span>]</span></code></pre></div>
 <pre><code>## [1] 54 55</code></pre>
-<p>You can combine multiple tests using <code>&amp;</code> (both conditions are true, AND) or <code>|</code>
-(at least one of the conditions is true, OR):</p>
+<p>You can combine multiple tests using <code>&amp;</code> (both conditions are true,
+AND) or <code>|</code> (at least one of the conditions is true, OR):</p>
 <div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="sec-startr.html#cb96-1" aria-hidden="true" tabindex="-1"></a>weight_g[weight_g <span class="sc">&lt;</span> <span class="dv">30</span> <span class="sc">|</span> weight_g <span class="sc">&gt;</span> <span class="dv">50</span>]</span></code></pre></div>
 <pre><code>## [1] 21 54 55</code></pre>
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="sec-startr.html#cb98-1" aria-hidden="true" tabindex="-1"></a>weight_g[weight_g <span class="sc">&gt;=</span> <span class="dv">30</span> <span class="sc">&amp;</span> weight_g <span class="sc">==</span> <span class="dv">21</span>]</span></code></pre></div>
 <pre><code>## numeric(0)</code></pre>
-<p>Here, <code>&lt;</code> stands for “less than,” <code>&gt;</code> for “greater than,” <code>&gt;=</code> for “greater than
-or equal to,” and <code>==</code> for “equal to.” The double equal sign <code>==</code> is a test for
-numerical equality between the left and right hand sides, and should not be
-confused with the single <code>=</code> sign, which performs variable assignment (similar
-to <code>&lt;-</code>).</p>
-<p>A common task is to search for certain strings in a vector. One could use the
-“or” operator <code>|</code> to test for equality to multiple values, but this can quickly
-become tedious. The function <code>%in%</code> allows you to test if any of the elements of
-a search vector are found:</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="sec-startr.html#cb100-1" aria-hidden="true" tabindex="-1"></a>animals <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"mouse"</span>, <span class="st">"rat"</span>, <span class="st">"dog"</span>, <span class="st">"cat"</span>)</span>
-<span id="cb100-2"><a href="sec-startr.html#cb100-2" aria-hidden="true" tabindex="-1"></a>animals[animals <span class="sc">==</span> <span class="st">"cat"</span> <span class="sc">|</span> animals <span class="sc">==</span> <span class="st">"rat"</span>] <span class="co"># returns both rat and cat</span></span></code></pre></div>
-<pre><code>## [1] "rat" "cat"</code></pre>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="sec-startr.html#cb102-1" aria-hidden="true" tabindex="-1"></a>animals <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"rat"</span>, <span class="st">"cat"</span>, <span class="st">"dog"</span>, <span class="st">"duck"</span>, <span class="st">"goat"</span>)</span></code></pre></div>
-<pre><code>## [1] FALSE  TRUE  TRUE  TRUE</code></pre>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="sec-startr.html#cb104-1" aria-hidden="true" tabindex="-1"></a>animals[animals <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"rat"</span>, <span class="st">"cat"</span>, <span class="st">"dog"</span>, <span class="st">"duck"</span>, <span class="st">"goat"</span>)]</span></code></pre></div>
-<pre><code>## [1] "rat" "dog" "cat"</code></pre>
+<p>Here, <code>&lt;</code> stands for “less than,” <code>&gt;</code> for “greater than,” <code>&gt;=</code> for
+“greater than or equal to,” and <code>==</code> for “equal to.” The double equal
+sign <code>==</code> is a test for numerical equality between the left and right
+hand sides, and should not be confused with the single <code>=</code> sign, which
+performs variable assignment (similar to <code>&lt;-</code>).</p>
+<p>A common task is to search for certain strings in a vector. One could
+use the “or” operator <code>|</code> to test for equality to multiple values, but
+this can quickly become tedious. The function <code>%in%</code> allows you to
+test if any of the elements of a search vector are found:</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="sec-startr.html#cb100-1" aria-hidden="true" tabindex="-1"></a>molecules <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"dan"</span>, <span class="st">"rna"</span>, <span class="st">"protein"</span>, <span class="st">"peptide"</span>)</span>
+<span id="cb100-2"><a href="sec-startr.html#cb100-2" aria-hidden="true" tabindex="-1"></a>molecules[molecules <span class="sc">==</span> <span class="st">"rna"</span> <span class="sc">|</span> molecules <span class="sc">==</span> <span class="st">"dna"</span>] <span class="co"># returns both rna and dna</span></span></code></pre></div>
+<pre><code>## [1] "rna"</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="sec-startr.html#cb102-1" aria-hidden="true" tabindex="-1"></a>molecules <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"rna"</span>, <span class="st">"dna"</span>, <span class="st">"metabolite"</span>, <span class="st">"peptide"</span>, <span class="st">"glycerol"</span>)</span></code></pre></div>
+<pre><code>## [1] FALSE  TRUE FALSE  TRUE</code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="sec-startr.html#cb104-1" aria-hidden="true" tabindex="-1"></a>molecules[molecules <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"rna"</span>, <span class="st">"dna"</span>, <span class="st">"metabolite"</span>, <span class="st">"peptide"</span>, <span class="st">"glycerol"</span>)]</span></code></pre></div>
+<pre><code>## [1] "rna"     "peptide"</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -721,18 +730,19 @@ a search vector are found:</p>
 <div id="sol-body-6" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="sec-startr.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="st">"four"</span> <span class="sc">&gt;</span> <span class="st">"five"</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<p>When using “&gt;” or “&lt;” on strings, R compares their alphabetical order.
-Here “four” comes after “five,” and therefore is “greater than” it.</p>
+<p>When using <code>&gt;</code> or <code>&lt;</code> on strings, R compares their alphabetical order.
+Here <code>"four"</code> comes after <code>"five"</code>, and therefore is <em>greater than</em>
+it.</p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
 </div>
 </div>
-<div id="names" class="section level3" number="3.0.8">
-<h3>
-<span class="header-section-number">3.0.8</span> Names<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('names')" onmouseout="reset_tooltip('names-tooltip')"><span class="tooltiptext" id="names-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h3>
+<div id="names" class="section level2" number="3.7">
+<h2>
+<span class="header-section-number">3.7</span> Names<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('names')" onmouseout="reset_tooltip('names-tooltip')"><span class="tooltiptext" id="names-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+</h2>
 <p>It is possible to name each element of a vector. The code chunk below
 show a initial vector without any names, how names are set, and
 retrieved.</p>
@@ -751,18 +761,18 @@ name, in addition to their index.</p>
 <pre><code>## A C 
 ## 1 3</code></pre>
 </div>
-<div id="missing-data" class="section level3" number="3.0.9">
-<h3>
-<span class="header-section-number">3.0.9</span> Missing data<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('missing-data')" onmouseout="reset_tooltip('missing-data-tooltip')"><span class="tooltiptext" id="missing-data-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h3>
-<p>As R was designed to analyze datasets, it includes the concept of missing data
-(which is uncommon in other programming languages). Missing data are represented
-in vectors as <code>NA</code>.</p>
-<p>When doing operations on numbers, most functions will return <code>NA</code> if the data
-you are working with include missing values. This feature
-makes it harder to overlook the cases where you are dealing with missing data.
-You can add the argument <code>na.rm=TRUE</code> to calculate the result while ignoring
-the missing values.</p>
+<div id="missing-data" class="section level2" number="3.8">
+<h2>
+<span class="header-section-number">3.8</span> Missing data<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('missing-data')" onmouseout="reset_tooltip('missing-data-tooltip')"><span class="tooltiptext" id="missing-data-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+</h2>
+<p>As R was designed to analyze datasets, it includes the concept of
+missing data (which is uncommon in other programming
+languages). Missing data are represented in vectors as <code>NA</code>.</p>
+<p>When doing operations on numbers, most functions will return <code>NA</code> if
+the data you are working with include missing values. This feature
+makes it harder to overlook the cases where you are dealing with
+missing data. You can add the argument <code>na.rm = TRUE</code> to calculate
+the result while ignoring the missing values.</p>
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="sec-startr.html#cb116-1" aria-hidden="true" tabindex="-1"></a>heights <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="cn">NA</span>, <span class="dv">6</span>)</span>
 <span id="cb116-2"><a href="sec-startr.html#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(heights)</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
@@ -772,9 +782,9 @@ the missing values.</p>
 <pre><code>## [1] 4</code></pre>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="sec-startr.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(heights, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
-<p>If your data include missing values, you may want to become familiar with the
-functions <code>is.na()</code>, <code>na.omit()</code>, and <code>complete.cases()</code>. See below for
-examples.</p>
+<p>If your data include missing values, you may want to become familiar
+with the functions <code>is.na()</code>, <code>na.omit()</code>, and <code>complete.cases()</code>. See
+below for examples.</p>
 <div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="sec-startr.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract those elements which are not missing values.</span></span>
 <span id="cb124-2"><a href="sec-startr.html#cb124-2" aria-hidden="true" tabindex="-1"></a>heights[<span class="sc">!</span><span class="fu">is.na</span>(heights)]</span></code></pre></div>
 <pre><code>## [1] 2 4 4 6</code></pre>
@@ -829,9 +839,9 @@ examples.</p>
 </div>
 </div>
 </div>
-<div id="sec:genvec" class="section level2" number="3.1">
+<div id="sec:genvec" class="section level2" number="3.9">
 <h2>
-<span class="header-section-number">3.1</span> Generating vectors<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('sec:genvec')" onmouseout="reset_tooltip('sec:genvec-tooltip')"><span class="tooltiptext" id="sec:genvec-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">3.9</span> Generating vectors<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('sec:genvec')" onmouseout="reset_tooltip('sec:genvec-tooltip')"><span class="tooltiptext" id="sec:genvec-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h2>
 <div id="constructors" class="section level3 unnumbered">
 <h3>Constructors<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('constructors')" onmouseout="reset_tooltip('constructors-tooltip')"><span class="tooltiptext" id="constructors-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
@@ -1026,11 +1036,11 @@ sample from a normal distribution. Two normal distributions of means 0
 and 100 and standard deviations 1 and 5, noted noted <em>N(0, 1)</em> and
 <em>N(100, 5)</em>, are shown below</p>
 <div class="figure">
-<span id="fig:unnamed-chunk-77"></span>
+<span id="fig:unnamed-chunk-75"></span>
 <p class="caption marginnote shownote">
 Figure 3.1: Two normal distributions: <em>N(0, 1)</em> on the left and <em>N(100, 5)</em> on the right.
 </p>
-<img src="WSBIM1207_files/figure-html/unnamed-chunk-77-1.png" alt="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right." width="1152">
+<img src="WSBIM1207_files/figure-html/unnamed-chunk-75-1.png" alt="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right." width="1152">
 </div>
 <p>The three arguments, <code>n</code>, <code>mean</code> and <code>sd</code>, define the size of the
 sample, and the parameters of the normal distribution, i.e the mean
@@ -1046,9 +1056,9 @@ data structures, we are ready to start working with larger data, and
 learn about data frames.</p>
 </div>
 </div>
-<div id="additional-exercises-1" class="section level2" number="3.2">
+<div id="additional-exercises-1" class="section level2" number="3.10">
 <h2>
-<span class="header-section-number">3.2</span> Additional exercises<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('additional-exercises-1')" onmouseout="reset_tooltip('additional-exercises-1-tooltip')"><span class="tooltiptext" id="additional-exercises-1-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">3.10</span> Additional exercises<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('additional-exercises-1')" onmouseout="reset_tooltip('additional-exercises-1-tooltip')"><span class="tooltiptext" id="additional-exercises-1-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h2>
 <div class="question">
 <p class="question-begin">

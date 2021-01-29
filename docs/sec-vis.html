@@ -431,7 +431,7 @@ way to show this type of data?</p>
 <div id="sol-body-28" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="sec-vis.html#cb394-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> surveys_complete, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> species_id, <span class="at">y =</span> weight)) <span class="sc">+</span></span>
 <span id="cb394-2"><a href="sec-vis.html#cb394-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> plot_type))</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-178-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-176-1.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -738,24 +738,24 @@ each other.</p>
 <div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="sec-vis.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"patchwork"</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="sec-vis.html#cb419-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"patchwork"</span>)</span>
 <span id="cb419-2"><a href="sec-vis.html#cb419-2" aria-hidden="true" tabindex="-1"></a>spp_weight_boxplot <span class="sc">+</span> spp_count_plot</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-181-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-179-1.png" width="672"></p>
 <div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="sec-vis.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="do">## or spp_weight_boxplot | spp_count_plot</span></span></code></pre></div>
 <div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="sec-vis.html#cb421-1" aria-hidden="true" tabindex="-1"></a>spp_weight_boxplot <span class="sc">/</span> spp_count_plot</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-182-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-180-1.png" width="672"></p>
 <p>We can combine further control the layout of the final composition
 with <code>plot_layout</code> to create more complex layouts:</p>
 <div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="sec-vis.html#cb422-1" aria-hidden="true" tabindex="-1"></a>spp_weight_boxplot <span class="sc">+</span> spp_count_plot <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-183-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-181-1.png" width="672"></p>
 <div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="sec-vis.html#cb423-1" aria-hidden="true" tabindex="-1"></a>spp_weight_boxplot <span class="sc">+</span></span>
 <span id="cb423-2"><a href="sec-vis.html#cb423-2" aria-hidden="true" tabindex="-1"></a> (spp_weight_boxplot <span class="sc">+</span> spp_count_plot) <span class="sc">+</span></span>
 <span id="cb423-3"><a href="sec-vis.html#cb423-3" aria-hidden="true" tabindex="-1"></a> spp_count_plot <span class="sc">+</span></span>
 <span id="cb423-4"><a href="sec-vis.html#cb423-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-184-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-182-1.png" width="672"></p>
 <p>The last plot can also be created using the <code>|</code> and <code>/</code> composers:</p>
 <div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="sec-vis.html#cb424-1" aria-hidden="true" tabindex="-1"></a>spp_weight_boxplot <span class="sc">/</span></span>
 <span id="cb424-2"><a href="sec-vis.html#cb424-2" aria-hidden="true" tabindex="-1"></a> (spp_weight_boxplot <span class="sc">|</span> spp_count_plot) <span class="sc">/</span></span>
 <span id="cb424-3"><a href="sec-vis.html#cb424-3" aria-hidden="true" tabindex="-1"></a> spp_count_plot</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-185-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-183-1.png" width="672"></p>
 <p>Learn more about <code>patchwork</code> on its
 <a href="https://patchwork.data-imaginist.com/">webpage</a> or in this
 <a href="https://www.youtube.com/watch?v=0m4yywqNPVY">video</a>.</p>
@@ -883,7 +883,7 @@ and has a more convoluted interface.</p>
 <p>Analyse the data to answer the question <em>Do men drink more than women
 according to age and working status?</em> Now reproduce the figure below.</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-187"></span>
+<span id="fig:unnamed-chunk-185"></span>
 <p class="caption marginnote shownote">
 Figure 6.3: Visualisation of beer consumption, highlighting different patterns of beer consumption in employed and unemployed males and females.
 </p>
