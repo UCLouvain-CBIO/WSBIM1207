@@ -426,12 +426,10 @@ set things up in different ways in spreadsheets, but some of these
 choices can limit your ability to work with the data in other programs
 or have the you-of-6-months-from-now or your collaborator work with
 the data.</p>
-<blockquote>
 <p><strong>Note:</strong> the best layouts/formats (as well as software and
-interfaces) for data entry and data analysis might be different. It
-is important to take this into account, and ideally automate the
+interfaces) for data entry and data analysis might be different. It is
+important to take this into account, and ideally automate the
 conversion from one to another.</p>
-</blockquote>
 <div id="keeping-track-of-your-analyses" class="section level3" number="1.2.1">
 <h3>
 <span class="header-section-number">1.2.1</span> Keeping track of your analyses<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('keeping-track-of-your-analyses')" onmouseout="reset_tooltip('keeping-track-of-your-analyses-tooltip')"><span class="tooltiptext" id="keeping-track-of-your-analyses-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
@@ -451,15 +449,13 @@ folder as the data file.</p></li>
 </ul>
 <p>This might be an example of a spreadsheet setup:</p>
 <p><img src="figs/spreadsheet-setup-updated.png"></p>
-<p>Put these principles in to practice today during your Exercises.</p>
-<blockquote>
-<p><strong>Note:</strong> This is out of scope for this lesson, but for information
-on how to maintain version control over your data, look at our
-lesson on <a href="http://swcarpentry.github.io/git-novice/">‘Git’</a>. See
-also this <a href="https://lgatto.github.io/github-intro/">blog post</a> for a
-quick tutorial or <span class="citation"><label for="tufte-mn-15" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-15" class="margin-toggle">Perez-Riverol et al. (2016)<span class="marginnote">Perez-Riverol, Yasset, Laurent Gatto, Rui Wang, Timo Sachsenberg, Julian Uszkoreit, Felipe da Veiga Leprevost, Christian Fufezan, et al. 2016. <span>“Ten Simple Rules for Taking Advantage of Git and <span>GitHub</span>.”</span> <em>PLOS Computational Biology</em> 12 (7): 1–11. <a href="https://doi.org/10.1371/journal.pcbi.1004947">https://doi.org/10.1371/journal.pcbi.1004947</a>.</span></span> for a more research-oriented
-use-case.</p>
-</blockquote>
+<p>Put these principles in to practice today during your exercises.</p>
+<p>While versioning is out of scope for this course, you can look at the
+Carpentries lesson on
+<a href="http://swcarpentry.github.io/git-novice/">‘Git’</a> to learn how to
+maintain <strong>version control</strong> over your data. See also this <a href="https://lgatto.github.io/github-intro/">blog
+post</a> for a quick tutorial or
+<span class="citation"><label for="tufte-mn-15" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-15" class="margin-toggle">Perez-Riverol et al. (2016)<span class="marginnote">Perez-Riverol, Yasset, Laurent Gatto, Rui Wang, Timo Sachsenberg, Julian Uszkoreit, Felipe da Veiga Leprevost, Christian Fufezan, et al. 2016. <span>“Ten Simple Rules for Taking Advantage of Git and <span>GitHub</span>.”</span> <em>PLOS Computational Biology</em> 12 (7): 1–11. <a href="https://doi.org/10.1371/journal.pcbi.1004947">https://doi.org/10.1371/journal.pcbi.1004947</a>.</span></span> for a more research-oriented use-case.</p>
 </div>
 <div id="structuring-data-in-spreadsheets" class="section level3" number="1.2.2">
 <h3>
@@ -470,9 +466,9 @@ use-case.</p>
 <li>Put all your variables in columns - the thing you’re measuring,
 like ‘weight’ or ‘temperature.’</li>
 <li>Put each observation in its own row.</li>
-<li>Don’t combine multiple pieces of information in one
-cell. Sometimes it just seems like one thing, but think if that’s
-the only way you’ll want to be able to use or sort that data.</li>
+<li>Don’t combine multiple pieces of information in one cell. Sometimes
+it just seems like one thing, but think if that’s the only way
+you’ll want to be able to use or sort that data.</li>
 <li>Leave the raw data raw - don’t change it!</li>
 <li>Export the cleaned data to a text-based format like CSV
 (comma-separated values) format. This ensures that anyone can use
@@ -484,55 +480,44 @@ into a spreadsheet. They keep track of things like species, plot,
 weight, sex and date collected.</p>
 <p>If they were to keep track of the data like this:</p>
 <p><img src="figs/multiple-info.png"></p>
-<p>the problem is that species and sex are in the same field. So, if they wanted to
-look at all of one species or look at different weight distributions by sex,
-it would be hard to do this using this data setup. If instead we put sex and species
-in different columns, you can see that it would be much easier.</p>
-<p>The rule of thumb, when setting up a datasheet, is</p>
-<blockquote>
-<p><strong>Columns for variables and rows for observations</strong></p>
-</blockquote>
-<ul>
-<li>columns = variables</li>
-<li>rows = observations</li>
-<li>cells = data (values)</li>
-</ul>
-<p>So, instead we should have:</p>
+<p>the problem is that the ABO and rhesus groups are in the same <code>Blood</code>
+type column. So, if they wanted to look at all observations of the A
+group or look at weight distributions by ABO group, it would be tricky
+to do this using this data setup. If instead we put the ABO and rhesus
+groups in different columns, you can see that it would be much easier.</p>
 <p><img src="figs/single-info.png"></p>
-<p><strong>Discussion</strong></p>
-<p>The data used in the lessons are observations of a small mammal
-community in southern Arizona. This is part of a project studying the
-effects of rodents and ants on the plant community that has been
-running for almost 40 years. The rodents are sampled on a series of 24
-plots, with different experimental manipulations controlling which
-rodents are allowed to access which plots.</p>
-<p>This is a real dataset that has been used in over 100
-publications. We’ve simplified it just a little bit for the workshop,
-but you can download the full dataset and work with it using exactly
-the same tools we’ll learn about today.</p>
+<p>An important rule when setting up a datasheet, is that <strong>columns are
+used for variables</strong> and <strong>rows are used for observations</strong>:</p>
+<ul>
+<li>columns are variables</li>
+<li>rows are observations</li>
+<li>cells are individual values</li>
+</ul>
 <div class="question">
 <p class="question-begin">
 ► Question
 </p>
 <div class="question-body">
-<p>We’re going to take a messy version of the survey data and describe how we would clean it up.</p>
+<p>We’re going to take a messy data and describe how we would clean it
+up.</p>
 <ol style="list-style-type: decimal">
-<li><p>Download the data by clicking
-<a href="https://ndownloader.figshare.com/files/2252083">here</a> to get it
-from FigShare.</p></li>
+<li><p>Download a messy data by clicking
+<a href="https://github.com/UCLouvain-CBIO/WSBIM1207/raw/master/data/messy_covid.xlsx">here</a>.</p></li>
 <li><p>Open up the data in a spreadsheet program.</p></li>
-<li><p>You can see that there are two tabs. Two field assistants conducted
-the surveys, one in 2013 and one in 2014, and they both kept track
-of the data in their own way. Now you’re the person in charge of
-this project and you want to be able to start analyzing the data.</p></li>
+<li><p>You can see that there are two tabs. The data contains various
+clinical variables recorded in various hospitals in Brussels during
+the first and second COVID-19 waves in 2020. As you can see, the
+data have been recorded differently during the march and november
+waves. Now you’re the person in charge of this project and you want
+to be able to start analyzing the data.</p></li>
 <li><p>With the person next to you, identify what is wrong with this
 spreadsheet. Also discuss the steps you would need to take to clean
-up the 2013 and 2014 tabs, and to put them all together in one
+up first and second wave tabs, and to put them all together in one
 spreadsheet.</p></li>
 </ol>
-<p><strong>Important</strong> Do not forget our first piece of advice: to create a new
-file (or tab) for the cleaned data, never modify your original (raw)
-data.</p>
+<p><strong>Important:</strong> Do not forget our first piece of advice: to create a
+new file (or tab) for the cleaned data, never modify your original
+(raw) data.</p>
 <p>After you go through this exercise, we’ll discuss as a group what was wrong
 with this data and how you would fix it.</p>
 <p class="question-end">
@@ -557,16 +542,16 @@ is the <em>Tidy Data</em> paper <span class="citation"><label for="tufte-mn-16" 
 <h2>
 <span class="header-section-number">1.3</span> Common Spreadsheet Errors<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('common-spreadsheet-errors')" onmouseout="reset_tooltip('common-spreadsheet-errors-tooltip')"><span class="tooltiptext" id="common-spreadsheet-errors-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h2>
-<p>Questions:</p>
+<p><strong>Questions</strong></p>
 <ul>
 <li>What are some common challenges with formatting data in spreadsheets
 and how can we avoid them?</li>
 </ul>
-<p>Objectives:</p>
+<p><strong>Objectives</strong></p>
 <ul>
 <li>Recognize and resolve common spreadsheet formatting problems.</li>
 </ul>
-<p>Keypoints:</p>
+<p><strong>Keypoints</strong></p>
 <ul>
 <li>Avoid using multiple tables within one spreadsheet.</li>
 <li>Avoid spreading data across multiple tabs.</li>
@@ -650,9 +635,10 @@ reorganize your data to consolidate across tabs.</p>
 experiment. This makes it harder to enter data if you can’t see your
 headers at the top of the spreadsheet. But don’t repeat your header
 row. These can easily get mixed into the data, leading to problems
-down the road.</p>
-<p>Instead you can freeze the column headers so that they remain visible even when you have a spreadsheet with many rows.</p>
-<p><a href="https://support.office.com/en-ca/article/Freeze-column-headings-for-easy-scrolling-57ccce0c-cf85-4725-9579-c5d13106ca6a">Documentation on how to freeze column headers</a></p>
+down the road. Instead you can <a href="https://support.office.com/en-ca/article/Freeze-column-headings-for-easy-scrolling-57ccce0c-cf85-4725-9579-c5d13106ca6a">freeze the column
+headers</a>
+so that they remain visible even when you have a spreadsheet with many
+rows.</p>
 </div>
 <div id="zeros" class="section level3" number="1.3.3">
 <h3>

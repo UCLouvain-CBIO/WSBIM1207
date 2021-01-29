@@ -210,10 +210,10 @@ choices can limit your ability to work with the data in other programs
 or have the you-of-6-months-from-now or your collaborator work with
 the data.
 
-> **Note:** the best layouts/formats (as well as software and
-> interfaces) for data entry and data analysis might be different. It
-> is important to take this into account, and ideally automate the
-> conversion from one to another.
+**Note:** the best layouts/formats (as well as software and
+interfaces) for data entry and data analysis might be different. It is
+important to take this into account, and ideally automate the
+conversion from one to another.
 
 ### Keeping track of your analyses
 
@@ -235,14 +235,14 @@ This might be an example of a spreadsheet setup:
 
 ![](./figs/spreadsheet-setup-updated.png)
 
-Put these principles in to practice today during your Exercises.
+Put these principles in to practice today during your exercises.
 
-> **Note:** This is out of scope for this lesson, but for information
-> on how to maintain version control over your data, look at our
-> lesson on ['Git'](http://swcarpentry.github.io/git-novice/). See
-> also this [blog post](https://lgatto.github.io/github-intro/) for a
-> quick tutorial or @Perez-Riverol:2016 for a more research-oriented
-> use-case.
+While versioning is out of scope for this course, you can look at the
+Carpentries lesson on
+['Git'](http://swcarpentry.github.io/git-novice/) to learn how to
+maintain **version control** over your data. See also this [blog
+post](https://lgatto.github.io/github-intro/) for a quick tutorial or
+@Perez-Riverol:2016 for a more research-oriented use-case.
 
 
 ### Structuring data in spreadsheets
@@ -252,9 +252,9 @@ The cardinal rules of using spreadsheet programs for data:
 1. Put all your variables in columns - the thing you're measuring,
    like 'weight' or 'temperature'.
 2. Put each observation in its own row.
-3. Don't combine multiple pieces of information in one
-   cell. Sometimes it just seems like one thing, but think if that's
-   the only way you'll want to be able to use or sort that data.
+3. Don't combine multiple pieces of information in one cell. Sometimes
+   it just seems like one thing, but think if that's the only way
+   you'll want to be able to use or sort that data.
 4. Leave the raw data raw - don't change it!
 5. Export the cleaned data to a text-based format like CSV
    (comma-separated values) format. This ensures that anyone can use
@@ -269,68 +269,51 @@ If they were to keep track of the data like this:
 
 ![](./figs/multiple-info.png)
 
-the problem is that species and sex are in the same field. So, if they wanted to
-look at all of one species or look at different weight distributions by sex,
-it would be hard to do this using this data setup. If instead we put sex and species
-in different columns, you can see that it would be much easier.
-
-
-The rule of thumb, when setting up a datasheet, is
-
->  **Columns for variables and rows for observations**
-
-- columns = variables
-- rows = observations
-- cells = data (values)
-
-So, instead we should have:
+the problem is that the ABO and rhesus groups are in the same `Blood`
+type column. So, if they wanted to look at all observations of the A
+group or look at weight distributions by ABO group, it would be tricky
+to do this using this data setup. If instead we put the ABO and rhesus
+groups in different columns, you can see that it would be much easier.
 
 ![](./figs/single-info.png)
 
-**Discussion**
+An important rule when setting up a datasheet, is that **columns are
+used for variables** and **rows are used for observations**:
 
-The data used in the lessons are observations of a small mammal
-community in southern Arizona. This is part of a project studying the
-effects of rodents and ants on the plant community that has been
-running for almost 40 years. The rodents are sampled on a series of 24
-plots, with different experimental manipulations controlling which
-rodents are allowed to access which plots.
-
-This is a real dataset that has been used in over 100
-publications. We’ve simplified it just a little bit for the workshop,
-but you can download the full dataset and work with it using exactly
-the same tools we’ll learn about today.
-
+- columns are variables
+- rows are observations
+- cells are individual values
 
 `r msmbstyle::question_begin()`
 
-We're going to take a messy version of the survey data and describe how we would clean it up.
+We're going to take a messy data and describe how we would clean it
+up.
 
-1. Download the data by clicking
-   [here](https://ndownloader.figshare.com/files/2252083) to get it
-   from FigShare.
+1. Download a messy data by clicking
+   [here](https://github.com/UCLouvain-CBIO/WSBIM1207/raw/master/data/messy_covid.xlsx).
 
 2. Open up the data in a spreadsheet program.
 
-3. You can see that there are two tabs. Two field assistants conducted
-   the surveys, one in 2013 and one in 2014, and they both kept track
-   of the data in their own way. Now you're the person in charge of
-   this project and you want to be able to start analyzing the data.
+3. You can see that there are two tabs. The data contains various
+   clinical variables recorded in various hospitals in Brussels during
+   the first and second COVID-19 waves in 2020. As you can see, the
+   data have been recorded differently during the march and november
+   waves. Now you're the person in charge of this project and you want
+   to be able to start analyzing the data.
 
 4. With the person next to you, identify what is wrong with this
    spreadsheet. Also discuss the steps you would need to take to clean
-   up the 2013 and 2014 tabs, and to put them all together in one
+   up first and second wave tabs, and to put them all together in one
    spreadsheet.
 
-**Important** Do not forget our first piece of advice: to create a new
-file (or tab) for the cleaned data, never modify your original (raw)
-data.
+**Important:** Do not forget our first piece of advice: to create a
+new file (or tab) for the cleaned data, never modify your original
+(raw) data.
 
 After you go through this exercise, we'll discuss as a group what was wrong
 with this data and how you would fix it.
 
 `r msmbstyle::question_end()`
-
 
 <!-- - Take about 10 minutes to work on this exercise. -->
 <!-- - All the mistakes in the *common mistakes* section below are present -->
@@ -348,16 +331,16 @@ is the *Tidy Data* paper @Wickham:2014.
 
 ## Common Spreadsheet Errors
 
-Questions:
+**Questions**
 
 - What are some common challenges with formatting data in spreadsheets
   and how can we avoid them?
 
-Objectives:
+**Objectives**
 
 - Recognize and resolve common spreadsheet formatting problems.
 
-Keypoints:
+**Keypoints**
 
 - Avoid using multiple tables within one spreadsheet.
 - Avoid spreading data across multiple tabs.
@@ -448,11 +431,10 @@ Your data sheet might get very long over the course of the
 experiment. This makes it harder to enter data if you can’t see your
 headers at the top of the spreadsheet. But don't repeat your header
 row. These can easily get mixed into the data, leading to problems
-down the road.
-
-Instead you can freeze the column headers so that they remain visible even when you have a spreadsheet with many rows.
-
-[Documentation on how to freeze column headers](https://support.office.com/en-ca/article/Freeze-column-headings-for-easy-scrolling-57ccce0c-cf85-4725-9579-c5d13106ca6a)
+down the road. Instead you can [freeze the column
+headers](https://support.office.com/en-ca/article/Freeze-column-headings-for-easy-scrolling-57ccce0c-cf85-4725-9579-c5d13106ca6a)
+so that they remain visible even when you have a spreadsheet with many
+rows.
 
 ### Not filling in zeros {#zeros}
 
