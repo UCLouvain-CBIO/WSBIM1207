@@ -1,7 +1,5 @@
 # Data organisation with Spreadsheets {#sec:dataorg}
 
-## Introduction
-
 Questions:
 
 - What are basic principles for using spreadsheets for good data
@@ -15,6 +13,9 @@ the best use of data sets.
 Keypoints:
 
 - Good data organization is the foundation of any research project.
+
+
+## Introduction
 
 Good data organization is the foundation of your research
 project. Most researchers have data or do data entry in

@@ -707,7 +707,7 @@ a matrix, a dataframe and another list:
 ```{r list0}
 l <- list(1:10, ## numeric
           letters, ## character
-          installed.packages(), ## a matric
+          installed.packages(), ## a matrix
           cars, ## a data.frame
           list(1, 2, 3)) ## a list
 length(l)

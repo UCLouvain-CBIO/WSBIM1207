@@ -8,17 +8,17 @@ important packages for the course.
 1. Download R from the CRAN page:
    [https://cloud.r-project.org/](https://cloud.r-project.org/). At
    the top of that page, choose the *Download R* link corresponding to
-   your operating system. 
-   
+   your operating system.
+
    If you use Windows, follow *install R for the first time*, then
    click the link to download R. The installation procedure is like
    any other software, and you can safely use all default options.
-   
+
    If you use Mac (OS X), download the *pkg* installer that matches
    you OS version and install like any other software
-   
+
    Linux users are advised to use their package manager.
-   
+
 2. Download and install the Rstudio Desktop Open source edition:
    [https://rstudio.com/products/rstudio/download/#download](https://rstudio.com/products/rstudio/download/#download). Choose
    the installer for your operating system and version. Install as any
@@ -33,12 +33,12 @@ BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
 ```
 
 If during any of the package installation steps, you get asked to
-update some packages, for example with a message like 
+update some packages, for example with a message like
 
 ```
 Old packages: 'tinytex', 'TSP', 'tximeta', 'umap', 'vctrs', 'waveslim',
   'xcms', 'xlsx', 'xml2'
-Update all/some/none? [a/s/n]: 
+Update all/some/none? [a/s/n]:
 ```
 
 You can answer `a` to update all your packages.
@@ -69,11 +69,11 @@ Swiss Data Science Center (SDSC).
 
 1. Create a new renku user - click to *Login - Sign up* button on
    [https://renkulab.io/](https://renkulab.io/), click *Register* at
-   the bottom of the login screen and follow instructions. 
-   
+   the bottom of the login screen and follow instructions.
+
    Once completed, you will get to the following (or similar) screen,
    belonging here to user `WSBIM1207.student`.
-   
+
 ```{r, fig.cap = "Renky labding page.", echo = FALSE, message = FALSE}
 knitr::include_graphics("./figs/renku_screen1.png")
 ```
@@ -81,10 +81,10 @@ knitr::include_graphics("./figs/renku_screen1.png")
 2. Now that you have created a Renku account, you will need to fork
    (i.e. copy) the course renku project into your own account. To do
    so, open the following link:
-   [https://renkulab.io/projects/laurent.gatto/wsbim1207/](https://renkulab.io/projects/laurent.gatto/wsbim1207/)
-   
+   [https://renkulab.io/projects/laurent.gatto/wsbim-bioinfo](https://renkulab.io/projects/laurent.gatto/wsbim-bioinfo)
 
-```{r, fig.cap = "The WSBIM1207 renku project page.", echo = FALSE, message = FALSE}
+
+```{r, fig.cap = "The WSBIM-bioinfo renku project page.", echo = FALSE, message = FALSE}
 knitr::include_graphics("./figs/renku_screen2.png")
 ```
    The second support video below also demonstrates the following steps for another renku project.
@@ -93,16 +93,16 @@ knitr::include_graphics("./figs/renku_screen2.png")
    in the rop right corner (see previous screenshot). You can keep all
    the default values in the popup window and click on `Fork` again.
 
-```{r, fig.cap = "Forking the WSBIM1207 renku project page.", echo = FALSE, message = FALSE}
+```{r, fig.cap = "Forking the WSBIM-bioinfor renku project page.", echo = FALSE, message = FALSE}
 knitr::include_graphics("./figs/renku_screen3.png")
 ```
 
-4. The next window shows your personal copy of the `wsbim1207` Renku
+4. The next window shows your personal copy of the WSBIM-bioinfo Renku
    project.
 
-```{r, fig.cap = "Forked WSBIM1207 renku project page.", echo = FALSE, message = FALSE}
-knitr::include_graphics("./figs/renku_screen4.png")
-```
+<!-- ```{r, fig.cap = "Forked WSBIM1207 renku project page.", echo = FALSE, message = FALSE} -->
+<!-- knitr::include_graphics("./figs/renku_screen4.png") -->
+<!-- ``` -->
 
 5. Click the `Environments` tab and the `New` button to create a
    runnable cloud environment that contains R, RStudio, and all
@@ -127,18 +127,18 @@ knitr::include_graphics("./figs/renku_screen6.png")
    the default settings, i.e default environment `/rstudio` and `0.25`
    CPUs and `1G` of RAM. For this course, these low resources are
    enough[^res].
-   
+
 [^res]: Given that the resources are provided for free by the SDSC and
     are shared by all users, it is good practice to only use the
     resources that are needed.
-   
+
 ```{r, fig.cap = "The environment build settings.", echo = FALSE, message = FALSE}
 knitr::include_graphics("./figs/renku_screen7.png")
 ```
 
 7. It will take some more time to get the environment started, shown
    below.
-   
+
 ```{r, fig.cap = "The Renku environment is being build.", echo = FALSE, message = FALSE}
 knitr::include_graphics("./figs/renku_screen8.png")
 ```
@@ -186,7 +186,7 @@ existing fork:
    project**.
 6. You will be to type the name of the project (wsbim1207) en then
    confirm that you want to permanently delete it.
-   
+
 You can now restart the procedure described above.
 
 ### Saving your work
@@ -202,7 +202,7 @@ knitr::include_graphics("./figs/renku_save.png")
    sure that your files are safe even when the environment is closed
    completely.
 3. In addition, it is recommended to download (export) all your files
-   as an additional backup. 
+   as an additional backup.
 
 ### More about Renku {-}
 
