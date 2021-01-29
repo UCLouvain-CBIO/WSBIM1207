@@ -379,8 +379,6 @@ and analysis.
 - [Using problematic field names](#field_name)
 - [Using special characters in data](#special)
 - [Inclusion of metadata in data table](#metadata)
-- [Date formatting](#dates)
-
 
 ### Using multiple tables {#tables}
 
