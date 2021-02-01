@@ -325,6 +325,19 @@ with this data and how you would fix it.
 <!--   and go to the dates lesson. Or you can say you'll come back to dates -->
 <!--   at the end. -->
 
+`r msmbstyle::question_begin()`
+
+Once you have tidied up the data, answer the following questions:
+
+- How many men and women took part in the study?
+- How many A, AB, and B types have been tested?
+- As above, but disregarding the contaminated samples?
+- How many Rhesus + and - have been tested?
+- How many universal donors (0-) have been tested?
+- What is the average weight of AB men?
+- How many samples have been tested in the different hospitals?
+
+`r msmbstyle::question_end()`
 
 An **excellent reference**, in particular with regard to R scripting
 is the *Tidy Data* paper @Wickham:2014.
