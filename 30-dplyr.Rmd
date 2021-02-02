@@ -3,26 +3,26 @@
 
 ```{r dplyrsetup, echo=FALSE, purl=FALSE, message=FALSE}
 if (!file.exists("data/surveys.csv"))
-	download.file("https://ndownloader.figshare.com/files/2292172",
-				  "data/surveys.csv")
+    download.file("https://ndownloader.figshare.com/files/2292172",
+                  "data/surveys.csv")
 
 if (!file.exists("data/species.csv"))
-	download.file("https://ndownloader.figshare.com/files/3299483",
-				  "data/species.csv")
+    download.file("https://ndownloader.figshare.com/files/3299483",
+                  "data/species.csv")
 
 if (!file.exists("data/plots.csv"))
-	download.file("https://ndownloader.figshare.com/files/3299474",
-				  "data/plots.csv")
+    download.file("https://ndownloader.figshare.com/files/3299474",
+                  "data/plots.csv")
 
 if (!file.exists("data/portal_data_joined.csv"))
-	download.file("https://ndownloader.figshare.com/files/2292169",
-				  "data/portal_data_joined.csv")
+    download.file("https://ndownloader.figshare.com/files/2292169",
+                  "data/portal_data_joined.csv")
 
 surveys <- read.csv("data/portal_data_joined.csv")
 suppressWarnings(surveys$date <- lubridate::ymd(paste(surveys$year,
-													  surveys$month,
-													  surveys$day,
-													  sep = "-")))
+                                                      surveys$month,
+                                                      surveys$day,
+                                                      sep = "-")))
 ```
 
 **Learning Objectives**
@@ -53,7 +53,7 @@ suppressWarnings(surveys$date <- lubridate::ymd(paste(surveys$year,
 - Describe what key-value pairs are.
 
 - Reshape a data frame from long to wide format and back with the
-  `spread`/`pivot_wider` and `gather`/`pivot_longer` commands from the
+  `pivot_wider()` and `pivot_longer()` commands from the
   **`tidyr`** package.
 
 
@@ -281,8 +281,8 @@ before 1995 and retain only the columns `year`, `sex`, and `weight`.
 `r msmbstyle::solution_begin()`
 ```{r, eval=TRUE, purl=FALSE}
 surveys %>%
-	filter(year < 1995) %>%
-	select(year, sex, weight)
+    filter(year < 1995) %>%
+    select(year, sex, weight)
 ```
 `r msmbstyle::solution_end()`
 
@@ -305,7 +305,7 @@ You can also create a second new column based on the first new column within the
 ```{r, purl = FALSE}
 surveys %>%
   mutate(weight_kg = weight / 1000,
-		 weight_kg2 = weight_kg * 2)
+         weight_kg2 = weight_kg * 2)
 ```
 
 If this runs off your screen and you just want to see the first few rows, you
@@ -347,10 +347,10 @@ this data frame!
 `r msmbstyle::solution_begin()`
 ```{r, eval=TRUE, purl=FALSE}
 surveys_hindfoot_half <- surveys %>%
-	filter(!is.na(hindfoot_length)) %>%
-	mutate(hindfoot_half = hindfoot_length / 2) %>%
-	filter(hindfoot_half < 30) %>%
-	select(species_id, hindfoot_half)
+    filter(!is.na(hindfoot_length)) %>%
+    mutate(hindfoot_half = hindfoot_length / 2) %>%
+    filter(hindfoot_half < 30) %>%
+    select(species_id, hindfoot_half)
 ```
 `r msmbstyle::solution_end()`
 
@@ -437,7 +437,7 @@ surveys %>%
   filter(!is.na(weight)) %>%
   group_by(sex, species_id) %>%
   summarize(mean_weight = mean(weight),
-			min_weight = min(weight))
+            min_weight = min(weight))
 ```
 
 It is sometimes useful to rearrange the result of a query to inspect the values. For instance, we can sort on `min_weight` to put the lighter species first:
@@ -448,7 +448,7 @@ surveys %>%
   filter(!is.na(weight)) %>%
   group_by(sex, species_id) %>%
   summarize(mean_weight = mean(weight),
-			min_weight = min(weight)) %>%
+            min_weight = min(weight)) %>%
   arrange(min_weight)
 ```
 
@@ -459,7 +459,7 @@ surveys %>%
   filter(!is.na(weight)) %>%
   group_by(sex, species_id) %>%
   summarize(mean_weight = mean(weight),
-			min_weight = min(weight)) %>%
+            min_weight = min(weight)) %>%
   arrange(desc(mean_weight))
 ```
 
@@ -473,22 +473,22 @@ each sex, we would do:
 
 ```{r, purl = FALSE}
 surveys %>%
-	count(sex)
+    count(sex)
 ```
 
 The `count()` function is shorthand for something we've already seen: grouping by a variable, and summarizing it by counting the number of observations in that group. In other words, `surveys %>% count()` is equivalent to:
 
 ```{r, purl = FALSE}
 surveys %>%
-	group_by(sex) %>%
-	summarise(count = n())
+    group_by(sex) %>%
+    summarise(count = n())
 ```
 
 For convenience, `count()` provides the `sort` argument:
 
 ```{r, purl = FALSE}
 surveys %>%
-	count(sex, sort = TRUE)
+    count(sex, sort = TRUE)
 ```
 
 Previous example shows the use of `count()` to count the number of rows/observations
@@ -535,7 +535,7 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 
 ```{r, purl=FALSE}
 surveys %>%
-	 count(plot_type)
+     count(plot_type)
 ```
 
 2. Use `group_by()` and `summarize()` to find the mean, min, and max
@@ -544,14 +544,14 @@ surveys %>%
 
 ```{r, purl=FALSE}
 surveys %>%
-	filter(!is.na(hindfoot_length)) %>%
-	group_by(species_id) %>%
-	summarize(
-		mean_hindfoot_length = mean(hindfoot_length),
-		min_hindfoot_length = min(hindfoot_length),
-		max_hindfoot_length = max(hindfoot_length),
-		n = n()
-	)
+    filter(!is.na(hindfoot_length)) %>%
+    group_by(species_id) %>%
+    summarize(
+        mean_hindfoot_length = mean(hindfoot_length),
+        min_hindfoot_length = min(hindfoot_length),
+        max_hindfoot_length = max(hindfoot_length),
+        n = n()
+    )
 ```
 
 3. What was the heaviest animal measured in each year? Return the columns `year`,
@@ -559,11 +559,11 @@ surveys %>%
 
 ```{r, purl=FALSE}
 surveys %>%
-	filter(!is.na(weight)) %>%
-	group_by(year) %>%
-	filter(weight == max(weight)) %>%
-	select(year, genus, species, weight) %>%
-	arrange(year)
+    filter(!is.na(weight)) %>%
+    group_by(year) %>%
+    filter(weight == max(weight)) %>%
+    select(year, genus, species, weight) %>%
+    arrange(year)
 ```
 
 `r msmbstyle::solution_end()`
@@ -607,34 +607,30 @@ The opposite transformation would be to transform column names into
 values of a variable.
 
 We can do both these of transformations with two `tidyr` functions,
-`spread()` and `gather()`. Recently, the new `pivot_longer()` and
-`pivot_wider()` functions [have been
-introduced](https://tidyr.tidyverse.org/dev/articles/pivot.html). They
-come as a replacement for `gather()` and `spread()`, enabling more
-advanced uses. The latter will remain available for the foreseeable
-future.
+`pivot_longer()` and `pivot_wider()` (see
+[here](https://tidyr.tidyverse.org/dev/articles/pivot.html) for
+details).
 
+### Pivoting the data into a wider format
 
-### Spreading the data into a wide format
+`pivot_wider` takes three main arguments:
 
-`spread()` and `pivot_wide` take three principal arguments:
+1. the data to be transformed;
+2. the `names_from` column name whose values will become new column
+   names;
+3. the `values_from` column name whose values will fill the new
+   columns.
 
-1. the data
-2. the `key` for `spread()` or `names_from` for `pivot_wider()` column
-   variable whose values will become new column names.
-3. the `value` for `spread()` or `values_from` for `pivot_wider()`
-   column variable whose values will fill the new column variables.
-
-Further arguments include `fill` which, if set, fills in missing
+Note also the `values_fill` argument which, if set, fills in missing
 values with the value provided.
 
-Let's use `spread()` (and `pivot_wider()` below) to transform surveys
-to find the mean weight of each species in each plot over the entire
-survey period. We use `filter()`, `group_by()` and `summarise()` to
-filter our observations and variables of interest, and create a new
-variable for the `mean_weight`. We use the pipe as before too.
+Let's use `pivot_wider()` to transform surveys to find the mean weight
+of each species in each plot over the entire survey period. We use
+`filter()`, `group_by()` and `summarise()` to filter our observations
+and variables of interest, and create a new variable for the
+`mean_weight`.
 
-```{r, purl=FALSE}
+```{r}
 surveys_gw <- surveys %>%
   filter(!is.na(weight)) %>%
   group_by(genus, plot_id) %>%
@@ -645,37 +641,34 @@ surveys_gw
 
 This yields `surveys_gw` where the observations for each plot are
 spread across multiple rows, 196 observations of 3 variables.  Using
-`spread()` to key on `genus` with values from `mean_weight` this
-becomes 24 observations of 11 variables, one row for each plot. We
-again use pipes:
+`pivot_wider()`, gathering new columns from the `genus` variable and
+new values from `mean_weight`, this becomes 24 observations of 11
+variables, one row for each plot. We again use pipes:
 
-```{r, purl=FALSE}
-surveys_spread <- surveys_gw %>%
-  spread(key = genus, value = mean_weight)
+```{r}
+surveys_wide <- surveys_gw %>%
+    pivot_wider(names_from = genus,
+                values_from = mean_weight)
 
-surveys_spread
+surveys_wide
 ```
 
 ![](./figs/spread_data_R.png)
 
-We could now plot comparisons between the weight of species in
-different plots, although we may wish to fill in the missing values
-first.
-
-```{r, purl=FALSE}
-surveys_gw %>%
-  spread(genus, mean_weight, fill = 0) 
-```
-
-The equivalent call using the new `pivot_wider()` function is
+We can now easily plot the comparisons between the weight of species
+in different plots, although we may wish to fill in the missing values
+first by setting `values_fill`.
 
 ```{r}
 surveys_gw %>%
     pivot_wider(names_from = genus,
-                values_from = mean_weight)
+                values_from = mean_weight,
+                values_fill = 0)
 ```
 
-To fill in the missing *mean_weigth* values with a 0, one would use
+`values_fill` could also be a named list if you want to apply
+different values to different value columns. To fill in the missing
+*mean_weigth* values with a 0, one would use
 
 ```{r}
 surveys_gw %>%
@@ -684,80 +677,76 @@ surveys_gw %>%
                 values_fill = list(mean_weight = 0))
 ```
 
-### Gathering data into a long format
+### Pivoting data into a longer format
 
-The opposing situation could occur if we had been provided with data in the
-form of `surveys_spread`, where the genus names are column names, but we
-wish to treat them as values of a genus variable instead.
+The opposing situation could occur if we had been provided with data
+in the form of `surveys_wide`, where the genus names are column
+names, but we wish to treat them as values of a genus variable
+instead.
 
-In this situation we are gathering the column names and turning them into a
-pair of new variables. One variable represents the column names as values, and
-the other variable contains the values previously associated with the column names.
+In this situation we are gathering the column names and turning them
+into a pair of new variables. One variable represents the column names
+as values, and the other variable contains the values previously
+associated with the column names.
 
-`gather()` and `pivot_longer()` takes four principal arguments:
+`pivot_longer()` takes four main arguments:
 
-1. the data
-2. the `key` for `gather()` or `names_to` for `pivot_longer()`
-   column variable we wish to create from column names.
-3. the `values` for `gather()` or `values_to` for `pivot_longer()`
-   column variable we wish to create and fill with values associated
-   with the key.
-4. the names of the columns we use to fill the key variable (or to
-   drop).
+1. the data to be transformed;
+2. the new `names_to` column we wish to create and populate with the
+   current column names;
+3. the new `values_to` column we wish to create and populate with
+   current values;
+4. the names of the columns to be used to populate the `names_to` and
+   `values_to` variables (or to drop).
 
-To recreate `surveys_gw` from `surveys_spread` we would create a key called
-`genus` and value called `mean_weight` and use all columns except `plot_id` for
-the key variable. Here we drop `plot_id` column with a minus sign.
+To recreate `surveys_gw` from `surveys_wide` we would create a key
+called `genus` and value called `mean_weight` and use all columns
+except `plot_id` for the key variable. Here we drop `plot_id` column
+with a minus sign.
 
-```{r, purl=FALSE}
-surveys_gather <- surveys_spread %>%
-  gather(key = genus, value = mean_weight, -plot_id)
+```{r}
+surveys_long <- surveys_wide %>%
+    pivot_longer(names_to = "genus",
+                 values_to = "mean_weight",
+                 -plot_id)
 
-surveys_gather
+surveys_long
 ```
 
 ![](./figs/gather_data_R.png)
 
 
-Using the `pivot_longer()` function, we would write
-
-```{r}
-surveys_spread %>%
-    pivot_longer(names_to = "genus",
-                 values_to = "mean_weight",
-                 -plot_id)
-```
-
 Note how the new variable names are to be quoted here. To get the same
-output as previously, we can arrange the data by `plot_id`:
+output as we started with, we can arrange the data by `plot_id`:
 
 ```{r}
-surveys_spread %>%
+surveys_wide %>%
     pivot_longer(names_to = "genus",
                  values_to = "mean_weight",
                  -plot_id) %>%
     arrange(plot_id)
 ```
 
-Note that now the `NA` genera are included in the re-gathered format. Spreading
-and then gathering can be a useful way to balance out a dataset so every
-replicate has the same composition.
+Note that now the `NA` genera are included in the re-gathered
+format. Pivoting to wider and longer formats can be a useful way to
+balance out a dataset so every replicate has the same composition.
 
 We could also have used a specification for what columns to include. This can be
 useful if you have a large number of identifying columns, and it's easier to
 specify what to gather than what to leave alone. And if the columns are in a
 row, we don't even need to list them all out - just use the `:` operator!
 
-```{r, purl=FALSE}
-surveys_spread %>%
-    gather(key = genus, value = mean_weight,
-           Baiomys:Spermophilus) 
+```{r}
+surveys_wide %>%
+    pivot_longer(names_to = "genus",
+                 values_to = "mean_weight",
+                 Baiomys:Spermophilus)
 ```
 
-And with `pivot_longer()`:
+To re-arrange the data, we simply pipe le long data to `arrange()`.
 
 ```{r}
-surveys_spread %>%
+surveys_wide %>%
     pivot_longer(names_to = "genus",
                  values_to = "mean_weight",
                  Baiomys:Spermophilus) %>%
@@ -765,28 +754,36 @@ surveys_spread %>%
 ```
 
 `r msmbstyle::question_begin()`
+
 Spread the `surveys` data frame with `year` as columns, `plot_id` as
 rows, and the number of genera per plot as the values. You will need
 to summarize before reshaping, and use the function `n_distinct()` to
 get the number of unique genera within a particular chunk of
 data. It's a powerful function! See `?n_distinct` for more.
+
 `r msmbstyle::question_end()`
 
 
 `r msmbstyle::solution_begin()`
-```{r, answer=TRUE, purl=FALSE}
+
+```{r}
 rich_time <- surveys %>%
-  group_by(plot_id, year) %>%
-  summarize(n_genera = n_distinct(genus)) %>%
-  spread(year, n_genera)
+    group_by(plot_id, year) %>%
+    summarize(n_genera = n_distinct(genus)) %>%
+    pivot_wider(names_from = "year",
+                values_from = "n_genera")
+
 head(rich_time)
 ```
+
 `r msmbstyle::solution_end()`
 
 
 `r msmbstyle::question_begin()`
+
 Now take that data frame and `gather()` it again, so each row is a
 unique `plot_id` by `year` combination.
+
 `r msmbstyle::question_end()`
 
 
@@ -799,6 +796,7 @@ rich_time %>%
 
 
 `r msmbstyle::question_begin()`
+
 The `surveys` data set has two measurement columns: `hindfoot_length`
 and `weight`.  This makes it difficult to do things like look at the
 relationship between mean values of each measurement per year in
@@ -808,24 +806,30 @@ have a key column called `measurement` and a `value` column that takes
 on the value of either `hindfoot_length` or `weight`.
 
 *Hint*: You'll need to specify which columns are being gathered.
+
 `r msmbstyle::question_end()`
 
 `r msmbstyle::solution_begin()`
-```{r, answer=TRUE, purl=FALSE}
+
+```{r}
 surveys_long <- surveys %>%
-	gather(measurement, value, hindfoot_length, weight)
+    gather(measurement, value, hindfoot_length, weight)
 head(surveys_long)
 ```
+
 `r msmbstyle::solution_end()`
 
 
 `r msmbstyle::question_begin()`
+
 With this new data set, calculate the average of each `measurement` in
-each `year` for each different `plot_type`. Then `spread()` them into
-a data set with a column for `hindfoot_length` and `weight`.
+each `year` for each different `plot_type`. Then use `pivot_wider()`
+to generate a data set with a column for `hindfoot_length` and
+`weight`.
 
 *Hint*: You only need to specify the key and value columns for
 `spread()`.
+
 `r msmbstyle::question_end()`
 
 `r msmbstyle::solution_begin()`
@@ -867,8 +871,8 @@ Let's start by removing observations of animals for which `weight` and
 ```{r, purl=FALSE}
 surveys_complete <- surveys %>%
   filter(!is.na(weight),           ## remove missing weight
-		 !is.na(hindfoot_length),  ## remove missing hindfoot_length
-		 !is.na(sex))              ## remove missing sex
+         !is.na(hindfoot_length),  ## remove missing hindfoot_length
+         !is.na(sex))              ## remove missing sex
 ```
 
 Because we are interested in plotting how species abundances have changed
@@ -881,8 +885,8 @@ observations for these more common species:
 ```{r, purl=FALSE}
 ## Extract the most common species_id
 species_counts <- surveys_complete %>%
-	count(species_id) %>%
-	filter(n >= 50)
+    count(species_id) %>%
+    filter(n >= 50)
 
 ## Only keep the most common species
 surveys_complete <- surveys_complete %>%
@@ -894,21 +898,21 @@ surveys_complete <- surveys_complete %>%
 ##  Start by removing observations for which the `species_id`, `weight`,
 ##  `hindfoot_length`, or `sex` data are missing:
 surveys_complete <- surveys %>%
-	filter(species_id != "",        ## remove missing species_id
-		   !is.na(weight),          ## remove missing weight
-		   !is.na(hindfoot_length), ## remove missing hindfoot_length
-		   sex != "")               ## remove missing sex
+    filter(species_id != "",        ## remove missing species_id
+           !is.na(weight),          ## remove missing weight
+           !is.na(hindfoot_length), ## remove missing hindfoot_length
+           sex != "")               ## remove missing sex
 
 ##  Now remove rare species in two steps. First, make a list of species which
 ##  appear at least 50 times in our dataset:
 species_counts <- surveys_complete %>%
-	count(species_id) %>%
-	filter(n >= 50) %>%
-	select(species_id)
+    count(species_id) %>%
+    filter(n >= 50) %>%
+    select(species_id)
 
 ##  Second, keep only those species:
 surveys_complete <- surveys_complete %>%
-	filter(species_id %in% species_counts$species_id)
+    filter(species_id %in% species_counts$species_id)
 ```
 
 To make sure that everyone has the same data set, check that `surveys_complete`
@@ -980,25 +984,25 @@ data("beers")
 ## Dealing with missing values
 anyNA(beers)
 beers2 <- beers %>%
-	filter(!is.na(Consumption))
+    filter(!is.na(Consumption))
 
 anyNA(beers2)
 
 ## New Date variable
 library("lubridate")
 beers2 <- beers2 %>%
-	mutate(Date = ymd(paste(beers2$Year,
-						beers2$Month,
-						beers2$Day, sep = "-")))
+    mutate(Date = ymd(paste(beers2$Year,
+                        beers2$Month,
+                        beers2$Day, sep = "-")))
 class(beers2$Date)
 
 ## Filter, select and arrange
 tab <- beers2 %>%
-	filter(Age > 35) %>%
-	filter(Gender == "Female") %>%
-	filter(Work == "Employed") %>%
-	select(-Day, -Month, -Year) %>%
-	arrange(desc(Consumption))
+    filter(Age > 35) %>%
+    filter(Gender == "Female") %>%
+    filter(Work == "Employed") %>%
+    select(-Day, -Month, -Year) %>%
+    arrange(desc(Consumption))
 
 tab
 ```
@@ -1033,7 +1037,7 @@ beers2 %>%
 ##   status?
 beers3 <- beers2 %>%
   group_by(Gender, Age, Work) %>%
-	summarize(mean_consumption = mean(Consumption))
+    summarize(mean_consumption = mean(Consumption))
 
 beers3
 ```
@@ -1117,44 +1121,44 @@ str(clinical)
 ## View(clinical)
 
 clinical_mini <- clinical %>%
-	select(patientID, gender, age_at_diagnosis,
-		   smoking_history, number_pack_years_smoked,
-		   year_of_tobacco_smoking_onset,
-		   stopped_smoking_year)
+    select(patientID, gender, age_at_diagnosis,
+           smoking_history, number_pack_years_smoked,
+           year_of_tobacco_smoking_onset,
+           stopped_smoking_year)
 clinical_mini
 
 ## Calculate the number of males and females in the cohort.
 clinical_mini %>%
-	group_by(gender) %>%
-	count()
+    group_by(gender) %>%
+    count()
 
 ## Create a new variable `years_at_diagnosis` corresponding to the age
 ## at diagnosis converted from days into years.
 clinical_mini <- clinical_mini %>%
-	mutate(years_at_diagnosis = age_at_diagnosis / 365)
+    mutate(years_at_diagnosis = age_at_diagnosis / 365)
 select(clinical_mini,
-	   years_at_diagnosis,
-	   age_at_diagnosis)
+       years_at_diagnosis,
+       age_at_diagnosis)
 
 ## Calculate the mean and median age at diagnosis (in years). Pay
 ## attention to missing values!
 clinical_mini %>%
-	summarize(mean = mean(years_at_diagnosis, na.rm = TRUE),
-			  median = median(years_at_diagnosis, na.rm = TRUE))
+    summarize(mean = mean(years_at_diagnosis, na.rm = TRUE),
+              median = median(years_at_diagnosis, na.rm = TRUE))
 
 ## idem but removing NA values before
 clinical_mini %>%
   filter(!is.na(years_at_diagnosis)) %>%
-	summarise(mean = mean(years_at_diagnosis),
-			  median = median(years_at_diagnosis))
+    summarise(mean = mean(years_at_diagnosis),
+              median = median(years_at_diagnosis))
 
 
 ## Calculate the mean and median age at diagnosis for males and
 ## females
 clinical_mini %>%
-	group_by(gender) %>%
-	summarise(mean = mean(years_at_diagnosis, na.rm = TRUE),
-			  median = median(years_at_diagnosis, na.rm = TRUE))
+    group_by(gender) %>%
+    summarise(mean = mean(years_at_diagnosis, na.rm = TRUE),
+              median = median(years_at_diagnosis, na.rm = TRUE))
 
 ## How many patient were diagnosed before 50 years?
 clinical_mini %>%
@@ -1172,10 +1176,10 @@ clinical_mini %>%
 ## Select patients who stopped smoking more than 15 years ago and
 ## calculate the number of smoking years for these cases.
 clinical_mini %>%
-	filter(smoking_history == "current reformed smoker for > 15 years") %>%
-	mutate(years_smoked = stopped_smoking_year - year_of_tobacco_smoking_onset) %>%
-	filter(!is.na(years_smoked)) %>%
-	select(patientID, years_smoked)
+    filter(smoking_history == "current reformed smoker for > 15 years") %>%
+    mutate(years_smoked = stopped_smoking_year - year_of_tobacco_smoking_onset) %>%
+    filter(!is.na(years_smoked)) %>%
+    select(patientID, years_smoked)
 
 # How many of them smoked less than 5 years?
 clinical_mini %>%
@@ -1189,7 +1193,7 @@ clinical_mini %>%
 clinical_mini %>%
   filter(smoking_history == 'current smoker' | smoking_history == 'lifelong non-smoker') %>%
   group_by(gender, smoking_history) %>%
-	summarize(n = n()) %>%
+    summarize(n = n()) %>%
   tidyr::spread(key = smoking_history, value = n)
 ```
 
@@ -1212,11 +1216,11 @@ Using `gather`, convert the data into a *long* table with a column
 ```{r, echo=FALSE, include=FALSE}
 x <- read_csv(interroA.csv())
 gather(x, key = interro, value = result,
-	   interro1, interro2, interro3, interro4)
+       interro1, interro2, interro3, interro4)
 ## or
 gather(x, key = interro, value = result,
-	   -id, -height, -gender, -X)
+       -id, -height, -gender, -X)
 ## or
 gather(x, key = interro, value = result,
-	   starts_with("interro"))
+       starts_with("interro"))
 ```

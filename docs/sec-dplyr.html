@@ -240,7 +240,7 @@ then combine the results.</p></li>
 purpose those formats are useful.</p></li>
 <li><p>Describe what key-value pairs are.</p></li>
 <li><p>Reshape a data frame from long to wide format and back with the
-<code>spread</code>/<code>pivot_wider</code> and <code>gather</code>/<code>pivot_longer</code> commands from the
+<code>pivot_wider()</code> and <code>pivot_longer()</code> commands from the
 <strong><code>tidyr</code></strong> package.</p></li>
 </ul>
 <div id="data-manipulation-using-dplyr-and-tidyr" class="section level2" number="5.1">
@@ -322,7 +322,7 @@ and this <a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.
 tidyverse package <strong><code>readr</code></strong>, instead of <code>read.csv()</code>.</p>
 <div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="sec-dplyr.html#cb276-1" aria-hidden="true" tabindex="-1"></a>surveys <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/portal_data_joined.csv"</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   record_id = col_double(),
 ##   month = col_double(),
@@ -1048,31 +1048,28 @@ of recordings per date.</p>
 <p>The opposite transformation would be to transform column names into
 values of a variable.</p>
 <p>We can do both these of transformations with two <code>tidyr</code> functions,
-<code>spread()</code> and <code>gather()</code>. Recently, the new <code>pivot_longer()</code> and
-<code>pivot_wider()</code> functions <a href="https://tidyr.tidyverse.org/dev/articles/pivot.html">have been
-introduced</a>. They
-come as a replacement for <code>gather()</code> and <code>spread()</code>, enabling more
-advanced uses. The latter will remain available for the foreseeable
-future.</p>
-<div id="spreading-the-data-into-a-wide-format" class="section level3" number="5.7.1">
+<code>pivot_longer()</code> and <code>pivot_wider()</code> (see
+<a href="https://tidyr.tidyverse.org/dev/articles/pivot.html">here</a> for
+details).</p>
+<div id="pivoting-the-data-into-a-wider-format" class="section level3" number="5.7.1">
 <h3>
-<span class="header-section-number">5.7.1</span> Spreading the data into a wide format<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('spreading-the-data-into-a-wide-format')" onmouseout="reset_tooltip('spreading-the-data-into-a-wide-format-tooltip')"><span class="tooltiptext" id="spreading-the-data-into-a-wide-format-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">5.7.1</span> Pivoting the data into a wider format<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('pivoting-the-data-into-a-wider-format')" onmouseout="reset_tooltip('pivoting-the-data-into-a-wider-format-tooltip')"><span class="tooltiptext" id="pivoting-the-data-into-a-wider-format-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
-<p><code>spread()</code> and <code>pivot_wide</code> take three principal arguments:</p>
+<p><code>pivot_wider</code> takes three main arguments:</p>
 <ol style="list-style-type: decimal">
-<li>the data</li>
-<li>the <code>key</code> for <code>spread()</code> or <code>names_from</code> for <code>pivot_wider()</code> column
-variable whose values will become new column names.</li>
-<li>the <code>value</code> for <code>spread()</code> or <code>values_from</code> for <code>pivot_wider()</code>
-column variable whose values will fill the new column variables.</li>
+<li>the data to be transformed;</li>
+<li>the <code>names_from</code> column name whose values will become new column
+names;</li>
+<li>the <code>values_from</code> column name whose values will fill the new
+columns.</li>
 </ol>
-<p>Further arguments include <code>fill</code> which, if set, fills in missing
+<p>Note also the <code>values_fill</code> argument which, if set, fills in missing
 values with the value provided.</p>
-<p>Let’s use <code>spread()</code> (and <code>pivot_wider()</code> below) to transform surveys
-to find the mean weight of each species in each plot over the entire
-survey period. We use <code>filter()</code>, <code>group_by()</code> and <code>summarise()</code> to
-filter our observations and variables of interest, and create a new
-variable for the <code>mean_weight</code>. We use the pipe as before too.</p>
+<p>Let’s use <code>pivot_wider()</code> to transform surveys to find the mean weight
+of each species in each plot over the entire survey period. We use
+<code>filter()</code>, <code>group_by()</code> and <code>summarise()</code> to filter our observations
+and variables of interest, and create a new variable for the
+<code>mean_weight</code>.</p>
 <div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="sec-dplyr.html#cb338-1" aria-hidden="true" tabindex="-1"></a>surveys_gw <span class="ot">&lt;-</span> surveys <span class="sc">%&gt;%</span></span>
 <span id="cb338-2"><a href="sec-dplyr.html#cb338-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(weight)) <span class="sc">%&gt;%</span></span>
 <span id="cb338-3"><a href="sec-dplyr.html#cb338-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(genus, plot_id) <span class="sc">%&gt;%</span></span>
@@ -1096,53 +1093,14 @@ variable for the <code>mean_weight</code>. We use the pipe as before too.</p>
 ## # … with 186 more rows</code></pre>
 <p>This yields <code>surveys_gw</code> where the observations for each plot are
 spread across multiple rows, 196 observations of 3 variables. Using
-<code>spread()</code> to key on <code>genus</code> with values from <code>mean_weight</code> this
-becomes 24 observations of 11 variables, one row for each plot. We
-again use pipes:</p>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="sec-dplyr.html#cb342-1" aria-hidden="true" tabindex="-1"></a>surveys_spread <span class="ot">&lt;-</span> surveys_gw <span class="sc">%&gt;%</span></span>
-<span id="cb342-2"><a href="sec-dplyr.html#cb342-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(<span class="at">key =</span> genus, <span class="at">value =</span> mean_weight)</span>
-<span id="cb342-3"><a href="sec-dplyr.html#cb342-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb342-4"><a href="sec-dplyr.html#cb342-4" aria-hidden="true" tabindex="-1"></a>surveys_spread</span></code></pre></div>
-<pre><code>## # A tibble: 24 x 11
-##    plot_id Baiomys Chaetodipus Dipodomys Neotoma Onychomys Perognathus
-##      &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
-##  1       1    7           22.2      60.2    156.      27.7        9.62
-##  2       2    6           25.1      55.7    169.      26.9        6.95
-##  3       3    8.61        24.6      52.0    158.      26.0        7.51
-##  4       4   NA           23.0      57.5    164.      28.1        7.82
-##  5       5    7.75        18.0      51.1    190.      27.0        8.66
-##  6       6   NA           24.9      58.6    180.      25.9        7.81
-##  7       7   NA           19.9      57.4    170.      23.6        7   
-##  8       8   NA           20.5      59.4    134.      25.9        7.06
-##  9       9   NA           18.9      57.5    162.      27.5        7.37
-## 10      10   NA           22.3      51.8    190       28.7       NA   
-## # … with 14 more rows, and 4 more variables: Peromyscus &lt;dbl&gt;,
-## #   Reithrodontomys &lt;dbl&gt;, Sigmodon &lt;dbl&gt;, Spermophilus &lt;dbl&gt;</code></pre>
-<p><img src="figs/spread_data_R.png"></p>
-<p>We could now plot comparisons between the weight of species in
-different plots, although we may wish to fill in the missing values
-first.</p>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="sec-dplyr.html#cb344-1" aria-hidden="true" tabindex="-1"></a>surveys_gw <span class="sc">%&gt;%</span></span>
-<span id="cb344-2"><a href="sec-dplyr.html#cb344-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(genus, mean_weight, <span class="at">fill =</span> <span class="dv">0</span>) </span></code></pre></div>
-<pre><code>## # A tibble: 24 x 11
-##    plot_id Baiomys Chaetodipus Dipodomys Neotoma Onychomys Perognathus
-##      &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
-##  1       1    7           22.2      60.2    156.      27.7        9.62
-##  2       2    6           25.1      55.7    169.      26.9        6.95
-##  3       3    8.61        24.6      52.0    158.      26.0        7.51
-##  4       4    0           23.0      57.5    164.      28.1        7.82
-##  5       5    7.75        18.0      51.1    190.      27.0        8.66
-##  6       6    0           24.9      58.6    180.      25.9        7.81
-##  7       7    0           19.9      57.4    170.      23.6        7   
-##  8       8    0           20.5      59.4    134.      25.9        7.06
-##  9       9    0           18.9      57.5    162.      27.5        7.37
-## 10      10    0           22.3      51.8    190       28.7        0   
-## # … with 14 more rows, and 4 more variables: Peromyscus &lt;dbl&gt;,
-## #   Reithrodontomys &lt;dbl&gt;, Sigmodon &lt;dbl&gt;, Spermophilus &lt;dbl&gt;</code></pre>
-<p>The equivalent call using the new <code>pivot_wider()</code> function is</p>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="sec-dplyr.html#cb346-1" aria-hidden="true" tabindex="-1"></a>surveys_gw <span class="sc">%&gt;%</span></span>
-<span id="cb346-2"><a href="sec-dplyr.html#cb346-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> genus,</span>
-<span id="cb346-3"><a href="sec-dplyr.html#cb346-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_from =</span> mean_weight)</span></code></pre></div>
+<code>pivot_wider()</code>, gathering new columns from the <code>genus</code> variable and
+new values from <code>mean_weight</code>, this becomes 24 observations of 11
+variables, one row for each plot. We again use pipes:</p>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="sec-dplyr.html#cb342-1" aria-hidden="true" tabindex="-1"></a>surveys_wide <span class="ot">&lt;-</span> surveys_gw <span class="sc">%&gt;%</span></span>
+<span id="cb342-2"><a href="sec-dplyr.html#cb342-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> genus,</span>
+<span id="cb342-3"><a href="sec-dplyr.html#cb342-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_from =</span> mean_weight)</span>
+<span id="cb342-4"><a href="sec-dplyr.html#cb342-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb342-5"><a href="sec-dplyr.html#cb342-5" aria-hidden="true" tabindex="-1"></a>surveys_wide</span></code></pre></div>
 <pre><code>## # A tibble: 24 x 11
 ##    plot_id Baiomys Chaetodipus Dipodomys Neotoma Onychomys Perognathus
 ##      &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
@@ -1158,11 +1116,36 @@ first.</p>
 ## 10       6   NA           24.9      58.6    180.      25.9        7.81
 ## # … with 14 more rows, and 4 more variables: Peromyscus &lt;dbl&gt;,
 ## #   Reithrodontomys &lt;dbl&gt;, Sigmodon &lt;dbl&gt;, Spermophilus &lt;dbl&gt;</code></pre>
-<p>To fill in the missing <em>mean_weigth</em> values with a 0, one would use</p>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="sec-dplyr.html#cb348-1" aria-hidden="true" tabindex="-1"></a>surveys_gw <span class="sc">%&gt;%</span></span>
-<span id="cb348-2"><a href="sec-dplyr.html#cb348-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> genus,</span>
-<span id="cb348-3"><a href="sec-dplyr.html#cb348-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_from =</span> mean_weight,</span>
-<span id="cb348-4"><a href="sec-dplyr.html#cb348-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_fill =</span> <span class="fu">list</span>(<span class="at">mean_weight =</span> <span class="dv">0</span>))</span></code></pre></div>
+<p><img src="figs/spread_data_R.png"></p>
+<p>We can now easily plot the comparisons between the weight of species
+in different plots, although we may wish to fill in the missing values
+first by setting <code>values_fill</code>.</p>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="sec-dplyr.html#cb344-1" aria-hidden="true" tabindex="-1"></a>surveys_gw <span class="sc">%&gt;%</span></span>
+<span id="cb344-2"><a href="sec-dplyr.html#cb344-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> genus,</span>
+<span id="cb344-3"><a href="sec-dplyr.html#cb344-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_from =</span> mean_weight,</span>
+<span id="cb344-4"><a href="sec-dplyr.html#cb344-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_fill =</span> <span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 24 x 11
+##    plot_id Baiomys Chaetodipus Dipodomys Neotoma Onychomys Perognathus
+##      &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+##  1       1    7           22.2      60.2    156.      27.7        9.62
+##  2       2    6           25.1      55.7    169.      26.9        6.95
+##  3       3    8.61        24.6      52.0    158.      26.0        7.51
+##  4       5    7.75        18.0      51.1    190.      27.0        8.66
+##  5      18    9.5         26.8      61.4    149.      26.6        8.62
+##  6      19    9.53        26.4      43.3    120       23.8        8.09
+##  7      20    6           25.1      65.9    155.      25.2        8.14
+##  8      21    6.67        28.2      42.7    138.      24.6        9.19
+##  9       4    0           23.0      57.5    164.      28.1        7.82
+## 10       6    0           24.9      58.6    180.      25.9        7.81
+## # … with 14 more rows, and 4 more variables: Peromyscus &lt;dbl&gt;,
+## #   Reithrodontomys &lt;dbl&gt;, Sigmodon &lt;dbl&gt;, Spermophilus &lt;dbl&gt;</code></pre>
+<p><code>values_fill</code> could also be a named list if you want to apply
+different values to different value columns. To fill in the missing
+<em>mean_weigth</em> values with a 0, one would use</p>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="sec-dplyr.html#cb346-1" aria-hidden="true" tabindex="-1"></a>surveys_gw <span class="sc">%&gt;%</span></span>
+<span id="cb346-2"><a href="sec-dplyr.html#cb346-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> genus,</span>
+<span id="cb346-3"><a href="sec-dplyr.html#cb346-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_from =</span> mean_weight,</span>
+<span id="cb346-4"><a href="sec-dplyr.html#cb346-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_fill =</span> <span class="fu">list</span>(<span class="at">mean_weight =</span> <span class="dv">0</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 24 x 11
 ##    plot_id Baiomys Chaetodipus Dipodomys Neotoma Onychomys Perognathus
 ##      &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
@@ -1179,75 +1162,60 @@ first.</p>
 ## # … with 14 more rows, and 4 more variables: Peromyscus &lt;dbl&gt;,
 ## #   Reithrodontomys &lt;dbl&gt;, Sigmodon &lt;dbl&gt;, Spermophilus &lt;dbl&gt;</code></pre>
 </div>
-<div id="gathering-data-into-a-long-format" class="section level3" number="5.7.2">
+<div id="pivoting-data-into-a-longer-format" class="section level3" number="5.7.2">
 <h3>
-<span class="header-section-number">5.7.2</span> Gathering data into a long format<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('gathering-data-into-a-long-format')" onmouseout="reset_tooltip('gathering-data-into-a-long-format-tooltip')"><span class="tooltiptext" id="gathering-data-into-a-long-format-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">5.7.2</span> Pivoting data into a longer format<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('pivoting-data-into-a-longer-format')" onmouseout="reset_tooltip('pivoting-data-into-a-longer-format-tooltip')"><span class="tooltiptext" id="pivoting-data-into-a-longer-format-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
-<p>The opposing situation could occur if we had been provided with data in the
-form of <code>surveys_spread</code>, where the genus names are column names, but we
-wish to treat them as values of a genus variable instead.</p>
-<p>In this situation we are gathering the column names and turning them into a
-pair of new variables. One variable represents the column names as values, and
-the other variable contains the values previously associated with the column names.</p>
-<p><code>gather()</code> and <code>pivot_longer()</code> takes four principal arguments:</p>
+<p>The opposing situation could occur if we had been provided with data
+in the form of <code>surveys_wide</code>, where the genus names are column
+names, but we wish to treat them as values of a genus variable
+instead.</p>
+<p>In this situation we are gathering the column names and turning them
+into a pair of new variables. One variable represents the column names
+as values, and the other variable contains the values previously
+associated with the column names.</p>
+<p><code>pivot_longer()</code> takes four main arguments:</p>
 <ol style="list-style-type: decimal">
-<li>the data</li>
-<li>the <code>key</code> for <code>gather()</code> or <code>names_to</code> for <code>pivot_longer()</code>
-column variable we wish to create from column names.</li>
-<li>the <code>values</code> for <code>gather()</code> or <code>values_to</code> for <code>pivot_longer()</code>
-column variable we wish to create and fill with values associated
-with the key.</li>
-<li>the names of the columns we use to fill the key variable (or to
-drop).</li>
+<li>the data to be transformed;</li>
+<li>the new <code>names_to</code> column we wish to create and populate with the
+current column names;</li>
+<li>the new <code>values_to</code> column we wish to create and populate with
+current values;</li>
+<li>the names of the columns to be used to populate the <code>names_to</code> and
+<code>values_to</code> variables (or to drop).</li>
 </ol>
-<p>To recreate <code>surveys_gw</code> from <code>surveys_spread</code> we would create a key called
-<code>genus</code> and value called <code>mean_weight</code> and use all columns except <code>plot_id</code> for
-the key variable. Here we drop <code>plot_id</code> column with a minus sign.</p>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="sec-dplyr.html#cb350-1" aria-hidden="true" tabindex="-1"></a>surveys_gather <span class="ot">&lt;-</span> surveys_spread <span class="sc">%&gt;%</span></span>
-<span id="cb350-2"><a href="sec-dplyr.html#cb350-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(<span class="at">key =</span> genus, <span class="at">value =</span> mean_weight, <span class="sc">-</span>plot_id)</span>
-<span id="cb350-3"><a href="sec-dplyr.html#cb350-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb350-4"><a href="sec-dplyr.html#cb350-4" aria-hidden="true" tabindex="-1"></a>surveys_gather</span></code></pre></div>
+<p>To recreate <code>surveys_gw</code> from <code>surveys_wide</code> we would create a key
+called <code>genus</code> and value called <code>mean_weight</code> and use all columns
+except <code>plot_id</code> for the key variable. Here we drop <code>plot_id</code> column
+with a minus sign.</p>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="sec-dplyr.html#cb348-1" aria-hidden="true" tabindex="-1"></a>surveys_long <span class="ot">&lt;-</span> surveys_wide <span class="sc">%&gt;%</span></span>
+<span id="cb348-2"><a href="sec-dplyr.html#cb348-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"genus"</span>,</span>
+<span id="cb348-3"><a href="sec-dplyr.html#cb348-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">values_to =</span> <span class="st">"mean_weight"</span>,</span>
+<span id="cb348-4"><a href="sec-dplyr.html#cb348-4" aria-hidden="true" tabindex="-1"></a>                 <span class="sc">-</span>plot_id)</span>
+<span id="cb348-5"><a href="sec-dplyr.html#cb348-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb348-6"><a href="sec-dplyr.html#cb348-6" aria-hidden="true" tabindex="-1"></a>surveys_long</span></code></pre></div>
 <pre><code>## # A tibble: 240 x 3
-##    plot_id genus   mean_weight
-##      &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;
-##  1       1 Baiomys        7   
-##  2       2 Baiomys        6   
-##  3       3 Baiomys        8.61
-##  4       4 Baiomys       NA   
-##  5       5 Baiomys        7.75
-##  6       6 Baiomys       NA   
-##  7       7 Baiomys       NA   
-##  8       8 Baiomys       NA   
-##  9       9 Baiomys       NA   
-## 10      10 Baiomys       NA   
+##    plot_id genus           mean_weight
+##      &lt;dbl&gt; &lt;chr&gt;                 &lt;dbl&gt;
+##  1       1 Baiomys                7   
+##  2       1 Chaetodipus           22.2 
+##  3       1 Dipodomys             60.2 
+##  4       1 Neotoma              156.  
+##  5       1 Onychomys             27.7 
+##  6       1 Perognathus            9.62
+##  7       1 Peromyscus            22.2 
+##  8       1 Reithrodontomys       11.4 
+##  9       1 Sigmodon              NA   
+## 10       1 Spermophilus          NA   
 ## # … with 230 more rows</code></pre>
 <p><img src="figs/gather_data_R.png"></p>
-<p>Using the <code>pivot_longer()</code> function, we would write</p>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="sec-dplyr.html#cb352-1" aria-hidden="true" tabindex="-1"></a>surveys_spread <span class="sc">%&gt;%</span></span>
-<span id="cb352-2"><a href="sec-dplyr.html#cb352-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"genus"</span>,</span>
-<span id="cb352-3"><a href="sec-dplyr.html#cb352-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">values_to =</span> <span class="st">"mean_weight"</span>,</span>
-<span id="cb352-4"><a href="sec-dplyr.html#cb352-4" aria-hidden="true" tabindex="-1"></a>                 <span class="sc">-</span>plot_id)</span></code></pre></div>
-<pre><code>## # A tibble: 240 x 3
-##    plot_id genus           mean_weight
-##      &lt;dbl&gt; &lt;chr&gt;                 &lt;dbl&gt;
-##  1       1 Baiomys                7   
-##  2       1 Chaetodipus           22.2 
-##  3       1 Dipodomys             60.2 
-##  4       1 Neotoma              156.  
-##  5       1 Onychomys             27.7 
-##  6       1 Perognathus            9.62
-##  7       1 Peromyscus            22.2 
-##  8       1 Reithrodontomys       11.4 
-##  9       1 Sigmodon              NA   
-## 10       1 Spermophilus          NA   
-## # … with 230 more rows</code></pre>
 <p>Note how the new variable names are to be quoted here. To get the same
-output as previously, we can arrange the data by <code>plot_id</code>:</p>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="sec-dplyr.html#cb354-1" aria-hidden="true" tabindex="-1"></a>surveys_spread <span class="sc">%&gt;%</span></span>
-<span id="cb354-2"><a href="sec-dplyr.html#cb354-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"genus"</span>,</span>
-<span id="cb354-3"><a href="sec-dplyr.html#cb354-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">values_to =</span> <span class="st">"mean_weight"</span>,</span>
-<span id="cb354-4"><a href="sec-dplyr.html#cb354-4" aria-hidden="true" tabindex="-1"></a>                 <span class="sc">-</span>plot_id) <span class="sc">%&gt;%</span></span>
-<span id="cb354-5"><a href="sec-dplyr.html#cb354-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(plot_id)</span></code></pre></div>
+output as we started with, we can arrange the data by <code>plot_id</code>:</p>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="sec-dplyr.html#cb350-1" aria-hidden="true" tabindex="-1"></a>surveys_wide <span class="sc">%&gt;%</span></span>
+<span id="cb350-2"><a href="sec-dplyr.html#cb350-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"genus"</span>,</span>
+<span id="cb350-3"><a href="sec-dplyr.html#cb350-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">values_to =</span> <span class="st">"mean_weight"</span>,</span>
+<span id="cb350-4"><a href="sec-dplyr.html#cb350-4" aria-hidden="true" tabindex="-1"></a>                 <span class="sc">-</span>plot_id) <span class="sc">%&gt;%</span></span>
+<span id="cb350-5"><a href="sec-dplyr.html#cb350-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(plot_id)</span></code></pre></div>
 <pre><code>## # A tibble: 240 x 3
 ##    plot_id genus           mean_weight
 ##      &lt;dbl&gt; &lt;chr&gt;                 &lt;dbl&gt;
@@ -1262,36 +1230,37 @@ output as previously, we can arrange the data by <code>plot_id</code>:</p>
 ##  9       1 Sigmodon              NA   
 ## 10       1 Spermophilus          NA   
 ## # … with 230 more rows</code></pre>
-<p>Note that now the <code>NA</code> genera are included in the re-gathered format. Spreading
-and then gathering can be a useful way to balance out a dataset so every
-replicate has the same composition.</p>
+<p>Note that now the <code>NA</code> genera are included in the re-gathered
+format. Pivoting to wider and longer formats can be a useful way to
+balance out a dataset so every replicate has the same composition.</p>
 <p>We could also have used a specification for what columns to include. This can be
 useful if you have a large number of identifying columns, and it’s easier to
 specify what to gather than what to leave alone. And if the columns are in a
 row, we don’t even need to list them all out - just use the <code>:</code> operator!</p>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="sec-dplyr.html#cb356-1" aria-hidden="true" tabindex="-1"></a>surveys_spread <span class="sc">%&gt;%</span></span>
-<span id="cb356-2"><a href="sec-dplyr.html#cb356-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gather</span>(<span class="at">key =</span> genus, <span class="at">value =</span> mean_weight,</span>
-<span id="cb356-3"><a href="sec-dplyr.html#cb356-3" aria-hidden="true" tabindex="-1"></a>           Baiomys<span class="sc">:</span>Spermophilus) </span></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="sec-dplyr.html#cb352-1" aria-hidden="true" tabindex="-1"></a>surveys_wide <span class="sc">%&gt;%</span></span>
+<span id="cb352-2"><a href="sec-dplyr.html#cb352-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"genus"</span>,</span>
+<span id="cb352-3"><a href="sec-dplyr.html#cb352-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">values_to =</span> <span class="st">"mean_weight"</span>,</span>
+<span id="cb352-4"><a href="sec-dplyr.html#cb352-4" aria-hidden="true" tabindex="-1"></a>                 Baiomys<span class="sc">:</span>Spermophilus)</span></code></pre></div>
 <pre><code>## # A tibble: 240 x 3
-##    plot_id genus   mean_weight
-##      &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;
-##  1       1 Baiomys        7   
-##  2       2 Baiomys        6   
-##  3       3 Baiomys        8.61
-##  4       4 Baiomys       NA   
-##  5       5 Baiomys        7.75
-##  6       6 Baiomys       NA   
-##  7       7 Baiomys       NA   
-##  8       8 Baiomys       NA   
-##  9       9 Baiomys       NA   
-## 10      10 Baiomys       NA   
+##    plot_id genus           mean_weight
+##      &lt;dbl&gt; &lt;chr&gt;                 &lt;dbl&gt;
+##  1       1 Baiomys                7   
+##  2       1 Chaetodipus           22.2 
+##  3       1 Dipodomys             60.2 
+##  4       1 Neotoma              156.  
+##  5       1 Onychomys             27.7 
+##  6       1 Perognathus            9.62
+##  7       1 Peromyscus            22.2 
+##  8       1 Reithrodontomys       11.4 
+##  9       1 Sigmodon              NA   
+## 10       1 Spermophilus          NA   
 ## # … with 230 more rows</code></pre>
-<p>And with <code>pivot_longer()</code>:</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="sec-dplyr.html#cb358-1" aria-hidden="true" tabindex="-1"></a>surveys_spread <span class="sc">%&gt;%</span></span>
-<span id="cb358-2"><a href="sec-dplyr.html#cb358-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"genus"</span>,</span>
-<span id="cb358-3"><a href="sec-dplyr.html#cb358-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">values_to =</span> <span class="st">"mean_weight"</span>,</span>
-<span id="cb358-4"><a href="sec-dplyr.html#cb358-4" aria-hidden="true" tabindex="-1"></a>                 Baiomys<span class="sc">:</span>Spermophilus) <span class="sc">%&gt;%</span></span>
-<span id="cb358-5"><a href="sec-dplyr.html#cb358-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(genus, plot_id)</span></code></pre></div>
+<p>To re-arrange the data, we simply pipe le long data to <code>arrange()</code>.</p>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="sec-dplyr.html#cb354-1" aria-hidden="true" tabindex="-1"></a>surveys_wide <span class="sc">%&gt;%</span></span>
+<span id="cb354-2"><a href="sec-dplyr.html#cb354-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"genus"</span>,</span>
+<span id="cb354-3"><a href="sec-dplyr.html#cb354-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">values_to =</span> <span class="st">"mean_weight"</span>,</span>
+<span id="cb354-4"><a href="sec-dplyr.html#cb354-4" aria-hidden="true" tabindex="-1"></a>                 Baiomys<span class="sc">:</span>Spermophilus) <span class="sc">%&gt;%</span></span>
+<span id="cb354-5"><a href="sec-dplyr.html#cb354-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(genus, plot_id)</span></code></pre></div>
 <pre><code>## # A tibble: 240 x 3
 ##    plot_id genus   mean_weight
 ##      &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;
@@ -1326,12 +1295,13 @@ data. It’s a powerful function! See <code>?n_distinct</code> for more.</p>
 ► Solution<span id="sol-start-22" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-22', 'sol-start-22')"></span>
 </p>
 <div id="sol-body-22" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="sec-dplyr.html#cb360-1" aria-hidden="true" tabindex="-1"></a>rich_time <span class="ot">&lt;-</span> surveys <span class="sc">%&gt;%</span></span>
-<span id="cb360-2"><a href="sec-dplyr.html#cb360-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(plot_id, year) <span class="sc">%&gt;%</span></span>
-<span id="cb360-3"><a href="sec-dplyr.html#cb360-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n_genera =</span> <span class="fu">n_distinct</span>(genus)) <span class="sc">%&gt;%</span></span>
-<span id="cb360-4"><a href="sec-dplyr.html#cb360-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(year, n_genera)</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="sec-dplyr.html#cb356-1" aria-hidden="true" tabindex="-1"></a>rich_time <span class="ot">&lt;-</span> surveys <span class="sc">%&gt;%</span></span>
+<span id="cb356-2"><a href="sec-dplyr.html#cb356-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(plot_id, year) <span class="sc">%&gt;%</span></span>
+<span id="cb356-3"><a href="sec-dplyr.html#cb356-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">n_genera =</span> <span class="fu">n_distinct</span>(genus)) <span class="sc">%&gt;%</span></span>
+<span id="cb356-4"><a href="sec-dplyr.html#cb356-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"year"</span>,</span>
+<span id="cb356-5"><a href="sec-dplyr.html#cb356-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_from =</span> <span class="st">"n_genera"</span>)</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by 'plot_id'. You can override using the `.groups` argument.</code></pre>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="sec-dplyr.html#cb362-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rich_time)</span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="sec-dplyr.html#cb358-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rich_time)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 27
 ## # Groups:   plot_id [6]
 ##   plot_id `1977` `1978` `1979` `1980` `1981` `1982` `1983` `1984` `1985` `1986`
@@ -1368,8 +1338,8 @@ unique <code>plot_id</code> by <code>year</code> combination.</p>
 ► Solution<span id="sol-start-23" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-23', 'sol-start-23')"></span>
 </p>
 <div id="sol-body-23" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="sec-dplyr.html#cb364-1" aria-hidden="true" tabindex="-1"></a>rich_time <span class="sc">%&gt;%</span></span>
-<span id="cb364-2"><a href="sec-dplyr.html#cb364-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(year, n_genera, <span class="sc">-</span>plot_id)</span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="sec-dplyr.html#cb360-1" aria-hidden="true" tabindex="-1"></a>rich_time <span class="sc">%&gt;%</span></span>
+<span id="cb360-2"><a href="sec-dplyr.html#cb360-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(year, n_genera, <span class="sc">-</span>plot_id)</span></code></pre></div>
 <pre><code>## # A tibble: 624 x 3
 ## # Groups:   plot_id [24]
 ##    plot_id year  n_genera
@@ -1413,9 +1383,9 @@ on the value of either <code>hindfoot_length</code> or <code>weight</code>.</p>
 ► Solution<span id="sol-start-24" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-24', 'sol-start-24')"></span>
 </p>
 <div id="sol-body-24" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="sec-dplyr.html#cb366-1" aria-hidden="true" tabindex="-1"></a>surveys_long <span class="ot">&lt;-</span> surveys <span class="sc">%&gt;%</span></span>
-<span id="cb366-2"><a href="sec-dplyr.html#cb366-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gather</span>(measurement, value, hindfoot_length, weight)</span>
-<span id="cb366-3"><a href="sec-dplyr.html#cb366-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(surveys_long)</span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="sec-dplyr.html#cb362-1" aria-hidden="true" tabindex="-1"></a>surveys_long <span class="ot">&lt;-</span> surveys <span class="sc">%&gt;%</span></span>
+<span id="cb362-2"><a href="sec-dplyr.html#cb362-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gather</span>(measurement, value, hindfoot_length, weight)</span>
+<span id="cb362-3"><a href="sec-dplyr.html#cb362-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(surveys_long)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 13
 ##   record_id month   day  year plot_id species_id sex   genus species taxa 
 ##       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;
@@ -1437,8 +1407,9 @@ on the value of either <code>hindfoot_length</code> or <code>weight</code>.</p>
 </p>
 <div class="question-body">
 <p>With this new data set, calculate the average of each <code>measurement</code> in
-each <code>year</code> for each different <code>plot_type</code>. Then <code>spread()</code> them into
-a data set with a column for <code>hindfoot_length</code> and <code>weight</code>.</p>
+each <code>year</code> for each different <code>plot_type</code>. Then use <code>pivot_wider()</code>
+to generate a data set with a column for <code>hindfoot_length</code> and
+<code>weight</code>.</p>
 <p><em>Hint</em>: You only need to specify the key and value columns for
 <code>spread()</code>.</p>
 <p class="question-end">
@@ -1451,10 +1422,10 @@ a data set with a column for <code>hindfoot_length</code> and <code>weight</code
 ► Solution<span id="sol-start-25" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-25', 'sol-start-25')"></span>
 </p>
 <div id="sol-body-25" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="sec-dplyr.html#cb368-1" aria-hidden="true" tabindex="-1"></a>surveys_long <span class="sc">%&gt;%</span></span>
-<span id="cb368-2"><a href="sec-dplyr.html#cb368-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, measurement, plot_type) <span class="sc">%&gt;%</span></span>
-<span id="cb368-3"><a href="sec-dplyr.html#cb368-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(value, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb368-4"><a href="sec-dplyr.html#cb368-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(measurement, mean_value)</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="sec-dplyr.html#cb364-1" aria-hidden="true" tabindex="-1"></a>surveys_long <span class="sc">%&gt;%</span></span>
+<span id="cb364-2"><a href="sec-dplyr.html#cb364-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, measurement, plot_type) <span class="sc">%&gt;%</span></span>
+<span id="cb364-3"><a href="sec-dplyr.html#cb364-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(value, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb364-4"><a href="sec-dplyr.html#cb364-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(measurement, mean_value)</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by 'year', 'measurement'. You can override using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 130 x 4
 ## # Groups:   year [26]
@@ -1499,30 +1470,30 @@ re-generate them.</p>
 cleaned up version of the data set that doesn’t include any missing data.</p>
 <p>Let’s start by removing observations of animals for which <code>weight</code> and
 <code>hindfoot_length</code> are missing, or the <code>sex</code> has not been determined:</p>
-<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="sec-dplyr.html#cb371-1" aria-hidden="true" tabindex="-1"></a>surveys_complete <span class="ot">&lt;-</span> surveys <span class="sc">%&gt;%</span></span>
-<span id="cb371-2"><a href="sec-dplyr.html#cb371-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(weight),           <span class="do">## remove missing weight</span></span>
-<span id="cb371-3"><a href="sec-dplyr.html#cb371-3" aria-hidden="true" tabindex="-1"></a>         <span class="sc">!</span><span class="fu">is.na</span>(hindfoot_length),  <span class="do">## remove missing hindfoot_length</span></span>
-<span id="cb371-4"><a href="sec-dplyr.html#cb371-4" aria-hidden="true" tabindex="-1"></a>         <span class="sc">!</span><span class="fu">is.na</span>(sex))              <span class="do">## remove missing sex</span></span></code></pre></div>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="sec-dplyr.html#cb367-1" aria-hidden="true" tabindex="-1"></a>surveys_complete <span class="ot">&lt;-</span> surveys <span class="sc">%&gt;%</span></span>
+<span id="cb367-2"><a href="sec-dplyr.html#cb367-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(weight),           <span class="do">## remove missing weight</span></span>
+<span id="cb367-3"><a href="sec-dplyr.html#cb367-3" aria-hidden="true" tabindex="-1"></a>         <span class="sc">!</span><span class="fu">is.na</span>(hindfoot_length),  <span class="do">## remove missing hindfoot_length</span></span>
+<span id="cb367-4"><a href="sec-dplyr.html#cb367-4" aria-hidden="true" tabindex="-1"></a>         <span class="sc">!</span><span class="fu">is.na</span>(sex))              <span class="do">## remove missing sex</span></span></code></pre></div>
 <p>Because we are interested in plotting how species abundances have changed
 through time, we are also going to remove observations for rare species (i.e.,
 that have been observed less than 50 times). We will do this in two steps: first
 we are going to create a data set that counts how often each species has been
 observed, and filter out the rare species; then, we will extract only the
 observations for these more common species:</p>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="sec-dplyr.html#cb372-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract the most common species_id</span></span>
-<span id="cb372-2"><a href="sec-dplyr.html#cb372-2" aria-hidden="true" tabindex="-1"></a>species_counts <span class="ot">&lt;-</span> surveys_complete <span class="sc">%&gt;%</span></span>
-<span id="cb372-3"><a href="sec-dplyr.html#cb372-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(species_id) <span class="sc">%&gt;%</span></span>
-<span id="cb372-4"><a href="sec-dplyr.html#cb372-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(n <span class="sc">&gt;=</span> <span class="dv">50</span>)</span>
-<span id="cb372-5"><a href="sec-dplyr.html#cb372-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb372-6"><a href="sec-dplyr.html#cb372-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Only keep the most common species</span></span>
-<span id="cb372-7"><a href="sec-dplyr.html#cb372-7" aria-hidden="true" tabindex="-1"></a>surveys_complete <span class="ot">&lt;-</span> surveys_complete <span class="sc">%&gt;%</span></span>
-<span id="cb372-8"><a href="sec-dplyr.html#cb372-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species_id <span class="sc">%in%</span> species_counts<span class="sc">$</span>species_id)</span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="sec-dplyr.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract the most common species_id</span></span>
+<span id="cb368-2"><a href="sec-dplyr.html#cb368-2" aria-hidden="true" tabindex="-1"></a>species_counts <span class="ot">&lt;-</span> surveys_complete <span class="sc">%&gt;%</span></span>
+<span id="cb368-3"><a href="sec-dplyr.html#cb368-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(species_id) <span class="sc">%&gt;%</span></span>
+<span id="cb368-4"><a href="sec-dplyr.html#cb368-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(n <span class="sc">&gt;=</span> <span class="dv">50</span>)</span>
+<span id="cb368-5"><a href="sec-dplyr.html#cb368-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb368-6"><a href="sec-dplyr.html#cb368-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Only keep the most common species</span></span>
+<span id="cb368-7"><a href="sec-dplyr.html#cb368-7" aria-hidden="true" tabindex="-1"></a>surveys_complete <span class="ot">&lt;-</span> surveys_complete <span class="sc">%&gt;%</span></span>
+<span id="cb368-8"><a href="sec-dplyr.html#cb368-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species_id <span class="sc">%in%</span> species_counts<span class="sc">$</span>species_id)</span></code></pre></div>
 <p>To make sure that everyone has the same data set, check that <code>surveys_complete</code>
 has 30463 rows and 13 columns by
 typing <code>dim(surveys_complete)</code>.</p>
 <p>Now that our data set is ready, we can save it as a CSV file in our <code>data_output</code>
 folder.</p>
-<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="sec-dplyr.html#cb373-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(surveys_complete, <span class="at">path =</span> <span class="st">"data_output/surveys_complete.csv"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="sec-dplyr.html#cb369-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(surveys_complete, <span class="at">path =</span> <span class="st">"data_output/surveys_complete.csv"</span>)</span></code></pre></div>
 <pre><code>## Warning: The `path` argument of `write_csv()` is deprecated as of readr 1.4.0.
 ## Please use the `file` argument instead.
 ## This warning is displayed once every 8 hours.
@@ -1547,7 +1518,7 @@ version is older than 0.1.1, install it from the
 <code>UCLouvain-CBIO/rWSBIM1207' GitHub repository using the</code>devtools::install_github` function.</p></li>
 <li><p>Directly load the data by typing</p></li>
 </ul>
-<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="sec-dplyr.html#cb375-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(beers)</span></code></pre></div>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="sec-dplyr.html#cb371-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(beers)</span></code></pre></div>
 <ul>
 <li><p>Remove observations with missing values.</p></li>
 <li><p>Using the <code>Year</code>, <code>Month</code> and <code>Year</code> columns, create a new column
@@ -1576,7 +1547,7 @@ interpret multiple results. In the next chapter, we will see how to
 complement such analysis questions with visualisations such as the
 following one, that clearly highlight important patterns in our data.</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-165"></span>
+<span id="fig:unnamed-chunk-163"></span>
 <p class="caption marginnote shownote">
 Figure 5.1: Visualisation of beer consumption, highlighting different patterns of beer consumption in employed and unemployed males and females.
 </p>

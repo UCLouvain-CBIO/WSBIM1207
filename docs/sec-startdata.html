@@ -739,8 +739,10 @@ example?</p>
 <p>Check your guesses using <code>str(country_climate)</code>:</p>
 <ul>
 <li><p>Are they what you expected? Why? Why not?</p></li>
-<li><p>Try again by adding <code>stringsAsFactors = FALSE</code> after the last
-variable when creating the data frame? What is happening now?</p></li>
+<li><p>Try again by adding <code>stringsAsFactors = TRUE</code> after the last
+variable when creating the data frame? What is happening now?
+<code>stringsAsFactors</code> can also be set when reading text-based
+spreadsheets into R using <code>read.csv()</code>.</p></li>
 </ul>
 <div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="sec-startdata.html#cb227-1" aria-hidden="true" tabindex="-1"></a>country_climate <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb227-2"><a href="sec-startdata.html#cb227-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">country =</span> <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"Panama"</span>, <span class="st">"South Africa"</span>, <span class="st">"Australia"</span>),</span>
