@@ -1,5 +1,5 @@
 ---
-title: "Informations WSBIM1207 2019 - 2020"
+title: "Informations WSBIM1207 2020 - 2021"
 output: html_document
 ---
 
@@ -7,7 +7,7 @@ output: html_document
 
 - [Descriptif du cours](https://uclouvain.be/cours-2019-wsbim1207.html)
 - Titulaire: Prof Laurent Gatto
-- Assistants: Dr. Axelle Loriot, Mr Jean Fain
+- Assistants: Jean Fain, Valentine Robaux
 - Notes de cours: http://bit.ly/WSBIM1207
 - Informations aux étudiants (ce document): http://bit.ly/WSBIM1207info
 
@@ -23,7 +23,7 @@ output: html_document
   inscrire!**
 
 - Quand vous poser vos questions sur moodle, il vous est demandé de
-  **décrire ce que vous avez déjà essayé/testé**. 
+  **décrire ce que vous avez déjà essayé/testé**.
 
 - Les notes de cours sont en anglais, mais le cours se donnera en
   français.
@@ -45,13 +45,8 @@ output: html_document
 - En case de trois absences non justifiées, l'étudiant(e) pourra se
   voir refuser la participation **aux examens** de fin de cours.
 
-- Il y aura des interrogations cotées en début de certaines
-  sessions. Ces cotes compteront pour 25% de la note finale. Le
-  meilleur moyen de vous y préparer et de faire et comprendre les
-  exercices en cours et à domicile.
-
-- Le nombre et durée des pauses dépendra du [vote des
-  étudiant(e)s](https://moodleucl.uclouvain.be/mod/choice/view.php?id=734453).
+<!-- - Le nombre et durée des pauses dépendra du [vote des -->
+<!--   étudiant(e)s](https://moodleucl.uclouvain.be/mod/choice/view.php?id=734453). -->
 
 Ce qui est attendu de vous:
 
@@ -81,24 +76,24 @@ interrogations, est un bon prédicateur du succès à l'examen.
 knitr::include_graphics("./2019-06-corr-exam-interro.png")
 ```
 
-## Horaire
+<!-- ## Horaire -->
 
-|   | Jour                  | Horaire           | Matière                                         |
-|---|-----------------------|-------------------|-------------------------------------------------|
-| 1 | Jeudi  06/02/2020     | 08h30 - 12h30     | Intro et tableurs                               |
-| 2 | Jeudi  20/02/2020     | 08h30 - 12h30     | Introduction à R/RStudio et `data.frames`       |
-| 3 | Jeudi  27/02/2020     | 08h30 - 12h30     | Analyses de données (suite)                     |
-| 4 | **Lundi**  02/03/2020 | 08h30 - 12h30     | Analyses de données (suite)                     |
-| 5 | Jeudi  05/03/2020     | 08h30 - 12h30     | Analyses de données (suite)                     |
-| 6 | **Lundi**  09/03/2020 | 08h30 - 12h30     | Visualisation de données                        |
-| 7 | **Lundi**  16/03/2020 | **13h00 - 17h00** | Jointures et recherche reproductible            |
-| 8 | **Lundi**  30/03/2020 | 08h30 - 12h30     | Bioinformatique et éléments de programmation    |
-| 9 | Jeudi  23/04/2020     | 08h30 - 12h30     | Exercices supplémentaires et questions/réponses |
-|   | Jeudi  14/05/2020     | 08h30 - 12h30     | ~~Examen hors session~~                         |
+<!-- |   | Jour                  | Horaire           | Matière                                         | -->
+<!-- |---|-----------------------|-------------------|-------------------------------------------------| -->
+<!-- | 1 | Jeudi  06/02/2020     | 08h30 - 12h30     | Intro et tableurs                               | -->
+<!-- | 2 | Jeudi  20/02/2020     | 08h30 - 12h30     | Introduction à R/RStudio et `data.frames`       | -->
+<!-- | 3 | Jeudi  27/02/2020     | 08h30 - 12h30     | Analyses de données (suite)                     | -->
+<!-- | 4 | **Lundi**  02/03/2020 | 08h30 - 12h30     | Analyses de données (suite)                     | -->
+<!-- | 5 | Jeudi  05/03/2020     | 08h30 - 12h30     | Analyses de données (suite)                     | -->
+<!-- | 6 | **Lundi**  09/03/2020 | 08h30 - 12h30     | Visualisation de données                        | -->
+<!-- | 7 | **Lundi**  16/03/2020 | **13h00 - 17h00** | Jointures et recherche reproductible            | -->
+<!-- | 8 | **Lundi**  30/03/2020 | 08h30 - 12h30     | Bioinformatique et éléments de programmation    | -->
+<!-- | 9 | Jeudi  23/04/2020     | 08h30 - 12h30     | Exercices supplémentaires et questions/réponses | -->
+<!-- |   | Jeudi  14/05/2020     | 08h30 - 12h30     | ~~Examen hors session~~                         | -->
 
 
-NB: la matière reprise ci-dessus est à titre indicatif uniquement, et
-sera adaptée en fonction de l'avancée en cours.
+<!-- NB: la matière reprise ci-dessus est à titre indicatif uniquement, et -->
+<!-- sera adaptée en fonction de l'avancée en cours. -->
 
 ## Examen
 
