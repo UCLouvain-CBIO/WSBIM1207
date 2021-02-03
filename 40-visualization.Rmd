@@ -556,7 +556,7 @@ for inspiration. Here are some ideas:
 Faceting is a great tool for splitting one plot into multiple
 subplots, but sometimes you may want to produce a single figure that
 contains multiple independent plots, i.e. plots that are based on
-different variables or even different data frames. 
+different variables or even different data frames.
 
 Let's start by creating the two plots that we want to arrange next to
 each other:
@@ -576,9 +576,9 @@ Below, we also remove the legend altogether by setting the
 ```{r sub2}
 spp_count_plot <- ggplot(data = yearly_counts,
 						 mapping = aes(x = year, y = n, color = species_id)) +
-    geom_line() +
-    xlab("Year") + ylab("Abundance") +
-    theme(legend.position = "none")    
+	geom_line() +
+	xlab("Year") + ylab("Abundance") +
+	theme(legend.position = "none")
 spp_count_plot
 ```
 
@@ -903,10 +903,12 @@ visualise the results for each test and male/female students.
 
 ```{r, echo=FALSE, include=FALSE}
 library("rWSBIM1207")
-x <- read_csv(interroA.csv())
-x <- gather(x, key = interro, value = result,
-			starts_with("interro"))
+x <- read_csv(interroA.csv()) %>%
+	pivot_longer(names_to = "interro",
+				 values_to = "result",
+				 starts_with("interro"))
 
 ggplot(x, aes(x = gender, y = result)) +
-	geom_boxplot() + facet_grid(. ~ interro)
+	geom_boxplot() +
+	facet_grid(. ~ interro)
 ```

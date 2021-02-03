@@ -123,13 +123,12 @@ measured by the same operator in 4 replicate.
 
 ```{r, echo = FALSE}
 expd <- data.frame(sample = paste0("S", 1:12),
-                   operator = "Kevin", date = '2019-03-02',
-                   group = rep(c("CTRL", "DRUG", "DRUG"), each = 4),
-                   concentration = factor(rep(c(0, 1, 5), each = 4)),
-                   replicate = rep(1:4, 3),
-                   stringsAsFactors = FALSE)
+				   operator = "Kevin", date = '2019-03-02',
+				   group = rep(c("CTRL", "DRUG", "DRUG"), each = 4),
+				   concentration = factor(rep(c(0, 1, 5), each = 4)),
+				   replicate = rep(1:4, 3),
+				   stringsAsFactors = FALSE)
 knitr::kable(expd)
-
 ```
 
 We have seen a much more complex experimental desing, involving many
@@ -154,10 +153,12 @@ ge <- expd
 ge$A1CF <- rnorm(12, 6, 2)
 ge$BRCA1 <- c(abs(rnorm(4, 2, 1)), rnorm(4, 8, 2), rnorm(4, 13, 2))
 ge$TP53 <-  c(rnorm(4, 10, 5), rnorm(4, 10, 3), rnorm(4, 10, 2))
-ge <- gather(ge, key = gene, value = expression, A1CF, BRCA1, TP53)
-
+ge <- pivot_longer(ge,
+				   names_to = "gene",
+				   values_to = "expression",
+				   c(A1CF, BRCA1, TP53))
 ggplot(ge, aes(x = gene, y = expression, colour = concentration)) +
-    geom_boxplot()
+	geom_boxplot()
 ```
 
 ## Project management reminder
@@ -168,7 +169,7 @@ too of course[^bioindatascience]. William Noble (@Noble:2009) proposes
 the following directory structure:
 
 [^bioindatascience]: In this course, we consider bioinformatics as
-    data science applied to biological or bio-medical data.
+	data science applied to biological or bio-medical data.
 
 > Directory names are in large typeface, and filenames are in smaller
 > typeface. Only a subset of the files are shown here. Note that the
@@ -200,8 +201,8 @@ project[^futureself] to
    analysis parameters.
 
 [^futureself]: That someone could be, and very likely will be your
-    future self, a couple of months or years after the analyses were
-    run.
+	future self, a couple of months or years after the analyses were
+	run.
 
 
 In addition to the directory structure above, a **lab notebook**,
@@ -659,31 +660,35 @@ fls <- kem.tsv()
 annot <- read_tsv(fls[2])
 
 kem <- read_tsv(fls[1]) %>%
-    gather(key = sample_id, value = expression, -ref) %>%
-    left_join(annot)
+	pivot_longer(
+		names_to = "sample_id",
+		values_to = "expression",
+		-ref) %>%
+	left_join(annot)
 
 k <- kem %>%
-    group_by(ref) %>%
-    summarise(tot_exprs = sum(expression)) %>%
-    arrange(desc(tot_exprs)) %>%
-    select(ref) %>%
-    head(3)
+	group_by(ref) %>%
+	summarise(tot_exprs = sum(expression)) %>%
+	arrange(desc(tot_exprs)) %>%
+	select(ref) %>%
+	head(3)
 
 kem3 <- right_join(kem, k)
 
 ggplot(kem3, aes(x = treatment, y = expression)) +
-    geom_boxplot() +
-    geom_jitter() +
-    facet_grid(ref ~ cell_type)
+	geom_boxplot() +
+	geom_jitter() +
+	facet_grid(ref ~ cell_type)
 
 kem %>%
-    group_by(ref, cell_type, treatment) %>%
-    summarise(mean_expression = mean(expression))
+	group_by(ref, cell_type, treatment) %>%
+	summarise(mean_expression = mean(expression))
 
 kem3 %>%
-    filter(cell_type == "A") %>%
-    group_by(ref, cell_type, treatment) %>%
-    summarise(mean_expression = mean(expression)) %>%
-    spread(key = treatment, value = mean_expression) %>%
-    mutate(fold_change = stimulated/none)
+	filter(cell_type == "A") %>%
+	group_by(ref, cell_type, treatment) %>%
+	summarise(mean_expression = mean(expression)) %>%
+	pivot_wider(names_from = "treatment",
+				values_from = "mean_expression") %>%
+	mutate(fold_change = stimulated/none)
 ```
