@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-02-02" />
+<meta name="date" content="2021-02-03" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -322,7 +322,7 @@ and this <a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.
 tidyverse package <strong><code>readr</code></strong>, instead of <code>read.csv()</code>.</p>
 <div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="sec-dplyr.html#cb276-1" aria-hidden="true" tabindex="-1"></a>surveys <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/portal_data_joined.csv"</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   record_id = col_double(),
 ##   month = col_double(),
@@ -1093,8 +1093,8 @@ and variables of interest, and create a new variable for the
 ## # … with 186 more rows</code></pre>
 <p>This yields <code>surveys_gw</code> where the observations for each plot are
 spread across multiple rows, 196 observations of 3 variables. Using
-<code>pivot_wider()</code>, gathering new columns from the <code>genus</code> variable and
-new values from <code>mean_weight</code>, this becomes 24 observations of 11
+<code>pivot_wider()</code>, using new columns from the <code>genus</code> variable and new
+values from <code>mean_weight</code>, this becomes 24 observations of 11
 variables, one row for each plot. We again use pipes:</p>
 <div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="sec-dplyr.html#cb342-1" aria-hidden="true" tabindex="-1"></a>surveys_wide <span class="ot">&lt;-</span> surveys_gw <span class="sc">%&gt;%</span></span>
 <span id="cb342-2"><a href="sec-dplyr.html#cb342-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> genus,</span>
@@ -1170,9 +1170,9 @@ different values to different value columns. To fill in the missing
 in the form of <code>surveys_wide</code>, where the genus names are column
 names, but we wish to treat them as values of a genus variable
 instead.</p>
-<p>In this situation we are gathering the column names and turning them
-into a pair of new variables. One variable represents the column names
-as values, and the other variable contains the values previously
+<p>In this situation we are using the column names and turning them into
+a pair of new variables. One variable represents the column names as
+values, and the other variable contains the values previously
 associated with the column names.</p>
 <p><code>pivot_longer()</code> takes four main arguments:</p>
 <ol style="list-style-type: decimal">
@@ -1230,13 +1230,14 @@ output as we started with, we can arrange the data by <code>plot_id</code>:</p>
 ##  9       1 Sigmodon              NA   
 ## 10       1 Spermophilus          NA   
 ## # … with 230 more rows</code></pre>
-<p>Note that now the <code>NA</code> genera are included in the re-gathered
+<p>Note that now the <code>NA</code> genera are included in the new wide
 format. Pivoting to wider and longer formats can be a useful way to
 balance out a dataset so every replicate has the same composition.</p>
-<p>We could also have used a specification for what columns to include. This can be
-useful if you have a large number of identifying columns, and it’s easier to
-specify what to gather than what to leave alone. And if the columns are in a
-row, we don’t even need to list them all out - just use the <code>:</code> operator!</p>
+<p>We could also have used a specification for what columns to
+include. This can be useful if you have a large number of identifying
+columns, and it’s easier to specify what to gather than what to leave
+alone. And if the columns are in a row, we don’t even need to list
+them all out - just use the <code>:</code> operator!</p>
 <div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="sec-dplyr.html#cb352-1" aria-hidden="true" tabindex="-1"></a>surveys_wide <span class="sc">%&gt;%</span></span>
 <span id="cb352-2"><a href="sec-dplyr.html#cb352-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"genus"</span>,</span>
 <span id="cb352-3"><a href="sec-dplyr.html#cb352-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">values_to =</span> <span class="st">"mean_weight"</span>,</span>
@@ -1326,8 +1327,8 @@ data. It’s a powerful function! See <code>?n_distinct</code> for more.</p>
 ► Question
 </p>
 <div class="question-body">
-<p>Now take that data frame and <code>gather()</code> it again, so each row is a
-unique <code>plot_id</code> by <code>year</code> combination.</p>
+<p>Now take that data frame and transform it with <code>pivot_longer()</code> so
+each row is a unique <code>plot_id</code> by <code>year</code> combination.</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1339,21 +1340,23 @@ unique <code>plot_id</code> by <code>year</code> combination.</p>
 </p>
 <div id="sol-body-23" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="sec-dplyr.html#cb360-1" aria-hidden="true" tabindex="-1"></a>rich_time <span class="sc">%&gt;%</span></span>
-<span id="cb360-2"><a href="sec-dplyr.html#cb360-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(year, n_genera, <span class="sc">-</span>plot_id)</span></code></pre></div>
+<span id="cb360-2"><a href="sec-dplyr.html#cb360-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"year"</span>,</span>
+<span id="cb360-3"><a href="sec-dplyr.html#cb360-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">values_to =</span> <span class="st">"n_genera"</span>,</span>
+<span id="cb360-4"><a href="sec-dplyr.html#cb360-4" aria-hidden="true" tabindex="-1"></a>                 <span class="sc">-</span>plot_id)</span></code></pre></div>
 <pre><code>## # A tibble: 624 x 3
 ## # Groups:   plot_id [24]
 ##    plot_id year  n_genera
 ##      &lt;dbl&gt; &lt;chr&gt;    &lt;int&gt;
 ##  1       1 1977         2
-##  2       2 1977         6
-##  3       3 1977         5
-##  4       4 1977         4
-##  5       5 1977         4
-##  6       6 1977         3
-##  7       7 1977         3
-##  8       8 1977         2
-##  9       9 1977         3
-## 10      10 1977         1
+##  2       1 1978         3
+##  3       1 1979         4
+##  4       1 1980         7
+##  5       1 1981         5
+##  6       1 1982         6
+##  7       1 1983         7
+##  8       1 1984         6
+##  9       1 1985         4
+## 10       1 1986         3
 ## # … with 614 more rows</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1369,10 +1372,9 @@ unique <code>plot_id</code> by <code>year</code> combination.</p>
 and <code>weight</code>. This makes it difficult to do things like look at the
 relationship between mean values of each measurement per year in
 different plot types. Let’s walk through a common solution for this
-type of problem. First, use <code>gather()</code> to create a dataset where we
-have a key column called <code>measurement</code> and a <code>value</code> column that takes
-on the value of either <code>hindfoot_length</code> or <code>weight</code>.</p>
-<p><em>Hint</em>: You’ll need to specify which columns are being gathered.</p>
+type of problem. First, use <code>pivot_longer()</code> to create a dataset where
+we have a key column called <code>measurement</code> and a <code>value</code> column that
+takes on the value of either <code>hindfoot_length</code> or <code>weight</code>.</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1383,19 +1385,28 @@ on the value of either <code>hindfoot_length</code> or <code>weight</code>.</p>
 ► Solution<span id="sol-start-24" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-24', 'sol-start-24')"></span>
 </p>
 <div id="sol-body-24" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="sec-dplyr.html#cb362-1" aria-hidden="true" tabindex="-1"></a>surveys_long <span class="ot">&lt;-</span> surveys <span class="sc">%&gt;%</span></span>
-<span id="cb362-2"><a href="sec-dplyr.html#cb362-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gather</span>(measurement, value, hindfoot_length, weight)</span>
-<span id="cb362-3"><a href="sec-dplyr.html#cb362-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(surveys_long)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 13
-##   record_id month   day  year plot_id species_id sex   genus species taxa 
-##       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;
-## 1         1     7    16  1977       2 NL         M     Neot… albigu… Rode…
-## 2        72     8    19  1977       2 NL         M     Neot… albigu… Rode…
-## 3       224     9    13  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
-## 4       266    10    16  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
-## 5       349    11    12  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
-## 6       363    11    12  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
-## # … with 3 more variables: plot_type &lt;chr&gt;, measurement &lt;chr&gt;, value &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="sec-dplyr.html#cb362-1" aria-hidden="true" tabindex="-1"></a>surveys_long <span class="ot">&lt;-</span></span>
+<span id="cb362-2"><a href="sec-dplyr.html#cb362-2" aria-hidden="true" tabindex="-1"></a>    surveys <span class="sc">%&gt;%</span></span>
+<span id="cb362-3"><a href="sec-dplyr.html#cb362-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(</span>
+<span id="cb362-4"><a href="sec-dplyr.html#cb362-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">names_to =</span> <span class="st">"measurement"</span>,</span>
+<span id="cb362-5"><a href="sec-dplyr.html#cb362-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">values_to =</span> <span class="st">"value"</span>,</span>
+<span id="cb362-6"><a href="sec-dplyr.html#cb362-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">c</span>(hindfoot_length, weight))</span>
+<span id="cb362-7"><a href="sec-dplyr.html#cb362-7" aria-hidden="true" tabindex="-1"></a>surveys_long</span></code></pre></div>
+<pre><code>## # A tibble: 69,572 x 13
+##    record_id month   day  year plot_id species_id sex   genus species taxa 
+##        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;
+##  1         1     7    16  1977       2 NL         M     Neot… albigu… Rode…
+##  2         1     7    16  1977       2 NL         M     Neot… albigu… Rode…
+##  3        72     8    19  1977       2 NL         M     Neot… albigu… Rode…
+##  4        72     8    19  1977       2 NL         M     Neot… albigu… Rode…
+##  5       224     9    13  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
+##  6       224     9    13  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
+##  7       266    10    16  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
+##  8       266    10    16  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
+##  9       349    11    12  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
+## 10       349    11    12  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
+## # … with 69,562 more rows, and 3 more variables: plot_type &lt;chr&gt;,
+## #   measurement &lt;chr&gt;, value &lt;dbl&gt;</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1410,8 +1421,6 @@ on the value of either <code>hindfoot_length</code> or <code>weight</code>.</p>
 each <code>year</code> for each different <code>plot_type</code>. Then use <code>pivot_wider()</code>
 to generate a data set with a column for <code>hindfoot_length</code> and
 <code>weight</code>.</p>
-<p><em>Hint</em>: You only need to specify the key and value columns for
-<code>spread()</code>.</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1423,9 +1432,10 @@ to generate a data set with a column for <code>hindfoot_length</code> and
 </p>
 <div id="sol-body-25" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="sec-dplyr.html#cb364-1" aria-hidden="true" tabindex="-1"></a>surveys_long <span class="sc">%&gt;%</span></span>
-<span id="cb364-2"><a href="sec-dplyr.html#cb364-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, measurement, plot_type) <span class="sc">%&gt;%</span></span>
-<span id="cb364-3"><a href="sec-dplyr.html#cb364-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(value, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb364-4"><a href="sec-dplyr.html#cb364-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(measurement, mean_value)</span></code></pre></div>
+<span id="cb364-2"><a href="sec-dplyr.html#cb364-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(year, measurement, plot_type) <span class="sc">%&gt;%</span></span>
+<span id="cb364-3"><a href="sec-dplyr.html#cb364-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(value, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb364-4"><a href="sec-dplyr.html#cb364-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"measurement"</span>,</span>
+<span id="cb364-5"><a href="sec-dplyr.html#cb364-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_from =</span> <span class="st">"mean_value"</span>)</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by 'year', 'measurement'. You can override using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 130 x 4
 ## # Groups:   year [26]
@@ -1625,9 +1635,9 @@ can be different.</p></li>
 get the path to the spreadsheet file, read the data into R using the
 <code>read_csv</code> function. This data is in the wide format, with the results
 of each test stored as a separate column.</p>
-<p>Using <code>gather</code>, convert the data into a <em>long</em> table with a column
-<code>interro</code> informing which test that line refers to and a column
-<code>result</code> with the student’s mark.</p>
+<p>Using the appropriate pivot function, convert the data into a long
+table with a column <code>interro</code> informing which test that line refers to
+and a column <code>result</code> with the student’s mark.</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1642,7 +1652,7 @@ of each test stored as a separate column.</p>
 <a href="sec-vis.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-02-02
+2021-02-03
  using 
 R version 4.0.3 Patched (2021-01-18 r79847)
 </p>
