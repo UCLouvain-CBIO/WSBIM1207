@@ -875,10 +875,10 @@ columns of the plate.
 Imagine the following experiment, and produce a data table, making up
 values for a dozen of observations.
 
-> Rodents, either mice or rats, where collected on various days by
-> either operator A or B. Their weight and tail length was measured
-> and were then assigned to either a control group (and administered
-> water) or a condition group (and administered drug X). Exactly one
-> week later, the measurements on the animal were repeated.
+> Rodents, mice and rats, where collected on various days by operators
+> A and B. Their weight and tail length were measured and assigned to
+> either a control group (and administered water) or a condition group
+> (and administered drug X). Exactly one week later, the body
+> measurements were repeated.
 
 `r msmbstyle::question_end()`
