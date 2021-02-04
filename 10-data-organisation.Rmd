@@ -548,14 +548,14 @@ and specify the units the cell is in.
 
 ### Entering more than one piece of information in a cell {#info}
 
-**Example**: You find one male, and one female of the same
-  species. You enter this as `1M`, `1F`.
+**Example**: Recording ABO and Rhesus groups in one cell, such as A+,
+B+, A-, ...
 
 **Solution**: Don't include more than one piece of information in a
 cell. This will limit the ways in which you can analyze your data.  If
 you need both these measurements, design your data sheet to include
-this information. For example, include one column for number of
-individuals and a separate column for sex.
+this information. For example, include one column the ABO group and
+one for the Rhesus group.
 
 ### Using problematic field names {#field_name}
 
