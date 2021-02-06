@@ -260,10 +260,10 @@ The cardinal rules of using spreadsheet programs for data:
    (comma-separated values) format. This ensures that anyone can use
    the data, and is required by most data repositories.
 
-For instance, we have data from a survey of small mammals in a desert
-ecosystem. Different people have gone to the field and entered data
-into a spreadsheet. They keep track of things like species, plot,
-weight, sex and date collected.
+For instance, we have data from patient that visited several hospitals
+from Brussels, Belgium. They recorded the date the visit, the
+hospital, the patients gender, weight and blood group.
+
 
 If they were to keep track of the data like this:
 
@@ -533,17 +533,13 @@ that you will not need to merge cells to organize your data.
 
 ### Placing comments or units in cells {#units}
 
-**Example**: Your data was collected, in part, by a summer student who
-you later found out was mis-identifying some of your species, some of
-the time. You want a way to note these data are suspect.
-
-**Solution**: Most analysis software can't see Excel or LibreOffice
-comments, and would be confused by comments placed within your data
-cells. As described above for formatting, create another field if you
-need to add notes to cells. Similarly, don’t include units in cells:
-ideally, all the measurements you place in one column should be in the
-same unit, but if for some reason they aren’t, create another field
-and specify the units the cell is in.
+Most analysis software can't see Excel or LibreOffice comments, and
+would be confused by comments placed within your data cells. As
+described above for formatting, create another field if you need to
+add notes to cells. Similarly, don’t include units in cells: ideally,
+all the measurements you place in one column should be in the same
+unit, but if for some reason they aren’t, create another field and
+specify the units the cell is in.
 
 
 ### Entering more than one piece of information in a cell {#info}
@@ -803,10 +799,10 @@ working with TSV files. TSV files can be exported from spreadsheet
 programs in the same way as CSV files.
 
 [^decsep]: This is of course particularly relevant in European
-           countries where the comma is used as a decimal
-           separator. In such cases, the default value separator in a
-           csv file will be the semi-colon (;), or values will be
-           systematically quoted.
+		   countries where the comma is used as a decimal
+		   separator. In such cases, the default value separator in a
+		   csv file will be the semi-colon (;), or values will be
+		   systematically quoted.
 
 If you are working with an already existing dataset in which the data
 values are not included in "" but which have commas as both delimiters
