@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-02-04" />
+<meta name="date" content="2021-02-06" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -486,7 +486,7 @@ will also use the <em>tidyverse</em> to work with the data.</p>
 <span id="cb522-3"><a href="sec-prog.html#cb522-3" aria-hidden="true" tabindex="-1"></a>fls <span class="ot">&lt;-</span> <span class="fu">expressions.csv</span>()</span>
 <span id="cb522-4"><a href="sec-prog.html#cb522-4" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(fls[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   sampleID = col_character(),
 ##   patient = col_character(),
@@ -509,7 +509,7 @@ will also use the <em>tidyverse</em> to work with the data.</p>
 ## # … with 560 more rows</code></pre>
 <div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="sec-prog.html#cb525-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(fls[<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   sampleID = col_character(),
 ##   patient = col_character(),
@@ -706,7 +706,7 @@ and you should get 4825.2778709 and 23.</p>
 ##  }
 ##  return(sum(res))
 ## }
-## &lt;bytecode: 0x55706a25d9c0&gt;</code></pre>
+## &lt;bytecode: 0x5625fb38e808&gt;</code></pre>
 <div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="sec-prog.html#cb557-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(1L)</span>
 <span id="cb557-2"><a href="sec-prog.html#cb557-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fun</span>(<span class="dv">5</span>, <span class="dv">15</span>)</span></code></pre></div>
 <pre><code>## [1] 4825.278</code></pre>
@@ -842,7 +842,7 @@ dataframe containing all results.</li>
 <span id="cb584-2"><a href="sec-prog.html#cb584-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(fls))</span>
 <span id="cb584-3"><a href="sec-prog.html#cb584-3" aria-hidden="true" tabindex="-1"></a>    l[[i]] <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fls[i])</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   id = col_character(),
 ##   height = col_double(),
@@ -855,7 +855,7 @@ dataframe containing all results.</li>
 ## )
 ## 
 ## 
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   id = col_character(),
 ##   height = col_double(),
@@ -887,7 +887,7 @@ dataframe containing all results.</li>
 <p>or</p>
 <div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="sec-prog.html#cb590-1" aria-hidden="true" tabindex="-1"></a>l <span class="ot">&lt;-</span> <span class="fu">lapply</span>(fls, read_csv)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   id = col_character(),
 ##   height = col_double(),
@@ -900,7 +900,7 @@ dataframe containing all results.</li>
 ## )
 ## 
 ## 
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   id = col_character(),
 ##   height = col_double(),
@@ -1113,7 +1113,7 @@ that that 1 yard corresponds to 0.9144 meters</p>
 <a href="sec-ccl.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-02-04
+2021-02-06
  using 
 R version 4.0.3 Patched (2021-01-18 r79847)
 </p>
