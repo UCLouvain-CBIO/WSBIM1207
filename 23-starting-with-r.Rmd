@@ -953,3 +953,45 @@ names(p3) <- c("D1", "D2", "A10", "D5", "D15", "A16", "B22")
 - What command would you use to get the vote for student `D2` from vector `p`?
 
 `r msmbstyle::question_end()`
+
+
+`r msmbstyle::question_begin()`
+
+Copy and paset the code chunk below to generate a vector of marks,
+including some students with missing values that didn't take that
+test.
+
+
+```{r, eval = FALSE}
+c(student1 = 12, student2 = 11, student3 = 4, student4 = 6, student5 = 7,
+  student6 = 8.5, student7 = 13.5, student8 = 5.5, student9 = 13.5,
+  student10 = 2.5, student11 = 17, student12 = 18, student13 = 15,
+  student14 = 8, student15 = 7, student16 = 12, student17 = 18.5,
+  student18 = 7.5, student19 = 13.5, student20 = 6, student21 = 9,
+  student22 = 16, student23 = 8.5, student24 = 9, student25 = NA,
+  student26 = NA, student27 = 14, student28 = 16.5, student29 = 12,
+  student30 = NA, student31 = 12.5, student32 = 3, student33 = NA,
+  student34 = 17, student35 = 16, student36 = 9, student37 = 6,
+  student38 = 7, student39 = 8.5, student40 = 8.5, student41 = 8,
+  student42 = 16.5, student43 = 4.5, student44 = NA, student45 = 8,
+  student46 = 8, student47 = 7.5, student48 = 8.5, student49 = 2,
+  student50 = 14, student51 = 6.5, student52 = 12, student53 = 16.5,
+  student54 = 7, student55 = 9.5, student56 = 12, student57 = 8.5,
+  student58 = 15.5, student59 = 9, student60 = 13.5, student61 = 18,
+  student62 = 12.5, student63 = 19.5, student64 = 13, student65 = 17.5,
+  student66 = 8.5, student67 = 9, student68 = 7, student69 = 12.5,
+  student70 = NA, student71 = 19, student72 = 11.5, student73 = 9,
+  student74 = 9.5, student75 = 12, student76 = 11, student77 = 12,
+  student78 = 14, student79 = 17, student80 = 8.5, student81 = 10,
+  student82 = 10, student83 = NA, student84 = 10.5, student85 = 14,
+  student86 = 7.5, student87 = 4, student88 = 9, student89 = 6.5,
+  student90 = 10.5, student91 = 9.5, student92 = 13, student93 = 11.5,
+  student94 = NA, student95 = 6, student96 = 12.5, student97 = 11.5,
+  student98 = 4, student99 = 11.5, student100 = 8)
+```
+
+- What is the number of students that have a mark > 10?
+
+- What is the number of students that have a mark greater than the average score?
+
+`r msmbstyle::question_end()`
