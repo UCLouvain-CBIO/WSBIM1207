@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-02-06" />
+<meta name="date" content="2021-03-01" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -305,18 +305,18 @@ going to use is of the expected type.</p></li>
 <li><p>Make sure the length or dimensions of what you are going to use are
 what you expect:</p></li>
 </ul>
-<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="sec-prog.html#cb505-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x) <span class="sc">&gt;</span> <span class="dv">0</span></span>
-<span id="cb505-2"><a href="sec-prog.html#cb505-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(x) <span class="sc">&gt;</span> <span class="dv">0</span></span>
-<span id="cb505-3"><a href="sec-prog.html#cb505-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(x) <span class="sc">&gt;</span> <span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="sec-prog.html#cb506-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x) <span class="sc">&gt;</span> <span class="dv">0</span></span>
+<span id="cb506-2"><a href="sec-prog.html#cb506-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(x) <span class="sc">&gt;</span> <span class="dv">0</span></span>
+<span id="cb506-3"><a href="sec-prog.html#cb506-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(x) <span class="sc">&gt;</span> <span class="dv">0</span></span></code></pre></div>
 <ul>
 <li>Failing fast and well! Wrap such test in <code>stopifnot()</code>, so that if
 they fail, you get immediately an error, rather than risking that
 you code fails later with obscure error messages or, worse, the code
 runs to completion but returns meaningless results.</li>
 </ul>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="sec-prog.html#cb506-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">length</span>(x) <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
-<span id="cb506-2"><a href="sec-prog.html#cb506-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">dim</span>(x) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="do">## same as next one</span></span>
-<span id="cb506-3"><a href="sec-prog.html#cb506-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">ncol</span>(x) <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="fu">nrow</span>(x) <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="sec-prog.html#cb507-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">length</span>(x) <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb507-2"><a href="sec-prog.html#cb507-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">dim</span>(x) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="do">## same as next one</span></span>
+<span id="cb507-3"><a href="sec-prog.html#cb507-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">ncol</span>(x) <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="fu">nrow</span>(x) <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code></pre></div>
 </div>
 <div id="iteration" class="section level2" number="10.2">
 <h2>
@@ -325,7 +325,7 @@ runs to completion but returns meaningless results.</li>
 <p>Iteration describes the situtation when a specific operation has to be
 repeated many times on different inputs of the same type. For example,
 if we have a vector of numeric <code>x</code> shown below,</p>
-<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="sec-prog.html#cb507-1" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="sec-prog.html#cb508-1" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p>and we wanted to apply the logarithm operation on each element of <code>x</code>,
 it wouldn’t be convenient to type</p>
@@ -346,9 +346,9 @@ log(10)</code></pre>
 <div id="using-a-for-loop" class="section level3 unnumbered">
 <h3>Using a <code>for</code> loop<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('using-a-for-loop')" onmouseout="reset_tooltip('using-a-for-loop-tooltip')"><span class="tooltiptext" id="using-a-for-loop-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
-<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="sec-prog.html#cb510-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> x) {</span>
-<span id="cb510-2"><a href="sec-prog.html#cb510-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">log</span>(i))</span>
-<span id="cb510-3"><a href="sec-prog.html#cb510-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="sec-prog.html#cb511-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> x) {</span>
+<span id="cb511-2"><a href="sec-prog.html#cb511-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">log</span>(i))</span>
+<span id="cb511-3"><a href="sec-prog.html#cb511-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 0
 ## [1] 0.6931472
 ## [1] 1.098612
@@ -367,11 +367,11 @@ appropriate number of <code>NA</code> values and, at each iteration, we then
 store the result. We however now need to change our loop and iterate
 of the indices of the input vector, so that we can re-use these
 indices to save the results in the output vector.</p>
-<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="sec-prog.html#cb512-1" aria-hidden="true" tabindex="-1"></a>res_loop <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="fu">length</span>(x))</span>
-<span id="cb512-2"><a href="sec-prog.html#cb512-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) {</span>
-<span id="cb512-3"><a href="sec-prog.html#cb512-3" aria-hidden="true" tabindex="-1"></a>    res_loop[i] <span class="ot">&lt;-</span> <span class="fu">log</span>(x[i])</span>
-<span id="cb512-4"><a href="sec-prog.html#cb512-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb512-5"><a href="sec-prog.html#cb512-5" aria-hidden="true" tabindex="-1"></a>res_loop</span></code></pre></div>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="sec-prog.html#cb513-1" aria-hidden="true" tabindex="-1"></a>res_loop <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="fu">length</span>(x))</span>
+<span id="cb513-2"><a href="sec-prog.html#cb513-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) {</span>
+<span id="cb513-3"><a href="sec-prog.html#cb513-3" aria-hidden="true" tabindex="-1"></a>    res_loop[i] <span class="ot">&lt;-</span> <span class="fu">log</span>(x[i])</span>
+<span id="cb513-4"><a href="sec-prog.html#cb513-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb513-5"><a href="sec-prog.html#cb513-5" aria-hidden="true" tabindex="-1"></a>res_loop</span></code></pre></div>
 <pre><code>##  [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
 ##  [8] 2.0794415 2.1972246 2.3025851</code></pre>
 </div>
@@ -388,8 +388,8 @@ quite literally</p>
 <p>For each value of my input <code>x</code>, apply <code>log</code></p>
 </blockquote>
 <p>and coded as</p>
-<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="sec-prog.html#cb514-1" aria-hidden="true" tabindex="-1"></a>res_apply <span class="ot">&lt;-</span> <span class="fu">sapply</span>(x, log)</span>
-<span id="cb514-2"><a href="sec-prog.html#cb514-2" aria-hidden="true" tabindex="-1"></a>res_apply</span></code></pre></div>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="sec-prog.html#cb515-1" aria-hidden="true" tabindex="-1"></a>res_apply <span class="ot">&lt;-</span> <span class="fu">sapply</span>(x, log)</span>
+<span id="cb515-2"><a href="sec-prog.html#cb515-2" aria-hidden="true" tabindex="-1"></a>res_apply</span></code></pre></div>
 <pre><code>##  [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
 ##  [8] 2.0794415 2.1972246 2.3025851</code></pre>
 <p>There are three such function that <em>apply</em> a function iteratively:</p>
@@ -412,7 +412,7 @@ and <code>2</code> defined columns<label for="tufte-sn-23" class="margin-toggle 
 implementations), it is essential to verify that the results are
 identical or, if not, at least compatible. The most direct way to do
 the former is to use the <code>identical</code> function:</p>
-<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="sec-prog.html#cb516-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(res_loop, res_apply)</span></code></pre></div>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="sec-prog.html#cb517-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(res_loop, res_apply)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>The <code>purrr</code> package a set of <code>map</code> functions similar to the <code>apply</code>
 set described above.</p>
@@ -425,12 +425,12 @@ functions work by default iteratively on every element of a vectors,
 i.e. they work irrespectively whether the vector is of length
 1<label for="tufte-sn-24" class="margin-toggle sidenote-number">24</label><input type="checkbox" id="tufte-sn-24" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">24</span> A vector of length 1 would be called a scalar in other
 programming languages.</span> or longer.</p>
-<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="sec-prog.html#cb518-1" aria-hidden="true" tabindex="-1"></a>res_vec <span class="ot">&lt;-</span> <span class="fu">log</span>(x)</span>
-<span id="cb518-2"><a href="sec-prog.html#cb518-2" aria-hidden="true" tabindex="-1"></a>res_vec</span></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="sec-prog.html#cb519-1" aria-hidden="true" tabindex="-1"></a>res_vec <span class="ot">&lt;-</span> <span class="fu">log</span>(x)</span>
+<span id="cb519-2"><a href="sec-prog.html#cb519-2" aria-hidden="true" tabindex="-1"></a>res_vec</span></code></pre></div>
 <pre><code>##  [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
 ##  [8] 2.0794415 2.1972246 2.3025851</code></pre>
 <p>And, as before, we check that we obtain identical results:</p>
-<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="sec-prog.html#cb520-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(res_loop, res_vec)</span></code></pre></div>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="sec-prog.html#cb521-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(res_loop, res_vec)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
 <div id="which-iteration-to-use" class="section level3 unnumbered">
@@ -481,10 +481,10 @@ they need to be combined.</p>
 <div id="sol-body-36" class="solution-body" style="display: none;">
 <p>Let’s start by loading the required packages and check two file. We
 will also use the <em>tidyverse</em> to work with the data.</p>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="sec-prog.html#cb522-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span>
-<span id="cb522-2"><a href="sec-prog.html#cb522-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rWSBIM1207"</span>)</span>
-<span id="cb522-3"><a href="sec-prog.html#cb522-3" aria-hidden="true" tabindex="-1"></a>fls <span class="ot">&lt;-</span> <span class="fu">expressions.csv</span>()</span>
-<span id="cb522-4"><a href="sec-prog.html#cb522-4" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(fls[<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="sec-prog.html#cb523-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb523-2"><a href="sec-prog.html#cb523-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rWSBIM1207"</span>)</span>
+<span id="cb523-3"><a href="sec-prog.html#cb523-3" aria-hidden="true" tabindex="-1"></a>fls <span class="ot">&lt;-</span> <span class="fu">expressions.csv</span>()</span>
+<span id="cb523-4"><a href="sec-prog.html#cb523-4" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(fls[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## 
 ## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
@@ -507,7 +507,7 @@ will also use the <em>tidyverse</em> to work with the data.</p>
 ##  9 TCGA-05-4396-01A TCGA-05-4396 tumor  17.4
 ## 10 TCGA-05-4397-01A TCGA-05-4397 tumor 127. 
 ## # … with 560 more rows</code></pre>
-<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="sec-prog.html#cb525-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(fls[<span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="sec-prog.html#cb526-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(fls[<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## 
 ## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
@@ -535,14 +535,14 @@ it manually, adding news columns one by on to the first data, but this
 would require to check that the observations are in the same
 order. Instead, we will use a <code>full_join</code>, as seen in chapter
 <a href="sec-join.html#sec:join">7</a>.</p>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="sec-prog.html#cb528-1" aria-hidden="true" tabindex="-1"></a><span class="do">## read the first one</span></span>
-<span id="cb528-2"><a href="sec-prog.html#cb528-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fls[<span class="dv">1</span>])</span>
-<span id="cb528-3"><a href="sec-prog.html#cb528-3" aria-hidden="true" tabindex="-1"></a><span class="do">## iterate over the other data</span></span>
-<span id="cb528-4"><a href="sec-prog.html#cb528-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="fu">length</span>(fls)) {</span>
-<span id="cb528-5"><a href="sec-prog.html#cb528-5" aria-hidden="true" tabindex="-1"></a>    data_i <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fls[i], <span class="at">progress =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb528-6"><a href="sec-prog.html#cb528-6" aria-hidden="true" tabindex="-1"></a>    res <span class="ot">&lt;-</span> <span class="fu">full_join</span>(res, data_i)</span>
-<span id="cb528-7"><a href="sec-prog.html#cb528-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb528-8"><a href="sec-prog.html#cb528-8" aria-hidden="true" tabindex="-1"></a>res</span></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="sec-prog.html#cb529-1" aria-hidden="true" tabindex="-1"></a><span class="do">## read the first one</span></span>
+<span id="cb529-2"><a href="sec-prog.html#cb529-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fls[<span class="dv">1</span>])</span>
+<span id="cb529-3"><a href="sec-prog.html#cb529-3" aria-hidden="true" tabindex="-1"></a><span class="do">## iterate over the other data</span></span>
+<span id="cb529-4"><a href="sec-prog.html#cb529-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="fu">length</span>(fls)) {</span>
+<span id="cb529-5"><a href="sec-prog.html#cb529-5" aria-hidden="true" tabindex="-1"></a>    data_i <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fls[i], <span class="at">progress =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb529-6"><a href="sec-prog.html#cb529-6" aria-hidden="true" tabindex="-1"></a>    res <span class="ot">&lt;-</span> <span class="fu">full_join</span>(res, data_i)</span>
+<span id="cb529-7"><a href="sec-prog.html#cb529-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb529-8"><a href="sec-prog.html#cb529-8" aria-hidden="true" tabindex="-1"></a>res</span></code></pre></div>
 <pre><code>## # A tibble: 570 x 8
 ##    sampleID         patient      type   A1BG   A1CF A2BP1 A2LD1   A2ML1
 ##    &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
@@ -577,23 +577,23 @@ typically uses a <code>if</code> and <code>else</code> construct:</p>
   ## DO SOMETHING ELSE
 }</code></pre>
 <p>For examples</p>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="sec-prog.html#cb531-1" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="sec-prog.html#cb532-1" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1</span>))</span></code></pre></div>
 <pre><code>## [1] -0.6264538</code></pre>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="sec-prog.html#cb533-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb533-2"><a href="sec-prog.html#cb533-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(<span class="fu">log</span>(x))</span>
-<span id="cb533-3"><a href="sec-prog.html#cb533-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb533-4"><a href="sec-prog.html#cb533-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(<span class="fu">log</span>(<span class="sc">-</span>x))</span>
-<span id="cb533-5"><a href="sec-prog.html#cb533-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="sec-prog.html#cb534-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb534-2"><a href="sec-prog.html#cb534-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(<span class="fu">log</span>(x))</span>
+<span id="cb534-3"><a href="sec-prog.html#cb534-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb534-4"><a href="sec-prog.html#cb534-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(<span class="fu">log</span>(<span class="sc">-</span>x))</span>
+<span id="cb534-5"><a href="sec-prog.html#cb534-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] -0.4676802</code></pre>
 <p>But note that in the example above, it would be much better to
 simplify the code and use the absolute value of <code>x</code> before taking the
 log, which will generalise the calculation for positive and negative
 values …</p>
-<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="sec-prog.html#cb535-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="fu">abs</span>(x))</span></code></pre></div>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="sec-prog.html#cb536-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="fu">abs</span>(x))</span></code></pre></div>
 <pre><code>## [1] -0.4676802</code></pre>
 <p>… and works for vectors of any length thanks to vectorisation.</p>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="sec-prog.html#cb537-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
-<span id="cb537-2"><a href="sec-prog.html#cb537-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="fu">abs</span>(x))</span></code></pre></div>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="sec-prog.html#cb538-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
+<span id="cb538-2"><a href="sec-prog.html#cb538-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="fu">abs</span>(x))</span></code></pre></div>
 <pre><code>##  [1] -1.6947599 -0.1795710  0.4670498 -1.1101553 -0.1978799 -0.7186105
 ##  [7] -0.3033716 -0.5520273 -1.1861709  0.4132885</code></pre>
 <p>There are also in-line, vectorised versions of the <code>if/else</code>
@@ -613,22 +613,22 @@ condition is <code>FALSE</code>).</li>
 </ul>
 <p>Here is an example, that will return 1 if <code>x</code> is strictly positive,
 and 0 otherwise:</p>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="sec-prog.html#cb540-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb540-2"><a href="sec-prog.html#cb540-2" aria-hidden="true" tabindex="-1"></a><span class="fu">if_else</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="sec-prog.html#cb541-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb541-2"><a href="sec-prog.html#cb541-2" aria-hidden="true" tabindex="-1"></a><span class="fu">if_else</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>The function being vectorised, the condition can be a vector of length
 greater than 1:</p>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="sec-prog.html#cb542-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
-<span id="cb542-2"><a href="sec-prog.html#cb542-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="sec-prog.html#cb543-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
+<span id="cb543-2"><a href="sec-prog.html#cb543-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>##  [1]  0.38984324 -0.62124058 -2.21469989  1.12493092 -0.04493361 -0.01619026
 ##  [7]  0.94383621  0.82122120  0.59390132  0.91897737</code></pre>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="sec-prog.html#cb544-1" aria-hidden="true" tabindex="-1"></a><span class="fu">if_else</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="sec-prog.html#cb545-1" aria-hidden="true" tabindex="-1"></a><span class="fu">if_else</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div>
 <pre><code>##  [1] 1 0 0 1 0 0 1 1 1 1</code></pre>
 <p>The vectorised conditional functions can directly be used in a
 standard data analysis pipeline:</p>
-<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="sec-prog.html#cb546-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>],</span>
-<span id="cb546-2"><a href="sec-prog.html#cb546-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">5</span>))</span>
-<span id="cb546-3"><a href="sec-prog.html#cb546-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="sec-prog.html#cb547-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>],</span>
+<span id="cb547-2"><a href="sec-prog.html#cb547-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">5</span>))</span>
+<span id="cb547-3"><a href="sec-prog.html#cb547-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## # A tibble: 5 x 2
 ##   x          y
 ##   &lt;chr&gt;  &lt;dbl&gt;
@@ -637,7 +637,7 @@ standard data analysis pipeline:</p>
 ## 3 c     -0.836
 ## 4 d      1.60 
 ## 5 e      0.330</code></pre>
-<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="sec-prog.html#cb548-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(x, <span class="at">z =</span> <span class="fu">if_else</span>(y <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="sec-prog.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(x, <span class="at">z =</span> <span class="fu">if_else</span>(y <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 5 x 3
 ##   x          y     z
 ##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;
@@ -654,13 +654,13 @@ standard data analysis pipeline:</p>
 <p>A function is composed of a name, inputs (inside the parenthesis), a
 body (between curly brackets) and an ouput (last statement or variably
 inside the <code>return</code> statement).</p>
-<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="sec-prog.html#cb550-1" aria-hidden="true" tabindex="-1"></a>my_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb550-2"><a href="sec-prog.html#cb550-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"First input: "</span>, x)</span>
-<span id="cb550-3"><a href="sec-prog.html#cb550-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Second input: "</span>, y)</span>
-<span id="cb550-4"><a href="sec-prog.html#cb550-4" aria-hidden="true" tabindex="-1"></a>    z <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="fu">abs</span>(y)</span>
-<span id="cb550-5"><a href="sec-prog.html#cb550-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(z)</span>
-<span id="cb550-6"><a href="sec-prog.html#cb550-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb550-7"><a href="sec-prog.html#cb550-7" aria-hidden="true" tabindex="-1"></a><span class="fu">my_fun</span>(<span class="dv">2</span>, <span class="sc">-</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="sec-prog.html#cb551-1" aria-hidden="true" tabindex="-1"></a>my_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb551-2"><a href="sec-prog.html#cb551-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"First input: "</span>, x)</span>
+<span id="cb551-3"><a href="sec-prog.html#cb551-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Second input: "</span>, y)</span>
+<span id="cb551-4"><a href="sec-prog.html#cb551-4" aria-hidden="true" tabindex="-1"></a>    z <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="fu">abs</span>(y)</span>
+<span id="cb551-5"><a href="sec-prog.html#cb551-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(z)</span>
+<span id="cb551-6"><a href="sec-prog.html#cb551-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb551-7"><a href="sec-prog.html#cb551-7" aria-hidden="true" tabindex="-1"></a><span class="fu">my_fun</span>(<span class="dv">2</span>, <span class="sc">-</span><span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## First input: 2</code></pre>
 <pre><code>## Second input: -5</code></pre>
 <pre><code>## [1] 10</code></pre>
@@ -674,15 +674,15 @@ inside the <code>return</code> statement).</p>
 the permutation <code>sample(x, y)</code> in the first case or draws a sample
 from <code>rnorm(1000, x, y)</code> in the second case. Finally, it returns the
 sum of all values.</p>
-<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="sec-prog.html#cb554-1" aria-hidden="true" tabindex="-1"></a>fun <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb554-2"><a href="sec-prog.html#cb554-2" aria-hidden="true" tabindex="-1"></a>    res <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb554-3"><a href="sec-prog.html#cb554-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (   ) {</span>
-<span id="cb554-4"><a href="sec-prog.html#cb554-4" aria-hidden="true" tabindex="-1"></a>        res <span class="ot">&lt;-</span> <span class="fu">sample</span>(, )</span>
-<span id="cb554-5"><a href="sec-prog.html#cb554-5" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb554-6"><a href="sec-prog.html#cb554-6" aria-hidden="true" tabindex="-1"></a>        res <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(, , )</span>
-<span id="cb554-7"><a href="sec-prog.html#cb554-7" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb554-8"><a href="sec-prog.html#cb554-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>()</span>
-<span id="cb554-9"><a href="sec-prog.html#cb554-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="sec-prog.html#cb555-1" aria-hidden="true" tabindex="-1"></a>fun <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb555-2"><a href="sec-prog.html#cb555-2" aria-hidden="true" tabindex="-1"></a>    res <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb555-3"><a href="sec-prog.html#cb555-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (   ) {</span>
+<span id="cb555-4"><a href="sec-prog.html#cb555-4" aria-hidden="true" tabindex="-1"></a>        res <span class="ot">&lt;-</span> <span class="fu">sample</span>(, )</span>
+<span id="cb555-5"><a href="sec-prog.html#cb555-5" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb555-6"><a href="sec-prog.html#cb555-6" aria-hidden="true" tabindex="-1"></a>        res <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(, , )</span>
+<span id="cb555-7"><a href="sec-prog.html#cb555-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb555-8"><a href="sec-prog.html#cb555-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>()</span>
+<span id="cb555-9"><a href="sec-prog.html#cb555-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>To check your answer, run it with inputs 5, 15 and 15, 5, after
 setting the random number generator to 1 each time with <code>set.seed(1)</code>
 and you should get 4825.2778709 and 23.</p>
@@ -696,7 +696,7 @@ and you should get 4825.2778709 and 23.</p>
 ► Solution<span id="sol-start-37" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-37', 'sol-start-37')"></span>
 </p>
 <div id="sol-body-37" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="sec-prog.html#cb555-1" aria-hidden="true" tabindex="-1"></a>fun</span></code></pre></div>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="sec-prog.html#cb556-1" aria-hidden="true" tabindex="-1"></a>fun</span></code></pre></div>
 <pre><code>## function(x, y) {
 ##  res &lt;- NA
 ##  if (x &gt; y) {
@@ -706,12 +706,12 @@ and you should get 4825.2778709 and 23.</p>
 ##  }
 ##  return(sum(res))
 ## }
-## &lt;bytecode: 0x5625fb38e808&gt;</code></pre>
-<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="sec-prog.html#cb557-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(1L)</span>
-<span id="cb557-2"><a href="sec-prog.html#cb557-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fun</span>(<span class="dv">5</span>, <span class="dv">15</span>)</span></code></pre></div>
+## &lt;bytecode: 0x564f1076f7c0&gt;</code></pre>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="sec-prog.html#cb558-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(1L)</span>
+<span id="cb558-2"><a href="sec-prog.html#cb558-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fun</span>(<span class="dv">5</span>, <span class="dv">15</span>)</span></code></pre></div>
 <pre><code>## [1] 4825.278</code></pre>
-<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="sec-prog.html#cb559-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(1L)</span>
-<span id="cb559-2"><a href="sec-prog.html#cb559-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fun</span>(<span class="dv">15</span>, <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="sec-prog.html#cb560-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(1L)</span>
+<span id="cb560-2"><a href="sec-prog.html#cb560-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fun</span>(<span class="dv">15</span>, <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] 23</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -728,40 +728,40 @@ patterns in text and replace these. We are going to see two functions
 out of many to perform such tasks. As an illustration, we are going to
 mine a vector or peptides identified by mass spectrometry. The data
 can be loaded from the <code>rWSBIM1207</code> data:</p>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="sec-prog.html#cb561-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rWSBIM1207"</span>)</span>
-<span id="cb561-2"><a href="sec-prog.html#cb561-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(peptides)</span>
-<span id="cb561-3"><a href="sec-prog.html#cb561-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(peptides)</span></code></pre></div>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="sec-prog.html#cb562-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rWSBIM1207"</span>)</span>
+<span id="cb562-2"><a href="sec-prog.html#cb562-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(peptides)</span>
+<span id="cb562-3"><a href="sec-prog.html#cb562-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(peptides)</span></code></pre></div>
 <pre><code>## [1] 26796</code></pre>
-<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="sec-prog.html#cb563-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(peptides)</span></code></pre></div>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="sec-prog.html#cb564-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(peptides)</span></code></pre></div>
 <pre><code>## [1] "aAAGEAk" "VTEEAk"  "aSGDPGk" "sAAAEAk" "aANAEGk" "aAAEEAR"</code></pre>
 <ol style="list-style-type: decimal">
 <li>Among the 26796 petides, which ones contain the pattern <code>"AAGE"</code>?</li>
 </ol>
-<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="sec-prog.html#cb565-1" aria-hidden="true" tabindex="-1"></a>pattern <span class="ot">&lt;-</span> <span class="st">"AAGE"</span></span>
-<span id="cb565-2"><a href="sec-prog.html#cb565-2" aria-hidden="true" tabindex="-1"></a><span class="do">## indices of matching peptides</span></span>
-<span id="cb565-3"><a href="sec-prog.html#cb565-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(pattern, peptides)</span></code></pre></div>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="sec-prog.html#cb566-1" aria-hidden="true" tabindex="-1"></a>pattern <span class="ot">&lt;-</span> <span class="st">"AAGE"</span></span>
+<span id="cb566-2"><a href="sec-prog.html#cb566-2" aria-hidden="true" tabindex="-1"></a><span class="do">## indices of matching peptides</span></span>
+<span id="cb566-3"><a href="sec-prog.html#cb566-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(pattern, peptides)</span></code></pre></div>
 <pre><code>## [1]     1  7026 17140 21912 23423 24947 25257 26658</code></pre>
-<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="sec-prog.html#cb567-1" aria-hidden="true" tabindex="-1"></a><span class="do">## matching peptides</span></span>
-<span id="cb567-2"><a href="sec-prog.html#cb567-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(pattern, peptides, <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="sec-prog.html#cb568-1" aria-hidden="true" tabindex="-1"></a><span class="do">## matching peptides</span></span>
+<span id="cb568-2"><a href="sec-prog.html#cb568-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(pattern, peptides, <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] "aAAGEAk"              "aFHGAAGEAGAAFGNHGANR" "eAIDAAGEGGR"         
 ## [4] "sAAGEFADDPcSSVkR"     "eAAGEGPVLYEDPPDQk"    "eIEAAGEk"            
 ## [7] "dVQELYAAGENR"         "sAAGEFADDPcSSVk"</code></pre>
-<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="sec-prog.html#cb569-1" aria-hidden="true" tabindex="-1"></a><span class="do">## position of matching peptides</span></span>
-<span id="cb569-2"><a href="sec-prog.html#cb569-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">grepl</span>(pattern, peptides))</span></code></pre></div>
+<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="sec-prog.html#cb570-1" aria-hidden="true" tabindex="-1"></a><span class="do">## position of matching peptides</span></span>
+<span id="cb570-2"><a href="sec-prog.html#cb570-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">grepl</span>(pattern, peptides))</span></code></pre></div>
 <pre><code>## [1]  TRUE FALSE FALSE FALSE FALSE FALSE</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Replace a pattern by another string.</li>
 </ol>
-<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="sec-prog.html#cb571-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(peptides)</span></code></pre></div>
+<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="sec-prog.html#cb572-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(peptides)</span></code></pre></div>
 <pre><code>## [1] "aAAGEAk" "VTEEAk"  "aSGDPGk" "sAAAEAk" "aANAEGk" "aAAEEAR"</code></pre>
-<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="sec-prog.html#cb573-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">sub</span>(<span class="st">"AE"</span>, <span class="st">"XX"</span>, peptides))</span></code></pre></div>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="sec-prog.html#cb574-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">sub</span>(<span class="st">"AE"</span>, <span class="st">"XX"</span>, peptides))</span></code></pre></div>
 <pre><code>## [1] "aAAGEAk" "VTEEAk"  "aSGDPGk" "sAAXXAk" "aANXXGk" "aAXXEAR"</code></pre>
 <p>But careful that <code>sub</code> only replaced the first occurrence in a string!</p>
-<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="sec-prog.html#cb575-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(peptides)</span></code></pre></div>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="sec-prog.html#cb576-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(peptides)</span></code></pre></div>
 <pre><code>## [1] "aAAGEAk" "VTEEAk"  "aSGDPGk" "sAAAEAk" "aANAEGk" "aAAEEAR"</code></pre>
-<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="sec-prog.html#cb577-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">sub</span>(<span class="st">"A"</span>, <span class="st">"X"</span>, peptides))</span></code></pre></div>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="sec-prog.html#cb578-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">sub</span>(<span class="st">"A"</span>, <span class="st">"X"</span>, peptides))</span></code></pre></div>
 <pre><code>## [1] "aXAGEAk" "VTEEXk"  "aSGDPGk" "sXAAEAk" "aXNAEGk" "aXAEEAR"</code></pre>
-<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="sec-prog.html#cb579-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">gsub</span>(<span class="st">"A"</span>, <span class="st">"X"</span>, peptides))</span></code></pre></div>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="sec-prog.html#cb580-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">gsub</span>(<span class="st">"A"</span>, <span class="st">"X"</span>, peptides))</span></code></pre></div>
 <pre><code>## [1] "aXXGEXk" "VTEEXk"  "aSGDPGk" "sXXXEXk" "aXNXEGk" "aXXEEXR"</code></pre>
 </div>
 <div id="analysing-data-from-multiple-files" class="section level2" number="10.6">
@@ -801,8 +801,8 @@ all the functionality we will need.</li>
 ► Solution<span id="sol-start-38" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-38', 'sol-start-38')"></span>
 </p>
 <div id="sol-body-38" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="sec-prog.html#cb581-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rWSBIM1207"</span>)</span>
-<span id="cb581-2"><a href="sec-prog.html#cb581-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="sec-prog.html#cb582-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rWSBIM1207"</span>)</span>
+<span id="cb582-2"><a href="sec-prog.html#cb582-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -818,9 +818,9 @@ names.</li>
 ► Solution<span id="sol-start-39" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-39', 'sol-start-39')"></span>
 </p>
 <div id="sol-body-39" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="sec-prog.html#cb582-1" aria-hidden="true" tabindex="-1"></a>fls <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">interroA.csv</span>(),</span>
-<span id="cb582-2"><a href="sec-prog.html#cb582-2" aria-hidden="true" tabindex="-1"></a>         <span class="fu">interroB.csv</span>())</span>
-<span id="cb582-3"><a href="sec-prog.html#cb582-3" aria-hidden="true" tabindex="-1"></a>fls</span></code></pre></div>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="sec-prog.html#cb583-1" aria-hidden="true" tabindex="-1"></a>fls <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">interroA.csv</span>(),</span>
+<span id="cb583-2"><a href="sec-prog.html#cb583-2" aria-hidden="true" tabindex="-1"></a>         <span class="fu">interroB.csv</span>())</span>
+<span id="cb583-3"><a href="sec-prog.html#cb583-3" aria-hidden="true" tabindex="-1"></a>fls</span></code></pre></div>
 <pre><code>## [1] "/home/lgatto/R/x86_64-pc-linux-gnu-library/4.0/rWSBIM1207/extdata/interroA.csv"
 ## [2] "/home/lgatto/R/x86_64-pc-linux-gnu-library/4.0/rWSBIM1207/extdata/interroB.csv"</code></pre>
 <p class="solution-end">
@@ -838,9 +838,9 @@ dataframe containing all results.</li>
 ► Solution<span id="sol-start-40" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-40', 'sol-start-40')"></span>
 </p>
 <div id="sol-body-40" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="sec-prog.html#cb584-1" aria-hidden="true" tabindex="-1"></a>l <span class="ot">&lt;-</span> <span class="fu">as.list</span>(fls)</span>
-<span id="cb584-2"><a href="sec-prog.html#cb584-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(fls))</span>
-<span id="cb584-3"><a href="sec-prog.html#cb584-3" aria-hidden="true" tabindex="-1"></a>    l[[i]] <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fls[i])</span></code></pre></div>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="sec-prog.html#cb585-1" aria-hidden="true" tabindex="-1"></a>l <span class="ot">&lt;-</span> <span class="fu">as.list</span>(fls)</span>
+<span id="cb585-2"><a href="sec-prog.html#cb585-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(fls))</span>
+<span id="cb585-3"><a href="sec-prog.html#cb585-3" aria-hidden="true" tabindex="-1"></a>    l[[i]] <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fls[i])</span></code></pre></div>
 <pre><code>## 
 ## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
@@ -866,8 +866,8 @@ dataframe containing all results.</li>
 ##   interro3 = col_double(),
 ##   interro4 = col_double()
 ## )</code></pre>
-<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="sec-prog.html#cb586-1" aria-hidden="true" tabindex="-1"></a>interros <span class="ot">&lt;-</span> <span class="fu">rbind</span>(l[[<span class="dv">1</span>]], l[[<span class="dv">2</span>]])</span>
-<span id="cb586-2"><a href="sec-prog.html#cb586-2" aria-hidden="true" tabindex="-1"></a>interros</span></code></pre></div>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="sec-prog.html#cb587-1" aria-hidden="true" tabindex="-1"></a>interros <span class="ot">&lt;-</span> <span class="fu">rbind</span>(l[[<span class="dv">1</span>]], l[[<span class="dv">2</span>]])</span>
+<span id="cb587-2"><a href="sec-prog.html#cb587-2" aria-hidden="true" tabindex="-1"></a>interros</span></code></pre></div>
 <pre><code>## # A tibble: 205 x 8
 ##    id     height gender      X interro1 interro2 interro3 interro4
 ##    &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
@@ -882,10 +882,10 @@ dataframe containing all results.</li>
 ##  9 A80471    187 F       0.231       19       16       16        8
 ## 10 A21783    195 F      -0.295       13       11        8       20
 ## # … with 195 more rows</code></pre>
-<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="sec-prog.html#cb588-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(interros)</span></code></pre></div>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="sec-prog.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(interros)</span></code></pre></div>
 <pre><code>## [1] 205   8</code></pre>
 <p>or</p>
-<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="sec-prog.html#cb590-1" aria-hidden="true" tabindex="-1"></a>l <span class="ot">&lt;-</span> <span class="fu">lapply</span>(fls, read_csv)</span></code></pre></div>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="sec-prog.html#cb591-1" aria-hidden="true" tabindex="-1"></a>l <span class="ot">&lt;-</span> <span class="fu">lapply</span>(fls, read_csv)</span></code></pre></div>
 <pre><code>## 
 ## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
@@ -911,8 +911,8 @@ dataframe containing all results.</li>
 ##   interro3 = col_double(),
 ##   interro4 = col_double()
 ## )</code></pre>
-<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="sec-prog.html#cb592-1" aria-hidden="true" tabindex="-1"></a>interros2 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(l[[<span class="dv">1</span>]], l[[<span class="dv">2</span>]])</span>
-<span id="cb592-2"><a href="sec-prog.html#cb592-2" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(interros, interros2)</span></code></pre></div>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="sec-prog.html#cb593-1" aria-hidden="true" tabindex="-1"></a>interros2 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(l[[<span class="dv">1</span>]], l[[<span class="dv">2</span>]])</span>
+<span id="cb593-2"><a href="sec-prog.html#cb593-2" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(interros, interros2)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -928,12 +928,12 @@ dataframe containing all results.</li>
 ► Solution<span id="sol-start-41" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-41', 'sol-start-41')"></span>
 </p>
 <div id="sol-body-41" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="sec-prog.html#cb594-1" aria-hidden="true" tabindex="-1"></a>interros <span class="sc">%&gt;%</span></span>
-<span id="cb594-2"><a href="sec-prog.html#cb594-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span></span>
-<span id="cb594-3"><a href="sec-prog.html#cb594-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">m1 =</span> <span class="fu">mean</span>(interro1, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb594-4"><a href="sec-prog.html#cb594-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">m2 =</span> <span class="fu">mean</span>(interro2, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb594-5"><a href="sec-prog.html#cb594-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">m3 =</span> <span class="fu">mean</span>(interro3, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb594-6"><a href="sec-prog.html#cb594-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">m4 =</span> <span class="fu">mean</span>(interro4, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="sec-prog.html#cb595-1" aria-hidden="true" tabindex="-1"></a>interros <span class="sc">%&gt;%</span></span>
+<span id="cb595-2"><a href="sec-prog.html#cb595-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span></span>
+<span id="cb595-3"><a href="sec-prog.html#cb595-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">m1 =</span> <span class="fu">mean</span>(interro1, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb595-4"><a href="sec-prog.html#cb595-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">m2 =</span> <span class="fu">mean</span>(interro2, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb595-5"><a href="sec-prog.html#cb595-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">m3 =</span> <span class="fu">mean</span>(interro3, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb595-6"><a href="sec-prog.html#cb595-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">m4 =</span> <span class="fu">mean</span>(interro4, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 5
 ##   gender    m1    m2    m3    m4
 ## * &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -963,11 +963,11 @@ tests, and add a new column based on these values. We still have the
 two dataframes in the <code>l</code> list, which allows us to calculate the
 respective number of rows and use this information to create a group
 variables.</p>
-<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="sec-prog.html#cb596-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(l, nrow)</span></code></pre></div>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="sec-prog.html#cb597-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(l, nrow)</span></code></pre></div>
 <pre><code>## [1] 100 105</code></pre>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="sec-prog.html#cb598-1" aria-hidden="true" tabindex="-1"></a>interros<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"A"</span>, <span class="fu">nrow</span>(l[[<span class="dv">1</span>]])),</span>
-<span id="cb598-2"><a href="sec-prog.html#cb598-2" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">rep</span>(<span class="st">"B"</span>, <span class="fu">nrow</span>(l[[<span class="dv">2</span>]])))</span>
-<span id="cb598-3"><a href="sec-prog.html#cb598-3" aria-hidden="true" tabindex="-1"></a>interros</span></code></pre></div>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="sec-prog.html#cb599-1" aria-hidden="true" tabindex="-1"></a>interros<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"A"</span>, <span class="fu">nrow</span>(l[[<span class="dv">1</span>]])),</span>
+<span id="cb599-2"><a href="sec-prog.html#cb599-2" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">rep</span>(<span class="st">"B"</span>, <span class="fu">nrow</span>(l[[<span class="dv">2</span>]])))</span>
+<span id="cb599-3"><a href="sec-prog.html#cb599-3" aria-hidden="true" tabindex="-1"></a>interros</span></code></pre></div>
 <pre><code>## # A tibble: 205 x 9
 ##    id     height gender      X interro1 interro2 interro3 interro4 group
 ##    &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;
@@ -986,19 +986,19 @@ variables.</p>
 dataframe hasn’t changed!</p>
 <p>An alternative is to add the group information before combining the
 dataframes.</p>
-<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="sec-prog.html#cb600-1" aria-hidden="true" tabindex="-1"></a>l[[<span class="dv">1</span>]]<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="st">"A"</span></span>
-<span id="cb600-2"><a href="sec-prog.html#cb600-2" aria-hidden="true" tabindex="-1"></a>l[[<span class="dv">2</span>]]<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="st">"B"</span></span>
-<span id="cb600-3"><a href="sec-prog.html#cb600-3" aria-hidden="true" tabindex="-1"></a>interros2 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(l[[<span class="dv">1</span>]], l[[<span class="dv">2</span>]])</span>
-<span id="cb600-4"><a href="sec-prog.html#cb600-4" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(interros, interros2)</span></code></pre></div>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="sec-prog.html#cb601-1" aria-hidden="true" tabindex="-1"></a>l[[<span class="dv">1</span>]]<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="st">"A"</span></span>
+<span id="cb601-2"><a href="sec-prog.html#cb601-2" aria-hidden="true" tabindex="-1"></a>l[[<span class="dv">2</span>]]<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="st">"B"</span></span>
+<span id="cb601-3"><a href="sec-prog.html#cb601-3" aria-hidden="true" tabindex="-1"></a>interros2 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(l[[<span class="dv">1</span>]], l[[<span class="dv">2</span>]])</span>
+<span id="cb601-4"><a href="sec-prog.html#cb601-4" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(interros, interros2)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Now we can group by <code>gender</code> and <code>group</code> to perform our summary
 calculations:</p>
-<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="sec-prog.html#cb602-1" aria-hidden="true" tabindex="-1"></a>interros <span class="sc">%&gt;%</span></span>
-<span id="cb602-2"><a href="sec-prog.html#cb602-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(gender, group) <span class="sc">%&gt;%</span></span>
-<span id="cb602-3"><a href="sec-prog.html#cb602-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">m1 =</span> <span class="fu">mean</span>(interro1, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb602-4"><a href="sec-prog.html#cb602-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">m2 =</span> <span class="fu">mean</span>(interro2, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb602-5"><a href="sec-prog.html#cb602-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">m3 =</span> <span class="fu">mean</span>(interro3, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb602-6"><a href="sec-prog.html#cb602-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">m4 =</span> <span class="fu">mean</span>(interro4, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="sec-prog.html#cb603-1" aria-hidden="true" tabindex="-1"></a>interros <span class="sc">%&gt;%</span></span>
+<span id="cb603-2"><a href="sec-prog.html#cb603-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(gender, group) <span class="sc">%&gt;%</span></span>
+<span id="cb603-3"><a href="sec-prog.html#cb603-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">m1 =</span> <span class="fu">mean</span>(interro1, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb603-4"><a href="sec-prog.html#cb603-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">m2 =</span> <span class="fu">mean</span>(interro2, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb603-5"><a href="sec-prog.html#cb603-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">m3 =</span> <span class="fu">mean</span>(interro3, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb603-6"><a href="sec-prog.html#cb603-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">m4 =</span> <span class="fu">mean</span>(interro4, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by 'gender'. You can override using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 4 x 6
 ## # Groups:   gender [2]
@@ -1031,11 +1031,11 @@ variables: <code>test</code>, that contains <code>interro1</code>, …, <code>in
 <p>We obtain a new tibble that contains 4 times more rows that initially,
 as the tests, that were in 4 different columns, have now been gathered
 as a single new variable.</p>
-<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="sec-prog.html#cb605-1" aria-hidden="true" tabindex="-1"></a>interros2 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(interros,</span>
-<span id="cb605-2"><a href="sec-prog.html#cb605-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">names_to =</span> <span class="st">"test"</span>,</span>
-<span id="cb605-3"><a href="sec-prog.html#cb605-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">values_to =</span> <span class="st">"score"</span>,</span>
-<span id="cb605-4"><a href="sec-prog.html#cb605-4" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">starts_with</span>(<span class="st">"interro"</span>))</span>
-<span id="cb605-5"><a href="sec-prog.html#cb605-5" aria-hidden="true" tabindex="-1"></a>interros2</span></code></pre></div>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="sec-prog.html#cb606-1" aria-hidden="true" tabindex="-1"></a>interros2 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(interros,</span>
+<span id="cb606-2"><a href="sec-prog.html#cb606-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">names_to =</span> <span class="st">"test"</span>,</span>
+<span id="cb606-3"><a href="sec-prog.html#cb606-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">values_to =</span> <span class="st">"score"</span>,</span>
+<span id="cb606-4"><a href="sec-prog.html#cb606-4" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">starts_with</span>(<span class="st">"interro"</span>))</span>
+<span id="cb606-5"><a href="sec-prog.html#cb606-5" aria-hidden="true" tabindex="-1"></a>interros2</span></code></pre></div>
 <pre><code>## # A tibble: 820 x 7
 ##    id     height gender     X group test     score
 ##    &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;
@@ -1052,13 +1052,13 @@ as a single new variable.</p>
 ## # … with 810 more rows</code></pre>
 <p>We can now map the new <code>test</code> and <code>score</code> variables to the <em>x</em> and <em>y</em>
 axes and construct the visualisation.</p>
-<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="sec-prog.html#cb607-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(interros2, <span class="fu">aes</span>(<span class="at">y =</span> score, <span class="at">x =</span> test)) <span class="sc">+</span></span>
-<span id="cb607-2"><a href="sec-prog.html#cb607-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb607-3"><a href="sec-prog.html#cb607-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">colour =</span> height)) <span class="sc">+</span></span>
-<span id="cb607-4"><a href="sec-prog.html#cb607-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid</span>(gender <span class="sc">~</span> group)</span></code></pre></div>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="sec-prog.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(interros2, <span class="fu">aes</span>(<span class="at">y =</span> score, <span class="at">x =</span> test)) <span class="sc">+</span></span>
+<span id="cb608-2"><a href="sec-prog.html#cb608-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb608-3"><a href="sec-prog.html#cb608-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">colour =</span> height)) <span class="sc">+</span></span>
+<span id="cb608-4"><a href="sec-prog.html#cb608-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid</span>(gender <span class="sc">~</span> group)</span></code></pre></div>
 <pre><code>## Warning: Removed 36 rows containing non-finite values (stat_boxplot).</code></pre>
 <pre><code>## Warning: Removed 36 rows containing missing values (geom_point).</code></pre>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-248-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-249-1.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1076,10 +1076,10 @@ axes and construct the visualisation.</p>
 <div class="question-body">
 <p>Complete the following function that converts meters to yards, knowing
 that that 1 yard corresponds to 0.9144 meters</p>
-<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="sec-prog.html#cb610-1" aria-hidden="true" tabindex="-1"></a>meters_to_yards <span class="ot">&lt;-</span> <span class="cf">function</span>(argument goes here) {</span>
-<span id="cb610-2"><a href="sec-prog.html#cb610-2" aria-hidden="true" tabindex="-1"></a>  yards <span class="ot">&lt;-</span> _code goes here<span class="sc">!</span>_</span>
-<span id="cb610-3"><a href="sec-prog.html#cb610-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(yards)</span>
-<span id="cb610-4"><a href="sec-prog.html#cb610-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="sec-prog.html#cb611-1" aria-hidden="true" tabindex="-1"></a>meters_to_yards <span class="ot">&lt;-</span> <span class="cf">function</span>(argument goes here) {</span>
+<span id="cb611-2"><a href="sec-prog.html#cb611-2" aria-hidden="true" tabindex="-1"></a>  yards <span class="ot">&lt;-</span> _code goes here<span class="sc">!</span>_</span>
+<span id="cb611-3"><a href="sec-prog.html#cb611-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(yards)</span>
+<span id="cb611-4"><a href="sec-prog.html#cb611-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1113,7 +1113,7 @@ that that 1 yard corresponds to 0.9144 meters</p>
 <a href="sec-ccl.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-02-06
+2021-03-01
  using 
 R version 4.0.3 Patched (2021-01-18 r79847)
 </p>

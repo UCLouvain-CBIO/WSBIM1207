@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-02-06" />
+<meta name="date" content="2021-03-01" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -1194,6 +1194,48 @@ answers?</li>
 </p>
 </div>
 </div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Copy and paset the code chunk below to generate a vector of marks,
+including some students with missing values that didn’t take that
+test.</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="sec-startr.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">student1 =</span> <span class="dv">12</span>, <span class="at">student2 =</span> <span class="dv">11</span>, <span class="at">student3 =</span> <span class="dv">4</span>, <span class="at">student4 =</span> <span class="dv">6</span>, <span class="at">student5 =</span> <span class="dv">7</span>,</span>
+<span id="cb193-2"><a href="sec-startr.html#cb193-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">student6 =</span> <span class="fl">8.5</span>, <span class="at">student7 =</span> <span class="fl">13.5</span>, <span class="at">student8 =</span> <span class="fl">5.5</span>, <span class="at">student9 =</span> <span class="fl">13.5</span>,</span>
+<span id="cb193-3"><a href="sec-startr.html#cb193-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">student10 =</span> <span class="fl">2.5</span>, <span class="at">student11 =</span> <span class="dv">17</span>, <span class="at">student12 =</span> <span class="dv">18</span>, <span class="at">student13 =</span> <span class="dv">15</span>,</span>
+<span id="cb193-4"><a href="sec-startr.html#cb193-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">student14 =</span> <span class="dv">8</span>, <span class="at">student15 =</span> <span class="dv">7</span>, <span class="at">student16 =</span> <span class="dv">12</span>, <span class="at">student17 =</span> <span class="fl">18.5</span>,</span>
+<span id="cb193-5"><a href="sec-startr.html#cb193-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">student18 =</span> <span class="fl">7.5</span>, <span class="at">student19 =</span> <span class="fl">13.5</span>, <span class="at">student20 =</span> <span class="dv">6</span>, <span class="at">student21 =</span> <span class="dv">9</span>,</span>
+<span id="cb193-6"><a href="sec-startr.html#cb193-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">student22 =</span> <span class="dv">16</span>, <span class="at">student23 =</span> <span class="fl">8.5</span>, <span class="at">student24 =</span> <span class="dv">9</span>, <span class="at">student25 =</span> <span class="cn">NA</span>,</span>
+<span id="cb193-7"><a href="sec-startr.html#cb193-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">student26 =</span> <span class="cn">NA</span>, <span class="at">student27 =</span> <span class="dv">14</span>, <span class="at">student28 =</span> <span class="fl">16.5</span>, <span class="at">student29 =</span> <span class="dv">12</span>,</span>
+<span id="cb193-8"><a href="sec-startr.html#cb193-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">student30 =</span> <span class="cn">NA</span>, <span class="at">student31 =</span> <span class="fl">12.5</span>, <span class="at">student32 =</span> <span class="dv">3</span>, <span class="at">student33 =</span> <span class="cn">NA</span>,</span>
+<span id="cb193-9"><a href="sec-startr.html#cb193-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">student34 =</span> <span class="dv">17</span>, <span class="at">student35 =</span> <span class="dv">16</span>, <span class="at">student36 =</span> <span class="dv">9</span>, <span class="at">student37 =</span> <span class="dv">6</span>,</span>
+<span id="cb193-10"><a href="sec-startr.html#cb193-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">student38 =</span> <span class="dv">7</span>, <span class="at">student39 =</span> <span class="fl">8.5</span>, <span class="at">student40 =</span> <span class="fl">8.5</span>, <span class="at">student41 =</span> <span class="dv">8</span>,</span>
+<span id="cb193-11"><a href="sec-startr.html#cb193-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">student42 =</span> <span class="fl">16.5</span>, <span class="at">student43 =</span> <span class="fl">4.5</span>, <span class="at">student44 =</span> <span class="cn">NA</span>, <span class="at">student45 =</span> <span class="dv">8</span>,</span>
+<span id="cb193-12"><a href="sec-startr.html#cb193-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">student46 =</span> <span class="dv">8</span>, <span class="at">student47 =</span> <span class="fl">7.5</span>, <span class="at">student48 =</span> <span class="fl">8.5</span>, <span class="at">student49 =</span> <span class="dv">2</span>,</span>
+<span id="cb193-13"><a href="sec-startr.html#cb193-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">student50 =</span> <span class="dv">14</span>, <span class="at">student51 =</span> <span class="fl">6.5</span>, <span class="at">student52 =</span> <span class="dv">12</span>, <span class="at">student53 =</span> <span class="fl">16.5</span>,</span>
+<span id="cb193-14"><a href="sec-startr.html#cb193-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">student54 =</span> <span class="dv">7</span>, <span class="at">student55 =</span> <span class="fl">9.5</span>, <span class="at">student56 =</span> <span class="dv">12</span>, <span class="at">student57 =</span> <span class="fl">8.5</span>,</span>
+<span id="cb193-15"><a href="sec-startr.html#cb193-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">student58 =</span> <span class="fl">15.5</span>, <span class="at">student59 =</span> <span class="dv">9</span>, <span class="at">student60 =</span> <span class="fl">13.5</span>, <span class="at">student61 =</span> <span class="dv">18</span>,</span>
+<span id="cb193-16"><a href="sec-startr.html#cb193-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">student62 =</span> <span class="fl">12.5</span>, <span class="at">student63 =</span> <span class="fl">19.5</span>, <span class="at">student64 =</span> <span class="dv">13</span>, <span class="at">student65 =</span> <span class="fl">17.5</span>,</span>
+<span id="cb193-17"><a href="sec-startr.html#cb193-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">student66 =</span> <span class="fl">8.5</span>, <span class="at">student67 =</span> <span class="dv">9</span>, <span class="at">student68 =</span> <span class="dv">7</span>, <span class="at">student69 =</span> <span class="fl">12.5</span>,</span>
+<span id="cb193-18"><a href="sec-startr.html#cb193-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">student70 =</span> <span class="cn">NA</span>, <span class="at">student71 =</span> <span class="dv">19</span>, <span class="at">student72 =</span> <span class="fl">11.5</span>, <span class="at">student73 =</span> <span class="dv">9</span>,</span>
+<span id="cb193-19"><a href="sec-startr.html#cb193-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">student74 =</span> <span class="fl">9.5</span>, <span class="at">student75 =</span> <span class="dv">12</span>, <span class="at">student76 =</span> <span class="dv">11</span>, <span class="at">student77 =</span> <span class="dv">12</span>,</span>
+<span id="cb193-20"><a href="sec-startr.html#cb193-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">student78 =</span> <span class="dv">14</span>, <span class="at">student79 =</span> <span class="dv">17</span>, <span class="at">student80 =</span> <span class="fl">8.5</span>, <span class="at">student81 =</span> <span class="dv">10</span>,</span>
+<span id="cb193-21"><a href="sec-startr.html#cb193-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">student82 =</span> <span class="dv">10</span>, <span class="at">student83 =</span> <span class="cn">NA</span>, <span class="at">student84 =</span> <span class="fl">10.5</span>, <span class="at">student85 =</span> <span class="dv">14</span>,</span>
+<span id="cb193-22"><a href="sec-startr.html#cb193-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">student86 =</span> <span class="fl">7.5</span>, <span class="at">student87 =</span> <span class="dv">4</span>, <span class="at">student88 =</span> <span class="dv">9</span>, <span class="at">student89 =</span> <span class="fl">6.5</span>,</span>
+<span id="cb193-23"><a href="sec-startr.html#cb193-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">student90 =</span> <span class="fl">10.5</span>, <span class="at">student91 =</span> <span class="fl">9.5</span>, <span class="at">student92 =</span> <span class="dv">13</span>, <span class="at">student93 =</span> <span class="fl">11.5</span>,</span>
+<span id="cb193-24"><a href="sec-startr.html#cb193-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">student94 =</span> <span class="cn">NA</span>, <span class="at">student95 =</span> <span class="dv">6</span>, <span class="at">student96 =</span> <span class="fl">12.5</span>, <span class="at">student97 =</span> <span class="fl">11.5</span>,</span>
+<span id="cb193-25"><a href="sec-startr.html#cb193-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">student98 =</span> <span class="dv">4</span>, <span class="at">student99 =</span> <span class="fl">11.5</span>, <span class="at">student100 =</span> <span class="dv">8</span>)</span></code></pre></div>
+<ul>
+<li><p>What is the number of students that have a mark &gt; 10?</p></li>
+<li><p>What is the number of students that have a mark greater than the average score?</p></li>
+</ul>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 
 </div>
 </div></body></html>
@@ -1203,7 +1245,7 @@ answers?</li>
 <a href="sec-startdata.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-02-06
+2021-03-01
  using 
 R version 4.0.3 Patched (2021-01-18 r79847)
 </p>
