@@ -1199,12 +1199,13 @@ to gender and employment.</p>
 <li><p>Load the <code>rWSBIM1207</code> package. If the package isn’t installed of its
 version is greater than 0.1.1, install it from the
 <code>UCLouvain-CBIO/rWSBIM1207</code> GitHub repository using the
-<code>devtools::install_github</code> function.</p></li>
+<code>remotes::install_github()</code> function. If you use a recent Renku
+enironment, the package is already available.</p></li>
 <li><p>Using the <code>beers.csv()</code> function from <code>rWSBIM1207</code>, find the path
 the <code>beers.csv</code> file and read it to produce a <code>data.frame</code> named
 <code>beers</code>. The spreadsheet uses semi-colons <code>;</code> to separate cells. Use
-<code>read.csv2</code> and <code>read.delim</code> and set the separator appropriately,
-and verify that the two variables are identical.</p></li>
+<code>read.csv2()</code> and <code>read.delim()</code> and set the separator
+appropriately, and verify that the two variables are identical.</p></li>
 <li><p>Check the number of observations and identify the variables that are
 available. Calculate a summary of each variable using the <code>summary</code>
 function directly on the <code>data.frame</code>.</p></li>
@@ -1233,7 +1234,8 @@ new <code>csv</code> file called <code>beers_no_na.csv</code>.</p></li>
 <li><p>Load the <code>rWSBIM1207</code> package. If the package isn’t installed of its
 version is greater than 0.1.1, install it from the
 <code>UCLouvain-CBIO/rWSBIM1207</code> GitHub repository using the
-<code>devtools::install_github</code> function.</p></li>
+<code>remotes::install_github()</code> function. If you use a recent Renku
+enironment, the package is already available.</p></li>
 <li><p>Obtain the path to th csv file containing the clinical data need for
 this exercise using the <code>clinical1.csv</code> function and read it into R
 as a <code>data.frame</code> called <code>clinical</code>.</p></li>
