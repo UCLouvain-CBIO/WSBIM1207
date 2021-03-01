@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-02-04" />
+<meta name="date" content="2021-02-06" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -474,10 +474,9 @@ you’ll want to be able to use or sort that data.</li>
 (comma-separated values) format. This ensures that anyone can use
 the data, and is required by most data repositories.</li>
 </ol>
-<p>For instance, we have data from a survey of small mammals in a desert
-ecosystem. Different people have gone to the field and entered data
-into a spreadsheet. They keep track of things like species, plot,
-weight, sex and date collected.</p>
+<p>For instance, we have data from patient that visited several hospitals
+from Brussels, Belgium. They recorded the date the visit, the
+hospital, the patients gender, weight and blood group.</p>
 <p>If they were to keep track of the data like this:</p>
 <p><img src="figs/multiple-info.png"></p>
 <p>the problem is that the ABO and rhesus groups are in the same <code>Blood</code>
@@ -739,16 +738,13 @@ that you will not need to merge cells to organize your data.</p>
 <h3>
 <span class="header-section-number">1.3.7</span> Placing comments or units in cells<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('units')" onmouseout="reset_tooltip('units-tooltip')"><span class="tooltiptext" id="units-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
-<p><strong>Example</strong>: Your data was collected, in part, by a summer student who
-you later found out was mis-identifying some of your species, some of
-the time. You want a way to note these data are suspect.</p>
-<p><strong>Solution</strong>: Most analysis software can’t see Excel or LibreOffice
-comments, and would be confused by comments placed within your data
-cells. As described above for formatting, create another field if you
-need to add notes to cells. Similarly, don’t include units in cells:
-ideally, all the measurements you place in one column should be in the
-same unit, but if for some reason they aren’t, create another field
-and specify the units the cell is in.</p>
+<p>Most analysis software can’t see Excel or LibreOffice comments, and
+would be confused by comments placed within your data cells. As
+described above for formatting, create another field if you need to
+add notes to cells. Similarly, don’t include units in cells: ideally,
+all the measurements you place in one column should be in the same
+unit, but if for some reason they aren’t, create another field and
+specify the units the cell is in.</p>
 </div>
 <div id="info" class="section level3" number="1.3.8">
 <h3>
@@ -1130,7 +1126,7 @@ measurements were repeated.</p>
 <a href="sec-rrstudio.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-02-04
+2021-02-06
  using 
 R version 4.0.3 Patched (2021-01-18 r79847)
 </p>
