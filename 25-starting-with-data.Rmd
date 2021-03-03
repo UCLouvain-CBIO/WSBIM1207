@@ -49,7 +49,7 @@ a preexisting folder named "data."
 
 ```{r, eval = FALSE}
 download.file(url="https://ndownloader.figshare.com/files/2292169",
-              destfile = "data/portal_data_joined.csv")
+			  destfile = "data/portal_data_joined.csv")
 ```
 
 You are now ready to load the data:
@@ -411,9 +411,9 @@ spot and fix them?  Don't hesitate to experiment!
 
 ```{r, eval=FALSE}
 animal_data <- data.frame(
-       animal = c(dog, cat, sea cucumber, sea urchin),
-       feel = c("furry", "squishy", "spiny"),
-       weight = c(45, 8 1.1, 0.8))
+	   animal = c(dog, cat, sea cucumber, sea urchin),
+	   feel = c("furry", "squishy", "spiny"),
+	   weight = c(45, 8 1.1, 0.8))
 ```
 `r msmbstyle::question_end()`
 
@@ -441,12 +441,12 @@ Check your guesses using `str(country_climate)`:
 
 ```{r, eval = FALSE}
 country_climate <- data.frame(
-       country = c("Canada", "Panama", "South Africa", "Australia"),
-       climate = c("cold", "hot", "temperate", "hot/temperate"),
-       temperature = c(10, 30, 18, "15"),
-       northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
-       has_kangaroo = c(FALSE, FALSE, FALSE, 1)
-       )
+	   country = c("Canada", "Panama", "South Africa", "Australia"),
+	   climate = c("cold", "hot", "temperate", "hot/temperate"),
+	   temperature = c(10, 30, 18, "15"),
+	   northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
+	   has_kangaroo = c(FALSE, FALSE, FALSE, 1)
+	   )
 ```
 `r msmbstyle::question_end()`
 
@@ -677,17 +677,17 @@ A data type that we haven't seen yet, but that is useful to know, and
 follows from the summary that we have just seen are lists:
 
 - **`list`**: one dimension, every item can be of a different data
-    type.
+	type.
 
 Below, let's create a list containing a vector of numbers, characters,
 a matrix, a dataframe and another list:
 
 ```{r list0}
 l <- list(1:10, ## numeric
-          letters, ## character
-          installed.packages(), ## a matrix
-          cars, ## a data.frame
-          list(1, 2, 3)) ## a list
+		  letters, ## character
+		  installed.packages(), ## a matrix
+		  cars, ## a data.frame
+		  list(1, 2, 3)) ## a list
 length(l)
 str(l)
 ```
@@ -783,7 +783,7 @@ many molds you see in your cell cultures.
   `Molds_count`.
 
 - Create a new `data.frame` that contains the observations where more
-  that 2 colonies were counted. How many observations are there? How
+  than 2 colonies were counted. How many observations are there? How
   many counts are there in total for these observations.
 
 You repeat the molds study experiment the following week and count the
