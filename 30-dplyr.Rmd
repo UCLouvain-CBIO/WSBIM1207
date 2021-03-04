@@ -50,8 +50,6 @@ suppressWarnings(surveys$date <- lubridate::ymd(paste(surveys$year,
 - Describe the concept of a wide and a long table format and for which
   purpose those formats are useful.
 
-- Describe what key-value pairs are.
-
 - Reshape a data frame from long to wide format and back with the
   `pivot_wider()` and `pivot_longer()` commands from the
   **`tidyr`** package.
