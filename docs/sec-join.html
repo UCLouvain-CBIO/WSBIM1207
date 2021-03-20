@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-03-04" />
+<meta name="date" content="2021-03-20" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -27,7 +27,7 @@ MathJax.Hub.Config({
 
 <title>Chapter 7 Joining tables | Introduction to bioinformatics</title>
 
-<script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -557,12 +557,12 @@ between <code>jdf6</code> and <code>jdf7</code>, both having duplicated <code>Q9
 <div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="sec-join.html#cb454-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(jdf6, jdf7)</span></code></pre></div>
 <pre><code>## Joining, by = "uniprot"</code></pre>
 <pre><code>## # A tibble: 4 x 9
-##   uniprot organelle entry isoform gene_name description organism isoform_num
-##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;
-## 1 Q99PL5  Endoplas… RRBP…       1 Rrbp1     Ribosome-b… Mmus               1
-## 2 Q99PL5  Endoplas… RRBP…       1 Rrbp1     Ribosome-b… Mmus               2
-## 3 Q99PL5  Golgi ap… RRBP…       2 Rrbp1     Ribosome-b… Mmus               1
-## 4 Q99PL5  Golgi ap… RRBP…       2 Rrbp1     Ribosome-b… Mmus               2
+##   uniprot organelle   entry  isoform gene_name description  organism isoform_num
+##   &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;          &lt;dbl&gt;
+## 1 Q99PL5  Endoplasmi… RRBP1…       1 Rrbp1     Ribosome-bi… Mmus               1
+## 2 Q99PL5  Endoplasmi… RRBP1…       1 Rrbp1     Ribosome-bi… Mmus               2
+## 3 Q99PL5  Golgi appa… RRBP1…       2 Rrbp1     Ribosome-bi… Mmus               1
+## 4 Q99PL5  Golgi appa… RRBP1…       2 Rrbp1     Ribosome-bi… Mmus               2
 ## # … with 1 more variable: measure &lt;dbl&gt;</code></pre>
 <div class="question">
 <p class="question-begin">
@@ -819,7 +819,7 @@ containing merged data exclusively for normal samples.</p></li>
 <a href="sec-rr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-03-04
+2021-03-20
  using 
 R version 4.0.3 Patched (2021-01-18 r79847)
 </p>

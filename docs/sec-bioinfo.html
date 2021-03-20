@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-03-04" />
+<meta name="date" content="2021-03-20" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -27,7 +27,7 @@ MathJax.Hub.Config({
 
 <title>Chapter 9 Bioinformatics | Introduction to bioinformatics</title>
 
-<script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -500,7 +500,7 @@ the following directory structure:</p>
 <blockquote>
 <p>Directory names are in large typeface, and filenames are in smaller
 typeface. Only a subset of the files are shown here. Note that the
-dates are formatted <code>&lt;year&gt;-&lt;month&gt;-&lt;day&gt;1</code> so that they can be
+dates are formatted <code>&lt;year&gt;-&lt;month&gt;-&lt;day&gt;</code> so that they can be
 sorted in chronological order. The source code <code>src/ms-analysis.c</code>
 is compiled to create <code>bin/ms-analysis</code> and is documented in
 <code>doc/ms-analysis.html</code>. The <code>README</code> files in the data directories
@@ -564,12 +564,14 @@ Figure 9.6: The Bioconductor web page.
 <p>Bioconductor packages are managed installed using a dedicated package,
 namely <code>BiocManager</code>, that can be installed from CRAN with</p>
 <div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="sec-bioinfo.html#cb479-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span></code></pre></div>
-<p>Individuals package such as <code>MSnbase</code> (for proteomics), <code>DESeq2</code> (for
-transcriptomics), <code>xcms</code> (metabolomics), …can then be installed:
-reminder and <code>BiocManager::install</code>.</p>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="sec-bioinfo.html#cb480-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"MSnbase"</span>)</span>
+<p>Individuals package such as <code>SummarizedExperiment</code> (see below for
+details), <code>DESeq2</code> (for transcriptomics), <code>Spectra</code> (for mass
+spectrometry), <code>xcms</code> (metabolomics), … can then be installed with
+<code>BiocManager::install</code>.</p>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="sec-bioinfo.html#cb480-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"SummarizedExperiment"</span>)</span>
 <span id="cb480-2"><a href="sec-bioinfo.html#cb480-2" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"DESeq2"</span>)</span>
-<span id="cb480-3"><a href="sec-bioinfo.html#cb480-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"xcms"</span>)</span></code></pre></div>
+<span id="cb480-3"><a href="sec-bioinfo.html#cb480-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"Spectra"</span>)</span>
+<span id="cb480-4"><a href="sec-bioinfo.html#cb480-4" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"xcms"</span>)</span></code></pre></div>
 <p>Note that we can also use that same function to install packages from GitHub:</p>
 <div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="sec-bioinfo.html#cb481-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
 </div>
@@ -596,12 +598,12 @@ Figure 9.7: A data structure to store quantitative data, features (rows) annotat
 transcripts, proteins, …) are defined along the rows and samples
 along the columns.</p></li>
 <li><p>A sample metadata slot containing sample co-variates, stored as a
-<code>data.frame</code> (or similar). This data frame is stored with rows
-representing samples and sample covariate along the columns, and its
-rows match the expression data columns exactly.</p></li>
-<li><p>A feature metadata slot containing feature co-variates, stored as an
-annotated <code>data.frame</code> (or similar). This dataframe’s rows match the
-expression data rows exactly.</p></li>
+table (<code>data.frame</code> or <code>DataFrame</code>). This dataframe is stored with
+rows representing samples and sample covariate along the columns,
+and its rows match the expression data columns exactly.</p></li>
+<li><p>A feature metadata slot containing feature co-variates, stored as
+table annotated (<code>data.frame</code> or <code>DataFrame</code>). This dataframe’s rows
+match the expression data rows exactly.</p></li>
 </ul>
 <p>The coordinated nature of the high throughput data guarantees that the
 dimensions of the different slots will always match (i.e the columns
@@ -609,72 +611,75 @@ in the expression data and then rows in the sample metadata, as well
 as the rows in the expression data and feature metadata) during data
 manipulation. The metadata slots can grow additional co-variates
 (columns) without affecting the other structures.</p>
-<p>To illustrate such an omics data container, we’ll make use of the
-<code>msnset</code> object, of class <code>MSnSet</code> that comes with the <code>MSnbase</code>
-package, which contains data for55 features and 4
-samples.</p>
-<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="sec-bioinfo.html#cb482-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MSnbase)</span>
-<span id="cb482-2"><a href="sec-bioinfo.html#cb482-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(msnset)</span>
-<span id="cb482-3"><a href="sec-bioinfo.html#cb482-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(msnset)</span></code></pre></div>
-<pre><code>## [1] 55  4</code></pre>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="sec-bioinfo.html#cb484-1" aria-hidden="true" tabindex="-1"></a>msnset</span></code></pre></div>
-<pre><code>## MSnSet (storageMode: lockedEnvironment)
-## assayData: 55 features, 4 samples 
-##   element names: exprs 
-## protocolData: none
-## phenoData
-##   sampleNames: iTRAQ4.114 iTRAQ4.115 iTRAQ4.116 iTRAQ4.117
-##   varLabels: mz reporters
-##   varMetadata: labelDescription
-## featureData
-##   featureNames: X1 X10 ... X9 (55 total)
-##   fvarLabels: spectrum ProteinAccession ... collision.energy (15 total)
-##   fvarMetadata: labelDescription
-## experimentData: use 'experimentData(object)'
-## Annotation: No annotation 
-## - - - Processing information - - -
-## Data loaded: Wed May 11 18:54:39 2011 
-## iTRAQ4 quantification by trapezoidation: Wed Apr  1 21:41:53 2015 
-##  MSnbase version: 1.1.22</code></pre>
-<p>Using this data structure, we can access the expression data with the
-<code>exprs</code> function, the feature metadata with the <code>fData</code> function, and
-the sample metadata with the <code>pData</code> function:</p>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="sec-bioinfo.html#cb486-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">exprs</span>(msnset))</span></code></pre></div>
-<pre><code>##     iTRAQ4.114 iTRAQ4.115 iTRAQ4.116 iTRAQ4.117
-## X1   1347.6158  2247.3097  3927.6931  7661.1463
-## X10   739.9861   799.3501   712.5983   940.6793
-## X11 27638.3582 33394.0252 32104.2879 26628.7278
-## X12 31892.8928 33634.6980 37674.7272 37227.7119
-## X13 26143.7542 29677.4781 29089.0593 27902.5608
-## X14  6448.0829  6234.1957  6902.8903  6437.2303</code></pre>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="sec-bioinfo.html#cb488-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">fData</span>(msnset))</span></code></pre></div>
-<pre><code>##     spectrum ProteinAccession                       ProteinDescription
-## X1         1              BSA                     bovine serum albumin
-## X10       10          ECA1422 glucose-1-phosphate cytidylyltransferase
-## X11       11          ECA4030         50S ribosomal subunit protein L4
-## X12       12          ECA3882                   chaperone protein DnaK
-## X13       13          ECA1364      succinyl-CoA synthetase alpha chain
-## X14       14          ECA0871              NADP-dependent malic enzyme
-##     PeptideSequence file retention.time precursor.mz precursor.intensity charge
-## X1           NYQEAK    1        1149.31     520.7833             3449020      2
-## X10 VTLVDTGEHSMTGGR    1        1503.03     573.9539             7849420      3
-## X11           SPIWR    1        1663.61     401.7392            41253600      2
-## X12        TAIDDALK    1        1663.86     567.8339            23549500      2
-## X13          SILINK    1        1664.08     488.3269            13025200      2
-## X14    DFEVVNNESDPR    1        1664.32     782.8715            18405000      2
-##     peaks.count tic  ionCount ms.level acquisition.number collision.energy
-## X1         1922   0  26413754        2                  2               40
-## X10        1376   0  24482281        2                 11               40
-## X11        1571   0 231075934        2                 12               40
-## X12        2397   0 247323187        2                 13               40
-## X13        2574   0 207247502        2                 14               40
-## X14        1829   0 115317275        2                 15               40</code></pre>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="sec-bioinfo.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pData</span>(msnset)</span></code></pre></div>
-<pre><code>##               mz reporters
-## iTRAQ4.114 114.1    iTRAQ4
-## iTRAQ4.115 115.1    iTRAQ4
-## iTRAQ4.116 116.1    iTRAQ4
-## iTRAQ4.117 117.1    iTRAQ4</code></pre>
+<p>To illustrate such an omics data container, we’ll use a variable of
+class <code>SummarizedExperiment</code>. Below, we load the <code>cptac_se</code> dataset
+from the <code>rWSBIM1322</code> package.</p>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="sec-bioinfo.html#cb482-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"SummarizedExperiment"</span>)</span>
+<span id="cb482-2"><a href="sec-bioinfo.html#cb482-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rWSBIM1322"</span>)</span>
+<span id="cb482-3"><a href="sec-bioinfo.html#cb482-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(cptac_se)</span>
+<span id="cb482-4"><a href="sec-bioinfo.html#cb482-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(cptac_se)</span></code></pre></div>
+<pre><code>## [1] "SummarizedExperiment"
+## attr(,"package")
+## [1] "SummarizedExperiment"</code></pre>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="sec-bioinfo.html#cb484-1" aria-hidden="true" tabindex="-1"></a>cptac_se</span></code></pre></div>
+<pre><code>## class: SummarizedExperiment 
+## dim: 4051 6 
+## metadata(3): MSnbaseFiles MSnbaseProcessing MSnbaseVersion
+## assays(1): ''
+## rownames(4051): AAAALAGGK AAAALAGGKK ... YYPSYIVSK YYSISSSSLSEK
+## rowData names(3): Proteins Sequence nNA
+## colnames(6): 6A_7 6A_8 ... 6B_8 6B_9
+## colData names(3): group sample nNA</code></pre>
+<p>The object contains data for4051 features (peptides in
+this case) and 6 samples.</p>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="sec-bioinfo.html#cb486-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(cptac_se)</span></code></pre></div>
+<pre><code>## [1] 4051    6</code></pre>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="sec-bioinfo.html#cb488-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(cptac_se)</span></code></pre></div>
+<pre><code>## [1] 4051</code></pre>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="sec-bioinfo.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(cptac_se)</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p>The samples (columns) and rows (protein features) are named:</p>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="sec-bioinfo.html#cb492-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(cptac_se)</span></code></pre></div>
+<pre><code>## [1] "6A_7" "6A_8" "6A_9" "6B_7" "6B_8" "6B_9"</code></pre>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="sec-bioinfo.html#cb494-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rownames</span>(cptac_se))</span></code></pre></div>
+<pre><code>## [1] "AAAALAGGK"       "AAAALAGGKK"      "AAADALSDLEIK"    "AAADALSDLEIKDSK"
+## [5] "AAALVNK"         "AAAQDGYVPQR"</code></pre>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="sec-bioinfo.html#cb496-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(<span class="fu">rownames</span>(cptac_se))</span></code></pre></div>
+<pre><code>## [1] "YVVLASHLGR"      "YVVLASHLGRPNGER" "YWGVASFLQK"      "YYGGNEIIDK"     
+## [5] "YYPSYIVSK"       "YYSISSSSLSEK"</code></pre>
+<p>Using this data structure, we can access the expression matrix with
+the <code>assay</code> function, the feature metadata with the <code>rowData</code> function,
+and the sample metadata with the <code>colData</code> function:</p>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="sec-bioinfo.html#cb498-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">assay</span>(cptac_se))</span></code></pre></div>
+<pre><code>##                    6A_7    6A_8    6A_9    6B_7    6B_8    6B_9
+## AAAALAGGK       2441300 1220000 1337600 2850900  935580 1606200
+## AAAALAGGKK      1029200  668040  638990  777030  641270  562840
+## AAADALSDLEIK     515460  670780  712140  426580  620510  737780
+## AAADALSDLEIKDSK  331130  420900  365560  329250  380820  414490
+## AAALVNK         4266200 1220100 1347200 3700300 1023200 1503000
+## AAAQDGYVPQR       94675   62831  105640   81974   68637   91846</code></pre>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="sec-bioinfo.html#cb500-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rowData</span>(cptac_se))</span></code></pre></div>
+<pre><code>## DataFrame with 6 rows and 3 columns
+##                               Proteins        Sequence       nNA
+##                            &lt;character&gt;     &lt;character&gt; &lt;integer&gt;
+## AAAALAGGK       sp|Q3E792|RS25A_YEAS..       AAAALAGGK         0
+## AAAALAGGKK      sp|Q3E792|RS25A_YEAS..      AAAALAGGKK         0
+## AAADALSDLEIK      sp|P09938|RIR2_YEAST    AAADALSDLEIK         0
+## AAADALSDLEIKDSK   sp|P09938|RIR2_YEAST AAADALSDLEIKDSK         0
+## AAALVNK           sp|P05030|PMA1_YEAST         AAALVNK         0
+## AAAQDGYVPQR       sp|P27692|SPT5_YEAST     AAAQDGYVPQR         0</code></pre>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="sec-bioinfo.html#cb502-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(cptac_se)</span></code></pre></div>
+<pre><code>## DataFrame with 6 rows and 3 columns
+##            group    sample       nNA
+##      &lt;character&gt; &lt;integer&gt; &lt;integer&gt;
+## 6A_7          6A         7      4669
+## 6A_8          6A         8      5388
+## 6A_9          6A         9      5224
+## 6B_7          6B         7      4651
+## 6B_8          6B         8      5470
+## 6B_9          6B         9      5207</code></pre>
+<p>The <code>nNA</code> variables above indicate the number of missing values (<code>NA</code>
+present in the respective samples and features.</p>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -692,9 +697,9 @@ and columns in the feature and sample data.</p>
 ► Solution<span id="sol-start-35" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-35', 'sol-start-35')"></span>
 </p>
 <div id="sol-body-35" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="sec-bioinfo.html#cb492-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">exprs</span>(msnset)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">fData</span>(msnset))</span></code></pre></div>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="sec-bioinfo.html#cb504-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">assay</span>(cptac_se)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">rowData</span>(cptac_se))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="sec-bioinfo.html#cb494-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(<span class="fu">exprs</span>(msnset)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">pData</span>(msnset))</span></code></pre></div>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="sec-bioinfo.html#cb506-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(<span class="fu">assay</span>(cptac_se)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">colData</span>(cptac_se))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -703,22 +708,26 @@ and columns in the feature and sample data.</p>
 </div>
 <p>We can use the <code>[</code> operator to subset the whole object: all parts
 thereof will be subset correctly.</p>
-<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="sec-bioinfo.html#cb496-1" aria-hidden="true" tabindex="-1"></a>msnset2 <span class="ot">&lt;-</span> msnset[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span>
-<span id="cb496-2"><a href="sec-bioinfo.html#cb496-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(msnset2)</span></code></pre></div>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="sec-bioinfo.html#cb508-1" aria-hidden="true" tabindex="-1"></a>cptac_se2 <span class="ot">&lt;-</span> cptac_se[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span>
+<span id="cb508-2"><a href="sec-bioinfo.html#cb508-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(cptac_se2)</span></code></pre></div>
 <pre><code>## [1] 3 2</code></pre>
-<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="sec-bioinfo.html#cb498-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">exprs</span>(msnset2))</span></code></pre></div>
-<pre><code>##     iTRAQ4.115 iTRAQ4.117
-## X1     2247.31   7661.146
-## X11   33394.03  26628.728
-## X13   29677.48  27902.561</code></pre>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="sec-bioinfo.html#cb510-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">assay</span>(cptac_se2))</span></code></pre></div>
+<pre><code>##                 6A_8    6B_7
+## AAAALAGGK    1220000 2850900
+## AAADALSDLEIK  670780  426580
+## AAALVNK      1220100 3700300</code></pre>
 <p>We can also add information with:</p>
-<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="sec-bioinfo.html#cb500-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pData</span>(msnset)<span class="sc">$</span>group  <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">'A'</span>, <span class="st">'B'</span>), <span class="at">each =</span> <span class="dv">2</span>)</span>
-<span id="cb500-2"><a href="sec-bioinfo.html#cb500-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pData</span>(msnset)</span></code></pre></div>
-<pre><code>##               mz reporters group
-## iTRAQ4.114 114.1    iTRAQ4     A
-## iTRAQ4.115 115.1    iTRAQ4     A
-## iTRAQ4.116 116.1    iTRAQ4     B
-## iTRAQ4.117 117.1    iTRAQ4     B</code></pre>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="sec-bioinfo.html#cb512-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(cptac_se)<span class="sc">$</span>group2  <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">'X'</span>, <span class="st">'Y'</span>, <span class="st">'Z'</span>), <span class="at">each =</span> <span class="dv">2</span>)</span>
+<span id="cb512-2"><a href="sec-bioinfo.html#cb512-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(cptac_se)</span></code></pre></div>
+<pre><code>## DataFrame with 6 rows and 4 columns
+##            group    sample       nNA      group2
+##      &lt;character&gt; &lt;integer&gt; &lt;integer&gt; &lt;character&gt;
+## 6A_7          6A         7      4669           X
+## 6A_8          6A         8      5388           X
+## 6A_9          6A         9      5224           Y
+## 6B_7          6B         7      4651           Y
+## 6B_8          6B         8      5470           Z
+## 6B_9          6B         9      5207           Z</code></pre>
 </div>
 <div id="bioconductor-data-infrastructure" class="section level2" number="9.6">
 <h2>
@@ -746,14 +755,14 @@ page:</p>
 </li>
 <li>FASTQ – <em><a href="https://bioconductor.org/packages/3.12/ShortRead">ShortRead</a></em><code>::readFastq()</code>
 </li>
-<li>Mass spectrometry data (XML-based and peaklist formats) –<em><a href="https://bioconductor.org/packages/3.12/MSnbase">MSnbase</a></em><code>::readMSData()</code>, <em><a href="https://bioconductor.org/packages/3.12/MSnbase">MSnbase</a></em><code>::readMgfData()</code>
+<li>Mass spectrometry data (XML-based and peaklist formats) – <em><a href="https://bioconductor.org/packages/3.12/MSnbase">MSnbase</a></em><code>::readMSData()</code> and <em><a href="https://bioconductor.org/packages/3.12/Spectra">Spectra</a></em><code>::Spectra()</code>
 </li>
 </ul>
 </div>
 <div id="common-classes" class="section level4 unnumbered">
 <h4>Common Classes</h4>
 <ul>
-<li>Rectangular feature x sample data – <em><a href="https://bioconductor.org/packages/3.12/SummarizedExperiment">SummarizedExperiment</a></em><code>::SummarizedExperiment()</code> (RNAseq count matrix, microarray, …)</li>
+<li>Rectangular feature x sample data – <em><a href="https://bioconductor.org/packages/3.12/SummarizedExperiment">SummarizedExperiment</a></em><code>::SummarizedExperiment()</code> (RNAseq count matrix, microarray, proteomics, …)</li>
 <li>Genomic coordinates – <em><a href="https://bioconductor.org/packages/3.12/GenomicRanges">GenomicRanges</a></em><code>::GRanges()</code> (1-based, closed interval)</li>
 <li>DNA / RNA / AA sequences – <em><a href="https://bioconductor.org/packages/3.12/Biostrings">Biostrings</a></em><code>::*StringSet()</code>
 </li>
@@ -763,7 +772,7 @@ page:</p>
 </li>
 <li>Single cell data – <em><a href="https://bioconductor.org/packages/3.12/SingleCellExperiment">SingleCellExperiment</a></em><code>::SingleCellExperiment()</code>
 </li>
-<li>Mass spectrometry data – <em><a href="https://bioconductor.org/packages/3.12/MSnbase">MSnbase</a></em><code>::MSnExp()</code>
+<li>Mass spectrometry data – <em><a href="https://bioconductor.org/packages/3.12/MSnbase">MSnbase</a></em><code>::MSnExp()</code> and <em><a href="https://bioconductor.org/packages/3.12/Spectra">Spectra</a></em><code>::Spectra()</code>
 </li>
 </ul>
 </div>
@@ -841,14 +850,14 @@ URL like</p>
 <li><a href="https://bioconductor.org/packages/packagename" class="uri">https://bioconductor.org/packages/packagename</a></li>
 </ul>
 <p>This works for any type of package (software, annotation or data). For
-example, the pages for packages <em><a href="https://bioconductor.org/packages/3.12/DESeq2">DESeq2</a></em> or <em><a href="https://bioconductor.org/packages/3.12/MSnbase">MSnbase</a></em>
+example, the pages for packages <em><a href="https://bioconductor.org/packages/3.12/DESeq2">DESeq2</a></em> or <em><a href="https://bioconductor.org/packages/3.12/QFeatures">QFeatures</a></em>
 would be</p>
 <ul>
 <li><a href="https://bioconductor.org/packages/DESeq2" class="uri">https://bioconductor.org/packages/DESeq2</a></li>
 </ul>
 <p>and</p>
 <ul>
-<li><a href="https://bioconductor.org/packages/MSnbase" class="uri">https://bioconductor.org/packages/MSnbase</a></li>
+<li><a href="https://bioconductor.org/packages/QFeatures" class="uri">https://bioconductor.org/packages/QFeatures</a></li>
 </ul>
 <p>These short URLs are then resolved to their longer form to redirect to
 the longer package URL leading the user to the current release version
@@ -865,8 +874,8 @@ package, without necessarily going in detail for every function of the
 package.</p>
 <p>Below, we show how to list all vignettes available in the <code>MSnbase</code>
 package and how to open one in particular.</p>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="sec-bioinfo.html#cb502-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="at">package =</span> <span class="st">"MSnbase"</span>)</span>
-<span id="cb502-2"><a href="sec-bioinfo.html#cb502-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">"v01-MSnbase-demo"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="sec-bioinfo.html#cb514-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="at">package =</span> <span class="st">"QFeatures"</span>)</span>
+<span id="cb514-2"><a href="sec-bioinfo.html#cb514-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">"QFeatures"</span>)</span></code></pre></div>
 <p>Vignettes are special in that respect as they are produced as part of
 the package building process. The code in a vignette is executed and
 its output, whether in the form of simple text, tables and figures,
@@ -956,22 +965,20 @@ page on the Bioconductor page.</p></li>
 ► Question
 </p>
 <div class="question-body">
-<ol style="list-style-type: decimal">
-<li><p>If not available, install the Bioconductor <code>pRolocdata</code> package.</p></li>
-<li><p>Load the <code>pRolocdata</code> package. Then, using the <code>data</code> function,
-load the <code>mulvey2015</code> dataset.</p></li>
-<li><p>Find out the class of the object, and the number of features and
-samples that it containes data for.</p></li>
-<li><p>Extract the quantitative information for the proteins <code>P17809</code>,
-<code>Q9CR02</code> and <code>P02469</code> for samples <code>rep2_0hr</code> and
-<code>rep3_16hr</code>. Subsetting works as we have seen for <code>data.frames</code> in
+<ol start="4" style="list-style-type: decimal">
+<li><p>Extract the quantitative information for the peptides <code>AIGVLPQLIIDR</code>,
+<code>NLDAAPTLR</code> and <code>YGLNHVVSLIENKK</code> for samples <code>6A_7</code> and
+<code>6B_8</code>. Subsetting works as we have seen for <code>data.frames</code> in
 chapter 3.</p></li>
 <li><p>Look and interpret the experimental design stored in the sample
 metadata of this experiment. To help you out, you can also read its
 documentation.</p></li>
-<li><p>What is the average protein expression in the first replicate of
-the first time point (<code>rep1_0hr</code>)?</p></li>
-<li><p>Compare the expression of proteins <code>Q9WUA3</code> and <code>O89017</code>.</p></li>
+<li><p>What is the average expression of <code>LSAAQAELAYAETGAHDK</code> in the
+groups <code>6A</code> and <code>6B</code>?</p></li>
+<li><p>Calculate the average expression of all peptides belonging to
+protein <code>P02753ups|RETBP_HUMAN_UPS</code> for each sample. You can
+indentify which peptides to use by looking for that protein in the
+object’s rowData slot.</p></li>
 </ol>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -988,7 +995,7 @@ the first time point (<code>rep1_0hr</code>)?</p></li>
 <code>rWSBIM1207</code> version 0.1.5 or later. If needed, install a more
 recent version with</li>
 </ol>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="sec-bioinfo.html#cb503-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="sec-bioinfo.html#cb515-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Import the data from two tab-separated files into R. The full paths
 to the two files can be accessed with <code>kem.tsv()</code>. Read <code>?kem</code> for
@@ -1026,7 +1033,7 @@ conditions.</p></li>
 <a href="sec-prog.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-03-04
+2021-03-20
  using 
 R version 4.0.3 Patched (2021-01-18 r79847)
 </p>

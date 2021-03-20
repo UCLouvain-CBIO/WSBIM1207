@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-03-04" />
+<meta name="date" content="2021-03-20" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -27,7 +27,7 @@ MathJax.Hub.Config({
 
 <title>Chapter 5 Manipulating and analyzing data with dplyr | Introduction to bioinformatics</title>
 
-<script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -321,7 +321,7 @@ and this <a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.
 tidyverse package <strong><code>readr</code></strong>, instead of <code>read.csv()</code>.</p>
 <div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="sec-dplyr.html#cb277-1" aria-hidden="true" tabindex="-1"></a>surveys <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/portal_data_joined.csv"</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   record_id = col_double(),
 ##   month = col_double(),
@@ -684,7 +684,7 @@ statistics. So to compute the mean <code>weight</code> by sex:</p>
 <span id="cb303-3"><a href="sec-dplyr.html#cb303-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_weight =</span> <span class="fu">mean</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   sex   mean_weight
-## * &lt;chr&gt;       &lt;dbl&gt;
+##   &lt;chr&gt;       &lt;dbl&gt;
 ## 1 F            42.2
 ## 2 M            43.0
 ## 3 &lt;NA&gt;         64.7</code></pre>
@@ -849,7 +849,7 @@ each sex, we would do:</p>
 <span id="cb323-2"><a href="sec-dplyr.html#cb323-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(sex)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   sex       n
-## * &lt;chr&gt; &lt;int&gt;
+##   &lt;chr&gt; &lt;int&gt;
 ## 1 F     15690
 ## 2 M     17348
 ## 3 &lt;NA&gt;   1748</code></pre>
@@ -859,7 +859,7 @@ each sex, we would do:</p>
 <span id="cb325-3"><a href="sec-dplyr.html#cb325-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   sex   count
-## * &lt;chr&gt; &lt;int&gt;
+##   &lt;chr&gt; &lt;int&gt;
 ## 1 F     15690
 ## 2 M     17348
 ## 3 &lt;NA&gt;   1748</code></pre>
@@ -945,7 +945,7 @@ number of observations (hint: see <code>?n</code>).</p></li>
 <span id="cb333-2"><a href="sec-dplyr.html#cb333-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">count</span>(plot_type)</span></code></pre></div>
 <pre><code>## # A tibble: 5 x 2
 ##   plot_type                     n
-## * &lt;chr&gt;                     &lt;int&gt;
+##   &lt;chr&gt;                     &lt;int&gt;
 ## 1 Control                   15611
 ## 2 Long-term Krat Exclosure   5118
 ## 3 Rodent Exclosure           4233
@@ -967,7 +967,7 @@ number of observations (hint: see <code>?n</code>).</li>
 <span id="cb335-9"><a href="sec-dplyr.html#cb335-9" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <pre><code>## # A tibble: 25 x 5
 ##    species_id mean_hindfoot_length min_hindfoot_length max_hindfoot_length     n
-##  * &lt;chr&gt;                     &lt;dbl&gt;               &lt;dbl&gt;               &lt;dbl&gt; &lt;int&gt;
+##    &lt;chr&gt;                     &lt;dbl&gt;               &lt;dbl&gt;               &lt;dbl&gt; &lt;int&gt;
 ##  1 AH                         33                    31                  35     2
 ##  2 BA                         13                     6                  16    45
 ##  3 DM                         36.0                  16                  50  9972
@@ -1290,10 +1290,9 @@ data. It’s a powerful function! See <code>?n_distinct</code> for more.</p>
 ## 4       4      4      4      3      4      5      4      6      3      4      3
 ## 5       5      4      3      2      5      4      6      7      7      3      1
 ## 6       6      3      4      3      4      5      9      9      7      5      6
-## # … with 16 more variables: `1987` &lt;int&gt;, `1988` &lt;int&gt;, `1989` &lt;int&gt;,
-## #   `1990` &lt;int&gt;, `1991` &lt;int&gt;, `1992` &lt;int&gt;, `1993` &lt;int&gt;, `1994` &lt;int&gt;,
-## #   `1995` &lt;int&gt;, `1996` &lt;int&gt;, `1997` &lt;int&gt;, `1998` &lt;int&gt;, `1999` &lt;int&gt;,
-## #   `2000` &lt;int&gt;, `2001` &lt;int&gt;, `2002` &lt;int&gt;</code></pre>
+## # … with 16 more variables: 1987 &lt;int&gt;, 1988 &lt;int&gt;, 1989 &lt;int&gt;, 1990 &lt;int&gt;,
+## #   1991 &lt;int&gt;, 1992 &lt;int&gt;, 1993 &lt;int&gt;, 1994 &lt;int&gt;, 1995 &lt;int&gt;, 1996 &lt;int&gt;,
+## #   1997 &lt;int&gt;, 1998 &lt;int&gt;, 1999 &lt;int&gt;, 2000 &lt;int&gt;, 2001 &lt;int&gt;, 2002 &lt;int&gt;</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1370,18 +1369,18 @@ takes on the value of either <code>hindfoot_length</code> or <code>weight</code>
 <span id="cb361-6"><a href="sec-dplyr.html#cb361-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">c</span>(hindfoot_length, weight))</span>
 <span id="cb361-7"><a href="sec-dplyr.html#cb361-7" aria-hidden="true" tabindex="-1"></a>surveys_long</span></code></pre></div>
 <pre><code>## # A tibble: 69,572 x 13
-##    record_id month   day  year plot_id species_id sex   genus species taxa 
-##        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;
-##  1         1     7    16  1977       2 NL         M     Neot… albigu… Rode…
-##  2         1     7    16  1977       2 NL         M     Neot… albigu… Rode…
-##  3        72     8    19  1977       2 NL         M     Neot… albigu… Rode…
-##  4        72     8    19  1977       2 NL         M     Neot… albigu… Rode…
-##  5       224     9    13  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
-##  6       224     9    13  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
-##  7       266    10    16  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
-##  8       266    10    16  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
-##  9       349    11    12  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
-## 10       349    11    12  1977       2 NL         &lt;NA&gt;  Neot… albigu… Rode…
+##    record_id month   day  year plot_id species_id sex   genus   species  taxa  
+##        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt; 
+##  1         1     7    16  1977       2 NL         M     Neotoma albigula Rodent
+##  2         1     7    16  1977       2 NL         M     Neotoma albigula Rodent
+##  3        72     8    19  1977       2 NL         M     Neotoma albigula Rodent
+##  4        72     8    19  1977       2 NL         M     Neotoma albigula Rodent
+##  5       224     9    13  1977       2 NL         &lt;NA&gt;  Neotoma albigula Rodent
+##  6       224     9    13  1977       2 NL         &lt;NA&gt;  Neotoma albigula Rodent
+##  7       266    10    16  1977       2 NL         &lt;NA&gt;  Neotoma albigula Rodent
+##  8       266    10    16  1977       2 NL         &lt;NA&gt;  Neotoma albigula Rodent
+##  9       349    11    12  1977       2 NL         &lt;NA&gt;  Neotoma albigula Rodent
+## 10       349    11    12  1977       2 NL         &lt;NA&gt;  Neotoma albigula Rodent
 ## # … with 69,562 more rows, and 3 more variables: plot_type &lt;chr&gt;,
 ## #   measurement &lt;chr&gt;, value &lt;dbl&gt;</code></pre>
 <p class="solution-end">
@@ -1482,9 +1481,7 @@ typing <code>dim(surveys_complete)</code>.</p>
 folder.</p>
 <div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="sec-dplyr.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(surveys_complete, <span class="at">path =</span> <span class="st">"data_output/surveys_complete.csv"</span>)</span></code></pre></div>
 <pre><code>## Warning: The `path` argument of `write_csv()` is deprecated as of readr 1.4.0.
-## Please use the `file` argument instead.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
+## Please use the `file` argument instead.</code></pre>
 </div>
 <div id="additional-exercises-3" class="section level2" number="5.9">
 <h2>
@@ -1629,7 +1626,7 @@ and a column <code>result</code> with the student’s mark.</p>
 <a href="sec-vis.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-03-04
+2021-03-20
  using 
 R version 4.0.3 Patched (2021-01-18 r79847)
 </p>
