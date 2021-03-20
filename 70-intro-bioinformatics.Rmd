@@ -123,11 +123,11 @@ measured by the same operator in 4 replicate.
 
 ```{r, echo = FALSE}
 expd <- data.frame(sample = paste0("S", 1:12),
-				   operator = "Kevin", date = '2019-03-02',
-				   group = rep(c("CTRL", "DRUG", "DRUG"), each = 4),
-				   concentration = factor(rep(c(0, 1, 5), each = 4)),
-				   replicate = rep(1:4, 3),
-				   stringsAsFactors = FALSE)
+                   operator = "Kevin", date = '2019-03-02',
+                   group = rep(c("CTRL", "DRUG", "DRUG"), each = 4),
+                   concentration = factor(rep(c(0, 1, 5), each = 4)),
+                   replicate = rep(1:4, 3),
+                   stringsAsFactors = FALSE)
 knitr::kable(expd)
 ```
 
@@ -154,11 +154,11 @@ ge$A1CF <- rnorm(12, 6, 2)
 ge$BRCA1 <- c(abs(rnorm(4, 2, 1)), rnorm(4, 8, 2), rnorm(4, 13, 2))
 ge$TP53 <-  c(rnorm(4, 10, 5), rnorm(4, 10, 3), rnorm(4, 10, 2))
 ge <- pivot_longer(ge,
-				   names_to = "gene",
-				   values_to = "expression",
-				   c(A1CF, BRCA1, TP53))
+                   names_to = "gene",
+                   values_to = "expression",
+                   c(A1CF, BRCA1, TP53))
 ggplot(ge, aes(x = gene, y = expression, colour = concentration)) +
-	geom_boxplot()
+    geom_boxplot()
 ```
 
 ## Project management reminder
@@ -169,11 +169,11 @@ too of course[^bioindatascience]. William Noble (@Noble:2009) proposes
 the following directory structure:
 
 [^bioindatascience]: In this course, we consider bioinformatics as
-	data science applied to biological or bio-medical data.
+    data science applied to biological or bio-medical data.
 
 > Directory names are in large typeface, and filenames are in smaller
 > typeface. Only a subset of the files are shown here. Note that the
-> dates are formatted `<year>-<month>-<day>1` so that they can be
+> dates are formatted `<year>-<month>-<day>` so that they can be
 > sorted in chronological order. The source code `src/ms-analysis.c`
 > is compiled to create `bin/ms-analysis` and is documented in
 > `doc/ms-analysis.html`. The `README` files in the data directories
@@ -201,8 +201,8 @@ project[^futureself] to
    analysis parameters.
 
 [^futureself]: That someone could be, and very likely will be your
-	future self, a couple of months or years after the analyses were
-	run.
+    future self, a couple of months or years after the analyses were
+    run.
 
 
 In addition to the directory structure above, a **lab notebook**,
@@ -219,7 +219,7 @@ results from the individual results files.
 ## The Bioconductor project {#sec:bioconductor}
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
-library("MSnbase")
+library("SummarizedExperiment")
 library("BiocStyle")
 ```
 
@@ -244,13 +244,15 @@ namely `BiocManager`, that can be installed from CRAN with
 install.packages("BiocManager")
 ```
 
-Individuals package such as `MSnbase` (for proteomics), `DESeq2` (for
-transcriptomics), `xcms` (metabolomics), ...can then be installed:
-reminder and `BiocManager::install`.
+Individuals package such as `SummarizedExperiment` (see below for
+details), `DESeq2` (for transcriptomics), `Spectra` (for mass
+spectrometry), `xcms` (metabolomics), ... can then be installed with
+`BiocManager::install`.
 
 ```{r, eval = FALSE}
-BiocManager::install("MSnbase")
+BiocManager::install("SummarizedExperiment")
 BiocManager::install("DESeq2")
+BiocManager::install("Spectra")
 BiocManager::install("xcms")
 ```
 
@@ -280,13 +282,13 @@ knitr::include_graphics("./figs/msnset.png")
   along the columns.
 
 - A sample metadata slot containing sample co-variates, stored as a
-  `data.frame` (or similar). This data frame is stored with rows
-  representing samples and sample covariate along the columns, and its
-  rows match the expression data columns exactly.
+  table (`data.frame` or `DataFrame`). This dataframe is stored with
+  rows representing samples and sample covariate along the columns,
+  and its rows match the expression data columns exactly.
 
-- A feature metadata slot containing feature co-variates, stored as an
-  annotated `data.frame` (or similar). This dataframe's rows match the
-  expression data rows exactly.
+- A feature metadata slot containing feature co-variates, stored as
+  table annotated (`data.frame` or `DataFrame`). This dataframe's rows
+  match the expression data rows exactly.
 
 The coordinated nature of the high throughput data guarantees that the
 dimensions of the different slots will always match (i.e the columns
@@ -295,31 +297,49 @@ as the rows in the expression data and feature metadata) during data
 manipulation. The metadata slots can grow additional co-variates
 (columns) without affecting the other structures.
 
-```{r, echo=FALSE, message=FALSE}
-data(msnset)
+To illustrate such an omics data container, we'll use a variable of
+class `SummarizedExperiment`. Below, we load the `cptac_se` dataset
+from the `rWSBIM1322` package.
+
+
+```{r, message = FALSE}
+library("SummarizedExperiment")
+library("rWSBIM1322")
+data(cptac_se)
+class(cptac_se)
+cptac_se
 ```
 
-To illustrate such an omics data container, we'll make use of the
-`msnset` object, of class `MSnSet` that comes with the `MSnbase`
-package, which contains data for`r nrow(msnset)` features and `r ncol(msnset)`
-samples.
+
+The object contains data for`r nrow(cptac_se)` features (peptides in
+this case) and `r ncol(cptac_se)` samples.
 
 ```{r}
-library(MSnbase)
-data(msnset)
-dim(msnset)
-msnset
+dim(cptac_se)
+nrow(cptac_se)
+ncol(cptac_se)
 ```
 
-Using this data structure, we can access the expression data with the
-`exprs` function, the feature metadata with the `fData` function, and
-the sample metadata with the `pData` function:
+The samples (columns) and rows (protein features) are named:
 
 ```{r}
-head(exprs(msnset))
-head(fData(msnset))
-pData(msnset)
+colnames(cptac_se)
+head(rownames(cptac_se))
+tail(rownames(cptac_se))
 ```
+
+Using this data structure, we can access the expression matrix with
+the `assay` function, the feature metadata with the `rowData` function,
+and the sample metadata with the `colData` function:
+
+```{r}
+head(assay(cptac_se))
+head(rowData(cptac_se))
+colData(cptac_se)
+```
+
+The `nNA` variables above indicate the number of missing values (`NA`
+present in the respective samples and features.
 
 `r msmbstyle::question_begin()`
 
@@ -331,8 +351,8 @@ and columns in the feature and sample data.
 
 `r msmbstyle::solution_begin()`
 ```{r}
-nrow(exprs(msnset)) == nrow(fData(msnset))
-ncol(exprs(msnset)) == nrow(pData(msnset))
+nrow(exprs(cptac_se)) == nrow(fData(cptac_se))
+ncol(exprs(cptac_se)) == nrow(pData(cptac_se))
 ```
 `r msmbstyle::solution_end()`
 
@@ -341,16 +361,16 @@ We can use the `[` operator to subset the whole object: all parts
 thereof will be subset correctly.
 
 ```{r}
-msnset2 <- msnset[c(1, 3, 5), c(2, 4)]
-dim(msnset2)
-head(exprs(msnset2))
+cptac_se2 <- cptac_se[c(1, 3, 5), c(2, 4)]
+dim(cptac_se2)
+head(assay(cptac_se2))
 ```
 
 We can also add information with:
 
 ```{r}
-pData(msnset)$group  <- rep(c('A', 'B'), each = 2)
-pData(msnset)
+colData(cptac_se)$group2  <- rep(c('X', 'Y', 'Z'), each = 2)
+colData(cptac_se)
 ```
 
 ## Bioconductor data infrastructure
@@ -373,17 +393,17 @@ page:
 - SAM / BAM – `r Biocpkg("Rsamtools")``::scanBam()`, `r Biocpkg("GenomicAlignments")``:readGAlignment*()`
 - FASTA – `r Biocpkg("Biostrings")``::readDNAStringSet()`
 - FASTQ – `r Biocpkg("ShortRead")``::readFastq()`
-- Mass spectrometry data (XML-based and peaklist formats) –`r Biocpkg("MSnbase")``::readMSData()`, `r Biocpkg("MSnbase")``::readMgfData()`
+- Mass spectrometry data (XML-based and peaklist formats) – `r Biocpkg("MSnbase")``::readMSData()` and `r Biocpkg("Spectra")``::Spectra()`
 
 #### Common Classes {-}
 
-- Rectangular feature x sample data – `r Biocpkg("SummarizedExperiment")``::SummarizedExperiment()` (RNAseq count matrix, microarray, ...)
+- Rectangular feature x sample data – `r Biocpkg("SummarizedExperiment")``::SummarizedExperiment()` (RNAseq count matrix, microarray, proteomics, ...)
 - Genomic coordinates – `r Biocpkg("GenomicRanges")``::GRanges()` (1-based, closed interval)
 - DNA / RNA / AA sequences – `r Biocpkg("Biostrings")``::*StringSet()`
 - Gene sets – `r Biocpkg("GSEABase")``::GeneSet()` `r Biocpkg("GSEABase")``::GeneSetCollection()`
 - Multi-omics data – `r Biocpkg("MultiAssayExperiment")``::MultiAssayExperiment()`
 - Single cell data – `r Biocpkg("SingleCellExperiment")``::SingleCellExperiment()`
-- Mass spectrometry data – `r Biocpkg("MSnbase")``::MSnExp()`
+- Mass spectrometry data – `r Biocpkg("MSnbase")``::MSnExp()` and `r Biocpkg("Spectra")``::Spectra()`
 
 
 ## Navigating the Bioconductor project
@@ -454,14 +474,14 @@ URL like
 - https://bioconductor.org/packages/packagename
 
 This works for any type of package (software, annotation or data). For
-example, the pages for packages `r Biocpkg("DESeq2")` or `r Biocpkg("MSnbase")`
+example, the pages for packages `r Biocpkg("DESeq2")` or `r Biocpkg("QFeatures")`
 would be
 
 - https://bioconductor.org/packages/DESeq2
 
 and
 
-- https://bioconductor.org/packages/MSnbase
+- https://bioconductor.org/packages/QFeatures
 
 These short URLs are then resolved to their longer form to redirect to
 the longer package URL leading the user to the current release version
@@ -479,8 +499,8 @@ Below, we show how to list all vignettes available in the `MSnbase`
 package and how to open one in particular.
 
 ```{r, eval = FALSE}
-vignette(package = "MSnbase")
-vignette("v01-MSnbase-demo")
+vignette(package = "QFeatures")
+vignette("QFeatures")
 ```
 
 Vignettes are special in that respect as they are produced as part of
@@ -660,35 +680,35 @@ fls <- kem.tsv()
 annot <- read_tsv(fls[2])
 
 kem <- read_tsv(fls[1]) %>%
-	pivot_longer(
-		names_to = "sample_id",
-		values_to = "expression",
-		-ref) %>%
-	left_join(annot)
+    pivot_longer(
+        names_to = "sample_id",
+        values_to = "expression",
+        -ref) %>%
+    left_join(annot)
 
 k <- kem %>%
-	group_by(ref) %>%
-	summarise(tot_exprs = sum(expression)) %>%
-	arrange(desc(tot_exprs)) %>%
-	select(ref) %>%
-	head(3)
+    group_by(ref) %>%
+    summarise(tot_exprs = sum(expression)) %>%
+    arrange(desc(tot_exprs)) %>%
+    select(ref) %>%
+    head(3)
 
 kem3 <- right_join(kem, k)
 
 ggplot(kem3, aes(x = treatment, y = expression)) +
-	geom_boxplot() +
-	geom_jitter() +
-	facet_grid(ref ~ cell_type)
+    geom_boxplot() +
+    geom_jitter() +
+    facet_grid(ref ~ cell_type)
 
 kem %>%
-	group_by(ref, cell_type, treatment) %>%
-	summarise(mean_expression = mean(expression))
+    group_by(ref, cell_type, treatment) %>%
+    summarise(mean_expression = mean(expression))
 
 kem3 %>%
-	filter(cell_type == "A") %>%
-	group_by(ref, cell_type, treatment) %>%
-	summarise(mean_expression = mean(expression)) %>%
-	pivot_wider(names_from = "treatment",
-				values_from = "mean_expression") %>%
-	mutate(fold_change = stimulated/none)
+    filter(cell_type == "A") %>%
+    group_by(ref, cell_type, treatment) %>%
+    summarise(mean_expression = mean(expression)) %>%
+    pivot_wider(names_from = "treatment",
+                values_from = "mean_expression") %>%
+    mutate(fold_change = stimulated/none)
 ```
