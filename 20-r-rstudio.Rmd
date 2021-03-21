@@ -213,7 +213,6 @@ going to set UTF-8 by default:
 knitr::include_graphics("./figs/utf8.png")
 ```
 
-
 ### Organizing your working directory
 
 Using a consistent folder structure across your projects will help keep things
@@ -271,8 +270,8 @@ Your working directory should now look like this:
 knitr::include_graphics("./figs/r-starting-how-it-should-look-like.png")
 ```
 
-Project management is also applicable to bioinformatics projects, of
-course[^bioindatascience]. William Noble (@Noble:2009) proposes the
+**Project management** is also applicable to bioinformatics projects,
+of course[^bioindatascience]. William Noble (@Noble:2009) proposes the
 following directory structure:
 
 [^bioindatascience]: In this course, we consider bioinformatics as
