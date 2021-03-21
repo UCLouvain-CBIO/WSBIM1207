@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-03-20" />
+<meta name="date" content="2021-03-21" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -226,7 +226,7 @@ final report.</li>
 document using RStudio.</li>
 </ul>
 <p>For a general introduction on the topic in French, see
-<span class="citation"><label for="tufte-mn-23" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-23" class="margin-toggle">Pouzat, Davison, and Hinsen (2015)<span class="marginnote">Pouzat, Christophe, Andrew Davison, and Konrad Hinsen. 2015. <span>“La Recherche Reproductible : Une Communication Scientifique Explicite.”</span> <em>Statistique Et Société</em> 3 (1). <a href="http://www.publications-sfds.fr/index.php/stat_soc/article/view/448">http://www.publications-sfds.fr/index.php/stat_soc/article/view/448</a>.</span></span>. If you want to explore the topic of reproducible
+<span class="citation"><label for="tufte-mn-24" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-24" class="margin-toggle">Pouzat, Davison, and Hinsen (2015)<span class="marginnote">Pouzat, Christophe, Andrew Davison, and Konrad Hinsen. 2015. <span>“La Recherche Reproductible : Une Communication Scientifique Explicite.”</span> <em>Statistique Et Société</em> 3 (1). <a href="http://www.publications-sfds.fr/index.php/stat_soc/article/view/448">http://www.publications-sfds.fr/index.php/stat_soc/article/view/448</a>.</span></span>. If you want to explore the topic of reproducible
 research in French, the <a href="https://www.fun-mooc.fr/courses/course-v1:inria+41016+session01bis/about">Recherche reproductible : principes
 méthodologiques pour une science
 transparente</a>
@@ -235,7 +235,7 @@ MOOC is of interest.</p>
 various conditions and by different people. It applies to every area
 of research, both experimental and computational, but is often (but
 not always) easier to implement for computational work. The different
-levels of reproducibility can formalised<label for="tufte-sn-11" class="margin-toggle sidenote-number">11</label><input type="checkbox" id="tufte-sn-11" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">11</span> The nomenclature is taken from <a href="https://lgatto.github.io/rr-what-should-be-our-goals/">this blog
+levels of reproducibility can formalised<label for="tufte-sn-13" class="margin-toggle sidenote-number">13</label><input type="checkbox" id="tufte-sn-13" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">13</span> The nomenclature is taken from <a href="https://lgatto.github.io/rr-what-should-be-our-goals/">this blog
 post</a> that
 provides links and highlights that confusion that exists around
 the terms and concepts of reproducibility.</span> as follows:</p>
@@ -279,15 +279,15 @@ computational projects.</p>
 </tr>
 </tbody>
 </table>
-<p>There are many reasons to work reproducibly, and <span class="citation"><label for="tufte-mn-24" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-24" class="margin-toggle">Markowetz (2015)<span class="marginnote">Markowetz, Florian. 2015. <span>“Five Selfish Reasons to Work Reproducibly.”</span> <em>Genome Biology</em> 16 (1): 274. <a href="https://doi.org/10.1186/s13059-015-0850-7">https://doi.org/10.1186/s13059-015-0850-7</a>.</span></span>
+<p>There are many reasons to work reproducibly, and <span class="citation"><label for="tufte-mn-25" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-25" class="margin-toggle">Markowetz (2015)<span class="marginnote">Markowetz, Florian. 2015. <span>“Five Selfish Reasons to Work Reproducibly.”</span> <em>Genome Biology</em> 16 (1): 274. <a href="https://doi.org/10.1186/s13059-015-0850-7">https://doi.org/10.1186/s13059-015-0850-7</a>.</span></span>
 nicely summarises 5 good reasons. Importantly, he stressed out that
 the first beneficiary of reproducible work are the student/research
 that apply these principles:</p>
 <ol style="list-style-type: decimal">
 <li>Reproducibility helps to avoid disaster.</li>
-<li>Reproducibility makes it easier to write papers<label for="tufte-sn-12" class="margin-toggle sidenote-number">12</label><input type="checkbox" id="tufte-sn-12" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">12</span> And course reports! The exam of this course will consist
+<li>Reproducibility makes it easier to write papers<label for="tufte-sn-14" class="margin-toggle sidenote-number">14</label><input type="checkbox" id="tufte-sn-14" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">14</span> And course reports! The exam of this course will consist
 in a reproducible report using the tools described below.</span>.</li>
-<li>Reproducibility helps reviewers see it your way<label for="tufte-sn-13" class="margin-toggle sidenote-number">13</label><input type="checkbox" id="tufte-sn-13" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">13</span> Not only reviewers, also professors that read exams. See
+<li>Reproducibility helps reviewers see it your way<label for="tufte-sn-15" class="margin-toggle sidenote-number">15</label><input type="checkbox" id="tufte-sn-15" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">15</span> Not only reviewers, also professors that read exams. See
 previous footnote.</span>.</li>
 <li>Reproducibility enables continuity of your work.</li>
 <li>Reproducibility helps to build your reputation.</li>
@@ -301,7 +301,7 @@ previous footnote.</span>.</li>
 the tools that are available, one can argue that it has become more
 difficult not to produce reproducible reports than to producing then.</p>
 <p>Reproducible documents have been a part of R since the very
-beginning. See for example <span class="citation"><label for="tufte-mn-25" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-25" class="margin-toggle">R. Gentleman and Temple Lang (2004)<span class="marginnote">Gentleman, Robert, and Duncan Temple Lang. 2004. <span>“Statistical Analyses and Reproducible Research.”</span> <em>Bioconductor Project Working Papers. Working Paper 2</em>. <a href="https://biostats.bepress.com/bioconductor/paper2">https://biostats.bepress.com/bioconductor/paper2</a>.</span></span>, to see how such <em>compendia</em> play a
+beginning. See for example <span class="citation"><label for="tufte-mn-26" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-26" class="margin-toggle">R. Gentleman and Temple Lang (2004)<span class="marginnote">Gentleman, Robert, and Duncan Temple Lang. 2004. <span>“Statistical Analyses and Reproducible Research.”</span> <em>Bioconductor Project Working Papers. Working Paper 2</em>. <a href="https://biostats.bepress.com/bioconductor/paper2">https://biostats.bepress.com/bioconductor/paper2</a>.</span></span>, to see how such <em>compendia</em> play a
 central role within the <a href="https://bioconductor.org/">Bioconductor</a>
 project (more about Bioconductor in it’s dedicated
 chapter). Originally, these were written in LaTeX, interleaved with R
@@ -359,7 +359,7 @@ demonstrated during the course.</p>
 <p><img src="figs/rmd.png"></p>
 <p>RStudio also supports
 <a href="https://bookdown.org/yihui/rmarkdown/notebook.html">Notebook</a>
-documents<label for="tufte-sn-14" class="margin-toggle sidenote-number">14</label><input type="checkbox" id="tufte-sn-14" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">14</span> See also <a href="https://jupyter.org/">Jupyter notebooks</a>
+documents<label for="tufte-sn-16" class="margin-toggle sidenote-number">16</label><input type="checkbox" id="tufte-sn-16" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">16</span> See also <a href="https://jupyter.org/">Jupyter notebooks</a>
 initially developed for Python, but that can run R code as well.</span> that execute individual code chunks independently
 and display directly in the source document.</p>
 <p><img src="figs/rnb.png"></p>
@@ -464,7 +464,7 @@ chapters <a href="sec-dplyr.html#sec:dplyr">5</a> and <a href="sec-vis.html#sec:
 file as <code>surname_surname_beers_report.Rmd</code>, post it on the course
 forum and ask your neighbour to download it, compile it into pdf and
 provide feedback on whether the document was reproducible and easy to
-follow<label for="tufte-sn-15" class="margin-toggle sidenote-number">15</label><input type="checkbox" id="tufte-sn-15" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">15</span> This is an important exercise, as it will mimic the exam
+follow<label for="tufte-sn-17" class="margin-toggle sidenote-number">17</label><input type="checkbox" id="tufte-sn-17" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">17</span> This is an important exercise, as it will mimic the exam
 situation, where you will hand in your <code>Rmd</code> reports that will
 need to be compiled (to pdf) before marking. In addition, it
 demonstrates the challenges of writing and reproducing an
@@ -495,7 +495,7 @@ output: pdf_document
 <li>Add a first section called <em>Data input</em>, in which you will load the
 <code>rWSBIM1207</code> package, use the <code>interroA.csv()</code> function to get the
 name of a csv file containing test results for a set of students,
-and read these data into R using <code>read_csv</code>.<label for="tufte-sn-16" class="margin-toggle sidenote-number">16</label><input type="checkbox" id="tufte-sn-16" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">16</span> It is important here <strong>not</strong> to copy/paste the filename
+and read these data into R using <code>read_csv</code>.<label for="tufte-sn-18" class="margin-toggle sidenote-number">18</label><input type="checkbox" id="tufte-sn-18" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">18</span> It is important here <strong>not</strong> to copy/paste the filename
 returned by <code>interroA.csv()</code>. That file is distributed with the
 <code>rWSBIM1207</code> package, and has a computer-specific path. Because we
 want our reports to be reproducible, we want to use the filename
@@ -537,7 +537,7 @@ for each test and for female and male students.</p></li>
 <a href="sec-bioinfo.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-03-20
+2021-03-21
  using 
 R version 4.0.3 Patched (2021-01-18 r79847)
 </p>

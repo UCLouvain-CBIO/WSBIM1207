@@ -7,6 +7,7 @@ fig:unnamed-chunk-5
 fig:unnamed-chunk-6
 fig:unnamed-chunk-7
 fig:unnamed-chunk-8
+fig:bioinfoproj
 fig:rstudiohelp
 fig:unnamed-chunk-75
 fig:firstfactorplot
@@ -24,7 +25,6 @@ fig:infoflow
 fig:sangerseq
 fig:pepseq
 fig:unnamed-chunk-198
-fig:bioinfoproj
 fig:biocwww
 fig:msnset
 fig:unnamed-chunk-252
@@ -135,7 +135,6 @@ additional-exercises-6
 sec:bioinfo
 omics-data
 metadata-and-experimental-design
-project-management-reminder
 sec:bioconductor
 omics-data-containers
 bioconductor-data-infrastructure

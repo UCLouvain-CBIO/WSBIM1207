@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-03-20" />
+<meta name="date" content="2021-03-21" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -499,6 +499,43 @@ Figure 2.6: How it should look like at the beginning of this lesson
 </p>
 <img src="figs/r-starting-how-it-should-look-like.png" alt="How it should look like at the beginning of this lesson" width="100%">
 </div>
+<p>Project management is also applicable to bioinformatics projects, of
+course<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> In this course, we consider bioinformatics as
+data science applied to biological or bio-medical data.</span>. William Noble (<span class="citation"><label for="tufte-mn-18" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-18" class="margin-toggle">Noble (2009)<span class="marginnote">Noble, William Stafford. 2009. <span>“A Quick Guide to Organizing Computational Biology Projects.”</span> <em>PLOS Computational Biology</em> 5 (7): 1–5. <a href="https://doi.org/10.1371/journal.pcbi.1000424">https://doi.org/10.1371/journal.pcbi.1000424</a>.</span></span>) proposes the
+following directory structure:</p>
+<blockquote>
+<p>Directory names are in large typeface, and filenames are in smaller
+typeface. Only a subset of the files are shown here. Note that the
+dates are formatted <code>&lt;year&gt;-&lt;month&gt;-&lt;day&gt;</code> so that they can be
+sorted in chronological order. The source code <code>src/ms-analysis.c</code>
+is compiled to create <code>bin/ms-analysis</code> and is documented in
+<code>doc/ms-analysis.html</code>. The <code>README</code> files in the data directories
+specify who downloaded the data files from what URL on what
+date. The driver script <code>results/2009-01-15/runall</code> automatically
+generates the three subdirectories split1, split2, and split3,
+corresponding to three cross-validation splits. The
+<code>bin/parse-sqt.py</code> script is called by both of the <code>runall</code> driver
+scripts.</p>
+</blockquote>
+<div class="figure">
+<span id="fig:bioinfoproj"></span>
+<p class="caption marginnote shownote">
+Figure 2.7: Directory structure for a sample bioinformatics project.
+</p>
+<img src="figs/noble-bioinfo-project.png" alt="Directory structure for a sample bioinformatics project." width="100%">
+</div>
+<p>The most important aspect of a well defined and well documented
+project directory is to enable someone unfamiliar with the
+project<label for="tufte-sn-7" class="margin-toggle sidenote-number">7</label><input type="checkbox" id="tufte-sn-7" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">7</span> That someone could be, and very likely will be your
+future self, a couple of months or years after the analyses were
+run.</span> to</p>
+<ol style="list-style-type: decimal">
+<li><p>understand what the project is about, what data are available, what
+analyses were run, and what results were produced and, most
+importantly to</p></li>
+<li><p>repeat the analysis over again - with new data, or changing some
+analysis parameters.</p></li>
+</ol>
 </div>
 <div id="the-working-directory" class="section level3" number="2.4.2">
 <h3>
@@ -592,7 +629,7 @@ return you to the <code>&gt;</code> prompt.</p>
 taste of how you can use R to analyse data for your own
 research. However, you will need to learn more to do advanced
 operations such as cleaning your dataset, using statistical methods,
-or creating beautiful graphics<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> We will introduce most of these (except statistics)
+or creating beautiful graphics<label for="tufte-sn-8" class="margin-toggle sidenote-number">8</label><input type="checkbox" id="tufte-sn-8" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">8</span> We will introduce most of these (except statistics)
 here, but will only manage to scratch the surface of the wealth of
 what is possible to do with R.</span>. The best way to become
 proficient and efficient at R, as with any other tool, is to use it to
@@ -612,7 +649,7 @@ suit your purpose might make it easier for you to get started.</p>
 <div class="figure" style="text-align: center">
 <span id="fig:rstudiohelp"></span>
 <p class="caption marginnote shownote">
-Figure 2.7: RStudio help interface.
+Figure 2.8: RStudio help interface.
 </p>
 <img src="figs/rstudiohelp.png" alt="RStudio help interface." width="70%">
 </div>
@@ -705,7 +742,7 @@ to recreate the exact same object as the one in memory:</p>
 file) with your script up to the point of the error (and after
 removing everything that is not relevant to your
 issue). Alternatively, in particular if your question is not related
-to a data frame, you can save any R object to a file<label for="tufte-sn-7" class="margin-toggle sidenote-number">7</label><input type="checkbox" id="tufte-sn-7" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">7</span> See section <a href="sec-startdata.html#sec:exportandsave">4.10</a> for a better
+to a data frame, you can save any R object to a file<label for="tufte-sn-9" class="margin-toggle sidenote-number">9</label><input type="checkbox" id="tufte-sn-9" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">9</span> See section <a href="sec-startdata.html#sec:exportandsave">4.10</a> for a better
 introduction about exporting and saving data.</span>:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="sec-rrstudio.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(iris, <span class="at">file=</span><span class="st">"/tmp/iris.rds"</span>)</span></code></pre></div>
 <p>The content of this file is however not human readable and cannot be
@@ -839,7 +876,7 @@ directly from the user <code>UCLouvain-CBIO</code> github repository.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="sec-rrstudio.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
 <span id="cb17-2"><a href="sec-rrstudio.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"devtools"</span>)</span>
 <span id="cb17-3"><a href="sec-rrstudio.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
-<p>In section <a href="sec-bioinfo.html#sec:bioconductor">9.4</a>, we will see how to install
+<p>In section <a href="sec-bioinfo.html#sec:bioconductor">9.3</a>, we will see how to install
 <a href="http://www.bioconductor.org">Bioconductor</a>, a project dedicated to
 bioinformatics and omics packages.</p>
 
@@ -852,7 +889,7 @@ bioinformatics and omics packages.</p>
 <a href="sec-startr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-03-20
+2021-03-21
  using 
 R version 4.0.3 Patched (2021-01-18 r79847)
 </p>

@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-03-20" />
+<meta name="date" content="2021-03-21" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -197,7 +197,6 @@ div.csl-indent {
 <a id="active-page" href="sec-bioinfo.html"><span class="toc-section-number">9</span> Bioinformatics</a><ul class="toc-sections">
 <li class="toc"><a href="#omics-data"> Omics data</a></li>
 <li class="toc"><a href="#metadata-and-experimental-design"> Metadata and experimental design</a></li>
-<li class="toc"><a href="#project-management-reminder"> Project management reminder</a></li>
 <li class="toc"><a href="#sec:bioconductor"> The Bioconductor project</a></li>
 <li class="toc"><a href="#omics-data-containers"> Omics data containers</a></li>
 <li class="toc"><a href="#bioconductor-data-infrastructure"> Bioconductor data infrastructure</a></li>
@@ -488,61 +487,9 @@ Figure 9.4: Distribution of the expression of the genes A1CF, BRCA1 and TP53 und
 <img src="WSBIM1207_files/figure-html/unnamed-chunk-198-1.png" alt="Distribution of the expression of the genes A1CF, BRCA1 and TP53 under the control (no drug) and drug at concentrations 1 and 5." width="672">
 </div>
 </div>
-<div id="project-management-reminder" class="section level2" number="9.3">
+<div id="sec:bioconductor" class="section level2" number="9.3">
 <h2>
-<span class="header-section-number">9.3</span> Project management reminder<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('project-management-reminder')" onmouseout="reset_tooltip('project-management-reminder-tooltip')"><span class="tooltiptext" id="project-management-reminder-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h2>
-<p>We have already seen some best practice related to data science
-project management. These are applicable to bioinformatics projects
-too of course<label for="tufte-sn-17" class="margin-toggle sidenote-number">17</label><input type="checkbox" id="tufte-sn-17" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">17</span> In this course, we consider bioinformatics as
-data science applied to biological or bio-medical data.</span>. William Noble (<span class="citation"><label for="tufte-mn-26" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-26" class="margin-toggle">Noble (2009)<span class="marginnote">Noble, William Stafford. 2009. <span>“A Quick Guide to Organizing Computational Biology Projects.”</span> <em>PLOS Computational Biology</em> 5 (7): 1–5. <a href="https://doi.org/10.1371/journal.pcbi.1000424">https://doi.org/10.1371/journal.pcbi.1000424</a>.</span></span>) proposes
-the following directory structure:</p>
-<blockquote>
-<p>Directory names are in large typeface, and filenames are in smaller
-typeface. Only a subset of the files are shown here. Note that the
-dates are formatted <code>&lt;year&gt;-&lt;month&gt;-&lt;day&gt;</code> so that they can be
-sorted in chronological order. The source code <code>src/ms-analysis.c</code>
-is compiled to create <code>bin/ms-analysis</code> and is documented in
-<code>doc/ms-analysis.html</code>. The <code>README</code> files in the data directories
-specify who downloaded the data files from what URL on what
-date. The driver script <code>results/2009-01-15/runall</code> automatically
-generates the three subdirectories split1, split2, and split3,
-corresponding to three cross-validation splits. The
-<code>bin/parse-sqt.py</code> script is called by both of the <code>runall</code> driver
-scripts.</p>
-</blockquote>
-<div class="figure">
-<span id="fig:bioinfoproj"></span>
-<p class="caption marginnote shownote">
-Figure 9.5: Directory structure for a sample bioinformatics project.
-</p>
-<img src="figs/noble-bioinfo-project.png" alt="Directory structure for a sample bioinformatics project." width="100%">
-</div>
-<p>The most important aspect of a well defined and well documented
-project directory is to enable someone unfamiliar with the
-project<label for="tufte-sn-18" class="margin-toggle sidenote-number">18</label><input type="checkbox" id="tufte-sn-18" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">18</span> That someone could be, and very likely will be your
-future self, a couple of months or years after the analyses were
-run.</span> to</p>
-<ol style="list-style-type: decimal">
-<li><p>understand what the project is about, what data are available, what
-analyses were run, and what results were produced and, most
-importantly to</p></li>
-<li><p>repeat the analysis over again - with new data, or changing some
-analysis parameters.</p></li>
-</ol>
-<p>In addition to the directory structure above, a <strong>lab notebook</strong>,
-describing the different analyses that were done, why they were done,
-and summarising the results are, is useful. The details of the
-analysis are encoded in individual scripts and Rmarkdown or notebook
-files, and don’t need to be repeated again - here, it is important to
-document the why something was done, rather then how something was
-done. Such a general lab notebook could be a simple <code>README.md</code> file
-or a reproducible Rmarkdown file, that could directly load some
-results from the individual results files.</p>
-</div>
-<div id="sec:bioconductor" class="section level2" number="9.4">
-<h2>
-<span class="header-section-number">9.4</span> The Bioconductor project<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('sec:bioconductor')" onmouseout="reset_tooltip('sec:bioconductor-tooltip')"><span class="tooltiptext" id="sec:bioconductor-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">9.3</span> The Bioconductor project<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('sec:bioconductor')" onmouseout="reset_tooltip('sec:bioconductor-tooltip')"><span class="tooltiptext" id="sec:bioconductor-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h2>
 <p>The <a href="http://www.bioconductor.org">Bioconductor</a> was initiated by
 Robert Gentleman (<span class="citation"><label for="tufte-mn-27" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-27" class="margin-toggle">R. C. Gentleman et al. (2004)<span class="marginnote">Gentleman, Robert C., Vincent J. Carey, Douglas M. Bates, Ben Bolstad, Marcel Dettling, Sandrine Dudoit, Byron Ellis, et al. 2004. <span>“Bioconductor: Open Software Development for Computational Biology and Bioinformatics.”</span> <em>Genome Biol</em> 5 (10): –80. <a href="https://doi.org/10.1186/gb-2004-5-10-r80">https://doi.org/10.1186/gb-2004-5-10-r80</a>.</span></span>;<span class="citation"><label for="tufte-mn-28" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-28" class="margin-toggle">R. C. Gentleman et al. (2004)<span class="marginnote">Gentleman, Robert C., Vincent J. Carey, Douglas M. Bates, Ben Bolstad, Marcel Dettling, Sandrine Dudoit, Byron Ellis, et al. 2004. <span>“Bioconductor: Open Software Development for Computational Biology and Bioinformatics.”</span> <em>Genome Biol</em> 5 (10): –80. <a href="https://doi.org/10.1186/gb-2004-5-10-r80">https://doi.org/10.1186/gb-2004-5-10-r80</a>.</span></span>), one of the two
@@ -557,7 +504,7 @@ has two releases each year, and an active user community.</p>
 <div class="figure">
 <span id="fig:biocwww"></span>
 <p class="caption marginnote shownote">
-Figure 9.6: The Bioconductor web page.
+Figure 9.5: The Bioconductor web page.
 </p>
 <img src="figs/bioc-screenshot.png" alt="The Bioconductor web page." width="100%">
 </div>
@@ -575,9 +522,9 @@ spectrometry), <code>xcms</code> (metabolomics), … can then be installed with
 <p>Note that we can also use that same function to install packages from GitHub:</p>
 <div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="sec-bioinfo.html#cb481-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
 </div>
-<div id="omics-data-containers" class="section level2" number="9.5">
+<div id="omics-data-containers" class="section level2" number="9.4">
 <h2>
-<span class="header-section-number">9.5</span> Omics data containers<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('omics-data-containers')" onmouseout="reset_tooltip('omics-data-containers-tooltip')"><span class="tooltiptext" id="omics-data-containers-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">9.4</span> Omics data containers<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('omics-data-containers')" onmouseout="reset_tooltip('omics-data-containers-tooltip')"><span class="tooltiptext" id="omics-data-containers-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h2>
 <p>Data in bioinformatics is often more complex than the basic data types
 we have seen so far. In such situations, developers define specialised
@@ -588,7 +535,7 @@ omics domains in Bioconductor is represented below:</p>
 <div class="figure">
 <span id="fig:msnset"></span>
 <p class="caption marginnote shownote">
-Figure 9.7: A data structure to store quantitative data, features (rows) annotation, and samples (column) annotations..
+Figure 9.6: A data structure to store quantitative data, features (rows) annotation, and samples (column) annotations..
 </p>
 <img src="figs/msnset.png" alt="A data structure to store quantitative data, features (rows) annotation, and samples (column) annotations.." width="80%">
 </div>
@@ -729,9 +676,9 @@ thereof will be subset correctly.</p>
 ## 6B_8          6B         8      5470           Z
 ## 6B_9          6B         9      5207           Z</code></pre>
 </div>
-<div id="bioconductor-data-infrastructure" class="section level2" number="9.6">
+<div id="bioconductor-data-infrastructure" class="section level2" number="9.5">
 <h2>
-<span class="header-section-number">9.6</span> Bioconductor data infrastructure<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('bioconductor-data-infrastructure')" onmouseout="reset_tooltip('bioconductor-data-infrastructure-tooltip')"><span class="tooltiptext" id="bioconductor-data-infrastructure-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">9.5</span> Bioconductor data infrastructure<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('bioconductor-data-infrastructure')" onmouseout="reset_tooltip('bioconductor-data-infrastructure-tooltip')"><span class="tooltiptext" id="bioconductor-data-infrastructure-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h2>
 <p>An essential aspect that is central to Bioconductor and its success is
 the availability of core data infrastructure that is used across
@@ -777,16 +724,16 @@ page:</p>
 </ul>
 </div>
 </div>
-<div id="navigating-the-bioconductor-project" class="section level2" number="9.7">
+<div id="navigating-the-bioconductor-project" class="section level2" number="9.6">
 <h2>
-<span class="header-section-number">9.7</span> Navigating the Bioconductor project<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('navigating-the-bioconductor-project')" onmouseout="reset_tooltip('navigating-the-bioconductor-project-tooltip')"><span class="tooltiptext" id="navigating-the-bioconductor-project-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">9.6</span> Navigating the Bioconductor project<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('navigating-the-bioconductor-project')" onmouseout="reset_tooltip('navigating-the-bioconductor-project-tooltip')"><span class="tooltiptext" id="navigating-the-bioconductor-project-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h2>
 <p>Bioconductor has become a large project proposing many packages across
 many domains of high throughput biology. It continues to grow, at an
 increasing rate, and it can be difficult to get started.</p>
-<div id="biocviews" class="section level3" number="9.7.1">
+<div id="biocviews" class="section level3" number="9.6.1">
 <h3>
-<span class="header-section-number">9.7.1</span> <em>biocViews</em>
+<span class="header-section-number">9.6.1</span> <em>biocViews</em>
 <div class="tooltip"><button class="internal-link-btn" onclick="copy_link('biocviews')" onmouseout="reset_tooltip('biocviews-tooltip')"><span class="tooltiptext" id="biocviews-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p>One way to find packages of interest is to navigate the <em>biocViews</em>
@@ -808,9 +755,9 @@ on the homepage, under <em>About Bioconductor</em> (see screenshot above).</p>
 <a href="https://bioconductor.org/developers/how-to/biocViews/">page</a> for
 additional information.</p>
 </div>
-<div id="workflows" class="section level3" number="9.7.2">
+<div id="workflows" class="section level3" number="9.6.2">
 <h3>
-<span class="header-section-number">9.7.2</span> Workflows<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('workflows')" onmouseout="reset_tooltip('workflows-tooltip')"><span class="tooltiptext" id="workflows-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">9.6.2</span> Workflows<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('workflows')" onmouseout="reset_tooltip('workflows-tooltip')"><span class="tooltiptext" id="workflows-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p>On the other hand, people generally don’t approach the Bioconductor
 project to learn the whole project, but are interested by a specific
@@ -835,9 +782,9 @@ gateway</p>
 <p>These peer-reviewed papers describe more complete pipelines involving
 one or several packages.</p>
 </div>
-<div id="learning-about-specific-packages" class="section level3" number="9.7.3">
+<div id="learning-about-specific-packages" class="section level3" number="9.6.3">
 <h3>
-<span class="header-section-number">9.7.3</span> Learning about specific packages<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('learning-about-specific-packages')" onmouseout="reset_tooltip('learning-about-specific-packages-tooltip')"><span class="tooltiptext" id="learning-about-specific-packages-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">9.6.3</span> Learning about specific packages<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('learning-about-specific-packages')" onmouseout="reset_tooltip('learning-about-specific-packages-tooltip')"><span class="tooltiptext" id="learning-about-specific-packages-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p>Each Bioconductor package has it’s own <em>landing pages</em> that provides
 all necessary information about a package, including a short summary,
@@ -863,9 +810,9 @@ would be</p>
 the longer package URL leading the user to the current release version
 of the packge.</p>
 </div>
-<div id="package-vignettes" class="section level3" number="9.7.4">
+<div id="package-vignettes" class="section level3" number="9.6.4">
 <h3>
-<span class="header-section-number">9.7.4</span> Package vignettes<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('package-vignettes')" onmouseout="reset_tooltip('package-vignettes-tooltip')"><span class="tooltiptext" id="package-vignettes-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">9.6.4</span> Package vignettes<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('package-vignettes')" onmouseout="reset_tooltip('package-vignettes-tooltip')"><span class="tooltiptext" id="package-vignettes-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p>An important quality of every Bioconductor package is the availability
 of a dedicated <em>vignette</em>. Vignettes are documentations (generally
@@ -890,9 +837,9 @@ extract the code into an R script runnung the <code>Stangle</code> (from the
 see <a href="https://bioconductor.org/help/package-vignettes/">here</a> for
 details) or <code>knitr::purl</code> functions on the vignette source document.</p>
 </div>
-<div id="getting-help" class="section level3" number="9.7.5">
+<div id="getting-help" class="section level3" number="9.6.5">
 <h3>
-<span class="header-section-number">9.7.5</span> Getting help<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('getting-help')" onmouseout="reset_tooltip('getting-help-tooltip')"><span class="tooltiptext" id="getting-help-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">9.6.5</span> Getting help<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('getting-help')" onmouseout="reset_tooltip('getting-help-tooltip')"><span class="tooltiptext" id="getting-help-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p>The best way to get help with regard the a Bioconductor package is to
 post the question on the <em>Bioconductor support forum</em> at
@@ -917,9 +864,9 @@ dedicated
 is dedicated for questions and discussions related to package
 development.</p>
 </div>
-<div id="versions" class="section level3" number="9.7.6">
+<div id="versions" class="section level3" number="9.6.6">
 <h3>
-<span class="header-section-number">9.7.6</span> Versions<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('versions')" onmouseout="reset_tooltip('versions-tooltip')"><span class="tooltiptext" id="versions-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">9.6.6</span> Versions<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('versions')" onmouseout="reset_tooltip('versions-tooltip')"><span class="tooltiptext" id="versions-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p>It is also useful to know that at any given time, there are two
 Bioconductor versions - there is always a release (stable) and a
@@ -938,9 +885,9 @@ to keep up with the latest developments in Bioconductor. More details
 <a href="https://bioconductor.org/developers/how-to/version-numbering/">here</a>.</p>
 </div>
 </div>
-<div id="exercises" class="section level2" number="9.8">
+<div id="exercises" class="section level2" number="9.7">
 <h2>
-<span class="header-section-number">9.8</span> Exercises<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('exercises')" onmouseout="reset_tooltip('exercises-tooltip')"><span class="tooltiptext" id="exercises-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">9.7</span> Exercises<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('exercises')" onmouseout="reset_tooltip('exercises-tooltip')"><span class="tooltiptext" id="exercises-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h2>
 <div class="question">
 <p class="question-begin">
@@ -1033,7 +980,7 @@ conditions.</p></li>
 <a href="sec-prog.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-03-20
+2021-03-21
  using 
 R version 4.0.3 Patched (2021-01-18 r79847)
 </p>

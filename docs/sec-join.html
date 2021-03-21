@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-03-20" />
+<meta name="date" content="2021-03-21" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -240,7 +240,7 @@ set of join functions for combining two data frames based on matches
 within specified columns.</p>
 <p>For further reading, please refer to the chapter about <a href="https://r4ds.had.co.nz/relational-data.html#understanding-joins">table
 joins</a>
-in <span class="citation"><label for="tufte-mn-22" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-22" class="margin-toggle">Grolemund and Wickham (2017)<span class="marginnote">Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. O’Reilly Media. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.</span></span>.</p>
+in <span class="citation"><label for="tufte-mn-23" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-23" class="margin-toggle">Grolemund and Wickham (2017)<span class="marginnote">Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. O’Reilly Media. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.</span></span>.</p>
 <p>The <a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf">Data Transformation Cheat
 Sheet</a>
 also provides a short overview on table joins.</p>
@@ -257,7 +257,7 @@ shown below.</p>
 <span id="cb425-2"><a href="sec-join.html#cb425-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(jdf)</span></code></pre></div>
 <p>The example data is composed of pairs of tables (we have tibbles here,
 but this would equally work with dataframes). The first member of the
-pair contains protein <a href="https://www.uniprot.org/">UniProt</a><label for="tufte-sn-9" class="margin-toggle sidenote-number">9</label><input type="checkbox" id="tufte-sn-9" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">9</span> UniProt is the protein information database. Its mission is to <em>provide the scientific community with a comprehensive, high-quality and freely accessible resource of protein sequence and functional information</em>.</span> unique
+pair contains protein <a href="https://www.uniprot.org/">UniProt</a><label for="tufte-sn-11" class="margin-toggle sidenote-number">11</label><input type="checkbox" id="tufte-sn-11" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">11</span> UniProt is the protein information database. Its mission is to <em>provide the scientific community with a comprehensive, high-quality and freely accessible resource of protein sequence and functional information</em>.</span> unique
 accession number (<code>uniprot</code> variable), the most likely sub-cellular
 localisation of these respective proteins (<code>organelle</code> variable) as
 well as the proteins identifier (<code>entry</code>).</p>
@@ -730,7 +730,7 @@ and this is crucial, do not have the same column names:</p>
 ## 1 4 4
 ## 2 5 5</code></pre>
 <p>While de number of columns match, the names don’t, which results in an
-error<label for="tufte-sn-10" class="margin-toggle sidenote-number">10</label><input type="checkbox" id="tufte-sn-10" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">10</span> The failing call to <code>rbind</code> is wrapped into a <code>try</code> call here
+error<label for="tufte-sn-12" class="margin-toggle sidenote-number">12</label><input type="checkbox" id="tufte-sn-12" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">12</span> The failing call to <code>rbind</code> is wrapped into a <code>try</code> call here
 to stop the error from aborting the document compilation.</span> when we use <code>rbind</code>:</p>
 <div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="sec-join.html#cb466-1" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">rbind</span>(d1, d2))</span></code></pre></div>
 <pre><code>## Error in match.names(clabs, names(xi)) : 
@@ -819,7 +819,7 @@ containing merged data exclusively for normal samples.</p></li>
 <a href="sec-rr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-03-20
+2021-03-21
  using 
 R version 4.0.3 Patched (2021-01-18 r79847)
 </p>
