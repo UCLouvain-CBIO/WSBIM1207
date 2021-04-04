@@ -656,7 +656,7 @@ Download the following [file](./data/se.rds) and load its data. The
 data is of class `SummarizedExperiment` and contains `r nrow(se)`
 genes for `r ncol(se)` samples.
 
-- Explore the object's `colData` and interprete it as the experiment's
+- Explore the object's `colData` and interprete it as the data's
   experimental design.
 
 - Generate a figure similar to the one below for your data own data.
@@ -669,7 +669,8 @@ knitr::include_graphics("./figs/gene_exp_se.png")
 
 - Calculate the log2 fold-change (i.e. the difference of expression
   between two groups) for groups CTRL0 and DRUG5. Which gene shows the
-  highest fold-change. Can you recognise this on the figure?
+  highest fold-change (i.e. where the expression increases most in
+  DRUG5)? Can you recognise this on the figure?
 
 - Use the `var()` function to calculate the variance for each
   gene. Which gene has the largest variance. Can you recognise this on
