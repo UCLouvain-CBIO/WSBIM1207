@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-03-22" />
+<meta name="date" content="2021-04-04" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -781,7 +781,7 @@ are currently installed on our respective computers using the
 explore this matrix as those used for dataframes above.</p>
 <div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="sec-startdata.html#cb229-1" aria-hidden="true" tabindex="-1"></a>ip <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()</span>
 <span id="cb229-2"><a href="sec-startdata.html#cb229-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(ip)</span></code></pre></div>
-<pre><code>## [1] 590  16</code></pre>
+<pre><code>## [1] 602  16</code></pre>
 <div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="sec-startdata.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">colnames</span>(ip))</span></code></pre></div>
 <pre><code>## [1] "Package"  "LibPath"  "Version"  "Priority" "Depends"  "Imports"</code></pre>
 <div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="sec-startdata.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rownames</span>(ip)) <span class="do">## these are the package names</span></span></code></pre></div>
@@ -1026,9 +1026,9 @@ a matrix, a dataframe and another list:</p>
 <pre><code>## List of 5
 ##  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##  $ : chr [1:26] "a" "b" "c" "d" ...
-##  $ : chr [1:590, 1:16] "abind" "affy" "affyio" "airway" ...
+##  $ : chr [1:602, 1:16] "abind" "affy" "affyio" "airway" ...
 ##   ..- attr(*, "dimnames")=List of 2
-##   .. ..$ : chr [1:590] "abind" "affy" "affyio" "airway" ...
+##   .. ..$ : chr [1:602] "abind" "affy" "affyio" "airway" ...
 ##   .. ..$ : chr [1:16] "Package" "LibPath" "Version" "Priority" ...
 ##  $ :'data.frame':    50 obs. of  2 variables:
 ##   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...
@@ -1303,7 +1303,7 @@ to use the <code>quantile</code> function.</p></li>
 <a href="sec-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-03-22
+2021-04-04
  using 
 R version 4.0.3 Patched (2021-01-18 r79847)
 </p>

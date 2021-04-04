@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-03-22" />
+<meta name="date" content="2021-04-04" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -971,6 +971,50 @@ conditions.</p></li>
 </p>
 </div>
 </div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Download the following <a href="./data/se.rds">file</a> and load its data. The
+data is of class <code>SummarizedExperiment</code> and contains 9
+genes for 27 samples.</p>
+<ul>
+<li><p>Explore the object’s <code>colData</code> and interprete it as the experiment’s
+experimental design.</p></li>
+<li><p>Generate a figure similar to the one below for your data own data.</p></li>
+</ul>
+<div class="figure">
+<span id="fig:unnamed-chunk-215"></span>
+<p class="caption marginnote shownote">
+Figure 9.7: Distribution of the gene expression in each group.
+</p>
+<img src="figs/gene_exp_se.png" alt="Distribution of the gene expression in each group." width="1518">
+</div>
+<ul>
+<li><p>Calculate the average expression for each gene in each group.</p></li>
+<li><p>Calculate the log2 fold-change (i.e. the difference of expression
+between two groups) for groups CTRL0 and DRUG5. Which gene shows the
+highest fold-change. Can you recognise this on the figure?</p></li>
+<li><p>Use the <code>var()</code> function to calculate the variance for each
+gene. Which gene has the largest variance. Can you recognise this on
+the figure?</p></li>
+<li><p>Calculate the <a href="https://en.wikipedia.org/wiki/Coefficient_of_variation">coefficient of
+variation</a>
+of each gene. The coefficient of variation is defined as the ratio
+between a gene’s standard deviation (that you can compute using the
+<code>sd()</code> function) and it’s mean. Which gene has the largest
+variance. Can you recognise this on the figure?</p></li>
+<li><p>Visualise the distribution of the gene expression in each
+sample. You can use either a boxplot, a violin plot or plot the
+density of these distributions with <code>geom_density()</code>. Colour the
+sample data based on the groups.</p></li>
+</ul>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 
 </div>
 </div></body></html>
@@ -980,7 +1024,7 @@ conditions.</p></li>
 <a href="sec-prog.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-03-22
+2021-04-04
  using 
 R version 4.0.3 Patched (2021-01-18 r79847)
 </p>
