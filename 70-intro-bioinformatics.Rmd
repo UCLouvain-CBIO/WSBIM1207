@@ -642,3 +642,112 @@ kem3 %>%
                 values_from = "mean_expression") %>%
     mutate(fold_change = stimulated/none)
 ```
+
+
+
+```{r, echo=FALSE, message=FALSE}
+library(SummarizedExperiment)
+se <- readRDS("./data/se.rds")
+```
+
+`r msmbstyle::question_begin()`
+
+Download the following [file](./data/se.rds) and load its data. The
+data is of class `SummarizedExperiment` and contains `r nrow(se)`
+genes for `r ncol(se)` samples.
+
+- Explore the object's `colData` and interprete it as the experiment's
+  experimental design.
+
+- Generate a figure similar to the one below for your data own data.
+
+```{r results='markup', fig.margin=FALSE, fig.cap="Distribution of the gene expression in each group.", fig.width=9, fig.height=4, echo=FALSE, purl=FALSE}
+knitr::include_graphics("./figs/gene_exp_se.png")
+```
+
+- Calculate the average expression for each gene in each group.
+
+- Calculate the log2 fold-change (i.e. the difference of expression
+  between two groups) for groups CTRL0 and DRUG5. Which gene shows the
+  highest fold-change. Can you recognise this on the figure?
+
+- Use the `var()` function to calculate the variance for each
+  gene. Which gene has the largest variance. Can you recognise this on
+  the figure?
+
+- Calculate the [coefficient of
+  variation](https://en.wikipedia.org/wiki/Coefficient_of_variation)
+  of each gene. The coefficient of variation is defined as the ratio
+  between a gene's standard deviation (that you can compute using the
+  `sd()` function) and it's mean. Which gene has the largest
+  variance. Can you recognise this on the figure?
+
+- Visualise the distribution of the gene expression in each
+  sample. You can use either a boxplot, a violin plot or plot the
+  density of these distributions with `geom_density()`. Colour the
+  sample data based on the groups.
+
+`r msmbstyle::question_end()`
+
+
+```{r, include=FALSE, eval=FALSE}
+se <- readRDS("./data/se.rds")
+
+se_long <-
+    cbind(assay(se), rowData(se)) %>%
+    as_tibble() %>%
+    pivot_longer(names_to = "samples",
+                 values_to = "gene_expression",
+                 -c("gene", "location")) %>%
+    full_join(as_tibble(colData(se)))
+
+ggplot(se_long,
+       aes(x = group,
+           y = gene_expression)) +
+    geom_boxplot() +
+    facet_wrap(~ gene)
+
+
+avg_exp <-
+    se_long %>%
+    group_by(gene, group) %>%
+    summarise(avg_exp = mean(gene_expression))
+
+avg_exp %>%
+    filter(group %in% c("CTRL0", "DRUG5")) %>%
+    pivot_wider(names_from = "group",
+                values_from = "avg_exp") %>%
+    mutate(fc = DRUG5 - CTRL0) %>%
+    arrange(desc(fc))
+
+se_long %>%
+    group_by(gene) %>%
+    summarise(var = var(gene_expression)) %>%
+    arrange(desc(var))
+
+se_long %>%
+    group_by(gene) %>%
+    summarise(sd = sd(gene_expression),
+              mn = mean(gene_expression)) %>%
+    mutate(cv = sd/mn) %>%
+    arrange(desc(cv))
+
+ggplot(se_long,
+       aes(x = samples,
+           y = gene_expression,
+           fill = group)) +
+    geom_boxplot()
+
+ggplot(se_long,
+       aes(x = samples,
+           y = gene_expression,
+           fill = group)) +
+    geom_violin()
+
+ggplot(se_long,
+       aes(x = gene_expression,
+           group = samples,
+           colour = group)) +
+    geom_density()
+
+```
