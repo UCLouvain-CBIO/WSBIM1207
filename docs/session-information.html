@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-04-04" />
+<meta name="date" content="2021-06-07" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -27,7 +27,7 @@ MathJax.Hub.Config({
 
 <title>Chapter 13 Session information | Introduction to bioinformatics</title>
 
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -70,7 +70,7 @@ function reset_tooltip(id) {
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <script src="libs/jquery-3.5.1/jquery.min.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.17/datatables.js"></script>
+<script src="libs/datatables-binding-0.18/datatables.js"></script>
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
@@ -215,13 +215,13 @@ div.csl-indent {
 <span class="header-section-number">Chapter 13</span> Session information</h1>
 <p>The following packages have been used to generate this document.</p>
 <div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="session-information.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
-<pre><code>## R version 4.0.3 Patched (2021-01-18 r79847)
+<pre><code>## R version 4.1.0 (2021-05-18)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Manjaro Linux
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/libblas.so.3.9.0
-## LAPACK: /usr/lib/liblapack.so.3.9.0
+## BLAS:   /usr/lib/libblas.so.3.9.1
+## LAPACK: /usr/lib/liblapack.so.3.9.1
 ## 
 ## locale:
 ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -236,45 +236,45 @@ div.csl-indent {
 ## [8] methods   base     
 ## 
 ## other attached packages:
-##  [1] rWSBIM1322_0.2.0            BiocStyle_2.18.1           
-##  [3] SummarizedExperiment_1.20.0 Biobase_2.50.0             
-##  [5] GenomicRanges_1.42.0        GenomeInfoDb_1.26.2        
-##  [7] IRanges_2.24.1              S4Vectors_0.28.1           
-##  [9] BiocGenerics_0.36.0         MatrixGenerics_1.2.1       
-## [11] matrixStats_0.58.0          gridExtra_2.3              
+##  [1] rWSBIM1322_0.2.0            BiocStyle_2.20.0           
+##  [3] SummarizedExperiment_1.22.0 Biobase_2.52.0             
+##  [5] GenomicRanges_1.44.0        GenomeInfoDb_1.28.0        
+##  [7] IRanges_2.26.0              S4Vectors_0.30.0           
+##  [9] BiocGenerics_0.38.0         MatrixGenerics_1.4.0       
+## [11] matrixStats_0.59.0          gridExtra_2.3              
 ## [13] patchwork_1.1.1             magrittr_2.0.1             
 ## [15] rWSBIM1207_0.1.12           forcats_0.5.1              
-## [17] stringr_1.4.0               dplyr_1.0.5                
+## [17] stringr_1.4.0               dplyr_1.0.6                
 ## [19] purrr_0.3.4                 readr_1.4.0                
-## [21] tidyr_1.1.3                 tibble_3.1.0               
-## [23] ggplot2_3.3.3               tidyverse_1.3.0            
+## [21] tidyr_1.1.3                 tibble_3.1.2               
+## [23] ggplot2_3.3.3               tidyverse_1.3.1            
 ## [25] lubridate_1.7.10           
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] bitops_1.0-6           fs_1.5.0               httr_1.4.2            
-##  [4] tools_4.0.3            backports_1.2.1        bslib_0.2.4           
-##  [7] utf8_1.1.4             R6_2.5.0               DT_0.17               
-## [10] DBI_1.1.1              colorspace_2.0-0       withr_2.4.1           
-## [13] tidyselect_1.1.0       compiler_4.0.3         cli_2.3.1             
-## [16] rvest_0.3.6            xml2_1.3.2             DelayedArray_0.16.2   
-## [19] labeling_0.4.2         bookdown_0.21.6        sass_0.3.1            
-## [22] scales_1.1.1           digest_0.6.27          rmarkdown_2.7         
-## [25] XVector_0.30.0         pkgconfig_2.0.3        htmltools_0.5.1.1     
-## [28] dbplyr_2.1.0           highr_0.8              htmlwidgets_1.5.3     
-## [31] rlang_0.4.10           readxl_1.3.1           rstudioapi_0.13       
-## [34] jquerylib_0.1.3        farver_2.1.0           generics_0.1.0        
-## [37] jsonlite_1.7.2         crosstalk_1.1.1        RCurl_1.98-1.2        
-## [40] GenomeInfoDbData_1.2.4 Matrix_1.3-2           Rcpp_1.0.6            
-## [43] munsell_0.5.0          fansi_0.4.2            lifecycle_1.0.0       
-## [46] stringi_1.5.3          yaml_2.2.1             zlibbioc_1.36.0       
-## [49] grid_4.0.3             msmbstyle_0.0.18       crayon_1.4.1          
-## [52] lattice_0.20-41        haven_2.3.1            hms_1.0.0             
-## [55] knitr_1.31.3           ps_1.6.0               pillar_1.5.1          
-## [58] reprex_1.0.0           glue_1.4.2             evaluate_0.14         
-## [61] BiocManager_1.30.10    modelr_0.1.8           png_0.1-7             
-## [64] vctrs_0.3.6            cellranger_1.1.0       gtable_0.3.0          
-## [67] assertthat_0.2.1       xfun_0.21              broom_0.7.5           
-## [70] ellipsis_0.3.1</code></pre>
+##  [1] bitops_1.0-7           fs_1.5.0               httr_1.4.2            
+##  [4] tools_4.1.0            backports_1.2.1        bslib_0.2.5.1         
+##  [7] utf8_1.2.1             R6_2.5.0               DT_0.18               
+## [10] DBI_1.1.1              colorspace_2.0-1       withr_2.4.2           
+## [13] tidyselect_1.1.1       compiler_4.1.0         cli_2.5.0             
+## [16] rvest_1.0.0            xml2_1.3.2             DelayedArray_0.18.0   
+## [19] labeling_0.4.2         bookdown_0.22          sass_0.4.0            
+## [22] scales_1.1.1           digest_0.6.27          rmarkdown_2.8         
+## [25] XVector_0.32.0         pkgconfig_2.0.3        htmltools_0.5.1.1     
+## [28] dbplyr_2.1.1           highr_0.9              htmlwidgets_1.5.3     
+## [31] rlang_0.4.11           readxl_1.3.1           rstudioapi_0.13       
+## [34] jquerylib_0.1.4        farver_2.1.0           generics_0.1.0        
+## [37] jsonlite_1.7.2         crosstalk_1.1.1        RCurl_1.98-1.3        
+## [40] GenomeInfoDbData_1.2.6 Matrix_1.3-3           Rcpp_1.0.6            
+## [43] munsell_0.5.0          fansi_0.5.0            lifecycle_1.0.0       
+## [46] stringi_1.6.2          yaml_2.2.1             zlibbioc_1.38.0       
+## [49] grid_4.1.0             msmbstyle_0.0.19       crayon_1.4.1          
+## [52] lattice_0.20-44        haven_2.4.1            hms_1.1.0             
+## [55] knitr_1.33             ps_1.6.0               pillar_1.6.1          
+## [58] reprex_2.0.0           glue_1.4.2             evaluate_0.14         
+## [61] BiocManager_1.30.15    modelr_0.1.8           png_0.1-7             
+## [64] vctrs_0.3.8            cellranger_1.1.0       gtable_0.3.0          
+## [67] assertthat_0.2.1       xfun_0.23              broom_0.7.6           
+## [70] ellipsis_0.3.2</code></pre>
 <div id="sec:setup2" class="section level2" number="13.1">
 <h2>
 <span class="header-section-number">13.1</span> R package setup<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('sec:setup2')" onmouseout="reset_tooltip('sec:setup2-tooltip')"><span class="tooltiptext" id="sec:setup2-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
@@ -299,9 +299,9 @@ the following code:</p>
 <a href="sec-anx.html"><button class="btn btn-default">Previous</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-04-04
+2021-06-07
  using 
-R version 4.0.3 Patched (2021-01-18 r79847)
+R version 4.1.0 (2021-05-18)
 </p>
 </div>
 </div>

@@ -100,7 +100,7 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length))
 To add a geom(etry) to the plot use the `+` operator. Because we have
 two continuous variables, let's use `geom_point()` first:
 
-```{r first-ggplot, cache=TRUE}
+```{r first-ggplot, cache=FALSE}
 ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) +
   geom_point()
 ```
@@ -204,14 +204,14 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
 Then, we start modifying this plot to extract more information from it. For
 instance, we can add transparency (`alpha`) to avoid overplotting:
 
-```{r adding-transparency, cache=TRUE}
+```{r adding-transparency, cache=FALSE}
 ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) +
     geom_point(alpha = 0.1)
 ```
 
 We can also add colors for all the points:
 
-```{r adding-colors, cache=TRUE}
+```{r adding-colors, cache=FALSE}
 ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) +
     geom_point(alpha = 0.1, color = "blue")
 ```
@@ -222,7 +222,7 @@ provide a different color corresponding to different values in the
 vector. Here is an example where we color with **`species_id`**:
 
 
-```{r color-by-species1, cache=TRUE}
+```{r color-by-species1, cache=FALSE}
 ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) +
     geom_point(alpha = 0.1, aes(color = species_id))
 ```
@@ -231,7 +231,7 @@ We can also specify the colors directly inside the mapping provided in
 the `ggplot()` function. This will be seen by any geom layers and the
 mapping will be determined by the x- and y-axis set up in `aes()`.
 
-```{r color-by-species2, cache=TRUE}
+```{r color-by-species2, cache=FALSE}
 ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length, color = species_id)) +
     geom_point(alpha = 0.1)
 ```
@@ -239,7 +239,7 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length, c
 Notice that we can change the geom layer and colors will be still
 determined by **`species_id`**
 
-```{r color-by-species3, cache=TRUE}
+```{r color-by-species3, cache=FALSE}
 ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length, color = species_id)) +
     geom_jitter(alpha = 0.1)
 ```
@@ -266,7 +266,7 @@ ggplot(data = surveys_complete, mapping = aes(x = species_id, y = weight)) +
 
 We can use boxplots to visualize the distribution of weight within each species:
 
-```{r boxplot, cache=TRUE}
+```{r boxplot, cache=FALSE}
 ggplot(data = surveys_complete, mapping = aes(x = species_id, y = weight)) +
     geom_boxplot()
 ```
@@ -274,7 +274,7 @@ ggplot(data = surveys_complete, mapping = aes(x = species_id, y = weight)) +
 By adding points to boxplot, we can have a better idea of the number of
 measurements and of their distribution:
 
-```{r boxplot-with-points, cache=TRUE}
+```{r boxplot-with-points, cache=FALSE}
 ggplot(data = surveys_complete, mapping = aes(x = species_id, y = weight)) +
     geom_boxplot(alpha = 0) +
     geom_jitter(alpha = 0.3, color = "tomato")
@@ -380,7 +380,7 @@ measured. To do that we need to make counts in the data frame grouped by `year`,
 
 We can now make the faceted plot by splitting further by sex using `color` (within a single plot):
 
-```{r facet-by-species-and-sex, cache=TRUE}
+```{r facet-by-species-and-sex, cache=FALSE}
  ggplot(data = yearly_sex_counts, mapping = aes(x = year, y = n, color = sex)) +
      geom_line() +
      facet_wrap(~ species_id)
@@ -390,7 +390,7 @@ Usually plots with white background look more readable when printed.  We can set
 the background to white using the function `theme_bw()`. Additionally, you can remove
 the grid:
 
-```{r facet-by-species-and-sex-white-bg, cache=TRUE}
+```{r facet-by-species-and-sex-white-bg, cache=FALSE}
  ggplot(data = yearly_sex_counts, mapping = aes(x = year, y = n, color = sex)) +
      geom_line() +
      facet_wrap(~ species_id) +
@@ -474,7 +474,7 @@ and think of ways you could improve the plot.
 Now, let's change names of axes to something more informative than 'year'
 and 'n' and add a title to the figure:
 
-```{r number-species-year-with-right-labels, cache=TRUE}
+```{r number-species-year-with-right-labels, cache=FALSE}
 ggplot(data = yearly_sex_counts, mapping = aes(x = year, y = n, color = sex)) +
     geom_line() +
     facet_wrap(~ species_id) +
@@ -487,7 +487,7 @@ ggplot(data = yearly_sex_counts, mapping = aes(x = year, y = n, color = sex)) +
 The axes have more informative names, but their readability can be improved by
 increasing the font size:
 
-```{r number-species-year-with-right-labels-xfont-size, cache=TRUE}
+```{r number-species-year-with-right-labels-xfont-size, cache=FALSE}
 ggplot(data = yearly_sex_counts, mapping = aes(x = year, y = n, color = sex)) +
     geom_line() +
     facet_wrap(~ species_id) +
@@ -509,7 +509,7 @@ vertically and horizontally so they don't overlap. You can use a 90-degree
 angle, or experiment to find the appropriate angle for diagonally oriented
 labels:
 
-```{r number-species-year-with-theme, cache=TRUE}
+```{r number-species-year-with-theme, cache=FALSE}
 ggplot(data = yearly_sex_counts, mapping = aes(x = year, y = n, color = sex)) +
     geom_line() +
     facet_wrap(~ species_id) +
@@ -526,7 +526,7 @@ If you like the changes you created better than the default theme, you can save 
 an object to be able to easily apply them to other plots you may create:
 
 
-```{r number-species-year-with-right-labels-xfont-orientation, cache=TRUE}
+```{r number-species-year-with-right-labels-xfont-orientation, cache=FALSE}
 grey_theme <- theme(axis.text.x = element_text(colour = "grey20", size = 12, angle = 90, hjust = 0.5, vjust = 0.5),
                           axis.text.y = element_text(colour = "grey20", size = 12),
                           text = element_text(size = 16))

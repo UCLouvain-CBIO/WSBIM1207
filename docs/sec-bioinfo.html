@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-04-04" />
+<meta name="date" content="2021-06-07" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -27,7 +27,7 @@ MathJax.Hub.Config({
 
 <title>Chapter 9 Bioinformatics | Introduction to bioinformatics</title>
 
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -70,7 +70,7 @@ function reset_tooltip(id) {
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <script src="libs/jquery-3.5.1/jquery.min.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.17/datatables.js"></script>
+<script src="libs/datatables-binding-0.18/datatables.js"></script>
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
@@ -492,7 +492,7 @@ Figure 9.4: Distribution of the expression of the genes A1CF, BRCA1 and TP53 und
 <span class="header-section-number">9.3</span> The Bioconductor project<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('sec:bioconductor')" onmouseout="reset_tooltip('sec:bioconductor-tooltip')"><span class="tooltiptext" id="sec:bioconductor-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h2>
 <p>The <a href="http://www.bioconductor.org">Bioconductor</a> was initiated by
-Robert Gentleman (<span class="citation"><label for="tufte-mn-27" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-27" class="margin-toggle">R. C. Gentleman et al. (2004)<span class="marginnote">Gentleman, Robert C., Vincent J. Carey, Douglas M. Bates, Ben Bolstad, Marcel Dettling, Sandrine Dudoit, Byron Ellis, et al. 2004. <span>“Bioconductor: Open Software Development for Computational Biology and Bioinformatics.”</span> <em>Genome Biol</em> 5 (10): –80. <a href="https://doi.org/10.1186/gb-2004-5-10-r80">https://doi.org/10.1186/gb-2004-5-10-r80</a>.</span></span>;<span class="citation"><label for="tufte-mn-28" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-28" class="margin-toggle">R. C. Gentleman et al. (2004)<span class="marginnote">Gentleman, Robert C., Vincent J. Carey, Douglas M. Bates, Ben Bolstad, Marcel Dettling, Sandrine Dudoit, Byron Ellis, et al. 2004. <span>“Bioconductor: Open Software Development for Computational Biology and Bioinformatics.”</span> <em>Genome Biol</em> 5 (10): –80. <a href="https://doi.org/10.1186/gb-2004-5-10-r80">https://doi.org/10.1186/gb-2004-5-10-r80</a>.</span></span>), one of the two
+Robert Gentleman (<span class="citation"><label for="tufte-mn-27" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-27" class="margin-toggle">R. C. Gentleman et al. (2004)<span class="marginnote">Gentleman, Robert C., Vincent J. Carey, Douglas M. Bates, Ben Bolstad, Marcel Dettling, Sandrine Dudoit, Byron Ellis, et al. 2004. <span>“Bioconductor: Open Software Development for Computational Biology and Bioinformatics.”</span> <em>Genome Biol</em> 5 (10): –80. <a href="https://doi.org/10.1186/gb-2004-5-10-r80">https://doi.org/10.1186/gb-2004-5-10-r80</a>.</span></span>;<span class="citation"><label for="tufte-mn-28" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-28" class="margin-toggle">Huber et al. (2015)<span class="marginnote">Huber, W, V J Carey, R Gentleman, S Anders, M Carlson, B S Carvalho, H C Bravo, et al. 2015. <span>“Orchestrating High-Throughput Genomic Analysis with <span>Bioconductor</span>.”</span> <em>Nat Methods</em> 12 (2): 115–21. <a href="https://doi.org/10.1038/nmeth.3252">https://doi.org/10.1038/nmeth.3252</a>.</span></span>), one of the two
 creators of the R language, and centrally offers dedicated R packages
 for bioinformatics.</p>
 <blockquote>
@@ -692,34 +692,34 @@ page:</p>
 <div id="importing" class="section level4 unnumbered">
 <h4>Importing</h4>
 <ul>
-<li>GTF, GFF, BED, BigWig, etc., - <em><a href="https://bioconductor.org/packages/3.12/rtracklayer">rtracklayer</a></em><code>::import()</code>
+<li>GTF, GFF, BED, BigWig, etc., - <em><a href="https://bioconductor.org/packages/3.13/rtracklayer">rtracklayer</a></em><code>::import()</code>
 </li>
-<li>VCF – <em><a href="https://bioconductor.org/packages/3.12/VariantAnnotation">VariantAnnotation</a></em><code>::readVcf()</code>
+<li>VCF – <em><a href="https://bioconductor.org/packages/3.13/VariantAnnotation">VariantAnnotation</a></em><code>::readVcf()</code>
 </li>
-<li>SAM / BAM – <em><a href="https://bioconductor.org/packages/3.12/Rsamtools">Rsamtools</a></em><code>::scanBam()</code>, <em><a href="https://bioconductor.org/packages/3.12/GenomicAlignments">GenomicAlignments</a></em><code>:readGAlignment*()</code>
+<li>SAM / BAM – <em><a href="https://bioconductor.org/packages/3.13/Rsamtools">Rsamtools</a></em><code>::scanBam()</code>, <em><a href="https://bioconductor.org/packages/3.13/GenomicAlignments">GenomicAlignments</a></em><code>:readGAlignment*()</code>
 </li>
-<li>FASTA – <em><a href="https://bioconductor.org/packages/3.12/Biostrings">Biostrings</a></em><code>::readDNAStringSet()</code>
+<li>FASTA – <em><a href="https://bioconductor.org/packages/3.13/Biostrings">Biostrings</a></em><code>::readDNAStringSet()</code>
 </li>
-<li>FASTQ – <em><a href="https://bioconductor.org/packages/3.12/ShortRead">ShortRead</a></em><code>::readFastq()</code>
+<li>FASTQ – <em><a href="https://bioconductor.org/packages/3.13/ShortRead">ShortRead</a></em><code>::readFastq()</code>
 </li>
-<li>Mass spectrometry data (XML-based and peaklist formats) – <em><a href="https://bioconductor.org/packages/3.12/MSnbase">MSnbase</a></em><code>::readMSData()</code> and <em><a href="https://bioconductor.org/packages/3.12/Spectra">Spectra</a></em><code>::Spectra()</code>
+<li>Mass spectrometry data (XML-based and peaklist formats) – <em><a href="https://bioconductor.org/packages/3.13/MSnbase">MSnbase</a></em><code>::readMSData()</code> and <em><a href="https://bioconductor.org/packages/3.13/Spectra">Spectra</a></em><code>::Spectra()</code>
 </li>
 </ul>
 </div>
 <div id="common-classes" class="section level4 unnumbered">
 <h4>Common Classes</h4>
 <ul>
-<li>Rectangular feature x sample data – <em><a href="https://bioconductor.org/packages/3.12/SummarizedExperiment">SummarizedExperiment</a></em><code>::SummarizedExperiment()</code> (RNAseq count matrix, microarray, proteomics, …)</li>
-<li>Genomic coordinates – <em><a href="https://bioconductor.org/packages/3.12/GenomicRanges">GenomicRanges</a></em><code>::GRanges()</code> (1-based, closed interval)</li>
-<li>DNA / RNA / AA sequences – <em><a href="https://bioconductor.org/packages/3.12/Biostrings">Biostrings</a></em><code>::*StringSet()</code>
+<li>Rectangular feature x sample data – <em><a href="https://bioconductor.org/packages/3.13/SummarizedExperiment">SummarizedExperiment</a></em><code>::SummarizedExperiment()</code> (RNAseq count matrix, microarray, proteomics, …)</li>
+<li>Genomic coordinates – <em><a href="https://bioconductor.org/packages/3.13/GenomicRanges">GenomicRanges</a></em><code>::GRanges()</code> (1-based, closed interval)</li>
+<li>DNA / RNA / AA sequences – <em><a href="https://bioconductor.org/packages/3.13/Biostrings">Biostrings</a></em><code>::*StringSet()</code>
 </li>
-<li>Gene sets – <em><a href="https://bioconductor.org/packages/3.12/GSEABase">GSEABase</a></em><code>::GeneSet()</code> <em><a href="https://bioconductor.org/packages/3.12/GSEABase">GSEABase</a></em><code>::GeneSetCollection()</code>
+<li>Gene sets – <em><a href="https://bioconductor.org/packages/3.13/GSEABase">GSEABase</a></em><code>::GeneSet()</code> <em><a href="https://bioconductor.org/packages/3.13/GSEABase">GSEABase</a></em><code>::GeneSetCollection()</code>
 </li>
-<li>Multi-omics data – <em><a href="https://bioconductor.org/packages/3.12/MultiAssayExperiment">MultiAssayExperiment</a></em><code>::MultiAssayExperiment()</code>
+<li>Multi-omics data – <em><a href="https://bioconductor.org/packages/3.13/MultiAssayExperiment">MultiAssayExperiment</a></em><code>::MultiAssayExperiment()</code>
 </li>
-<li>Single cell data – <em><a href="https://bioconductor.org/packages/3.12/SingleCellExperiment">SingleCellExperiment</a></em><code>::SingleCellExperiment()</code>
+<li>Single cell data – <em><a href="https://bioconductor.org/packages/3.13/SingleCellExperiment">SingleCellExperiment</a></em><code>::SingleCellExperiment()</code>
 </li>
-<li>Mass spectrometry data – <em><a href="https://bioconductor.org/packages/3.12/MSnbase">MSnbase</a></em><code>::MSnExp()</code> and <em><a href="https://bioconductor.org/packages/3.12/Spectra">Spectra</a></em><code>::Spectra()</code>
+<li>Mass spectrometry data – <em><a href="https://bioconductor.org/packages/3.13/MSnbase">MSnbase</a></em><code>::MSnExp()</code> and <em><a href="https://bioconductor.org/packages/3.13/Spectra">Spectra</a></em><code>::Spectra()</code>
 </li>
 </ul>
 </div>
@@ -797,7 +797,7 @@ URL like</p>
 <li><a href="https://bioconductor.org/packages/packagename" class="uri">https://bioconductor.org/packages/packagename</a></li>
 </ul>
 <p>This works for any type of package (software, annotation or data). For
-example, the pages for packages <em><a href="https://bioconductor.org/packages/3.12/DESeq2">DESeq2</a></em> or <em><a href="https://bioconductor.org/packages/3.12/QFeatures">QFeatures</a></em>
+example, the pages for packages <em><a href="https://bioconductor.org/packages/3.13/DESeq2">DESeq2</a></em> or <em><a href="https://bioconductor.org/packages/3.13/QFeatures">QFeatures</a></em>
 would be</p>
 <ul>
 <li><a href="https://bioconductor.org/packages/DESeq2" class="uri">https://bioconductor.org/packages/DESeq2</a></li>
@@ -1025,9 +1025,9 @@ sample data based on the groups.</p></li>
 <a href="sec-prog.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-04-04
+2021-06-07
  using 
-R version 4.0.3 Patched (2021-01-18 r79847)
+R version 4.1.0 (2021-05-18)
 </p>
 </div>
 </div>
