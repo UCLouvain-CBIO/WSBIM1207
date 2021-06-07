@@ -25,8 +25,8 @@ and biomedical students. It introduces bioinformatics methodology and
 technologies without relying on any prerequisites. The aim of this
 course is for students to be in a position to understand important
 notions of bioinformatics and tackle simple bioinformatics-related
-problems in R, in particular to develope simple R analysis scripts and
-reproducible analysis reports to interogate, visualise and understand
+problems in R, in particular to develop simple R analysis scripts and
+reproducible analysis reports to interrogate, visualise and understand
 data in a tidy tabular format.
 
 The course will be followed by *Bioinformatics*
