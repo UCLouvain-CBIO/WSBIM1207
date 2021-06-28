@@ -11,28 +11,37 @@
 - Format dates.
 - Export and save data.
 
-## Presentation of the Survey Data
+## Presentation of the gene expression data
 
-We are studying the species repartition and weight of animals caught
-in plots in our study area. The dataset is stored as a comma separated
-value (CSV) file.  Each row holds information for a single animal, and
-the columns represent:
+We are going to use part of the data published by [Blackmore *et al.*
+(2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5544260/), *The
+effect of upper-respiratory infection on transcriptomic changes in the
+CNS*. The goal of the study was to determine the effect of an
+upper-respiratory infection on changes in RNA transcription occuring
+in the cerebellum and spinal cord post infection. Gender matched eight
+week old C57BL/6 mice were inoculated saline or with Influenza A by
+intranasal route and transcriptomic changes in the cerebellum and
+spinal cord tissues were evaluated by RNA-seq at days 0
+(non-infected), 4 and 8.
 
-| Column           | Description                        |
-|------------------|------------------------------------|
-| record\_id       | Unique id for the observation      |
-| month            | month of observation               |
-| day              | day of observation                 |
-| year             | year of observation                |
-| plot\_id         | ID of a particular plot            |
-| species\_id      | 2-letter code                      |
-| sex              | sex of animal ("M", "F")           |
-| hindfoot\_length | length of the hindfoot in mm       |
-| weight           | weight of the animal in grams      |
-| genus            | genus of animal                    |
-| species          | species of animal                  |
-| taxon             | e.g. Rodent, Reptile, Bird, Rabbit |
-| plot\_type       | type of plot                       |
+
+The dataset is stored as a comma separated value (CSV) file.  Each row
+holds information for a single RNA expression measurement, and the
+columns represent:
+
+| Column     | Description                                                                                  |
+|------------|----------------------------------------------------------------------------------------------|
+| gene       | The name of the gene that was measured                                                       |
+| sample     | The name of the sample the gene expression was measured in                                   |
+| expression | The value of the gene expression                                                             |
+| organism   | The organism/species - here all data stem from mice                                          |
+| age        | The age of the mouse (all mice were 8 weeks here)                                            |
+| sex        | The sex of the mouse                                                                         |
+| infection  | The infection state of the mouse, i.e. infected with Influenza A or not infected.            |
+| strain     | The Influenza A strain; C57BL/6 in all cases.                                                |
+| time       | The duration of the infection (in days).                                                     |
+| tissue     | The tissue that was used for the gene expression experiment, i.e. cerebellum or spinal cord. |
+| mouse      | The mouse unique identifier.                                                                 |
 
 We are going to use the R function `download.file()` to download the
 CSV file that contains the survey data from figshare, and we will use
@@ -49,7 +58,7 @@ a preexisting folder named "data."
 
 ```{r, eval = FALSE}
 download.file(url="https://ndownloader.figshare.com/files/2292169",
-			  destfile = "data/portal_data_joined.csv")
+              destfile = "data/portal_data_joined.csv")
 ```
 
 You are now ready to load the data:
@@ -411,9 +420,9 @@ spot and fix them?  Don't hesitate to experiment!
 
 ```{r, eval=FALSE}
 animal_data <- data.frame(
-	   animal = c(dog, cat, sea cucumber, sea urchin),
-	   feel = c("furry", "squishy", "spiny"),
-	   weight = c(45, 8 1.1, 0.8))
+       animal = c(dog, cat, sea cucumber, sea urchin),
+       feel = c("furry", "squishy", "spiny"),
+       weight = c(45, 8 1.1, 0.8))
 ```
 `r msmbstyle::question_end()`
 
@@ -441,12 +450,12 @@ Check your guesses using `str(country_climate)`:
 
 ```{r, eval = FALSE}
 country_climate <- data.frame(
-	   country = c("Canada", "Panama", "South Africa", "Australia"),
-	   climate = c("cold", "hot", "temperate", "hot/temperate"),
-	   temperature = c(10, 30, 18, "15"),
-	   northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
-	   has_kangaroo = c(FALSE, FALSE, FALSE, 1)
-	   )
+       country = c("Canada", "Panama", "South Africa", "Australia"),
+       climate = c("cold", "hot", "temperate", "hot/temperate"),
+       temperature = c(10, 30, 18, "15"),
+       northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
+       has_kangaroo = c(FALSE, FALSE, FALSE, 1)
+       )
 ```
 `r msmbstyle::question_end()`
 
@@ -677,17 +686,17 @@ A data type that we haven't seen yet, but that is useful to know, and
 follows from the summary that we have just seen are lists:
 
 - **`list`**: one dimension, every item can be of a different data
-	type.
+    type.
 
 Below, let's create a list containing a vector of numbers, characters,
 a matrix, a dataframe and another list:
 
 ```{r list0}
 l <- list(1:10, ## numeric
-		  letters, ## character
-		  installed.packages(), ## a matrix
-		  cars, ## a data.frame
-		  list(1, 2, 3)) ## a list
+          letters, ## character
+          installed.packages(), ## a matrix
+          cars, ## a data.frame
+          list(1, 2, 3)) ## a list
 length(l)
 str(l)
 ```
