@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-06-07" />
+<meta name="date" content="2021-07-02" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -27,7 +27,7 @@ MathJax.Hub.Config({
 
 <title>Chapter 1 Data organisation with Spreadsheets | Introduction to bioinformatics</title>
 
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -1002,7 +1002,7 @@ that, the value in column <code>D</code> for the record in row 3 (so the one
 where the value for ‘taxa’ contained the comma) is now incorrect.</p>
 <p>If you want to store your data in <code>csv</code> format and expect that your
 data values may contain commas, you can avoid the problem discussed
-above by putting the values in quotes (""). Applying this rule, our
+above by putting the values in quotes (““). Applying this rule, our
 data might look like this:</p>
 <pre><code>species_id,genus,species,taxa
 "AB","Amphispiza","bilineata","Bird"
@@ -1022,12 +1022,12 @@ systematically quoted.</span>. In this case, consider using tabs as your delimit
 working with TSV files. TSV files can be exported from spreadsheet
 programs in the same way as CSV files.</p>
 <p>If you are working with an already existing dataset in which the data
-values are not included in "" but which have commas as both delimiters
+values are not included in “” but which have commas as both delimiters
 and parts of data values, you are potentially facing a major problem
 with data cleaning. If the dataset you’re dealing with contains
 hundreds or thousands of records, cleaning them up manually (by either
 removing commas from the data values or putting the values into quotes
-- "") is not only going to take hours and hours but may potentially
+- ““) is not only going to take hours and hours but may potentially
 end up with you accidentally introducing many errors.</p>
 <p>Cleaning up datasets is one of the major problems in many scientific
 disciplines. The approach almost always depends on the particular
@@ -1126,7 +1126,7 @@ measurements were repeated.</p>
 <a href="sec-rrstudio.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-06-07
+2021-07-02
  using 
 R version 4.1.0 (2021-05-18)
 </p>
