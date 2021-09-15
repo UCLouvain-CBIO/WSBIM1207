@@ -1,4 +1,4 @@
-# Conclusions {#sec:ccl}
+# Conclusions {#sec-ccl}
 
 In this course, we have seen the importance of structure data. Good
 data structure starts with simple, tidy tabular data, whether it is
@@ -29,7 +29,7 @@ the end, it's useful to remember that
 - Statistics and machine learning (see your statistics courses and the
   follow course
   [WSBIM1322](https://github.com/UCLouvain-CBIO/WSBIM1322)).
-- Getting better at programming and data analysis. See 
+- Getting better at programming and data analysis. See
   [@r4ds:2017] and [@advancedR].
 - Evolving scripts into tools/packages [@rpkgs:2015].
 - Other tools: unix command line and git/GitHub [@Perez-Riverol:2016].

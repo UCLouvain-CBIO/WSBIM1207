@@ -1,4 +1,4 @@
-# Bioinformatics {#sec:bioinfo}
+# Bioinformatics {#sec-bioinfo}
 
 As already alluded to earlier, [Wikipedia
 defines](https://en.wikipedia.org/wiki/Bioinformatics) bioinformatics
@@ -161,7 +161,7 @@ ggplot(ge, aes(x = gene, y = expression, colour = concentration)) +
     geom_boxplot()
 ```
 
-## The Bioconductor project {#sec:bioconductor}
+## The Bioconductor project {#sec-bioconductor}
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 library("SummarizedExperiment")

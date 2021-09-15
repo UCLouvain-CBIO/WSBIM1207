@@ -1,4 +1,4 @@
-# R and RStudio  {#sec:rrstudio}
+# R and RStudio  {#sec-rrstudio}
 
 
 **Learning Objectives**
@@ -73,7 +73,7 @@ to be reproducible, so knowing R will give you an edge with these
 requirements.
 
 We will learn more about reproducibility and reproducible research in
-chapter \@ref(sec:rr).
+chapter \@ref(sec-rr).
 
 ### R is interdisciplinary and extensible {-}
 
@@ -86,7 +86,7 @@ genetics, and a lot more.
 
 [^whatarepkgs]: i.e. add-ons that confer R with new functionality,
     such as bioinformatics data analysis - see chapter
-    \@ref(sec:bioinfo)
+    \@ref(sec-bioinfo)
 
 ```{r, fig.cap = "Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018.", echo = FALSE, message = FALSE}
 knitr::include_graphics("./figs/cran.png")
@@ -543,7 +543,7 @@ to a data frame, you can save any R object to a file[^export]:
 saveRDS(iris, file="/tmp/iris.rds")
 ```
 
-[^export]: See section \@ref(sec:exportandsave) for a better
+[^export]: See section \@ref(sec-exportandsave) for a better
     introduction about exporting and saving data.
 
 The content of this file is however not human readable and cannot be
@@ -659,6 +659,6 @@ library("devtools")
 install_github("UCLouvain-CBIO/rWSBIM1207")
 ```
 
-In section \@ref(sec:bioconductor), we will see how to install
+In section \@ref(sec-bioconductor), we will see how to install
 [Bioconductor](http://www.bioconductor.org), a project dedicated to
 bioinformatics and omics packages.

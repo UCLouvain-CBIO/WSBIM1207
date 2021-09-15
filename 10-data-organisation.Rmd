@@ -1,4 +1,4 @@
-# Data organisation with Spreadsheets {#sec:dataorg}
+# Data organisation with Spreadsheets {#sec-dataorg}
 
 **Learning Objectives**
 
@@ -799,10 +799,10 @@ working with TSV files. TSV files can be exported from spreadsheet
 programs in the same way as CSV files.
 
 [^decsep]: This is of course particularly relevant in European
-		   countries where the comma is used as a decimal
-		   separator. In such cases, the default value separator in a
-		   csv file will be the semi-colon (;), or values will be
-		   systematically quoted.
+           countries where the comma is used as a decimal
+           separator. In such cases, the default value separator in a
+           csv file will be the semi-colon (;), or values will be
+           systematically quoted.
 
 If you are working with an already existing dataset in which the data
 values are not included in "" but which have commas as both delimiters

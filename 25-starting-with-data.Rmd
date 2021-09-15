@@ -1,4 +1,4 @@
-# Starting with data  {#sec:startdata}
+# Starting with data  {#sec-startdata}
 
 **Learning Objectives**
 
@@ -229,7 +229,7 @@ head_rna
 
 `:` is a special function that creates numeric vectors of integers in
 increasing or decreasing order, test `1:10` and `10:1` for
-instance. See section \@ref(sec:genvec) for details.
+instance. See section \@ref(sec-genvec) for details.
 
 You can also exclude certain indices of a data frame using the "`-`" sign:
 
@@ -684,7 +684,7 @@ l[[1]] ## first element
 l[1:2] ## a list of length 2
 l[1]   ## a list of length 1
 ```
-## Exporting and saving data {#sec:exportandsave}
+## Exporting and saving data {#sec-exportandsave}
 
 ### Exporting tabular data {-}
 

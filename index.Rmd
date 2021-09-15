@@ -222,7 +222,7 @@ License](https://creativecommons.org/licenses/by-sa/4.0/).
 
 ## Setup {-}
 
-For chapter \@ref(sec:dataorg) about *Data organisation with
+For chapter \@ref(sec-dataorg) about *Data organisation with
 Spreadsheets*, a spreadsheet programme is necessary.
 
 We will be using the [R environment for statistical
@@ -233,7 +233,7 @@ interact with R and write scripts and reports. Both R and RStudio are
 easy to install and works on all major operating systems.
 
 Once R and RStudio are installed, a set of packages will need to be
-installed. See section \@ref(sec:setup2) for details.
+installed. See section \@ref(sec-setup2) for details.
 
 To build this book, you'll need `bookdown` [@R-bookdown] and a
 fork[^msmbfork] of [`msmbstyle`
