@@ -1,4 +1,4 @@
-# Introduction to R {#sec:startr}
+# Introduction to R {#sec-startr}
 
 **Learning Objectives**
 
@@ -605,7 +605,7 @@ length(heights_above_67)
 `r msmbstyle::solution_end()`
 
 
-## Generating vectors {#sec:genvec}
+## Generating vectors {#sec-genvec}
 
 ```{r, echo = FALSE}
 set.seed(1)

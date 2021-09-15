@@ -1,4 +1,4 @@
-# Reproducible research {#sec:rr}
+# Reproducible research {#sec-rr}
 
 **Learning Objectives**
 
@@ -24,9 +24,9 @@ levels of reproducibility can formalised[^rrblog] as follows:
 
 
 [^rrblog]: The nomenclature is taken from [this blog
-	post](https://lgatto.github.io/rr-what-should-be-our-goals/) that
-	provides links and highlights that confusion that exists around
-	the terms and concepts of reproducibility.
+    post](https://lgatto.github.io/rr-what-should-be-our-goals/) that
+    provides links and highlights that confusion that exists around
+    the terms and concepts of reproducibility.
 
 - **Repeat** my experiment, i.e. obtain the same tables/graphs/results
   using the same setup (data, software, ...) in the same lab or on the
@@ -72,9 +72,9 @@ that apply these principles:
 
 
 [^rrexam1]: And course reports! The exam of this course will consist
-	in a reproducible report using the tools described below.
+    in a reproducible report using the tools described below.
 [^rrexam2]: Not only reviewers, also professors that read exams. See
-	previous footnote.
+    previous footnote.
 
 ## `knitr` and `rmarkdown`
 
@@ -232,7 +232,7 @@ enable to share the complete image of an operating system, including
 all system dependencies and software/data to repeat a complete
 analysis. These are useful tools, even though their aren't necessarily
 ideal, and beyond the aim of this course. In the annex, (chapter
-\@ref(sec:anx)), we show how to use a pre-build course-specific
+\@ref(sec-anx)), we show how to use a pre-build course-specific
 RStudio cloud instance based on the [Renku](https://renkulab.io/)
 infrastructure.
 
@@ -241,7 +241,7 @@ infrastructure.
 `r msmbstyle::question_begin()`
 
 Repeat the *Beer consumption* analysis using the that was done in
-chapters \@ref(sec:dplyr) and \@ref(sec:vis).
+chapters \@ref(sec-dplyr) and \@ref(sec-vis).
 
 To test if your report is fully reproducible, uniquely name the `Rmd`
 file as `surname_surname_beers_report.Rmd`, post it on the course
@@ -250,10 +250,10 @@ provide feedback on whether the document was reproducible and easy to
 follow[^asinexam].
 
 [^asinexam]: This is an important exercise, as it will mimic the exam
-	situation, where you will hand in your `Rmd` reports that will
-	need to be compiled (to pdf) before marking. In addition, it
-	demonstrates the challenges of writing and reproducing an
-	understandable and reproducible document.
+    situation, where you will hand in your `Rmd` reports that will
+    need to be compiled (to pdf) before marking. In addition, it
+    demonstrates the challenges of writing and reproducing an
+    understandable and reproducible document.
 
 `r msmbstyle::question_end()`
 
@@ -282,13 +282,13 @@ output: pdf_document
 
 
 [^readf]: It is important here **not** to copy/paste the filename
-	returned by `interroA.csv()`. That file is distributed with the
-	`rWSBIM1207` package, and has a computer-specific path. Because we
-	want our reports to be reproducible, we want to use the filename
-	as returned by the function on any computer, not the one of a
-	specific computer. Make sure you either pass `interroA.csv()`
-	directly to `read_csv()` or store its output into a variable that
-	is passed to `read_csv()`.
+    returned by `interroA.csv()`. That file is distributed with the
+    `rWSBIM1207` package, and has a computer-specific path. Because we
+    want our reports to be reproducible, we want to use the filename
+    as returned by the function on any computer, not the one of a
+    specific computer. Make sure you either pass `interroA.csv()`
+    directly to `read_csv()` or store its output into a variable that
+    is passed to `read_csv()`.
 
 3. Make sure that you can compile you `Rmd` file into either pdf or html.
 

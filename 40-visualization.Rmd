@@ -1,4 +1,4 @@
-# Data visualization  {#sec:vis}
+# Data visualization  {#sec-vis}
 
 
 ```{r vis_setup, echo=FALSE}
@@ -895,7 +895,7 @@ ggplot(data = expression,
 `r msmbstyle::question_begin()`
 
 After gathering the *interroA* data from the `rWSBIM1207` package in a
-long table format (see additional exercise chapter \@ref(sec:dplyr)),
+long table format (see additional exercise chapter \@ref(sec-dplyr)),
 visualise the result distributions for each test and male/female
 students group.
 

@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-06-07" />
+<meta name="date" content="2021-09-15" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -27,7 +27,7 @@ MathJax.Hub.Config({
 
 <title>Chapter 1 Data organisation with Spreadsheets | Introduction to bioinformatics</title>
 
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -67,10 +67,10 @@ function reset_tooltip(id) {
   tooltip.innerHTML = 'Copy link';
 }
 </script>
-<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
-<script src="libs/jquery-3.5.1/jquery.min.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.18/datatables.js"></script>
+<script src="libs/datatables-binding-0.19/datatables.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
@@ -215,7 +215,7 @@ div.csl-indent {
 <div class="row">
 <div class="col-sm-12">
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html><body><div id="sec:dataorg" class="section level1" number="1">
+<html><body><div id="sec-dataorg" class="section level1" number="1">
 <h1>
 <span class="header-section-number">Chapter 1</span> Data organisation with Spreadsheets</h1>
 <p><strong>Learning Objectives</strong></p>
@@ -951,7 +951,7 @@ it and hit ‘Save.’</li>
 <p>An important note for backwards compatibility: you can open CSV files
 in Excel!</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-1"></span>
+<span style="display:block;" id="fig:unnamed-chunk-1"></span>
 <p class="caption marginnote shownote">
 Figure 1.1: Saving an Excel file to CSV.
 </p>
@@ -988,7 +988,7 @@ value for <code>taxa</code> includes a comma (<code>Rodent, not censused</code>)
 to read the above into Excel (or other spreadsheet program), we will
 get something like this:</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-2"></span>
+<span style="display:block;" id="fig:unnamed-chunk-2"></span>
 <p class="caption marginnote shownote">
 Figure 1.2: The risks of having commas inside comma-separated data.
 </p>
@@ -1002,7 +1002,7 @@ that, the value in column <code>D</code> for the record in row 3 (so the one
 where the value for ‘taxa’ contained the comma) is now incorrect.</p>
 <p>If you want to store your data in <code>csv</code> format and expect that your
 data values may contain commas, you can avoid the problem discussed
-above by putting the values in quotes (""). Applying this rule, our
+above by putting the values in quotes (““). Applying this rule, our
 data might look like this:</p>
 <pre><code>species_id,genus,species,taxa
 "AB","Amphispiza","bilineata","Bird"
@@ -1022,12 +1022,12 @@ systematically quoted.</span>. In this case, consider using tabs as your delimit
 working with TSV files. TSV files can be exported from spreadsheet
 programs in the same way as CSV files.</p>
 <p>If you are working with an already existing dataset in which the data
-values are not included in "" but which have commas as both delimiters
+values are not included in “” but which have commas as both delimiters
 and parts of data values, you are potentially facing a major problem
 with data cleaning. If the dataset you’re dealing with contains
 hundreds or thousands of records, cleaning them up manually (by either
 removing commas from the data values or putting the values into quotes
-- "") is not only going to take hours and hours but may potentially
+- ““) is not only going to take hours and hours but may potentially
 end up with you accidentally introducing many errors.</p>
 <p>Cleaning up datasets is one of the major problems in many scientific
 disciplines. The approach almost always depends on the particular
@@ -1044,7 +1044,7 @@ build relevant scripts.</p>
 <p>
 <span class="marginnote shownote">
 <!--
-<div class="figure">--><span id="fig:analysis"></span>
+<div class="figure">--><span style="display:block;" id="fig:analysis"></span>
 <img src="figs/analysis.png" alt="A typical data analysis workflow." width="362"><!--
 <p class="caption marginnote">-->Figure 1.3: A typical data analysis workflow.<!--</p>-->
 <!--</div>--></span>
@@ -1126,7 +1126,7 @@ measurements were repeated.</p>
 <a href="sec-rrstudio.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-06-07
+2021-09-15
  using 
 R version 4.1.0 (2021-05-18)
 </p>

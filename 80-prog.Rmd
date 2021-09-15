@@ -1,4 +1,4 @@
-# Additional programming concepts {#sec:prog}
+# Additional programming concepts {#sec-prog}
 
 **Learning Objectives**
 
@@ -17,11 +17,11 @@ clear delimitation between data analysis and (data) programming, both
 morphing into each other[^dataprog].
 
 [^dataprog]: A fundamental difference however is how data analysis and
-	programming are taught. When it comes to researchers, and
-	biomedical researchers in particular, teaching programming to
-	analyse data isn't successful. Teaching data analysis to
-	eventually programme with data, however, has proven a successful
-	strategy.
+    programming are taught. When it comes to researchers, and
+    biomedical researchers in particular, teaching programming to
+    analyse data isn't successful. Teaching data analysis to
+    eventually programme with data, however, has proven a successful
+    strategy.
 
 This chapter will introduce some additional programming skills and
 demonstrate how to use them in the context of high troughput omics
@@ -152,7 +152,7 @@ We will see different ways of implementing such an iteration.
 
 ```{r}
 for (i in x) {
-	print(log(i))
+    print(log(i))
 }
 ```
 
@@ -169,7 +169,7 @@ indices to save the results in the output vector.
 ```{r}
 res_loop <- rep(NA, length(x))
 for (i in seq_along(x)) {
-	res_loop[i] <- log(x[i])
+    res_loop[i] <- log(x[i])
 }
 res_loop
 ```
@@ -209,10 +209,10 @@ There are three such function that *apply* a function iteratively:
 
 
 [^sapplyexception]: This is a simplification of how `sapply` works,
-	that is partly defined by the the `simplify` argument and whether
-	the result of applying the function on each element of the input
-	can be returned as a vector. The alternative is to return a
-	`list`, like `lapply`.
+    that is partly defined by the the `simplify` argument and whether
+    the result of applying the function on each element of the input
+    can be returned as a vector. The alternative is to return a
+    `list`, like `lapply`.
 
 [^arrayapply]: This generalises to arrays with more than 2 dimensions.
 
@@ -236,7 +236,7 @@ i.e. they work irrespectively whether the vector is of length
 1[^scalar] or longer.
 
 [^scalar]: A vector of length 1 would be called a scalar in other
-	programming languages.
+    programming languages.
 
 
 ```{r}
@@ -311,15 +311,15 @@ We see that the data will have to be combined column-wise. We could do
 it manually, adding news columns one by on to the first data, but this
 would require to check that the observations are in the same
 order. Instead, we will use a `full_join`, as seen in chapter
-\@ref(sec:join).
+\@ref(sec-join).
 
 ```{r, message = FALSE}
 ## read the first one
 res <- read_csv(fls[1])
 ## iterate over the other data
 for (i in 2:length(fls)) {
-	data_i <- read_csv(fls[i], progress = FALSE)
-	res <- full_join(res, data_i)
+    data_i <- read_csv(fls[i], progress = FALSE)
+    res <- full_join(res, data_i)
 }
 res
 ```
@@ -418,7 +418,7 @@ set.seed(1)
 
 ```{r}
 x <- tibble(x = letters[1:5],
-			y = rnorm(5))
+            y = rnorm(5))
 x
 mutate(x, z = if_else(y > 0, 1, 0))
 ```
@@ -431,10 +431,10 @@ inside the `return` statement).
 
 ```{r myfun}
 my_fun <- function(x, y) {
-	message("First input: ", x)
-	message("Second input: ", y)
-	z <- x * abs(y)
-	return(z)
+    message("First input: ", x)
+    message("Second input: ", y)
+    z <- x * abs(y)
+    return(z)
 }
 my_fun(2, -5)
 ```
@@ -443,13 +443,13 @@ my_fun(2, -5)
 
 ```{r, echo = FALSE}
 fun <- function(x, y) {
-	res <- NA
-	if (x > y) {
-		res <- sample(x, y)
-	} else { ## here x <= y
-		res <- rnorm(1000, x, y)
-	}
-	return(sum(res))
+    res <- NA
+    if (x > y) {
+        res <- sample(x, y)
+    } else { ## here x <= y
+        res <- rnorm(1000, x, y)
+    }
+    return(sum(res))
 }
 set.seed(1L)
 res1 <- fun(5, 15)
@@ -467,13 +467,13 @@ sum of all values.
 
 ```{r, eval = FALSE}
 fun <- function(x, y) {
-	res <- NA
-	if (   ) {
-		res <- sample(, )
-	} else {
-		res <- rnorm(, , )
-	}
-	return()
+    res <- NA
+    if (   ) {
+        res <- sample(, )
+    } else {
+        res <- rnorm(, , )
+    }
+    return()
 }
 ```
 
@@ -543,7 +543,7 @@ head(gsub("A", "X", peptides))
 This exercise recapitulates the most important material that we have
 seem in the course. We are going to analyse the student tests A and B
 results using functionality from the `dplyr` package (seen in chapter
-\@ref(sec:dplyr)). The student test files are available in the
+\@ref(sec-dplyr)). The student test files are available in the
 `rWSBIM1207` package (the `interroA.csv` and `interroB.csv` functions
 return their respective paths). We want to compare how the male and
 female students in groups A and B have performed. To do this, we want
@@ -581,7 +581,7 @@ library("tidyverse")
 
 ```{r}
 fls <- c(interroA.csv(),
-		 interroB.csv())
+         interroB.csv())
 fls
 ```
 
@@ -597,7 +597,7 @@ fls
 ```{r}
 l <- as.list(fls)
 for (i in seq_along(fls))
-	l[[i]] <- read_csv(fls[i])
+    l[[i]] <- read_csv(fls[i])
 interros <- rbind(l[[1]], l[[2]])
 interros
 dim(interros)
@@ -620,11 +620,11 @@ identical(interros, interros2)
 
 ```{r}
 interros %>%
-	group_by(gender) %>%
-	summarise(m1 = mean(interro1, na.rm = TRUE),
-			  m2 = mean(interro2, na.rm = TRUE),
-			  m3 = mean(interro3, na.rm = TRUE),
-			  m4 = mean(interro4, na.rm = TRUE))
+    group_by(gender) %>%
+    summarise(m1 = mean(interro1, na.rm = TRUE),
+              m2 = mean(interro2, na.rm = TRUE),
+              m3 = mean(interro3, na.rm = TRUE),
+              m4 = mean(interro4, na.rm = TRUE))
 ```
 
 `r msmbstyle::solution_end()`
@@ -650,7 +650,7 @@ variables.
 ```{r}
 sapply(l, nrow)
 interros$group <- c(rep("A", nrow(l[[1]])),
-					rep("B", nrow(l[[2]])))
+                    rep("B", nrow(l[[2]])))
 interros
 ```
 
@@ -672,11 +672,11 @@ calculations:
 
 ```{r}
 interros %>%
-	group_by(gender, group) %>%
-	summarise(m1 = mean(interro1, na.rm = TRUE),
-			  m2 = mean(interro2, na.rm = TRUE),
-			  m3 = mean(interro3, na.rm = TRUE),
-			  m4 = mean(interro4, na.rm = TRUE))
+    group_by(gender, group) %>%
+    summarise(m1 = mean(interro1, na.rm = TRUE),
+              m2 = mean(interro2, na.rm = TRUE),
+              m3 = mean(interro3, na.rm = TRUE),
+              m4 = mean(interro4, na.rm = TRUE))
 ```
 
 `r msmbstyle::solution_end()`
@@ -700,9 +700,9 @@ as a single new variable.
 
 ```{r}
 interros2 <- pivot_longer(interros,
-						  names_to = "test",
-						  values_to = "score",
-						  starts_with("interro"))
+                          names_to = "test",
+                          values_to = "score",
+                          starts_with("interro"))
 interros2
 ```
 
@@ -711,9 +711,9 @@ axes and construct the visualisation.
 
 ```{r}
 ggplot(interros2, aes(y = score, x = test)) +
-	geom_boxplot() +
-	geom_jitter(aes(colour = height)) +
-	facet_grid(gender ~ group)
+    geom_boxplot() +
+    geom_jitter(aes(colour = height)) +
+    facet_grid(gender ~ group)
 
 ```
 

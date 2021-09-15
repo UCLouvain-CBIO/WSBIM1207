@@ -13,7 +13,7 @@ knitr::write_bib(c(
 sessionInfo()
 ```
 
-## R package setup {#sec:setup2}
+## R package setup {#sec-setup2}
 
 To install all necessary packages to run all the code, please execute
 the following code:
@@ -34,4 +34,3 @@ if (!require("BiocManager"))
    install.packages("BiocManager")
 BiocManager::install(pkgs)
 ```
-

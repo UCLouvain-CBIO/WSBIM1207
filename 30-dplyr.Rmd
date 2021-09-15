@@ -1,4 +1,4 @@
-# Manipulating and analyzing data with dplyr  {#sec:dplyr}
+# Manipulating and analyzing data with dplyr  {#sec-dplyr}
 
 
 ```{r dplyrsetup, echo=FALSE, purl=FALSE, message=FALSE}
@@ -569,7 +569,7 @@ surveys %>%
 
 ## Reshaping data
 
-In the spreadsheet lesson (chapter \@ref(sec:dataorg)), we discussed how
+In the spreadsheet lesson (chapter \@ref(sec-dataorg)), we discussed how
 to structure our data leading to the four rules defining a tidy
 dataset:
 
