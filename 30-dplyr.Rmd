@@ -1,4 +1,7 @@
 # Manipulating and analyzing data with dplyr  {#sec-dplyr}
+```{r}
+library("rWSBIM1207")
+```
 
 
 ```{r dplyrsetup, echo=FALSE, purl=FALSE, message=FALSE}
@@ -146,9 +149,10 @@ tidyverse package **`readr`**, instead of `read.csv()`.
 
 ```{r dplyr_setp, results = 'hide', purl = FALSE}
 surveys <- read_csv("data/portal_data_joined.csv")
+rna <- read_csv("../bioconductor-teaching/data/GSE96870/rnaseq.csv")
 
 ## inspect the data
-str(surveys)
+str(rna)
 
 ## preview the data
 # View(surveys)
@@ -179,27 +183,28 @@ We're going to learn some of the most common **`dplyr`** functions:
 ## Selecting columns and filtering rows
 
 To select columns of a data frame, use `select()`. The first argument
-to this function is the data frame (`surveys`), and the subsequent
+to this function is the data frame (`rna`), and the subsequent
 arguments are the columns to keep.
 
 ```{r, results = 'hide', purl = FALSE}
-select(surveys, plot_id, species_id, weight)
+select(rna, gene, sample, tissue, expression)
 ```
 
 To select all columns *except* certain ones, put a "-" in front of
 the variable to exclude it.
 
 ```{r, results = 'hide', purl = FALSE}
-select(surveys, -record_id, -species_id)
+select(rna, -organism, -strain)
 ```
 
-This will select all the variables in `surveys` except `record_id`
-and `species_id`.
+This will select all the variables in `rna` except `organism`
+and `strain`.
 
 To choose rows based on a specific criteria, use `filter()`:
 
 ```{r, purl = FALSE}
-filter(surveys, year == 1995)
+filter(rna, sex == "Male")
+filter(rna, sex == "Male" & infection == "NonInfected")
 ```
 
 ## Pipes
@@ -211,8 +216,9 @@ With intermediate steps, you create a temporary data frame and use
 that as input to the next function, like this:
 
 ```{r, purl = FALSE}
-surveys2 <- filter(surveys, weight < 5)
-surveys_sml <- select(surveys2, species_id, sex, weight)
+rna2 <- filter(rna, sex == "Male")
+rna3 <- select(rna2, gene, sample, tissue, expression)
+rna3
 ```
 
 This is readable, but can clutter up your workspace with lots of objects that you have to name individually. With multiple steps, that can be hard to keep track of.
@@ -220,7 +226,9 @@ This is readable, but can clutter up your workspace with lots of objects that yo
 You can also nest functions (i.e. one function inside of another), like this:
 
 ```{r, purl = FALSE}
-surveys_sml <- select(filter(surveys, weight < 5), species_id, sex, weight)
+
+rna3 <- select(filter(rna, sex == "Male"), gene, sample, tissue, expression)
+rna3
 ```
 
 This is handy, but can be difficult to read if too many functions are nested, as
@@ -235,34 +243,40 @@ with **`dplyr`**. If you use RStudio, you can type the pipe with <kbd>Ctrl</kbd>
 <kbd>Shift</kbd> + <kbd>M</kbd> if you have a Mac.
 
 ```{r, purl = FALSE}
-surveys %>%
-  filter(weight < 5) %>%
-  select(species_id, sex, weight)
+rna %>% 
+  filter(sex == "Male") %>% 
+  select(gene, sample, tissue, expression)
 ```
 
-In the above code, we use the pipe to send the `surveys` dataset first through
-`filter()` to keep rows where `weight` is less than 5, then through `select()`
-to keep only the `species_id`, `sex`, and `weight` columns. Since `%>%` takes
-the object on its left and passes it as the first argument to the function on
-its right, we don't need to explicitly include the data frame as an argument
-to the `filter()` and `select()` functions any more.
+In the above code, we use the pipe to send the `rna` dataset first through
+`filter()` to keep rows where `sex` is Male, then through `select()`
+to keep only the `gene`, `sample`, `tissue`, and `expression`columns. 
+Since `%>%` takes the object on its left and passes it as the first argument 
+to the function on its right, we don't need to explicitly include the data frame 
+as an argument to the `filter()` and `select()` functions any more.
 
 Some may find it helpful to read the pipe like the word "then". For instance,
-in the above example, we took the data frame `surveys`, *then* we `filter`ed
-for rows with `weight < 5`, *then* we `select`ed columns `species_id`, `sex`,
-and `weight`. The **`dplyr`** functions by themselves are somewhat simple,
-but by combining them into linear workflows with the pipe, we can accomplish
+in the above example, we took the data frame `rna`, *then* we `filter`ed
+for rows with `sex == "Male"`, *then* we `select`ed columns `gene`, `sample`, 
+`tissue`, and `expression`. The **`dplyr`** functions by themselves are somewhat 
+simple, but by combining them into linear workflows with the pipe, we can accomplish
 more complex manipulations of data frames.
 
 If we want to create a new object with this smaller version of the data, we
 can assign it a new name:
 
 ```{r, purl = FALSE}
-surveys_sml <- surveys %>%
-  filter(weight < 5) %>%
-  select(species_id, sex, weight)
+rna3 <- rna %>% 
+  filter(sex == "Male") %>% 
+  select(gene, sample, tissue, expression)
 
-surveys_sml
+rna3
+
+
+rna %>% 
+  filter(time == 0) 
+  select(sex) 
+  table(age)
 ```
 
 Note that the final data frame is the leftmost part of this expression.
@@ -270,17 +284,19 @@ Note that the final data frame is the leftmost part of this expression.
 
 `r msmbstyle::question_begin()`
 
-Using pipes, subset the `surveys` data to include animals collected
-before 1995 and retain only the columns `year`, `sex`, and `weight`.
+Using pipes, subset the `rna` data to genes with an expression higher 
+than 50000 in male mice at time 0, and retain only the columns `gene`, 
+`sample`, `time`, `expression` and `age`
 
 `r msmbstyle::question_end()`
 
 
 `r msmbstyle::solution_begin()`
 ```{r, eval=TRUE, purl=FALSE}
-surveys %>%
-    filter(year < 1995) %>%
-    select(year, sex, weight)
+rna %>%
+  filter(expression > 50000, sex == "Male", time == 0 ) %>%
+  arrange(desc(expression)) %>% 
+  select(gene, sample, time, expression, age)
 ```
 `r msmbstyle::solution_end()`
 
