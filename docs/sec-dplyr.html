@@ -1444,6 +1444,16 @@ each row is a unique <code>chromosome_name</code> by <code>gender</code> combina
 <div class="question-body">
 <p>Use the <code>rna</code> dataset to create an expression matrix were each row represents
 the mean expression levels of genes and columns represent the different timepoints.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="msmb-solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-24" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-24', 'sol-start-24')"></span>
+</p>
+<div id="sol-body-24" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="sec-dplyr.html#cb374-1" aria-hidden="true" tabindex="-1"></a>rna <span class="sc">%&gt;%</span> </span>
 <span id="cb374-2"><a href="sec-dplyr.html#cb374-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gene, time) <span class="sc">%&gt;%</span> </span>
 <span id="cb374-3"><a href="sec-dplyr.html#cb374-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_exp =</span> <span class="fu">mean</span>(expression)) <span class="sc">%&gt;%</span> </span>
@@ -1538,7 +1548,7 @@ choosing a name that doesn’t start by a number :</p>
 ##  9 Acap3   3446.  
 ## 10 Acbd4   1410.  
 ## # … with 1,464 more rows</code></pre>
-<p class="question-end">
+<p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
@@ -1550,8 +1560,18 @@ choosing a name that doesn’t start by a number :</p>
 <div class="question-body">
 <p>Use the previous data frame containing mean expression levels per timepoint and create
 a new column containing fold-changes between timepoint 8 and timepoint 0, and fold-changes
-between timepoint 8 and timepoint 0.
+between timepoint 8 and timepoint 4.
 Convert this table in a long-format table gathering the foldchanges calculated.</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="msmb-solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-25" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-25', 'sol-start-25')"></span>
+</p>
+<div id="sol-body-25" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="sec-dplyr.html#cb386-1" aria-hidden="true" tabindex="-1"></a>rna_FC <span class="ot">&lt;-</span> rna <span class="sc">%&gt;%</span> </span>
 <span id="cb386-2"><a href="sec-dplyr.html#cb386-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gene, time) <span class="sc">%&gt;%</span> </span>
 <span id="cb386-3"><a href="sec-dplyr.html#cb386-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_exp =</span> <span class="fu">mean</span>(expression)) <span class="sc">%&gt;%</span> </span>
@@ -1594,7 +1614,7 @@ Convert this table in a long-format table gathering the foldchanges calculated.<
 ##  9 Abi2    4881.   4903.   4945.   time_8_vs_0        1.01 
 ## 10 Abi2    4881.   4903.   4945.   time_8_vs_4        1.01 
 ## # … with 2,938 more rows</code></pre>
-<p class="question-end">
+<p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
