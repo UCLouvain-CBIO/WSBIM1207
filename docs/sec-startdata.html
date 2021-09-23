@@ -307,43 +307,39 @@ columns represent:</p>
 </tr>
 <tr class="even">
 <td>ENTREZID</td>
-<td></td>
+<td>The gene ID for the ENTREZ database</td>
 </tr>
 <tr class="odd">
 <td>product</td>
-<td></td>
+<td>The gene product</td>
 </tr>
 <tr class="even">
-<td>gbkey</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>external_gene_name</td>
-<td></td>
+<td>The name of the gene in the ENSEMBL database</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>ensembl_gene_id</td>
-<td></td>
+<td>The ID of the gene from the ENSEMBL database</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>external_synonym</td>
-<td></td>
+<td>A name synonym for the gene</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>chromosome_name</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>gene_biotype</td>
-<td></td>
+<td>The chromosome name of the gene</td>
 </tr>
 <tr class="even">
-<td>phenotype_description</td>
-<td></td>
+<td>gene_biotype</td>
+<td>The gene biotype</td>
 </tr>
 <tr class="odd">
+<td>phenotype_description</td>
+<td>The phenotype description of the gene</td>
+</tr>
+<tr class="even">
 <td>hsapiens_homolog_associated_gene_name</td>
-<td></td>
+<td>The human homologous gene</td>
 </tr>
 </tbody>
 </table>
@@ -390,12 +386,12 @@ using the function <code>head()</code>:</p>
 ## 3 cytochrome P450 family 2 subfamily d polypeptide 22 transcript variant 2
 ## 4                      kallikrein related-peptidase 6 transcript variant 2
 ## 5              Fc receptor-like S scavenger receptor transcript variant X1
-##   gbkey    ensembl_gene_id external_synonym chromosome_name   gene_biotype
-## 1  mRNA ENSMUSG00000025533    2510006M18Rik               5 protein_coding
-## 2  mRNA ENSMUSG00000022548             &lt;NA&gt;              16 protein_coding
-## 3  mRNA ENSMUSG00000061740             2D22              15 protein_coding
-## 4  mRNA ENSMUSG00000050063             Bssp               7 protein_coding
-## 5  mRNA ENSMUSG00000015852    2810439C17Rik               3 protein_coding
+##      ensembl_gene_id external_synonym chromosome_name   gene_biotype
+## 1 ENSMUSG00000025533    2510006M18Rik               5 protein_coding
+## 2 ENSMUSG00000022548             &lt;NA&gt;              16 protein_coding
+## 3 ENSMUSG00000061740             2D22              15 protein_coding
+## 4 ENSMUSG00000050063             Bssp               7 protein_coding
+## 5 ENSMUSG00000015852    2810439C17Rik               3 protein_coding
 ##                             phenotype_description
 ## 1           abnormal circulating amino acid level
 ## 2                      abnormal lipid homeostasis
@@ -453,7 +449,7 @@ logical vector.</p>
 <p>We can see this when inspecting the <b>str</b>ucture of a data frame
 with the function <code>str()</code>:</p>
 <div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="sec-startdata.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(rna)</span></code></pre></div>
-<pre><code>## 'data.frame':    32428 obs. of  20 variables:
+<pre><code>## 'data.frame':    32428 obs. of  19 variables:
 ##  $ gene                                 : chr  "Asl" "Apod" "Cyp2d22" "Klk6" ...
 ##  $ sample                               : chr  "GSM2545336" "GSM2545336" "GSM2545336" "GSM2545336" ...
 ##  $ expression                           : int  1170 36194 4060 287 85 782 1619 288 43217 1071 ...
@@ -467,7 +463,6 @@ with the function <code>str()</code>:</p>
 ##  $ mouse                                : int  14 14 14 14 14 14 14 14 14 14 ...
 ##  $ ENTREZID                             : int  109900 11815 56448 19144 80891 20528 97827 118454 18823 14696 ...
 ##  $ product                              : chr  "argininosuccinate lyase transcript variant X1" "apolipoprotein D transcript variant 3" "cytochrome P450 family 2 subfamily d polypeptide 22 transcript variant 2" "kallikrein related-peptidase 6 transcript variant 2" ...
-##  $ gbkey                                : chr  "mRNA" "mRNA" "mRNA" "mRNA" ...
 ##  $ ensembl_gene_id                      : chr  "ENSMUSG00000025533" "ENSMUSG00000022548" "ENSMUSG00000061740" "ENSMUSG00000050063" ...
 ##  $ external_synonym                     : chr  "2510006M18Rik" NA "2D22" "Bssp" ...
 ##  $ chromosome_name                      : chr  "5" "16" "15" "7" ...
@@ -1187,12 +1182,12 @@ output of <code>readRDS</code> in a variable:</p>
 ## 3 cytochrome P450 family 2 subfamily d polypeptide 22 transcript variant 2
 ## 4                      kallikrein related-peptidase 6 transcript variant 2
 ## 5              Fc receptor-like S scavenger receptor transcript variant X1
-##   gbkey    ensembl_gene_id external_synonym chromosome_name   gene_biotype
-## 1  mRNA ENSMUSG00000025533    2510006M18Rik               5 protein_coding
-## 2  mRNA ENSMUSG00000022548             &lt;NA&gt;              16 protein_coding
-## 3  mRNA ENSMUSG00000061740             2D22              15 protein_coding
-## 4  mRNA ENSMUSG00000050063             Bssp               7 protein_coding
-## 5  mRNA ENSMUSG00000015852    2810439C17Rik               3 protein_coding
+##      ensembl_gene_id external_synonym chromosome_name   gene_biotype
+## 1 ENSMUSG00000025533    2510006M18Rik               5 protein_coding
+## 2 ENSMUSG00000022548             &lt;NA&gt;              16 protein_coding
+## 3 ENSMUSG00000061740             2D22              15 protein_coding
+## 4 ENSMUSG00000050063             Bssp               7 protein_coding
+## 5 ENSMUSG00000015852    2810439C17Rik               3 protein_coding
 ##                             phenotype_description
 ## 1           abnormal circulating amino acid level
 ## 2                      abnormal lipid homeostasis
