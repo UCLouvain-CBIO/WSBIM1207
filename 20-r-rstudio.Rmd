@@ -342,7 +342,7 @@ wsbim1207/data/
 ```
 
 If we were in the working directory, we could refer to the `fig1.pdf`
-file using the relative path `wsbim1207/fig_output/fig1.pdf` or the
+file using the relative path `fig_output/fig1.pdf` or the
 absolute path `/home/user/wsbim1207/fig_output/fig1.pdf`.
 
 If we were in the `data` directory, we would use the relative path
