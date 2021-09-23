@@ -188,13 +188,14 @@ commands). Try making these modifications:
 
 `r msmbstyle::question_end()`
 
-
-```{r, eval=FALSE, purl=TRUE, echo=FALSE}
-# Create a ggplot and draw it
-rna_plot <- ggplot(data = rna,
-                   mapping = aes(x = expression_log))
-rna_plot + geom_histogram()
+`r msmbstyle::solution_begin()`
+```{r, eval=TRUE, purl=TRUE, echo=TRUE}
+ggplot(data = rna,mapping = aes(x = expression_log))+ 
+  geom_histogram() + 
+  scale_x_log10()
 ```
+`r msmbstyle::solution_end()`
+
 
 **Notes**
 
@@ -445,35 +446,32 @@ distribution. For example, if the distribution is bimodal, we would
 not see it in a boxplot. An alternative to the boxplot is the violin
 plot, where the shape (of the density of points) is drawn.
 
-- Replace the box plot with a violin plot; see `geom_violin()`.
-
-
-So far, we've looked at the distribution of log expressions within samples. Try
-making a new plot to explore the distribution of log expressions
-within another variable.
-
-- Create a boxplot for each time point. Color the boxes by `sex`.
+Replace the box plot with a violin plot; see `geom_violin()`. Fill in the violins according to the time with `fill`.
 
 `r msmbstyle::question_end()`
 
 `r msmbstyle::solution_begin()`
-
-```{r, eval=TRUE, echo=FALSE, cache=FALSE}
-# geom_violin
+```{r, eval=TRUE, echo=TRUE, cache=FALSE}
 ggplot(data = rna,
          mapping = aes(y = expression_log,
                        x = sample)) +
-  geom_jitter(alpha = 0.2, aes(color = as.factor(time))) +
-  geom_violin(alpha = 0) +
+  geom_violin(aes(fill = as.factor(time))) +
   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
-
-# boxplot for each time point, color by sex
-ggplot(data = rna,  mapping = aes(y = expression_log, x = as.factor(time),
-                  color = sex)) +
-    geom_boxplot()
 ```
+`r msmbstyle::solution_end()`
 
+`r msmbstyle::question_begin()`
+Modify the violin plot to fill in the violins by `sex`.
+`r msmbstyle::question_end()`
 
+`r msmbstyle::solution_begin()`
+```{r, eval=TRUE, echo=TRUE, cache=FALSE}
+ggplot(data = rna,
+         mapping = aes(y = expression_log,
+                       x = sample)) +
+  geom_violin(aes(fill = sex)) +
+  theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
+```
 `r msmbstyle::solution_end()`
 
 ## Line plots
