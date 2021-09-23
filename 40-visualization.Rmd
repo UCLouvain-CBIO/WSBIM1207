@@ -14,7 +14,8 @@ rna <- read.csv("data/rnaseq.csv")
 * Produce scatter plots, boxplots, and time series plots using ggplot.
 * Set universal plot settings.
 * Describe what faceting is and apply faceting in ggplot.
-* Modify the aesthetics of an existing ggplot plot (including axis labels and color).
+* Modify the aesthetics of an existing ggplot plot (including axis
+  labels and color).
 * Build complex and customized plots from data in a data frame.
 
 
@@ -190,8 +191,8 @@ commands). Try making these modifications:
 
 `r msmbstyle::solution_begin()`
 ```{r, eval=TRUE, purl=TRUE, echo=TRUE}
-ggplot(data = rna,mapping = aes(x = expression_log))+ 
-  geom_histogram() + 
+ggplot(data = rna,mapping = aes(x = expression_log))+
+  geom_histogram() +
   scale_x_log10()
 ```
 `r msmbstyle::solution_end()`
@@ -224,8 +225,14 @@ rna_plot
 
 ## Building your plots iteratively
 
-We will now draw a scatter plot with two continuous variables and the `geom_point()` function.
-This graph will represent the log2 fold changes comparing time 8 versus time 0 and time 4 versus time 0. To this end, we first need to compute the means of the log-transformed expression values by gene and time then the log fold changes by subtracting the mean log expressions between time 8 and time 0 and between time 4 and time 0. Note that we also include here the gene biotype that we will use later on to represent the genes.
+We will now draw a scatter plot with two continuous variables and the
+`geom_point()` function. This graph will represent the log2 fold
+changes comparing time 8 versus time 0 and time 4 versus time 0. To
+this end, we first need to compute the means of the log-transformed
+expression values by gene and time then the log fold changes by
+subtracting the mean log expressions between time 8 and time 0 and
+between time 4 and time 0. Note that we also include here the gene
+biotype that we will use later on to represent the genes.
 
 ```{r rna_FC, cache=FALSE}
 rna_FC <- rna %>% select(gene, time,
@@ -238,8 +245,10 @@ rna_FC <- rna %>% select(gene, time,
 
 ```
 
-We can then build a ggplot with the newly created dataset `rna_FC`. Building plots with **`ggplot2`** is typically an iterative process. We start by
-defining the dataset we'll use, lay out the axes, and choose a geom:
+We can then build a ggplot with the newly created dataset
+`rna_FC`. Building plots with **`ggplot2`** is typically an iterative
+process. We start by defining the dataset we'll use, lay out the axes,
+and choose a geom:
 
 ```{r create-ggplot-object, cache=FALSE}
 ggplot(data = rna_FC, mapping = aes(x = time_4_vs_0,
@@ -247,15 +256,15 @@ ggplot(data = rna_FC, mapping = aes(x = time_4_vs_0,
   geom_point()
 ```
 
-Then, we start modifying this plot to extract more information from it. For
-instance, we can add transparency (`alpha`) to avoid overplotting:
+Then, we start modifying this plot to extract more information from
+it. For instance, we can add transparency (`alpha`) to avoid
+overplotting:
 
 ```{r adding-transparency, cache=FALSE}
 ggplot(data = rna_FC, mapping = aes(x = time_4_vs_0,
                                 y = time_8_vs_0)) +
   geom_point(alpha = 0.3)
 ```
-
 
 We can also add colors for all the points:
 
@@ -265,10 +274,10 @@ ggplot(data = rna_FC, mapping = aes(x = time_4_vs_0,
   geom_point(alpha = 0.3, color = "blue")
 ```
 
-Or to color each gene in the plot differently, you could use a
-vector as an input to the argument **color**. **`ggplot2`** will
-provide a different color corresponding to different values in the
-vector. Here is an example where we color with **`gene_biotype`**:
+Or to color each gene in the plot differently, you could use a vector
+as an input to the argument **color**. **`ggplot2`** will provide a
+different color corresponding to different values in the vector. Here
+is an example where we color with **`gene_biotype`**:
 
 
 ```{r color-by-gene_biotype1, cache=FALSE}
@@ -289,7 +298,8 @@ ggplot(data = rna_FC, mapping = aes(x = time_4_vs_0,
   geom_point(alpha = 0.3)
 ```
 
-Finally, we could also add a diagonal line with the `geom_abline()` function:
+Finally, we could also add a diagonal line with the `geom_abline()`
+function:
 
 ```{r adding-diag, cache=FALSE}
 ggplot(data = rna_FC, mapping = aes(x = time_4_vs_0,
@@ -313,12 +323,12 @@ ggplot(data = rna_FC, mapping = aes(x = time_4_vs_0,
 `r msmbstyle::question_begin()`
 
 Scatter plots can be useful exploratory tools for small datasets. For
-data sets with large numbers of observations, such as the
-`rna_FC` data set, overplotting of points can be a
-limitation of scatter plots. One strategy for handling such settings
-is to use hexagonal binning of observations. The plot space is
-tessellated into hexagons. Each hexagon is assigned a color based on
-the number of observations that fall within its boundaries.
+data sets with large numbers of observations, such as the `rna_FC`
+data set, overplotting of points can be a limitation of scatter
+plots. One strategy for handling such settings is to use hexagonal
+binning of observations. The plot space is tessellated into
+hexagons. Each hexagon is assigned a color based on the number of
+observations that fall within its boundaries.
 
 - To use hexagonal binning `ggplot2`, first install the R package
   `hexbin` from CRAN and load it.
@@ -392,10 +402,14 @@ ggplot(data = rna,
   geom_boxplot(alpha = 0)
 ```
 
-Note how the boxplot layer is in front of the jitter layer? What do you
-need to change in the code to put the boxplot below the points?
+Note how the boxplot layer is in front of the jitter layer? What do
+you need to change in the code to put the boxplot below the points?
 
-You may notice that the values on the x-axis are still not properly readable. Let’s change the orientation of the labels and adjust them vertically and horizontally so they don’t overlap. You can use a 90-degree angle, or experiment to find the appropriate angle for diagonally oriented labels:
+You may notice that the values on the x-axis are still not properly
+readable. Let’s change the orientation of the labels and adjust them
+vertically and horizontally so they don’t overlap. You can use a
+90-degree angle, or experiment to find the appropriate angle for
+diagonally oriented labels:
 
 ```{r boxplot-xaxis-rotated, cache=FALSE}
 ggplot(data = rna,
@@ -408,7 +422,8 @@ ggplot(data = rna,
 
 `r msmbstyle::question_begin()`
 
-Add color to the data points on your boxplot according to the duration of the infection (`time`).
+Add color to the data points on your boxplot according to the duration
+of the infection (`time`).
 
 *Hint:* Check the class for `time`. Consider changing the class of
 `time` from integer to factor. Why does this change how R makes the
@@ -446,7 +461,9 @@ distribution. For example, if the distribution is bimodal, we would
 not see it in a boxplot. An alternative to the boxplot is the violin
 plot, where the shape (of the density of points) is drawn.
 
-Replace the box plot with a violin plot; see `geom_violin()`. Fill in the violins according to the time with `fill`.
+Replace the box plot with a violin plot; see `geom_violin()`. Fill in
+the violins according to the time with `fill`.
+
 
 `r msmbstyle::question_end()`
 
@@ -476,8 +493,13 @@ ggplot(data = rna,
 
 ## Line plots
 
-Let’s calculate the mean expression per duration of the infection for the 10 genes having the highest log fold changes comparing time 8 versus time 0.
-First, we need to select the genes and create a subset of `rna` called `sub_rna` containing the 10 selected genes, then we need to group the data and calculate the mean gene expression within each group:
+Let's calculate the mean expression per duration of the infection for
+the 10 genes having the highest log fold changes comparing time 8
+versus time 0.
+
+First, we need to select the genes and create a subset of `rna` called
+`sub_rna` containing the 10 selected genes, then we need to group the
+data and calculate the mean gene expression within each group:
 
 ```{r}
 rna_FC <- rna_FC %>% arrange(desc(time_8_vs_0))
@@ -490,7 +512,8 @@ mean_exp_by_time <- sub_rna %>%
   summarize(mean_exp = mean(expression_log))
 ```
 
-We can build the line plot with duration of the infection on the x-axis and the mean expression on the y-axis:
+We can build the line plot with duration of the infection on the
+x-axis and the mean expression on the y-axis:
 
 ```{r first-time-series}
 ggplot(data = mean_exp_by_time,
@@ -498,9 +521,9 @@ ggplot(data = mean_exp_by_time,
   geom_line()
 ```
 
-Unfortunately, this does not work because we plotted data for all the genes
-together. We need to tell ggplot to draw a line for each gene by modifying
-the aesthetic function to include `group = gene`:
+Unfortunately, this does not work because we plotted data for all the
+genes together. We need to tell ggplot to draw a line for each gene by
+modifying the aesthetic function to include `group = gene`:
 
 ```{r time-series-by-gene}
 ggplot(data = mean_exp_by_time,
@@ -519,8 +542,8 @@ ggplot(data = mean_exp_by_time,
 
 ## Faceting
 
-**`ggplot2`** has a special technique called *faceting* that allows
-the user to split one plot into multiple (sub) plots based on a factor
+`ggplot2` has a special technique called *faceting* that allows the
+user to split one plot into multiple (sub) plots based on a factor
 included in the dataset. These different subplots inherit the same
 properties (axes limits, ticks, ...) to facilitate their direct
 comparison. We will use it to make a line plot across time for each
@@ -531,7 +554,10 @@ ggplot(data = mean_exp_by_time,
        mapping = aes(x = time, y = mean_exp)) + geom_line() +
   facet_wrap(~ gene)
 ```
-Here both x- and y-axis have the same scale for all the sub plots. You can change this default behavior by modifying `scales` in order to allow a free scale for the y-axis:
+
+Here both x- and y-axis have the same scale for all the sub plots. You
+can change this default behavior by modifying `scales` in order to
+allow a free scale for the y-axis:
 
 ```{r first-facet-scales}
 ggplot(data = mean_exp_by_time,
@@ -540,8 +566,9 @@ ggplot(data = mean_exp_by_time,
   facet_wrap(~ gene, scales = "free_y")
 ```
 
-
-Now we would like to split the line in each plot by the sex of the mice. To do that we need to make the mean expression in the data frame grouped by `gene`, `time`, and `sex`:
+Now we would like to split the line in each plot by the sex of the
+mice. To do that we need to make the mean expression in the data frame
+grouped by `gene`, `time`, and `sex`:
 
 ```{r data-facet-by-gene-and-sex}
 mean_exp_by_time_sex <- sub_rna %>%
@@ -549,7 +576,8 @@ mean_exp_by_time_sex <- sub_rna %>%
   summarize(mean_exp = mean(expression_log))
 ```
 
-We can now make the faceted plot by splitting further by sex using `color` (within a single plot):
+We can now make the faceted plot by splitting further by sex using
+`color` (within a single plot):
 
 ```{r facet-by-gene-and-sex, cache=FALSE}
 ggplot(data = mean_exp_by_time_sex,
@@ -558,9 +586,9 @@ ggplot(data = mean_exp_by_time_sex,
   facet_wrap(~ gene, scales = "free_y")
 ```
 
-Usually plots with white background look more readable when printed.  We can set
-the background to white using the function `theme_bw()`. Additionally, we can remove
-the grid:
+Usually plots with white background look more readable when printed.
+We can set the background to white using the function
+`theme_bw()`. Additionally, we can remove the grid:
 
 ```{r facet-by-gene-and-sex-white-bg, cache=FALSE}
 ggplot(data = mean_exp_by_time_sex,
@@ -574,8 +602,9 @@ ggplot(data = mean_exp_by_time_sex,
 
 `r msmbstyle::question_begin()`
 
-Use what you just learned to create a plot that depicts how the average expression
-of each chromosome changes through the duration of infection.
+Use what you just learned to create a plot that depicts how the
+average expression of each chromosome changes through the duration of
+infection.
 
 `r msmbstyle::question_end()`
 
@@ -595,14 +624,15 @@ ggplot(data = mean_exp_by_chromosome, mapping = aes(x = time,
 `r msmbstyle::solution_end()`
 
 
-The `facet_wrap` geometry extracts plots into an arbitrary number of dimensions
-to allow them to cleanly fit on one page. On the other hand, the `facet_grid`
-geometry allows you to explicitly specify how you want your plots to be
-arranged via formula notation (`rows ~ columns`; a `.` can be used as
-a placeholder that indicates only one row or column).
+The `facet_wrap` geometry extracts plots into an arbitrary number of
+dimensions to allow them to cleanly fit on one page. On the other
+hand, the `facet_grid` geometry allows you to explicitly specify how
+you want your plots to be arranged via formula notation (`rows ~
+columns`; a `.` can be used as a placeholder that indicates only one
+row or column).
 
-Let's modify the previous plot to compare how the mean gene expression of males and females
-has changed through time:
+Let's modify the previous plot to compare how the mean gene expression
+of males and females has changed through time:
 
 ```{r mean-exp-time-facet-sex-rows}
 # One column, facet by rows
@@ -622,20 +652,20 @@ ggplot(data = mean_exp_by_time_sex,
 
 ## **`ggplot2`** themes
 
-In addition to `theme_bw()`, which changes the plot background to white, **`ggplot2`**
-comes with several other themes which can be useful to quickly change the look
-of your visualization. The complete list of themes is available
-at <http://docs.ggplot2.org/current/ggtheme.html>. `theme_minimal()` and
-`theme_light()` are popular, and `theme_void()` can be useful as a starting
-point to create a new hand-crafted theme.
+In addition to `theme_bw()`, which changes the plot background to
+white, **`ggplot2`** comes with several other themes which can be
+useful to quickly change the look of your visualization. The complete
+list of themes is available at
+<http://docs.ggplot2.org/current/ggtheme.html>. `theme_minimal()` and
+`theme_light()` are popular, and `theme_void()` can be useful as a
+starting point to create a new hand-crafted theme.
 
-The
-[ggthemes](https://jrnold.github.io/ggthemes/reference/index.html) package
-provides a wide variety of options (including an Excel 2003 theme).
-The [**`ggplot2`** extensions website](https://www.ggplot2-exts.org) provides a list
-of packages that extend the capabilities of **`ggplot2`**, including additional
+The [ggthemes](https://jrnold.github.io/ggthemes/reference/index.html)
+package provides a wide variety of options (including an Excel 2003
+theme).  The [**`ggplot2`** extensions
+website](https://www.ggplot2-exts.org) provides a list of packages
+that extend the capabilities of **`ggplot2`**, including additional
 themes.
-
 
 
 ## Customisation
@@ -644,8 +674,9 @@ Take a look at the [**`ggplot2`** cheat
 sheet](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf),
 and think of ways you could improve the plot.
 
-Now, let's change names of axes to something more informative than 'time'
-and 'mean_exp', add a title to the figure and change the colour legend title:
+Now, let's change names of axes to something more informative than
+'time' and 'mean_exp', add a title to the figure and change the colour
+legend title:
 
 ```{r mean_exp-time-with-right-labels, cache=FALSE}
 ggplot(data = mean_exp_by_time_sex,
@@ -659,8 +690,8 @@ ggplot(data = mean_exp_by_time_sex,
   theme_bw()
 ```
 
-The axes have more informative names, but their readability can be improved by
-increasing the font size:
+The axes have more informative names, but their readability can be
+improved by increasing the font size:
 
 ```{r mean_exp-time-with-right-labels-xfont-size, cache=FALSE}
 ggplot(data = mean_exp_by_time_sex,
@@ -675,12 +706,14 @@ ggplot(data = mean_exp_by_time_sex,
   theme(text = element_text(size = 16))
 ```
 
-Note that it is also possible to change the fonts of your plots. If you are on
-Windows, you may have to install
-the [**`extrafont`** package](https://github.com/wch/extrafont), and follow the
+Note that it is also possible to change the fonts of your plots. If
+you are on Windows, you may have to install the [**`extrafont`**
+package](https://github.com/wch/extrafont), and follow the
 instructions included in the README for this package.
 
-We can further customize the color of x- and y-axis text, the color of the grid, etc. We can also for example move the legend to the top by setting `legend.position` to `"top"`.
+We can further customize the color of x- and y-axis text, the color of
+the grid, etc. We can also for example move the legend to the top by
+setting `legend.position` to `"top"`.
 
 ```{r mean_exp-time-with-theme, cache=FALSE}
 ggplot(data = mean_exp_by_time_sex,
@@ -699,9 +732,9 @@ ggplot(data = mean_exp_by_time_sex,
         legend.position = "top")
 ```
 
-If you like the changes you created better than the default theme, you can save them as
-an object to be able to easily apply them to other plots you may create:
-
+If you like the changes you created better than the default theme, you
+can save them as an object to be able to easily apply them to other
+plots you may create:
 
 ```{r mean_exp-time-with-right-labels-xfont, cache=FALSE}
 blue_theme <- theme(axis.text.x = element_text(colour = "royalblue4",
@@ -720,13 +753,13 @@ ggplot(rna, aes(x = expression_log)) +
 
 With all of this information in hand, please take another five minutes
 to either improve one of the plots generated in this exercise or
-create a beautiful graph of your own. Use the RStudio [**`ggplot2`**
-cheat
+create a beautiful graph of your own. Use the RStudio [`ggplot2` cheat
 sheet](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf)
 for inspiration. Here are some ideas:
 
 - See if you can change the thickness of the lines.
-- Can you find a way to change the name of the legend? What about its labels?
+- Can you find a way to change the name of the legend? What about its
+  labels?
 - Try using a different color palette (see
   http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/).
 
@@ -742,35 +775,43 @@ different variables or even different data frames.
 Let's start by creating the two plots that we want to arrange next to
 each other:
 
-The first graph counts the number of unique genes per chromosome. We first need to reorder the levels of `chromosome_name` and filter the unique genes per chromosome. We also change the scale of the yaxis to a log10 scale for better readability.
+The first graph counts the number of unique genes per chromosome. We
+first need to reorder the levels of `chromosome_name` and filter the
+unique genes per chromosome. We also change the scale of the yaxis to
+a log10 scale for better readability.
 
 
 ```{r sub1}
 rna$chromosome_name <- factor(rna$chromosome_name,
-                               levels = c(1:19,"X","Y"))
+                              levels = c(1:19,"X","Y"))
 
-count_gene_chromosome <- rna %>% select(chromosome_name, gene) %>%
-  distinct() %>% ggplot() +
-  geom_bar(aes(x = chromosome_name), fill = "seagreen",
-           position = "dodge", stat = "count") +
-  labs(y = "log10(n genes)", x = "chromosome") +
-  scale_y_log10()
+count_gene_chromosome <- rna %>%
+    select(chromosome_name, gene) %>%
+    distinct() %>%
+    ggplot() +
+    geom_bar(aes(x = chromosome_name), fill = "seagreen",
+             position = "dodge", stat = "count") +
+    labs(y = "log10(n genes)", x = "chromosome") +
+    scale_y_log10()
 
 count_gene_chromosome
 ```
 
-Below, we also remove the legend altogether by setting the `legend.position` to `"none"`.
+Below, we also remove the legend altogether by setting the
+`legend.position` to `"none"`.
 
 ```{r sub2}
-exp_boxplot_sex <- ggplot(rna, aes(y=expression_log, x = as.factor(time),
-                 color=sex)) +
-   geom_boxplot(alpha = 0) +
-  labs(y = "Mean gene exp",
-       x = "time") + theme(legend.position = "none")
+exp_boxplot_sex <- ggplot(rna,
+                          aes(y = expression_log,
+                              x = as.factor(time),
+                              color=sex)) +
+    geom_boxplot(alpha = 0) +
+    labs(y = "Mean gene exp",
+         x = "time") +
+    theme(legend.position = "none")
 
 exp_boxplot_sex
 ```
-
 
 The [**patchwork**](https://github.com/thomasp85/patchwork) package
 provides an elegant approach to combining figures using the `+` to
@@ -784,8 +825,7 @@ install.packages("patchwork")
 
 ```{r}
 library("patchwork")
-count_gene_chromosome + exp_boxplot_sex
-## or count_gene_chromosome | exp_boxplot_sex
+count_gene_chromosome + exp_boxplot_sex ## or use | instead of +
 ```
 
 ```{r}
@@ -872,7 +912,8 @@ ggsave("fig_output/combo_plot_chromosome_sex.png", combo_plot,
        width = 10, dpi = 300)
 ```
 
-Note: The parameters `width` and `height` also determine the font size in the saved plot.
+Note: The parameters `width` and `height` also determine the font size
+in the saved plot.
 
 
 ```{r final-challenge, eval=FALSE, purl=TRUE, echo=FALSE}
