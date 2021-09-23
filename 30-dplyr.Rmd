@@ -1,31 +1,10 @@
 # Manipulating and analyzing data with dplyr  {#sec-dplyr}
-```{r}
-library("rWSBIM1207")
-```
 
 
 ```{r dplyrsetup, echo=FALSE, purl=FALSE, message=FALSE}
-if (!file.exists("data/surveys.csv"))
-    download.file("https://ndownloader.figshare.com/files/2292172",
-                  "data/surveys.csv")
 
-if (!file.exists("data/species.csv"))
-    download.file("https://ndownloader.figshare.com/files/3299483",
-                  "data/species.csv")
-
-if (!file.exists("data/plots.csv"))
-    download.file("https://ndownloader.figshare.com/files/3299474",
-                  "data/plots.csv")
-
-if (!file.exists("data/portal_data_joined.csv"))
-    download.file("https://ndownloader.figshare.com/files/2292169",
-                  "data/portal_data_joined.csv")
-
-surveys <- read.csv("data/portal_data_joined.csv")
-suppressWarnings(surveys$date <- lubridate::ymd(paste(surveys$year,
-                                                      surveys$month,
-                                                      surveys$day,
-                                                      sep = "-")))
+download.file(url = "https://raw.githubusercontent.com/Bioconductor/bioconductor-teaching/master/data/GSE96870/rnaseq.csv",
+              destfile = "data/rnaseq.csv")
 ```
 
 **Learning Objectives**
@@ -148,14 +127,12 @@ tidyverse package **`readr`**, instead of `read.csv()`.
 
 
 ```{r dplyr_setp, results = 'hide', purl = FALSE}
-surveys <- read_csv("data/portal_data_joined.csv")
-rna <- read_csv("../bioconductor-teaching/data/GSE96870/rnaseq.csv")
+rna <- read_csv("data/rnaseq.csv")
 
 ## inspect the data
 str(rna)
-
 ## preview the data
-# View(surveys)
+# View(rna)
 ```
 
 Notice that the class of the data is now `tbl_df`
@@ -226,7 +203,6 @@ This is readable, but can clutter up your workspace with lots of objects that yo
 You can also nest functions (i.e. one function inside of another), like this:
 
 ```{r, purl = FALSE}
-
 rna3 <- select(filter(rna, sex == "Male"), gene, sample, tissue, expression)
 rna3
 ```
@@ -271,12 +247,6 @@ rna3 <- rna %>%
   select(gene, sample, tissue, expression)
 
 rna3
-
-
-rna %>% 
-  filter(time == 0) 
-  select(sex) 
-  table(age)
 ```
 
 Note that the final data frame is the leftmost part of this expression.
@@ -307,19 +277,20 @@ Frequently you'll want to create new columns based on the values in existing
 columns, for example to do unit conversions, or to find the ratio of values in two
 columns. For this we'll use `mutate()`.
 
-To create a new column of weight in kg:
+To create a new column of time in hours:
 
 ```{r, purl = FALSE}
-surveys %>%
-  mutate(weight_kg = weight / 1000)
+rna %>%  
+  mutate(time_hours = time * 24) %>% 
+  select(time, time_hours) 
 ```
 
 You can also create a second new column based on the first new column within the same call of `mutate()`:
 
 ```{r, purl = FALSE}
-surveys %>%
-  mutate(weight_kg = weight / 1000,
-         weight_kg2 = weight_kg * 2)
+rna %>%  
+  mutate(time_hours = time * 24, time_mn = time_hours * 60) %>% 
+  select(time, time_hours, time_mn) 
 ```
 
 If this runs off your screen and you just want to see the first few rows, you
@@ -327,31 +298,48 @@ can use a pipe to view the `head()` of the data. (Pipes work with non-**`dplyr`*
 functions, too, as long as the **`dplyr`** or `magrittr` package is loaded).
 
 ```{r, purl = FALSE}
-surveys %>%
-  mutate(weight_kg = weight / 1000) %>%
+rna %>%  
+  mutate(time_hours = time * 24, time_mn = time_hours * 60) %>% 
+  select(time, time_hours, time_mn) %>% 
   head()
 ```
+
+Let's imagine we are interested in the human homologs of the mouse 
+genes analysed in this dataset. This information can be found in the 
+last column of the `rna` tibble, named `hsapiens_homolog_associated_gene_name`.
+
+```{r, purl = FALSE}
+rna %>% 
+  select(gene, hsapiens_homolog_associated_gene_name)
+```
+
+Some mouse gene have no human homologs. These can be retrieved using a `filter()` 
+in the chain, and the `is.na()` function that determines whether something is an `NA`.
+
+```{r, purl = FALSE}
+rna %>% 
+  select(gene, hsapiens_homolog_associated_gene_name) %>% 
+  filter(is.na(hsapiens_homolog_associated_gene_name))
+```
+
+If we want to keep only mouse gene that have a human homolog, we can insert a "!"
+symbol that negates the result, so we're asking for every row where 
+hsapiens_homolog_associated_gene_name *is not* an `NA`.
 
 The first few rows of the output are full of `NA`s, so if we wanted to remove
 those we could insert a `filter()` in the chain:
 
 ```{r, purl = FALSE}
-surveys %>%
-  filter(!is.na(weight)) %>%
-  mutate(weight_kg = weight / 1000) %>%
-  head()
+rna %>% 
+  select(gene, hsapiens_homolog_associated_gene_name) %>% 
+  filter(!is.na(hsapiens_homolog_associated_gene_name))
 ```
 
-`is.na()` is a function that determines whether something is an `NA`. The `!`
-symbol negates the result, so we're asking for every row where weight *is not* an `NA`.
-
-
 `r msmbstyle::question_begin()`
-Create a new data frame from the `surveys` data that meets the
-following criteria: contains only the `species_id` column and a new
-column called `hindfoot_half` containing values that are half the
-`hindfoot_length` values.  In this `hindfoot_half` column, there are
-no `NA`s and all values are less than 30.
+Create a new data frame from the `rna` data that meets the following criteria: 
+contains only the `gene`, `chromosome_name`, `phenotype_description`, `sample`, and `expression` columns and a new
+column giving the log expression the gene.
+This data frame must only contain gene located on autosomes and associated with a phenotype_description.
 
 **Hint**: think about how the commands should be ordered to produce
 this data frame!
@@ -360,11 +348,11 @@ this data frame!
 
 `r msmbstyle::solution_begin()`
 ```{r, eval=TRUE, purl=FALSE}
-surveys_hindfoot_half <- surveys %>%
-    filter(!is.na(hindfoot_length)) %>%
-    mutate(hindfoot_half = hindfoot_length / 2) %>%
-    filter(hindfoot_half < 30) %>%
-    select(species_id, hindfoot_half)
+rna %>% 
+  filter(chromosome_name != "X", chromosome_name != "Y") %>%
+  mutate(log_expression = log(expression)) %>% 
+  select(gene, chromosome_name, phenotype_description, sample, log_expression) %>% 
+  filter(!is.na(phenotype_description))
 ```
 `r msmbstyle::solution_end()`
 
@@ -377,14 +365,14 @@ analysis to each group, and then combine the results. **`dplyr`**
 makes this very easy through the use of the `group_by()` function.
 
 ```{r}
-surveys %>%
-  group_by(sex)
+rna %>%
+  group_by(gene)
 ```
 
 The `group_by()` function doesn't perform any data processing, it
 groups the data into subsets: in the example above, our initial
-`tibble` of `r nrow(surveys)` observations is split into
-`r length(unique(surveys$sex))` groups based on the `sex` variable.
+`tibble` of `r nrow(rna)` observations is split into
+`r length(unique(rna$gene))` groups based on the `gene` variable.
 
 Once the data have been combined, subsequent operations will be
 applied on each group independently.
@@ -396,12 +384,12 @@ applied on each group independently.
 collapses each group into a single-row summary of that group.
 `group_by()` takes as arguments the column names that contain the
 **categorical** variables for which you want to calculate the summary
-statistics. So to compute the mean `weight` by sex:
+statistics. So to compute the mean `expression` by gene:
 
 ```{r}
-surveys %>%
-  group_by(sex) %>%
-  summarize(mean_weight = mean(weight, na.rm = TRUE))
+rna %>%
+  group_by(gene) %>%
+  summarize(mean_expression = mean(expression))
 ```
 
 You may also have noticed that the output from these calls doesn't run off the
@@ -410,23 +398,9 @@ screen anymore. It's one of the advantages of `tbl_df` over data frame.
 You can also group by multiple columns:
 
 ```{r}
-surveys %>%
-  group_by(sex, species_id) %>%
-  summarize(mean_weight = mean(weight, na.rm = TRUE))
-```
-
-When grouping both by `sex` and `species_id`, the last few rows are for animals
-that escaped before their sex and body weights could be determined. You may notice
-that the last column does not contain `NA` but `NaN` (which refers to "Not a
-Number"). To avoid this, we can remove the missing values for weight before we
-attempt to calculate the summary statistics on weight. Because the missing
-values are removed first, we can omit `na.rm = TRUE` when computing the mean:
-
-```{r, purl = FALSE}
-surveys %>%
-  filter(!is.na(weight)) %>%
-  group_by(sex, species_id) %>%
-  summarize(mean_weight = mean(weight))
+rna %>%
+  group_by(gene, infection, time) %>%
+  summarize(mean_expression = mean(expression))
 ```
 
 Here, again, the output from these calls doesn't run off the screen
@@ -435,46 +409,43 @@ at the end of your chain with the argument `n` specifying the number of rows to
 display:
 
 ```{r, purl = FALSE}
-surveys %>%
-  filter(!is.na(weight)) %>%
-  group_by(sex, species_id) %>%
-  summarize(mean_weight = mean(weight)) %>%
+rna %>%
+  group_by(gene, infection, time) %>%
+  summarize(mean_expression = mean(expression)) %>% 
   print(n = 15)
 ```
 
-Once the data are grouped, you can also summarize multiple variables at the same
-time (and not necessarily on the same variable). For instance, we could add a
-column indicating the minimum weight for each species for each sex:
+Once the data is grouped, you can also summarize multiple variables at the same
+time (and not necessarily on the same variable). For instance, we could add
+columns indicating the median `expression` by gene and by condition:
 
 ```{r, purl = FALSE}
-surveys %>%
-  filter(!is.na(weight)) %>%
-  group_by(sex, species_id) %>%
-  summarize(mean_weight = mean(weight),
-            min_weight = min(weight))
+rna %>%
+  group_by(gene, infection, time) %>%
+  summarize(mean_expression = mean(expression),
+            median_expression = median(expression)) 
 ```
 
-It is sometimes useful to rearrange the result of a query to inspect the values. For instance, we can sort on `min_weight` to put the lighter species first:
+It is sometimes useful to rearrange the result of a query to inspect the values. 
+For instance, we can sort on `mean_expression` to put the genes lowly expressed first:
 
 
 ```{r, purl = FALSE}
-surveys %>%
-  filter(!is.na(weight)) %>%
-  group_by(sex, species_id) %>%
-  summarize(mean_weight = mean(weight),
-            min_weight = min(weight)) %>%
-  arrange(min_weight)
+rna %>%
+  group_by(gene, infection, time) %>%
+  summarize(mean_expression = mean(expression),
+            median_expression = median(expression)) %>% 
+  arrange(mean_expression)
 ```
 
-To sort in descending order, we need to add the `desc()` function. If we want to sort the results by decreasing order of mean weight:
+To sort in descending order, we need to add the `desc()` function:
 
 ```{r, purl = FALSE}
-surveys %>%
-  filter(!is.na(weight)) %>%
-  group_by(sex, species_id) %>%
-  summarize(mean_weight = mean(weight),
-            min_weight = min(weight)) %>%
-  arrange(desc(mean_weight))
+rna %>%
+  group_by(gene, infection, time) %>%
+  summarize(mean_expression = mean(expression),
+            median_expression = median(expression)) %>% 
+  arrange(desc(mean_expression))
 ```
 
 
@@ -483,142 +454,161 @@ surveys %>%
 When working with data, we often want to know the number of observations found
 for each factor or combination of factors. For this task, **`dplyr`** provides
 `count()`. For example, if we wanted to count the number of rows of data for
-each sex, we would do:
+each infected and non infected, we would do:
 
 ```{r, purl = FALSE}
-surveys %>%
-    count(sex)
+rna %>%
+    count(infection)
 ```
 
-The `count()` function is shorthand for something we've already seen: grouping by a variable, and summarizing it by counting the number of observations in that group. In other words, `surveys %>% count()` is equivalent to:
+The `count()` function is shorthand for something we've already seen: grouping by a variable, and summarizing it by counting the number of observations in that group. In other words, `rna %>% count()` is equivalent to:
 
 ```{r, purl = FALSE}
-surveys %>%
-    group_by(sex) %>%
+rna %>%
+    group_by(infection) %>% 
     summarise(count = n())
 ```
 
 For convenience, `count()` provides the `sort` argument:
 
 ```{r, purl = FALSE}
-surveys %>%
-    count(sex, sort = TRUE)
+rna %>%
+    count(infection, sort = TRUE)
 ```
 
 Previous example shows the use of `count()` to count the number of rows/observations
-for *one* factor (i.e., `sex`).
-If we wanted to count *combination of factors*, such as `sex` and `species`,
+for *one* factor (i.e., `infection`).
+If we wanted to count *combination of factors*, such as `infection` and `time`,
 we would specify the first and the second factor as the arguments of `count()`:
 
 ```{r purl = FALSE}
-surveys %>%
-  count(sex, species)
+rna %>%
+    count(infection, time)
 ```
 
 With the above code, we can proceed with `arrange()` to sort the table
 according to a number of criteria so that we have a better comparison.
-For instance, we might want to arrange the table above in (i) an alphabetical order of
-the levels of the species and (ii) in descending order of the count:
+For instance, we might want to arrange the table above by time:
 
 ```{r purl = FALSE}
-surveys %>%
-  count(sex, species) %>%
-  arrange(species, desc(n))
+rna %>%
+  count(infection, time) %>%
+  arrange(time)
 ```
 
-From the table above, we may learn that, for instance, there are 75 observations of
-the *albigula* species that are not specified for its sex (i.e. `NA`).
+or by counts:
+
+```{r purl = FALSE}
+rna %>%
+  count(infection, time) %>%
+  arrange(n)
+```
 
 `r msmbstyle::question_begin()`
 
-1. How many animals were caught in each `plot_type` surveyed?
+1. How many genes were analysed in each sample? 
 
-2. Use `group_by()` and `summarize()` to find the mean, min, and max
-   hindfoot length for each species (using `species_id`). Also add the
-   number of observations (hint: see `?n`).
+2. Use `group_by()` and `summarize()` to evaluate the sequencing depth 
+(the sum of all counts) in each sample. Which sample has the highest sequencing depth?  
 
-3. What was the heaviest animal measured in each year? Return the columns `year`,
-   `genus`, `species_id`, and `weight`.
+3. Calculate the mean expression level of gene "Dok3" by timepoints.
+
+4. Pick one sample and evaluate the number of genes by biotype
+
+5. Identify genes associated with "abnormal DNA methylation" phenotype description, 
+   and calculate their mean expression (in log) at time 0, time 4 and time 8.
 
 `r msmbstyle::question_end()`
 
 
 `r msmbstyle::solution_begin()`
 
-1. How many animals were caught in each `plot_type` surveyed?
-
+1. How many genes were analysed in each sample? 
+  
 ```{r, purl=FALSE}
-surveys %>%
-     count(plot_type)
+rna %>%
+  count(sample) 
 ```
 
-2. Use `group_by()` and `summarize()` to find the mean, min, and max
-   hindfoot length for each species (using `species_id`). Also add the
-   number of observations (hint: see `?n`).
-
+2. Use `group_by()` and `summarize()` to evaluate the sequencing depth 
+(the sum of all counts) in each sample. Which sample has the highest sequencing depth?  
+  
 ```{r, purl=FALSE}
-surveys %>%
-    filter(!is.na(hindfoot_length)) %>%
-    group_by(species_id) %>%
-    summarize(
-        mean_hindfoot_length = mean(hindfoot_length),
-        min_hindfoot_length = min(hindfoot_length),
-        max_hindfoot_length = max(hindfoot_length),
-        n = n()
-    )
+rna %>%
+  group_by(sample) %>% 
+  summarize(seq_depth = sum(expression)) %>% 
+  arrange(desc(seq_depth))
 ```
 
-3. What was the heaviest animal measured in each year? Return the columns `year`,
-   `genus`, `species_id`, and `weight`.
+3. Calculate the mean expression level of gene "Dok3" by timepoints.
 
 ```{r, purl=FALSE}
-surveys %>%
-    filter(!is.na(weight)) %>%
-    group_by(year) %>%
-    filter(weight == max(weight)) %>%
-    select(year, genus, species, weight) %>%
-    arrange(year)
+rna %>% 
+  filter(gene == "Dok3") %>% 
+  group_by(time) %>% 
+  summarize(mean = mean(expression)) %>% 
+  arrange(time)
 ```
+
+4. Pick one sample and evaluate the number of genes by biotype 
+   
+```{r, purl=FALSE}
+rna %>%
+  filter(sample == "GSM2545336") %>% 
+  group_by(gene_biotype) %>% 
+  count(gene_biotype) %>% 
+  arrange(desc(n))
+```
+
+5. Identify genes associated with "abnormal DNA methylation" phenotype description, 
+   and calculate their mean expression (in log) at time 0, time 4 and time 8.
+   
+```{r, purl=FALSE}
+rna %>%
+  filter(phenotype_description == "abnormal DNA methylation") %>% 
+  group_by(gene, time) %>% 
+  summarize(mean_expression = mean(log(expression))) %>% 
+  arrange()
+```  
+
 
 `r msmbstyle::solution_end()`
 
 
 ## Reshaping data
 
-In the spreadsheet lesson (chapter \@ref(sec-dataorg)), we discussed how
-to structure our data leading to the four rules defining a tidy
-dataset:
+In `rna`, the rows contain expression values (the unit) that are
+associated with a combination of 2 other variables: `gene` and `sample`. 
+All the other columns correspond to variables describing either
+the sample (age, sex, organism...) or the gene (gene_biotype, ENTREZ_ID, product...).
+The variables that don’t change genes or samples will have the same value in all the rows.
+This structure is called a `long-format`, as one column contains all the values,
+and other column(s) list(s) the context of the value.
 
-1. Each variable has its own column
-2. Each observation has its own row
-3. Each value must have its own cell
-4. Each type of observational unit forms a table
+In certain cases, the `long-format` is not really "human-readable", and another format,
+a `wide-format` is preferred, as a more compact way of representing the data.
+This is typically the case with gene expression values that scientists are used to
+look as matrices, were rows represent genes and columns represent samples.
 
-Here we examine the fourth rule:
+To convert the gene expression values from `rna` into a wide-format,
+we need to create a new table where each row (the units) is composed
+of expression values associated with each gene. 
 
-> Each type of observational unit forms a table.
+In practical terms this means the values of the `sample` column in `rna` would 
+become the names of column variables, and the cells would contain the expression 
+values measured on each gene.
 
-In `surveys` , the rows of `surveys` contain the values of variables
-associated with each record (the unit), values such the weight or sex
-of each animal associated with each record. What if instead of
-comparing records, we wanted to compare the different mean weight of
-each species between plots? (Ignoring `plot_type` for simplicity).
-
-We'd need to create a new table where each row (the unit) is comprise
-of values of variables associated with each plot. In practical terms
-this means the values of the species in `genus` would become the names
-of column variables and the cells would contain the values of the mean
-weight observed on each plot.
-
-Having created a new table, it is therefore straightforward to explore
-the relationship between the weight of different species within, and
-between, the plots. The key point here is that we are still following
+The key point here is that we are still following
 a tidy data structure, but we have **reshaped** the data according to
-the observations of interest: average species weight per plot instead
-of recordings per date.
+the observations of interest: expression levels per gene instead
+of recording them per gene and per sample.
+
+With this new table, it would become therefore straightforward 
+to explore the relationship between the gene expression levels within, and
+between, the samples. 
 
 The opposite transformation would be to transform column names into
-values of a variable.
+values of a new variable.
 
 We can do both these of transformations with two `tidyr` functions,
 `pivot_longer()` and `pivot_wider()` (see
@@ -626,6 +616,15 @@ We can do both these of transformations with two `tidyr` functions,
 details).
 
 ### Pivoting the data into a wider format
+
+Let's first select the 3 first columns of `rna` and use `pivot_wider()` 
+to transform data in a wide-format.
+
+```{r, purl = FALSE}
+rna_exp <- rna %>% 
+  select(gene, sample, expression)
+rna_exp
+```
 
 `pivot_wider` takes three main arguments:
 
@@ -635,56 +634,80 @@ details).
 3. the `values_from` column name whose values will fill the new
    columns.
 
+![](./figs/pivot_wider.png)
+
 Note also the `values_fill` argument which, if set, fills in missing
 values with the value provided.
 
-Let's use `pivot_wider()` to transform surveys to find the mean weight
-of each species in each plot over the entire survey period. We use
-`filter()`, `group_by()` and `summarise()` to filter our observations
-and variables of interest, and create a new variable for the
-`mean_weight`.
 
-```{r}
-surveys_gw <- surveys %>%
-  filter(!is.na(weight)) %>%
-  group_by(genus, plot_id) %>%
-  summarize(mean_weight = mean(weight))
 
-surveys_gw
+
+
+Using `pivot_wider()`, using new columns from the `sample` variable and
+values from `expression`, this becomes 1474 gene expression measurements of 22
+variables, one row for each gene, one column for each sample. We again use pipes:
+
+```{r, purl = FALSE}
+rna_wide <- rna_exp %>% 
+  pivot_wider(names_from = sample,
+              values_from = expression)
+rna_wide
 ```
 
-This yields `surveys_gw` where the observations for each plot are
-spread across multiple rows, 196 observations of 3 variables.  Using
-`pivot_wider()`, using new columns from the `genus` variable and new
-values from `mean_weight`, this becomes 24 observations of 11
-variables, one row for each plot. We again use pipes:
 
-```{r}
-surveys_wide <- surveys_gw %>%
-    pivot_wider(names_from = genus,
-                values_from = mean_weight)
 
-surveys_wide
+![](./figs/pivot_wider.png)
+
+
+
+We can now easily plot the comparisons between the gene expression levels
+in different samples.
+
+Note that the `pivot_wider()` function comes with an optional `values_fill` argument
+that can be usefull when dealing with missing values.
+Let's imagine that for some reason, we had some missing expression values for some 
+genes in certain samples. In the following fictive example, the gene Cyp2d22 has only
+one expression value, in GSM2545338 sample.
+
+
+```{r, purl = FALSE, echo = FALSE}
+rna_with_missing_values <- rna %>% 
+  select(gene, sample, expression) %>% 
+  filter(gene %in% c("Asl", "Apod", "Cyp2d22")) %>% 
+  filter(sample %in% c("GSM2545336", "GSM2545337", "GSM2545338")) %>% 
+  arrange(sample) %>% 
+  filter(!(gene == "Cyp2d22" & sample != "GSM2545338"))
 ```
 
-![](./figs/spread_data_R.png)
-
-We can now easily plot the comparisons between the weight of species
-in different plots, although we may wish to fill in the missing values
-first by setting `values_fill`.
-
-```{r}
-surveys_gw %>%
-    pivot_wider(names_from = genus,
-                values_from = mean_weight,
-                values_fill = 0)
+```{r, purl = FALSE}
+rna_with_missing_values
 ```
+
+By default, the `pivot_wider()` function will add `NA` for missing values.
+
+```{r, purl = FALSE}
+rna_with_missing_values %>% 
+  pivot_wider(names_from = sample,
+              values_from = expression)
+```
+
+But in some cases, we may wish to fill in the missing values by setting `values_fill` 
+to a specific value.
+
+```{r, purl = FALSE}
+rna_with_missing_values %>% 
+  pivot_wider(names_from = sample,
+              values_from = expression,
+              values_fill = 0)
+```
+
+
 
 ### Pivoting data into a longer format
 
 The opposing situation could occur if we had been provided with data
-in the form of `surveys_wide`, where the genus names are column
-names, but we wish to treat them as values of a genus variable
+in the form of `rna_wide`, where the sample IDs are column
+names, but we wish to treat them as values of a `sample` variable
 instead.
 
 In this situation we are using the column names and turning them into
@@ -702,82 +725,96 @@ associated with the column names.
 4. the names of the columns to be used to populate the `names_to` and
    `values_to` variables (or to drop).
 
-To recreate `surveys_gw` from `surveys_wide` we would create a key
-called `genus` and value called `mean_weight` and use all columns
-except `plot_id` for the key variable. Here we drop `plot_id` column
+To recreate `rna_long` from `rna_long` we would create a key
+called `sample` and value called `expression` and use all columns
+except `gene` for the key variable. Here we drop `gene` column
 with a minus sign.
 
-```{r}
-surveys_long <- surveys_wide %>%
-    pivot_longer(names_to = "genus",
-                 values_to = "mean_weight",
-                 -plot_id)
-
-surveys_long
-```
-
-![](./figs/gather_data_R.png)
-
-
-Note how the new variable names are to be quoted here. To get the same
-output as we started with, we can arrange the data by `plot_id`:
+Notice how the new variable names are to be quoted here. 
 
 ```{r}
-surveys_wide %>%
-    pivot_longer(names_to = "genus",
-                 values_to = "mean_weight",
-                 -plot_id) %>%
-    arrange(plot_id)
+rna_long <- rna_wide %>%
+    pivot_longer(names_to = "sample",
+                 values_to = "expression",
+                 -gene)
+rna_long
 ```
 
-Note that now the `NA` genera are included in the new wide
-format. Pivoting to wider and longer formats can be a useful way to
-balance out a dataset so every replicate has the same composition.
+![](./figs/pivot_longer.png)
+
+
+
+
+
+Note that if we had missing values in the wide-format, the `NA` would be 
+included in the new wide format. Pivoting to wider and longer formats can 
+be a useful way to balance out a dataset so every replicate has the same composition.
+
+```{r}
+wide_with_NA <- rna_with_missing_values %>% 
+  pivot_wider(names_from = sample,
+              values_from = expression)
+wide_with_NA
+
+wide_with_NA %>%
+    pivot_longer(names_to = "sample",
+                 values_to = "expression",
+                 -gene)
+```
+
 
 We could also have used a specification for what columns to
 include. This can be useful if you have a large number of identifying
 columns, and it's easier to specify what to gather than what to leave
-alone. And if the columns are in a row, we don't even need to list
-them all out - just use the `:` operator!
+alone. Here the `starts_with()` function can help to retrieve sample
+names without having to list them all!
+Another possibility would be to use the `:` operator!
 
 ```{r}
-surveys_wide %>%
-    pivot_longer(names_to = "genus",
-                 values_to = "mean_weight",
-                 Baiomys:Spermophilus)
+rna_wide %>%
+    pivot_longer(names_to = "sample",
+                 values_to = "expression",
+                 cols = starts_with("GSM"))
+rna_wide %>%
+    pivot_longer(names_to = "sample",
+                 values_to = "expression",
+                 GSM2545336:GSM2545380)
 ```
 
-To re-arrange the data, we simply pipe le long data to `arrange()`.
-
-```{r}
-surveys_wide %>%
-    pivot_longer(names_to = "genus",
-                 values_to = "mean_weight",
-                 Baiomys:Spermophilus) %>%
-    arrange(genus, plot_id)
-```
 
 `r msmbstyle::question_begin()`
 
-Spread the `surveys` data frame with `year` as columns, `plot_id` as
-rows, and the number of genera per plot as the values. You will need
-to summarize before reshaping, and use the function `n_distinct()` to
-get the number of unique genera within a particular chunk of
-data. It's a powerful function! See `?n_distinct` for more.
+Subset genes located on X and Y chromosomes from the `rna` data frame and 
+spread the data frame with `sex` as columns, `chromosome_name` as
+rows, and the mean expression of genes located in each chromosome as the values. 
+
+![](./figs/Exercise_pivot_W.png)   
+
+You will need to summarize before reshaping!
 
 `r msmbstyle::question_end()`
 
 
 `r msmbstyle::solution_begin()`
 
-```{r}
-rich_time <- surveys %>%
-    group_by(plot_id, year) %>%
-    summarize(n_genera = n_distinct(genus)) %>%
-    pivot_wider(names_from = "year",
-                values_from = "n_genera")
+Let's have a look to variables of interest 
 
-head(rich_time)
+```{r, answer=TRUE, purl=FALSE}
+rna %>% 
+  filter(chromosome_name == "Y" | chromosome_name == "X") %>% 
+  select(gene, sample, sex, expression, chromosome_name) %>% 
+  arrange(gene)
+```
+
+```{r, answer=TRUE, purl=FALSE}
+rna_1 <- rna %>% 
+  filter(chromosome_name == "Y" | chromosome_name == "X") %>% 
+  group_by(sex, chromosome_name) %>% 
+  summarize(mean = mean(expression)) %>% 
+  pivot_wider(names_from = sex,
+              values_from = mean)
+
+rna_1
 ```
 
 `r msmbstyle::solution_end()`
@@ -786,67 +823,102 @@ head(rich_time)
 `r msmbstyle::question_begin()`
 
 Now take that data frame and transform it with `pivot_longer()` so
-each row is a unique `plot_id` by `year` combination.
+each row is a unique `chromosome_name` by `gender` combination.
 
 `r msmbstyle::question_end()`
 
 
 `r msmbstyle::solution_begin()`
+
 ```{r, answer=TRUE, purl=FALSE}
-rich_time %>%
-    pivot_longer(names_to = "year",
-                 values_to = "n_genera",
-                 -plot_id)
+rna_1 %>% 
+  pivot_longer(names_to = "gender",
+               values_to = "mean",
+               - chromosome_name)
+
 ```
+
 `r msmbstyle::solution_end()`
+
+`r msmbstyle::question_begin()`
+
+Use the `rna` dataset to create an expression matrix were each row represents
+the mean expression levels of genes and columns represent the different timepoints. 
+
+```{r}
+rna %>% 
+  group_by(gene, time) %>% 
+  summarize(mean_exp = mean(expression)) %>% 
+  pivot_wider(names_from = time,
+              values_from = mean_exp)
+```
+
+Notice that this generates a tibble with some column names starting by a number.
+If we wanted to select the column corresponding to the timepoints,
+we could not use the column names directly... What happens when we select the colum 4?
+
+```{r}
+rna %>% 
+  group_by(gene, time) %>% 
+  summarize(mean_exp = mean(expression)) %>% 
+  pivot_wider(names_from = time,
+              values_from = mean_exp) %>% 
+  select(gene, 4)
+```
+
+To select the timepoint 4, we would have to quote the column name, with backticks "`"
+
+```{r}
+rna %>% 
+  group_by(gene, time) %>% 
+  summarize(mean_exp = mean(expression)) %>% 
+  pivot_wider(names_from = time,
+              values_from = mean_exp) %>% 
+  select(gene, `4`)
+```
+
+Another possibility would be to rename the column, 
+choosing a name that doesn't start by a number :
+
+```{r}
+rna %>% 
+  group_by(gene, time) %>% 
+  summarize(mean_exp = mean(expression)) %>% 
+  pivot_wider(names_from = time,
+              values_from = mean_exp) %>% 
+  rename("time0" = `0`, "time4" = `4`, "time8" = `8`) %>% 
+  select(gene, time4)
+```
+
+
+`r msmbstyle::question_end()`
 
 
 `r msmbstyle::question_begin()`
 
-The `surveys` data set has two measurement columns: `hindfoot_length`
-and `weight`.  This makes it difficult to do things like look at the
-relationship between mean values of each measurement per year in
-different plot types. Let's walk through a common solution for this
-type of problem. First, use `pivot_longer()` to create a dataset where
-we have a key column called `measurement` and a `value` column that
-takes on the value of either `hindfoot_length` or `weight`.
-
-`r msmbstyle::question_end()`
-
-`r msmbstyle::solution_begin()`
+Use the previous data frame containing mean expression levels per timepoint and create 
+a new column containing fold-changes between timepoint 8 and timepoint 0, and fold-changes 
+between timepoint 8 and timepoint 0.
+Convert this table in a long-format table gathering the foldchanges calculated.
 
 ```{r}
-surveys_long <-
-    surveys %>%
-    pivot_longer(
-        names_to = "measurement",
-        values_to = "value",
-        c(hindfoot_length, weight))
-surveys_long
+rna_FC <- rna %>% 
+  group_by(gene, time) %>% 
+  summarize(mean_exp = mean(expression)) %>% 
+  pivot_wider(names_from = time,
+              values_from = mean_exp) %>% 
+  mutate(time_8_vs_0 = `8` / `0`, time_8_vs_4 = `8` / `4`) 
+rna_FC
 ```
-
-`r msmbstyle::solution_end()`
-
-
-`r msmbstyle::question_begin()`
-
-With this new data set, calculate the average of each `measurement` in
-each `year` for each different `plot_type`. Then use `pivot_wider()`
-to generate a data set with a column for `hindfoot_length` and
-`weight`.
-
-`r msmbstyle::question_end()`
-
-`r msmbstyle::solution_begin()`
 
 ```{r}
-surveys_long %>%
-    group_by(year, measurement, plot_type) %>%
-    summarize(mean_value = mean(value, na.rm=TRUE)) %>%
-    pivot_wider(names_from = "measurement",
-                values_from = "mean_value")
+rna_FC %>% 
+  pivot_longer(names_to = "comparisons",
+               values_to = "Fold_changes",
+               time_8_vs_0:time_8_vs_4)
 ```
-`r msmbstyle::solution_end()`
+
+`r msmbstyle::question_end()`
 
 
 ## Exporting data
@@ -868,73 +940,26 @@ directory, so even if the files it contains are deleted, we can always
 re-generate them.
 
 In preparation for our next lesson on plotting, we are going to prepare a
-cleaned up version of the data set that doesn't include any missing data.
+table representing for each gene, the fold-changes (in log values) between timepoint 8 
+and timepoint 0, and the fold-changes between timepoint 8 and timepoint 0. 
 
-Let's start by removing observations of animals for which `weight` and
-`hindfoot_length` are missing, or the `sex` has not been determined:
-
-
-```{r, purl=FALSE}
-surveys_complete <- surveys %>%
-  filter(!is.na(weight),           ## remove missing weight
-         !is.na(hindfoot_length),  ## remove missing hindfoot_length
-         !is.na(sex))              ## remove missing sex
+```{r}
+rna_FC <- rna %>%
+  mutate(expression_log = log(expression)) %>% 
+  group_by(gene, time) %>%
+  summarize(mean_exp = mean(expression_log)) %>%
+  pivot_wider(names_from = time,
+              values_from = mean_exp) %>%
+  mutate(time_8_vs_0 = `8` - `0`, time_4_vs_0 = `4` - `0`) %>%
+  select(gene, time_8_vs_0, time_4_vs_0)
+rna_FC
 ```
 
-Because we are interested in plotting how species abundances have changed
-through time, we are also going to remove observations for rare species (i.e.,
-that have been observed less than 50 times). We will do this in two steps: first
-we are going to create a data set that counts how often each species has been
-observed, and filter out the rare species; then, we will extract only the
-observations for these more common species:
-
-```{r, purl=FALSE}
-## Extract the most common species_id
-species_counts <- surveys_complete %>%
-    count(species_id) %>%
-    filter(n >= 50)
-
-## Only keep the most common species
-surveys_complete <- surveys_complete %>%
-  filter(species_id %in% species_counts$species_id)
-```
-
-```{r, eval=FALSE, purl=TRUE, echo=FALSE}
-### Create the dataset for exporting:
-##  Start by removing observations for which the `species_id`, `weight`,
-##  `hindfoot_length`, or `sex` data are missing:
-surveys_complete <- surveys %>%
-    filter(species_id != "",        ## remove missing species_id
-           !is.na(weight),          ## remove missing weight
-           !is.na(hindfoot_length), ## remove missing hindfoot_length
-           sex != "")               ## remove missing sex
-
-##  Now remove rare species in two steps. First, make a list of species which
-##  appear at least 50 times in our dataset:
-species_counts <- surveys_complete %>%
-    count(species_id) %>%
-    filter(n >= 50) %>%
-    select(species_id)
-
-##  Second, keep only those species:
-surveys_complete <- surveys_complete %>%
-    filter(species_id %in% species_counts$species_id)
-```
-
-To make sure that everyone has the same data set, check that `surveys_complete`
-has `r nrow(surveys_complete)` rows and `r ncol(surveys_complete)` columns by
-typing `dim(surveys_complete)`.
-
-Now that our data set is ready, we can save it as a CSV file in our `data_output`
+We can save the table as a CSV file in our `data_output`
 folder.
 
 ```{r, purl=FALSE, eval=FALSE}
-write_csv(surveys_complete, path = "data_output/surveys_complete.csv")
-```
-
-```{r, purl=FALSE, eval=TRUE, echo=FALSE}
-if (!dir.exists("data_output")) dir.create("data_output")
-write_csv(surveys_complete, path = "data_output/surveys_complete.csv")
+write_csv(rna_FC, file = "data_output/rna_FC.csv")
 ```
 
 ## Additional exercises
@@ -950,9 +975,7 @@ different age according to gender and employment.
   version is older than 0.1.1, install it from the
   `UCLouvain-CBIO/rWSBIM1207' GitHub repository using the
   `devtools::install_github` function.
-
 - Directly load the data by typing
-
 ```{r, eval=FALSE}
 data(beers)
 ```
@@ -986,14 +1009,11 @@ library("rWSBIM1207")
 library("dplyr")
 library("magrittr")
 data("beers")
-
 ## Dealing with missing values
 anyNA(beers)
 beers2 <- beers %>%
     filter(!is.na(Consumption))
-
 anyNA(beers2)
-
 ## New Date variable
 library("lubridate")
 beers2 <- beers2 %>%
@@ -1001,7 +1021,6 @@ beers2 <- beers2 %>%
                         beers2$Month,
                         beers2$Day, sep = "-")))
 class(beers2$Date)
-
 ## Filter, select and arrange
 tab <- beers2 %>%
     filter(Age > 35) %>%
@@ -1009,42 +1028,36 @@ tab <- beers2 %>%
     filter(Work == "Employed") %>%
     select(-Day, -Month, -Year) %>%
     arrange(desc(Consumption))
-
 tab
 ```
 
 ```{r, echo=FALSE, eval = FALSE}
-write_csv(tab, file = "data_output/tab.csv")
+write_csv(tab, "data_output/tab.csv")
 ## or
-write.csv(tab, file = "data_output/tab.csv")
+write.csv(tab, "data_output/tab.csv")
 ```
 
 
 ```{r, echo=FALSE, include=FALSE}
 ## Beer consumption analysis:
 ## - Does employment status have an impact on beer consumption?
-
 beers2 %>%
   group_by(Work) %>%
   summarize(mean_consumption = mean(Consumption))
-
 ## - Do men drink more than women?
 beers2 %>%
   group_by(Gender) %>%
   summarize(mean_consumption = mean(Consumption))
-
 ## - Does employmnet status have an influence on beer consumption
 ##   according to gender?
 beers2 %>%
   group_by(Gender, Work) %>%
   summarize(mean_consumption = mean(Consumption))
-
 ## - Do men drink more than women according to age and employment
 ##   status?
 beers3 <- beers2 %>%
   group_by(Gender, Age, Work) %>%
     summarize(mean_consumption = mean(Consumption))
-
 beers3
 ```
 
@@ -1069,7 +1082,6 @@ variables recorded for a subset of the patients.
   version is older than 0.1.1, install it from the
   `UCLouvain-CBIO/rWSBIM1207' GitHub repository using the
   `devtools::install_github` function.
-
 - Using the `clinical1.csv()` function from `rWSBIM1207`, find the
   path the `clinical1.csv` file and read it to produce a `data.frame`
   named `clinical`.
@@ -1122,22 +1134,18 @@ library("readr")
 library("dplyr")
 library("magrittr")
 clinical <- read_csv(clinical1.csv())
-
 str(clinical)
 ## View(clinical)
-
 clinical_mini <- clinical %>%
     select(patientID, gender, age_at_diagnosis,
            smoking_history, number_pack_years_smoked,
            year_of_tobacco_smoking_onset,
            stopped_smoking_year)
 clinical_mini
-
 ## Calculate the number of males and females in the cohort.
 clinical_mini %>%
     group_by(gender) %>%
     count()
-
 ## Create a new variable `years_at_diagnosis` corresponding to the age
 ## at diagnosis converted from days into years.
 clinical_mini <- clinical_mini %>%
@@ -1145,40 +1153,32 @@ clinical_mini <- clinical_mini %>%
 select(clinical_mini,
        years_at_diagnosis,
        age_at_diagnosis)
-
 ## Calculate the mean and median age at diagnosis (in years). Pay
 ## attention to missing values!
 clinical_mini %>%
     summarize(mean = mean(years_at_diagnosis, na.rm = TRUE),
               median = median(years_at_diagnosis, na.rm = TRUE))
-
 ## idem but removing NA values before
 clinical_mini %>%
   filter(!is.na(years_at_diagnosis)) %>%
     summarise(mean = mean(years_at_diagnosis),
               median = median(years_at_diagnosis))
-
-
 ## Calculate the mean and median age at diagnosis for males and
 ## females
 clinical_mini %>%
     group_by(gender) %>%
     summarise(mean = mean(years_at_diagnosis, na.rm = TRUE),
               median = median(years_at_diagnosis, na.rm = TRUE))
-
 ## How many patient were diagnosed before 50 years?
 clinical_mini %>%
   filter(years_at_diagnosis < 50) %>%
   count()
-
 ## Compare the mean age at diagnosis between "current smoker" and
 ## "lifelong non-smoker"?
 clinical_mini %>%
   filter(smoking_history == 'current smoker' | smoking_history == 'lifelong non-smoker') %>%
   group_by(smoking_history) %>%
   summarize(mean = mean(years_at_diagnosis, na.rm = TRUE))
-
-
 ## Select patients who stopped smoking more than 15 years ago and
 ## calculate the number of smoking years for these cases.
 clinical_mini %>%
@@ -1186,14 +1186,12 @@ clinical_mini %>%
     mutate(years_smoked = stopped_smoking_year - year_of_tobacco_smoking_onset) %>%
     filter(!is.na(years_smoked)) %>%
     select(patientID, years_smoked)
-
 # How many of them smoked less than 5 years?
 clinical_mini %>%
   filter(smoking_history == "current reformed smoker for > 15 years") %>%
   mutate(years_smoked = stopped_smoking_year - year_of_tobacco_smoking_onset) %>%
   filter(years_smoked < 5) %>%
   count()
-
 ## Try to recreate the following table, reporting the number of
 ## smokers and lifelong-non smoker between males and females.
 clinical_mini %>%
@@ -1224,7 +1222,6 @@ and a column `result` with the student's mark.
 library(rWSBIM1207)
 x <- read_csv(interroA.csv())
 x
-
 pivot_longer(x,
              names_to = "interro",
              values_to = "result",
