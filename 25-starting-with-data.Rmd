@@ -42,6 +42,16 @@ columns represent:
 | time       | The duration of the infection (in days).                                                     |
 | tissue     | The tissue that was used for the gene expression experiment, i.e. cerebellum or spinal cord. |
 | mouse      | The mouse unique identifier.                                                                 |
+| ENTREZID   |                                                                  |
+| product    |                                                                  |
+| gbkey      |                                                                  |
+| external_gene_name                   |                                                                  |
+| ensembl_gene_id                      |                                                                  |
+| external_synonym                     |                                                                  |
+| chromosome_name                      |                                                                  |
+| gene_biotype                         |                                                                  |
+| phenotype_description                |                                                                  |
+| hsapiens_homolog_associated_gene_name|                                                                  |
 
 We are going to use the R function `download.file()` to download the
 CSV file that contains the gene expression data, and we will use
@@ -66,10 +76,6 @@ You are now ready to load the data:
 rna <- read.csv("data/rnaseq.csv")
 ```
 
-
-```{r, echo = FALSE}
-surveys <- read.csv("data/portal_data_joined.csv")
-```
 This statement doesn't produce any output because, as you might
 recall, assignments don't display anything. If we want to check that
 our data has been loaded, we can see the contents of the data frame by
@@ -107,13 +113,16 @@ with the separation argument as `,`. The code is as follows:
 
 ```{r, eval = TRUE}
 rna <- read.table(file = "data/rnaseq.csv",
-                  sep = ",",
+                  sep = ",", quote = "\"",
                   header = TRUE)
 ```
 
-The header argument has to be set to TRUE to be able to read the
+The header argument has to be set to `TRUE` to be able to read the
 headers as by default `read.table()` has the header argument set to
-FALSE.
+FALSE. The quote argument has to be set to `"\""` to only allow "
+as a quoting character (see how is written the `product` variable 
+for gene `Rtca` in rnaseq.csv).
+
 
 ## What are data frames?
 
@@ -194,8 +203,8 @@ questions?
 `r msmbstyle::solution_begin()`
 
 - class: data frame
-- how many rows: 66465, how many columns: 11
-- how many genes: 1477
+- how many rows: 32428, how many columns: 21
+- how many genes: 1474
 
 `r msmbstyle::solution_end()`
 
@@ -235,7 +244,7 @@ You can also exclude certain indices of a data frame using the "`-`" sign:
 
 ```{r, eval = FALSE}
 rna[, -1]          ## The whole data frame, except the first column
-rna[-c(7:66465), ] ## Equivalent to head(surveys)
+rna[-c(7:32428), ] ## Equivalent to head(surveys)
 ```
 
 Data frames can be subset by calling indices (as shown previously),
@@ -250,6 +259,33 @@ rna$gene          # Result is a vector
 
 In RStudio, you can use the autocompletion feature to get the full and
 correct names of the columns.
+
+When we inspect the elements of the column 
+`hsapiens_homolog_associated_gene_name` (for example with `View(rna)`), 
+we can see that some cells contain NA values. If we wanted to extract 
+only mouse genes of this table that have a human homologous, 
+we could combine `is.na()` and data frames subsetting:
+
+```{r, eval = TRUE}
+is_missing_hsapiens_homolog <- is.na(rna$hsapiens_homolog_associated_gene_name)
+rna_hsapiens_homolog <- rna[!is_missing_hsapiens_homolog,]
+```
+
+```{r, eval = FALSE}
+head(rna_hsapiens_homolog)
+```
+
+
+`r msmbstyle::question_begin()`
+How many mouse genes do not have a human homologous?
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+> ```{r}
+> rna_missing_hsapiens_homolog <- rna[is_missing_hsapiens_homolog,]
+> nrow(rna_missing_hsapiens_homolog)
+> ```
+`r msmbstyle::solution_end()`
 
 `r msmbstyle::question_begin()`
 
@@ -292,6 +328,8 @@ correct names of the columns.
 > rna_head <- rna[-(7:n_rows), ]
 > ```
 `r msmbstyle::solution_end()`
+
+
 
 ## Factors
 
@@ -693,11 +731,11 @@ We have seen how to read a text-based spreadsheet into R using the
 text-based spreadsheet, we can use the `write.table` set of functions
 (`write.csv`, `write.delim`, ...). They all take the variable to be
 exported and the file to be exported to. For example, to export the
-`surveys` data to the `my_surveys.csv` file in the `data_output`
+`rna` data to the `my_rnaseq.csv` file in the `data_output`
 directory, we would execute:
 
 ```{r, eval = FALSE}
-write.csv(surveys, file = "data_output/my_surveys.csv")
+write.csv(rna, file = "data_output/my_rnaseq.csv")
 ```
 This new csv file can now be shared with other collaborators who
 aren't familiar with R.
@@ -718,10 +756,10 @@ produce the same object once loaded back into R using the `load`
 function.
 
 ```{r, eval = FALSE}
-save(surveys, file = "data_output/surveys.rda")
-rm(surveys)
-load("data_output/surveys.rda")
-head(surveys)
+save(rna, file = "data_output/rnaseq.rda")
+rm(rna)
+load("data_output/rnaseq.rda")
+head(rna)
 ```
 
 Note about how the function `load` loads the object in the file
@@ -731,20 +769,20 @@ directly in the global environment.
 There is also the `saveRDS` and `readRDS` functions that save R
 objects to binary files (using the `rds` extension here) and read
 these back into R. From a user's perspective, main different is that,
-`load` loads an object in the gloval environment while `readRDS` reads
+`load` loads an object in the global environment while `readRDS` reads
 the data from disk and returns it. It is this necessary to store the
 output of `readRDS` in a variable:
 
 ```{r}
-saveRDS(surveys, file = "data_output/surveys.rds")
-rm(surveys)
-surveys <- readRDS("data_output/surveys.rds")
-head(surveys)
+saveRDS(rna, file = "data_output/rnaseq.rds")
+rm(rna)
+rna <- readRDS("data_output/rnaseq.rds")
+head(rna)
 ```
 
 ```{r echo=FALSE}
-unlink("data_output/surveys.rda")
-unlink("data_output/surveys.rds")
+unlink("data_output/rnaseq.rda")
+unlink("data_output/rnaseq.rds")
 ```
 
 To conclude, when it comes to saving data from R that will be loaded
