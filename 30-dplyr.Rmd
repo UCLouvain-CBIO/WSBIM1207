@@ -1,12 +1,6 @@
 # Manipulating and analyzing data with dplyr  {#sec-dplyr}
 
 
-```{r dplyrsetup, echo=FALSE, purl=FALSE, message=FALSE}
-
-download.file(url = "https://raw.githubusercontent.com/Bioconductor/bioconductor-teaching/master/data/GSE96870/rnaseq.csv",
-              destfile = "data/rnaseq.csv")
-```
-
 **Learning Objectives**
 
 - Describe the purpose of the **`dplyr`** and **`tidyr`** packages.
