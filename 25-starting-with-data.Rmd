@@ -64,9 +64,10 @@ local machine. You'll need to have a folder on your machine called
 remote file, names it `"rnaseq.csv"` and adds it to a preexisting
 folder named `"data"`.
 
-```{r, eval = FALSE}
-download.file(url = "https://raw.githubusercontent.com/UCLouvain-CBIO/WSBIM1207/scrnadata/data/rnaseq.csv",
-              destfile = "data/rnaseq.csv")
+```{r, eval = TRUE}
+if (!file.exists("data/rnaseq.csv"))
+    download.file(url = "https://raw.githubusercontent.com/UCLouvain-CBIO/WSBIM1207/scrnadata/data/rnaseq.csv",
+                  destfile = "data/rnaseq.csv")
 ```
 
 You are now ready to load the data:
@@ -119,7 +120,7 @@ rna <- read.table(file = "data/rnaseq.csv",
 The header argument has to be set to `TRUE` to be able to read the
 headers as by default `read.table()` has the header argument set to
 FALSE. The quote argument has to be set to `"\""` to only allow "
-as a quoting character (see how is written the `product` variable 
+as a quoting character (see how is written the `product` variable
 for gene `Rtca` in rnaseq.csv).
 
 
@@ -259,10 +260,10 @@ rna$gene          # Result is a vector
 In RStudio, you can use the autocompletion feature to get the full and
 correct names of the columns.
 
-When we inspect the elements of the column 
-`hsapiens_homolog_associated_gene_name` (for example with `View(rna)`), 
-we can see that some cells contain NA values. If we wanted to extract 
-only mouse genes of this table that have a human homologous, 
+When we inspect the elements of the column
+`hsapiens_homolog_associated_gene_name` (for example with `View(rna)`),
+we can see that some cells contain NA values. If we wanted to extract
+only mouse genes of this table that have a human homologous,
 we could combine `is.na()` and data frames subsetting:
 
 ```{r, eval = TRUE}
