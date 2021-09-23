@@ -293,7 +293,7 @@ rna %>%
 ```
 
 If this runs off your screen and you just want to see the first few rows, you
-can use a pipe to view the `head()` of the data. (Pipes work with non-**`dplyr`**
+can use a pipe to view the `head()` of the data. (Pipes work with non-`dplyr`
 functions, too, as long as the **`dplyr`** or `magrittr` package is loaded).
 
 ```{r, purl = FALSE}
@@ -321,9 +321,10 @@ rna %>%
   filter(is.na(hsapiens_homolog_associated_gene_name))
 ```
 
-If we want to keep only mouse gene that have a human homolog, we can insert a "!"
-symbol that negates the result, so we're asking for every row where
-hsapiens_homolog_associated_gene_name *is not* an `NA`.
+If we want to keep only mouse gene that have a human homolog, we can
+insert a `!`  symbol that negates the result, so we're asking for
+every row where `hsapiens_homolog_associated_gene_name` *is not* an
+`NA`.
 
 The first few rows of the output are full of `NA`s, so if we wanted to remove
 those we could insert a `filter()` in the chain:
@@ -334,14 +335,16 @@ rna %>%
   filter(!is.na(hsapiens_homolog_associated_gene_name))
 ```
 
-`r msmbstyle::question_begin()`
-Create a new data frame from the `rna` data that meets the following criteria:
-contains only the `gene`, `chromosome_name`, `phenotype_description`, `sample`, and `expression` columns and a new
-column giving the log expression the gene.
-This data frame must only contain gene located on autosomes and associated with a phenotype_description.
+`r msmbstyle::question_begin()` Create a new data frame from the `rna`
+data that meets the following criteria: contains only the `gene`,
+`chromosome_name`, `phenotype_description`, `sample`, and `expression`
+columns and a new column giving the log expression the gene.  This
+data frame must only contain gene located on autosomes and associated
+with a `phenotype_description`.
 
 **Hint**: think about how the commands should be ordered to produce
 this data frame!
+
 `r msmbstyle::question_end()`
 
 
