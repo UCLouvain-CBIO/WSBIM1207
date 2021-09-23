@@ -480,11 +480,11 @@ eventually, identify changes that relate to the conditions of interest
 (for example differences in genes expression in the presence or
 absence of the drug).</p>
 <div class="figure">
-<span style="display:block;" id="fig:unnamed-chunk-211"></span>
+<span style="display:block;" id="fig:unnamed-chunk-212"></span>
 <p class="caption marginnote shownote">
 Figure 9.4: Distribution of the expression of the genes A1CF, BRCA1 and TP53 under the control (no drug) and drug at concentrations 1 and 5.
 </p>
-<img src="WSBIM1207_files/figure-html/unnamed-chunk-211-1.png" alt="Distribution of the expression of the genes A1CF, BRCA1 and TP53 under the control (no drug) and drug at concentrations 1 and 5." width="672">
+<img src="WSBIM1207_files/figure-html/unnamed-chunk-212-1.png" alt="Distribution of the expression of the genes A1CF, BRCA1 and TP53 under the control (no drug) and drug at concentrations 1 and 5." width="672">
 </div>
 </div>
 <div id="sec-bioconductor" class="section level2" number="9.3">
@@ -510,17 +510,17 @@ Figure 9.5: The Bioconductor web page.
 </div>
 <p>Bioconductor packages are managed installed using a dedicated package,
 namely <code>BiocManager</code>, that can be installed from CRAN with</p>
-<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="sec-bioinfo.html#cb520-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="sec-bioinfo.html#cb522-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span></code></pre></div>
 <p>Individuals package such as <code>SummarizedExperiment</code> (see below for
 details), <code>DESeq2</code> (for transcriptomics), <code>Spectra</code> (for mass
 spectrometry), <code>xcms</code> (metabolomics), … can then be installed with
 <code>BiocManager::install</code>.</p>
-<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="sec-bioinfo.html#cb521-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"SummarizedExperiment"</span>)</span>
-<span id="cb521-2"><a href="sec-bioinfo.html#cb521-2" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"DESeq2"</span>)</span>
-<span id="cb521-3"><a href="sec-bioinfo.html#cb521-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"Spectra"</span>)</span>
-<span id="cb521-4"><a href="sec-bioinfo.html#cb521-4" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"xcms"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="sec-bioinfo.html#cb523-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"SummarizedExperiment"</span>)</span>
+<span id="cb523-2"><a href="sec-bioinfo.html#cb523-2" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"DESeq2"</span>)</span>
+<span id="cb523-3"><a href="sec-bioinfo.html#cb523-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"Spectra"</span>)</span>
+<span id="cb523-4"><a href="sec-bioinfo.html#cb523-4" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"xcms"</span>)</span></code></pre></div>
 <p>Note that we can also use that same function to install packages from GitHub:</p>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="sec-bioinfo.html#cb522-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="sec-bioinfo.html#cb524-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
 </div>
 <div id="omics-data-containers" class="section level2" number="9.4">
 <h2>
@@ -561,14 +561,14 @@ manipulation. The metadata slots can grow additional co-variates
 <p>To illustrate such an omics data container, we’ll use a variable of
 class <code>SummarizedExperiment</code>. Below, we load the <code>cptac_se</code> dataset
 from the <code>rWSBIM1322</code> package.</p>
-<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="sec-bioinfo.html#cb523-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"SummarizedExperiment"</span>)</span>
-<span id="cb523-2"><a href="sec-bioinfo.html#cb523-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rWSBIM1322"</span>)</span>
-<span id="cb523-3"><a href="sec-bioinfo.html#cb523-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(cptac_se)</span>
-<span id="cb523-4"><a href="sec-bioinfo.html#cb523-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(cptac_se)</span></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="sec-bioinfo.html#cb525-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"SummarizedExperiment"</span>)</span>
+<span id="cb525-2"><a href="sec-bioinfo.html#cb525-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rWSBIM1322"</span>)</span>
+<span id="cb525-3"><a href="sec-bioinfo.html#cb525-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(cptac_se)</span>
+<span id="cb525-4"><a href="sec-bioinfo.html#cb525-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(cptac_se)</span></code></pre></div>
 <pre><code>## [1] "SummarizedExperiment"
 ## attr(,"package")
 ## [1] "SummarizedExperiment"</code></pre>
-<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="sec-bioinfo.html#cb525-1" aria-hidden="true" tabindex="-1"></a>cptac_se</span></code></pre></div>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="sec-bioinfo.html#cb527-1" aria-hidden="true" tabindex="-1"></a>cptac_se</span></code></pre></div>
 <pre><code>## class: SummarizedExperiment 
 ## dim: 4051 6 
 ## metadata(3): MSnbaseFiles MSnbaseProcessing MSnbaseVersion
@@ -579,25 +579,25 @@ from the <code>rWSBIM1322</code> package.</p>
 ## colData names(3): group sample nNA</code></pre>
 <p>The object contains data for4051 features (peptides in
 this case) and 6 samples.</p>
-<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="sec-bioinfo.html#cb527-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(cptac_se)</span></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="sec-bioinfo.html#cb529-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(cptac_se)</span></code></pre></div>
 <pre><code>## [1] 4051    6</code></pre>
-<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="sec-bioinfo.html#cb529-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(cptac_se)</span></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="sec-bioinfo.html#cb531-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(cptac_se)</span></code></pre></div>
 <pre><code>## [1] 4051</code></pre>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="sec-bioinfo.html#cb531-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(cptac_se)</span></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="sec-bioinfo.html#cb533-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(cptac_se)</span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
 <p>The samples (columns) and rows (protein features) are named:</p>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="sec-bioinfo.html#cb533-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(cptac_se)</span></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="sec-bioinfo.html#cb535-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(cptac_se)</span></code></pre></div>
 <pre><code>## [1] "6A_7" "6A_8" "6A_9" "6B_7" "6B_8" "6B_9"</code></pre>
-<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="sec-bioinfo.html#cb535-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rownames</span>(cptac_se))</span></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="sec-bioinfo.html#cb537-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rownames</span>(cptac_se))</span></code></pre></div>
 <pre><code>## [1] "AAAALAGGK"       "AAAALAGGKK"      "AAADALSDLEIK"    "AAADALSDLEIKDSK"
 ## [5] "AAALVNK"         "AAAQDGYVPQR"</code></pre>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="sec-bioinfo.html#cb537-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(<span class="fu">rownames</span>(cptac_se))</span></code></pre></div>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="sec-bioinfo.html#cb539-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(<span class="fu">rownames</span>(cptac_se))</span></code></pre></div>
 <pre><code>## [1] "YVVLASHLGR"      "YVVLASHLGRPNGER" "YWGVASFLQK"      "YYGGNEIIDK"     
 ## [5] "YYPSYIVSK"       "YYSISSSSLSEK"</code></pre>
 <p>Using this data structure, we can access the expression matrix with
 the <code>assay</code> function, the feature metadata with the <code>rowData</code> function,
 and the sample metadata with the <code>colData</code> function:</p>
-<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="sec-bioinfo.html#cb539-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">assay</span>(cptac_se))</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="sec-bioinfo.html#cb541-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">assay</span>(cptac_se))</span></code></pre></div>
 <pre><code>##                    6A_7    6A_8    6A_9    6B_7    6B_8    6B_9
 ## AAAALAGGK       2441300 1220000 1337600 2850900  935580 1606200
 ## AAAALAGGKK      1029200  668040  638990  777030  641270  562840
@@ -605,7 +605,7 @@ and the sample metadata with the <code>colData</code> function:</p>
 ## AAADALSDLEIKDSK  331130  420900  365560  329250  380820  414490
 ## AAALVNK         4266200 1220100 1347200 3700300 1023200 1503000
 ## AAAQDGYVPQR       94675   62831  105640   81974   68637   91846</code></pre>
-<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="sec-bioinfo.html#cb541-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rowData</span>(cptac_se))</span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="sec-bioinfo.html#cb543-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rowData</span>(cptac_se))</span></code></pre></div>
 <pre><code>## DataFrame with 6 rows and 3 columns
 ##                               Proteins        Sequence       nNA
 ##                            &lt;character&gt;     &lt;character&gt; &lt;integer&gt;
@@ -615,7 +615,7 @@ and the sample metadata with the <code>colData</code> function:</p>
 ## AAADALSDLEIKDSK   sp|P09938|RIR2_YEAST AAADALSDLEIKDSK         0
 ## AAALVNK           sp|P05030|PMA1_YEAST         AAALVNK         0
 ## AAAQDGYVPQR       sp|P27692|SPT5_YEAST     AAAQDGYVPQR         0</code></pre>
-<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="sec-bioinfo.html#cb543-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(cptac_se)</span></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="sec-bioinfo.html#cb545-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(cptac_se)</span></code></pre></div>
 <pre><code>## DataFrame with 6 rows and 3 columns
 ##            group    sample       nNA
 ##      &lt;character&gt; &lt;integer&gt; &lt;integer&gt;
@@ -641,12 +641,12 @@ and columns in the feature and sample data.</p>
 </div>
 <div class="msmb-solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-37" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-37', 'sol-start-37')"></span>
+► Solution<span id="sol-start-38" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-38', 'sol-start-38')"></span>
 </p>
-<div id="sol-body-37" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="sec-bioinfo.html#cb545-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">assay</span>(cptac_se)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">rowData</span>(cptac_se))</span></code></pre></div>
+<div id="sol-body-38" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="sec-bioinfo.html#cb547-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">assay</span>(cptac_se)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">rowData</span>(cptac_se))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="sec-bioinfo.html#cb547-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(<span class="fu">assay</span>(cptac_se)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">colData</span>(cptac_se))</span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="sec-bioinfo.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(<span class="fu">assay</span>(cptac_se)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">colData</span>(cptac_se))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -655,17 +655,17 @@ and columns in the feature and sample data.</p>
 </div>
 <p>We can use the <code>[</code> operator to subset the whole object: all parts
 thereof will be subset correctly.</p>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="sec-bioinfo.html#cb549-1" aria-hidden="true" tabindex="-1"></a>cptac_se2 <span class="ot">&lt;-</span> cptac_se[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span>
-<span id="cb549-2"><a href="sec-bioinfo.html#cb549-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(cptac_se2)</span></code></pre></div>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="sec-bioinfo.html#cb551-1" aria-hidden="true" tabindex="-1"></a>cptac_se2 <span class="ot">&lt;-</span> cptac_se[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span>
+<span id="cb551-2"><a href="sec-bioinfo.html#cb551-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(cptac_se2)</span></code></pre></div>
 <pre><code>## [1] 3 2</code></pre>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="sec-bioinfo.html#cb551-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">assay</span>(cptac_se2))</span></code></pre></div>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="sec-bioinfo.html#cb553-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">assay</span>(cptac_se2))</span></code></pre></div>
 <pre><code>##                 6A_8    6B_7
 ## AAAALAGGK    1220000 2850900
 ## AAADALSDLEIK  670780  426580
 ## AAALVNK      1220100 3700300</code></pre>
 <p>We can also add information with:</p>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="sec-bioinfo.html#cb553-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(cptac_se)<span class="sc">$</span>group2  <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">'X'</span>, <span class="st">'Y'</span>, <span class="st">'Z'</span>), <span class="at">each =</span> <span class="dv">2</span>)</span>
-<span id="cb553-2"><a href="sec-bioinfo.html#cb553-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(cptac_se)</span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="sec-bioinfo.html#cb555-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(cptac_se)<span class="sc">$</span>group2  <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">'X'</span>, <span class="st">'Y'</span>, <span class="st">'Z'</span>), <span class="at">each =</span> <span class="dv">2</span>)</span>
+<span id="cb555-2"><a href="sec-bioinfo.html#cb555-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(cptac_se)</span></code></pre></div>
 <pre><code>## DataFrame with 6 rows and 4 columns
 ##            group    sample       nNA      group2
 ##      &lt;character&gt; &lt;integer&gt; &lt;integer&gt; &lt;character&gt;
@@ -821,8 +821,8 @@ package, without necessarily going in detail for every function of the
 package.</p>
 <p>Below, we show how to list all vignettes available in the <code>MSnbase</code>
 package and how to open one in particular.</p>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="sec-bioinfo.html#cb555-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="at">package =</span> <span class="st">"QFeatures"</span>)</span>
-<span id="cb555-2"><a href="sec-bioinfo.html#cb555-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">"QFeatures"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="sec-bioinfo.html#cb557-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="at">package =</span> <span class="st">"QFeatures"</span>)</span>
+<span id="cb557-2"><a href="sec-bioinfo.html#cb557-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">"QFeatures"</span>)</span></code></pre></div>
 <p>Vignettes are special in that respect as they are produced as part of
 the package building process. The code in a vignette is executed and
 its output, whether in the form of simple text, tables and figures,
@@ -942,7 +942,7 @@ object’s rowData slot.</p></li>
 <code>rWSBIM1207</code> version 0.1.5 or later. If needed, install a more
 recent version with</li>
 </ol>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="sec-bioinfo.html#cb556-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="sec-bioinfo.html#cb558-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Import the data from two tab-separated files into R. The full paths
 to the two files can be accessed with <code>kem.tsv()</code>. Read <code>?kem</code> for
@@ -985,7 +985,7 @@ experimental design.</p></li>
 <li><p>Generate a figure similar to the one below for your data own data.</p></li>
 </ul>
 <div class="figure">
-<span style="display:block;" id="fig:unnamed-chunk-228"></span>
+<span style="display:block;" id="fig:unnamed-chunk-229"></span>
 <p class="caption marginnote shownote">
 Figure 9.7: Distribution of the gene expression in each group.
 </p>

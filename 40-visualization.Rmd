@@ -65,8 +65,9 @@ provides ample documentation.
 every dimension, and a row for every observation. Well-structured data
 will save you lots of time when making figures with `ggplot2`.
 
-ggplot graphics are built step by step by adding new elements. Adding layers in
-this fashion allows for extensive flexibility and customization of plots.
+ggplot graphics are built step by step by adding new elements. Adding
+layers in this fashion allows for extensive flexibility and
+customization of plots.
 
 To build a ggplot, we will use the following basic template that can
 be used for different types of plots:
@@ -75,14 +76,17 @@ be used for different types of plots:
 ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +  <GEOM_FUNCTION>()
 ```
 
-- use the `ggplot()` function and bind the plot to a specific data frame using the
-      `data` argument
+- use the `ggplot()` function and bind the plot to a specific data
+  frame using the `data` argument
 
 ```{r, eval=FALSE}
 ggplot(data = rna)
 ```
 
-- define a mapping (using the aesthetic (`aes`) function), by selecting the variables to be plotted and specifying how to present them in the graph, e.g. as x/y positions or characteristics such as size, shape, color, etc.
+- define a mapping (using the aesthetic (`aes`) function), by
+  selecting the variables to be plotted and specifying how to present
+  them in the graph, e.g. as x/y positions or characteristics such as
+  size, shape, color, etc.
 
 ```{r, eval=FALSE}
 ggplot(data = rna, mapping = aes(x = expression))
@@ -120,18 +124,40 @@ rna_plot + geom_histogram()
 ```
 
 `r msmbstyle::question_begin()`
-You have probably noticed an automatic message that appears when drawing the histogram:
-```{r, cache=FALSE, , echo=FALSE, fig.show='hide'}
+
+You have probably noticed an automatic message that appears when
+drawing the histogram:
+
+```{r, echo=FALSE, fig.show='hide'}
 ggplot(rna, aes(x = expression)) +
   geom_histogram()
 ```
-Change the arguments `bins` or `binwidth` of `geom_histogram()` to change the number or width of the bins.
+
+Change the arguments `bins` or `binwidth` of `geom_histogram()` to
+change the number or width of the bins.
+
 `r msmbstyle::question_end()`
+
+
+`r msmbstyle::solution_begin()`
+
+```{r}
+# change bins
+ggplot(rna, aes(x = expression)) +
+    geom_histogram(bins = 15)
+
+# change binwidth
+ggplot(rna, aes(x = expression)) +
+    geom_histogram(binwidth = 2000)
+```
+
+`r msmbstyle::solution_end()`
 
 We can observe here that the data are skewed to the right. We can
 apply log2 transformation to have a more symmetric distribution. Note
 that we add here a small constant value (`+1`) to avoid having `-Inf`
 values returned for expression values equal to 0.
+
 
 ```{r log-transfo, cache=FALSE}
 rna <- rna %>%
@@ -291,9 +317,16 @@ data sets with large numbers of observations, such as the
 limitation of scatter plots. One strategy for handling such settings
 is to use hexagonal binning of observations. The plot space is
 tessellated into hexagons. Each hexagon is assigned a color based on
-the number of observations that fall within its boundaries.  To use
-hexagonal binning `ggplot2`, first install the R package `hexbin` from
-CRAN and load it.
+the number of observations that fall within its boundaries.
+
+- To use hexagonal binning `ggplot2`, first install the R package
+  `hexbin` from CRAN and load it.
+
+- Then use the `geom_hex()` function to produce the hexbin figure.
+
+- What are the relative strengths and weaknesses of a hexagonal bin
+  plot compared to a scatter plot? Examine the above scatter plot and
+  compare it with the hexagonal bin plot that you created.
 
 `r msmbstyle::question_end()`
 
@@ -302,35 +335,26 @@ CRAN and load it.
 
 ```{r, eval = FALSE}
 install.packages("hexbin")
-library("hexbin")
 ```
-`r msmbstyle::solution_end()`
 
+```{r}
+library("hexbin")
 
-`r msmbstyle::question_begin()`
-
-Then use the `geom_hex()` function
-
-```{r, eval = FALSE}
 ggplot(data = rna_FC, mapping = aes(x = time_4_vs_0,
-                                y = time_8_vs_0,
-                                color = gene_biotype)) +
+                                y = time_8_vs_0)) +
   geom_hex() +
   geom_abline(intercept = 0)
 
 ```
 
-What are the relative strengths and weaknesses of a hexagonal bin plot
-compared to a scatter plot? Examine the above scatter plot and compare
-it with the hexagonal bin plot that you created.
-
-`r msmbstyle::question_end()`
+`r msmbstyle::solution_end()`
 
 
 `r msmbstyle::question_begin()`
 
-Use what you just learned to create a scatter plot of `expression_log` over
-`sample` from the `rna` dataset with the time showing in different colors. Is this a good way to show this type of data?
+Use what you just learned to create a scatter plot of `expression_log`
+over `sample` from the `rna` dataset with the time showing in
+different colors. Is this a good way to show this type of data?
 
 `r msmbstyle::question_end()`
 
@@ -347,7 +371,8 @@ ggplot(data = rna, mapping = aes(y = expression_log,
 
 ## Boxplot
 
-We can use boxplots to visualize the distribution of gene expressions within each sample:
+We can use boxplots to visualize the distribution of gene expressions
+within each sample:
 
 ```{r boxplot, cache=FALSE}
 ggplot(data = rna,
