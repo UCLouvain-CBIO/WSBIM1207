@@ -42,16 +42,15 @@ columns represent:
 | time       | The duration of the infection (in days).                                                     |
 | tissue     | The tissue that was used for the gene expression experiment, i.e. cerebellum or spinal cord. |
 | mouse      | The mouse unique identifier.                                                                 |
-| ENTREZID   |                                                                  |
-| product    |                                                                  |
-| gbkey      |                                                                  |
-| external_gene_name                   |                                                                  |
-| ensembl_gene_id                      |                                                                  |
-| external_synonym                     |                                                                  |
-| chromosome_name                      |                                                                  |
-| gene_biotype                         |                                                                  |
-| phenotype_description                |                                                                  |
-| hsapiens_homolog_associated_gene_name|                                                                  |
+| ENTREZID   | The gene ID for the ENTREZ database                                                          |
+| product    | The gene product                                                                             |
+| external_gene_name  | The name of the gene in the ENSEMBL database                                        |
+| ensembl_gene_id     | The ID of the gene from the ENSEMBL database                                        |
+| external_synonym    | A name synonym for the gene                                                         |
+| chromosome_name                      | The chromosome name of the gene                                    |
+| gene_biotype                         | The gene biotype                                                   |
+| phenotype_description                | The phenotype description of the gene                              |
+| hsapiens_homolog_associated_gene_name| The human homologous gene                                          |
 
 We are going to use the R function `download.file()` to download the
 CSV file that contains the gene expression data, and we will use
