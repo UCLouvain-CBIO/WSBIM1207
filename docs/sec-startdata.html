@@ -358,8 +358,9 @@ local machine. You’ll need to have a folder on your machine called
 <code>"data"</code> where you’ll download the file. So this command downloads the
 remote file, names it <code>"rnaseq.csv"</code> and adds it to a preexisting
 folder named <code>"data"</code>.</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="sec-startdata.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url =</span> <span class="st">"https://raw.githubusercontent.com/UCLouvain-CBIO/WSBIM1207/scrnadata/data/rnaseq.csv"</span>,</span>
-<span id="cb194-2"><a href="sec-startdata.html#cb194-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">destfile =</span> <span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="sec-startdata.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"data/rnaseq.csv"</span>))</span>
+<span id="cb194-2"><a href="sec-startdata.html#cb194-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">download.file</span>(<span class="at">url =</span> <span class="st">"https://raw.githubusercontent.com/UCLouvain-CBIO/WSBIM1207/scrnadata/data/rnaseq.csv"</span>,</span>
+<span id="cb194-3"><a href="sec-startdata.html#cb194-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">destfile =</span> <span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
 <p>You are now ready to load the data:</p>
 <div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="sec-startdata.html#cb195-1" aria-hidden="true" tabindex="-1"></a>rna <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
 <p>This statement doesn’t produce any output because, as you might
@@ -377,14 +378,37 @@ using the function <code>head()</code>:</p>
 ## 3 Cyp2d22 GSM2545336       4060 Mus musculus   8 Female InfluenzaA C57BL/6    8
 ## 4    Klk6 GSM2545336        287 Mus musculus   8 Female InfluenzaA C57BL/6    8
 ## 5   Fcrls GSM2545336         85 Mus musculus   8 Female InfluenzaA C57BL/6    8
-## 6  Slc2a4 GSM2545336        782 Mus musculus   8 Female InfluenzaA C57BL/6    8
-##       tissue mouse
-## 1 Cerebellum    14
-## 2 Cerebellum    14
-## 3 Cerebellum    14
-## 4 Cerebellum    14
-## 5 Cerebellum    14
-## 6 Cerebellum    14</code></pre>
+##       tissue mouse ENTREZID
+## 1 Cerebellum    14   109900
+## 2 Cerebellum    14    11815
+## 3 Cerebellum    14    56448
+## 4 Cerebellum    14    19144
+## 5 Cerebellum    14    80891
+##                                                                    product
+## 1                            argininosuccinate lyase transcript variant X1
+## 2                                    apolipoprotein D transcript variant 3
+## 3 cytochrome P450 family 2 subfamily d polypeptide 22 transcript variant 2
+## 4                      kallikrein related-peptidase 6 transcript variant 2
+## 5              Fc receptor-like S scavenger receptor transcript variant X1
+##   gbkey    ensembl_gene_id external_synonym chromosome_name   gene_biotype
+## 1  mRNA ENSMUSG00000025533    2510006M18Rik               5 protein_coding
+## 2  mRNA ENSMUSG00000022548             &lt;NA&gt;              16 protein_coding
+## 3  mRNA ENSMUSG00000061740             2D22              15 protein_coding
+## 4  mRNA ENSMUSG00000050063             Bssp               7 protein_coding
+## 5  mRNA ENSMUSG00000015852    2810439C17Rik               3 protein_coding
+##                             phenotype_description
+## 1           abnormal circulating amino acid level
+## 2                      abnormal lipid homeostasis
+## 3                        abnormal skin morphology
+## 4                         abnormal cytokine level
+## 5 decreased CD8-positive alpha-beta T cell number
+##   hsapiens_homolog_associated_gene_name
+## 1                                   ASL
+## 2                                  APOD
+## 3                                CYP2D6
+## 4                                  KLK6
+## 5                                 FCRL4
+##  [ reached 'max' / getOption("max.print") -- omitted 1 rows ]</code></pre>
 <div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="sec-startdata.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Try also</span></span>
 <span id="cb199-2"><a href="sec-startdata.html#cb199-2" aria-hidden="true" tabindex="-1"></a><span class="do">## View(rna)</span></span></code></pre></div>
 <p><strong>Note</strong></p>
@@ -429,18 +453,27 @@ logical vector.</p>
 <p>We can see this when inspecting the <b>str</b>ucture of a data frame
 with the function <code>str()</code>:</p>
 <div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="sec-startdata.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(rna)</span></code></pre></div>
-<pre><code>## 'data.frame':    66465 obs. of  11 variables:
-##  $ gene      : chr  "Asl" "Apod" "Cyp2d22" "Klk6" ...
-##  $ sample    : chr  "GSM2545336" "GSM2545336" "GSM2545336" "GSM2545336" ...
-##  $ expression: int  1170 36194 4060 287 85 782 1619 288 43217 1071 ...
-##  $ organism  : chr  "Mus musculus" "Mus musculus" "Mus musculus" "Mus musculus" ...
-##  $ age       : int  8 8 8 8 8 8 8 8 8 8 ...
-##  $ sex       : chr  "Female" "Female" "Female" "Female" ...
-##  $ infection : chr  "InfluenzaA" "InfluenzaA" "InfluenzaA" "InfluenzaA" ...
-##  $ strain    : chr  "C57BL/6" "C57BL/6" "C57BL/6" "C57BL/6" ...
-##  $ time      : int  8 8 8 8 8 8 8 8 8 8 ...
-##  $ tissue    : chr  "Cerebellum" "Cerebellum" "Cerebellum" "Cerebellum" ...
-##  $ mouse     : int  14 14 14 14 14 14 14 14 14 14 ...</code></pre>
+<pre><code>## 'data.frame':    32428 obs. of  20 variables:
+##  $ gene                                 : chr  "Asl" "Apod" "Cyp2d22" "Klk6" ...
+##  $ sample                               : chr  "GSM2545336" "GSM2545336" "GSM2545336" "GSM2545336" ...
+##  $ expression                           : int  1170 36194 4060 287 85 782 1619 288 43217 1071 ...
+##  $ organism                             : chr  "Mus musculus" "Mus musculus" "Mus musculus" "Mus musculus" ...
+##  $ age                                  : int  8 8 8 8 8 8 8 8 8 8 ...
+##  $ sex                                  : chr  "Female" "Female" "Female" "Female" ...
+##  $ infection                            : chr  "InfluenzaA" "InfluenzaA" "InfluenzaA" "InfluenzaA" ...
+##  $ strain                               : chr  "C57BL/6" "C57BL/6" "C57BL/6" "C57BL/6" ...
+##  $ time                                 : int  8 8 8 8 8 8 8 8 8 8 ...
+##  $ tissue                               : chr  "Cerebellum" "Cerebellum" "Cerebellum" "Cerebellum" ...
+##  $ mouse                                : int  14 14 14 14 14 14 14 14 14 14 ...
+##  $ ENTREZID                             : int  109900 11815 56448 19144 80891 20528 97827 118454 18823 14696 ...
+##  $ product                              : chr  "argininosuccinate lyase transcript variant X1" "apolipoprotein D transcript variant 3" "cytochrome P450 family 2 subfamily d polypeptide 22 transcript variant 2" "kallikrein related-peptidase 6 transcript variant 2" ...
+##  $ gbkey                                : chr  "mRNA" "mRNA" "mRNA" "mRNA" ...
+##  $ ensembl_gene_id                      : chr  "ENSMUSG00000025533" "ENSMUSG00000022548" "ENSMUSG00000061740" "ENSMUSG00000050063" ...
+##  $ external_synonym                     : chr  "2510006M18Rik" NA "2D22" "Bssp" ...
+##  $ chromosome_name                      : chr  "5" "16" "15" "7" ...
+##  $ gene_biotype                         : chr  "protein_coding" "protein_coding" "protein_coding" "protein_coding" ...
+##  $ phenotype_description                : chr  "abnormal circulating amino acid level" "abnormal lipid homeostasis" "abnormal skin morphology" "abnormal cytokine level" ...
+##  $ hsapiens_homolog_associated_gene_name: chr  "ASL" "APOD" "CYP2D6" "KLK6" ...</code></pre>
 </div>
 <div id="inspecting-data.frame-objects" class="section level2" number="4.3">
 <h2>
@@ -585,7 +618,7 @@ we could combine <code>is.na()</code> and data frames subsetting:</p>
 <blockquote>
 <div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="sec-startdata.html#cb208-1" aria-hidden="true" tabindex="-1"></a>rna_missing_hsapiens_homolog <span class="ot">&lt;-</span> rna[is_missing_hsapiens_homolog,]</span>
 <span id="cb208-2"><a href="sec-startdata.html#cb208-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(rna_missing_hsapiens_homolog)</span></code></pre></div>
-<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] 4774</code></pre>
 </blockquote>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1142,14 +1175,37 @@ output of <code>readRDS</code> in a variable:</p>
 ## 3 Cyp2d22 GSM2545336       4060 Mus musculus   8 Female InfluenzaA C57BL/6    8
 ## 4    Klk6 GSM2545336        287 Mus musculus   8 Female InfluenzaA C57BL/6    8
 ## 5   Fcrls GSM2545336         85 Mus musculus   8 Female InfluenzaA C57BL/6    8
-## 6  Slc2a4 GSM2545336        782 Mus musculus   8 Female InfluenzaA C57BL/6    8
-##       tissue mouse
-## 1 Cerebellum    14
-## 2 Cerebellum    14
-## 3 Cerebellum    14
-## 4 Cerebellum    14
-## 5 Cerebellum    14
-## 6 Cerebellum    14</code></pre>
+##       tissue mouse ENTREZID
+## 1 Cerebellum    14   109900
+## 2 Cerebellum    14    11815
+## 3 Cerebellum    14    56448
+## 4 Cerebellum    14    19144
+## 5 Cerebellum    14    80891
+##                                                                    product
+## 1                            argininosuccinate lyase transcript variant X1
+## 2                                    apolipoprotein D transcript variant 3
+## 3 cytochrome P450 family 2 subfamily d polypeptide 22 transcript variant 2
+## 4                      kallikrein related-peptidase 6 transcript variant 2
+## 5              Fc receptor-like S scavenger receptor transcript variant X1
+##   gbkey    ensembl_gene_id external_synonym chromosome_name   gene_biotype
+## 1  mRNA ENSMUSG00000025533    2510006M18Rik               5 protein_coding
+## 2  mRNA ENSMUSG00000022548             &lt;NA&gt;              16 protein_coding
+## 3  mRNA ENSMUSG00000061740             2D22              15 protein_coding
+## 4  mRNA ENSMUSG00000050063             Bssp               7 protein_coding
+## 5  mRNA ENSMUSG00000015852    2810439C17Rik               3 protein_coding
+##                             phenotype_description
+## 1           abnormal circulating amino acid level
+## 2                      abnormal lipid homeostasis
+## 3                        abnormal skin morphology
+## 4                         abnormal cytokine level
+## 5 decreased CD8-positive alpha-beta T cell number
+##   hsapiens_homolog_associated_gene_name
+## 1                                   ASL
+## 2                                  APOD
+## 3                                CYP2D6
+## 4                                  KLK6
+## 5                                 FCRL4
+##  [ reached 'max' / getOption("max.print") -- omitted 1 rows ]</code></pre>
 <p>To conclude, when it comes to saving data from R that will be loaded
 again in R, saving and loading is the preferred approach. If tabular
 data need to be shared with somebody that is not using R, then

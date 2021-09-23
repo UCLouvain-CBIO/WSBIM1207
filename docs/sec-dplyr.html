@@ -320,10 +320,10 @@ and this <a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.
 <p>We’ll read in our data using the <code>read_csv()</code> function, from the
 tidyverse package <strong><code>readr</code></strong>, instead of <code>read.csv()</code>.</p>
 <div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="sec-dplyr.html#cb269-1" aria-hidden="true" tabindex="-1"></a>rna <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
-<pre><code>## Rows: 32428 Columns: 20</code></pre>
+<pre><code>## Rows: 32428 Columns: 19</code></pre>
 <pre><code>## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
-## chr (15): gene, sample, organism, sex, infection, strain, tissue, product, g...
+## chr (14): gene, sample, organism, sex, infection, strain, tissue, product, e...
 ## dbl  (5): expression, age, time, mouse, ENTREZID</code></pre>
 <pre><code>## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
@@ -374,7 +374,7 @@ the variable to exclude it.</p>
 and <code>strain</code>.</p>
 <p>To choose rows based on a specific criteria, use <code>filter()</code>:</p>
 <div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="sec-dplyr.html#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(rna, sex <span class="sc">==</span> <span class="st">"Male"</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 14,740 × 20
+<pre><code>## # A tibble: 14,740 × 19
 ##    gene    sample  expression organism   age sex   infection strain  time tissue
 ##    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; 
 ##  1 Asl     GSM254…        626 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
@@ -387,12 +387,12 @@ and <code>strain</code>.</p>
 ##  8 Gjc2    GSM254…        310 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
 ##  9 Plp1    GSM254…      53126 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
 ## 10 Gnb4    GSM254…       1355 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
-## # … with 14,730 more rows, and 10 more variables: mouse &lt;dbl&gt;, ENTREZID &lt;dbl&gt;,
-## #   product &lt;chr&gt;, gbkey &lt;chr&gt;, ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;,
+## # … with 14,730 more rows, and 9 more variables: mouse &lt;dbl&gt;, ENTREZID &lt;dbl&gt;,
+## #   product &lt;chr&gt;, ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;,
 ## #   chromosome_name &lt;chr&gt;, gene_biotype &lt;chr&gt;, phenotype_description &lt;chr&gt;,
 ## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;</code></pre>
 <div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="sec-dplyr.html#cb278-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(rna, sex <span class="sc">==</span> <span class="st">"Male"</span> <span class="sc">&amp;</span> infection <span class="sc">==</span> <span class="st">"NonInfected"</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 4,422 × 20
+<pre><code>## # A tibble: 4,422 × 19
 ##    gene    sample  expression organism   age sex   infection strain  time tissue
 ##    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; 
 ##  1 Asl     GSM254…        535 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
@@ -405,8 +405,8 @@ and <code>strain</code>.</p>
 ##  8 Gjc2    GSM254…        791 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
 ##  9 Plp1    GSM254…      98658 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
 ## 10 Gnb4    GSM254…       2437 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
-## # … with 4,412 more rows, and 10 more variables: mouse &lt;dbl&gt;, ENTREZID &lt;dbl&gt;,
-## #   product &lt;chr&gt;, gbkey &lt;chr&gt;, ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;,
+## # … with 4,412 more rows, and 9 more variables: mouse &lt;dbl&gt;, ENTREZID &lt;dbl&gt;,
+## #   product &lt;chr&gt;, ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;,
 ## #   chromosome_name &lt;chr&gt;, gene_biotype &lt;chr&gt;, phenotype_description &lt;chr&gt;,
 ## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;</code></pre>
 </div>
@@ -727,7 +727,7 @@ analysis to each group, and then combine the results. <strong><code>dplyr</code>
 makes this very easy through the use of the <code>group_by()</code> function.</p>
 <div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="sec-dplyr.html#cb304-1" aria-hidden="true" tabindex="-1"></a>rna <span class="sc">%&gt;%</span></span>
 <span id="cb304-2"><a href="sec-dplyr.html#cb304-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gene)</span></code></pre></div>
-<pre><code>## # A tibble: 32,428 × 20
+<pre><code>## # A tibble: 32,428 × 19
 ## # Groups:   gene [1,474]
 ##    gene    sample  expression organism   age sex   infection strain  time tissue
 ##    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; 
@@ -741,8 +741,8 @@ makes this very easy through the use of the <code>group_by()</code> function.</p
 ##  8 Gjc2    GSM254…        288 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
 ##  9 Plp1    GSM254…      43217 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
 ## 10 Gnb4    GSM254…       1071 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
-## # … with 32,418 more rows, and 10 more variables: mouse &lt;dbl&gt;, ENTREZID &lt;dbl&gt;,
-## #   product &lt;chr&gt;, gbkey &lt;chr&gt;, ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;,
+## # … with 32,418 more rows, and 9 more variables: mouse &lt;dbl&gt;, ENTREZID &lt;dbl&gt;,
+## #   product &lt;chr&gt;, ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;,
 ## #   chromosome_name &lt;chr&gt;, gene_biotype &lt;chr&gt;, phenotype_description &lt;chr&gt;,
 ## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;</code></pre>
 <p>The <code>group_by()</code> function doesn’t perform any data processing, it
