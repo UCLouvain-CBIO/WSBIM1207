@@ -845,6 +845,10 @@ rna_1 %>%
 Use the `rna` dataset to create an expression matrix were each row represents
 the mean expression levels of genes and columns represent the different timepoints. 
 
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+
 ```{r}
 rna %>% 
   group_by(gene, time) %>% 
@@ -891,15 +895,19 @@ rna %>%
 ```
 
 
-`r msmbstyle::question_end()`
+`r msmbstyle::solution_end()`
 
 
 `r msmbstyle::question_begin()`
 
 Use the previous data frame containing mean expression levels per timepoint and create 
 a new column containing fold-changes between timepoint 8 and timepoint 0, and fold-changes 
-between timepoint 8 and timepoint 0.
+between timepoint 8 and timepoint 4.
 Convert this table in a long-format table gathering the foldchanges calculated.
+
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
 
 ```{r}
 rna_FC <- rna %>% 
@@ -918,7 +926,7 @@ rna_FC %>%
                time_8_vs_0:time_8_vs_4)
 ```
 
-`r msmbstyle::question_end()`
+`r msmbstyle::solution_end()`
 
 
 ## Exporting data
