@@ -1,6 +1,5 @@
 # Data visualization  {#sec-vis}
 
-
 ```{r vis_setup, echo=FALSE}
 rna <- read.csv("data/rnaseq.csv")
 ```
@@ -234,26 +233,26 @@ subtracting the mean log expressions between time 8 and time 0 and
 between time 4 and time 0. Note that we also include here the gene
 biotype that we will use later on to represent the genes.
 
-```{r rna_FC, cache=FALSE}
-rna_FC <- rna %>% select(gene, time,
+```{r rna_fc, cache=FALSE}
+rna_fc <- rna %>% select(gene, time,
                          gene_biotype, expression_log) %>%
   group_by(gene, time, gene_biotype) %>%
   summarize(mean_exp = mean(expression_log)) %>%
   pivot_wider(names_from = time,
               values_from = mean_exp) %>%
   mutate(time_8_vs_0 = `8` - `0`, time_4_vs_0 = `4` - `0`)
-
 ```
 
 We can then build a ggplot with the newly created dataset
-`rna_FC`. Building plots with **`ggplot2`** is typically an iterative
+`rna_fc`. Building plots with `ggplot2` is typically an iterative
 process. We start by defining the dataset we'll use, lay out the axes,
 and choose a geom:
 
 ```{r create-ggplot-object, cache=FALSE}
-ggplot(data = rna_FC, mapping = aes(x = time_4_vs_0,
-                                y = time_8_vs_0)) +
-  geom_point()
+ggplot(data = rna_fc,
+       mapping = aes(x = time_4_vs_0,
+                     y = time_8_vs_0)) +
+    geom_point()
 ```
 
 Then, we start modifying this plot to extract more information from
@@ -261,17 +260,19 @@ it. For instance, we can add transparency (`alpha`) to avoid
 overplotting:
 
 ```{r adding-transparency, cache=FALSE}
-ggplot(data = rna_FC, mapping = aes(x = time_4_vs_0,
-                                y = time_8_vs_0)) +
-  geom_point(alpha = 0.3)
+ggplot(data = rna_fc,
+       mapping = aes(x = time_4_vs_0,
+                     y = time_8_vs_0)) +
+    geom_point(alpha = 0.3)
 ```
 
 We can also add colors for all the points:
 
 ```{r adding-colors, cache=FALSE}
-ggplot(data = rna_FC, mapping = aes(x = time_4_vs_0,
-                                y = time_8_vs_0)) +
-  geom_point(alpha = 0.3, color = "blue")
+ggplot(data = rna_fc,
+       mapping = aes(x = time_4_vs_0,
+                     y = time_8_vs_0)) +
+    geom_point(alpha = 0.3, color = "blue")
 ```
 
 Or to color each gene in the plot differently, you could use a vector
@@ -281,9 +282,11 @@ is an example where we color with **`gene_biotype`**:
 
 
 ```{r color-by-gene_biotype1, cache=FALSE}
-ggplot(data = rna_FC, mapping = aes(x = time_4_vs_0,
-                                y = time_8_vs_0)) +
-  geom_point(alpha = 0.3, aes(color = gene_biotype))
+ggplot(data = rna_fc,
+       mapping = aes(x = time_4_vs_0,
+                     y = time_8_vs_0)) +
+    geom_point(alpha = 0.3,
+               aes(color = gene_biotype))
 
 ```
 
@@ -292,38 +295,41 @@ the `ggplot()` function. This will be seen by any geom layers and the
 mapping will be determined by the x- and y-axis set up in `aes()`.
 
 ```{r color-by-gene_biotype2, cache=FALSE}
-ggplot(data = rna_FC, mapping = aes(x = time_4_vs_0,
-                                y = time_8_vs_0,
-                                color = gene_biotype)) +
-  geom_point(alpha = 0.3)
+ggplot(data = rna_fc,
+       mapping = aes(x = time_4_vs_0,
+                     y = time_8_vs_0,
+                     color = gene_biotype)) +
+    geom_point(alpha = 0.3)
 ```
 
 Finally, we could also add a diagonal line with the `geom_abline()`
 function:
 
 ```{r adding-diag, cache=FALSE}
-ggplot(data = rna_FC, mapping = aes(x = time_4_vs_0,
-                                y = time_8_vs_0,
-                                color = gene_biotype)) +
-  geom_point(alpha = 0.3) +
-  geom_abline(intercept = 0)
+ggplot(data = rna_fc,
+       mapping = aes(x = time_4_vs_0,
+                     y = time_8_vs_0,
+                     color = gene_biotype)) +
+    geom_point(alpha = 0.3) +
+    geom_abline(intercept = 0)
 ```
 
 Notice that we can change the geom layer and colors will be still
 determined by **`gene_biotype`**
 
 ```{r color-by-gene_biotype3, cache=FALSE}
-ggplot(data = rna_FC, mapping = aes(x = time_4_vs_0,
-                                y = time_8_vs_0,
-                                color = gene_biotype)) +
-  geom_jitter(alpha = 0.3) +
-  geom_abline(intercept = 0)
+ggplot(data = rna_fc,
+       mapping = aes(x = time_4_vs_0,
+                     y = time_8_vs_0,
+                     color = gene_biotype)) +
+    geom_jitter(alpha = 0.3) +
+    geom_abline(intercept = 0)
 ```
 
 `r msmbstyle::question_begin()`
 
 Scatter plots can be useful exploratory tools for small datasets. For
-data sets with large numbers of observations, such as the `rna_FC`
+data sets with large numbers of observations, such as the `rna_fc`
 data set, overplotting of points can be a limitation of scatter
 plots. One strategy for handling such settings is to use hexagonal
 binning of observations. The plot space is tessellated into
@@ -351,10 +357,11 @@ install.packages("hexbin")
 ```{r}
 library("hexbin")
 
-ggplot(data = rna_FC, mapping = aes(x = time_4_vs_0,
-                                y = time_8_vs_0)) +
-  geom_hex() +
-  geom_abline(intercept = 0)
+ggplot(data = rna_fc,
+       mapping = aes(x = time_4_vs_0,
+                     y = time_8_vs_0)) +
+    geom_hex() +
+    geom_abline(intercept = 0)
 
 ```
 
@@ -373,8 +380,9 @@ different colors. Is this a good way to show this type of data?
 `r msmbstyle::solution_begin()`
 
 ```{r, eval = TRUE}
-ggplot(data = rna, mapping = aes(y = expression_log,
-                       x = sample)) +
+ggplot(data = rna,
+       mapping = aes(y = expression_log,
+                     x = sample)) +
     geom_point(aes(color = time))
 ```
 
@@ -387,8 +395,8 @@ within each sample:
 
 ```{r boxplot, cache=FALSE}
 ggplot(data = rna,
-         mapping = aes(y = expression_log, x = sample)) +
-  geom_boxplot()
+       mapping = aes(y = expression_log, x = sample)) +
+    geom_boxplot()
 ```
 
 By adding points to boxplot, we can have a better idea of the number of
@@ -396,10 +404,10 @@ measurements and of their distribution:
 
 ```{r boxplot-with-points, cache=FALSE}
 ggplot(data = rna,
-         mapping = aes(y = expression_log,
-                       x = sample)) +
-  geom_jitter(alpha = 0.2, color = "tomato") +
-  geom_boxplot(alpha = 0)
+       mapping = aes(y = expression_log,
+                     x = sample)) +
+    geom_jitter(alpha = 0.2, color = "tomato") +
+    geom_boxplot(alpha = 0)
 ```
 
 Note how the boxplot layer is in front of the jitter layer? What do
@@ -413,11 +421,11 @@ diagonally oriented labels:
 
 ```{r boxplot-xaxis-rotated, cache=FALSE}
 ggplot(data = rna,
-         mapping = aes(y = expression_log,
-                       x = sample)) +
-  geom_jitter(alpha = 0.2, color = "tomato") +
-  geom_boxplot(alpha = 0) +
-  theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
+       mapping = aes(y = expression_log,
+                     x = sample)) +
+    geom_jitter(alpha = 0.2, color = "tomato") +
+    geom_boxplot(alpha = 0) +
+    theme(axis.text.x = element_text(angle = 90, hjust = 0.5, vjust = 0.5))
 ```
 
 `r msmbstyle::question_begin()`
@@ -440,7 +448,7 @@ ggplot(data = rna,
                        x = sample)) +
   geom_jitter(alpha = 0.2, aes(color = time)) +
   geom_boxplot(alpha = 0) +
-  theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
+  theme(axis.text.x = element_text(angle = 90, hjust = 0.5, vjust = 0.5))
 
 # time as factor
 ggplot(data = rna,
@@ -448,7 +456,7 @@ ggplot(data = rna,
                        x = sample)) +
   geom_jitter(alpha = 0.2, aes(color = as.factor(time))) +
   geom_boxplot(alpha = 0) +
-  theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
+  theme(axis.text.x = element_text(angle = 90, hjust = 0.5, vjust = 0.5))
 ```
 
 
@@ -464,7 +472,6 @@ plot, where the shape (of the density of points) is drawn.
 Replace the box plot with a violin plot; see `geom_violin()`. Fill in
 the violins according to the time with `fill`.
 
-
 `r msmbstyle::question_end()`
 
 `r msmbstyle::solution_begin()`
@@ -472,8 +479,8 @@ the violins according to the time with `fill`.
 ggplot(data = rna,
          mapping = aes(y = expression_log,
                        x = sample)) +
-  geom_violin(aes(fill = as.factor(time))) +
-  theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
+    geom_violin(aes(fill = as.factor(time))) +
+    theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
 ```
 `r msmbstyle::solution_end()`
 
@@ -484,10 +491,10 @@ Modify the violin plot to fill in the violins by `sex`.
 `r msmbstyle::solution_begin()`
 ```{r, eval=TRUE, echo=TRUE, cache=FALSE}
 ggplot(data = rna,
-         mapping = aes(y = expression_log,
-                       x = sample)) +
-  geom_violin(aes(fill = sex)) +
-  theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
+       mapping = aes(y = expression_log,
+                     x = sample)) +
+    geom_violin(aes(fill = sex)) +
+    theme(axis.text.x = element_text(angle = 90, hjust = 0.5, vjust = 0.5))
 ```
 `r msmbstyle::solution_end()`
 
@@ -502,14 +509,15 @@ First, we need to select the genes and create a subset of `rna` called
 data and calculate the mean gene expression within each group:
 
 ```{r}
-rna_FC <- rna_FC %>% arrange(desc(time_8_vs_0))
+rna_fc <- rna_fc %>%
+    arrange(desc(time_8_vs_0))
 
 sub_rna <- rna %>%
-  filter(gene %in% rna_FC[1:10,"gene", drop=TRUE])
+    filter(gene %in% rna_fc[1:10,"gene", drop = TRUE])
 
 mean_exp_by_time <- sub_rna %>%
-  group_by(gene,time) %>%
-  summarize(mean_exp = mean(expression_log))
+    group_by(gene,time) %>%
+    summarize(mean_exp = mean(expression_log))
 ```
 
 We can build the line plot with duration of the infection on the
@@ -518,7 +526,7 @@ x-axis and the mean expression on the y-axis:
 ```{r first-time-series}
 ggplot(data = mean_exp_by_time,
        mapping = aes(x = time, y = mean_exp)) +
-  geom_line()
+    geom_line()
 ```
 
 Unfortunately, this does not work because we plotted data for all the
@@ -527,8 +535,10 @@ modifying the aesthetic function to include `group = gene`:
 
 ```{r time-series-by-gene}
 ggplot(data = mean_exp_by_time,
-       mapping = aes(x = time, y = mean_exp, group = gene)) +
-  geom_line()
+       mapping = aes(x = time,
+                     y = mean_exp,
+                     group = gene)) +
+    geom_line()
 ```
 
 We will be able to distinguish genes in the plot if we add colors
@@ -536,7 +546,9 @@ We will be able to distinguish genes in the plot if we add colors
 
 ```{r time-series-with-colors}
 ggplot(data = mean_exp_by_time,
-       mapping = aes(x = time, y = mean_exp, color = gene)) +
+       mapping = aes(x = time,
+                     y = mean_exp,
+                     color = gene)) +
   geom_line()
 ```
 
@@ -551,8 +563,10 @@ gene:
 
 ```{r first-facet}
 ggplot(data = mean_exp_by_time,
-       mapping = aes(x = time, y = mean_exp)) + geom_line() +
-  facet_wrap(~ gene)
+       mapping = aes(x = time,
+                     y = mean_exp)) +
+    geom_line() +
+    facet_wrap(~ gene)
 ```
 
 Here both x- and y-axis have the same scale for all the sub plots. You
@@ -561,9 +575,10 @@ allow a free scale for the y-axis:
 
 ```{r first-facet-scales}
 ggplot(data = mean_exp_by_time,
-       mapping = aes(x = time, y = mean_exp)) +
-  geom_line() +
-  facet_wrap(~ gene, scales = "free_y")
+       mapping = aes(x = time,
+                     y = mean_exp)) +
+    geom_line() +
+    facet_wrap(~ gene, scales = "free_y")
 ```
 
 Now we would like to split the line in each plot by the sex of the
@@ -581,9 +596,11 @@ We can now make the faceted plot by splitting further by sex using
 
 ```{r facet-by-gene-and-sex, cache=FALSE}
 ggplot(data = mean_exp_by_time_sex,
-       mapping = aes(x = time, y = mean_exp, color = sex)) +
-  geom_line() +
-  facet_wrap(~ gene, scales = "free_y")
+       mapping = aes(x = time,
+                     y = mean_exp,
+                     color = sex)) +
+    geom_line() +
+    facet_wrap(~ gene, scales = "free_y")
 ```
 
 Usually plots with white background look more readable when printed.
@@ -592,13 +609,14 @@ We can set the background to white using the function
 
 ```{r facet-by-gene-and-sex-white-bg, cache=FALSE}
 ggplot(data = mean_exp_by_time_sex,
-       mapping = aes(x = time, y = mean_exp, color = sex)) +
-  geom_line() +
-  facet_wrap(~ gene, scales = "free_y") +
-  theme_bw() +
-  theme(panel.grid = element_blank())
+       mapping = aes(x = time,
+                     y = mean_exp,
+                     color = sex)) +
+    geom_line() +
+    facet_wrap(~ gene, scales = "free_y") +
+    theme_bw() +
+    theme(panel.grid = element_blank())
 ```
-
 
 `r msmbstyle::question_begin()`
 
@@ -615,10 +633,11 @@ mean_exp_by_chromosome <- rna %>%
   group_by(chromosome_name, time) %>%
   summarize(mean_exp = mean(expression_log))
 
-ggplot(data = mean_exp_by_chromosome, mapping = aes(x = time,
-                                y = mean_exp)) +
-  geom_line() +
-  facet_wrap(~ chromosome_name, scales = "free_y")
+ggplot(data = mean_exp_by_chromosome,
+       mapping = aes(x = time,
+                     y = mean_exp)) +
+    geom_line() +
+    facet_wrap(~ chromosome_name, scales = "free_y")
 ```
 
 `r msmbstyle::solution_end()`
@@ -637,17 +656,21 @@ of males and females has changed through time:
 ```{r mean-exp-time-facet-sex-rows}
 # One column, facet by rows
 ggplot(data = mean_exp_by_time_sex,
-       mapping = aes(x = time, y = mean_exp, color = gene)) +
-  geom_line() +
-  facet_grid(sex ~ .)
+       mapping = aes(x = time,
+                     y = mean_exp,
+                     color = gene)) +
+    geom_line() +
+    facet_grid(sex ~ .)
 ```
 
 ```{r mean-exp-time-facet-sex-columns}
 # One row, facet by column
 ggplot(data = mean_exp_by_time_sex,
-       mapping = aes(x = time, y = mean_exp, color = gene)) +
-  geom_line() +
-  facet_grid(. ~ sex)
+       mapping = aes(x = time,
+                     y = mean_exp,
+                     color = gene)) +
+    geom_line() +
+    facet_grid(. ~ sex)
 ```
 
 ## **`ggplot2`** themes
@@ -680,14 +703,16 @@ legend title:
 
 ```{r mean_exp-time-with-right-labels, cache=FALSE}
 ggplot(data = mean_exp_by_time_sex,
-       mapping = aes(x = time, y = mean_exp, color = sex)) +
-  geom_line() +
-  facet_wrap(~ gene, scales = "free_y") +
-  labs(title = "Mean gene expression by duration of the infection",
-       x = "Duration of the infection (in days)",
-       y = "Mean gene expression")  +
-  guides(color = guide_legend(title = "Gender")) +
-  theme_bw()
+       mapping = aes(x = time,
+                     y = mean_exp,
+                     color = sex)) +
+    geom_line() +
+    facet_wrap(~ gene, scales = "free_y") +
+    labs(title = "Mean gene expression by duration of the infection",
+         x = "Duration of the infection (in days)",
+         y = "Mean gene expression")  +
+    guides(color = guide_legend(title = "Gender")) +
+    theme_bw()
 ```
 
 The axes have more informative names, but their readability can be
@@ -695,15 +720,17 @@ improved by increasing the font size:
 
 ```{r mean_exp-time-with-right-labels-xfont-size, cache=FALSE}
 ggplot(data = mean_exp_by_time_sex,
-       mapping = aes(x = time, y = mean_exp, color = sex)) +
-  geom_line() +
-  facet_wrap(~ gene, scales = "free_y") +
-  labs(title = "Mean gene expression by duration of the infection",
+       mapping = aes(x = time,
+                     y = mean_exp,
+                     color = sex)) +
+    geom_line() +
+    facet_wrap(~ gene, scales = "free_y") +
+    labs(title = "Mean gene expression by duration of the infection",
          x = "Duration of the infection (in days)",
          y = "Mean gene expression") +
-  guides(color=guide_legend(title = "Gender")) +
-  theme_bw() +
-  theme(text = element_text(size = 16))
+    guides(color=guide_legend(title = "Gender")) +
+    theme_bw() +
+    theme(text = element_text(size = 16))
 ```
 
 Note that it is also possible to change the fonts of your plots. If
@@ -717,19 +744,21 @@ setting `legend.position` to `"top"`.
 
 ```{r mean_exp-time-with-theme, cache=FALSE}
 ggplot(data = mean_exp_by_time_sex,
-       mapping = aes(x = time, y = mean_exp, color = sex)) +
-  geom_line() +
-  facet_wrap(~ gene, scales = "free_y") +
-  labs(title = "Mean gene expression by duration of the infection",
+       mapping = aes(x = time,
+                     y = mean_exp,
+                     color = sex)) +
+    geom_line() +
+    facet_wrap(~ gene, scales = "free_y") +
+    labs(title = "Mean gene expression by duration of the infection",
          x = "Duration of the infection (in days)",
          y = "Mean gene expression") +
-  guides(color=guide_legend(title="Gender")) +
-  theme_bw() +
-  theme(text = element_text(size = 16),
-        axis.text.x = element_text(colour = "royalblue4", size = 12),
-        axis.text.y = element_text(colour = "royalblue4", size = 12),
-        panel.grid = element_line(colour="lightsteelblue1"),
-        legend.position = "top")
+    guides(color=guide_legend(title="Gender")) +
+    theme_bw() +
+    theme(text = element_text(size = 16),
+          axis.text.x = element_text(colour = "royalblue4", size = 12),
+          axis.text.y = element_text(colour = "royalblue4", size = 12),
+          panel.grid = element_line(colour="lightsteelblue1"),
+          legend.position = "top")
 ```
 
 If you like the changes you created better than the default theme, you
@@ -737,15 +766,16 @@ can save them as an object to be able to easily apply them to other
 plots you may create:
 
 ```{r mean_exp-time-with-right-labels-xfont, cache=FALSE}
-blue_theme <- theme(axis.text.x = element_text(colour = "royalblue4",
-                                               size = 12),
-                    axis.text.y = element_text(colour = "royalblue4",
-                                               size = 12),
-                    text = element_text(size = 16),
-                    panel.grid = element_line(colour="lightsteelblue1"))
+blue_theme <-
+    theme(axis.text.x = element_text(colour = "royalblue4",
+                                     size = 12),
+          axis.text.y = element_text(colour = "royalblue4",
+                                     size = 12),
+          text = element_text(size = 16),
+          panel.grid = element_line(colour="lightsteelblue1"))
 
 ggplot(rna, aes(x = expression_log)) +
-  geom_histogram(bins = 20) +
+    geom_histogram(bins = 20) +
     blue_theme
 ```
 
@@ -789,9 +819,12 @@ count_gene_chromosome <- rna %>%
     select(chromosome_name, gene) %>%
     distinct() %>%
     ggplot() +
-    geom_bar(aes(x = chromosome_name), fill = "seagreen",
-             position = "dodge", stat = "count") +
-    labs(y = "log10(n genes)", x = "chromosome") +
+    geom_bar(aes(x = chromosome_name),
+             fill = "seagreen",
+             position = "dodge",
+             stat = "count") +
+    labs(y = "log10(n genes)",
+         x = "chromosome") +
     scale_y_log10()
 
 count_gene_chromosome
@@ -804,7 +837,7 @@ Below, we also remove the legend altogether by setting the
 exp_boxplot_sex <- ggplot(rna,
                           aes(y = expression_log,
                               x = as.factor(time),
-                              color=sex)) +
+                              color = sex)) +
     geom_boxplot(alpha = 0) +
     labs(y = "Mean gene exp",
          x = "time") +
@@ -841,17 +874,17 @@ count_gene_chromosome + exp_boxplot_sex + plot_layout(ncol = 1)
 
 ```{r}
 count_gene_chromosome +
- (count_gene_chromosome + exp_boxplot_sex) +
- exp_boxplot_sex +
- plot_layout(ncol = 1)
+    (count_gene_chromosome + exp_boxplot_sex) +
+    exp_boxplot_sex +
+    plot_layout(ncol = 1)
 ```
 
 The last plot can also be created using the `|` and `/` composers:
 
 ```{r}
 count_gene_chromosome /
- (count_gene_chromosome | exp_boxplot_sex) /
- exp_boxplot_sex
+    (count_gene_chromosome | exp_boxplot_sex) /
+    exp_boxplot_sex
 ```
 
 Learn more about `patchwork` on its
@@ -889,19 +922,21 @@ Make sure you have the `fig_output/` folder in your working directory.
 
 ```{r ggsave-example, eval=FALSE}
 my_plot <- ggplot(data = mean_exp_by_time_sex,
-       mapping = aes(x = time, y = mean_exp, color = sex)) +
-  geom_line() +
-  facet_wrap(~ gene, scales = "free_y") +
-  labs(title = "Mean gene expression by duration of the infection",
+                  mapping = aes(x = time,
+                                y = mean_exp,
+                                color = sex)) +
+    geom_line() +
+    facet_wrap(~ gene, scales = "free_y") +
+    labs(title = "Mean gene expression by duration of the infection",
          x = "Duration of the infection (in days)",
          y = "Mean gene expression") +
-  guides(color=guide_legend(title="Gender")) +
-  theme_bw() +
-  theme(axis.text.x = element_text(colour = "royalblue4", size = 12),
-        axis.text.y = element_text(colour = "royalblue4", size = 12),
-        text = element_text(size = 16),
-        panel.grid = element_line(colour="lightsteelblue1"),
-        legend.position = "top")
+    guides(color=guide_legend(title="Gender")) +
+    theme_bw() +
+    theme(axis.text.x = element_text(colour = "royalblue4", size = 12),
+          axis.text.y = element_text(colour = "royalblue4", size = 12),
+          text = element_text(size = 16),
+          panel.grid = element_line(colour="lightsteelblue1"),
+          legend.position = "top")
 ggsave("fig_output/mean_exp_by_time_sex.png", my_plot, width = 15,
        height = 10)
 
