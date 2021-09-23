@@ -128,6 +128,17 @@ ggplot(rna, aes(x = expression)) +
 Change the arguments `bins` or `binwidth` of `geom_histogram()` to change the number or width of the bins.
 `r msmbstyle::question_end()`
 
+`r msmbstyle::question_begin()`
+```{r}
+# change bins
+ggplot(rna, aes(x = expression)) + 
+  geom_histogram(bins = 15) 
+# change binwidth
+ggplot(rna, aes(x = expression)) + 
+  geom_histogram(binwidth = 2000) 
+```
+`r msmbstyle::question_end()`
+
 We can observe here that the data have an right-skewed distribution. We could try to apply for example a log2 transformation to have a more symmetric data distribution. Note that we add here a small constant value (`+1`) to avoid having `-Inf` values returned for expression values equal to 0. 
 
 ```{r log-transfo, cache=FALSE}
@@ -290,23 +301,18 @@ CRAN and load it.
 
 ```{r, eval = FALSE}
 install.packages("hexbin")
+```
+
+```{r}
 library("hexbin")
 ```
+
 `r msmbstyle::solution_end()`
 
 
 `r msmbstyle::question_begin()`
 
-Then use the `geom_hex()` function
-
-```{r, eval = FALSE}
-ggplot(data = rna_FC, mapping = aes(x = time_4_vs_0,
-                                y = time_8_vs_0,
-                                color = gene_biotype)) +
-  geom_hex() +
-  geom_abline(intercept = 0)
- 
-```
+Then use the `geom_hex()` function.
 
 What are the relative strengths and weaknesses of a hexagonal bin plot
 compared to a scatter plot? Examine the above scatter plot and compare
@@ -314,6 +320,14 @@ it with the hexagonal bin plot that you created.
 
 `r msmbstyle::question_end()`
 
+`r msmbstyle::solution_begin()`
+```{r, eval = TRUE}
+ggplot(data = rna_FC, mapping = aes(x = time_4_vs_0,
+                                y = time_8_vs_0)) +
+  geom_hex() +
+  geom_abline(intercept = 0)
+```
+`r msmbstyle::solution_end()`
 
 `r msmbstyle::question_begin()`
 
