@@ -626,7 +626,7 @@ columns. For this we’ll use <code>mutate()</code>.</p>
 ## 10     8        192   11520
 ## # … with 32,418 more rows</code></pre>
 <p>If this runs off your screen and you just want to see the first few rows, you
-can use a pipe to view the <code>head()</code> of the data. (Pipes work with non-<strong><code>dplyr</code></strong>
+can use a pipe to view the <code>head()</code> of the data. (Pipes work with non-<code>dplyr</code>
 functions, too, as long as the <strong><code>dplyr</code></strong> or <code>magrittr</code> package is loaded).</p>
 <div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="sec-dplyr.html#cb296-1" aria-hidden="true" tabindex="-1"></a>rna <span class="sc">%&gt;%</span></span>
 <span id="cb296-2"><a href="sec-dplyr.html#cb296-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_hours =</span> time <span class="sc">*</span> <span class="dv">24</span>, <span class="at">time_mn =</span> time_hours <span class="sc">*</span> <span class="dv">60</span>) <span class="sc">%&gt;%</span></span>
@@ -679,9 +679,10 @@ in the chain, and the <code>is.na()</code> function that determines whether some
 ##  9 Amt      &lt;NA&gt;                                 
 ## 10 Tmem198b &lt;NA&gt;                                 
 ## # … with 4,764 more rows</code></pre>
-<p>If we want to keep only mouse gene that have a human homolog, we can insert a “!”
-symbol that negates the result, so we’re asking for every row where
-hsapiens_homolog_associated_gene_name <em>is not</em> an <code>NA</code>.</p>
+<p>If we want to keep only mouse gene that have a human homolog, we can
+insert a <code>!</code> symbol that negates the result, so we’re asking for
+every row where <code>hsapiens_homolog_associated_gene_name</code> <em>is not</em> an
+<code>NA</code>.</p>
 <p>The first few rows of the output are full of <code>NA</code>s, so if we wanted to remove
 those we could insert a <code>filter()</code> in the chain:</p>
 <div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="sec-dplyr.html#cb302-1" aria-hidden="true" tabindex="-1"></a>rna <span class="sc">%&gt;%</span></span>
@@ -706,10 +707,12 @@ those we could insert a <code>filter()</code> in the chain:</p>
 ► Question
 </p>
 <div class="question-body">
-<p>Create a new data frame from the <code>rna</code> data that meets the following criteria:
-contains only the <code>gene</code>, <code>chromosome_name</code>, <code>phenotype_description</code>, <code>sample</code>, and <code>expression</code> columns and a new
-column giving the log expression the gene.
-This data frame must only contain gene located on autosomes and associated with a phenotype_description.</p>
+<p>Create a new data frame from the <code>rna</code>
+data that meets the following criteria: contains only the <code>gene</code>,
+<code>chromosome_name</code>, <code>phenotype_description</code>, <code>sample</code>, and <code>expression</code>
+columns and a new column giving the log expression the gene. This
+data frame must only contain gene located on autosomes and associated
+with a <code>phenotype_description</code>.</p>
 <p><strong>Hint</strong>: think about how the commands should be ordered to produce
 this data frame!</p>
 <p class="question-end">
