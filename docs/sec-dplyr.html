@@ -83,7 +83,6 @@ function reset_tooltip(id) {
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -321,7 +320,7 @@ and this <a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.
 tidyverse package <strong><code>readr</code></strong>, instead of <code>read.csv()</code>.</p>
 <div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="sec-dplyr.html#cb269-1" aria-hidden="true" tabindex="-1"></a>rna <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
 <pre><code>## Rows: 32428 Columns: 19</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+<pre><code>## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (14): gene, sample, organism, sex, infection, strain, tissue, product, e...
 ## dbl  (5): expression, age, time, mouse, ENTREZID</code></pre>
@@ -797,18 +796,18 @@ statistics. So to compute the mean <code>expression</code> by gene:</p>
 <span id="cb308-2"><a href="sec-dplyr.html#cb308-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gene) <span class="sc">%&gt;%</span></span>
 <span id="cb308-3"><a href="sec-dplyr.html#cb308-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_expression =</span> <span class="fu">mean</span>(expression))</span></code></pre></div>
 <pre><code>## # A tibble: 1,474 × 2
-##    gene    mean_expression
-##    &lt;chr&gt;             &lt;dbl&gt;
-##  1 Aamp            4751.  
-##  2 Abca12             4.55
-##  3 Abcc8           2498.  
-##  4 Abhd14a          525.  
-##  5 Abi2            4909.  
-##  6 Abi3bp          1002.  
-##  7 Abl2            2124.  
-##  8 Acadl           2053.  
-##  9 Acap3           3536.  
-## 10 Acbd4           1431.  
+##    gene     mean_expression
+##    &lt;chr&gt;              &lt;dbl&gt;
+##  1 AI504432         1053.  
+##  2 AW046200          131.  
+##  3 AW551984          295.  
+##  4 Aamp             4751.  
+##  5 Abca12              4.55
+##  6 Abcc8            2498.  
+##  7 Abhd14a           525.  
+##  8 Abi2             4909.  
+##  9 Abi3bp           1002.  
+## 10 Abl2             2124.  
 ## # … with 1,464 more rows</code></pre>
 <p>You may also have noticed that the output from these calls doesn’t run off the
 screen anymore. It’s one of the advantages of <code>tbl_df</code> over data frame.</p>
@@ -819,18 +818,18 @@ screen anymore. It’s one of the advantages of <code>tbl_df</code> over data fr
 <pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 4,422 × 4
 ## # Groups:   gene, infection [2,948]
-##    gene    infection    time mean_expression
-##    &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt;           &lt;dbl&gt;
-##  1 Aamp    InfluenzaA      4         4870   
-##  2 Aamp    InfluenzaA      8         4763.  
-##  3 Aamp    NonInfected     0         4603.  
-##  4 Abca12  InfluenzaA      4            4.25
-##  5 Abca12  InfluenzaA      8            4.14
-##  6 Abca12  NonInfected     0            5.29
-##  7 Abcc8   InfluenzaA      4         2609.  
-##  8 Abcc8   InfluenzaA      8         2292.  
-##  9 Abcc8   NonInfected     0         2576.  
-## 10 Abhd14a InfluenzaA      4          547.  
+##    gene     infection    time mean_expression
+##    &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt;           &lt;dbl&gt;
+##  1 AI504432 InfluenzaA      4           1104.
+##  2 AI504432 InfluenzaA      8           1014 
+##  3 AI504432 NonInfected     0           1034.
+##  4 AW046200 InfluenzaA      4            152.
+##  5 AW046200 InfluenzaA      8             81 
+##  6 AW046200 NonInfected     0            155.
+##  7 AW551984 InfluenzaA      4            302.
+##  8 AW551984 InfluenzaA      8            342.
+##  9 AW551984 NonInfected     0            238 
+## 10 Aamp     InfluenzaA      4           4870 
 ## # … with 4,412 more rows</code></pre>
 <p>Here, again, the output from these calls doesn’t run off the screen
 anymore. If you want to display more data, you can use the <code>print()</code> function
@@ -843,23 +842,23 @@ display:</p>
 <pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 4,422 × 4
 ## # Groups:   gene, infection [2,948]
-##    gene    infection    time mean_expression
-##    &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt;           &lt;dbl&gt;
-##  1 Aamp    InfluenzaA      4         4870   
-##  2 Aamp    InfluenzaA      8         4763.  
-##  3 Aamp    NonInfected     0         4603.  
-##  4 Abca12  InfluenzaA      4            4.25
-##  5 Abca12  InfluenzaA      8            4.14
-##  6 Abca12  NonInfected     0            5.29
-##  7 Abcc8   InfluenzaA      4         2609.  
-##  8 Abcc8   InfluenzaA      8         2292.  
-##  9 Abcc8   NonInfected     0         2576.  
-## 10 Abhd14a InfluenzaA      4          547.  
-## 11 Abhd14a InfluenzaA      8          432.  
-## 12 Abhd14a NonInfected     0          591.  
-## 13 Abi2    InfluenzaA      4         4903.  
-## 14 Abi2    InfluenzaA      8         4945.  
-## 15 Abi2    NonInfected     0         4881.  
+##    gene     infection    time mean_expression
+##    &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt;           &lt;dbl&gt;
+##  1 AI504432 InfluenzaA      4         1104.  
+##  2 AI504432 InfluenzaA      8         1014   
+##  3 AI504432 NonInfected     0         1034.  
+##  4 AW046200 InfluenzaA      4          152.  
+##  5 AW046200 InfluenzaA      8           81   
+##  6 AW046200 NonInfected     0          155.  
+##  7 AW551984 InfluenzaA      4          302.  
+##  8 AW551984 InfluenzaA      8          342.  
+##  9 AW551984 NonInfected     0          238   
+## 10 Aamp     InfluenzaA      4         4870   
+## 11 Aamp     InfluenzaA      8         4763.  
+## 12 Aamp     NonInfected     0         4603.  
+## 13 Abca12   InfluenzaA      4            4.25
+## 14 Abca12   InfluenzaA      8            4.14
+## 15 Abca12   NonInfected     0            5.29
 ## # … with 4,407 more rows</code></pre>
 <p>Once the data is grouped, you can also summarize multiple variables at the same
 time (and not necessarily on the same variable). For instance, we could add
@@ -871,18 +870,18 @@ columns indicating the median <code>expression</code> by gene and by condition:<
 <pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 4,422 × 5
 ## # Groups:   gene, infection [2,948]
-##    gene    infection    time mean_expression median_expression
-##    &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt;           &lt;dbl&gt;             &lt;dbl&gt;
-##  1 Aamp    InfluenzaA      4         4870               4708  
-##  2 Aamp    InfluenzaA      8         4763.              4813  
-##  3 Aamp    NonInfected     0         4603.              4717  
-##  4 Abca12  InfluenzaA      4            4.25               4.5
-##  5 Abca12  InfluenzaA      8            4.14               4  
-##  6 Abca12  NonInfected     0            5.29               5  
-##  7 Abcc8   InfluenzaA      4         2609.              2424. 
-##  8 Abcc8   InfluenzaA      8         2292.              2224  
-##  9 Abcc8   NonInfected     0         2576.              2578  
-## 10 Abhd14a InfluenzaA      4          547.               523  
+##    gene     infection    time mean_expression median_expression
+##    &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt;           &lt;dbl&gt;             &lt;dbl&gt;
+##  1 AI504432 InfluenzaA      4           1104.             1094.
+##  2 AI504432 InfluenzaA      8           1014               985 
+##  3 AI504432 NonInfected     0           1034.             1016 
+##  4 AW046200 InfluenzaA      4            152.              144.
+##  5 AW046200 InfluenzaA      8             81                82 
+##  6 AW046200 NonInfected     0            155.              163 
+##  7 AW551984 InfluenzaA      4            302.              245 
+##  8 AW551984 InfluenzaA      8            342.              287 
+##  9 AW551984 NonInfected     0            238               265 
+## 10 Aamp     InfluenzaA      4           4870              4708 
 ## # … with 4,412 more rows</code></pre>
 <p>It is sometimes useful to rearrange the result of a query to inspect the values.
 For instance, we can sort on <code>mean_expression</code> to put the genes lowly expressed first:</p>
@@ -1495,18 +1494,18 @@ the mean expression levels of genes and columns represent the different timepoin
 <pre><code>## `summarise()` has grouped output by 'gene'. You can override using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 1,474 × 4
 ## # Groups:   gene [1,474]
-##    gene        `0`     `4`     `8`
-##    &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-##  1 Aamp    4603.   4870    4763.  
-##  2 Abca12     5.29    4.25    4.14
-##  3 Abcc8   2576.   2609.   2292.  
-##  4 Abhd14a  591.    547.    432.  
-##  5 Abi2    4881.   4903.   4945.  
-##  6 Abi3bp  1175.   1061.    762.  
-##  7 Abl2    2170.   2078.   2131.  
-##  8 Acadl   2059.   2099    1995.  
-##  9 Acap3   3745    3446.   3431.  
-## 10 Acbd4   1219.   1410.   1668.  
+##    gene         `0`     `4`     `8`
+##    &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+##  1 AI504432 1034.   1104.   1014   
+##  2 AW046200  155.    152.     81   
+##  3 AW551984  238     302.    342.  
+##  4 Aamp     4603.   4870    4763.  
+##  5 Abca12      5.29    4.25    4.14
+##  6 Abcc8    2576.   2609.   2292.  
+##  7 Abhd14a   591.    547.    432.  
+##  8 Abi2     4881.   4903.   4945.  
+##  9 Abi3bp   1175.   1061.    762.  
+## 10 Abl2     2170.   2078.   2131.  
 ## # … with 1,464 more rows</code></pre>
 <p>Notice that this generates a tibble with some column names starting by a number.
 If we wanted to select the column corresponding to the timepoints,
@@ -1520,18 +1519,18 @@ we could not use the column names directly… What happens when we select the co
 <pre><code>## `summarise()` has grouped output by 'gene'. You can override using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 1,474 × 2
 ## # Groups:   gene [1,474]
-##    gene        `8`
-##    &lt;chr&gt;     &lt;dbl&gt;
-##  1 Aamp    4763.  
-##  2 Abca12     4.14
-##  3 Abcc8   2292.  
-##  4 Abhd14a  432.  
-##  5 Abi2    4945.  
-##  6 Abi3bp   762.  
-##  7 Abl2    2131.  
-##  8 Acadl   1995.  
-##  9 Acap3   3431.  
-## 10 Acbd4   1668.  
+##    gene         `8`
+##    &lt;chr&gt;      &lt;dbl&gt;
+##  1 AI504432 1014   
+##  2 AW046200   81   
+##  3 AW551984  342.  
+##  4 Aamp     4763.  
+##  5 Abca12      4.14
+##  6 Abcc8    2292.  
+##  7 Abhd14a   432.  
+##  8 Abi2     4945.  
+##  9 Abi3bp    762.  
+## 10 Abl2     2131.  
 ## # … with 1,464 more rows</code></pre>
 <p>To select the timepoint 4, we would have to quote the column name, with backticks “`”</p>
 <div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="sec-dplyr.html#cb382-1" aria-hidden="true" tabindex="-1"></a>rna <span class="sc">%&gt;%</span></span>
@@ -1543,18 +1542,18 @@ we could not use the column names directly… What happens when we select the co
 <pre><code>## `summarise()` has grouped output by 'gene'. You can override using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 1,474 × 2
 ## # Groups:   gene [1,474]
-##    gene        `4`
-##    &lt;chr&gt;     &lt;dbl&gt;
-##  1 Aamp    4870   
-##  2 Abca12     4.25
-##  3 Abcc8   2609.  
-##  4 Abhd14a  547.  
-##  5 Abi2    4903.  
-##  6 Abi3bp  1061.  
-##  7 Abl2    2078.  
-##  8 Acadl   2099   
-##  9 Acap3   3446.  
-## 10 Acbd4   1410.  
+##    gene         `4`
+##    &lt;chr&gt;      &lt;dbl&gt;
+##  1 AI504432 1104.  
+##  2 AW046200  152.  
+##  3 AW551984  302.  
+##  4 Aamp     4870   
+##  5 Abca12      4.25
+##  6 Abcc8    2609.  
+##  7 Abhd14a   547.  
+##  8 Abi2     4903.  
+##  9 Abi3bp   1061.  
+## 10 Abl2     2078.  
 ## # … with 1,464 more rows</code></pre>
 <p>Another possibility would be to rename the column,
 choosing a name that doesn’t start by a number :</p>
@@ -1568,18 +1567,18 @@ choosing a name that doesn’t start by a number :</p>
 <pre><code>## `summarise()` has grouped output by 'gene'. You can override using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 1,474 × 2
 ## # Groups:   gene [1,474]
-##    gene      time4
-##    &lt;chr&gt;     &lt;dbl&gt;
-##  1 Aamp    4870   
-##  2 Abca12     4.25
-##  3 Abcc8   2609.  
-##  4 Abhd14a  547.  
-##  5 Abi2    4903.  
-##  6 Abi3bp  1061.  
-##  7 Abl2    2078.  
-##  8 Acadl   2099   
-##  9 Acap3   3446.  
-## 10 Acbd4   1410.  
+##    gene       time4
+##    &lt;chr&gt;      &lt;dbl&gt;
+##  1 AI504432 1104.  
+##  2 AW046200  152.  
+##  3 AW551984  302.  
+##  4 Aamp     4870   
+##  5 Abca12      4.25
+##  6 Abcc8    2609.  
+##  7 Abhd14a   547.  
+##  8 Abi2     4903.  
+##  9 Abi3bp   1061.  
+## 10 Abl2     2078.  
 ## # … with 1,464 more rows</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1615,18 +1614,18 @@ Convert this table in a long-format table gathering the foldchanges calculated.<
 <div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="sec-dplyr.html#cb390-1" aria-hidden="true" tabindex="-1"></a>rna_FC</span></code></pre></div>
 <pre><code>## # A tibble: 1,474 × 6
 ## # Groups:   gene [1,474]
-##    gene        `0`     `4`     `8` time_8_vs_0 time_8_vs_4
-##    &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
-##  1 Aamp    4603.   4870    4763.         1.03        0.978
-##  2 Abca12     5.29    4.25    4.14       0.784       0.975
-##  3 Abcc8   2576.   2609.   2292.         0.889       0.878
-##  4 Abhd14a  591.    547.    432.         0.731       0.791
-##  5 Abi2    4881.   4903.   4945.         1.01        1.01 
-##  6 Abi3bp  1175.   1061.    762.         0.649       0.719
-##  7 Abl2    2170.   2078.   2131.         0.982       1.03 
-##  8 Acadl   2059.   2099    1995.         0.969       0.950
-##  9 Acap3   3745    3446.   3431.         0.916       0.996
-## 10 Acbd4   1219.   1410.   1668.         1.37        1.18 
+##    gene         `0`     `4`     `8` time_8_vs_0 time_8_vs_4
+##    &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+##  1 AI504432 1034.   1104.   1014          0.981       0.918
+##  2 AW046200  155.    152.     81          0.522       0.532
+##  3 AW551984  238     302.    342.         1.44        1.13 
+##  4 Aamp     4603.   4870    4763.         1.03        0.978
+##  5 Abca12      5.29    4.25    4.14       0.784       0.975
+##  6 Abcc8    2576.   2609.   2292.         0.889       0.878
+##  7 Abhd14a   591.    547.    432.         0.731       0.791
+##  8 Abi2     4881.   4903.   4945.         1.01        1.01 
+##  9 Abi3bp   1175.   1061.    762.         0.649       0.719
+## 10 Abl2     2170.   2078.   2131.         0.982       1.03 
 ## # … with 1,464 more rows</code></pre>
 <div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="sec-dplyr.html#cb392-1" aria-hidden="true" tabindex="-1"></a>rna_FC <span class="sc">%&gt;%</span></span>
 <span id="cb392-2"><a href="sec-dplyr.html#cb392-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"comparisons"</span>,</span>
@@ -1634,18 +1633,18 @@ Convert this table in a long-format table gathering the foldchanges calculated.<
 <span id="cb392-4"><a href="sec-dplyr.html#cb392-4" aria-hidden="true" tabindex="-1"></a>               time_8_vs_0<span class="sc">:</span>time_8_vs_4)</span></code></pre></div>
 <pre><code>## # A tibble: 2,948 × 6
 ## # Groups:   gene [1,474]
-##    gene        `0`     `4`     `8` comparisons Fold_changes
-##    &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
-##  1 Aamp    4603.   4870    4763.   time_8_vs_0        1.03 
-##  2 Aamp    4603.   4870    4763.   time_8_vs_4        0.978
-##  3 Abca12     5.29    4.25    4.14 time_8_vs_0        0.784
-##  4 Abca12     5.29    4.25    4.14 time_8_vs_4        0.975
-##  5 Abcc8   2576.   2609.   2292.   time_8_vs_0        0.889
-##  6 Abcc8   2576.   2609.   2292.   time_8_vs_4        0.878
-##  7 Abhd14a  591.    547.    432.   time_8_vs_0        0.731
-##  8 Abhd14a  591.    547.    432.   time_8_vs_4        0.791
-##  9 Abi2    4881.   4903.   4945.   time_8_vs_0        1.01 
-## 10 Abi2    4881.   4903.   4945.   time_8_vs_4        1.01 
+##    gene         `0`     `4`     `8` comparisons Fold_changes
+##    &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
+##  1 AI504432 1034.   1104.   1014    time_8_vs_0        0.981
+##  2 AI504432 1034.   1104.   1014    time_8_vs_4        0.918
+##  3 AW046200  155.    152.     81    time_8_vs_0        0.522
+##  4 AW046200  155.    152.     81    time_8_vs_4        0.532
+##  5 AW551984  238     302.    342.   time_8_vs_0        1.44 
+##  6 AW551984  238     302.    342.   time_8_vs_4        1.13 
+##  7 Aamp     4603.   4870    4763.   time_8_vs_0        1.03 
+##  8 Aamp     4603.   4870    4763.   time_8_vs_4        0.978
+##  9 Abca12      5.29    4.25    4.14 time_8_vs_0        0.784
+## 10 Abca12      5.29    4.25    4.14 time_8_vs_4        0.975
 ## # … with 2,938 more rows</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1686,18 +1685,18 @@ and timepoint 0, and the fold-changes between timepoint 8 and timepoint 0.</p>
 <div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="sec-dplyr.html#cb396-1" aria-hidden="true" tabindex="-1"></a>rna_FC</span></code></pre></div>
 <pre><code>## # A tibble: 1,474 × 3
 ## # Groups:   gene [1,474]
-##    gene    time_8_vs_0 time_4_vs_0
-##    &lt;chr&gt;         &lt;dbl&gt;       &lt;dbl&gt;
-##  1 Aamp         0.0271    0.0522  
-##  2 Abca12      -0.116    -0.114   
-##  3 Abcc8       -0.114     0.0163  
-##  4 Abhd14a     -0.309    -0.0800  
-##  5 Abi2         0.0110   -0.000894
-##  6 Abi3bp      -0.432    -0.107   
-##  7 Abl2        -0.0188   -0.0550  
-##  8 Acadl       -0.0353    0.0182  
-##  9 Acap3       -0.0869   -0.0900  
-## 10 Acbd4        0.320     0.149   
+##    gene     time_8_vs_0 time_4_vs_0
+##    &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;
+##  1 AI504432     -0.0248    0.0523  
+##  2 AW046200     -0.650    -0.0348  
+##  3 AW551984      0.232    -0.428   
+##  4 Aamp          0.0271    0.0522  
+##  5 Abca12       -0.116    -0.114   
+##  6 Abcc8        -0.114     0.0163  
+##  7 Abhd14a      -0.309    -0.0800  
+##  8 Abi2          0.0110   -0.000894
+##  9 Abi3bp       -0.432    -0.107   
+## 10 Abl2         -0.0188   -0.0550  
 ## # … with 1,464 more rows</code></pre>
 <p>We can save the table as a CSV file in our <code>data_output</code>
 folder.</p>

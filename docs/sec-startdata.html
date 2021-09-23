@@ -83,7 +83,6 @@ function reset_tooltip(id) {
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -374,37 +373,42 @@ using the function <code>head()</code>:</p>
 ## 3 Cyp2d22 GSM2545336       4060 Mus musculus   8 Female InfluenzaA C57BL/6    8
 ## 4    Klk6 GSM2545336        287 Mus musculus   8 Female InfluenzaA C57BL/6    8
 ## 5   Fcrls GSM2545336         85 Mus musculus   8 Female InfluenzaA C57BL/6    8
+## 6  Slc2a4 GSM2545336        782 Mus musculus   8 Female InfluenzaA C57BL/6    8
 ##       tissue mouse ENTREZID
 ## 1 Cerebellum    14   109900
 ## 2 Cerebellum    14    11815
 ## 3 Cerebellum    14    56448
 ## 4 Cerebellum    14    19144
 ## 5 Cerebellum    14    80891
+## 6 Cerebellum    14    20528
 ##                                                                    product
 ## 1                            argininosuccinate lyase transcript variant X1
 ## 2                                    apolipoprotein D transcript variant 3
 ## 3 cytochrome P450 family 2 subfamily d polypeptide 22 transcript variant 2
 ## 4                      kallikrein related-peptidase 6 transcript variant 2
 ## 5              Fc receptor-like S scavenger receptor transcript variant X1
+## 6       solute carrier family 2 (facilitated glucose transporter) member 4
 ##      ensembl_gene_id external_synonym chromosome_name   gene_biotype
 ## 1 ENSMUSG00000025533    2510006M18Rik               5 protein_coding
 ## 2 ENSMUSG00000022548             &lt;NA&gt;              16 protein_coding
 ## 3 ENSMUSG00000061740             2D22              15 protein_coding
 ## 4 ENSMUSG00000050063             Bssp               7 protein_coding
 ## 5 ENSMUSG00000015852    2810439C17Rik               3 protein_coding
+## 6 ENSMUSG00000018566           Glut-4              11 protein_coding
 ##                             phenotype_description
 ## 1           abnormal circulating amino acid level
 ## 2                      abnormal lipid homeostasis
 ## 3                        abnormal skin morphology
 ## 4                         abnormal cytokine level
 ## 5 decreased CD8-positive alpha-beta T cell number
+## 6              abnormal circulating glucose level
 ##   hsapiens_homolog_associated_gene_name
 ## 1                                   ASL
 ## 2                                  APOD
 ## 3                                CYP2D6
 ## 4                                  KLK6
 ## 5                                 FCRL4
-##  [ reached 'max' / getOption("max.print") -- omitted 1 rows ]</code></pre>
+## 6                                SLC2A4</code></pre>
 <div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="sec-startdata.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Try also</span></span>
 <span id="cb199-2"><a href="sec-startdata.html#cb199-2" aria-hidden="true" tabindex="-1"></a><span class="do">## View(rna)</span></span></code></pre></div>
 <p><strong>Note</strong></p>
@@ -426,7 +430,7 @@ with the separation argument as <code>,</code>. The code is as follows:</p>
 <span id="cb200-3"><a href="sec-startdata.html#cb200-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>The header argument has to be set to <code>TRUE</code> to be able to read the
 headers as by default <code>read.table()</code> has the header argument set to
-FALSE. The quote argument has to be set to <code>"\""</code> to only allow ”
+FALSE. The quote argument has to be set to <code>"\""</code> to only allow "
 as a quoting character (see how is written the <code>product</code> variable
 for gene <code>Rtca</code> in rnaseq.csv).</p>
 </div>
@@ -1089,9 +1093,9 @@ a matrix, a dataframe and another list:</p>
 <pre><code>## List of 5
 ##  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##  $ : chr [1:26] "a" "b" "c" "d" ...
-##  $ : chr [1:726, 1:16] "abind" "AER" "affy" "affydata" ...
+##  $ : chr [1:574, 1:16] "ALL" "ALS" "AnnotationDbi" "AnnotationFilter" ...
 ##   ..- attr(*, "dimnames")=List of 2
-##   .. ..$ : chr [1:726] "abind" "AER" "affy" "affydata" ...
+##   .. ..$ : chr [1:574] "ALL" "ALS" "AnnotationDbi" "AnnotationFilter" ...
 ##   .. ..$ : chr [1:16] "Package" "LibPath" "Version" "Priority" ...
 ##  $ :'data.frame':    50 obs. of  2 variables:
 ##   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...
@@ -1170,37 +1174,42 @@ output of <code>readRDS</code> in a variable:</p>
 ## 3 Cyp2d22 GSM2545336       4060 Mus musculus   8 Female InfluenzaA C57BL/6    8
 ## 4    Klk6 GSM2545336        287 Mus musculus   8 Female InfluenzaA C57BL/6    8
 ## 5   Fcrls GSM2545336         85 Mus musculus   8 Female InfluenzaA C57BL/6    8
+## 6  Slc2a4 GSM2545336        782 Mus musculus   8 Female InfluenzaA C57BL/6    8
 ##       tissue mouse ENTREZID
 ## 1 Cerebellum    14   109900
 ## 2 Cerebellum    14    11815
 ## 3 Cerebellum    14    56448
 ## 4 Cerebellum    14    19144
 ## 5 Cerebellum    14    80891
+## 6 Cerebellum    14    20528
 ##                                                                    product
 ## 1                            argininosuccinate lyase transcript variant X1
 ## 2                                    apolipoprotein D transcript variant 3
 ## 3 cytochrome P450 family 2 subfamily d polypeptide 22 transcript variant 2
 ## 4                      kallikrein related-peptidase 6 transcript variant 2
 ## 5              Fc receptor-like S scavenger receptor transcript variant X1
+## 6       solute carrier family 2 (facilitated glucose transporter) member 4
 ##      ensembl_gene_id external_synonym chromosome_name   gene_biotype
 ## 1 ENSMUSG00000025533    2510006M18Rik               5 protein_coding
 ## 2 ENSMUSG00000022548             &lt;NA&gt;              16 protein_coding
 ## 3 ENSMUSG00000061740             2D22              15 protein_coding
 ## 4 ENSMUSG00000050063             Bssp               7 protein_coding
 ## 5 ENSMUSG00000015852    2810439C17Rik               3 protein_coding
+## 6 ENSMUSG00000018566           Glut-4              11 protein_coding
 ##                             phenotype_description
 ## 1           abnormal circulating amino acid level
 ## 2                      abnormal lipid homeostasis
 ## 3                        abnormal skin morphology
 ## 4                         abnormal cytokine level
 ## 5 decreased CD8-positive alpha-beta T cell number
+## 6              abnormal circulating glucose level
 ##   hsapiens_homolog_associated_gene_name
 ## 1                                   ASL
 ## 2                                  APOD
 ## 3                                CYP2D6
 ## 4                                  KLK6
 ## 5                                 FCRL4
-##  [ reached 'max' / getOption("max.print") -- omitted 1 rows ]</code></pre>
+## 6                                SLC2A4</code></pre>
 <p>To conclude, when it comes to saving data from R that will be loaded
 again in R, saving and loading is the preferred approach. If tabular
 data need to be shared with somebody that is not using R, then
