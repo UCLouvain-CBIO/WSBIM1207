@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-09-23" />
+<meta name="date" content="2021-09-24" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -577,7 +577,7 @@ increasing or decreasing order, test <code>1:10</code> and <code>10:1</code> for
 instance. See section <a href="sec-startr.html#sec-genvec">3.9</a> for details.</p>
 <p>You can also exclude certain indices of a data frame using the “<code>-</code>” sign:</p>
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="sec-startdata.html#cb204-1" aria-hidden="true" tabindex="-1"></a>rna[, <span class="sc">-</span><span class="dv">1</span>]          <span class="do">## The whole data frame, except the first column</span></span>
-<span id="cb204-2"><a href="sec-startdata.html#cb204-2" aria-hidden="true" tabindex="-1"></a>rna[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">7</span><span class="sc">:</span><span class="dv">32428</span>), ] <span class="do">## Equivalent to head(surveys)</span></span></code></pre></div>
+<span id="cb204-2"><a href="sec-startdata.html#cb204-2" aria-hidden="true" tabindex="-1"></a>rna[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">7</span><span class="sc">:</span><span class="dv">32428</span>), ] <span class="do">## Equivalent to head(rna)</span></span></code></pre></div>
 <p>Data frames can be subset by calling indices (as shown previously),
 but also by calling their column names directly:</p>
 <div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="sec-startdata.html#cb205-1" aria-hidden="true" tabindex="-1"></a>rna[<span class="st">"gene"</span>]       <span class="co"># Result is a data.frame</span></span>
@@ -1389,7 +1389,7 @@ to use the <code>quantile</code> function.</p></li>
 <a href="sec-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-09-23
+2021-09-24
  using 
 R version 4.1.0 (2021-05-18)
 </p>
