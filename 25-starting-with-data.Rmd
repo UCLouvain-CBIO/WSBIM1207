@@ -244,7 +244,7 @@ You can also exclude certain indices of a data frame using the "`-`" sign:
 
 ```{r, eval = FALSE}
 rna[, -1]          ## The whole data frame, except the first column
-rna[-c(7:32428), ] ## Equivalent to head(surveys)
+rna[-c(7:32428), ] ## Equivalent to head(rna)
 ```
 
 Data frames can be subset by calling indices (as shown previously),

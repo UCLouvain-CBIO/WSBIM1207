@@ -29,7 +29,7 @@ problems in R, in particular to develop simple R analysis scripts and
 reproducible analysis reports to interrogate, visualise and understand
 data in a tidy tabular format.
 
-The course will be followed by *Bioinformatics*
+The course is followed by *Bioinformatics*
 ([WSBIM1322](https://github.com/UCLouvain-CBIO/WSBIM1322)) and *Omics
 data analysis*
 ([WSBIM2122](https://github.com/UCLouvain-CBIO/WSBIM2122)).
@@ -162,8 +162,13 @@ however, as they cover large parts of the material or provide
 complementary resources.
 
 The material for the first chapters, covering the *Introduction to
-data science with R*, is based on the [**Data Carpentry** Ecology
-curiculum](https://datacarpentry.org/lessons/#ecology-workshop) [@DCRecol].
+data science with R*, was originally based on the [**Data Carpentry**
+Ecology
+curiculum](https://datacarpentry.org/lessons/#ecology-workshop)
+[@DCRecol]. The main dataset by [Blackmore *et al.*
+(2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5544260/),
+introduced in 2021, was prepared by the Bioconductor education group
+as part of their lesson development.
 
 General references for this course are *R for Data Science*
 [@r4ds:2017] and *Bioinformatics Data Skills* [@Buffalo:2015].
@@ -174,8 +179,10 @@ handy resource and readers will be pointed to specific sheets in the
 respective chapters.
 
 This course is being taught by Prof Laurent Gatto with invaluable
-assistance from Dr Axelle Loriot and Mr Kevin Missault at the Faculty
-of Pharmacy and Biomedical Sciences (FASB) at the UCLouvain, Belgium.
+assistance from Mr Jean Fain (since 2019), Ms Valetine Robaux (since
+2020), Dr Axelle Loriot (2018 - 2021) and Mr Kevin Missault (2018 -
+2020) at the Faculty of Pharmacy and Biomedical Sciences (FASB) at the
+UCLouvain, Belgium.
 
 ## Pre-requisites {-}
 
@@ -206,11 +213,12 @@ participating in this project you agree to abide by its terms.
 
 If you use this course, please cite it as
 
-> Laurent Gatto, Kevin Missault & Axelle Loriot. (2019, April
-> 3). UCLouvain-CBIO/WSBIM1207: Introduction to bioinformatics
-> (Version v1.0.0). Zenodo. http://doi.org/10.5281/zenodo.2626733
+> Laurent Gatto, Kevin Missault, Manon Martin & Axelle Loriot. (2021,
+> September 24). UCLouvain-CBIO/WSBIM1207: Introduction to
+> bioinformatics (Version
+> v2.0.0). Zenodo. http://doi.org/10.5281/zenodo.FIXME
 
-[![DOI](https://zenodo.org/badge/147494586.svg)](https://zenodo.org/record/2626733)
+[![DOI](https://zenodo.org/badge/147494586.svg)](https://zenodo.org/record/FIXME)
 
 
 ## License {-}
