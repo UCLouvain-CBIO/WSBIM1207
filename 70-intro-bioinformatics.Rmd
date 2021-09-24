@@ -1,5 +1,12 @@
 # Bioinformatics {#sec-bioinfo}
 
+```{r, eval = TRUE, echo = FALSE}
+if (!file.exists("data/rnaseq.csv"))
+    download.file(url = "https://raw.githubusercontent.com/Bioconductor/bioconductor-teaching/master/data/GSE96870/se2.rds",
+                  destfile = "data/rnaseq.rds")
+```
+
+
 As already alluded to earlier, [Wikipedia
 defines](https://en.wikipedia.org/wiki/Bioinformatics) bioinformatics
 as
