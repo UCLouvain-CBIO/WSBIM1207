@@ -65,10 +65,15 @@ remote file, names it `"rnaseq.csv"` and adds it to a preexisting
 folder named `"data"`.
 
 
-```{r, eval = TRUE}
+```{r, eval = TRUE, echo = FALSE}
 if (!file.exists("data/rnaseq.csv"))
-    download.file(url = "https://raw.githubusercontent.com/UCLouvain-CBIO/WSBIM1207/scrnadata/data/rnaseq.csv",
+    download.file(url = "https://raw.githubusercontent.com/Bioconductor/bioconductor-teaching/master/data/GSE96870/rnaseq.csv",
                   destfile = "data/rnaseq.csv")
+```
+
+```{r, eval = FALSE}
+download.file(url = "https://raw.githubusercontent.com/Bioconductor/bioconductor-teaching/master/data/GSE96870/rnaseq.csv",
+              destfile = "data/rnaseq.csv")
 ```
 
 You are now ready to load the data:

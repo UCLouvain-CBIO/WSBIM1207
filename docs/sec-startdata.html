@@ -354,9 +354,8 @@ local machine. You’ll need to have a folder on your machine called
 <code>"data"</code> where you’ll download the file. So this command downloads the
 remote file, names it <code>"rnaseq.csv"</code> and adds it to a preexisting
 folder named <code>"data"</code>.</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="sec-startdata.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"data/rnaseq.csv"</span>))</span>
-<span id="cb194-2"><a href="sec-startdata.html#cb194-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">download.file</span>(<span class="at">url =</span> <span class="st">"https://raw.githubusercontent.com/UCLouvain-CBIO/WSBIM1207/scrnadata/data/rnaseq.csv"</span>,</span>
-<span id="cb194-3"><a href="sec-startdata.html#cb194-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">destfile =</span> <span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="sec-startdata.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url =</span> <span class="st">"https://raw.githubusercontent.com/Bioconductor/bioconductor-teaching/master/data/GSE96870/rnaseq.csv"</span>,</span>
+<span id="cb194-2"><a href="sec-startdata.html#cb194-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">destfile =</span> <span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
 <p>You are now ready to load the data:</p>
 <div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="sec-startdata.html#cb195-1" aria-hidden="true" tabindex="-1"></a>rna <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
 <p>This statement doesn’t produce any output because, as you might
@@ -766,7 +765,7 @@ levels:</p>
 <pre><code>## [1] M F F M F
 ## Levels: M F</code></pre>
 <div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="sec-startdata.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sex)</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-101-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-102-1.png" width="672"></p>
 <div class="question">
 <p class="question-begin">
 ► Question
