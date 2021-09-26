@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-09-24" />
+<meta name="date" content="2021-09-26" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -83,7 +83,6 @@ function reset_tooltip(id) {
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -559,74 +558,136 @@ as the rows in the expression data and feature metadata) during data
 manipulation. The metadata slots can grow additional co-variates
 (columns) without affecting the other structures.</p>
 <p>To illustrate such an omics data container, we’ll use a variable of
-class <code>SummarizedExperiment</code>. Below, we load the <code>cptac_se</code> dataset
-from the <code>rWSBIM1322</code> package.</p>
+class <code>SummarizedExperiment</code>. Below, we load the <code>GSE96870_intro</code>
+dataset from the <code>rWSBIM1207</code> package (version &gt;= 0.1.15).</p>
 <div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="sec-bioinfo.html#cb530-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"SummarizedExperiment"</span>)</span>
-<span id="cb530-2"><a href="sec-bioinfo.html#cb530-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rWSBIM1322"</span>)</span>
-<span id="cb530-3"><a href="sec-bioinfo.html#cb530-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(cptac_se)</span>
-<span id="cb530-4"><a href="sec-bioinfo.html#cb530-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(cptac_se)</span></code></pre></div>
-<pre><code>## [1] "SummarizedExperiment"
+<span id="cb530-2"><a href="sec-bioinfo.html#cb530-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rWSBIM1207"</span>)</span>
+<span id="cb530-3"><a href="sec-bioinfo.html#cb530-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(GSE96870_intro)</span>
+<span id="cb530-4"><a href="sec-bioinfo.html#cb530-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(GSE96870_intro)</span></code></pre></div>
+<pre><code>## [1] "RangedSummarizedExperiment"
 ## attr(,"package")
 ## [1] "SummarizedExperiment"</code></pre>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="sec-bioinfo.html#cb532-1" aria-hidden="true" tabindex="-1"></a>cptac_se</span></code></pre></div>
-<pre><code>## class: SummarizedExperiment 
-## dim: 4051 6 
-## metadata(3): MSnbaseFiles MSnbaseProcessing MSnbaseVersion
-## assays(1): ''
-## rownames(4051): AAAALAGGK AAAALAGGKK ... YYPSYIVSK YYSISSSSLSEK
-## rowData names(3): Proteins Sequence nNA
-## colnames(6): 6A_7 6A_8 ... 6B_8 6B_9
-## colData names(3): group sample nNA</code></pre>
-<p>The object contains data for4051 features (peptides in
-this case) and 6 samples.</p>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="sec-bioinfo.html#cb534-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(cptac_se)</span></code></pre></div>
-<pre><code>## [1] 4051    6</code></pre>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="sec-bioinfo.html#cb536-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(cptac_se)</span></code></pre></div>
-<pre><code>## [1] 4051</code></pre>
-<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="sec-bioinfo.html#cb538-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(cptac_se)</span></code></pre></div>
-<pre><code>## [1] 6</code></pre>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="sec-bioinfo.html#cb532-1" aria-hidden="true" tabindex="-1"></a>GSE96870_intro</span></code></pre></div>
+<pre><code>## class: RangedSummarizedExperiment 
+## dim: 1474 22 
+## metadata(0):
+## assays(1): counts
+## rownames(1474): Asl Apod ... Pbx1 Rgs4
+## rowData names(11): gene ENTREZID ... phenotype_description
+##   hsapiens_homolog_associated_gene_name
+## colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
+## colData names(10): title geo_accession ... tissue mouse</code></pre>
+<p>This data contains the same RNA-sequencing data as we have seem in
+chapter <a href="sec-startdata.html#sec-startdata">4</a>. It is however formatted as a special
+type of data, a <code>SummarizedExperiment</code>, that is specialised for
+quantitative omics data (as opposed to the more general <code>data.frame</code>
+data structure). We will be learning and using <code>SummarizedExperiment</code>
+objects a lot in the
+<a href="https://github.com/UCLouvain-CBIO/WSBIM1322">WSBIM1322</a> and
+<a href="https://github.com/UCLouvain-CBIO/WSBIM2122">WSBIM2122</a> courses.</p>
+<p>The object contains data for 1474 features
+(peptides in this case) and 22 samples.</p>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="sec-bioinfo.html#cb534-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(GSE96870_intro)</span></code></pre></div>
+<pre><code>## [1] 1474   22</code></pre>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="sec-bioinfo.html#cb536-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(GSE96870_intro)</span></code></pre></div>
+<pre><code>## [1] 1474</code></pre>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="sec-bioinfo.html#cb538-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(GSE96870_intro)</span></code></pre></div>
+<pre><code>## [1] 22</code></pre>
 <p>The samples (columns) and rows (protein features) are named:</p>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="sec-bioinfo.html#cb540-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(cptac_se)</span></code></pre></div>
-<pre><code>## [1] "6A_7" "6A_8" "6A_9" "6B_7" "6B_8" "6B_9"</code></pre>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="sec-bioinfo.html#cb542-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rownames</span>(cptac_se))</span></code></pre></div>
-<pre><code>## [1] "AAAALAGGK"       "AAAALAGGKK"      "AAADALSDLEIK"    "AAADALSDLEIKDSK"
-## [5] "AAALVNK"         "AAAQDGYVPQR"</code></pre>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="sec-bioinfo.html#cb544-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(<span class="fu">rownames</span>(cptac_se))</span></code></pre></div>
-<pre><code>## [1] "YVVLASHLGR"      "YVVLASHLGRPNGER" "YWGVASFLQK"      "YYGGNEIIDK"     
-## [5] "YYPSYIVSK"       "YYSISSSSLSEK"</code></pre>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="sec-bioinfo.html#cb540-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(GSE96870_intro)</span></code></pre></div>
+<pre><code>##  [1] "GSM2545336" "GSM2545337" "GSM2545338" "GSM2545339" "GSM2545340"
+##  [6] "GSM2545341" "GSM2545342" "GSM2545343" "GSM2545344" "GSM2545345"
+## [11] "GSM2545346" "GSM2545347" "GSM2545348" "GSM2545349" "GSM2545350"
+## [16] "GSM2545351" "GSM2545352" "GSM2545353" "GSM2545354" "GSM2545362"
+## [21] "GSM2545363" "GSM2545380"</code></pre>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="sec-bioinfo.html#cb542-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rownames</span>(GSE96870_intro))</span></code></pre></div>
+<pre><code>## [1] "Asl"     "Apod"    "Cyp2d22" "Klk6"    "Fcrls"   "Slc2a4"</code></pre>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="sec-bioinfo.html#cb544-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(<span class="fu">rownames</span>(GSE96870_intro))</span></code></pre></div>
+<pre><code>## [1] "Mgst3"  "Lrrc52" "Rxrg"   "Lmx1a"  "Pbx1"   "Rgs4"</code></pre>
 <p>Using this data structure, we can access the expression matrix with
 the <code>assay</code> function, the feature metadata with the <code>rowData</code> function,
 and the sample metadata with the <code>colData</code> function:</p>
-<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="sec-bioinfo.html#cb546-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">assay</span>(cptac_se))</span></code></pre></div>
-<pre><code>##                    6A_7    6A_8    6A_9    6B_7    6B_8    6B_9
-## AAAALAGGK       2441300 1220000 1337600 2850900  935580 1606200
-## AAAALAGGKK      1029200  668040  638990  777030  641270  562840
-## AAADALSDLEIK     515460  670780  712140  426580  620510  737780
-## AAADALSDLEIKDSK  331130  420900  365560  329250  380820  414490
-## AAALVNK         4266200 1220100 1347200 3700300 1023200 1503000
-## AAAQDGYVPQR       94675   62831  105640   81974   68637   91846</code></pre>
-<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="sec-bioinfo.html#cb548-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rowData</span>(cptac_se))</span></code></pre></div>
-<pre><code>## DataFrame with 6 rows and 3 columns
-##                               Proteins        Sequence       nNA
-##                            &lt;character&gt;     &lt;character&gt; &lt;integer&gt;
-## AAAALAGGK       sp|Q3E792|RS25A_YEAS..       AAAALAGGK         0
-## AAAALAGGKK      sp|Q3E792|RS25A_YEAS..      AAAALAGGKK         0
-## AAADALSDLEIK      sp|P09938|RIR2_YEAST    AAADALSDLEIK         0
-## AAADALSDLEIKDSK   sp|P09938|RIR2_YEAST AAADALSDLEIKDSK         0
-## AAALVNK           sp|P05030|PMA1_YEAST         AAALVNK         0
-## AAAQDGYVPQR       sp|P27692|SPT5_YEAST     AAAQDGYVPQR         0</code></pre>
-<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="sec-bioinfo.html#cb550-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(cptac_se)</span></code></pre></div>
-<pre><code>## DataFrame with 6 rows and 3 columns
-##            group    sample       nNA
-##      &lt;character&gt; &lt;integer&gt; &lt;integer&gt;
-## 6A_7          6A         7      4669
-## 6A_8          6A         8      5388
-## 6A_9          6A         9      5224
-## 6B_7          6B         7      4651
-## 6B_8          6B         8      5470
-## 6B_9          6B         9      5207</code></pre>
-<p>The <code>nNA</code> variables above indicate the number of missing values (<code>NA</code>
-present in the respective samples and features.</p>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="sec-bioinfo.html#cb546-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">assay</span>(GSE96870_intro))</span></code></pre></div>
+<pre><code>##         GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340 GSM2545341
+## Asl           1170        361        400        586        626        988
+## Apod         36194      10347       9173      10620      13021      29594
+## Cyp2d22       4060       1616       1603       1901       2171       3349
+## Klk6           287        629        641        578        448        195
+##         GSM2545342 GSM2545343 GSM2545344 GSM2545345 GSM2545346 GSM2545347
+## Asl            836        535        586        597        938       1035
+## Apod         24959      13668      13230      15868      27769      34301
+## Cyp2d22       3122       2008       2254       2277       2985       3452
+## Klk6           186       1101        537        567        327        233
+##         GSM2545348 GSM2545349 GSM2545350 GSM2545351 GSM2545352 GSM2545353
+## Asl            494        481        666        937        803        541
+## Apod         11258      11812      15816      29242      20415      13682
+## Cyp2d22       1883       2014       2417       3678       2920       2216
+## Klk6           742        881        828        250        798        710
+##         GSM2545354 GSM2545362 GSM2545363 GSM2545380
+## Asl            473        748        576       1192
+## Apod         11088      15916      11166      38148
+## Cyp2d22       1821       2842       2011       4019
+## Klk6           894        501        598        259
+##  [ reached getOption("max.print") -- omitted 2 rows ]</code></pre>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="sec-bioinfo.html#cb548-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rowData</span>(GSE96870_intro))</span></code></pre></div>
+<pre><code>## DataFrame with 6 rows and 11 columns
+##                gene    ENTREZID                product       gbkey
+##         &lt;character&gt; &lt;character&gt;            &lt;character&gt; &lt;character&gt;
+## Asl             Asl      109900 argininosuccinate ly..        mRNA
+## Apod           Apod       11815 apolipoprotein D, tr..        mRNA
+## Cyp2d22     Cyp2d22       56448 cytochrome P450, fam..        mRNA
+## Klk6           Klk6       19144 kallikrein related-p..        mRNA
+## Fcrls         Fcrls       80891 Fc receptor-like S, ..        mRNA
+## Slc2a4       Slc2a4       20528 solute carrier famil..        mRNA
+##         external_gene_name    ensembl_gene_id external_synonym chromosome_name
+##                &lt;character&gt;        &lt;character&gt;      &lt;character&gt;     &lt;character&gt;
+## Asl                    Asl ENSMUSG00000025533    2510006M18Rik               5
+## Apod                  Apod ENSMUSG00000022548               NA              16
+## Cyp2d22            Cyp2d22 ENSMUSG00000061740             2D22              15
+## Klk6                  Klk6 ENSMUSG00000050063             Bssp               7
+## Fcrls                Fcrls ENSMUSG00000015852    2810439C17Rik               3
+## Slc2a4              Slc2a4 ENSMUSG00000018566           Glut-4              11
+##           gene_biotype  phenotype_description
+##            &lt;character&gt;            &lt;character&gt;
+## Asl     protein_coding abnormal circulating..
+## Apod    protein_coding abnormal lipid homeo..
+## Cyp2d22 protein_coding abnormal skin morpho..
+## Klk6    protein_coding abnormal cytokine le..
+## Fcrls   protein_coding decreased CD8-positi..
+## Slc2a4  protein_coding abnormal circulating..
+##         hsapiens_homolog_associated_gene_name
+##                                   &lt;character&gt;
+## Asl                                       ASL
+## Apod                                     APOD
+## Cyp2d22                                CYP2D6
+## Klk6                                     KLK6
+## Fcrls                                   FCRL4
+## Slc2a4                                 SLC2A4</code></pre>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="sec-bioinfo.html#cb550-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(GSE96870_intro)</span></code></pre></div>
+<pre><code>## DataFrame with 22 rows and 10 columns
+##                      title geo_accession     organism         age      sex
+##                &lt;character&gt;   &lt;character&gt;  &lt;character&gt; &lt;character&gt; &lt;factor&gt;
+## GSM2545336 CNS_RNA-seq_10C    GSM2545336 Mus musculus     8 weeks   Female
+## GSM2545337 CNS_RNA-seq_11C    GSM2545337 Mus musculus     8 weeks   Female
+## GSM2545338 CNS_RNA-seq_12C    GSM2545338 Mus musculus     8 weeks   Female
+## GSM2545339 CNS_RNA-seq_13C    GSM2545339 Mus musculus     8 weeks   Female
+## GSM2545340 CNS_RNA-seq_14C    GSM2545340 Mus musculus     8 weeks   Male  
+## ...                    ...           ...          ...         ...      ...
+## GSM2545353  CNS_RNA-seq_3C    GSM2545353 Mus musculus     8 weeks   Female
+## GSM2545354  CNS_RNA-seq_4C    GSM2545354 Mus musculus     8 weeks   Male  
+## GSM2545362  CNS_RNA-seq_5C    GSM2545362 Mus musculus     8 weeks   Female
+##              infection      strain     time     tissue    mouse
+##               &lt;factor&gt; &lt;character&gt; &lt;factor&gt;   &lt;factor&gt; &lt;factor&gt;
+## GSM2545336 InfluenzaA      C57BL/6     Day8 Cerebellum       14
+## GSM2545337 NonInfected     C57BL/6     Day0 Cerebellum       9 
+## GSM2545338 NonInfected     C57BL/6     Day0 Cerebellum       10
+## GSM2545339 InfluenzaA      C57BL/6     Day4 Cerebellum       15
+## GSM2545340 InfluenzaA      C57BL/6     Day4 Cerebellum       18
+## ...                ...         ...      ...        ...      ...
+## GSM2545353 NonInfected     C57BL/6     Day0 Cerebellum       4 
+## GSM2545354 NonInfected     C57BL/6     Day0 Cerebellum       2 
+## GSM2545362 InfluenzaA      C57BL/6     Day4 Cerebellum       20
+##  [ reached getOption("max.print") -- omitted 2 rows ]</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -644,9 +705,9 @@ and columns in the feature and sample data.</p>
 ► Solution<span id="sol-start-40" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-40', 'sol-start-40')"></span>
 </p>
 <div id="sol-body-40" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="sec-bioinfo.html#cb552-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">assay</span>(cptac_se)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">rowData</span>(cptac_se))</span></code></pre></div>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="sec-bioinfo.html#cb552-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">assay</span>(GSE96870_intro)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">rowData</span>(GSE96870_intro))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="sec-bioinfo.html#cb554-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(<span class="fu">assay</span>(cptac_se)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">colData</span>(cptac_se))</span></code></pre></div>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="sec-bioinfo.html#cb554-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(<span class="fu">assay</span>(GSE96870_intro)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">colData</span>(GSE96870_intro))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -655,26 +716,26 @@ and columns in the feature and sample data.</p>
 </div>
 <p>We can use the <code>[</code> operator to subset the whole object: all parts
 thereof will be subset correctly.</p>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="sec-bioinfo.html#cb556-1" aria-hidden="true" tabindex="-1"></a>cptac_se2 <span class="ot">&lt;-</span> cptac_se[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span>
-<span id="cb556-2"><a href="sec-bioinfo.html#cb556-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(cptac_se2)</span></code></pre></div>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="sec-bioinfo.html#cb556-1" aria-hidden="true" tabindex="-1"></a>small_se <span class="ot">&lt;-</span> GSE96870_intro[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span>
+<span id="cb556-2"><a href="sec-bioinfo.html#cb556-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(small_se)</span></code></pre></div>
 <pre><code>## [1] 3 2</code></pre>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="sec-bioinfo.html#cb558-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">assay</span>(cptac_se2))</span></code></pre></div>
-<pre><code>##                 6A_8    6B_7
-## AAAALAGGK    1220000 2850900
-## AAADALSDLEIK  670780  426580
-## AAALVNK      1220100 3700300</code></pre>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="sec-bioinfo.html#cb558-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">assay</span>(small_se))</span></code></pre></div>
+<pre><code>##         GSM2545337 GSM2545339
+## Asl            361        586
+## Cyp2d22       1616       1901
+## Fcrls          233        237</code></pre>
 <p>We can also add information with:</p>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="sec-bioinfo.html#cb560-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(cptac_se)<span class="sc">$</span>group2  <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">'X'</span>, <span class="st">'Y'</span>, <span class="st">'Z'</span>), <span class="at">each =</span> <span class="dv">2</span>)</span>
-<span id="cb560-2"><a href="sec-bioinfo.html#cb560-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(cptac_se)</span></code></pre></div>
-<pre><code>## DataFrame with 6 rows and 4 columns
-##            group    sample       nNA      group2
-##      &lt;character&gt; &lt;integer&gt; &lt;integer&gt; &lt;character&gt;
-## 6A_7          6A         7      4669           X
-## 6A_8          6A         8      5388           X
-## 6A_9          6A         9      5224           Y
-## 6B_7          6B         7      4651           Y
-## 6B_8          6B         8      5470           Z
-## 6B_9          6B         9      5207           Z</code></pre>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="sec-bioinfo.html#cb560-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(small_se)<span class="sc">$</span>new_var  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"new_val1"</span>, <span class="st">"new_val2"</span>)</span>
+<span id="cb560-2"><a href="sec-bioinfo.html#cb560-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(small_se)</span></code></pre></div>
+<pre><code>## DataFrame with 2 rows and 11 columns
+##                      title geo_accession     organism         age      sex
+##                &lt;character&gt;   &lt;character&gt;  &lt;character&gt; &lt;character&gt; &lt;factor&gt;
+## GSM2545337 CNS_RNA-seq_11C    GSM2545337 Mus musculus     8 weeks   Female
+## GSM2545339 CNS_RNA-seq_13C    GSM2545339 Mus musculus     8 weeks   Female
+##              infection      strain     time     tissue    mouse     new_var
+##               &lt;factor&gt; &lt;character&gt; &lt;factor&gt;   &lt;factor&gt; &lt;factor&gt; &lt;character&gt;
+## GSM2545337 NonInfected     C57BL/6     Day0 Cerebellum       9     new_val1
+## GSM2545339 InfluenzaA      C57BL/6     Day4 Cerebellum       15    new_val2</code></pre>
 </div>
 <div id="bioconductor-data-infrastructure" class="section level2" number="9.5">
 <h2>
@@ -702,7 +763,7 @@ page:</p>
 </li>
 <li>FASTQ – <em><a href="https://bioconductor.org/packages/3.14/ShortRead">ShortRead</a></em><code>::readFastq()</code>
 </li>
-<li>Mass spectrometry data (XML-based and peaklist formats) – <em><a href="https://bioconductor.org/packages/3.14/MSnbase">MSnbase</a></em><code>::readMSData()</code> and <em><a href="https://bioconductor.org/packages/3.14/Spectra">Spectra</a></em><code>::Spectra()</code>
+<li>Mass spectrometry data (XML-based and peaklist formats) – <em><a href="https://bioconductor.org/packages/3.14/Spectra">Spectra</a></em><code>::Spectra()</code>
 </li>
 </ul>
 </div>
@@ -719,7 +780,7 @@ page:</p>
 </li>
 <li>Single cell data – <em><a href="https://bioconductor.org/packages/3.14/SingleCellExperiment">SingleCellExperiment</a></em><code>::SingleCellExperiment()</code>
 </li>
-<li>Mass spectrometry data – <em><a href="https://bioconductor.org/packages/3.14/MSnbase">MSnbase</a></em><code>::MSnExp()</code> and <em><a href="https://bioconductor.org/packages/3.14/Spectra">Spectra</a></em><code>::Spectra()</code>
+<li>Mass spectrometry data – <em><a href="https://bioconductor.org/packages/3.14/Spectra">Spectra</a></em><code>::Spectra()</code>
 </li>
 </ul>
 </div>
@@ -912,7 +973,9 @@ page on the Bioconductor page.</p></li>
 ► Question
 </p>
 <div class="question-body">
-<ol start="4" style="list-style-type: decimal">
+<ol start="3" style="list-style-type: decimal">
+<li><p>Load the <code>cptac_se</code> data from the <code>rWSBIM1322</code> package. Verify it
+is of class <code>SummarizedExperiment</code>.</p></li>
 <li><p>Extract the quantitative information for the peptides <code>AIGVLPQLIIDR</code>,
 <code>NLDAAPTLR</code> and <code>YGLNHVVSLIENKK</code> for samples <code>6A_7</code> and
 <code>6B_8</code>. Subsetting works as we have seen for <code>data.frames</code> in
@@ -1025,7 +1088,7 @@ sample data based on the groups.</p></li>
 <a href="sec-prog.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-09-24
+2021-09-26
  using 
 R version 4.1.0 (2021-05-18)
 </p>

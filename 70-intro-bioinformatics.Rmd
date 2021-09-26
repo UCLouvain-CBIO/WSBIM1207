@@ -1,12 +1,5 @@
 # Bioinformatics {#sec-bioinfo}
 
-```{r, eval = TRUE, echo = FALSE}
-if (!file.exists("data/rnaseq.csv"))
-    download.file(url = "https://raw.githubusercontent.com/Bioconductor/bioconductor-teaching/master/data/GSE96870/se2.rds",
-                  destfile = "data/rnaseq.rds")
-```
-
-
 As already alluded to earlier, [Wikipedia
 defines](https://en.wikipedia.org/wiki/Bioinformatics) bioinformatics
 as
@@ -250,34 +243,43 @@ manipulation. The metadata slots can grow additional co-variates
 (columns) without affecting the other structures.
 
 To illustrate such an omics data container, we'll use a variable of
-class `SummarizedExperiment`. Below, we load the `cptac_se` dataset
-from the `rWSBIM1322` package.
+class `SummarizedExperiment`. Below, we load the `GSE96870_intro`
+dataset from the `rWSBIM1207` package (version >= 0.1.15).
 
 
 ```{r, message = FALSE}
 library("SummarizedExperiment")
-library("rWSBIM1322")
-data(cptac_se)
-class(cptac_se)
-cptac_se
+library("rWSBIM1207")
+data(GSE96870_intro)
+class(GSE96870_intro)
+GSE96870_intro
 ```
 
+This data contains the same RNA-sequencing data as we have seem in
+chapter \@ref(sec-startdata). It is however formatted as a special
+type of data, a `SummarizedExperiment`, that is specialised for
+quantitative omics data (as opposed to the more general `data.frame`
+data structure). We will be learning and using `SummarizedExperiment`
+objects a lot in the
+[WSBIM1322](https://github.com/UCLouvain-CBIO/WSBIM1322) and
+[WSBIM2122](https://github.com/UCLouvain-CBIO/WSBIM2122) courses.
 
-The object contains data for`r nrow(cptac_se)` features (peptides in
-this case) and `r ncol(cptac_se)` samples.
+
+The object contains data for `r nrow(GSE96870_intro)` features
+(peptides in this case) and `r ncol(GSE96870_intro)` samples.
 
 ```{r}
-dim(cptac_se)
-nrow(cptac_se)
-ncol(cptac_se)
+dim(GSE96870_intro)
+nrow(GSE96870_intro)
+ncol(GSE96870_intro)
 ```
 
 The samples (columns) and rows (protein features) are named:
 
 ```{r}
-colnames(cptac_se)
-head(rownames(cptac_se))
-tail(rownames(cptac_se))
+colnames(GSE96870_intro)
+head(rownames(GSE96870_intro))
+tail(rownames(GSE96870_intro))
 ```
 
 Using this data structure, we can access the expression matrix with
@@ -285,13 +287,10 @@ the `assay` function, the feature metadata with the `rowData` function,
 and the sample metadata with the `colData` function:
 
 ```{r}
-head(assay(cptac_se))
-head(rowData(cptac_se))
-colData(cptac_se)
+head(assay(GSE96870_intro))
+head(rowData(GSE96870_intro))
+colData(GSE96870_intro)
 ```
-
-The `nNA` variables above indicate the number of missing values (`NA`
-present in the respective samples and features.
 
 `r msmbstyle::question_begin()`
 
@@ -303,8 +302,8 @@ and columns in the feature and sample data.
 
 `r msmbstyle::solution_begin()`
 ```{r}
-nrow(assay(cptac_se)) == nrow(rowData(cptac_se))
-ncol(assay(cptac_se)) == nrow(colData(cptac_se))
+nrow(assay(GSE96870_intro)) == nrow(rowData(GSE96870_intro))
+ncol(assay(GSE96870_intro)) == nrow(colData(GSE96870_intro))
 ```
 `r msmbstyle::solution_end()`
 
@@ -313,16 +312,16 @@ We can use the `[` operator to subset the whole object: all parts
 thereof will be subset correctly.
 
 ```{r}
-cptac_se2 <- cptac_se[c(1, 3, 5), c(2, 4)]
-dim(cptac_se2)
-head(assay(cptac_se2))
+small_se <- GSE96870_intro[c(1, 3, 5), c(2, 4)]
+dim(small_se)
+head(assay(small_se))
 ```
 
 We can also add information with:
 
 ```{r}
-colData(cptac_se)$group2  <- rep(c('X', 'Y', 'Z'), each = 2)
-colData(cptac_se)
+colData(small_se)$new_var  <- c("new_val1", "new_val2")
+colData(small_se)
 ```
 
 ## Bioconductor data infrastructure
@@ -345,7 +344,7 @@ page:
 - SAM / BAM – `r Biocpkg("Rsamtools")``::scanBam()`, `r Biocpkg("GenomicAlignments")``:readGAlignment*()`
 - FASTA – `r Biocpkg("Biostrings")``::readDNAStringSet()`
 - FASTQ – `r Biocpkg("ShortRead")``::readFastq()`
-- Mass spectrometry data (XML-based and peaklist formats) – `r Biocpkg("MSnbase")``::readMSData()` and `r Biocpkg("Spectra")``::Spectra()`
+- Mass spectrometry data (XML-based and peaklist formats) – `r Biocpkg("Spectra")``::Spectra()`
 
 #### Common Classes {-}
 
@@ -355,7 +354,7 @@ page:
 - Gene sets – `r Biocpkg("GSEABase")``::GeneSet()` `r Biocpkg("GSEABase")``::GeneSetCollection()`
 - Multi-omics data – `r Biocpkg("MultiAssayExperiment")``::MultiAssayExperiment()`
 - Single cell data – `r Biocpkg("SingleCellExperiment")``::SingleCellExperiment()`
-- Mass spectrometry data – `r Biocpkg("MSnbase")``::MSnExp()` and `r Biocpkg("Spectra")``::Spectra()`
+- Mass spectrometry data – `r Biocpkg("Spectra")``::Spectra()`
 
 
 ## Navigating the Bioconductor project
@@ -537,6 +536,9 @@ to keep up with the latest developments in Bioconductor. More details
 
 `r msmbstyle::question_begin()`
 
+3. Load the `cptac_se` data from the `rWSBIM1322` package. Verify it
+   is of class `SummarizedExperiment`.
+
 4. Extract the quantitative information for the peptides `AIGVLPQLIIDR`,
    `NLDAAPTLR` and `YGLNHVVSLIENKK` for samples `6A_7` and
    `6B_8`. Subsetting works as we have seen for `data.frames` in
@@ -558,6 +560,10 @@ to keep up with the latest developments in Bioconductor. More details
 
 
 ```{r, echo=FALSE, include=FALSE}
+library("rWSBIM1322")
+data(cptac_se)
+class(cptac_se)
+
 peps <- c("AIGVLPQLIIDR", "NLDAAPTLR", "YGLNHVVSLIENKK")
 smpl <- c("6A_7", "6B_8")
 assay(cptac_se[peps, smpl])
