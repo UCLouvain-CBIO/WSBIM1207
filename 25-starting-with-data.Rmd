@@ -44,7 +44,6 @@ columns represent:
 | mouse      | The mouse unique identifier.                                                                 |
 | ENTREZID   | The gene ID for the ENTREZ database                                                          |
 | product    | The gene product                                                                             |
-| external_gene_name  | The name of the gene in the ENSEMBL database                                        |
 | ensembl_gene_id     | The ID of the gene from the ENSEMBL database                                        |
 | external_synonym    | A name synonym for the gene                                                         |
 | chromosome_name                      | The chromosome name of the gene                                    |
@@ -85,7 +84,7 @@ rna <- read.csv("data/rnaseq.csv")
 This statement doesn't produce any output because, as you might
 recall, assignments don't display anything. If we want to check that
 our data has been loaded, we can see the contents of the data frame by
-typing its name
+typing its name:
 
 ```{r, eval = FALSE}
 rna
@@ -300,7 +299,7 @@ How many mouse genes do not have a human homologous?
 
 2. Notice how `nrow()` gave you the number of rows in a `data.frame`?
 
-- Use that number to pull out just that last row in the inital
+- Use that number to pull out just that last row in the initial
   `rna` data frame.
 
 - Compare that with what you see as the last row using `tail()` to
@@ -392,6 +391,7 @@ If you need to convert a factor to a character vector, you use
 
 ```{r}
 as.character(sex)
+# try also: as.numeric(sex)
 ```
 
 <!-- ### Numeric factors {-} -->
@@ -515,11 +515,12 @@ respect, matrices are closer to a `vector` than a `data.frame`.
 The default constructor for a matrix is `matrix`. It takes a vector of
 values to populate the matrix and the number of row and/or
 columns[^ncol]. The values are sorted along the columns, as illustrated
-below.
+below but you can also sort them along the row with the argument `byrow = TRUE`.
 
 ```{r mat1}
 m <- matrix(1:9, ncol = 3, nrow = 3)
 m
+# try now with byrow = TRUE
 ```
 
 [^ncol]: Either the number of rows or columns are enough, as the other
@@ -691,7 +692,7 @@ dmy(paste(x$day, x$month, x$month, sep = "-"))
 ## Summary of R objects
 
 So far, we have seen several types of R object varying in the number
-of dimensions and whether they could store a single of multiple data
+of dimensions and whether they could store a single or multiple data
 types:
 
 - **`vector`**: one dimension (they have a length), single type of data.
@@ -728,6 +729,42 @@ l[[1]] ## first element
 l[1:2] ## a list of length 2
 l[1]   ## a list of length 1
 ```
+
+r msmbstyle::question_begin()`
+You can also attribute a name to each element of a list. Give the following names (in that order) to the list elements with the function `names()`: numbers, alphabet, installed_packages, cars, random. Check if the names were correctly attributed.
+
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+```{r}
+names(l) <- c("numbers", "alphabet", "installed_packages", 
+              "cars", "random")
+names(l)
+```
+`r msmbstyle::solution_end()`
+
+
+`r msmbstyle::question_begin()`
+
+Subset the previously defined list `l`, to keep:
+
+* a list with all but the matrix of installed packages
+* only the `cars` data.frame
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+```{r}
+# list with all but the matrix of installed packages
+l[-3]
+# only the `cars` data.frame
+l[["cars"]]
+# equivalent to:
+l[[4]]
+```
+
+`r msmbstyle::solution_end()`
+
+
 ## Exporting and saving data {#sec-exportandsave}
 
 ### Exporting tabular data {-}
