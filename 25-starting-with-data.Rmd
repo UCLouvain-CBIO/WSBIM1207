@@ -200,9 +200,6 @@ questions?
 
 - What is the class of the object `rna`?
 - How many rows and how many columns are in this object?
-- How many genes (as defined by the `gene` variable) have been
-  measured in this experiment?
-
 `r msmbstyle::question_end()`
 
 
@@ -210,8 +207,6 @@ questions?
 
 - class: data frame
 - how many rows: 32428, how many columns: 21
-- how many genes: 1474
-
 `r msmbstyle::solution_end()`
 
 
@@ -363,6 +358,21 @@ in this vector is `"male"`). You can see this by using the function
 levels(sex)
 nlevels(sex)
 ```
+
+`r msmbstyle::question_begin()`
+
+- How many genes have been measured in this experiment?
+
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+
+```{r}
+nlevels(factor(rna$gene))
+```
+
+`r msmbstyle::solution_end()`
+
 
 Sometimes, the order of the factors does not matter, other times you
 might want to specify the order because it is meaningful (e.g., "low",
