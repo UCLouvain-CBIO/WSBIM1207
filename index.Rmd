@@ -167,7 +167,8 @@ Ecology
 curiculum](https://datacarpentry.org/lessons/#ecology-workshop)
 [@DCRecol]. The main dataset by [Blackmore *et al.*
 (2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5544260/),
-introduced in 2021, was prepared by the Bioconductor education group
+introduced in 2021, was prepared by the [Bioconductor education
+group](https://github.com/Bioconductor/bioconductor-teaching/blob/master/README.md)
 as part of their lesson development.
 
 General references for this course are *R for Data Science*
