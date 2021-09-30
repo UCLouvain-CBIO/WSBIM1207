@@ -9,6 +9,7 @@
 - Convert between strings and factors.
 - Reorder and rename factors.
 - Format dates.
+- Other R objects: matrices and lists
 - Export and save data.
 
 ## Presentation of the gene expression data
@@ -384,7 +385,7 @@ integer data. Factors, on the other hand, have this information built
 in. It is particularly helpful when there are many levels (like the
 species names in our example dataset).
 
-### Converting to factors {-}
+### Converting to characters {-}
 
 If you need to convert a factor to a character vector, you use
 `as.character(x)`.
