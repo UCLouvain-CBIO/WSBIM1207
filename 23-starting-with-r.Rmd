@@ -646,7 +646,8 @@ heights[complete.cases(heights)]
 
 1. Using this vector of heights in inches, create a new vector with the NAs removed.
 ```{r}
-heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
+heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 
+             63, NA, 72, 65, 64, 70, 63, 65)
 ```
 2. Use the function `median()` to calculate the median of the `heights` vector.
 3. Use R to figure out how many people in the set are taller than 67 inches.
@@ -679,7 +680,7 @@ set.seed(1)
 ### Constructors {-}
 
 There exists some functions to generate vectors of different type. To
-generate a vector of numerics, one can use the `numerics()`
+generate a vector of numerics, one can use the `numeric()`
 constructor, providing the length of the output vector as
 parameter. The values will be initialised with 0.
 
