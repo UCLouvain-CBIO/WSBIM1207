@@ -6,7 +6,7 @@ rna <- read.csv("data/rnaseq.csv")
 
 **Learning Objectives**
 
-* Produce scatter plots, boxplots, and time series plots using ggplot.
+* Produce scatter plots, boxplots, line plots, etc. using ggplot.
 * Set universal plot settings.
 * Describe what faceting is and apply faceting in ggplot.
 * Modify the aesthetics of an existing ggplot plot (including axis
