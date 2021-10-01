@@ -83,6 +83,7 @@ function reset_tooltip(id) {
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -613,29 +614,22 @@ and the sample metadata with the <code>colData</code> function:</p>
 ## Apod         36194      10347       9173      10620      13021      29594
 ## Cyp2d22       4060       1616       1603       1901       2171       3349
 ## Klk6           287        629        641        578        448        195
-## Fcrls           85        233        244        237        180         38
-## Slc2a4         782        231        248        265        313        786
 ##         GSM2545342 GSM2545343 GSM2545344 GSM2545345 GSM2545346 GSM2545347
 ## Asl            836        535        586        597        938       1035
 ## Apod         24959      13668      13230      15868      27769      34301
 ## Cyp2d22       3122       2008       2254       2277       2985       3452
 ## Klk6           186       1101        537        567        327        233
-## Fcrls           68        375        199        177         89         67
-## Slc2a4         528        249        266        357        654        693
 ##         GSM2545348 GSM2545349 GSM2545350 GSM2545351 GSM2545352 GSM2545353
 ## Asl            494        481        666        937        803        541
 ## Apod         11258      11812      15816      29242      20415      13682
 ## Cyp2d22       1883       2014       2417       3678       2920       2216
 ## Klk6           742        881        828        250        798        710
-## Fcrls          300        233        231         81        303        285
-## Slc2a4         271        304        349        715        513        320
 ##         GSM2545354 GSM2545362 GSM2545363 GSM2545380
 ## Asl            473        748        576       1192
 ## Apod         11088      15916      11166      38148
 ## Cyp2d22       1821       2842       2011       4019
 ## Klk6           894        501        598        259
-## Fcrls          248        179        184         68
-## Slc2a4         248        350        317        796</code></pre>
+##  [ reached getOption("max.print") -- omitted 2 rows ]</code></pre>
 <div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="sec-bioinfo.html#cb581-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rowData</span>(GSE96870_intro))</span></code></pre></div>
 <pre><code>## DataFrame with 6 rows and 11 columns
 ##                gene    ENTREZID                product       gbkey
@@ -683,8 +677,6 @@ and the sample metadata with the <code>colData</code> function:</p>
 ## GSM2545353  CNS_RNA-seq_3C    GSM2545353 Mus musculus     8 weeks   Female
 ## GSM2545354  CNS_RNA-seq_4C    GSM2545354 Mus musculus     8 weeks   Male  
 ## GSM2545362  CNS_RNA-seq_5C    GSM2545362 Mus musculus     8 weeks   Female
-## GSM2545363  CNS_RNA-seq_6C    GSM2545363 Mus musculus     8 weeks   Male  
-## GSM2545380  CNS_RNA-seq_9C    GSM2545380 Mus musculus     8 weeks   Female
 ##              infection      strain     time     tissue    mouse
 ##               &lt;factor&gt; &lt;character&gt; &lt;factor&gt;   &lt;factor&gt; &lt;factor&gt;
 ## GSM2545336 InfluenzaA      C57BL/6     Day8 Cerebellum       14
@@ -696,8 +688,7 @@ and the sample metadata with the <code>colData</code> function:</p>
 ## GSM2545353 NonInfected     C57BL/6     Day0 Cerebellum       4 
 ## GSM2545354 NonInfected     C57BL/6     Day0 Cerebellum       2 
 ## GSM2545362 InfluenzaA      C57BL/6     Day4 Cerebellum       20
-## GSM2545363 InfluenzaA      C57BL/6     Day4 Cerebellum       12
-## GSM2545380 InfluenzaA      C57BL/6     Day8 Cerebellum       19</code></pre>
+##  [ reached getOption("max.print") -- omitted 2 rows ]</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -763,34 +754,34 @@ page:</p>
 <div id="importing" class="section level4 unnumbered">
 <h4>Importing</h4>
 <ul>
-<li>GTF, GFF, BED, BigWig, etc., - <em><a href="https://bioconductor.org/packages/3.13/rtracklayer">rtracklayer</a></em><code>::import()</code>
+<li>GTF, GFF, BED, BigWig, etc., - <em><a href="https://bioconductor.org/packages/3.14/rtracklayer">rtracklayer</a></em><code>::import()</code>
 </li>
-<li>VCF – <em><a href="https://bioconductor.org/packages/3.13/VariantAnnotation">VariantAnnotation</a></em><code>::readVcf()</code>
+<li>VCF – <em><a href="https://bioconductor.org/packages/3.14/VariantAnnotation">VariantAnnotation</a></em><code>::readVcf()</code>
 </li>
-<li>SAM / BAM – <em><a href="https://bioconductor.org/packages/3.13/Rsamtools">Rsamtools</a></em><code>::scanBam()</code>, <em><a href="https://bioconductor.org/packages/3.13/GenomicAlignments">GenomicAlignments</a></em><code>:readGAlignment*()</code>
+<li>SAM / BAM – <em><a href="https://bioconductor.org/packages/3.14/Rsamtools">Rsamtools</a></em><code>::scanBam()</code>, <em><a href="https://bioconductor.org/packages/3.14/GenomicAlignments">GenomicAlignments</a></em><code>:readGAlignment*()</code>
 </li>
-<li>FASTA – <em><a href="https://bioconductor.org/packages/3.13/Biostrings">Biostrings</a></em><code>::readDNAStringSet()</code>
+<li>FASTA – <em><a href="https://bioconductor.org/packages/3.14/Biostrings">Biostrings</a></em><code>::readDNAStringSet()</code>
 </li>
-<li>FASTQ – <em><a href="https://bioconductor.org/packages/3.13/ShortRead">ShortRead</a></em><code>::readFastq()</code>
+<li>FASTQ – <em><a href="https://bioconductor.org/packages/3.14/ShortRead">ShortRead</a></em><code>::readFastq()</code>
 </li>
-<li>Mass spectrometry data (XML-based and peaklist formats) – <em><a href="https://bioconductor.org/packages/3.13/Spectra">Spectra</a></em><code>::Spectra()</code>
+<li>Mass spectrometry data (XML-based and peaklist formats) – <em><a href="https://bioconductor.org/packages/3.14/Spectra">Spectra</a></em><code>::Spectra()</code>
 </li>
 </ul>
 </div>
 <div id="common-classes" class="section level4 unnumbered">
 <h4>Common Classes</h4>
 <ul>
-<li>Rectangular feature x sample data – <em><a href="https://bioconductor.org/packages/3.13/SummarizedExperiment">SummarizedExperiment</a></em><code>::SummarizedExperiment()</code> (RNAseq count matrix, microarray, proteomics, …)</li>
-<li>Genomic coordinates – <em><a href="https://bioconductor.org/packages/3.13/GenomicRanges">GenomicRanges</a></em><code>::GRanges()</code> (1-based, closed interval)</li>
-<li>DNA / RNA / AA sequences – <em><a href="https://bioconductor.org/packages/3.13/Biostrings">Biostrings</a></em><code>::*StringSet()</code>
+<li>Rectangular feature x sample data – <em><a href="https://bioconductor.org/packages/3.14/SummarizedExperiment">SummarizedExperiment</a></em><code>::SummarizedExperiment()</code> (RNAseq count matrix, microarray, proteomics, …)</li>
+<li>Genomic coordinates – <em><a href="https://bioconductor.org/packages/3.14/GenomicRanges">GenomicRanges</a></em><code>::GRanges()</code> (1-based, closed interval)</li>
+<li>DNA / RNA / AA sequences – <em><a href="https://bioconductor.org/packages/3.14/Biostrings">Biostrings</a></em><code>::*StringSet()</code>
 </li>
-<li>Gene sets – <em><a href="https://bioconductor.org/packages/3.13/GSEABase">GSEABase</a></em><code>::GeneSet()</code> <em><a href="https://bioconductor.org/packages/3.13/GSEABase">GSEABase</a></em><code>::GeneSetCollection()</code>
+<li>Gene sets – <em><a href="https://bioconductor.org/packages/3.14/GSEABase">GSEABase</a></em><code>::GeneSet()</code> <em><a href="https://bioconductor.org/packages/3.14/GSEABase">GSEABase</a></em><code>::GeneSetCollection()</code>
 </li>
-<li>Multi-omics data – <em><a href="https://bioconductor.org/packages/3.13/MultiAssayExperiment">MultiAssayExperiment</a></em><code>::MultiAssayExperiment()</code>
+<li>Multi-omics data – <em><a href="https://bioconductor.org/packages/3.14/MultiAssayExperiment">MultiAssayExperiment</a></em><code>::MultiAssayExperiment()</code>
 </li>
-<li>Single cell data – <em><a href="https://bioconductor.org/packages/3.13/SingleCellExperiment">SingleCellExperiment</a></em><code>::SingleCellExperiment()</code>
+<li>Single cell data – <em><a href="https://bioconductor.org/packages/3.14/SingleCellExperiment">SingleCellExperiment</a></em><code>::SingleCellExperiment()</code>
 </li>
-<li>Mass spectrometry data – <em><a href="https://bioconductor.org/packages/3.13/Spectra">Spectra</a></em><code>::Spectra()</code>
+<li>Mass spectrometry data – <em><a href="https://bioconductor.org/packages/3.14/Spectra">Spectra</a></em><code>::Spectra()</code>
 </li>
 </ul>
 </div>
@@ -868,7 +859,7 @@ URL like</p>
 <li><a href="https://bioconductor.org/packages/packagename" class="uri">https://bioconductor.org/packages/packagename</a></li>
 </ul>
 <p>This works for any type of package (software, annotation or data). For
-example, the pages for packages <em><a href="https://bioconductor.org/packages/3.13/DESeq2">DESeq2</a></em> or <em><a href="https://bioconductor.org/packages/3.13/QFeatures">QFeatures</a></em>
+example, the pages for packages <em><a href="https://bioconductor.org/packages/3.14/DESeq2">DESeq2</a></em> or <em><a href="https://bioconductor.org/packages/3.14/QFeatures">QFeatures</a></em>
 would be</p>
 <ul>
 <li><a href="https://bioconductor.org/packages/DESeq2" class="uri">https://bioconductor.org/packages/DESeq2</a></li>
@@ -1100,7 +1091,7 @@ sample data based on the groups.</p></li>
 <p class="build-date">Page built: 
 2021-10-01
  using 
-R version 4.1.1 (2021-08-10)
+R version 4.1.0 (2021-05-18)
 </p>
 </div>
 </div>
