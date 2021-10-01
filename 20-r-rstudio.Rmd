@@ -37,6 +37,8 @@ Sheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
 provides much more information that will be covered here, but can be
 useful to learn keyboard shortcuts and discover new features.
 
+[Other RStudio Cheat sheets](https://www.rstudio.com/resources/cheatsheets/) are available for specific topics.
+
 ## Why learn R?
 
 ### R does not involve lots of pointing and clicking, and that's a good thing {-}
@@ -318,7 +320,7 @@ The working directory is an important concept to understand. It is the
 place from where R will be looking for and saving the files. When you
 write code for your project, it should refer to files in relation to
 the root of your working directory and only need files within this
-structure.
+structure with relative paths.
 
 Using RStudio projects makes this easy and ensures that your working
 directory is set properly. If you need to check it, you can use
@@ -332,7 +334,7 @@ this line because it will fail on someone else's computer.
 
 **Example**
 
-The shema below represents the working directory `wsbim1207` with the
+The schema below represents the working directory `wsbim1207` with the
 `data` and `fig_output` sub-directories, and 2 files in the latter:
 
 ```
@@ -341,7 +343,7 @@ wsbim1207/data/
          /fig_output/fig2.png
 ```
 
-If we were in the working directory, we could refer to the `fig1.pdf`
+If we were in the working directory (`bioinfo_training_intro`), we could refer to the `fig1.pdf`
 file using the relative path `fig_output/fig1.pdf` or the
 absolute path `/home/user/wsbim1207/fig_output/fig1.pdf`.
 
@@ -621,6 +623,8 @@ sessionInfo()
 
 ## R packages
 
+R packages need to be : (1) installed (+ their dependencies), and (2) loaded in your environment
+
 ### Loading packages
 
 As we have seen above, R packages play a fundamental role in R. The
@@ -646,7 +650,7 @@ install.packages("dplyr")
 This command will install the `dplyr` package as well as all its
 dependencies, i.e. all the packages that it relies on to function.
 
-[Github](https://github.com/) is a general-pupose online software
+[Github](https://github.com/) is a general-purpose online software
 project repository and is well suited for R package development. To
 install a package from Gtihub, one can use the `install_github()`
 function from the `devtools` package. Below we first install the

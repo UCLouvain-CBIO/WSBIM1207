@@ -9,6 +9,7 @@
 - Convert between strings and factors.
 - Reorder and rename factors.
 - Format dates.
+- Other R objects: matrices and lists
 - Export and save data.
 
 ## Presentation of the gene expression data
@@ -44,7 +45,6 @@ columns represent:
 | mouse      | The mouse unique identifier.                                                                 |
 | ENTREZID   | The gene ID for the ENTREZ database                                                          |
 | product    | The gene product                                                                             |
-| external_gene_name  | The name of the gene in the ENSEMBL database                                        |
 | ensembl_gene_id     | The ID of the gene from the ENSEMBL database                                        |
 | external_synonym    | A name synonym for the gene                                                         |
 | chromosome_name                      | The chromosome name of the gene                                    |
@@ -85,7 +85,7 @@ rna <- read.csv("data/rnaseq.csv")
 This statement doesn't produce any output because, as you might
 recall, assignments don't display anything. If we want to check that
 our data has been loaded, we can see the contents of the data frame by
-typing its name
+typing its name:
 
 ```{r, eval = FALSE}
 rna
@@ -200,9 +200,6 @@ questions?
 
 - What is the class of the object `rna`?
 - How many rows and how many columns are in this object?
-- How many genes (as defined by the `gene` variable) have been
-  measured in this experiment?
-
 `r msmbstyle::question_end()`
 
 
@@ -210,8 +207,6 @@ questions?
 
 - class: data frame
 - how many rows: 32428, how many columns: 21
-- how many genes: 1474
-
 `r msmbstyle::solution_end()`
 
 
@@ -300,7 +295,7 @@ How many mouse genes do not have a human homologous?
 
 2. Notice how `nrow()` gave you the number of rows in a `data.frame`?
 
-- Use that number to pull out just that last row in the inital
+- Use that number to pull out just that last row in the initial
   `rna` data frame.
 
 - Compare that with what you see as the last row using `tail()` to
@@ -364,6 +359,21 @@ levels(sex)
 nlevels(sex)
 ```
 
+`r msmbstyle::question_begin()`
+
+- How many genes have been measured in this experiment?
+
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+
+```{r}
+nlevels(factor(rna$gene))
+```
+
+`r msmbstyle::solution_end()`
+
+
 Sometimes, the order of the factors does not matter, other times you
 might want to specify the order because it is meaningful (e.g., "low",
 "medium", "high"), it improves your visualization, or it is required
@@ -385,13 +395,14 @@ integer data. Factors, on the other hand, have this information built
 in. It is particularly helpful when there are many levels (like the
 species names in our example dataset).
 
-### Converting to factors {-}
+### Converting to characters {-}
 
 If you need to convert a factor to a character vector, you use
 `as.character(x)`.
 
 ```{r}
 as.character(sex)
+# try also: as.numeric(sex)
 ```
 
 <!-- ### Numeric factors {-} -->
@@ -515,11 +526,12 @@ respect, matrices are closer to a `vector` than a `data.frame`.
 The default constructor for a matrix is `matrix`. It takes a vector of
 values to populate the matrix and the number of row and/or
 columns[^ncol]. The values are sorted along the columns, as illustrated
-below.
+below but you can also sort them along the row with the argument `byrow = TRUE`.
 
 ```{r mat1}
 m <- matrix(1:9, ncol = 3, nrow = 3)
 m
+# try now with byrow = TRUE
 ```
 
 [^ncol]: Either the number of rows or columns are enough, as the other
@@ -691,7 +703,7 @@ dmy(paste(x$day, x$month, x$month, sep = "-"))
 ## Summary of R objects
 
 So far, we have seen several types of R object varying in the number
-of dimensions and whether they could store a single of multiple data
+of dimensions and whether they could store a single or multiple data
 types:
 
 - **`vector`**: one dimension (they have a length), single type of data.
@@ -728,6 +740,42 @@ l[[1]] ## first element
 l[1:2] ## a list of length 2
 l[1]   ## a list of length 1
 ```
+
+r msmbstyle::question_begin()`
+You can also attribute a name to each element of a list. Give the following names (in that order) to the list elements with the function `names()`: numbers, alphabet, installed_packages, cars, random. Check if the names were correctly attributed.
+
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+```{r}
+names(l) <- c("numbers", "alphabet", "installed_packages", 
+              "cars", "random")
+names(l)
+```
+`r msmbstyle::solution_end()`
+
+
+`r msmbstyle::question_begin()`
+
+Subset the previously defined list `l`, to keep:
+
+* a list with all but the matrix of installed packages
+* only the `cars` data.frame
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+```{r}
+# list with all but the matrix of installed packages
+l[-3]
+# only the `cars` data.frame
+l[["cars"]]
+# equivalent to:
+l[[4]]
+```
+
+`r msmbstyle::solution_end()`
+
+
 ## Exporting and saving data {#sec-exportandsave}
 
 ### Exporting tabular data {-}
