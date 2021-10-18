@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-10-01" />
+<meta name="date" content="2021-10-19" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -509,7 +509,7 @@ class, length and content of each column</li>
 <li>
 <code>summary(rna)</code> - summary statistics for each column</li>
 </ul>
-<p>Note: most of these functions are “generic,” they can be used on other types of
+<p>Note: most of these functions are “generic”, they can be used on other types of
 objects besides <code>data.frame</code>.</p>
 <div class="question">
 <p class="question-begin">
@@ -715,8 +715,8 @@ in this vector is <code>"male"</code>). You can see this by using the function
 </div>
 </div>
 <p>Sometimes, the order of the factors does not matter, other times you
-might want to specify the order because it is meaningful (e.g., “low,”
-“medium,” “high”), it improves your visualization, or it is required
+might want to specify the order because it is meaningful (e.g., “low”,
+“medium”, “high”), it improves your visualization, or it is required
 by a particular type of analysis. Here, one way to reorder our levels
 in the <code>sex</code> vector would be:</p>
 <div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="sec-startdata.html#cb233-1" aria-hidden="true" tabindex="-1"></a>sex <span class="do">## current order</span></span></code></pre></div>
@@ -729,7 +729,7 @@ in the <code>sex</code> vector would be:</p>
 <p>In R’s memory, these factors are represented by integers (1, 2, 3),
 but are more informative than integers because factors are self
 describing: <code>"female"</code>, <code>"male"</code> is more descriptive than <code>1</code>,
-<code>2</code>. Which one is “male?” You wouldn’t be able to tell just from the
+<code>2</code>. Which one is “male”? You wouldn’t be able to tell just from the
 integer data. Factors, on the other hand, have this information built
 in. It is particularly helpful when there are many levels (like the
 species names in our example dataset).</p>
@@ -987,7 +987,7 @@ Gnumeric, … have different (and often incompatible) ways of encoding
 dates (even for the same program between versions and operating
 systems). Additionally, Excel can <a href="https://nsaunders.wordpress.com/2012/10/22/gene-name-errors-and-excel-lessons-not-learned/">turn things that aren’t dates into
 dates</a>
-(<span class="citation"><label for="tufte-mn-19" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-19" class="margin-toggle">Zeeberg et al. (2004)<span class="marginnote">Zeeberg, Barry R., Joseph Riss, David W. Kane, Kimberly J. Bussey, Edward Uchio, W. Marston Linehan, J. Carl Barrett, and John N. Weinstein. 2004. <span>“Mistaken Identifiers: Gene Name Errors Can Be Introduced Inadvertently When Using Excel in Bioinformatics.”</span> <em>BMC Bioinformatics</em> 5 (1): 80. <a href="https://doi.org/10.1186/1471-2105-5-80">https://doi.org/10.1186/1471-2105-5-80</a>.</span></span>), for example names or identifiers like MAR1, DEC1,
+(<span class="citation">Zeeberg et al. (<label for="tufte-mn-19" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-19" class="margin-toggle">2004<span class="marginnote">Zeeberg, Barry R., Joseph Riss, David W. Kane, Kimberly J. Bussey, Edward Uchio, W. Marston Linehan, J. Carl Barrett, and John N. Weinstein. 2004. <span>“Mistaken Identifiers: Gene Name Errors Can Be Introduced Inadvertently When Using Excel in Bioinformatics.”</span> <em>BMC Bioinformatics</em> 5 (1): 80. <a href="https://doi.org/10.1186/1471-2105-5-80">https://doi.org/10.1186/1471-2105-5-80</a>.</span>)</span>), for example names or identifiers like MAR1, DEC1,
 OCT4. So if you’re avoiding the date format overall, it’s easier to
 identify these issues.</p>
 <p>The <a href="https://datacarpentry.org/spreadsheet-ecology-lesson/03-dates-as-data/index.html">Dates as
@@ -1008,7 +1008,7 @@ explicitly with <code>library(lubridate)</code></p>
 it to a <code>Date</code> vector. <code>Date</code> is a class of data recognized by R as
 being a date and can be manipulated as such. The argument that the
 function requires is flexible, but, as a best practice, is a character
-vector formatted as “YYYY-MM-DD.”</p>
+vector formatted as “YYYY-MM-DD”.</p>
 <p>Let’s create a date object and inspect the structure:</p>
 <div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="sec-startdata.html#cb257-1" aria-hidden="true" tabindex="-1"></a>my_date <span class="ot">&lt;-</span> <span class="fu">ymd</span>(<span class="st">"2015-01-01"</span>)</span>
 <span id="cb257-2"><a href="sec-startdata.html#cb257-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(my_date)</span></code></pre></div>
@@ -1110,9 +1110,9 @@ a matrix, a dataframe and another list:</p>
 <pre><code>## List of 5
 ##  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##  $ : chr [1:26] "a" "b" "c" "d" ...
-##  $ : chr [1:729, 1:16] "abind" "AER" "affy" "affydata" ...
+##  $ : chr [1:742, 1:16] "abind" "AER" "affy" "affydata" ...
 ##   ..- attr(*, "dimnames")=List of 2
-##   .. ..$ : chr [1:729] "abind" "AER" "affy" "affydata" ...
+##   .. ..$ : chr [1:742] "abind" "AER" "affy" "affydata" ...
 ##   .. ..$ : chr [1:16] "Package" "LibPath" "Version" "Priority" ...
 ##  $ :'data.frame':    50 obs. of  2 variables:
 ##   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...
@@ -1633,7 +1633,7 @@ to use the <code>quantile</code> function.</p></li>
 <a href="sec-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-10-01
+2021-10-19
  using 
 R version 4.1.0 (2021-05-18)
 </p>

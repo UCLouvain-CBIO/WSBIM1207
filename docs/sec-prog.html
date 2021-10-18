@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-10-01" />
+<meta name="date" content="2021-10-19" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -486,7 +486,7 @@ will also use the <em>tidyverse</em> to work with the data.</p>
 <span id="cb614-3"><a href="sec-prog.html#cb614-3" aria-hidden="true" tabindex="-1"></a>fls <span class="ot">&lt;-</span> <span class="fu">expressions.csv</span>()</span>
 <span id="cb614-4"><a href="sec-prog.html#cb614-4" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(fls[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## Rows: 570 Columns: 4</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+<pre><code>## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (3): sampleID, patient, type
 ## dbl (1): A1BG</code></pre>
@@ -509,7 +509,7 @@ will also use the <em>tidyverse</em> to work with the data.</p>
 ## # … with 560 more rows</code></pre>
 <div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="sec-prog.html#cb619-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(fls[<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## Rows: 570 Columns: 4</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+<pre><code>## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (3): sampleID, patient, type
 ## dbl (1): A1CF</code></pre>
@@ -706,7 +706,7 @@ and you should get 4825.2778709 and 23.</p>
 ##     }
 ##     return(sum(res))
 ## }
-## &lt;bytecode: 0x55df12e51fb8&gt;</code></pre>
+## &lt;bytecode: 0x5651ccf55da8&gt;</code></pre>
 <div class="sourceCode" id="cb653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb653-1"><a href="sec-prog.html#cb653-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(1L)</span>
 <span id="cb653-2"><a href="sec-prog.html#cb653-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fun</span>(<span class="dv">5</span>, <span class="dv">15</span>)</span></code></pre></div>
 <pre><code>## [1] 4825.278</code></pre>
@@ -842,7 +842,7 @@ dataframe containing all results.</li>
 <span id="cb680-2"><a href="sec-prog.html#cb680-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(fls))</span>
 <span id="cb680-3"><a href="sec-prog.html#cb680-3" aria-hidden="true" tabindex="-1"></a>    l[[i]] <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fls[i])</span></code></pre></div>
 <pre><code>## Rows: 100 Columns: 8</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+<pre><code>## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (2): id, gender
 ## dbl (6): height, X, interro1, interro2, interro3, interro4</code></pre>
@@ -850,7 +850,7 @@ dataframe containing all results.</li>
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre><code>## Rows: 105 Columns: 8</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+<pre><code>## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (2): id, gender
 ## dbl (6): height, X, interro1, interro2, interro3, interro4</code></pre>
@@ -878,7 +878,7 @@ dataframe containing all results.</li>
 <p>or</p>
 <div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="sec-prog.html#cb691-1" aria-hidden="true" tabindex="-1"></a>l <span class="ot">&lt;-</span> <span class="fu">lapply</span>(fls, read_csv)</span></code></pre></div>
 <pre><code>## Rows: 100 Columns: 8</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+<pre><code>## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (2): id, gender
 ## dbl (6): height, X, interro1, interro2, interro3, interro4</code></pre>
@@ -886,7 +886,7 @@ dataframe containing all results.</li>
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre><code>## Rows: 105 Columns: 8</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+<pre><code>## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (2): id, gender
 ## dbl (6): height, X, interro1, interro2, interro3, interro4</code></pre>
@@ -1095,7 +1095,7 @@ that that 1 yard corresponds to 0.9144 meters</p>
 <a href="sec-ccl.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-10-01
+2021-10-19
  using 
 R version 4.1.0 (2021-05-18)
 </p>

@@ -19,7 +19,7 @@ bibliography: [refs.bib, packages.bib]
 
 # Preamble {-}
 
-The [WSBIM1207](https://uclouvain.be/cours-2019-wsbim1207.html) course
+The [WSBIM1207](https://uclouvain.be/cours-2021-wsbim1207.html) course
 is an introduction to bioinformatics (and data science) for biology
 and biomedical students. It introduces bioinformatics methodology and
 technologies without relying on any prerequisites. The aim of this

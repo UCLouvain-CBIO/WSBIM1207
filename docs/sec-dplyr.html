@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-10-01" />
+<meta name="date" content="2021-10-19" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -321,7 +321,7 @@ and this <a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.
 tidyverse package <strong><code>readr</code></strong>, instead of <code>read.csv()</code>.</p>
 <div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="sec-dplyr.html#cb296-1" aria-hidden="true" tabindex="-1"></a>rna <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
 <pre><code>## Rows: 32428 Columns: 19</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+<pre><code>## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (14): gene, sample, organism, sex, infection, strain, tissue, product, e...
 ## dbl  (5): expression, age, time, mouse, ENTREZID</code></pre>
@@ -333,7 +333,7 @@ tidyverse package <strong><code>readr</code></strong>, instead of <code>read.csv
 <span id="cb300-3"><a href="sec-dplyr.html#cb300-3" aria-hidden="true" tabindex="-1"></a><span class="do">## preview the data</span></span>
 <span id="cb300-4"><a href="sec-dplyr.html#cb300-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View(rna)</span></span></code></pre></div>
 <p>Notice that the class of the data is now <code>tbl_df</code></p>
-<p>This is referred to as a “tibble.” Tibbles tweak some of the behaviors
+<p>This is referred to as a “tibble”. Tibbles tweak some of the behaviors
 of the data frame objects we introduced in the previous episode. The
 data structure is very similar to a data frame. For our purposes the
 only differences are that:</p>
@@ -516,7 +516,7 @@ to keep only the <code>gene</code>, <code>sample</code>, <code>tissue</code>, an
 Since <code>%&gt;%</code> takes the object on its left and passes it as the first argument
 to the function on its right, we don’t need to explicitly include the data frame
 as an argument to the <code>filter()</code> and <code>select()</code> functions any more.</p>
-<p>Some may find it helpful to read the pipe like the word “then.” For instance,
+<p>Some may find it helpful to read the pipe like the word “then”. For instance,
 in the above example, we took the data frame <code>rna</code>, <em>then</em> we <code>filter</code>ed
 for rows with <code>sex == "Male"</code>, <em>then</em> we <code>select</code>ed columns <code>gene</code>, <code>sample</code>,
 <code>tissue</code>, and <code>expression</code>. The <strong><code>dplyr</code></strong> functions by themselves are somewhat
@@ -1141,7 +1141,7 @@ the sample (age, sex, organism…) or the gene (gene_biotype, ENTREZ_ID, product
 The variables that don’t change genes or samples will have the same value in all the rows.
 This structure is called a <code>long-format</code>, as one column contains all the values,
 and other column(s) list(s) the context of the value.</p>
-<p>In certain cases, the <code>long-format</code> is not really “human-readable,” and another format,
+<p>In certain cases, the <code>long-format</code> is not really “human-readable”, and another format,
 a <code>wide-format</code> is preferred, as a more compact way of representing the data.
 This is typically the case with gene expression values that scientists are used to
 look as matrices, were rows represent genes and columns represent samples.</p>
@@ -1849,7 +1849,7 @@ and a column <code>result</code> with the student’s mark.</p>
 <a href="sec-vis.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-10-01
+2021-10-19
  using 
 R version 4.1.0 (2021-05-18)
 </p>
