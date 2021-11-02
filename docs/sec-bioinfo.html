@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-10-19" />
+<meta name="date" content="2021-11-02" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -456,18 +456,18 @@ measured by the same operator in 4 replicate.</p>
 <p>We have seen a much more complex experimental desing, involving many
 more samples with the <code>clinical1</code> data.</p>
 <pre><code>## # A tibble: 516 × 15
-##    patientID    tumor_tissue_site gender age_at_diagnosis vital_status days_to_death
-##    &lt;chr&gt;        &lt;chr&gt;             &lt;chr&gt;             &lt;int&gt;        &lt;int&gt;         &lt;int&gt;
-##  1 TCGA-05-4249 lung              male              24532            0            NA
-##  2 TCGA-05-4382 lung              male              24868            0            NA
-##  3 TCGA-05-4384 lung              male              24411            0            NA
-##  4 TCGA-05-4389 lung              male              25660            0            NA
-##  5 TCGA-05-4390 lung              female            21430            0            NA
-##  6 TCGA-05-4395 lung              male              27971            1             0
-##  7 TCGA-05-4396 lung              male              28094            1           303
-##  8 TCGA-05-4398 lung              female            17471            0            NA
-##  9 TCGA-05-4402 lung              female            20819            1           244
-## 10 TCGA-05-4403 lung              male              27881            0            NA
+##    patientID tumor_tissue_si… gender age_at_diagnosis vital_status days_to_death
+##    &lt;chr&gt;     &lt;chr&gt;            &lt;chr&gt;             &lt;int&gt;        &lt;int&gt;         &lt;int&gt;
+##  1 TCGA-05-… lung             male              24532            0            NA
+##  2 TCGA-05-… lung             male              24868            0            NA
+##  3 TCGA-05-… lung             male              24411            0            NA
+##  4 TCGA-05-… lung             male              25660            0            NA
+##  5 TCGA-05-… lung             female            21430            0            NA
+##  6 TCGA-05-… lung             male              27971            1             0
+##  7 TCGA-05-… lung             male              28094            1           303
+##  8 TCGA-05-… lung             female            17471            0            NA
+##  9 TCGA-05-… lung             female            20819            1           244
+## 10 TCGA-05-… lung             male              27881            0            NA
 ## # … with 506 more rows, and 9 more variables: days_to_last_followup &lt;int&gt;,
 ## #   pathologic_stage &lt;chr&gt;, pathology_T_stage &lt;chr&gt;, pathology_N_stage &lt;chr&gt;,
 ## #   pathology_M_stage &lt;chr&gt;, smoking_history &lt;chr&gt;,
@@ -508,6 +508,8 @@ Figure 9.5: The Bioconductor web page.
 </p>
 <img src="figs/bioc-screenshot.png" alt="The Bioconductor web page." width="100%">
 </div>
+<p>This <a href="https://www.youtube.com/watch?v=nzY7bPQOXUs">video</a> provides a
+great overview of the project at large.</p>
 <p>Bioconductor packages are managed installed using a dedicated package,
 namely <code>BiocManager</code>, that can be installed from CRAN with</p>
 <div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="sec-bioinfo.html#cb560-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span></code></pre></div>
@@ -1089,7 +1091,7 @@ sample data based on the groups.</p></li>
 <a href="sec-prog.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-10-19
+2021-11-02
  using 
 R version 4.1.0 (2021-05-18)
 </p>

@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-10-19" />
+<meta name="date" content="2021-11-02" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -543,13 +543,13 @@ will be duplicated.</p>
 <div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="sec-join.html#cb532-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(jdf6, jdf2)</span></code></pre></div>
 <pre><code>## Joining, by = "uniprot"</code></pre>
 <pre><code>## # A tibble: 5 × 7
-##   uniprot organelle             entry       isoform gene_name description organism
-##   &lt;chr&gt;   &lt;chr&gt;                 &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;   
-## 1 P26039  Actin cytoskeleton    TLN1_MOUSE        1 Tln1      Talin-1     Mmus    
-## 2 Q99PL5  Endoplasmic reticulum RRBP1_MOUSE       1 Rrbp1     Ribosome-b… Mmus    
-## 3 Q99PL5  Golgi apparatus       RRBP1_MOUSE       2 Rrbp1     Ribosome-b… Mmus    
-## 4 Q6PB66  Mitochondrion         LPPRC_MOUSE       1 Lrpprc    Leucine-ri… Mmus    
-## 5 P11276  Extracellular matrix  FINC_MOUSE        1 Fn1       Fibronectin Mmus</code></pre>
+##   uniprot organelle             entry  isoform gene_name description    organism
+##   &lt;chr&gt;   &lt;chr&gt;                 &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;          &lt;chr&gt;   
+## 1 P26039  Actin cytoskeleton    TLN1_…       1 Tln1      Talin-1        Mmus    
+## 2 Q99PL5  Endoplasmic reticulum RRBP1…       1 Rrbp1     Ribosome-bind… Mmus    
+## 3 Q99PL5  Golgi apparatus       RRBP1…       2 Rrbp1     Ribosome-bind… Mmus    
+## 4 Q6PB66  Mitochondrion         LPPRC…       1 Lrpprc    Leucine-rich … Mmus    
+## 5 P11276  Extracellular matrix  FINC_…       1 Fn1       Fibronectin    Mmus</code></pre>
 <p>In the case above, repeating is useful, as it completes <code>jdf6</code> with
 correct information from <code>jdf2</code>. One needs however to be careful when
 duplicated keys exist in both tables. Below, we create an inner join
@@ -819,7 +819,7 @@ containing merged data exclusively for normal samples.</p></li>
 <a href="sec-rr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-10-19
+2021-11-02
  using 
 R version 4.1.0 (2021-05-18)
 </p>

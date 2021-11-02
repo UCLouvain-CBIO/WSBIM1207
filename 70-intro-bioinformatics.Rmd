@@ -182,6 +182,9 @@ for bioinformatics.
 knitr::include_graphics("./figs/bioc-screenshot.png")
 ```
 
+This [video](https://www.youtube.com/watch?v=nzY7bPQOXUs) provides a
+great overview of the project at large.
+
 Bioconductor packages are managed installed using a dedicated package,
 namely `BiocManager`, that can be installed from CRAN with
 

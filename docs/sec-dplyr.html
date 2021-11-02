@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-10-19" />
+<meta name="date" content="2021-11-02" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -321,7 +321,7 @@ and this <a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.
 tidyverse package <strong><code>readr</code></strong>, instead of <code>read.csv()</code>.</p>
 <div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="sec-dplyr.html#cb296-1" aria-hidden="true" tabindex="-1"></a>rna <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
 <pre><code>## Rows: 32428 Columns: 19</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────
+<pre><code>## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (14): gene, sample, organism, sex, infection, strain, tissue, product, e...
 ## dbl  (5): expression, age, time, mouse, ENTREZID</code></pre>
@@ -385,18 +385,18 @@ arguments are the columns to keep.</p>
 the variable to exclude it.</p>
 <div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="sec-dplyr.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(rna, <span class="sc">-</span>organism, <span class="sc">-</span>strain)</span></code></pre></div>
 <pre><code>## # A tibble: 32,428 × 17
-##    gene    sample     expression   age sex    infection  time tissue mouse ENTREZID
-##    &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;
-##  1 Asl     GSM2545336       1170     8 Female Influenz…     8 Cereb…    14   109900
-##  2 Apod    GSM2545336      36194     8 Female Influenz…     8 Cereb…    14    11815
-##  3 Cyp2d22 GSM2545336       4060     8 Female Influenz…     8 Cereb…    14    56448
-##  4 Klk6    GSM2545336        287     8 Female Influenz…     8 Cereb…    14    19144
-##  5 Fcrls   GSM2545336         85     8 Female Influenz…     8 Cereb…    14    80891
-##  6 Slc2a4  GSM2545336        782     8 Female Influenz…     8 Cereb…    14    20528
-##  7 Exd2    GSM2545336       1619     8 Female Influenz…     8 Cereb…    14    97827
-##  8 Gjc2    GSM2545336        288     8 Female Influenz…     8 Cereb…    14   118454
-##  9 Plp1    GSM2545336      43217     8 Female Influenz…     8 Cereb…    14    18823
-## 10 Gnb4    GSM2545336       1071     8 Female Influenz…     8 Cereb…    14    14696
+##    gene    sample  expression   age sex    infection  time tissue mouse ENTREZID
+##    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+##  1 Asl     GSM254…       1170     8 Female Influenz…     8 Cereb…    14   109900
+##  2 Apod    GSM254…      36194     8 Female Influenz…     8 Cereb…    14    11815
+##  3 Cyp2d22 GSM254…       4060     8 Female Influenz…     8 Cereb…    14    56448
+##  4 Klk6    GSM254…        287     8 Female Influenz…     8 Cereb…    14    19144
+##  5 Fcrls   GSM254…         85     8 Female Influenz…     8 Cereb…    14    80891
+##  6 Slc2a4  GSM254…        782     8 Female Influenz…     8 Cereb…    14    20528
+##  7 Exd2    GSM254…       1619     8 Female Influenz…     8 Cereb…    14    97827
+##  8 Gjc2    GSM254…        288     8 Female Influenz…     8 Cereb…    14   118454
+##  9 Plp1    GSM254…      43217     8 Female Influenz…     8 Cereb…    14    18823
+## 10 Gnb4    GSM254…       1071     8 Female Influenz…     8 Cereb…    14    14696
 ## # … with 32,418 more rows, and 7 more variables: product &lt;chr&gt;,
 ## #   ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;, chromosome_name &lt;chr&gt;,
 ## #   gene_biotype &lt;chr&gt;, phenotype_description &lt;chr&gt;,
@@ -1849,7 +1849,7 @@ and a column <code>result</code> with the student’s mark.</p>
 <a href="sec-vis.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-10-19
+2021-11-02
  using 
 R version 4.1.0 (2021-05-18)
 </p>
