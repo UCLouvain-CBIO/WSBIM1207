@@ -80,9 +80,12 @@ library("tidyverse")
 ```
 
 The [Data Transformation Cheat
-Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+Sheet](https://github.com/rstudio/cheatsheets/raw/main/data-transformation.pdf)
 provides an overview of the `dplyr` grammar, offering more details and
-functions that we will see in this chapter.
+functions that we will see in this chapter. The [Tidy Data
+Tutor](https://tidydatatutor.com/) is a wonderful tool to do visually
+describe what the tidy data operations do.
+
 
 ## What are **`dplyr`** and **`tidyr`**?
 
@@ -112,9 +115,9 @@ sophisticated data manipulation.
 To learn more about **`dplyr`** and **`tidyr`** after the workshop,
 you may want to check out this [handy data transformation with
 **`dplyr`**
-cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+cheatsheet](https://github.com/rstudio/cheatsheets/raw/main/data-transformation.pdf)
 and this [one about
-**`tidyr`**](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf).
+**`tidyr`**](https://github.com/rstudio/cheatsheets/raw/main/data-import.pdf).
 
 We'll read in our data using the `read_csv()` function, from the
 tidyverse package **`readr`**, instead of `read.csv()`.
@@ -700,6 +703,15 @@ rna_with_missing_values %>%
               values_from = expression,
               values_fill = 0)
 ```
+
+
+It is important to be able to conceptually visualise how these
+different functions operate on data. Being able to do that allows to
+[mentally run a set of commands and get a feeling whether this will
+work, rather that randomly try things
+out](https://lgatto.github.io/exam-qst/). The [Tidy Data
+Tutor](https://tidydatatutor.com/) is a wonderful tool to do exactly
+that.
 
 
 
