@@ -570,28 +570,36 @@ rna %>%
   arrange()
 ```
 
-
 `r msmbstyle::solution_end()`
 
 
-In the spreadsheet lesson (chapter \@ref(sec-dataorg)), we discussed
-how to structure our data leading to the four rules defining a tidy
-dataset:
+
+It is important to be able to conceptually visualise how these
+different functions operate on data. Being able to do that allows to
+[mentally run a set of commands and get a feeling whether this will
+work, rather that randomly try things
+out](https://lgatto.github.io/exam-qst/). The [Tidy Data
+Tutor](https://tidydatatutor.com/) is a wonderful tool to do exactly
+that.
+
+
 
 ## Reshaping data
 
-In `rna`, the rows contain expression values (the unit) that are
-associated with a combination of 2 other variables: `gene` and `sample`.
-All the other columns correspond to variables describing either
-the sample (age, sex, organism...) or the gene (gene_biotype, ENTREZ_ID, product...).
-The variables that don’t change genes or samples will have the same value in all the rows.
-This structure is called a `long-format`, as one column contains all the values,
-and other column(s) list(s) the context of the value.
+In `rna`, the rows contain expression values that are associated with
+a combination of 2 other variables: `gene` and `sample`.  All the
+other columns correspond to variables describing either the sample
+(age, sex, organism...) or the gene (gene_biotype, ENTREZ_ID,
+product...).  The variables that don’t change genes or samples will
+have the same value in all the rows.  This structure is called a
+*long format*, as one column contains all the values, and other
+column(s) list(s) the context of the value.
 
-In certain cases, the `long-format` is not really "human-readable", and another format,
-a `wide-format` is preferred, as a more compact way of representing the data.
-This is typically the case with gene expression values that scientists are used to
-look as matrices, were rows represent genes and columns represent samples.
+In certain cases, the *long format* is not really human-readable, and
+another format, a *wide format* is preferred, as a more compact way of
+representing the data.  This is typically the case with gene
+expression values that scientists are used to look as matrices, were
+rows represent genes and columns represent samples.
 
 To convert the gene expression values from `rna` into a wide-format,
 we need to create a new table where each row (the units) is composed
@@ -703,15 +711,6 @@ rna_with_missing_values %>%
               values_from = expression,
               values_fill = 0)
 ```
-
-
-It is important to be able to conceptually visualise how these
-different functions operate on data. Being able to do that allows to
-[mentally run a set of commands and get a feeling whether this will
-work, rather that randomly try things
-out](https://lgatto.github.io/exam-qst/). The [Tidy Data
-Tutor](https://tidydatatutor.com/) is a wonderful tool to do exactly
-that.
 
 
 

@@ -33,7 +33,7 @@ therefore both need to be installed on your computer.
     while providing numerous very advanced features.
 
 The [RStudio IDE Cheat
-Sheet](https://github.com/rstudio/cheatsheets/raw/main/rstudio-ide.pdf)
+Sheet](https://github.com/rstudio/cheatsheets/blob/main/rstudio-ide.pdf)
 provides much more information that will be covered here, but can be
 useful to learn keyboard shortcuts and discover new features.
 

@@ -153,8 +153,8 @@ and display directly in the source document.
 initially developed for Python, but that can run R code as well.
 
 Here is an [R markdown cheat
-sheet](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
-provided by RStudio and an [introduction
+sheet](https://rmarkdown.rstudio.com/lesson-15.html) provided by
+RStudio and an [introduction
 article](https://rmarkdown.rstudio.com/articles_intro.html).
 
 

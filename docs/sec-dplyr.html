@@ -1126,26 +1126,32 @@ and calculate their mean expression (in log) at time 0, time 4 and time 8.</li>
 </p>
 </div>
 </div>
-<p>In the spreadsheet lesson (chapter <a href="sec-dataorg.html#sec-dataorg">1</a>), we discussed
-how to structure our data leading to the four rules defining a tidy
-dataset:</p>
+<p>It is important to be able to conceptually visualise how these
+different functions operate on data. Being able to do that allows to
+<a href="https://lgatto.github.io/exam-qst/">mentally run a set of commands and get a feeling whether this will
+work, rather that randomly try things
+out</a>. The <a href="https://tidydatatutor.com/">Tidy Data
+Tutor</a> is a wonderful tool to do exactly
+that.</p>
 </div>
 </div>
 <div id="reshaping-data" class="section level2" number="5.7">
 <h2>
 <span class="header-section-number">5.7</span> Reshaping data<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('reshaping-data')" onmouseout="reset_tooltip('reshaping-data-tooltip')"><span class="tooltiptext" id="reshaping-data-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h2>
-<p>In <code>rna</code>, the rows contain expression values (the unit) that are
-associated with a combination of 2 other variables: <code>gene</code> and <code>sample</code>.
-All the other columns correspond to variables describing either
-the sample (age, sex, organism…) or the gene (gene_biotype, ENTREZ_ID, product…).
-The variables that don’t change genes or samples will have the same value in all the rows.
-This structure is called a <code>long-format</code>, as one column contains all the values,
-and other column(s) list(s) the context of the value.</p>
-<p>In certain cases, the <code>long-format</code> is not really “human-readable,” and another format,
-a <code>wide-format</code> is preferred, as a more compact way of representing the data.
-This is typically the case with gene expression values that scientists are used to
-look as matrices, were rows represent genes and columns represent samples.</p>
+<p>In <code>rna</code>, the rows contain expression values that are associated with
+a combination of 2 other variables: <code>gene</code> and <code>sample</code>. All the
+other columns correspond to variables describing either the sample
+(age, sex, organism…) or the gene (gene_biotype, ENTREZ_ID,
+product…). The variables that don’t change genes or samples will
+have the same value in all the rows. This structure is called a
+<em>long format</em>, as one column contains all the values, and other
+column(s) list(s) the context of the value.</p>
+<p>In certain cases, the <em>long format</em> is not really human-readable, and
+another format, a <em>wide format</em> is preferred, as a more compact way of
+representing the data. This is typically the case with gene
+expression values that scientists are used to look as matrices, were
+rows represent genes and columns represent samples.</p>
 <p>To convert the gene expression values from <code>rna</code> into a wide-format,
 we need to create a new table where each row (the units) is composed
 of expression values associated with each gene.</p>
@@ -1265,13 +1271,6 @@ to a specific value.</p>
 ## 1 Asl           1170        361        400
 ## 2 Apod         36194      10347       9173
 ## 3 Cyp2d22          0          0       1603</code></pre>
-<p>It is important to be able to conceptually visualise how these
-different functions operate on data. Being able to do that allows to
-<a href="https://lgatto.github.io/exam-qst/">mentally run a set of commands and get a feeling whether this will
-work, rather that randomly try things
-out</a>. The <a href="https://tidydatatutor.com/">Tidy Data
-Tutor</a> is a wonderful tool to do exactly
-that.</p>
 </div>
 <div id="pivoting-data-into-a-longer-format" class="section level3" number="5.7.2">
 <h3>
