@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-11-02" />
+<meta name="date" content="2021-12-05" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -69,13 +69,13 @@ function reset_tooltip(id) {
 </script>
 <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.19/datatables.js"></script>
+<script src="libs/datatables-binding-0.20/datatables.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -83,7 +83,6 @@ function reset_tooltip(id) {
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -282,10 +281,12 @@ avoid having to set <strong><code>stringsAsFactors</code></strong> to <strong><c
 <p>To load the package type:</p>
 <div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="sec-dplyr.html#cb295-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load the tidyverse packages, incl. dplyr</span></span>
 <span id="cb295-2"><a href="sec-dplyr.html#cb295-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div>
-<p>The <a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf">Data Transformation Cheat
+<p>The <a href="https://github.com/rstudio/cheatsheets/raw/main/data-transformation.pdf">Data Transformation Cheat
 Sheet</a>
 provides an overview of the <code>dplyr</code> grammar, offering more details and
-functions that we will see in this chapter.</p>
+functions that we will see in this chapter. The <a href="https://tidydatatutor.com/">Tidy Data
+Tutor</a> is a wonderful tool to do visually
+describe what the tidy data operations do.</p>
 </div>
 <div id="what-are-dplyr-and-tidyr" class="section level2" number="5.2">
 <h2>
@@ -312,16 +313,16 @@ like plots or aquaria. Moving back and forth between these formats is
 nontrivial, and <strong><code>tidyr</code></strong> gives you tools for this and more
 sophisticated data manipulation.</p>
 <p>To learn more about <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong> after the workshop,
-you may want to check out this <a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf">handy data transformation with
+you may want to check out this <a href="https://github.com/rstudio/cheatsheets/raw/main/data-transformation.pdf">handy data transformation with
 <strong><code>dplyr</code></strong>
 cheatsheet</a>
-and this <a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf">one about
+and this <a href="https://github.com/rstudio/cheatsheets/raw/main/data-import.pdf">one about
 <strong><code>tidyr</code></strong></a>.</p>
 <p>We’ll read in our data using the <code>read_csv()</code> function, from the
 tidyverse package <strong><code>readr</code></strong>, instead of <code>read.csv()</code>.</p>
 <div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="sec-dplyr.html#cb296-1" aria-hidden="true" tabindex="-1"></a>rna <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
 <pre><code>## Rows: 32428 Columns: 19</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+<pre><code>## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (14): gene, sample, organism, sex, infection, strain, tissue, product, e...
 ## dbl  (5): expression, age, time, mouse, ENTREZID</code></pre>
@@ -333,7 +334,7 @@ tidyverse package <strong><code>readr</code></strong>, instead of <code>read.csv
 <span id="cb300-3"><a href="sec-dplyr.html#cb300-3" aria-hidden="true" tabindex="-1"></a><span class="do">## preview the data</span></span>
 <span id="cb300-4"><a href="sec-dplyr.html#cb300-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View(rna)</span></span></code></pre></div>
 <p>Notice that the class of the data is now <code>tbl_df</code></p>
-<p>This is referred to as a “tibble”. Tibbles tweak some of the behaviors
+<p>This is referred to as a “tibble.” Tibbles tweak some of the behaviors
 of the data frame objects we introduced in the previous episode. The
 data structure is very similar to a data frame. For our purposes the
 only differences are that:</p>
@@ -516,7 +517,7 @@ to keep only the <code>gene</code>, <code>sample</code>, <code>tissue</code>, an
 Since <code>%&gt;%</code> takes the object on its left and passes it as the first argument
 to the function on its right, we don’t need to explicitly include the data frame
 as an argument to the <code>filter()</code> and <code>select()</code> functions any more.</p>
-<p>Some may find it helpful to read the pipe like the word “then”. For instance,
+<p>Some may find it helpful to read the pipe like the word “then.” For instance,
 in the above example, we took the data frame <code>rna</code>, <em>then</em> we <code>filter</code>ed
 for rows with <code>sex == "Male"</code>, <em>then</em> we <code>select</code>ed columns <code>gene</code>, <code>sample</code>,
 <code>tissue</code>, and <code>expression</code>. The <strong><code>dplyr</code></strong> functions by themselves are somewhat
@@ -1141,7 +1142,7 @@ the sample (age, sex, organism…) or the gene (gene_biotype, ENTREZ_ID, product
 The variables that don’t change genes or samples will have the same value in all the rows.
 This structure is called a <code>long-format</code>, as one column contains all the values,
 and other column(s) list(s) the context of the value.</p>
-<p>In certain cases, the <code>long-format</code> is not really “human-readable”, and another format,
+<p>In certain cases, the <code>long-format</code> is not really “human-readable,” and another format,
 a <code>wide-format</code> is preferred, as a more compact way of representing the data.
 This is typically the case with gene expression values that scientists are used to
 look as matrices, were rows represent genes and columns represent samples.</p>
@@ -1264,6 +1265,13 @@ to a specific value.</p>
 ## 1 Asl           1170        361        400
 ## 2 Apod         36194      10347       9173
 ## 3 Cyp2d22          0          0       1603</code></pre>
+<p>It is important to be able to conceptually visualise how these
+different functions operate on data. Being able to do that allows to
+<a href="https://lgatto.github.io/exam-qst/">mentally run a set of commands and get a feeling whether this will
+work, rather that randomly try things
+out</a>. The <a href="https://tidydatatutor.com/">Tidy Data
+Tutor</a> is a wonderful tool to do exactly
+that.</p>
 </div>
 <div id="pivoting-data-into-a-longer-format" class="section level3" number="5.7.2">
 <h3>
@@ -1849,9 +1857,9 @@ and a column <code>result</code> with the student’s mark.</p>
 <a href="sec-vis.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-11-02
+2021-12-05
  using 
-R version 4.1.0 (2021-05-18)
+R version 4.1.2 (2021-11-01)
 </p>
 </div>
 </div>
