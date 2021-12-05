@@ -31,7 +31,7 @@ rm(list = ls())
 ```
 
 The [Data Transformation Cheat
-Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+Sheet](https://github.com/rstudio/cheatsheets/raw/main/data-transformation.pdf)
 also provides a short overview on table joins.
 
 

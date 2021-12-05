@@ -67,12 +67,12 @@ folder named `"data"`.
 
 ```{r, eval = TRUE, echo = FALSE}
 if (!file.exists("data/rnaseq.csv"))
-    download.file(url = "https://raw.githubusercontent.com/Bioconductor/bioconductor-teaching/master/data/GSE96870/rnaseq.csv",
+    download.file(url = "https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv",
                   destfile = "data/rnaseq.csv")
 ```
 
 ```{r, eval = FALSE}
-download.file(url = "https://raw.githubusercontent.com/Bioconductor/bioconductor-teaching/master/data/GSE96870/rnaseq.csv",
+download.file(url = "https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv",
               destfile = "data/rnaseq.csv")
 ```
 
@@ -748,7 +748,7 @@ You can also attribute a name to each element of a list. Give the following name
 
 `r msmbstyle::solution_begin()`
 ```{r}
-names(l) <- c("numbers", "alphabet", "installed_packages", 
+names(l) <- c("numbers", "alphabet", "installed_packages",
               "cars", "random")
 names(l)
 ```

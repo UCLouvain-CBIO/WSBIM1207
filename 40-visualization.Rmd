@@ -29,7 +29,7 @@ rna <- read.csv("data/rnaseq.csv")
 ```
 
 The [Data Visualization Cheat
-Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+Sheet](https://github.com/rstudio/cheatsheets/raw/main/data-visualization-2.1.pdf)
 will cover the basics and more advanced features of `ggplot2` and will
 help, in addition to serve as a reminder, getting an overview of the
 many data representations available in the package. The following
@@ -65,12 +65,12 @@ ggplot graphics are built step by step by adding new elements. Adding
 layers in this fashion allows for extensive flexibility and
 customization of plots.
 
-> The idea behind the Grammar of Graphics it is that you can build every 
+> The idea behind the Grammar of Graphics it is that you can build every
 graph from the same 3 components: (1) a data set, (2) a coordinate system,
 and (3) geoms — i.e. visual marks that represent data points [^three_comp_ggplot2].
 
 [^three_comp_ggplot2]: Source: [Data Visualization Cheat
-Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf).
+Sheet](https://github.com/rstudio/cheatsheets/raw/main/data-visualization-2.1.pdf).
 
 
 To build a ggplot, we will use the following basic template that can
@@ -426,7 +426,7 @@ We should switch the order of these two geoms:
 ggplot(data = rna,
          mapping = aes(y = expression_log, x = sample)) +
   geom_boxplot(alpha = 0) +
-  geom_jitter(alpha = 0.2, color = "tomato") 
+  geom_jitter(alpha = 0.2, color = "tomato")
 ```
 `r msmbstyle::solution_end()`
 
@@ -802,7 +802,7 @@ ggplot(rna, aes(x = expression_log)) +
 With all of this information in hand, please take another five minutes
 to either improve one of the plots generated in this exercise or
 create a beautiful graph of your own. Use the RStudio [`ggplot2` cheat
-sheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+sheet](https://github.com/rstudio/cheatsheets/raw/main/data-visualization-2.1.pdf)
 for inspiration. Here are some ideas:
 
 - See if you can change the thickness of the lines.
@@ -834,7 +834,7 @@ ggplot(data = mean_exp_by_time_sex,
   facet_wrap(~ gene, scales = "free_y") +
   theme_bw() +
   theme(panel.grid = element_blank())
-  
+
 # change the name of the legend and the labels
 ggplot(data = mean_exp_by_time_sex,
        mapping = aes(x = time, y = mean_exp, color = sex)) +
@@ -858,9 +858,9 @@ ggplot(data = mean_exp_by_time_sex,
   facet_wrap(~ gene, scales = "free_y") +
   theme_bw() +
   theme(panel.grid = element_blank()) +
-  scale_color_manual(name = "Gender",  labels = c("F", "M"), 
+  scale_color_manual(name = "Gender",  labels = c("F", "M"),
                      values = c("royalblue", "deeppink"))
-  
+
 ```
 `r msmbstyle::solution_end()`
 

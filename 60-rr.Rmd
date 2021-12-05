@@ -207,7 +207,7 @@ rendered. Finish your report with a *Session information* section.
 `r msmbstyle::question_end()`
 
 The [R Markdown Cheat
-Sheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
+Sheet](https://github.com/rstudio/cheatsheets/raw/main/rmarkdown-2.0.pdf)
 and [Reference
 Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 will help you with the markdown synatax, R code chunk options, and
