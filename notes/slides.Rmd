@@ -27,14 +27,11 @@ xaringanExtra::use_extra_styles(
 xaringanExtra::use_panelset()
 ```
 
----
-
-
 # Cours
 
-- Introduction à la bio-informatiqe (**WSBIM1207**) en BAC2
-- Bio-informatique (**WSBIM1322**) en BAC3
-- Omics data analysis (**WSBIM2122**) en M1
+1. Introduction à la bio-informatiqe (**WSBIM1207**) en BAC2
+2. Bio-informatique (**WSBIM1322**) en BAC3
+3. Omics data analysis (**WSBIM2122**) en M1
 
 ---
 
@@ -60,8 +57,9 @@ Etudiant(e) de BAC2, 2018 - 2019
   pharmaceutique
 
 ---
+class: middle
 
-Etudiant(e) de BAC3, 2021-2022
+Etudiant(e)s de BAC3, 2021-2022
 
 > C'est vraiment cette année que j'ai vu l'intérêt de ce cours. En
 > effet, ça touche directement à nos études (donnée d'expressions de
@@ -70,7 +68,7 @@ Etudiant(e) de BAC3, 2021-2022
 > beaucoup plus claire et précise. Je suis contente d'avoir ces
 > compétences maintenant.
 
-Etudiant(e) de BAC3, 2021-2022
+<br>
 
 > Malheureusement la prise de conscience de l'importance de ce cours
 > s'est produit vers la fin du cours de 3e bac. Là je suis prêt à dire
@@ -98,6 +96,7 @@ Etudiant(e) de BAC2, 2018 - 2019
 > comprendre et d'appliquer directement les concepts expliqués.
 
 - Interrogations régulières avec possibilité de dispense.
+- Interrogations et examen à livre ouvert.
 - Présence au cours obligatoire.
 
 ---
@@ -107,7 +106,7 @@ Etudiant(e) de BAC2, 2018 - 2019
 - Toutes les communications et questions/réponses via `moodle`:
   forum, annonces, interrogations, ... **inscrivez-vous**
 
-Etudiant(e) de BAC3, 2021-2022
+Etudiant(e)s de BAC3, 2021-2022
 
 > Le forum m'a vraiment permis d'approfondir mes connaissance. Le
 > professeur est tout le temps disponible pour répondre aux
@@ -116,7 +115,7 @@ Etudiant(e) de BAC3, 2021-2022
 > que c'est grâce à cela que j'ai fini par comprendre, et vraiment
 > ancrer la matière.
 
-Etudiant(e) de BAC3, 2021-2022
+<br>
 
 > Le forum m'a permis aussi d'échanger avec mes collègues de classe et
 > cela nous a permis ensemble de comprendre nos erreurs.
@@ -137,12 +136,18 @@ Etudiant(e)s de BAC2, 2018-2019
 > L’écoute de nos commentaire, la réponse aux questions, l’explication
 > de la matière
 
-- Pratiquez, pratiquez, pratiquez
+---
+
+# Comment réussir ?
+
+<br> <br> <br> <br>
+
+### Pratiquez, pratiquez, pratiquez
 
 ---
 class: top
 
-```{r, echo = FALSE, fig.cap = "Correlation entre les résultats des interrogations et de l'examen (WSBIM1207 2018-2019).", out.width='100%', fig.align = 'center'}
+```{r, echo = FALSE, fig.cap = "Correlation entre les résultats des interrogations et de l'examen (WSBIM1207 2018-2019).", out.width='55%', fig.align = 'center'}
 knitr::include_graphics("../figs/2019-06-corr-exam-interro.png")
 ```
 
