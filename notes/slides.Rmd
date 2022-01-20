@@ -1,0 +1,162 @@
+---
+title: "Cursus SBIM en bio-informatique"
+subtitle: ""
+author: "Laurent Gatto"
+date: "Janvier 2022"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, custom.css]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: true
+---
+
+```{r theme, echo=FALSE}
+xaringanthemer::style_mono_light(base_color = "#23395b")
+```
+
+```{r xaringanExtra, echo=FALSE}
+xaringanExtra::use_webcam()     ## use w to turn on webcam
+xaringanExtra::use_tile_view()  ## use o to get an overview
+xaringanExtra::use_fit_screen() ## use Alt-F to fit to screen
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE
+  )
+xaringanExtra::use_panelset()
+```
+
+---
+
+
+# Cours
+
+- Introduction à la bio-informatiqe (**WSBIM1207**) en BAC2
+- Bio-informatique (**WSBIM1322**) en BAC3
+- Omics data analysis (**WSBIM2122**) en M1
+
+---
+
+# Buts
+
+- Vous donnez les moyens d'analyser et de visualiser des données.
+- Portez un regard critique sur des données, et sur comment les
+  aborder.
+
+---
+
+# Mais pourquoi ?!?!?!
+
+Etudiant(e) de BAC2, 2018 - 2019
+
+> Je n’arrive personnellement pas à percevoir « l’interet » de cette
+> matière dans mon futur
+
+- Voir les préambules des cours
+- Compétences essentielles pour des chercheurs en sciences
+  biomédicales
+- Compétences recherchées dans l'industrie, notamment biotech et
+  pharmaceutique
+
+---
+
+Etudiant(e) de BAC3, 2021-2022
+
+> C'est vraiment cette année que j'ai vu l'intérêt de ce cours. En
+> effet, ça touche directement à nos études (donnée d'expressions de
+> protéines, RNA, gènes etc) et je suis certaine que ça me permettra
+> dans le futur de pouvoir visualiser mes données d'une manière
+> beaucoup plus claire et précise. Je suis contente d'avoir ces
+> compétences maintenant.
+
+Etudiant(e) de BAC3, 2021-2022
+
+> Malheureusement la prise de conscience de l'importance de ce cours
+> s'est produit vers la fin du cours de 3e bac. Là je suis prêt à dire
+> que c'est même plus qu'important, que c'est le futur et que je me
+> sens bête car j'utilise seulement le code déjà créé par quelqu'un
+> donc respect à celui qui le crée. Cela suscite de plus e plus mon
+> attention.
+
+---
+
+# En pratique
+
+- **Notes du cours** en ligne: https://bit.ly/WSBIM1207, https://bit.ly/WSBIM1322 et https://bit.ly/WSBIM2122
+- Cours structurés en chapitres correspondant +/- aux séances
+  hebdomadaires
+- Exercices avec réponses + exercices supplémentaires (sans
+  réponses!)
+- Pas de séances de théorie et de TPs séparés.
+
+Etudiant(e) de BAC2, 2018 - 2019
+
+> Le fait que le cours soit donné en intégrant directement la pratique
+> fonctionne bien (le prof écrit toutes les commandes qu'il
+> explique). Je pense que cela nous permet à la fois de visualiser, de
+> comprendre et d'appliquer directement les concepts expliqués.
+
+- Interrogations régulières avec possibilité de dispense.
+- Présence au cours obligatoire.
+
+---
+
+# En pratique ...
+
+- Toutes les communications et questions/réponses via `moodle`:
+  forum, annonces, interrogations, ... **inscrivez-vous**
+
+Etudiant(e) de BAC3, 2021-2022
+
+> Le forum m'a vraiment permis d'approfondir mes connaissance. Le
+> professeur est tout le temps disponible pour répondre aux
+> questions. Il ne donne jamais la réponse, mais toujours des pistes
+> ce qui nous permet de réfléchir par nous même et je suis certaine
+> que c'est grâce à cela que j'ai fini par comprendre, et vraiment
+> ancrer la matière.
+
+Etudiant(e) de BAC3, 2021-2022
+
+> Le forum m'a permis aussi d'échanger avec mes collègues de classe et
+> cela nous a permis ensemble de comprendre nos erreurs.
+
+---
+
+# En pratique ...
+
+- Participation active - questions et réponses
+
+Etudiant(e)s de BAC2, 2018-2019
+
+> Le fait que ce cours soit interactif, qu'on puisse poser des
+> questions et qu'il y ait plein d'exercices.
+
+<br>
+
+> L’écoute de nos commentaire, la réponse aux questions, l’explication
+> de la matière
+
+- Pratiquez, pratiquez, pratiquez
+
+---
+class: top
+
+```{r, echo = FALSE, fig.cap = "Correlation entre les résultats des interrogations et de l'examen (WSBIM1207 2018-2019).", out.width='100%', fig.align = 'center'}
+knitr::include_graphics("../figs/2019-06-corr-exam-interro.png")
+```
+
+---
+
+# En pratique: Sticky notes
+
+Etudiant(e)s de BAC2, 2018 - 2019
+
+> Le mécanisme des post-it nous permettant de faire des commentaires
+> et d'améliorer le cours dès la semaine suivante.
+
+<br>
+
+> On a souvent des nouvelles du professeur par mail dès la fin du
+> cours ou nous donnant des informations pour le cours suivant
+> (interro, améliorations,...).
