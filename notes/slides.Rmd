@@ -184,7 +184,7 @@ Etudiant(e)s de BAC2, 2018-2019
 class: top
 
 ```{r, echo = FALSE, fig.cap = "Correlation entre les résultats des interrogations et de l'examen (WSBIM1207 2018-2019).", out.width='55%', fig.align = 'center'}
-knitr::include_graphics("../figs/2019-06-corr-exam-interro.png")
+knitr::include_graphics("https://github.com/UCLouvain-CBIO/WSBIM1207/raw/master/figs/2019-06-corr-exam-interro.png")
 ```
 
 ---
