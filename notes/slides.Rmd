@@ -59,6 +59,8 @@ Etudiant(e) de BAC2, 2018 - 2019
   biomédicales
 - Compétences recherchées dans l'industrie, notamment biotech et
   pharmaceutique
+- Doctorants suivent ces cours systématiquement depuis leur
+  instauration
 
 ---
 class: middle
@@ -85,13 +87,15 @@ Etudiant(e)s de BAC3, 2021-2022
 
 # En pratique
 
-- **Notes du cours** en ligne: https://bit.ly/WSBIM1207, https://bit.ly/WSBIM1322 et https://bit.ly/WSBIM2122
-- Le nnotes de cours sont en anglais, mais le cours se donnera en
+- **Notes du cours** en ligne:
+  - https://bit.ly/WSBIM1207
+  - https://bit.ly/WSBIM1322
+  - https://bit.ly/WSBIM2122
+- Le notes de cours sont en anglais, mais le cours se donnera en
   français.
 - Cours structurés en chapitres correspondant +/- aux séances
-  hebdomadaires
-- Exercices avec réponses + exercices supplémentaires (sans
-  réponses!)
+  hebdomadaires. Exercices avec réponses + exercices supplémentaires
+  (sans réponses!)
 - Pas de séances de théorie et de TPs séparés.
 
 Etudiant(e) de BAC2, 2018 - 2019
@@ -101,9 +105,8 @@ Etudiant(e) de BAC2, 2018 - 2019
 > explique). Je pense que cela nous permet à la fois de visualiser, de
 > comprendre et d'appliquer directement les concepts expliqués.
 
-- Interrogations régulières avec possibilité de dispense.
-
-- Interrogations et examen à livre ouvert.
+- Interrogations régulières avec possibilité de
+  dispense. Interrogations et examen à livre ouvert.
 
 - Présence au cours obligatoire. En case de trois absences non
   justifiées, l'étudiant(e) pourra se voir refuser la participation
@@ -111,10 +114,10 @@ Etudiant(e) de BAC2, 2018 - 2019
 
 ---
 
-# En pratique ...
+# En pratique: moodle
 
 - Toutes les communications et questions/réponses liées au cours se
-  ferong via `moodle` **exclusivement**: forum, annonces,
+  ferong via **`moodle`** exclusivement: forum, annonces,
   interrogations, ... inscrivez-vous.
 
 - Forum: quand vous poser vos questions sur moodle, il vous est
@@ -138,7 +141,7 @@ Etudiant(e)s de BAC3, 2021-2022
 
 ---
 
-# Participation active
+# En pratique: participation active
 
 - **Interactions** entre étudiants et enseignants: posez des questions,
   n'hésitez pas à vous entraider durant les résolutions de problèmes.
@@ -186,7 +189,7 @@ knitr::include_graphics("../figs/2019-06-corr-exam-interro.png")
 
 ---
 
-# En pratique: Sticky notes
+# En pratique: sticky notes
 
 Etudiant(e)s de BAC2, 2018 - 2019
 
