@@ -144,9 +144,9 @@ knitr::include_graphics("./2019-06-corr-exam-interro.png")
   cours d'année (y compris le projet du professeur). Tout autre
   support est interdit, sauf autorisation exlicite du professeur.
 
-- Vous devrez utiliser l'ordinateur de la salle pour l'examen. Des
-  ordinateurs portables personnels ainsi que des tablettes ou
-  téléphone portables ne seront pas autorisés.
+<!-- - Vous devrez utiliser l'ordinateur de la salle pour l'examen. Des -->
+<!--   ordinateurs portables personnels ainsi que des tablettes ou -->
+<!--   téléphone portables ne seront pas autorisés. -->
 
 - Les questions d'examen seront en français et vos réponses seront
   aussi en français.
