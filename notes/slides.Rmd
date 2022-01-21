@@ -35,7 +35,7 @@ xaringanExtra::use_panelset()
 
 Prof: Laurent Gatto
 
-Assistant(e)s: Jean Fain, Valentine Robaux
+Assistant(e)s: Jean Fain, Valentine Robaux, Axelle Loriot (M1)
 
 ---
 
