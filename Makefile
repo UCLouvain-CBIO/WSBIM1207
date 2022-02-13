@@ -1,6 +1,5 @@
 all:
 	make book
-	make ./docs/informations.html
 
 book:
 	R -e 'bookdown::render_book(".", output_dir = "docs")'

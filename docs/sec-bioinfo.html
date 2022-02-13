@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-12-05" />
+<meta name="date" content="2022-02-13" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -511,17 +511,17 @@ Figure 9.5: The Bioconductor web page.
 great overview of the project at large.</p>
 <p>Bioconductor packages are managed installed using a dedicated package,
 namely <code>BiocManager</code>, that can be installed from CRAN with</p>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="sec-bioinfo.html#cb560-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="sec-bioinfo.html#cb558-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span></code></pre></div>
 <p>Individuals package such as <code>SummarizedExperiment</code> (see below for
 details), <code>DESeq2</code> (for transcriptomics), <code>Spectra</code> (for mass
 spectrometry), <code>xcms</code> (metabolomics), … can then be installed with
 <code>BiocManager::install</code>.</p>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="sec-bioinfo.html#cb561-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"SummarizedExperiment"</span>)</span>
-<span id="cb561-2"><a href="sec-bioinfo.html#cb561-2" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"DESeq2"</span>)</span>
-<span id="cb561-3"><a href="sec-bioinfo.html#cb561-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"Spectra"</span>)</span>
-<span id="cb561-4"><a href="sec-bioinfo.html#cb561-4" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"xcms"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="sec-bioinfo.html#cb559-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"SummarizedExperiment"</span>)</span>
+<span id="cb559-2"><a href="sec-bioinfo.html#cb559-2" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"DESeq2"</span>)</span>
+<span id="cb559-3"><a href="sec-bioinfo.html#cb559-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"Spectra"</span>)</span>
+<span id="cb559-4"><a href="sec-bioinfo.html#cb559-4" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"xcms"</span>)</span></code></pre></div>
 <p>Note that we can also use that same function to install packages from GitHub:</p>
-<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="sec-bioinfo.html#cb562-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="sec-bioinfo.html#cb560-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
 </div>
 <div id="omics-data-containers" class="section level2" number="9.4">
 <h2>
@@ -562,14 +562,14 @@ manipulation. The metadata slots can grow additional co-variates
 <p>To illustrate such an omics data container, we’ll use a variable of
 class <code>SummarizedExperiment</code>. Below, we load the <code>GSE96870_intro</code>
 dataset from the <code>rWSBIM1207</code> package (version &gt;= 0.1.15).</p>
-<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="sec-bioinfo.html#cb563-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"SummarizedExperiment"</span>)</span>
-<span id="cb563-2"><a href="sec-bioinfo.html#cb563-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rWSBIM1207"</span>)</span>
-<span id="cb563-3"><a href="sec-bioinfo.html#cb563-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(GSE96870_intro)</span>
-<span id="cb563-4"><a href="sec-bioinfo.html#cb563-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(GSE96870_intro)</span></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="sec-bioinfo.html#cb561-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"SummarizedExperiment"</span>)</span>
+<span id="cb561-2"><a href="sec-bioinfo.html#cb561-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rWSBIM1207"</span>)</span>
+<span id="cb561-3"><a href="sec-bioinfo.html#cb561-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(GSE96870_intro)</span>
+<span id="cb561-4"><a href="sec-bioinfo.html#cb561-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(GSE96870_intro)</span></code></pre></div>
 <pre><code>## [1] "RangedSummarizedExperiment"
 ## attr(,"package")
 ## [1] "SummarizedExperiment"</code></pre>
-<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="sec-bioinfo.html#cb565-1" aria-hidden="true" tabindex="-1"></a>GSE96870_intro</span></code></pre></div>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="sec-bioinfo.html#cb563-1" aria-hidden="true" tabindex="-1"></a>GSE96870_intro</span></code></pre></div>
 <pre><code>## class: RangedSummarizedExperiment 
 ## dim: 1474 22 
 ## metadata(0):
@@ -589,27 +589,27 @@ objects a lot in the
 <a href="https://github.com/UCLouvain-CBIO/WSBIM2122">WSBIM2122</a> courses.</p>
 <p>The object contains data for 1474 features
 (peptides in this case) and 22 samples.</p>
-<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="sec-bioinfo.html#cb567-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(GSE96870_intro)</span></code></pre></div>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="sec-bioinfo.html#cb565-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(GSE96870_intro)</span></code></pre></div>
 <pre><code>## [1] 1474   22</code></pre>
-<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="sec-bioinfo.html#cb569-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(GSE96870_intro)</span></code></pre></div>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="sec-bioinfo.html#cb567-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(GSE96870_intro)</span></code></pre></div>
 <pre><code>## [1] 1474</code></pre>
-<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="sec-bioinfo.html#cb571-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(GSE96870_intro)</span></code></pre></div>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="sec-bioinfo.html#cb569-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(GSE96870_intro)</span></code></pre></div>
 <pre><code>## [1] 22</code></pre>
 <p>The samples (columns) and rows (protein features) are named:</p>
-<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="sec-bioinfo.html#cb573-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(GSE96870_intro)</span></code></pre></div>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="sec-bioinfo.html#cb571-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(GSE96870_intro)</span></code></pre></div>
 <pre><code>##  [1] "GSM2545336" "GSM2545337" "GSM2545338" "GSM2545339" "GSM2545340"
 ##  [6] "GSM2545341" "GSM2545342" "GSM2545343" "GSM2545344" "GSM2545345"
 ## [11] "GSM2545346" "GSM2545347" "GSM2545348" "GSM2545349" "GSM2545350"
 ## [16] "GSM2545351" "GSM2545352" "GSM2545353" "GSM2545354" "GSM2545362"
 ## [21] "GSM2545363" "GSM2545380"</code></pre>
-<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="sec-bioinfo.html#cb575-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rownames</span>(GSE96870_intro))</span></code></pre></div>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="sec-bioinfo.html#cb573-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rownames</span>(GSE96870_intro))</span></code></pre></div>
 <pre><code>## [1] "Asl"     "Apod"    "Cyp2d22" "Klk6"    "Fcrls"   "Slc2a4"</code></pre>
-<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="sec-bioinfo.html#cb577-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(<span class="fu">rownames</span>(GSE96870_intro))</span></code></pre></div>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="sec-bioinfo.html#cb575-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(<span class="fu">rownames</span>(GSE96870_intro))</span></code></pre></div>
 <pre><code>## [1] "Mgst3"  "Lrrc52" "Rxrg"   "Lmx1a"  "Pbx1"   "Rgs4"</code></pre>
 <p>Using this data structure, we can access the expression matrix with
 the <code>assay</code> function, the feature metadata with the <code>rowData</code> function,
 and the sample metadata with the <code>colData</code> function:</p>
-<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="sec-bioinfo.html#cb579-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">assay</span>(GSE96870_intro))</span></code></pre></div>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="sec-bioinfo.html#cb577-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">assay</span>(GSE96870_intro))</span></code></pre></div>
 <pre><code>##         GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340 GSM2545341
 ## Asl           1170        361        400        586        626        988
 ## Apod         36194      10347       9173      10620      13021      29594
@@ -631,7 +631,7 @@ and the sample metadata with the <code>colData</code> function:</p>
 ## Cyp2d22       1821       2842       2011       4019
 ## Klk6           894        501        598        259
 ##  [ reached getOption("max.print") -- omitted 2 rows ]</code></pre>
-<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="sec-bioinfo.html#cb581-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rowData</span>(GSE96870_intro))</span></code></pre></div>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="sec-bioinfo.html#cb579-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rowData</span>(GSE96870_intro))</span></code></pre></div>
 <pre><code>## DataFrame with 6 rows and 11 columns
 ##                gene    ENTREZID                product       gbkey
 ##         &lt;character&gt; &lt;character&gt;            &lt;character&gt; &lt;character&gt;
@@ -665,7 +665,7 @@ and the sample metadata with the <code>colData</code> function:</p>
 ## Klk6                                     KLK6
 ## Fcrls                                   FCRL4
 ## Slc2a4                                 SLC2A4</code></pre>
-<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="sec-bioinfo.html#cb583-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(GSE96870_intro)</span></code></pre></div>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="sec-bioinfo.html#cb581-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(GSE96870_intro)</span></code></pre></div>
 <pre><code>## DataFrame with 22 rows and 10 columns
 ##                      title geo_accession     organism         age      sex
 ##                &lt;character&gt;   &lt;character&gt;  &lt;character&gt; &lt;character&gt; &lt;factor&gt;
@@ -707,9 +707,9 @@ and columns in the feature and sample data.</p>
 ► Solution<span id="sol-start-48" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-48', 'sol-start-48')"></span>
 </p>
 <div id="sol-body-48" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="sec-bioinfo.html#cb585-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">assay</span>(GSE96870_intro)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">rowData</span>(GSE96870_intro))</span></code></pre></div>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="sec-bioinfo.html#cb583-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">assay</span>(GSE96870_intro)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">rowData</span>(GSE96870_intro))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="sec-bioinfo.html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(<span class="fu">assay</span>(GSE96870_intro)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">colData</span>(GSE96870_intro))</span></code></pre></div>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="sec-bioinfo.html#cb585-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(<span class="fu">assay</span>(GSE96870_intro)) <span class="sc">==</span> <span class="fu">nrow</span>(<span class="fu">colData</span>(GSE96870_intro))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -718,17 +718,17 @@ and columns in the feature and sample data.</p>
 </div>
 <p>We can use the <code>[</code> operator to subset the whole object: all parts
 thereof will be subset correctly.</p>
-<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="sec-bioinfo.html#cb589-1" aria-hidden="true" tabindex="-1"></a>small_se <span class="ot">&lt;-</span> GSE96870_intro[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span>
-<span id="cb589-2"><a href="sec-bioinfo.html#cb589-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(small_se)</span></code></pre></div>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="sec-bioinfo.html#cb587-1" aria-hidden="true" tabindex="-1"></a>small_se <span class="ot">&lt;-</span> GSE96870_intro[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span>
+<span id="cb587-2"><a href="sec-bioinfo.html#cb587-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(small_se)</span></code></pre></div>
 <pre><code>## [1] 3 2</code></pre>
-<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="sec-bioinfo.html#cb591-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">assay</span>(small_se))</span></code></pre></div>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="sec-bioinfo.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">assay</span>(small_se))</span></code></pre></div>
 <pre><code>##         GSM2545337 GSM2545339
 ## Asl            361        586
 ## Cyp2d22       1616       1901
 ## Fcrls          233        237</code></pre>
 <p>We can also add information with:</p>
-<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="sec-bioinfo.html#cb593-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(small_se)<span class="sc">$</span>new_var  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"new_val1"</span>, <span class="st">"new_val2"</span>)</span>
-<span id="cb593-2"><a href="sec-bioinfo.html#cb593-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(small_se)</span></code></pre></div>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="sec-bioinfo.html#cb591-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(small_se)<span class="sc">$</span>new_var  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"new_val1"</span>, <span class="st">"new_val2"</span>)</span>
+<span id="cb591-2"><a href="sec-bioinfo.html#cb591-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colData</span>(small_se)</span></code></pre></div>
 <pre><code>## DataFrame with 2 rows and 11 columns
 ##                      title geo_accession     organism         age      sex
 ##                &lt;character&gt;   &lt;character&gt;  &lt;character&gt; &lt;character&gt; &lt;factor&gt;
@@ -884,8 +884,8 @@ package, without necessarily going in detail for every function of the
 package.</p>
 <p>Below, we show how to list all vignettes available in the <code>MSnbase</code>
 package and how to open one in particular.</p>
-<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="sec-bioinfo.html#cb595-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="at">package =</span> <span class="st">"QFeatures"</span>)</span>
-<span id="cb595-2"><a href="sec-bioinfo.html#cb595-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">"QFeatures"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="sec-bioinfo.html#cb593-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="at">package =</span> <span class="st">"QFeatures"</span>)</span>
+<span id="cb593-2"><a href="sec-bioinfo.html#cb593-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">"QFeatures"</span>)</span></code></pre></div>
 <p>Vignettes are special in that respect as they are produced as part of
 the package building process. The code in a vignette is executed and
 its output, whether in the form of simple text, tables and figures,
@@ -1007,7 +1007,7 @@ object’s rowData slot.</p></li>
 <code>rWSBIM1207</code> version 0.1.5 or later. If needed, install a more
 recent version with</li>
 </ol>
-<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="sec-bioinfo.html#cb596-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="sec-bioinfo.html#cb594-1" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Import the data from two tab-separated files into R. The full paths
 to the two files can be accessed with <code>kem.tsv()</code>. Read <code>?kem</code> for
@@ -1090,7 +1090,7 @@ sample data based on the groups.</p></li>
 <a href="sec-prog.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-12-05
+2022-02-13
  using 
 R version 4.1.2 (2021-11-01)
 </p>

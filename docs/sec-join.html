@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2021-12-05" />
+<meta name="date" content="2022-02-13" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -252,15 +252,15 @@ bioinformatics world, where annotations about genes are scattered in
 different tables that have one or more shared columns. The data we are
 going to use are available in the course package and can be loaded as
 shown below.</p>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="sec-join.html#cb506-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rWSBIM1207"</span>)</span>
-<span id="cb506-2"><a href="sec-join.html#cb506-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(jdf)</span></code></pre></div>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="sec-join.html#cb504-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rWSBIM1207"</span>)</span>
+<span id="cb504-2"><a href="sec-join.html#cb504-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(jdf)</span></code></pre></div>
 <p>The example data is composed of pairs of tables (we have tibbles here,
 but this would equally work with dataframes). The first member of the
 pair contains protein <a href="https://www.uniprot.org/">UniProt</a><label for="tufte-sn-12" class="margin-toggle sidenote-number">12</label><input type="checkbox" id="tufte-sn-12" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">12</span> UniProt is the protein information database. Its mission is to <em>provide the scientific community with a comprehensive, high-quality and freely accessible resource of protein sequence and functional information</em>.</span> unique
 accession number (<code>uniprot</code> variable), the most likely sub-cellular
 localisation of these respective proteins (<code>organelle</code> variable) as
 well as the proteins identifier (<code>entry</code>).</p>
-<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="sec-join.html#cb507-1" aria-hidden="true" tabindex="-1"></a>jdf1</span></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="sec-join.html#cb505-1" aria-hidden="true" tabindex="-1"></a>jdf1</span></code></pre></div>
 <pre><code>## # A tibble: 25 × 3
 ##    uniprot  organelle                             entry      
 ##    &lt;chr&gt;    &lt;chr&gt;                                 &lt;chr&gt;      
@@ -280,7 +280,7 @@ protein (<code>gene_name</code> variable), a description of the gene
 (<code>description</code> variable), the uniprot accession number (this is the
 common variable that can be used to join tables) and the species the
 protein information comes from (<code>organism</code> variable).</p>
-<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="sec-join.html#cb509-1" aria-hidden="true" tabindex="-1"></a>jdf2</span></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="sec-join.html#cb507-1" aria-hidden="true" tabindex="-1"></a>jdf2</span></code></pre></div>
 <pre><code>## # A tibble: 25 × 4
 ##    gene_name description                                      uniprot organism
 ##    &lt;chr&gt;     &lt;chr&gt;                                            &lt;chr&gt;   &lt;chr&gt;   
@@ -299,22 +299,22 @@ protein information comes from (<code>organism</code> variable).</p>
 variables. We are going to use <code>dplyr</code>’s <code>full_join</code> function to do
 so, that finds the common variable (in this case <code>uniprot</code>) to match
 observations from the first and second table.</p>
-<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="sec-join.html#cb511-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"dplyr"</span>)</span>
-<span id="cb511-2"><a href="sec-join.html#cb511-2" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(jdf1, jdf2)</span></code></pre></div>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="sec-join.html#cb509-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb509-2"><a href="sec-join.html#cb509-2" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(jdf1, jdf2)</span></code></pre></div>
 <pre><code>## Joining, by = "uniprot"</code></pre>
 <pre><code>## # A tibble: 25 × 6
-##    uniprot  organelle        entry   gene_name description              organism
-##    &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;                    &lt;chr&gt;   
-##  1 P26039   Actin cytoskele… TLN1_M… Tln1      Talin-1                  Mmus    
-##  2 Q99PL5   Endoplasmic ret… RRBP1_… Rrbp1     Ribosome-binding protei… Mmus    
-##  3 Q6PB66   Mitochondrion    LPPRC_… Lrpprc    Leucine-rich PPR motif-… Mmus    
-##  4 P11276   Extracellular m… FINC_M… Fn1       Fibronectin              Mmus    
-##  5 Q6PR54   Nucleus - Chrom… RIF1_M… Rif1      Telomere-associated pro… Mmus    
-##  6 Q05793   Extracellular m… PGBM_M… Hspg2     Basement membrane-speci… Mmus    
-##  7 P19096   Cytosol          FAS_MO… Fasn      Fatty acid synthase      Mmus    
-##  8 Q9JKF1   Plasma membrane  IQGA1_… Iqgap1    Ras GTPase-activating-l… Mmus    
-##  9 Q9QZQ1-2 Plasma membrane  AFAD_M… Mllt4     Isoform 1 of Afadin      Mmus    
-## 10 Q6NS46   Nucleus - Non-c… RRP5_M… Pdcd11    Protein RRP5 homolog     Mmus    
+##    uniprot  organelle                       entry gene_name description organism
+##    &lt;chr&gt;    &lt;chr&gt;                           &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;   
+##  1 P26039   Actin cytoskeleton              TLN1… Tln1      Talin-1     Mmus    
+##  2 Q99PL5   Endoplasmic reticulum/Golgi ap… RRBP… Rrbp1     Ribosome-b… Mmus    
+##  3 Q6PB66   Mitochondrion                   LPPR… Lrpprc    Leucine-ri… Mmus    
+##  4 P11276   Extracellular matrix            FINC… Fn1       Fibronectin Mmus    
+##  5 Q6PR54   Nucleus - Chromatin             RIF1… Rif1      Telomere-a… Mmus    
+##  6 Q05793   Extracellular matrix            PGBM… Hspg2     Basement m… Mmus    
+##  7 P19096   Cytosol                         FAS_… Fasn      Fatty acid… Mmus    
+##  8 Q9JKF1   Plasma membrane                 IQGA… Iqgap1    Ras GTPase… Mmus    
+##  9 Q9QZQ1-2 Plasma membrane                 AFAD… Mllt4     Isoform 1 … Mmus    
+## 10 Q6NS46   Nucleus - Non-chromatin         RRP5… Pdcd11    Protein RR… Mmus    
 ## # … with 15 more rows</code></pre>
 <p>In the examples above, each observation of the <code>jdf1</code> and <code>jdf2</code>
 tables are uniquely identified by their UniProt accession number. Such
@@ -324,22 +324,22 @@ across different tables.</p>
 manually using the <code>by</code> argument, as shown below with the <code>jdf1</code> (as
 above) and <code>jdf3</code> tables, where the UniProt accession number is
 encoded using a different capitalisation.</p>
-<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="sec-join.html#cb514-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(jdf3)</span></code></pre></div>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="sec-join.html#cb512-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(jdf3)</span></code></pre></div>
 <pre><code>## [1] "gene_name"   "description" "UniProt"     "organism"</code></pre>
-<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="sec-join.html#cb516-1" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(jdf1, jdf3, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"uniprot"</span> <span class="ot">=</span> <span class="st">"UniProt"</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="sec-join.html#cb514-1" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(jdf1, jdf3, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"uniprot"</span> <span class="ot">=</span> <span class="st">"UniProt"</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 25 × 6
-##    uniprot  organelle        entry   gene_name description              organism
-##    &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;                    &lt;chr&gt;   
-##  1 P26039   Actin cytoskele… TLN1_M… Tln1      Talin-1                  Mmus    
-##  2 Q99PL5   Endoplasmic ret… RRBP1_… Rrbp1     Ribosome-binding protei… Mmus    
-##  3 Q6PB66   Mitochondrion    LPPRC_… Lrpprc    Leucine-rich PPR motif-… Mmus    
-##  4 P11276   Extracellular m… FINC_M… Fn1       Fibronectin              Mmus    
-##  5 Q6PR54   Nucleus - Chrom… RIF1_M… Rif1      Telomere-associated pro… Mmus    
-##  6 Q05793   Extracellular m… PGBM_M… Hspg2     Basement membrane-speci… Mmus    
-##  7 P19096   Cytosol          FAS_MO… Fasn      Fatty acid synthase      Mmus    
-##  8 Q9JKF1   Plasma membrane  IQGA1_… Iqgap1    Ras GTPase-activating-l… Mmus    
-##  9 Q9QZQ1-2 Plasma membrane  AFAD_M… Mllt4     Isoform 1 of Afadin      Mmus    
-## 10 Q6NS46   Nucleus - Non-c… RRP5_M… Pdcd11    Protein RRP5 homolog     Mmus    
+##    uniprot  organelle                       entry gene_name description organism
+##    &lt;chr&gt;    &lt;chr&gt;                           &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;   
+##  1 P26039   Actin cytoskeleton              TLN1… Tln1      Talin-1     Mmus    
+##  2 Q99PL5   Endoplasmic reticulum/Golgi ap… RRBP… Rrbp1     Ribosome-b… Mmus    
+##  3 Q6PB66   Mitochondrion                   LPPR… Lrpprc    Leucine-ri… Mmus    
+##  4 P11276   Extracellular matrix            FINC… Fn1       Fibronectin Mmus    
+##  5 Q6PR54   Nucleus - Chromatin             RIF1… Rif1      Telomere-a… Mmus    
+##  6 Q05793   Extracellular matrix            PGBM… Hspg2     Basement m… Mmus    
+##  7 P19096   Cytosol                         FAS_… Fasn      Fatty acid… Mmus    
+##  8 Q9JKF1   Plasma membrane                 IQGA… Iqgap1    Ras GTPase… Mmus    
+##  9 Q9QZQ1-2 Plasma membrane                 AFAD… Mllt4     Isoform 1 … Mmus    
+## 10 Q6NS46   Nucleus - Non-chromatin         RRP5… Pdcd11    Protein RR… Mmus    
 ## # … with 15 more rows</code></pre>
 <p>As can be seen above, the variable name of the first table is retained
 in the joined one.</p>
@@ -360,25 +360,25 @@ and <code>jdf5</code>. What has happened for observations <code>P26039</code> an
 ► Solution<span id="sol-start-42" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-42', 'sol-start-42')"></span>
 </p>
 <div id="sol-body-42" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="sec-join.html#cb518-1" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(jdf4, jdf5)</span></code></pre></div>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="sec-join.html#cb516-1" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(jdf4, jdf5)</span></code></pre></div>
 <pre><code>## Joining, by = "uniprot"</code></pre>
 <pre><code>## # A tibble: 14 × 6
-##    uniprot  organelle        entry  gene_name description               organism
-##    &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;                     &lt;chr&gt;   
-##  1 P26039   Actin cytoskele… TLN1_… &lt;NA&gt;      &lt;NA&gt;                      &lt;NA&gt;    
-##  2 Q99PL5   Endoplasmic ret… RRBP1… &lt;NA&gt;      &lt;NA&gt;                      &lt;NA&gt;    
-##  3 Q6PB66   Mitochondrion    LPPRC… &lt;NA&gt;      &lt;NA&gt;                      &lt;NA&gt;    
-##  4 P11276   Extracellular m… FINC_… &lt;NA&gt;      &lt;NA&gt;                      &lt;NA&gt;    
-##  5 Q6PR54   Nucleus - Chrom… RIF1_… &lt;NA&gt;      &lt;NA&gt;                      &lt;NA&gt;    
-##  6 Q05793   Extracellular m… PGBM_… &lt;NA&gt;      &lt;NA&gt;                      &lt;NA&gt;    
-##  7 P19096   Cytosol          FAS_M… Fasn      Fatty acid synthase       Mmus    
-##  8 Q9JKF1   Plasma membrane  IQGA1… &lt;NA&gt;      &lt;NA&gt;                      &lt;NA&gt;    
-##  9 Q9QZQ1-2 Plasma membrane  AFAD_… &lt;NA&gt;      &lt;NA&gt;                      &lt;NA&gt;    
-## 10 Q6NS46   Nucleus - Non-c… RRP5_… &lt;NA&gt;      &lt;NA&gt;                      &lt;NA&gt;    
-## 11 P02468   &lt;NA&gt;             &lt;NA&gt;   Lamc1     Laminin subunit gamma-1   Mmus    
-## 12 P08113   &lt;NA&gt;             &lt;NA&gt;   Hsp90b1   Endoplasmin               Mmus    
-## 13 Q8BI84   &lt;NA&gt;             &lt;NA&gt;   Mia3      Melanoma inhibitory acti… Mmus    
-## 14 Q6P5D8   &lt;NA&gt;             &lt;NA&gt;   Smchd1    Structural maintenance o… Mmus</code></pre>
+##    uniprot  organelle                       entry gene_name description organism
+##    &lt;chr&gt;    &lt;chr&gt;                           &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;   
+##  1 P26039   Actin cytoskeleton              TLN1… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  2 Q99PL5   Endoplasmic reticulum/Golgi ap… RRBP… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  3 Q6PB66   Mitochondrion                   LPPR… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  4 P11276   Extracellular matrix            FINC… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  5 Q6PR54   Nucleus - Chromatin             RIF1… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  6 Q05793   Extracellular matrix            PGBM… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  7 P19096   Cytosol                         FAS_… Fasn      Fatty acid… Mmus    
+##  8 Q9JKF1   Plasma membrane                 IQGA… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  9 Q9QZQ1-2 Plasma membrane                 AFAD… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+## 10 Q6NS46   Nucleus - Non-chromatin         RRP5… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+## 11 P02468   &lt;NA&gt;                            &lt;NA&gt;  Lamc1     Laminin su… Mmus    
+## 12 P08113   &lt;NA&gt;                            &lt;NA&gt;  Hsp90b1   Endoplasmin Mmus    
+## 13 Q8BI84   &lt;NA&gt;                            &lt;NA&gt;  Mia3      Melanoma i… Mmus    
+## 14 Q6P5D8   &lt;NA&gt;                            &lt;NA&gt;  Smchd1    Structural… Mmus</code></pre>
 <p><code>P02468</code> and <code>P02468</code> are only present in <code>jdf4</code> and <code>jdf5</code>
 respectively, and their respective values for the variables of the
 table have been encoded as missing.</p>
@@ -437,21 +437,21 @@ Figure 7.2: Outer joins match observations that appear in at least on table, fil
 ► Solution<span id="sol-start-43" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-43', 'sol-start-43')"></span>
 </p>
 <div id="sol-body-43" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="sec-join.html#cb521-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(jdf4, jdf5)</span></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="sec-join.html#cb519-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(jdf4, jdf5)</span></code></pre></div>
 <pre><code>## Joining, by = "uniprot"</code></pre>
 <pre><code>## # A tibble: 10 × 6
-##    uniprot  organelle                entry    gene_name description     organism
-##    &lt;chr&gt;    &lt;chr&gt;                    &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;   
-##  1 P26039   Actin cytoskeleton       TLN1_MO… &lt;NA&gt;      &lt;NA&gt;            &lt;NA&gt;    
-##  2 Q99PL5   Endoplasmic reticulum/G… RRBP1_M… &lt;NA&gt;      &lt;NA&gt;            &lt;NA&gt;    
-##  3 Q6PB66   Mitochondrion            LPPRC_M… &lt;NA&gt;      &lt;NA&gt;            &lt;NA&gt;    
-##  4 P11276   Extracellular matrix     FINC_MO… &lt;NA&gt;      &lt;NA&gt;            &lt;NA&gt;    
-##  5 Q6PR54   Nucleus - Chromatin      RIF1_MO… &lt;NA&gt;      &lt;NA&gt;            &lt;NA&gt;    
-##  6 Q05793   Extracellular matrix     PGBM_MO… &lt;NA&gt;      &lt;NA&gt;            &lt;NA&gt;    
-##  7 P19096   Cytosol                  FAS_MOU… Fasn      Fatty acid syn… Mmus    
-##  8 Q9JKF1   Plasma membrane          IQGA1_M… &lt;NA&gt;      &lt;NA&gt;            &lt;NA&gt;    
-##  9 Q9QZQ1-2 Plasma membrane          AFAD_MO… &lt;NA&gt;      &lt;NA&gt;            &lt;NA&gt;    
-## 10 Q6NS46   Nucleus - Non-chromatin  RRP5_MO… &lt;NA&gt;      &lt;NA&gt;            &lt;NA&gt;</code></pre>
+##    uniprot  organelle                       entry gene_name description organism
+##    &lt;chr&gt;    &lt;chr&gt;                           &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;   
+##  1 P26039   Actin cytoskeleton              TLN1… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  2 Q99PL5   Endoplasmic reticulum/Golgi ap… RRBP… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  3 Q6PB66   Mitochondrion                   LPPR… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  4 P11276   Extracellular matrix            FINC… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  5 Q6PR54   Nucleus - Chromatin             RIF1… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  6 Q05793   Extracellular matrix            PGBM… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  7 P19096   Cytosol                         FAS_… Fasn      Fatty acid… Mmus    
+##  8 Q9JKF1   Plasma membrane                 IQGA… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  9 Q9QZQ1-2 Plasma membrane                 AFAD… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+## 10 Q6NS46   Nucleus - Non-chromatin         RRP5… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -473,7 +473,7 @@ Figure 7.2: Outer joins match observations that appear in at least on table, fil
 ► Solution<span id="sol-start-44" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-44', 'sol-start-44')"></span>
 </p>
 <div id="sol-body-44" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="sec-join.html#cb524-1" aria-hidden="true" tabindex="-1"></a><span class="fu">right_join</span>(jdf4, jdf5)</span></code></pre></div>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="sec-join.html#cb522-1" aria-hidden="true" tabindex="-1"></a><span class="fu">right_join</span>(jdf4, jdf5)</span></code></pre></div>
 <pre><code>## Joining, by = "uniprot"</code></pre>
 <pre><code>## # A tibble: 5 × 6
 ##   uniprot organelle entry     gene_name description                     organism
@@ -504,7 +504,7 @@ Figure 7.2: Outer joins match observations that appear in at least on table, fil
 ► Solution<span id="sol-start-45" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-45', 'sol-start-45')"></span>
 </p>
 <div id="sol-body-45" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="sec-join.html#cb527-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(jdf4, jdf5)</span></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="sec-join.html#cb525-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(jdf4, jdf5)</span></code></pre></div>
 <pre><code>## Joining, by = "uniprot"</code></pre>
 <pre><code>## # A tibble: 1 × 6
 ##   uniprot organelle entry     gene_name description         organism
@@ -528,7 +528,7 @@ reticulum</a> (often
 abbreviated ER) and in the <a href="https://en.wikipedia.org/wiki/Golgi_apparatus">Golgi
 apparatus</a> (often
 abbreviated GA).</p>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="sec-join.html#cb530-1" aria-hidden="true" tabindex="-1"></a>jdf6</span></code></pre></div>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="sec-join.html#cb528-1" aria-hidden="true" tabindex="-1"></a>jdf6</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 4
 ##   uniprot organelle             entry       isoform
 ##   &lt;chr&gt;   &lt;chr&gt;                 &lt;chr&gt;         &lt;dbl&gt;
@@ -539,29 +539,29 @@ abbreviated GA).</p>
 ## 5 P11276  Extracellular matrix  FINC_MOUSE        1</code></pre>
 <p>If we now want to join <code>jdf6</code> and <code>jdf2</code>, the variables of the latter
 will be duplicated.</p>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="sec-join.html#cb532-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(jdf6, jdf2)</span></code></pre></div>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="sec-join.html#cb530-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(jdf6, jdf2)</span></code></pre></div>
 <pre><code>## Joining, by = "uniprot"</code></pre>
 <pre><code>## # A tibble: 5 × 7
-##   uniprot organelle             entry  isoform gene_name description    organism
-##   &lt;chr&gt;   &lt;chr&gt;                 &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;          &lt;chr&gt;   
-## 1 P26039  Actin cytoskeleton    TLN1_…       1 Tln1      Talin-1        Mmus    
-## 2 Q99PL5  Endoplasmic reticulum RRBP1…       1 Rrbp1     Ribosome-bind… Mmus    
-## 3 Q99PL5  Golgi apparatus       RRBP1…       2 Rrbp1     Ribosome-bind… Mmus    
-## 4 Q6PB66  Mitochondrion         LPPRC…       1 Lrpprc    Leucine-rich … Mmus    
-## 5 P11276  Extracellular matrix  FINC_…       1 Fn1       Fibronectin    Mmus</code></pre>
+##   uniprot organelle             entry     isoform gene_name description organism
+##   &lt;chr&gt;   &lt;chr&gt;                 &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;   
+## 1 P26039  Actin cytoskeleton    TLN1_MOU…       1 Tln1      Talin-1     Mmus    
+## 2 Q99PL5  Endoplasmic reticulum RRBP1_MO…       1 Rrbp1     Ribosome-b… Mmus    
+## 3 Q99PL5  Golgi apparatus       RRBP1_MO…       2 Rrbp1     Ribosome-b… Mmus    
+## 4 Q6PB66  Mitochondrion         LPPRC_MO…       1 Lrpprc    Leucine-ri… Mmus    
+## 5 P11276  Extracellular matrix  FINC_MOU…       1 Fn1       Fibronectin Mmus</code></pre>
 <p>In the case above, repeating is useful, as it completes <code>jdf6</code> with
 correct information from <code>jdf2</code>. One needs however to be careful when
 duplicated keys exist in both tables. Below, we create an inner join
 between <code>jdf6</code> and <code>jdf7</code>, both having duplicated <code>Q99PL5</code> entries.</p>
-<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="sec-join.html#cb535-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(jdf6, jdf7)</span></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="sec-join.html#cb533-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(jdf6, jdf7)</span></code></pre></div>
 <pre><code>## Joining, by = "uniprot"</code></pre>
 <pre><code>## # A tibble: 4 × 9
-##   uniprot organelle   entry  isoform gene_name description  organism isoform_num
-##   &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;          &lt;dbl&gt;
-## 1 Q99PL5  Endoplasmi… RRBP1…       1 Rrbp1     Ribosome-bi… Mmus               1
-## 2 Q99PL5  Endoplasmi… RRBP1…       1 Rrbp1     Ribosome-bi… Mmus               2
-## 3 Q99PL5  Golgi appa… RRBP1…       2 Rrbp1     Ribosome-bi… Mmus               1
-## 4 Q99PL5  Golgi appa… RRBP1…       2 Rrbp1     Ribosome-bi… Mmus               2
+##   uniprot organelle     entry isoform gene_name description organism isoform_num
+##   &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;
+## 1 Q99PL5  Endoplasmic … RRBP…       1 Rrbp1     Ribosome-b… Mmus               1
+## 2 Q99PL5  Endoplasmic … RRBP…       1 Rrbp1     Ribosome-b… Mmus               2
+## 3 Q99PL5  Golgi appara… RRBP…       2 Rrbp1     Ribosome-b… Mmus               1
+## 4 Q99PL5  Golgi appara… RRBP…       2 Rrbp1     Ribosome-b… Mmus               2
 ## # … with 1 more variable: measure &lt;dbl&gt;</code></pre>
 <div class="question">
 <p class="question-begin">
@@ -618,12 +618,12 @@ tables) as well as the isoform number, called <code>isoform</code> and
 only automatically joined based on the shared <code>uniprot</code> key. Here, we
 need to join using both keys and need to explicitly name the variables
 used for the join.</p>
-<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="sec-join.html#cb538-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(jdf6, jdf7, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"uniprot"</span> <span class="ot">=</span> <span class="st">"uniprot"</span>, <span class="st">"isoform"</span> <span class="ot">=</span> <span class="st">"isoform_num"</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="sec-join.html#cb536-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(jdf6, jdf7, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"uniprot"</span> <span class="ot">=</span> <span class="st">"uniprot"</span>, <span class="st">"isoform"</span> <span class="ot">=</span> <span class="st">"isoform_num"</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 8
-##   uniprot organelle    entry   isoform gene_name description    organism measure
-##   &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;          &lt;chr&gt;      &lt;dbl&gt;
-## 1 Q99PL5  Endoplasmic… RRBP1_…       1 Rrbp1     Ribosome-bind… Mmus         102
-## 2 Q99PL5  Golgi appar… RRBP1_…       2 Rrbp1     Ribosome-bind… Mmus           3</code></pre>
+##   uniprot organelle         entry isoform gene_name description organism measure
+##   &lt;chr&gt;   &lt;chr&gt;             &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt;
+## 1 Q99PL5  Endoplasmic reti… RRBP…       1 Rrbp1     Ribosome-b… Mmus         102
+## 2 Q99PL5  Golgi apparatus   RRBP…       2 Rrbp1     Ribosome-b… Mmus           3</code></pre>
 <p>We now see that isoform 1 localised to the ER and has a measured value
 of 102, while isoform 2, that localised to the GA, has a measured
 value of 3.</p>
@@ -650,15 +650,15 @@ keys. Below, we first fix the misnamed variable in <code>jdf7</code>. Instead of
 updating the variable name by checking its index manually, we grep it
 programmatically and store it in a new variable <code>i</code>. We can then join
 the two tables without having to specify the two keys explicitly.</p>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="sec-join.html#cb540-1" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"isoform"</span>, <span class="fu">names</span>(jdf7))</span>
-<span id="cb540-2"><a href="sec-join.html#cb540-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(jdf7)[i] <span class="ot">&lt;-</span> <span class="st">"isoform"</span></span>
-<span id="cb540-3"><a href="sec-join.html#cb540-3" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(jdf6, jdf7)</span></code></pre></div>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="sec-join.html#cb538-1" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"isoform"</span>, <span class="fu">names</span>(jdf7))</span>
+<span id="cb538-2"><a href="sec-join.html#cb538-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(jdf7)[i] <span class="ot">&lt;-</span> <span class="st">"isoform"</span></span>
+<span id="cb538-3"><a href="sec-join.html#cb538-3" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(jdf6, jdf7)</span></code></pre></div>
 <pre><code>## Joining, by = c("uniprot", "isoform")</code></pre>
 <pre><code>## # A tibble: 2 × 8
-##   uniprot organelle    entry   isoform gene_name description    organism measure
-##   &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;          &lt;chr&gt;      &lt;dbl&gt;
-## 1 Q99PL5  Endoplasmic… RRBP1_…       1 Rrbp1     Ribosome-bind… Mmus         102
-## 2 Q99PL5  Golgi appar… RRBP1_…       2 Rrbp1     Ribosome-bind… Mmus           3</code></pre>
+##   uniprot organelle         entry isoform gene_name description organism measure
+##   &lt;chr&gt;   &lt;chr&gt;             &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt;
+## 1 Q99PL5  Endoplasmic reti… RRBP…       1 Rrbp1     Ribosome-b… Mmus         102
+## 2 Q99PL5  Golgi apparatus   RRBP…       2 Rrbp1     Ribosome-b… Mmus           3</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -719,25 +719,25 @@ Figure 7.4: Matching dimension and names when binding by rows and columns.
 <code>d2</code>, and then binding by rows using <code>d2</code> and <code>d3</code>. Lets start with
 <code>d1</code> and <code>d2</code> shown below; both have the same number of columns but,
 and this is crucial, do not have the same column names:</p>
-<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="sec-join.html#cb543-1" aria-hidden="true" tabindex="-1"></a>d1</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="sec-join.html#cb541-1" aria-hidden="true" tabindex="-1"></a>d1</span></code></pre></div>
 <pre><code>##   x y
 ## 1 1 1
 ## 2 2 2
 ## 3 3 3</code></pre>
-<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="sec-join.html#cb545-1" aria-hidden="true" tabindex="-1"></a>d2</span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="sec-join.html#cb543-1" aria-hidden="true" tabindex="-1"></a>d2</span></code></pre></div>
 <pre><code>##   a b
 ## 1 4 4
 ## 2 5 5</code></pre>
 <p>While de number of columns match, the names don’t, which results in an
 error<label for="tufte-sn-13" class="margin-toggle sidenote-number">13</label><input type="checkbox" id="tufte-sn-13" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">13</span> The failing call to <code>rbind</code> is wrapped into a <code>try</code> call here
 to stop the error from aborting the document compilation.</span> when we use <code>rbind</code>:</p>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="sec-join.html#cb547-1" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">rbind</span>(d1, d2))</span></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="sec-join.html#cb545-1" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">rbind</span>(d1, d2))</span></code></pre></div>
 <pre><code>## Error in match.names(clabs, names(xi)) : 
 ##   names do not match previous names</code></pre>
 <p>Before <code>rbind</code>ing two dataframes, we must assure that their number of columns and
 rownames match exactly:</p>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="sec-join.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(d2) <span class="ot">&lt;-</span> <span class="fu">names</span>(d1)</span>
-<span id="cb549-2"><a href="sec-join.html#cb549-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(d1, d2)</span></code></pre></div>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="sec-join.html#cb547-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(d2) <span class="ot">&lt;-</span> <span class="fu">names</span>(d1)</span>
+<span id="cb547-2"><a href="sec-join.html#cb547-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(d1, d2)</span></code></pre></div>
 <pre><code>##   x y
 ## 1 1 1
 ## 2 2 2
@@ -746,7 +746,7 @@ rownames match exactly:</p>
 ## 5 5 5</code></pre>
 <p>If we want to bind to dataframes along their columns, we must make
 sure that their number of rows match; rownames not hinder here:</p>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="sec-join.html#cb551-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(d2, d3)</span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="sec-join.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(d2, d3)</span></code></pre></div>
 <pre><code>##   x y v1 v2 v3
 ## 1 4 4  1  3  5
 ## 2 5 5  2  4  6</code></pre>
@@ -756,13 +756,13 @@ observations for the same set of variables - there is more than only
 the column names. Below, we <code>rbind</code> dataframes with identical column
 names but different variables, which end up all being coerced into
 characters.</p>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="sec-join.html#cb553-1" aria-hidden="true" tabindex="-1"></a>d1</span></code></pre></div>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="sec-join.html#cb551-1" aria-hidden="true" tabindex="-1"></a>d1</span></code></pre></div>
 <pre><code>##   x y
 ## 1 1 1
 ## 2 2 2
 ## 3 3 3</code></pre>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="sec-join.html#cb555-1" aria-hidden="true" tabindex="-1"></a>d4 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">y =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
-<span id="cb555-2"><a href="sec-join.html#cb555-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">rbind</span>(d1, d4))</span></code></pre></div>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="sec-join.html#cb553-1" aria-hidden="true" tabindex="-1"></a>d4 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">y =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb553-2"><a href="sec-join.html#cb553-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">rbind</span>(d1, d4))</span></code></pre></div>
 <pre><code>## 'data.frame':    5 obs. of  2 variables:
 ##  $ x: chr  "1" "2" "3" "a" ...
 ##  $ y: chr  "1" "2" "3" "a" ...</code></pre>
@@ -818,7 +818,7 @@ containing merged data exclusively for normal samples.</p></li>
 <a href="sec-rr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-12-05
+2022-02-13
  using 
 R version 4.1.2 (2021-11-01)
 </p>
