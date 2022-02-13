@@ -164,6 +164,13 @@ illustrates these very same steps.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/veSrycUFcVs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+Here's a shorter video that shows the forking using the new Renku
+interface. While the interface has changed, the steps are essentially
+the same.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ulG4aodgFoc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 It is easey to upload files directly to the remote RStudio instance by
 using the `Upload` button in RStudio's file navigator menu. To
 download files or directories, select the files/folders in the file
