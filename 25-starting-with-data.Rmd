@@ -125,9 +125,9 @@ rna <- read.table(file = "data/rnaseq.csv",
 
 The header argument has to be set to `TRUE` to be able to read the
 headers as by default `read.table()` has the header argument set to
-FALSE. The quote argument has to be set to `"\""` to only allow "
-as a quoting character (see how is written the `product` variable
-for gene `Rtca` in rnaseq.csv).
+FALSE. The quote argument has to be set to `"\""` to only allow " as a
+quoting character (see how the `product` variable for gene `Rtca` in
+`rnaseq.csv` is written).
 
 
 ## What are data frames?
