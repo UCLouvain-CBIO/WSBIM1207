@@ -76,6 +76,12 @@ download.file(url = "https://github.com/Bioconductor/bioconductor-teaching/raw/m
               destfile = "data/rnaseq.csv")
 ```
 
+Alternatively, you can download the
+[file](https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv)
+manually and move it in the data directory in your RStudio
+project. This approach however has the drawback of loosing the
+provenance of the data.
+
 You are now ready to load the data:
 
 ```{r, eval = TRUE}
