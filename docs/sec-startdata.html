@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-02-24" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -353,6 +353,11 @@ remote file, names it <code>"rnaseq.csv"</code> and adds it to a preexisting
 folder named <code>"data"</code>.</p>
 <div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="sec-startdata.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url =</span> <span class="st">"https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv"</span>,</span>
 <span id="cb209-2"><a href="sec-startdata.html#cb209-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">destfile =</span> <span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
+<p>Alternatively, you can download the
+<a href="https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv">file</a>
+manually and move it in the data directory in your RStudio
+project. This approach however has the drawback of loosing the
+provenance of the data.</p>
 <p>You are now ready to load the data:</p>
 <div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="sec-startdata.html#cb210-1" aria-hidden="true" tabindex="-1"></a>rna <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
 <p>This statement doesn’t produce any output because, as you might
@@ -1109,9 +1114,9 @@ a matrix, a dataframe and another list:</p>
 <pre><code>## List of 5
 ##  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##  $ : chr [1:26] "a" "b" "c" "d" ...
-##  $ : chr [1:550, 1:16] "abind" "affy" "affyio" "AHtestAzure" ...
+##  $ : chr [1:552, 1:16] "abind" "affy" "affyio" "AHtestAzure" ...
 ##   ..- attr(*, "dimnames")=List of 2
-##   .. ..$ : chr [1:550] "abind" "affy" "affyio" "AHtestAzure" ...
+##   .. ..$ : chr [1:552] "abind" "affy" "affyio" "AHtestAzure" ...
 ##   .. ..$ : chr [1:16] "Package" "LibPath" "Version" "Priority" ...
 ##  $ :'data.frame':    50 obs. of  2 variables:
 ##   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...
@@ -1632,7 +1637,7 @@ to use the <code>quantile</code> function.</p></li>
 <a href="sec-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2022-02-17
+2022-02-24
  using 
 R version 4.1.2 (2021-11-01)
 </p>
