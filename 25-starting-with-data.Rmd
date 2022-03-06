@@ -278,8 +278,9 @@ is_missing_hsapiens_homolog <- is.na(rna$hsapiens_homolog_associated_gene_name)
 rna_hsapiens_homolog <- rna[!is_missing_hsapiens_homolog,]
 ```
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 head(rna_hsapiens_homolog)
+anyNA(rna_hsapiens_homolog$hsapiens_homolog_associated_gene_name)
 ```
 
 
@@ -287,12 +288,16 @@ head(rna_hsapiens_homolog)
 How many mouse genes do not have a human homologous?
 `r msmbstyle::question_end()`
 
+
 `r msmbstyle::solution_begin()`
-> ```{r}
-> rna_missing_hsapiens_homolog <- rna[is_missing_hsapiens_homolog,]
-> nrow(rna_missing_hsapiens_homolog)
-> ```
+
+```{r}
+sum(is_missing_hsapiens_homolog)
+table(is_missing_hsapiens_homolog)
+```
+
 `r msmbstyle::solution_end()`
+
 
 `r msmbstyle::question_begin()`
 
@@ -322,20 +327,21 @@ How many mouse genes do not have a human homologous?
 `r msmbstyle::question_end()`
 
 `r msmbstyle::solution_begin()`
-> ```{r}
-> ## 1.
-> rna_200 <- rna[200, ]
-> ## 2.
-> ## Saving `n_rows` to improve readability and reduce duplication
-> n_rows <- nrow(rna)
-> rna_last <- rna[n_rows, ]
-> ## 3.
-> rna_middle <- rna[n_rows / 2, ]
-> ## 4.
-> rna_head <- rna[-(7:n_rows), ]
-> ```
-`r msmbstyle::solution_end()`
 
+```{r}
+## 1.
+rna_200 <- rna[200, ]
+## 2.
+## Saving `n_rows` to improve readability and reduce duplication
+n_rows <- nrow(rna)
+rna_last <- rna[n_rows, ]
+## 3.
+rna_middle <- rna[n_rows / 2, ]
+## 4.
+rna_head <- rna[-(7:n_rows), ]
+ ```
+
+`r msmbstyle::solution_end()`
 
 
 ## Factors
