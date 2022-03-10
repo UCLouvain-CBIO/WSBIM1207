@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2022-03-06" />
+<meta name="date" content="2022-03-10" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -446,8 +446,9 @@ and <code>strain</code>.</p>
 <h2>
 <span class="header-section-number">5.4</span> Pipes<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('pipes')" onmouseout="reset_tooltip('pipes-tooltip')"><span class="tooltiptext" id="pipes-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h2>
-<p>What if you want to select and filter at the same time? There are three
-ways to do this: use intermediate steps, nested functions, or pipes.</p>
+<p>What if you want to select and filter at the same time? There are
+three ways to do this: use intermediate steps, nested functions, or
+pipes.</p>
 <p>With intermediate steps, you create a temporary data frame and use
 that as input to the next function, like this:</p>
 <div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="sec-dplyr.html#cb312-1" aria-hidden="true" tabindex="-1"></a>rna2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(rna, sex <span class="sc">==</span> <span class="st">"Male"</span>)</span>
@@ -467,8 +468,11 @@ that as input to the next function, like this:</p>
 ##  9 Plp1    GSM2545340 Cerebellum      53126
 ## 10 Gnb4    GSM2545340 Cerebellum       1355
 ## # … with 14,730 more rows</code></pre>
-<p>This is readable, but can clutter up your workspace with lots of objects that you have to name individually. With multiple steps, that can be hard to keep track of.</p>
-<p>You can also nest functions (i.e. one function inside of another), like this:</p>
+<p>This is readable, but can clutter up your workspace with lots of
+objects that you have to name individually. With multiple steps, that
+can be hard to keep track of.</p>
+<p>You can also nest functions (i.e. one function inside of another),
+like this:</p>
 <div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="sec-dplyr.html#cb314-1" aria-hidden="true" tabindex="-1"></a>rna3 <span class="ot">&lt;-</span> <span class="fu">select</span>(<span class="fu">filter</span>(rna, sex <span class="sc">==</span> <span class="st">"Male"</span>), gene, sample, tissue, expression)</span>
 <span id="cb314-2"><a href="sec-dplyr.html#cb314-2" aria-hidden="true" tabindex="-1"></a>rna3</span></code></pre></div>
 <pre><code>## # A tibble: 14,740 × 4
@@ -485,15 +489,17 @@ that as input to the next function, like this:</p>
 ##  9 Plp1    GSM2545340 Cerebellum      53126
 ## 10 Gnb4    GSM2545340 Cerebellum       1355
 ## # … with 14,730 more rows</code></pre>
-<p>This is handy, but can be difficult to read if too many functions are nested, as
-R evaluates the expression from the inside out (in this case, filtering, then selecting).</p>
-<p>The last option, <em>pipes</em>, are a recent addition to R. Pipes let you take
-the output of one function and send it directly to the next, which is useful
-when you need to do many things to the same dataset. Pipes in R look like
-<code>%&gt;%</code> and are made available via the <strong><code>magrittr</code></strong> package, installed automatically
-with <strong><code>dplyr</code></strong>. If you use RStudio, you can type the pipe with <kbd>Ctrl</kbd>
-+ <kbd>Shift</kbd> + <kbd>M</kbd> if you have a PC or <kbd>Cmd</kbd> +
-<kbd>Shift</kbd> + <kbd>M</kbd> if you have a Mac.</p>
+<p>This is handy, but can be difficult to read if too many functions are
+nested, as R evaluates the expression from the inside out (in this
+case, filtering, then selecting).</p>
+<p>The last option, <em>pipes</em>, are a recent addition to R. Pipes let you
+take the output of one function and send it directly to the next,
+which is useful when you need to do many things to the same dataset.
+Pipes in R look like <code>%&gt;%</code> (as made available via the <strong><code>magrittr</code></strong>
+package, installed automatically with <strong><code>dplyr</code></strong>) or <code>|&gt;</code> (as
+available in base R). If you use RStudio, you can type the pipe with
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you have a PC or
+<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you have a Mac.</p>
 <div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="sec-dplyr.html#cb316-1" aria-hidden="true" tabindex="-1"></a>rna <span class="sc">%&gt;%</span></span>
 <span id="cb316-2"><a href="sec-dplyr.html#cb316-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"Male"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb316-3"><a href="sec-dplyr.html#cb316-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(gene, sample, tissue, expression)</span></code></pre></div>
@@ -1742,7 +1748,8 @@ different age according to gender and employment.</p>
 <ul>
 <li>Load the <code>rWSBIM1207</code> package. If the package isn’t installed of its
 version is older than 0.1.1, install it from the
-<code>UCLouvain-CBIO/rWSBIM1207' GitHub repository using the</code>devtools::install_github` function.</li>
+<code>UCLouvain-CBIO/rWSBIM1207</code> GitHub repository using the
+<code>BiocManager::install()</code> function.</li>
 <li>Directly load the data by typing</li>
 </ul>
 <div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="sec-dplyr.html#cb429-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(beers)</span></code></pre></div>
@@ -1869,7 +1876,7 @@ and a column <code>result</code> with the student’s mark.</p>
 <a href="sec-vis.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2022-03-06
+2022-03-10
  using 
 R version 4.1.2 (2021-11-01)
 </p>

@@ -183,8 +183,9 @@ filter(rna, sex == "Male" & infection == "NonInfected")
 
 ## Pipes
 
-What if you want to select and filter at the same time? There are three
-ways to do this: use intermediate steps, nested functions, or pipes.
+What if you want to select and filter at the same time? There are
+three ways to do this: use intermediate steps, nested functions, or
+pipes.
 
 With intermediate steps, you create a temporary data frame and use
 that as input to the next function, like this:
@@ -195,25 +196,30 @@ rna3 <- select(rna2, gene, sample, tissue, expression)
 rna3
 ```
 
-This is readable, but can clutter up your workspace with lots of objects that you have to name individually. With multiple steps, that can be hard to keep track of.
+This is readable, but can clutter up your workspace with lots of
+objects that you have to name individually. With multiple steps, that
+can be hard to keep track of.
 
-You can also nest functions (i.e. one function inside of another), like this:
+You can also nest functions (i.e. one function inside of another),
+like this:
 
 ```{r, purl = FALSE}
 rna3 <- select(filter(rna, sex == "Male"), gene, sample, tissue, expression)
 rna3
 ```
 
-This is handy, but can be difficult to read if too many functions are nested, as
-R evaluates the expression from the inside out (in this case, filtering, then selecting).
+This is handy, but can be difficult to read if too many functions are
+nested, as R evaluates the expression from the inside out (in this
+case, filtering, then selecting).
 
-The last option, *pipes*, are a recent addition to R. Pipes let you take
-the output of one function and send it directly to the next, which is useful
-when you need to do many things to the same dataset.  Pipes in R look like
-`%>%` and are made available via the **`magrittr`** package, installed automatically
-with **`dplyr`**. If you use RStudio, you can type the pipe with <kbd>Ctrl</kbd>
-+ <kbd>Shift</kbd> + <kbd>M</kbd> if you have a PC or <kbd>Cmd</kbd> +
-<kbd>Shift</kbd> + <kbd>M</kbd> if you have a Mac.
+The last option, *pipes*, are a recent addition to R. Pipes let you
+take the output of one function and send it directly to the next,
+which is useful when you need to do many things to the same dataset.
+Pipes in R look like `%>%` (as made available via the **`magrittr`**
+package, installed automatically with **`dplyr`**) or `|>` (as
+available in base R). If you use RStudio, you can type the pipe with
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you have a PC or
+<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you have a Mac.
 
 ```{r, purl = FALSE}
 rna %>%
@@ -992,9 +998,10 @@ different age according to gender and employment.
 
 - Load the `rWSBIM1207` package. If the package isn't installed of its
   version is older than 0.1.1, install it from the
-  `UCLouvain-CBIO/rWSBIM1207' GitHub repository using the
-  `devtools::install_github` function.
+  `UCLouvain-CBIO/rWSBIM1207` GitHub repository using the
+  `BiocManager::install()` function.
 - Directly load the data by typing
+
 ```{r, eval=FALSE}
 data(beers)
 ```

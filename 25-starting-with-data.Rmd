@@ -923,8 +923,9 @@ to gender and employment.
 - Load the `rWSBIM1207` package. If the package isn't installed of its
   version is greater than 0.1.1, install it from the
   `UCLouvain-CBIO/rWSBIM1207` GitHub repository using the
-  `remotes::install_github()` function. If you use a recent Renku
-  enironment, the package is already available.
+  `BiocManager::install()` (or `remotes::install_github()`)
+  function. If you use a recent Renku enironment, the package is
+  already available.
 
 - Using the `beers.csv()` function from `rWSBIM1207`, find the path
   the `beers.csv` file and read it to produce a `data.frame` named
@@ -959,8 +960,9 @@ We are going to analyse clinical data from The Cancer Genome Atlas
 - Load the `rWSBIM1207` package. If the package isn't installed of its
   version is greater than 0.1.1, install it from the
   `UCLouvain-CBIO/rWSBIM1207` GitHub repository using the
-  `remotes::install_github()` function. If you use a recent Renku
-  enironment, the package is already available.
+  `BiocManager::install()` (or `remotes::install_github()`)
+  functions. If you use a recent Renku enironment, the package is
+  already available.
 
 - Obtain the path to th csv file containing the clinical data need for
   this exercise using the `clinical1.csv` function and read it into R
