@@ -227,22 +227,32 @@ rna %>%
   select(gene, sample, tissue, expression)
 ```
 
-In the above code, we use the pipe to send the `rna` dataset first through
-`filter()` to keep rows where `sex` is Male, then through `select()`
-to keep only the `gene`, `sample`, `tissue`, and `expression`columns.
-Since `%>%` takes the object on its left and passes it as the first argument
-to the function on its right, we don't need to explicitly include the data frame
-as an argument to the `filter()` and `select()` functions any more.
+Or
 
-Some may find it helpful to read the pipe like the word "then". For instance,
-in the above example, we took the data frame `rna`, *then* we `filter`ed
-for rows with `sex == "Male"`, *then* we `select`ed columns `gene`, `sample`,
-`tissue`, and `expression`. The **`dplyr`** functions by themselves are somewhat
-simple, but by combining them into linear workflows with the pipe, we can accomplish
-more complex manipulations of data frames.
+```{r, purl = FALSE}
+rna  |>
+  filter(sex == "Male") |>
+  select(gene, sample, tissue, expression)
+```
 
-If we want to create a new object with this smaller version of the data, we
-can assign it a new name:
+In the above code, we use the pipe to send the `rna` dataset first
+through `filter()` to keep rows where `sex` is Male, then through
+`select()` to keep only the `gene`, `sample`, `tissue`, and
+`expression`columns.  Since `%>%` (and `|>`) takes the object on its
+left and passes it as the first argument to the function on its right,
+we don't need to explicitly include the data frame as an argument to
+the `filter()` and `select()` functions any more.
+
+Some may find it helpful to read the pipe like the word "then". For
+instance, in the above example, we took the data frame `rna`, *then*
+we `filter`ed for rows with `sex == "Male"`, *then* we `select`ed
+columns `gene`, `sample`, `tissue`, and `expression`. The **`dplyr`**
+functions by themselves are somewhat simple, but by combining them
+into linear workflows with the pipe, we can accomplish more complex
+manipulations of data frames.
+
+If we want to create a new object with this smaller version of the
+data, we can assign it a new name:
 
 ```{r, purl = FALSE}
 rna3 <- rna %>%
@@ -251,8 +261,6 @@ rna3 <- rna %>%
 
 rna3
 ```
-
-Note that the final data frame is the leftmost part of this expression.
 
 
 `r msmbstyle::question_begin()`
