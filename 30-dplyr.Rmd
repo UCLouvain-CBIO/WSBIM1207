@@ -788,9 +788,10 @@ rna_wide %>%
 
 `r msmbstyle::question_begin()`
 
-Subset genes located on X and Y chromosomes from the `rna` data frame and
-spread the data frame with `sex` as columns, `chromosome_name` as
-rows, and the mean expression of genes located in each chromosome as the values.
+Subset genes located on X and Y chromosomes from the `rna` data.frame
+and create a new (wide) data.frame with `sex` as columns,
+`chromosome_name` as rows, containing the mean expression of genes
+located in each chromosome as the values, as shown below.
 
 ![](./figs/Exercise_pivot_W.png)
 
