@@ -14,7 +14,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2022-03-10" />
+<meta name="date" content="2022-03-24" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -1174,28 +1174,31 @@ that.</p>
 a combination of 2 other variables: <code>gene</code> and <code>sample</code>. All the
 other columns correspond to variables describing either the sample
 (age, sex, organism…) or the gene (gene_biotype, ENTREZ_ID,
-product…). The variables that don’t change genes or samples will
-have the same value in all the rows. This structure is called a
-<em>long format</em>, as one column contains all the values, and other
-column(s) list(s) the context of the value.</p>
-<p>In certain cases, the <em>long format</em> is not really human-readable, and
-another format, a <em>wide format</em> is preferred, as a more compact way of
-representing the data. This is typically the case with gene
-expression values that scientists are used to look as matrices, were
-rows represent genes and columns represent samples.</p>
+product…). The variables for the same gene and sample pair have the
+same value in all the rows. This structure is called a <em>long format</em>,
+as one column contains all the values, and other columns describe the
+context of the value. These data also tend to be quite long.</p>
+<p>In certain cases, the <em>long format</em> is not really human-readable or
+the most appropriate for the task, and another format, called <em>wide
+format</em> is preferred. It is also generally as a more compact way of
+representing the data (although we don’t need to worry about the size
+of the data here). This is typically the case with gene expression
+values that scientists are used to look as matrices of quantitative
+data, were rows represent genes (or more generally features or
+variables) and columns represent samples.</p>
 <p>To convert the gene expression values from <code>rna</code> into a wide-format,
-we need to create a new table where each row (the units) is composed
-of expression values associated with each gene.</p>
-<p>In practical terms this means the values of the <code>sample</code> column in <code>rna</code> would
-become the names of column variables, and the cells would contain the expression
-values measured on each gene.</p>
-<p>The key point here is that we are still following
-a tidy data structure, but we have <strong>reshaped</strong> the data according to
-the observations of interest: expression levels per gene instead
-of recording them per gene and per sample.</p>
-<p>With this new table, it would become therefore straightforward
-to explore the relationship between the gene expression levels within, and
-between, the samples.</p>
+we need to create a new table where each row is composed of expression
+values associated with each gene. In practical terms this means the
+values of the <code>sample</code> column in <code>rna</code> would become the names of
+column variables, and the cells would contain the expression values
+measured on each gene.</p>
+<p>The key point here is that we are still following a tidy data
+structure (a single value per cell), but we have <strong>reshaped</strong> the data
+according to the observations of interest: expression levels per gene
+instead of recording them per gene and per sample.</p>
+<p>With this new table, it would become therefore straightforward to
+explore the relationship between the gene expression levels within,
+and between, the samples.</p>
 <p>The opposite transformation would be to transform column names into
 values of a new variable.</p>
 <p>We can do both these of transformations with two <code>tidyr</code> functions,
@@ -1206,8 +1209,8 @@ details).</p>
 <h3>
 <span class="header-section-number">5.7.1</span> Pivoting the data into a wider format<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('pivoting-the-data-into-a-wider-format')" onmouseout="reset_tooltip('pivoting-the-data-into-a-wider-format-tooltip')"><span class="tooltiptext" id="pivoting-the-data-into-a-wider-format-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
-<p>Let’s first select the 3 first columns of <code>rna</code> and use <code>pivot_wider()</code>
-to transform data in a wide-format.</p>
+<p>For simplicity, let’s first select the 3 first columns of <code>rna</code> and
+use <code>pivot_wider()</code> to transform data in a wide-format.</p>
 <div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="sec-dplyr.html#cb380-1" aria-hidden="true" tabindex="-1"></a>rna_exp <span class="ot">&lt;-</span> rna <span class="sc">%&gt;%</span></span>
 <span id="cb380-2"><a href="sec-dplyr.html#cb380-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(gene, sample, expression)</span>
 <span id="cb380-3"><a href="sec-dplyr.html#cb380-3" aria-hidden="true" tabindex="-1"></a>rna_exp</span></code></pre></div>
@@ -1225,7 +1228,7 @@ to transform data in a wide-format.</p>
 ##  9 Plp1    GSM2545336      43217
 ## 10 Gnb4    GSM2545336       1071
 ## # … with 32,418 more rows</code></pre>
-<p><code>pivot_wider</code> takes three main arguments:</p>
+<p><code>pivot_wider</code> takes the following three main arguments:</p>
 <ol style="list-style-type: decimal">
 <li>the data to be transformed;</li>
 <li>the <code>names_from</code> column name whose values will become new column
@@ -1234,11 +1237,9 @@ names;</li>
 columns.</li>
 </ol>
 <p><img src="figs/pivot_wider.png"></p>
-<p>Note also the <code>values_fill</code> argument which, if set, fills in missing
-values with the value provided.</p>
-<p>Using <code>pivot_wider()</code>, using new columns from the <code>sample</code> variable and
-values from <code>expression</code>, this becomes 1474 gene expression measurements of 22
-variables, one row for each gene, one column for each sample. We again use pipes:</p>
+<p><code>pivot_wider()</code> generates a new table with 1474 gene for 22 samples -
+one row for each gene, one column for each sample. We can also
+directly pipe the data into the <code>pivot_wider()</code>, as illustrated below:</p>
 <div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="sec-dplyr.html#cb382-1" aria-hidden="true" tabindex="-1"></a>rna_wide <span class="ot">&lt;-</span> rna_exp <span class="sc">%&gt;%</span></span>
 <span id="cb382-2"><a href="sec-dplyr.html#cb382-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> sample,</span>
 <span id="cb382-3"><a href="sec-dplyr.html#cb382-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> expression)</span>
@@ -1261,15 +1262,21 @@ variables, one row for each gene, one column for each sample. We again use pipes
 ## #   GSM2545347 &lt;dbl&gt;, GSM2545348 &lt;dbl&gt;, GSM2545349 &lt;dbl&gt;, GSM2545350 &lt;dbl&gt;,
 ## #   GSM2545351 &lt;dbl&gt;, GSM2545352 &lt;dbl&gt;, GSM2545353 &lt;dbl&gt;, GSM2545354 &lt;dbl&gt;,
 ## #   GSM2545362 &lt;dbl&gt;, GSM2545363 &lt;dbl&gt;, GSM2545380 &lt;dbl&gt;</code></pre>
-<p><img src="figs/pivot_wider.png"></p>
-<p>We can now easily plot the comparisons between the gene expression levels
-in different samples.</p>
-<p>Note that the <code>pivot_wider()</code> function comes with an optional <code>values_fill</code> argument
-that can be usefull when dealing with missing values.
-Let’s imagine that for some reason, we had some missing expression values for some
-genes in certain samples. In the following fictive example, the gene Cyp2d22 has only
-one expression value, in GSM2545338 sample.</p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="sec-dplyr.html#cb384-1" aria-hidden="true" tabindex="-1"></a>rna_with_missing_values</span></code></pre></div>
+<p>We can now easily compare the gene expression levels in different
+samples.</p>
+<p>Note that the <code>pivot_wider()</code> function comes with an optional
+<code>values_fill</code> argument that can be usefull when dealing with missing
+values. Let’s imagine that for some reason, we had some missing
+expression values for some genes in certain samples. In the following
+example, the gene Cyp2d22 has only one expression value, in GSM2545338
+sample.</p>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="sec-dplyr.html#cb384-1" aria-hidden="true" tabindex="-1"></a>rna_with_missing_values <span class="ot">&lt;-</span> rna <span class="sc">%&gt;%</span></span>
+<span id="cb384-2"><a href="sec-dplyr.html#cb384-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(gene, sample, expression) <span class="sc">%&gt;%</span></span>
+<span id="cb384-3"><a href="sec-dplyr.html#cb384-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gene <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Asl"</span>, <span class="st">"Apod"</span>, <span class="st">"Cyp2d22"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb384-4"><a href="sec-dplyr.html#cb384-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sample <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"GSM2545336"</span>, <span class="st">"GSM2545337"</span>, <span class="st">"GSM2545338"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb384-5"><a href="sec-dplyr.html#cb384-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(sample) <span class="sc">%&gt;%</span></span>
+<span id="cb384-6"><a href="sec-dplyr.html#cb384-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>(gene <span class="sc">==</span> <span class="st">"Cyp2d22"</span> <span class="sc">&amp;</span> sample <span class="sc">!=</span> <span class="st">"GSM2545338"</span>))</span>
+<span id="cb384-7"><a href="sec-dplyr.html#cb384-7" aria-hidden="true" tabindex="-1"></a>rna_with_missing_values</span></code></pre></div>
 <pre><code>## # A tibble: 7 × 3
 ##   gene    sample     expression
 ##   &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;
@@ -1308,14 +1315,12 @@ to a specific value.</p>
 <span class="header-section-number">5.7.2</span> Pivoting data into a longer format<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('pivoting-data-into-a-longer-format')" onmouseout="reset_tooltip('pivoting-data-into-a-longer-format-tooltip')"><span class="tooltiptext" id="pivoting-data-into-a-longer-format-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p>The opposing situation could occur if we had been provided with data
-in the form of <code>rna_wide</code>, where the sample IDs are column
-names, but we wish to treat them as values of a <code>sample</code> variable
-instead.</p>
-<p>In this situation we are using the column names and turning them into
-a pair of new variables. One variable represents the column names as
-values, and the other variable contains the values previously
-associated with the column names.</p>
-<p><code>pivot_longer()</code> takes four main arguments:</p>
+in the form of <code>rna_wide</code>, where the sample IDs are column names, but
+we wished to treat them as values of a <code>sample</code> variable instead.</p>
+<p>In this situation we are using the column names and turn them into a
+pair of new variables and need to arrange the expression values
+accordingly in a new variable. This can be done with the
+<code>pivot_longer()</code> function. It takes the following four main arguments:</p>
 <ol style="list-style-type: decimal">
 <li>the data to be transformed;</li>
 <li>the new <code>names_to</code> column we wish to create and populate with the
@@ -1323,7 +1328,8 @@ current column names;</li>
 <li>the new <code>values_to</code> column we wish to create and populate with
 current values;</li>
 <li>the names of the columns to be used to populate the <code>names_to</code> and
-<code>values_to</code> variables (or to drop).</li>
+<code>values_to</code> variables (or altarnatively, those to drop using a
+<code>-</code>).</li>
 </ol>
 <p>To recreate <code>rna_long</code> from <code>rna_long</code> we would create a key
 called <code>sample</code> and value called <code>expression</code> and use all columns
@@ -1499,7 +1505,7 @@ each row is a unique <code>chromosome_name</code> by <code>gender</code> combina
 <div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="sec-dplyr.html#cb406-1" aria-hidden="true" tabindex="-1"></a>rna_1 <span class="sc">%&gt;%</span></span>
 <span id="cb406-2"><a href="sec-dplyr.html#cb406-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"gender"</span>,</span>
 <span id="cb406-3"><a href="sec-dplyr.html#cb406-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"mean"</span>,</span>
-<span id="cb406-4"><a href="sec-dplyr.html#cb406-4" aria-hidden="true" tabindex="-1"></a>               <span class="sc">-</span> chromosome_name)</span></code></pre></div>
+<span id="cb406-4"><a href="sec-dplyr.html#cb406-4" aria-hidden="true" tabindex="-1"></a>               <span class="sc">-</span>chromosome_name)</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 3
 ##   chromosome_name gender  mean
 ##   &lt;chr&gt;           &lt;chr&gt;  &lt;dbl&gt;
@@ -1800,7 +1806,7 @@ interpret multiple results. In the next chapter, we will see how to
 complement such analysis questions with visualisations such as the
 following one, that clearly highlight important patterns in our data.</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-186"></span>
+<span style="display:block;" id="fig:unnamed-chunk-185"></span>
 <p class="caption marginnote shownote">
 Figure 5.1: Visualisation of beer consumption, highlighting different patterns of beer consumption in employed and unemployed males and females.
 </p>
@@ -1895,9 +1901,9 @@ and a column <code>result</code> with the student’s mark.</p>
 <a href="sec-vis.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2022-03-10
+2022-03-24
  using 
-R version 4.1.2 (2021-11-01)
+R version 4.1.3 (2022-03-10)
 </p>
 </div>
 </div>
