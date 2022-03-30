@@ -904,27 +904,29 @@ rna %>%
 
 `r msmbstyle::question_begin()`
 
-Use the previous data frame containing mean expression levels per timepoint and create
-a new column containing fold-changes between timepoint 8 and timepoint 0, and fold-changes
-between timepoint 8 and timepoint 4.
-Convert this table in a long-format table gathering the foldchanges calculated.
+Use the previous data frame containing mean expression levels per
+timepoint and create a new column containing fold-changes between
+timepoint 8 and timepoint 0, and fold-changes between timepoint 8 and
+timepoint 4.  Convert this table in a long-format table gathering the
+foldchanges calculated.
 
 `r msmbstyle::question_end()`
 
 `r msmbstyle::solution_begin()`
 
 ```{r}
-rna_FC <- rna %>%
+rna_fc <- rna %>%
   group_by(gene, time) %>%
   summarize(mean_exp = mean(expression)) %>%
   pivot_wider(names_from = time,
               values_from = mean_exp) %>%
-  mutate(time_8_vs_0 = `8` / `0`, time_8_vs_4 = `8` / `4`)
-rna_FC
+    mutate(time_8_vs_0 = `8` / `0`, time_8_vs_4 = `8` / `4`)
+
+rna_fc
 ```
 
 ```{r}
-rna_FC %>%
+rna_fc %>%
   pivot_longer(names_to = "comparisons",
                values_to = "Fold_changes",
                time_8_vs_0:time_8_vs_4)
@@ -935,28 +937,32 @@ rna_FC %>%
 
 ## Exporting data
 
-Now that you have learned how to use **`dplyr`** to extract information from
-or summarize your raw data, you may want to export these new data sets to share
-them with your collaborators or for archival.
+Now that you have learned how to use **`dplyr`** to extract
+information from or summarize your raw data, you may want to export
+these new data sets to share them with your collaborators or for
+archival.
 
-Similar to the `read_csv()` function used for reading CSV files into R, there is
-a `write_csv()` function that generates CSV files from data frames.
+Similar to the `read_csv()` function used for reading CSV files into
+R, there is a `write_csv()` function that generates CSV files from
+data frames.
 
-Before using `write_csv()`, we are going to create a new folder, `data_output`,
-in our working directory that will store this generated dataset. We don't want
-to write generated datasets in the same directory as our raw data. It's good
-practice to keep them separate. The `data` folder should only contain the raw,
-unaltered data, and should be left alone to make sure we don't delete or modify
-it. In contrast, our script will generate the contents of the `data_output`
-directory, so even if the files it contains are deleted, we can always
-re-generate them.
+Before using `write_csv()`, we are going to create a new folder,
+`data_output`, in our working directory that will store this generated
+dataset. We don't want to write generated datasets in the same
+directory as our raw data. It's good practice to keep them
+separate. The `data` folder should only contain the raw, unaltered
+data, and should be left alone to make sure we don't delete or modify
+it. In contrast, our script will generate the contents of the
+`data_output` directory, so even if the files it contains are deleted,
+we can always re-generate them.
 
-In preparation for our next lesson on plotting, we are going to prepare a
-table representing for each gene, the fold-changes (in log values) between timepoint 8
-and timepoint 0, and the fold-changes between timepoint 8 and timepoint 0.
+In preparation for our next lesson on plotting, we are going to
+prepare a table representing for each gene, the fold-changes (in log
+values) between timepoint 8 and timepoint 0, and the fold-changes
+between timepoint 8 and timepoint 0.
 
 ```{r}
-rna_FC <- rna %>%
+rna_fc <- rna %>%
   mutate(expression_log = log(expression)) %>%
   group_by(gene, time) %>%
   summarize(mean_exp = mean(expression_log)) %>%
@@ -964,14 +970,14 @@ rna_FC <- rna %>%
               values_from = mean_exp) %>%
   mutate(time_8_vs_0 = `8` - `0`, time_4_vs_0 = `4` - `0`) %>%
   select(gene, time_8_vs_0, time_4_vs_0)
-rna_FC
+rna_fc
 ```
 
 We can save the table as a CSV file in our `data_output`
 folder.
 
 ```{r, purl=FALSE, eval=FALSE}
-write_csv(rna_FC, file = "data_output/rna_FC.csv")
+write_csv(rna_fc, file = "data_output/rna_fc.csv")
 ```
 
 ## Additional exercises
