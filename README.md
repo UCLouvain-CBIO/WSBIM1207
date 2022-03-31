@@ -24,3 +24,4 @@ or contact the maintainers is by means of pull requests and
 issues. Please familiarise yourself with the [code of
 conduct](https://github.com/UCLouvain-CBIO/WSBIM1207/blob/master/CONDUCT.md). By
 participating in this project you agree to abide by its terms.
+
