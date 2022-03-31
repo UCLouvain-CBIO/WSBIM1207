@@ -526,10 +526,10 @@ First, we need to select the genes and create a subset of `rna` called
 data and calculate the mean gene expression within each group:
 
 ```{r}
-rna_fc <- rna_fc %>%
-    arrange(desc(time_8_vs_0))
-
-genes_selected <- rna_fc$gene[1:10]
+genes_selected <- rna_fc %>%
+    arrange(desc(time_8_vs_0)) %>%
+    head(10) %>%
+    pull(gene)
 
 sub_rna <- rna %>%
     filter(gene %in% genes_selected)
