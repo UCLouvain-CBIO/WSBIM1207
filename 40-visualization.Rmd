@@ -533,7 +533,12 @@ genes_selected <- rna_fc %>%
 
 sub_rna <- rna %>%
     filter(gene %in% genes_selected)
+```
 
+We can now calculate the mean expressions over time for these selected
+genes:
+
+```{r}
 mean_exp_by_time <- sub_rna %>%
     group_by(gene,time) %>%
     summarize(mean_exp = mean(expression_log))
