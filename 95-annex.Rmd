@@ -58,8 +58,8 @@ You can answer `a` to update all your packages.
 
 [^tinytex]: There might be messages or event errors during the
     installation of `tinytex`. At the end, you can run
-    `tinytex:::is_tiny()` to verify if it installed successfully (if
-    `TRUE` is returned).
+    `tinytex:::is_tinytex()` to verify if it installed successfully
+    (if `TRUE` is returned).
 
 ## Using a cloud R/RStudio instance
 
