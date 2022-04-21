@@ -8,13 +8,12 @@
 <meta property="og:title" content="Chapter 12 Annex | Introduction to bioinformatics" />
 <meta property="og:type" content="book" />
 
-
 <meta property="og:description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain." />
 
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2022-04-11" />
+<meta name="date" content="2022-04-21" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -27,7 +26,6 @@ MathJax.Hub.Config({
 
 <title>Chapter 12 Annex | Introduction to bioinformatics</title>
 
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -69,7 +67,7 @@ function reset_tooltip(id) {
 </script>
 <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.20/datatables.js"></script>
+<script src="libs/datatables-binding-0.22/datatables.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
@@ -83,6 +81,7 @@ function reset_tooltip(id) {
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -211,7 +210,8 @@ div.csl-indent {
 <div class="row">
 <div class="col-sm-12">
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html><body><div id="sec-anx" class="section level1" number="12">
+<html><body>
+<div id="sec-anx" class="section level1" number="12">
 <h1>
 <span class="header-section-number">Chapter 12</span> Annex</h1>
 <div id="local-installation" class="section level2" number="12.1">
@@ -239,9 +239,9 @@ the installer for your operating system and version. Install as any
 other software.</p></li>
 <li><p>Start Rstudio and install the following packages:</p></li>
 </ol>
-<div class="sourceCode" id="cb709"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb709-1"><a href="sec-anx.html#cb709-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"rmarkdown"</span>, <span class="st">"remotes"</span>, <span class="st">"devtools"</span>))</span>
-<span id="cb709-2"><a href="sec-anx.html#cb709-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
-<span id="cb709-3"><a href="sec-anx.html#cb709-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb711-1"><a href="sec-anx.html#cb711-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"rmarkdown"</span>, <span class="st">"remotes"</span>, <span class="st">"devtools"</span>))</span>
+<span id="cb711-2"><a href="sec-anx.html#cb711-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
+<span id="cb711-3"><a href="sec-anx.html#cb711-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
 <p>If during any of the package installation steps, you get asked to
 update some packages, for example with a message like</p>
 <pre><code>Old packages: 'tinytex', 'TSP', 'tximeta', 'umap', 'vctrs', 'waveslim',
@@ -253,10 +253,7 @@ Update all/some/none? [a/s/n]:</code></pre>
 <p>To be able to compile Rmd files into pdf, you will also need to
 install an additional software. On Windows, the easiest is to
 install <code>tinytex</code> direct from the R console with
-<code>tinytex::install_tinytex</code><label for="tufte-sn-26" class="margin-toggle sidenote-number">26</label><input type="checkbox" id="tufte-sn-26" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">26</span> There might be messages or event errors during the
-installation of <code>tinytex</code>. At the end, you can run
-<code>tinytex:::is_tinytex()</code> to verify if it installed successfully
-(if <code>TRUE</code> is returned).</span>. For Max OSX, you will need
+<code>tinytex::install_tinytex</code><a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a>. For Max OSX, you will need
 to install
 <a href="https://medium.com/@sorenlind/create-pdf-reports-using-r-r-markdown-latex-and-knitr-on-windows-10-952b0c48bfa9">MacTeX</a>. <a href="https://medium.com/@sorenlind/create-pdf-reports-using-r-r-markdown-latex-and-knitr-on-macos-high-sierra-e7b5705c9fd">This
 post</a>
@@ -349,9 +346,7 @@ Figure 12.5: The Renku environment is being build.
 <li>Once build, you can start the cloud environment. Make sure you keep
 the default settings, i.e default environment <code>/rstudio</code> and <code>0.25</code>
 CPUs and <code>1G</code> of RAM. For this course, these low resources are
-enough<label for="tufte-sn-27" class="margin-toggle sidenote-number">27</label><input type="checkbox" id="tufte-sn-27" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">27</span> Given that the resources are provided for free by the SDSC and
-are shared by all users, it is good practice to only use the
-resources that are needed.</span>.</li>
+enough<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a>.</li>
 </ol>
 <div class="figure">
 <span style="display:block;" id="fig:unnamed-chunk-287"></span>
@@ -475,16 +470,29 @@ Service</a>
 network through a virtual working environment.</p>
 
 </div>
-</div></body></html>
+</div>
+<div class="footnotes">
+<hr>
+<ol start="26">
+<li id="fn26"><p>There might be messages or event errors during the
+installation of <code>tinytex</code>. At the end, you can run
+<code>tinytex:::is_tinytex()</code> to verify if it installed successfully
+(if <code>TRUE</code> is returned).<a href="sec-anx.html#fnref26" class="footnote-back">↩︎</a></p></li>
+<li id="fn27"><p>Given that the resources are provided for free by the SDSC and
+are shared by all users, it is good practice to only use the
+resources that are needed.<a href="sec-anx.html#fnref27" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+</body></html>
 
 <p style="text-align: center;">
 <a href="sec-ccl.html"><button class="btn btn-default">Previous</button></a>
 <a href="session-information.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2022-04-11
+2022-04-21
  using 
-R version 4.1.3 (2022-03-10)
+R version 4.1.2 Patched (2021-12-10 r81360)
 </p>
 </div>
 </div>

@@ -8,13 +8,12 @@
 <meta property="og:title" content="Chapter 13 Session information | Introduction to bioinformatics" />
 <meta property="og:type" content="book" />
 
-
 <meta property="og:description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain." />
 
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2022-04-11" />
+<meta name="date" content="2022-04-21" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -27,7 +26,6 @@ MathJax.Hub.Config({
 
 <title>Chapter 13 Session information | Introduction to bioinformatics</title>
 
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -69,7 +67,7 @@ function reset_tooltip(id) {
 </script>
 <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.20/datatables.js"></script>
+<script src="libs/datatables-binding-0.22/datatables.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
@@ -83,6 +81,7 @@ function reset_tooltip(id) {
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -213,22 +212,22 @@ div.csl-indent {
 <h1>
 <span class="header-section-number">Chapter 13</span> Session information</h1>
 <p>The following packages have been used to generate this document.</p>
-<div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb711-1"><a href="session-information.html#cb711-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
-<pre><code>## R version 4.1.3 (2022-03-10)
+<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="session-information.html#cb713-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<pre><code>## R version 4.1.2 Patched (2021-12-10 r81360)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Ubuntu 20.04.4 LTS
+## Running under: Manjaro Linux
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3
-## LAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3
+## BLAS:   /usr/lib/libblas.so.3.10.0
+## LAPACK: /usr/lib/liblapack.so.3.10.0
 ## 
 ## locale:
 ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_GB.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_GB.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_GB.UTF-8       LC_NAME=C                 
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
 ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_GB.UTF-8 LC_IDENTIFICATION=C       
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats4    stats     graphics  grDevices utils     datasets  methods  
@@ -238,44 +237,43 @@ div.csl-indent {
 ##  [1] rWSBIM1322_0.2.0            BiocStyle_2.22.0           
 ##  [3] SummarizedExperiment_1.24.0 Biobase_2.54.0             
 ##  [5] GenomicRanges_1.46.1        GenomeInfoDb_1.30.1        
-##  [7] IRanges_2.28.0              S4Vectors_0.32.3           
+##  [7] IRanges_2.28.0              S4Vectors_0.32.4           
 ##  [9] BiocGenerics_0.40.0         MatrixGenerics_1.6.0       
-## [11] matrixStats_0.61.0          gridExtra_2.3              
+## [11] matrixStats_0.62.0          gridExtra_2.3              
 ## [13] patchwork_1.1.1             hexbin_1.28.2              
-## [15] magrittr_2.0.2              rWSBIM1207_0.1.15          
+## [15] magrittr_2.0.3              rWSBIM1207_0.1.15          
 ## [17] forcats_0.5.1               stringr_1.4.0              
-## [19] dplyr_1.0.7                 purrr_0.3.4                
+## [19] dplyr_1.0.8                 purrr_0.3.4                
 ## [21] readr_2.1.2                 tidyr_1.2.0                
 ## [23] tibble_3.1.6                ggplot2_3.3.5              
 ## [25] tidyverse_1.3.1             lubridate_1.8.0            
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] bitops_1.0-7           fs_1.5.2               bit64_4.0.5           
-##  [4] RColorBrewer_1.1-2     httr_1.4.2             tools_4.1.3           
+##  [4] RColorBrewer_1.1-3     httr_1.4.2             tools_4.1.2           
 ##  [7] backports_1.4.1        bslib_0.3.1            utf8_1.2.2            
-## [10] R6_2.5.1               DT_0.20                DBI_1.1.2             
-## [13] colorspace_2.0-2       withr_2.4.3            tidyselect_1.1.1      
-## [16] bit_4.0.4              compiler_4.1.3         cli_3.1.1             
+## [10] R6_2.5.1               DT_0.22                DBI_1.1.2             
+## [13] colorspace_2.0-3       withr_2.5.0            tidyselect_1.1.2      
+## [16] bit_4.0.4              compiler_4.1.2         cli_3.2.0             
 ## [19] rvest_1.0.2            xml2_1.3.3             DelayedArray_0.20.0   
-## [22] labeling_0.4.2         bookdown_0.24          sass_0.4.0            
-## [25] scales_1.1.1           digest_0.6.29          rmarkdown_2.11        
+## [22] labeling_0.4.2         bookdown_0.26          sass_0.4.1            
+## [25] scales_1.2.0           digest_0.6.29          rmarkdown_2.13        
 ## [28] XVector_0.34.0         pkgconfig_2.0.3        htmltools_0.5.2       
 ## [31] dbplyr_2.1.1           fastmap_1.1.0          highr_0.9             
-## [34] htmlwidgets_1.5.4      rlang_1.0.0            readxl_1.3.1          
+## [34] htmlwidgets_1.5.4      rlang_1.0.2            readxl_1.4.0          
 ## [37] rstudioapi_0.13        jquerylib_0.1.4        farver_2.1.0          
-## [40] generics_0.1.2         jsonlite_1.7.3         crosstalk_1.2.0       
-## [43] vroom_1.5.7            RCurl_1.98-1.5         GenomeInfoDbData_1.2.7
-## [46] Matrix_1.4-0           Rcpp_1.0.8             munsell_0.5.0         
-## [49] fansi_1.0.2            lifecycle_1.0.1        stringi_1.7.6         
-## [52] yaml_2.2.2             zlibbioc_1.40.0        grid_4.1.3            
-## [55] msmbstyle_0.0.19       parallel_4.1.3         crayon_1.4.2          
-## [58] lattice_0.20-45        haven_2.4.3            hms_1.1.1             
-## [61] knitr_1.37             pillar_1.7.0           reprex_2.0.1          
-## [64] glue_1.6.1             evaluate_0.14          BiocManager_1.30.16   
-## [67] modelr_0.1.8           png_0.1-7              vctrs_0.3.8           
-## [70] tzdb_0.2.0             cellranger_1.1.0       gtable_0.3.0          
-## [73] assertthat_0.2.1       xfun_0.29              broom_0.7.12          
-## [76] ellipsis_0.3.2</code></pre>
+## [40] generics_0.1.2         jsonlite_1.8.0         crosstalk_1.2.0       
+## [43] vroom_1.5.7            RCurl_1.98-1.6         GenomeInfoDbData_1.2.7
+## [46] Matrix_1.4-1           munsell_0.5.0          fansi_1.0.3           
+## [49] lifecycle_1.0.1        stringi_1.7.6          yaml_2.3.5            
+## [52] zlibbioc_1.40.0        grid_4.1.2             msmbstyle_0.0.19      
+## [55] parallel_4.1.2         crayon_1.5.1           lattice_0.20-45       
+## [58] haven_2.5.0            hms_1.1.1              knitr_1.38            
+## [61] pillar_1.7.0           reprex_2.0.1           glue_1.6.2            
+## [64] evaluate_0.15          BiocManager_1.30.16    modelr_0.1.8          
+## [67] png_0.1-7              vctrs_0.4.1            tzdb_0.3.0            
+## [70] cellranger_1.1.0       gtable_0.3.0           assertthat_0.2.1      
+## [73] xfun_0.30              broom_0.8.0            ellipsis_0.3.2</code></pre>
 <div id="sec-setup2" class="section level2" number="13.1">
 <h2>
 <span class="header-section-number">13.1</span> R package setup<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('sec-setup2')" onmouseout="reset_tooltip('sec-setup2-tooltip')"><span class="tooltiptext" id="sec-setup2-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
@@ -289,9 +287,9 @@ the following code:</p>
           "purrr", "readr", "rWSBIM1207", "rWSBIM1322", "S4Vectors", "stats",
           "stats4", "stringr", "SummarizedExperiment", "tibble", "tidyr",
           "tidyverse", "utils")</code></pre>
-<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="session-information.html#cb714-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"BiocManager"</span>))</span>
-<span id="cb714-2"><a href="session-information.html#cb714-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
-<span id="cb714-3"><a href="session-information.html#cb714-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(pkgs)</span></code></pre></div>
+<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="session-information.html#cb716-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"BiocManager"</span>))</span>
+<span id="cb716-2"><a href="session-information.html#cb716-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
+<span id="cb716-3"><a href="session-information.html#cb716-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(pkgs)</span></code></pre></div>
 
 </div>
 </div></body></html>
@@ -300,9 +298,9 @@ the following code:</p>
 <a href="sec-anx.html"><button class="btn btn-default">Previous</button></a>
 </p>
 <p class="build-date">Page built: 
-2022-04-11
+2022-04-21
  using 
-R version 4.1.3 (2022-03-10)
+R version 4.1.2 Patched (2021-12-10 r81360)
 </p>
 </div>
 </div>

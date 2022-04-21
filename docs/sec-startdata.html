@@ -8,13 +8,12 @@
 <meta property="og:title" content="Chapter 4 Starting with data | Introduction to bioinformatics" />
 <meta property="og:type" content="book" />
 
-
 <meta property="og:description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain." />
 
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2022-04-11" />
+<meta name="date" content="2022-04-21" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -27,7 +26,6 @@ MathJax.Hub.Config({
 
 <title>Chapter 4 Starting with data | Introduction to bioinformatics</title>
 
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -69,7 +67,7 @@ function reset_tooltip(id) {
 </script>
 <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.20/datatables.js"></script>
+<script src="libs/datatables-binding-0.22/datatables.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
@@ -83,6 +81,7 @@ function reset_tooltip(id) {
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -427,7 +426,7 @@ with the separation argument as <code>,</code>. The code is as follows:</p>
 <span id="cb215-3"><a href="sec-startdata.html#cb215-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>The header argument has to be set to <code>TRUE</code> to be able to read the
 headers as by default <code>read.table()</code> has the header argument set to
-FALSE. The quote argument has to be set to <code>"\""</code> to only allow " as a
+FALSE. The quote argument has to be set to <code>"\""</code> to only allow ” as a
 quoting character (see how the <code>product</code> variable for gene <code>Rtca</code> in
 <code>rnaseq.csv</code> is written).</p>
 </div>
@@ -513,7 +512,7 @@ class, length and content of each column</li>
 <li>
 <code>summary(rna)</code> - summary statistics for each column</li>
 </ul>
-<p>Note: most of these functions are “generic,” they can be used on other types of
+<p>Note: most of these functions are “generic”, they can be used on other types of
 objects besides <code>data.frame</code>.</p>
 <div class="question">
 <p class="question-begin">
@@ -757,8 +756,8 @@ in this vector is <code>"male"</code>). You can see this by using the function
 </div>
 </div>
 <p>Sometimes, the order of the factors does not matter, other times you
-might want to specify the order because it is meaningful (e.g., “low,”
-“medium,” “high”), it improves your visualization, or it is required
+might want to specify the order because it is meaningful (e.g., “low”,
+“medium”, “high”), it improves your visualization, or it is required
 by a particular type of analysis. Here, one way to reorder our levels
 in the <code>sex</code> vector would be:</p>
 <div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="sec-startdata.html#cb238-1" aria-hidden="true" tabindex="-1"></a>sex <span class="do">## current order</span></span></code></pre></div>
@@ -771,7 +770,7 @@ in the <code>sex</code> vector would be:</p>
 <p>In R’s memory, these factors are represented by integers (1, 2, 3),
 but are more informative than integers because factors are self
 describing: <code>"female"</code>, <code>"male"</code> is more descriptive than <code>1</code>,
-<code>2</code>. Which one is “male?” You wouldn’t be able to tell just from the
+<code>2</code>. Which one is “male”? You wouldn’t be able to tell just from the
 integer data. Factors, on the other hand, have this information built
 in. It is particularly helpful when there are many levels (like the
 species names in our example dataset).</p>
@@ -923,9 +922,7 @@ be of the same type: <code>numeric</code>, <code>character</code>, <code>logical
 respect, matrices are closer to a <code>vector</code> than a <code>data.frame</code>.</p>
 <p>The default constructor for a matrix is <code>matrix</code>. It takes a vector of
 values to populate the matrix and the number of row and/or
-columns<label for="tufte-sn-10" class="margin-toggle sidenote-number">10</label><input type="checkbox" id="tufte-sn-10" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">10</span> Either the number of rows or columns are enough, as the other
-one can be deduced from the length of the values. Try out what happens
-if the values and number of rows/columns don’t add up.</span>. The values are sorted along the columns, as illustrated
+columns<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>. The values are sorted along the columns, as illustrated
 below but you can also sort them along the row with the argument <code>byrow = TRUE</code>.</p>
 <div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="sec-startdata.html#cb253-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
 <span id="cb253-2"><a href="sec-startdata.html#cb253-2" aria-hidden="true" tabindex="-1"></a>m</span></code></pre></div>
@@ -1029,7 +1026,7 @@ Gnumeric, … have different (and often incompatible) ways of encoding
 dates (even for the same program between versions and operating
 systems). Additionally, Excel can <a href="https://nsaunders.wordpress.com/2012/10/22/gene-name-errors-and-excel-lessons-not-learned/">turn things that aren’t dates into
 dates</a>
-(<span class="citation"><label for="tufte-mn-19" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-19" class="margin-toggle">Zeeberg et al. (2004)<span class="marginnote">Zeeberg, Barry R., Joseph Riss, David W. Kane, Kimberly J. Bussey, Edward Uchio, W. Marston Linehan, J. Carl Barrett, and John N. Weinstein. 2004. <span>“Mistaken Identifiers: Gene Name Errors Can Be Introduced Inadvertently When Using Excel in Bioinformatics.”</span> <em>BMC Bioinformatics</em> 5 (1): 80. <a href="https://doi.org/10.1186/1471-2105-5-80">https://doi.org/10.1186/1471-2105-5-80</a>.</span></span>), for example names or identifiers like MAR1, DEC1,
+(<span class="citation">Zeeberg et al. (<label for="tufte-mn-19" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-19" class="margin-toggle">2004<span class="marginnote">Zeeberg, Barry R., Joseph Riss, David W. Kane, Kimberly J. Bussey, Edward Uchio, W. Marston Linehan, J. Carl Barrett, and John N. Weinstein. 2004. <span>“Mistaken Identifiers: Gene Name Errors Can Be Introduced Inadvertently When Using Excel in Bioinformatics.”</span> <em>BMC Bioinformatics</em> 5 (1): 80. <a href="https://doi.org/10.1186/1471-2105-5-80">https://doi.org/10.1186/1471-2105-5-80</a>.</span>)</span>), for example names or identifiers like MAR1, DEC1,
 OCT4. So if you’re avoiding the date format overall, it’s easier to
 identify these issues.</p>
 <p>The <a href="https://datacarpentry.org/spreadsheet-ecology-lesson/03-dates-as-data/index.html">Dates as
@@ -1050,7 +1047,7 @@ explicitly with <code>library(lubridate)</code></p>
 it to a <code>Date</code> vector. <code>Date</code> is a class of data recognized by R as
 being a date and can be manipulated as such. The argument that the
 function requires is flexible, but, as a best practice, is a character
-vector formatted as “YYYY-MM-DD.”</p>
+vector formatted as “YYYY-MM-DD”.</p>
 <p>Let’s create a date object and inspect the structure:</p>
 <div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="sec-startdata.html#cb262-1" aria-hidden="true" tabindex="-1"></a>my_date <span class="ot">&lt;-</span> <span class="fu">ymd</span>(<span class="st">"2015-01-01"</span>)</span>
 <span id="cb262-2"><a href="sec-startdata.html#cb262-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(my_date)</span></code></pre></div>
@@ -1152,9 +1149,9 @@ a matrix, a dataframe and another list:</p>
 <pre><code>## List of 5
 ##  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##  $ : chr [1:26] "a" "b" "c" "d" ...
-##  $ : chr [1:564, 1:16] "abind" "affy" "affyio" "AHtestAzure" ...
+##  $ : chr [1:801, 1:16] "abind" "AER" "affy" "affydata" ...
 ##   ..- attr(*, "dimnames")=List of 2
-##   .. ..$ : chr [1:564] "abind" "affy" "affyio" "AHtestAzure" ...
+##   .. ..$ : chr [1:801] "abind" "AER" "affy" "affydata" ...
 ##   .. ..$ : chr [1:16] "Package" "LibPath" "Version" "Priority" ...
 ##  $ :'data.frame':    50 obs. of  2 variables:
 ##   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...
@@ -1670,6 +1667,15 @@ to use the <code>quantile</code> function.</p></li>
  -->
 
 </div>
+
+<div class="footnotes">
+<hr>
+<ol start="10">
+<li id="fn10"><p>Either the number of rows or columns are enough, as the other
+one can be deduced from the length of the values. Try out what happens
+if the values and number of rows/columns don’t add up.<a href="sec-startdata.html#fnref10" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
 </body></html>
 
 <p style="text-align: center;">
@@ -1677,9 +1683,9 @@ to use the <code>quantile</code> function.</p></li>
 <a href="sec-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2022-04-11
+2022-04-21
  using 
-R version 4.1.3 (2022-03-10)
+R version 4.1.2 Patched (2021-12-10 r81360)
 </p>
 </div>
 </div>

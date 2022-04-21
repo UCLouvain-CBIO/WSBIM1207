@@ -369,6 +369,7 @@ If we want to bind to dataframes along their columns, we must make
 sure that their number of rows match; rownames not hinder here:
 
 ```{r}
+d3
 cbind(d2, d3)
 ```
 

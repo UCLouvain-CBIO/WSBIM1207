@@ -8,13 +8,12 @@
 <meta property="og:title" content="Chapter 6 Data visualization | Introduction to bioinformatics" />
 <meta property="og:type" content="book" />
 
-
 <meta property="og:description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain." />
 
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2022-04-11" />
+<meta name="date" content="2022-04-21" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -27,7 +26,6 @@ MathJax.Hub.Config({
 
 <title>Chapter 6 Data visualization | Introduction to bioinformatics</title>
 
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -69,7 +67,7 @@ function reset_tooltip(id) {
 </script>
 <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.20/datatables.js"></script>
+<script src="libs/datatables-binding-0.22/datatables.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
@@ -83,6 +81,7 @@ function reset_tooltip(id) {
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -219,7 +218,8 @@ div.csl-indent {
 <div class="row">
 <div class="col-sm-12">
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html><body><div id="sec-vis" class="section level1" number="6">
+<html><body>
+<div id="sec-vis" class="section level1" number="6">
 <h1>
 <span class="header-section-number">Chapter 6</span> Data visualization</h1>
 <p><strong>Learning Objectives</strong></p>
@@ -254,11 +254,11 @@ complex plots from data in a data frame. It provides a more
 programmatic interface for specifying what variables to plot, how they
 are displayed, and general visual properties. The theoretical
 foundation that supports the <code>ggplot2</code> is the <em>Grammar of Graphics</em>
-(<span class="citation"><label for="tufte-mn-20" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-20" class="margin-toggle">Wilkinson (2005)<span class="marginnote">Wilkinson, Leland. 2005. <em>The Grammar of Graphics (statistics and Computing)</em>. Berlin, Heidelberg: Springer-Verlag.</span></span>). Using this approach, we only need minimal changes
+(<span class="citation">Wilkinson (<label for="tufte-mn-20" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-20" class="margin-toggle">2005<span class="marginnote">Wilkinson, Leland. 2005. <em>The Grammar of Graphics (Statistics and Computing)</em>. Berlin, Heidelberg: Springer-Verlag.</span>)</span>). Using this approach, we only need minimal changes
 if the underlying data change or if we decide to change from a bar
 plot to a scatterplot. This helps in creating publication quality
 plots with minimal amounts of adjustments and tweaking.</p>
-<p>There is a book about <code>ggplot2</code> (<span class="citation"><label for="tufte-mn-21" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-21" class="margin-toggle">Wickham (2016)<span class="marginnote">Wickham, Hadley. 2016. <em><span class="nocase">ggplot2</span>: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="http://ggplot2.org">http://ggplot2.org</a>.</span></span>) that provides a good
+<p>There is a book about <code>ggplot2</code> (<span class="citation">Wickham (<label for="tufte-mn-21" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-21" class="margin-toggle">2016<span class="marginnote">Wickham, Hadley. 2016. <em><span class="nocase">ggplot2</span>: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="http://ggplot2.org">http://ggplot2.org</a>.</span>)</span>) that provides a good
 overview, but it is outdated. The 3rd edition is in preparation and
 will be <a href="https://ggplot2-book.org/">freely available online</a>. The
 <code>ggplot2</code> webpage
@@ -273,8 +273,7 @@ customization of plots.</p>
 <blockquote>
 <p>The idea behind the Grammar of Graphics it is that you can build every
 graph from the same 3 components: (1) a data set, (2) a coordinate system,
-and (3) geoms — i.e. visual marks that represent data points.<label for="tufte-sn-11" class="margin-toggle sidenote-number">11</label><input type="checkbox" id="tufte-sn-11" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">11</span> Source: <a href="https://github.com/rstudio/cheatsheets/raw/main/data-visualization-2.1.pdf">Data Visualization Cheat
-Sheet</a>.</span></p>
+and (3) geoms — i.e. visual marks that represent data points <a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>.</p>
 </blockquote>
 <p>To build a ggplot, we will use the following basic template that can
 be used for different types of plots:</p>
@@ -921,7 +920,7 @@ themes.</p>
 sheet</a>
 and think of ways you could improve the plot.</p>
 <p>Now, we can change names of axes to something more informative than ‘time’
-and ‘mean_exp,’ and add a title to the figure:</p>
+and ‘mean_exp’, and add a title to the figure:</p>
 <div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="sec-vis.html#cb489-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_time_sex,</span>
 <span id="cb489-2"><a href="sec-vis.html#cb489-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> time,</span>
 <span id="cb489-3"><a href="sec-vis.html#cb489-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> mean_exp,</span>
@@ -1252,7 +1251,7 @@ cumbersome.</p>
 dataframes as input, returns graphical objects and supports
 faceting. <code>lattice</code> however isn’t based on the grammar of graphics
 and has a more convoluted interface.</p>
-<p>A good reference for the <code>lattice</code> package is <span class="citation"><label for="tufte-mn-22" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-22" class="margin-toggle">Deepayan (2008)<span class="marginnote">Deepayan, Sarkar. 2008. <em>Lattice: Multivariate Data Visualization with r</em>. New York: Springer. <a href="http://lmdvr.r-forge.r-project.org">http://lmdvr.r-forge.r-project.org</a>.</span></span>.</p>
+<p>A good reference for the <code>lattice</code> package is <span class="citation">Deepayan (<label for="tufte-mn-22" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-22" class="margin-toggle">2008<span class="marginnote">Deepayan, Sarkar. 2008. <em>Lattice: Multivariate Data Visualization with r</em>. New York: Springer. <a href="http://lmdvr.r-forge.r-project.org">http://lmdvr.r-forge.r-project.org</a>.</span>)</span>.</p>
 </div>
 </div>
 <div id="additional-exercises-4" class="section level2" number="6.11">
@@ -1312,7 +1311,7 @@ samples.</p></li>
 representation is more appropriate? Why?</p></li>
 <li><p>Colour the samples according to the tissue type.</p></li>
 <li><p>Colour the samples according to their expression level in A2ML1.</p></li>
-<li><p>Highlight the points corresponding to patient “TCGA-73-4676.”</p></li>
+<li><p>Highlight the points corresponding to patient “TCGA-73-4676”.</p></li>
 <li><p>Add a transparent boxplot to the graph.</p></li>
 <li><p>Change the y scale to log10 scale.</p></li>
 <li><p>Visualise the expression of A1BG against that of A2LD1 setting the x
@@ -1341,16 +1340,24 @@ students group.</p>
 </div>
 
 </div>
-</div></body></html>
+</div>
+<div class="footnotes">
+<hr>
+<ol start="11">
+<li id="fn11"><p>Source: <a href="https://github.com/rstudio/cheatsheets/raw/main/data-visualization-2.1.pdf">Data Visualization Cheat
+Sheet</a>.<a href="sec-vis.html#fnref11" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+</body></html>
 
 <p style="text-align: center;">
 <a href="sec-dplyr.html"><button class="btn btn-default">Previous</button></a>
 <a href="sec-join.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2022-04-11
+2022-04-21
  using 
-R version 4.1.3 (2022-03-10)
+R version 4.1.2 Patched (2021-12-10 r81360)
 </p>
 </div>
 </div>
