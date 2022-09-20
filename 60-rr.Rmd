@@ -4,7 +4,7 @@
 
 - Understand the concept of reproducible research and reproducible
   documents.
-- Undertand the process by which a source document in compiled into a
+- Understand the process by which a source document is compiled into a
   final report.
 - Generate a reproducible report in html or pdf from an Rmarkdown
   document using RStudio.
@@ -61,7 +61,7 @@ computational projects.
 
 There are many reasons to work reproducibly, and @Markowetz:2015
 nicely summarises 5 good reasons. Importantly, he stressed out that
-the first beneficiary of reproducible work are the student/research
+the first beneficiary of reproducible work are the student/researcher
 that apply these principles:
 
 1. Reproducibility helps to avoid disaster.
