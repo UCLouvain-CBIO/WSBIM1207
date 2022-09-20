@@ -5,7 +5,7 @@
 At the end of this section, students should understand
 
 * the need and concept of table joins,
-* different between different types of joins,
+* differences between the different types of joins,
 * the importance of keys in joins,
 * circumstances leading to the appearance of missing values,
 * the implications of using non-unique keys.
@@ -347,7 +347,7 @@ d1
 d2
 ```
 
-While de number of columns match, the names don't, which results in an
+While the number of columns match, the names don't, which results in an
 error[^try] when we use `rbind`:
 
 ```{r}
