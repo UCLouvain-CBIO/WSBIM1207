@@ -1,6 +1,6 @@
 # Conclusions {#sec-ccl}
 
-In this course, we have seen the importance of structure data. Good
+In this course, we have seen the importance of structured data. Good
 data structure starts with simple, tidy tabular data, whether it is
 manually encoded in spreadsheet, or handled in R as dataframes or
 tibbles. More complex data, that doesn't fit in tabular data, can be
@@ -10,7 +10,7 @@ having to look it at. Reasoning on and generalisation of data in turn
 allows to manipulate and visualise it, i.e. to explore, analyse and
 understand it. The cherry on top of the data analysis cake is to be
 able to reproduce an analysis, either oneself or share it in a way
-that other can.
+that others can.
 
 As mentioned in the preamble, the goal of this course is obviously not
 for students that take it to qualify as bioinformaticians at the
@@ -19,7 +19,7 @@ data and their analysis, and to become fluent in exploring, discussing
 and communicating around data. A shared appreciation of data and their
 complexity will hopefully reduce the distinction between
 bioinformaticians and experimental scientists. Indeed, at the end of
-the end, it's useful to remember that
+the day, it's useful to remember that
 
 > We are all biologists, in that we study biology. Some use wet lab
 > experiments, others dry lab techniques.
