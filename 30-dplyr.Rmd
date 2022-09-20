@@ -83,7 +83,7 @@ The [Data Transformation Cheat
 Sheet](https://github.com/rstudio/cheatsheets/raw/main/data-transformation.pdf)
 provides an overview of the `dplyr` grammar, offering more details and
 functions that we will see in this chapter. The [Tidy Data
-Tutor](https://tidydatatutor.com/) is a wonderful tool to do visually
+Tutor](https://tidydatatutor.com/) is a wonderful tool to visually
 describe what the tidy data operations do.
 
 
@@ -678,7 +678,7 @@ We can now easily compare the gene expression levels in different
 samples.
 
 Note that the `pivot_wider()` function comes with an optional
-`values_fill` argument that can be usefull when dealing with missing
+`values_fill` argument that can be useful when dealing with missing
 values.  Let's imagine that for some reason, we had some missing
 expression values for some genes in certain samples. In the following
 example, the gene Cyp2d22 has only one expression value, in GSM2545338
