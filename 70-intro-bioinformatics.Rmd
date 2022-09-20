@@ -131,7 +131,7 @@ expd <- data.frame(sample = paste0("S", 1:12),
 knitr::kable(expd)
 ```
 
-We have seen a much more complex experimental desing, involving many
+We have seen a much more complex experimental design, involving many
 more samples with the `clinical1` data.
 
 ```{r, echo = FALSE, message = FALSE}
@@ -258,7 +258,7 @@ class(GSE96870_intro)
 GSE96870_intro
 ```
 
-This data contains the same RNA-sequencing data as we have seem in
+This data contains the same RNA-sequencing data as we have seen in
 chapter \@ref(sec-startdata). It is however formatted as a special
 type of data, a `SummarizedExperiment`, that is specialised for
 quantitative omics data (as opposed to the more general `data.frame`
@@ -421,7 +421,7 @@ all necessary information about a package, including a short summary,
 its current version, the authors, how the cite the package,
 installation instructions, and links to all package vignettes.
 
-Any Bioconductor package page can be contructed by appending the
+Any Bioconductor package page can be constructed by appending the
 package's name to `https://bioconductor.org/packages/` to produce an
 URL like
 
@@ -464,36 +464,36 @@ are inserted in the vignette before the final file (in pdf or html) is
 produced. Hence, all the code and outputs are guaranteed to be correct
 and reproduced.
 
-Given a vignette, it is this possible to re-generate all the
+Given a vignette, it is thus possible to re-generate all the
 results. To make reproducing a long vignette as easy as possible
-without copy and pasting all code chunks one by one, it is possible to
-extract the code into an R script runnung the `Stangle` (from the
+without copying and pasting all code chunks one by one, it is possible to
+extract the code into an R script running the `Stangle` (from the
 `utils` package -
 see [here](https://bioconductor.org/help/package-vignettes/) for
 details) or `knitr::purl` functions on the vignette source document.
 
 ### Getting help
 
-The best way to get help with regard the a Bioconductor package is to
+The best way to get help with regards to a Bioconductor package is to
 post the question on the *Bioconductor support forum* at
 https://support.bioconductor.org/. Package developers generally follow
 the support site for questions related to their packages. See this
-page for [some details](https://bioconductor.org/help/support/).
+page for [more details](https://bioconductor.org/help/support/).
 
-To maximise the chances to obtain a answer promptly, it is important
-to provide details for other to understand the question and, if
-relevant, reproduce the observed errors. The Bioconductor project has
+To maximise the chances of obtaining an answer promptly, it is important
+to provide details for others to understand the question and, if
+possible, reproduce the observed errors. The Bioconductor project has
 a dedicated
 [posting guide](https://bioconductor.org/help/support/posting-guide/). Here's
 another useful guide on
 [how to write a reproducible question](http://adv-r.had.co.nz/Reproducibility.html).
 
 
-Packages come with a lot of documentation build in, that users are
+Packages come with a lot of documentation built in, that users are
 advised to read to familiarise themselves with the package and how to
-use it. In addition to the package vignettes are describe above, every
+use it. In addition to the package vignettes as describe above, every
 function of class in a package is documented in great detail in their
-respective *man* page, that can be accessed with `?function`.
+respective *main* page, that can be accessed with `?function`.
 
 There is also a
 dedicated
@@ -510,12 +510,12 @@ release version is 3.6 and the development is 3.7.
 
 The individual packages have a similar scheme. Every package is
 available for the release and the development versions of
-Bioconductor. These two versions of the package have also different
-version numbers, where the last digit is even for the former and off
+Bioconductor. These two versions of the package also have different
+version numbers, where the last digit is even for the former and odd
 for the later. Currently, the `MSnbase` has versions `2.8.2` and
 `2.9.3`, respectively.
 
-Finally, every Bioconductor version is tight to an R version. To
+Finally, every Bioconductor version is tied to an R version. To
 access the current Bioconductor release, one needs to use the latest R
 version. Hence, it is important to have an up-to-date R installation
 to keep up with the latest developments in Bioconductor. More details
@@ -527,7 +527,7 @@ to keep up with the latest developments in Bioconductor. More details
 `r msmbstyle::question_begin()`
 
 1. Install a Bioconductor package of your choice, discover the
-   vignette(s) it offers, open one, and extract the R code of it.
+   vignette(s) it offers, open one, and extract the R code out of it.
 
 2. Find a package that allows reading raw mass spectrometry data and
    identify the specific function. Either use the biocViews tree, look
@@ -602,7 +602,7 @@ BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
 3. Convert the counts data into a long table format and annotate
    each sample using the experimental design.
 
-4. Identity the three transcript identifiers that have the highest
+4. Identify the three transcript identifiers that have the highest
    expression count over all samples.
 
 5. Visualise the distribution of the expression for the three
