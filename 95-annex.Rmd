@@ -110,7 +110,7 @@ knitr::include_graphics("./figs/renku_screen3.png")
    interactive environment (with a green tick box), you can
    immediately skip to step 8. Otherwise, the building could take up
    to 50 minutes (depending on caching). You can safely shut your
-   computer down at this stage, as the environment is build in the
+   computer down at this stage, as the environment is built in the
    cloud.
 
 
@@ -123,7 +123,7 @@ knitr::include_graphics("./figs/renku_screen5.png")
 knitr::include_graphics("./figs/renku_screen6.png")
 ```
 
-6. Once build, you can start the cloud environment. Make sure you keep
+6. Once built, you can start the cloud environment. Make sure you keep
    the default settings, i.e default environment `/rstudio` and `0.25`
    CPUs and `1G` of RAM. For this course, these low resources are
    enough[^res].
@@ -171,7 +171,7 @@ the same.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ulG4aodgFoc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-It is easey to upload files directly to the remote RStudio instance by
+It is easy to upload files directly to the remote RStudio instance by
 using the `Upload` button in RStudio's file navigator menu. To
 download files or directories, select the files/folders in the file
 menu and click on `More` and then `Export`. The video below briefly
@@ -191,7 +191,7 @@ existing fork:
 4. Click on **Advanced** at the bottom of the page.
 5. Navigate to the very bottom and click on the red button **Remove
    project**.
-6. You will be to type the name of the project (wsbim1207) en then
+6. You will be to type the name of the project (wsbim1207) and then
    confirm that you want to permanently delete it.
 
 You can now restart the procedure described above.
