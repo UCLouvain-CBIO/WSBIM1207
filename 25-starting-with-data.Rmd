@@ -836,7 +836,7 @@ There is also the `saveRDS` and `readRDS` functions that save R
 objects to binary files (using the `rds` extension here) and read
 these back into R. From a user's perspective, main different is that,
 `load` loads an object in the global environment while `readRDS` reads
-the data from disk and returns it. It is this necessary to store the
+the data from disk and returns it. It is thus necessary to store the
 output of `readRDS` in a variable:
 
 ```{r}
