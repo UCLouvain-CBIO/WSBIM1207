@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2022-04-21" />
+<meta name="date" content="2022-09-22" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -67,7 +67,7 @@ function reset_tooltip(id) {
 </script>
 <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.22/datatables.js"></script>
+<script src="libs/datatables-binding-0.25/datatables.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
@@ -116,7 +116,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -129,7 +129,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -183,12 +183,12 @@ div.csl-indent {
 <li class="dropdown" style="float:right">
 <a href="javascript:void(0)" class="dropbtn">&#x25BE; Chapters</a>
 <div class="dropdown-content">
-<a href="index.html">Preamble</a>
-<a href="sec-dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
-<a href="sec-rrstudio.html"><span class="toc-section-number">2</span> R and RStudio</a>
-<a href="sec-startr.html"><span class="toc-section-number">3</span> Introduction to R</a>
-<a href="sec-startdata.html"><span class="toc-section-number">4</span> Starting with data</a>
-<a id="active-page" href="sec-dplyr.html"><span class="toc-section-number">5</span> Manipulating and analyzing data with dplyr</a><ul class="toc-sections">
+<a href="index.html" id="toc-preamble">Preamble</a>
+<a href="sec-dataorg.html" id="toc-sec-dataorg"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
+<a href="sec-rrstudio.html" id="toc-sec-rrstudio"><span class="toc-section-number">2</span> R and RStudio</a>
+<a href="sec-startr.html" id="toc-sec-startr"><span class="toc-section-number">3</span> Introduction to R</a>
+<a href="sec-startdata.html" id="toc-sec-startdata"><span class="toc-section-number">4</span> Starting with data</a>
+<a id="active-page" href="sec-dplyr.html" id="toc-sec-dplyr"><span class="toc-section-number">5</span> Manipulating and analyzing data with dplyr</a><ul class="toc-sections">
 <li class="toc"><a href="#data-manipulation-using-dplyr-and-tidyr"> Data Manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong></a></li>
 <li class="toc"><a href="#what-are-dplyr-and-tidyr"> What are <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong>?</a></li>
 <li class="toc"><a href="#selecting-columns-and-filtering-rows"> Selecting columns and filtering rows</a></li>
@@ -199,14 +199,14 @@ div.csl-indent {
 <li class="toc"><a href="#exporting-data-1"> Exporting data</a></li>
 <li class="toc"><a href="#additional-exercises-3"> Additional exercises</a></li>
 </ul>
-<a href="sec-vis.html"><span class="toc-section-number">6</span> Data visualization</a>
-<a href="sec-join.html"><span class="toc-section-number">7</span> Joining tables</a>
-<a href="sec-rr.html"><span class="toc-section-number">8</span> Reproducible research</a>
-<a href="sec-bioinfo.html"><span class="toc-section-number">9</span> Bioinformatics</a>
-<a href="sec-prog.html"><span class="toc-section-number">10</span> Additional programming concepts</a>
-<a href="sec-ccl.html"><span class="toc-section-number">11</span> Conclusions</a>
-<a href="sec-anx.html"><span class="toc-section-number">12</span> Annex</a>
-<a href="session-information.html"><span class="toc-section-number">13</span> Session information</a>
+<a href="sec-vis.html" id="toc-sec-vis"><span class="toc-section-number">6</span> Data visualization</a>
+<a href="sec-join.html" id="toc-sec-join"><span class="toc-section-number">7</span> Joining tables</a>
+<a href="sec-rr.html" id="toc-sec-rr"><span class="toc-section-number">8</span> Reproducible research</a>
+<a href="sec-bioinfo.html" id="toc-sec-bioinfo"><span class="toc-section-number">9</span> Bioinformatics</a>
+<a href="sec-prog.html" id="toc-sec-prog"><span class="toc-section-number">10</span> Additional programming concepts</a>
+<a href="sec-ccl.html" id="toc-sec-ccl"><span class="toc-section-number">11</span> Conclusions</a>
+<a href="sec-anx.html" id="toc-sec-anx"><span class="toc-section-number">12</span> Annex</a>
+<a href="session-information.html" id="toc-session-information"><span class="toc-section-number">13</span> Session information</a>
 </div>
 </li>
 </ul>
@@ -321,7 +321,7 @@ and this <a href="https://github.com/rstudio/cheatsheets/raw/main/data-import.pd
 tidyverse package <strong><code>readr</code></strong>, instead of <code>read.csv()</code>.</p>
 <div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="sec-dplyr.html#cb301-1" aria-hidden="true" tabindex="-1"></a>rna <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
 <pre><code>## Rows: 32428 Columns: 19
-## ── Column specification ────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (14): gene, sample, organism, sex, infection, strain, tissue, product, e...
 ## dbl  (5): expression, age, time, mouse, ENTREZID
@@ -385,61 +385,63 @@ arguments are the columns to keep.</p>
 the variable to exclude it.</p>
 <div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="sec-dplyr.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(rna, <span class="sc">-</span>organism, <span class="sc">-</span>strain)</span></code></pre></div>
 <pre><code>## # A tibble: 32,428 × 17
-##    gene    sample   expression   age sex   infection  time tissue mouse ENTREZID
-##    &lt;chr&gt;   &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;
-##  1 Asl     GSM2545…       1170     8 Fema… Influenz…     8 Cereb…    14   109900
-##  2 Apod    GSM2545…      36194     8 Fema… Influenz…     8 Cereb…    14    11815
-##  3 Cyp2d22 GSM2545…       4060     8 Fema… Influenz…     8 Cereb…    14    56448
-##  4 Klk6    GSM2545…        287     8 Fema… Influenz…     8 Cereb…    14    19144
-##  5 Fcrls   GSM2545…         85     8 Fema… Influenz…     8 Cereb…    14    80891
-##  6 Slc2a4  GSM2545…        782     8 Fema… Influenz…     8 Cereb…    14    20528
-##  7 Exd2    GSM2545…       1619     8 Fema… Influenz…     8 Cereb…    14    97827
-##  8 Gjc2    GSM2545…        288     8 Fema… Influenz…     8 Cereb…    14   118454
-##  9 Plp1    GSM2545…      43217     8 Fema… Influenz…     8 Cereb…    14    18823
-## 10 Gnb4    GSM2545…       1071     8 Fema… Influenz…     8 Cereb…    14    14696
-## # … with 32,418 more rows, and 7 more variables: product &lt;chr&gt;,
-## #   ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;, chromosome_name &lt;chr&gt;,
-## #   gene_biotype &lt;chr&gt;, phenotype_description &lt;chr&gt;,
-## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;</code></pre>
+##    gene    sample expre…¹   age sex   infec…²  time tissue mouse ENTRE…³ product
+##    &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;  
+##  1 Asl     GSM25…    1170     8 Fema… Influe…     8 Cereb…    14  109900 argini…
+##  2 Apod    GSM25…   36194     8 Fema… Influe…     8 Cereb…    14   11815 apolip…
+##  3 Cyp2d22 GSM25…    4060     8 Fema… Influe…     8 Cereb…    14   56448 cytoch…
+##  4 Klk6    GSM25…     287     8 Fema… Influe…     8 Cereb…    14   19144 kallik…
+##  5 Fcrls   GSM25…      85     8 Fema… Influe…     8 Cereb…    14   80891 Fc rec…
+##  6 Slc2a4  GSM25…     782     8 Fema… Influe…     8 Cereb…    14   20528 solute…
+##  7 Exd2    GSM25…    1619     8 Fema… Influe…     8 Cereb…    14   97827 exonuc…
+##  8 Gjc2    GSM25…     288     8 Fema… Influe…     8 Cereb…    14  118454 gap ju…
+##  9 Plp1    GSM25…   43217     8 Fema… Influe…     8 Cereb…    14   18823 proteo…
+## 10 Gnb4    GSM25…    1071     8 Fema… Influe…     8 Cereb…    14   14696 guanin…
+## # … with 32,418 more rows, 6 more variables: ensembl_gene_id &lt;chr&gt;,
+## #   external_synonym &lt;chr&gt;, chromosome_name &lt;chr&gt;, gene_biotype &lt;chr&gt;,
+## #   phenotype_description &lt;chr&gt;, hsapiens_homolog_associated_gene_name &lt;chr&gt;,
+## #   and abbreviated variable names ¹​expression, ²​infection, ³​ENTREZID</code></pre>
 <p>This will select all the variables in <code>rna</code> except <code>organism</code>
 and <code>strain</code>.</p>
 <p>To choose rows based on a specific criteria, use <code>filter()</code>:</p>
 <div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="sec-dplyr.html#cb308-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(rna, sex <span class="sc">==</span> <span class="st">"Male"</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 14,740 × 19
-##    gene    sample  expression organism   age sex   infection strain  time tissue
-##    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; 
-##  1 Asl     GSM254…        626 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
-##  2 Apod    GSM254…      13021 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
-##  3 Cyp2d22 GSM254…       2171 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
-##  4 Klk6    GSM254…        448 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
-##  5 Fcrls   GSM254…        180 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
-##  6 Slc2a4  GSM254…        313 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
-##  7 Exd2    GSM254…       2366 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
-##  8 Gjc2    GSM254…        310 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
-##  9 Plp1    GSM254…      53126 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
-## 10 Gnb4    GSM254…       1355 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
-## # … with 14,730 more rows, and 9 more variables: mouse &lt;dbl&gt;, ENTREZID &lt;dbl&gt;,
-## #   product &lt;chr&gt;, ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;,
-## #   chromosome_name &lt;chr&gt;, gene_biotype &lt;chr&gt;, phenotype_description &lt;chr&gt;,
-## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;</code></pre>
+##    gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
+##    &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
+##  1 Asl     GSM254…     626 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+##  2 Apod    GSM254…   13021 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+##  3 Cyp2d22 GSM254…    2171 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+##  4 Klk6    GSM254…     448 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+##  5 Fcrls   GSM254…     180 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+##  6 Slc2a4  GSM254…     313 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+##  7 Exd2    GSM254…    2366 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+##  8 Gjc2    GSM254…     310 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+##  9 Plp1    GSM254…   53126 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+## 10 Gnb4    GSM254…    1355 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+## # … with 14,730 more rows, 8 more variables: ENTREZID &lt;dbl&gt;, product &lt;chr&gt;,
+## #   ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;, chromosome_name &lt;chr&gt;,
+## #   gene_biotype &lt;chr&gt;, phenotype_description &lt;chr&gt;,
+## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;, and abbreviated variable names
+## #   ¹​expression, ²​organism, ³​infection</code></pre>
 <div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="sec-dplyr.html#cb310-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(rna, sex <span class="sc">==</span> <span class="st">"Male"</span> <span class="sc">&amp;</span> infection <span class="sc">==</span> <span class="st">"NonInfected"</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 4,422 × 19
-##    gene    sample  expression organism   age sex   infection strain  time tissue
-##    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; 
-##  1 Asl     GSM254…        535 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
-##  2 Apod    GSM254…      13668 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
-##  3 Cyp2d22 GSM254…       2008 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
-##  4 Klk6    GSM254…       1101 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
-##  5 Fcrls   GSM254…        375 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
-##  6 Slc2a4  GSM254…        249 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
-##  7 Exd2    GSM254…       3126 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
-##  8 Gjc2    GSM254…        791 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
-##  9 Plp1    GSM254…      98658 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
-## 10 Gnb4    GSM254…       2437 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
-## # … with 4,412 more rows, and 9 more variables: mouse &lt;dbl&gt;, ENTREZID &lt;dbl&gt;,
-## #   product &lt;chr&gt;, ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;,
-## #   chromosome_name &lt;chr&gt;, gene_biotype &lt;chr&gt;, phenotype_description &lt;chr&gt;,
-## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;</code></pre>
+##    gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
+##    &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
+##  1 Asl     GSM254…     535 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+##  2 Apod    GSM254…   13668 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+##  3 Cyp2d22 GSM254…    2008 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+##  4 Klk6    GSM254…    1101 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+##  5 Fcrls   GSM254…     375 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+##  6 Slc2a4  GSM254…     249 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+##  7 Exd2    GSM254…    3126 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+##  8 Gjc2    GSM254…     791 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+##  9 Plp1    GSM254…   98658 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+## 10 Gnb4    GSM254…    2437 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+## # … with 4,412 more rows, 8 more variables: ENTREZID &lt;dbl&gt;, product &lt;chr&gt;,
+## #   ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;, chromosome_name &lt;chr&gt;,
+## #   gene_biotype &lt;chr&gt;, phenotype_description &lt;chr&gt;,
+## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;, and abbreviated variable names
+## #   ¹​expression, ²​organism, ³​infection</code></pre>
 </div>
 <div id="pipes" class="section level2" number="5.4">
 <h2>
@@ -756,19 +758,19 @@ this data frame!</p>
 <span id="cb336-4"><a href="sec-dplyr.html#cb336-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(gene, chromosome_name, phenotype_description, sample, log_expression) <span class="sc">%&gt;%</span></span>
 <span id="cb336-5"><a href="sec-dplyr.html#cb336-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(phenotype_description))</span></code></pre></div>
 <pre><code>## # A tibble: 21,054 × 5
-##    gene    chromosome_name phenotype_description           sample log_expression
-##    &lt;chr&gt;   &lt;chr&gt;           &lt;chr&gt;                           &lt;chr&gt;           &lt;dbl&gt;
-##  1 Asl     5               abnormal circulating amino aci… GSM25…           7.06
-##  2 Apod    16              abnormal lipid homeostasis      GSM25…          10.5 
-##  3 Cyp2d22 15              abnormal skin morphology        GSM25…           8.31
-##  4 Klk6    7               abnormal cytokine level         GSM25…           5.66
-##  5 Fcrls   3               decreased CD8-positive alpha-b… GSM25…           4.44
-##  6 Slc2a4  11              abnormal circulating glucose l… GSM25…           6.66
-##  7 Gjc2    11              Purkinje cell degeneration      GSM25…           5.66
-##  8 Gnb4    3               decreased anxiety-related resp… GSM25…           6.98
-##  9 Tnc     4               abnormal CNS synaptic transmis… GSM25…           5.39
-## 10 Trf     9               abnormal circulating phosphate… GSM25…           9.18
-## # … with 21,044 more rows</code></pre>
+##    gene    chromosome_name phenotype_description                  sample log_e…¹
+##    &lt;chr&gt;   &lt;chr&gt;           &lt;chr&gt;                                  &lt;chr&gt;    &lt;dbl&gt;
+##  1 Asl     5               abnormal circulating amino acid level  GSM25…    7.06
+##  2 Apod    16              abnormal lipid homeostasis             GSM25…   10.5 
+##  3 Cyp2d22 15              abnormal skin morphology               GSM25…    8.31
+##  4 Klk6    7               abnormal cytokine level                GSM25…    5.66
+##  5 Fcrls   3               decreased CD8-positive alpha-beta T c… GSM25…    4.44
+##  6 Slc2a4  11              abnormal circulating glucose level     GSM25…    6.66
+##  7 Gjc2    11              Purkinje cell degeneration             GSM25…    5.66
+##  8 Gnb4    3               decreased anxiety-related response     GSM25…    6.98
+##  9 Tnc     4               abnormal CNS synaptic transmission     GSM25…    5.39
+## 10 Trf     9               abnormal circulating phosphate level   GSM25…    9.18
+## # … with 21,044 more rows, and abbreviated variable name ¹​log_expression</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -787,22 +789,23 @@ makes this very easy through the use of the <code>group_by()</code> function.</p
 <span id="cb338-2"><a href="sec-dplyr.html#cb338-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gene)</span></code></pre></div>
 <pre><code>## # A tibble: 32,428 × 19
 ## # Groups:   gene [1,474]
-##    gene    sample  expression organism   age sex   infection strain  time tissue
-##    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; 
-##  1 Asl     GSM254…       1170 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
-##  2 Apod    GSM254…      36194 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
-##  3 Cyp2d22 GSM254…       4060 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
-##  4 Klk6    GSM254…        287 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
-##  5 Fcrls   GSM254…         85 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
-##  6 Slc2a4  GSM254…        782 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
-##  7 Exd2    GSM254…       1619 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
-##  8 Gjc2    GSM254…        288 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
-##  9 Plp1    GSM254…      43217 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
-## 10 Gnb4    GSM254…       1071 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
-## # … with 32,418 more rows, and 9 more variables: mouse &lt;dbl&gt;, ENTREZID &lt;dbl&gt;,
-## #   product &lt;chr&gt;, ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;,
-## #   chromosome_name &lt;chr&gt;, gene_biotype &lt;chr&gt;, phenotype_description &lt;chr&gt;,
-## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;</code></pre>
+##    gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
+##    &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
+##  1 Asl     GSM254…    1170 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+##  2 Apod    GSM254…   36194 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+##  3 Cyp2d22 GSM254…    4060 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+##  4 Klk6    GSM254…     287 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+##  5 Fcrls   GSM254…      85 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+##  6 Slc2a4  GSM254…     782 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+##  7 Exd2    GSM254…    1619 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+##  8 Gjc2    GSM254…     288 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+##  9 Plp1    GSM254…   43217 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+## 10 Gnb4    GSM254…    1071 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+## # … with 32,418 more rows, 8 more variables: ENTREZID &lt;dbl&gt;, product &lt;chr&gt;,
+## #   ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;, chromosome_name &lt;chr&gt;,
+## #   gene_biotype &lt;chr&gt;, phenotype_description &lt;chr&gt;,
+## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;, and abbreviated variable names
+## #   ¹​expression, ²​organism, ³​infection</code></pre>
 <p>The <code>group_by()</code> function doesn’t perform any data processing, it
 groups the data into subsets: in the example above, our initial
 <code>tibble</code> of 32428 observations is split into
@@ -1139,8 +1142,8 @@ and calculate their mean expression (in log) at time 0, time 4 and time 8.</li>
 <span id="cb377-3"><a href="sec-dplyr.html#cb377-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gene, time) <span class="sc">%&gt;%</span></span>
 <span id="cb377-4"><a href="sec-dplyr.html#cb377-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_expression =</span> <span class="fu">mean</span>(<span class="fu">log</span>(expression))) <span class="sc">%&gt;%</span></span>
 <span id="cb377-5"><a href="sec-dplyr.html#cb377-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>()</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 6 × 3
 ## # Groups:   gene [2]
 ##   gene   time mean_expression
@@ -1244,23 +1247,25 @@ directly pipe the data into the <code>pivot_wider()</code>, as illustrated below
 <span id="cb382-3"><a href="sec-dplyr.html#cb382-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> expression)</span>
 <span id="cb382-4"><a href="sec-dplyr.html#cb382-4" aria-hidden="true" tabindex="-1"></a>rna_wide</span></code></pre></div>
 <pre><code>## # A tibble: 1,474 × 23
-##    gene    GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340 GSM2545341
-##    &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;
-##  1 Asl           1170        361        400        586        626        988
-##  2 Apod         36194      10347       9173      10620      13021      29594
-##  3 Cyp2d22       4060       1616       1603       1901       2171       3349
-##  4 Klk6           287        629        641        578        448        195
-##  5 Fcrls           85        233        244        237        180         38
-##  6 Slc2a4         782        231        248        265        313        786
-##  7 Exd2          1619       2288       2235       2513       2366       1359
-##  8 Gjc2           288        595        568        551        310        146
-##  9 Plp1         43217     101241      96534      58354      53126      27173
-## 10 Gnb4          1071       1791       1867       1430       1355        798
-## # … with 1,464 more rows, and 16 more variables: GSM2545342 &lt;dbl&gt;,
-## #   GSM2545343 &lt;dbl&gt;, GSM2545344 &lt;dbl&gt;, GSM2545345 &lt;dbl&gt;, GSM2545346 &lt;dbl&gt;,
-## #   GSM2545347 &lt;dbl&gt;, GSM2545348 &lt;dbl&gt;, GSM2545349 &lt;dbl&gt;, GSM2545350 &lt;dbl&gt;,
-## #   GSM2545351 &lt;dbl&gt;, GSM2545352 &lt;dbl&gt;, GSM2545353 &lt;dbl&gt;, GSM2545354 &lt;dbl&gt;,
-## #   GSM2545362 &lt;dbl&gt;, GSM2545363 &lt;dbl&gt;, GSM2545380 &lt;dbl&gt;</code></pre>
+##    gene  GSM25…¹ GSM25…² GSM25…³ GSM25…⁴ GSM25…⁵ GSM25…⁶ GSM25…⁷ GSM25…⁸ GSM25…⁹
+##    &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Asl      1170     361     400     586     626     988     836     535     586
+##  2 Apod    36194   10347    9173   10620   13021   29594   24959   13668   13230
+##  3 Cyp2…    4060    1616    1603    1901    2171    3349    3122    2008    2254
+##  4 Klk6      287     629     641     578     448     195     186    1101     537
+##  5 Fcrls      85     233     244     237     180      38      68     375     199
+##  6 Slc2…     782     231     248     265     313     786     528     249     266
+##  7 Exd2     1619    2288    2235    2513    2366    1359    1474    3126    2379
+##  8 Gjc2      288     595     568     551     310     146     186     791     454
+##  9 Plp1    43217  101241   96534   58354   53126   27173   28728   98658   61356
+## 10 Gnb4     1071    1791    1867    1430    1355     798     806    2437    1394
+## # … with 1,464 more rows, 13 more variables: GSM2545345 &lt;dbl&gt;,
+## #   GSM2545346 &lt;dbl&gt;, GSM2545347 &lt;dbl&gt;, GSM2545348 &lt;dbl&gt;, GSM2545349 &lt;dbl&gt;,
+## #   GSM2545350 &lt;dbl&gt;, GSM2545351 &lt;dbl&gt;, GSM2545352 &lt;dbl&gt;, GSM2545353 &lt;dbl&gt;,
+## #   GSM2545354 &lt;dbl&gt;, GSM2545362 &lt;dbl&gt;, GSM2545363 &lt;dbl&gt;, GSM2545380 &lt;dbl&gt;, and
+## #   abbreviated variable names ¹​GSM2545336, ²​GSM2545337, ³​GSM2545338,
+## #   ⁴​GSM2545339, ⁵​GSM2545340, ⁶​GSM2545341, ⁷​GSM2545342, ⁸​GSM2545343,
+## #   ⁹​GSM2545344</code></pre>
 <p>We can now easily compare the gene expression levels in different
 samples.</p>
 <p>Note that the <code>pivot_wider()</code> function comes with an optional
@@ -1541,8 +1546,8 @@ the different timepoints.</p>
 <span id="cb408-3"><a href="sec-dplyr.html#cb408-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_exp =</span> <span class="fu">mean</span>(expression)) <span class="sc">%&gt;%</span></span>
 <span id="cb408-4"><a href="sec-dplyr.html#cb408-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> time,</span>
 <span id="cb408-5"><a href="sec-dplyr.html#cb408-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> mean_exp)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 1,474 × 4
 ## # Groups:   gene [1,474]
 ##    gene        `0`     `4`     `8`
@@ -1567,8 +1572,8 @@ we could not use the column names directly… What happens when we select the co
 <span id="cb411-4"><a href="sec-dplyr.html#cb411-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> time,</span>
 <span id="cb411-5"><a href="sec-dplyr.html#cb411-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> mean_exp) <span class="sc">%&gt;%</span></span>
 <span id="cb411-6"><a href="sec-dplyr.html#cb411-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(gene, <span class="dv">4</span>)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 1,474 × 2
 ## # Groups:   gene [1,474]
 ##    gene        `8`
@@ -1591,8 +1596,8 @@ we could not use the column names directly… What happens when we select the co
 <span id="cb414-4"><a href="sec-dplyr.html#cb414-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> time,</span>
 <span id="cb414-5"><a href="sec-dplyr.html#cb414-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> mean_exp) <span class="sc">%&gt;%</span></span>
 <span id="cb414-6"><a href="sec-dplyr.html#cb414-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(gene, <span class="st">`</span><span class="at">4</span><span class="st">`</span>)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 1,474 × 2
 ## # Groups:   gene [1,474]
 ##    gene        `4`
@@ -1617,8 +1622,8 @@ choosing a name that doesn’t start by a number :</p>
 <span id="cb417-5"><a href="sec-dplyr.html#cb417-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> mean_exp) <span class="sc">%&gt;%</span></span>
 <span id="cb417-6"><a href="sec-dplyr.html#cb417-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"time0"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">0</span><span class="st">`</span>, <span class="st">"time4"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">4</span><span class="st">`</span>, <span class="st">"time8"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">8</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb417-7"><a href="sec-dplyr.html#cb417-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(gene, time4)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 1,474 × 2
 ## # Groups:   gene [1,474]
 ##    gene      time4
@@ -1665,8 +1670,8 @@ foldchanges calculated.</p>
 <span id="cb420-4"><a href="sec-dplyr.html#cb420-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> time,</span>
 <span id="cb420-5"><a href="sec-dplyr.html#cb420-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> mean_exp) <span class="sc">%&gt;%</span></span>
 <span id="cb420-6"><a href="sec-dplyr.html#cb420-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">time_8_vs_0 =</span> <span class="st">`</span><span class="at">8</span><span class="st">`</span> <span class="sc">/</span> <span class="st">`</span><span class="at">0</span><span class="st">`</span>, <span class="at">time_8_vs_4 =</span> <span class="st">`</span><span class="at">8</span><span class="st">`</span> <span class="sc">/</span> <span class="st">`</span><span class="at">4</span><span class="st">`</span>)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the `.groups`
+## argument.</code></pre>
 <div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="sec-dplyr.html#cb422-1" aria-hidden="true" tabindex="-1"></a>rna_fc</span></code></pre></div>
 <pre><code>## # A tibble: 1,474 × 6
 ## # Groups:   gene [1,474]
@@ -1741,8 +1746,8 @@ between timepoint 8 and timepoint 0.</p>
 <span id="cb426-6"><a href="sec-dplyr.html#cb426-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> mean_exp) <span class="sc">%&gt;%</span></span>
 <span id="cb426-7"><a href="sec-dplyr.html#cb426-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_8_vs_0 =</span> <span class="st">`</span><span class="at">8</span><span class="st">`</span> <span class="sc">-</span> <span class="st">`</span><span class="at">0</span><span class="st">`</span>, <span class="at">time_4_vs_0 =</span> <span class="st">`</span><span class="at">4</span><span class="st">`</span> <span class="sc">-</span> <span class="st">`</span><span class="at">0</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb426-8"><a href="sec-dplyr.html#cb426-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(gene, time_8_vs_0, time_4_vs_0)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the `.groups`
+## argument.</code></pre>
 <div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="sec-dplyr.html#cb428-1" aria-hidden="true" tabindex="-1"></a>rna_fc</span></code></pre></div>
 <pre><code>## # A tibble: 1,474 × 3
 ## # Groups:   gene [1,474]
@@ -1907,9 +1912,9 @@ and a column <code>result</code> with the student’s mark.</p>
 <a href="sec-vis.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2022-04-21
+2022-09-22
  using 
-R version 4.1.2 Patched (2021-12-10 r81360)
+R version 4.2.0 Patched (2022-05-13 r82357)
 </p>
 </div>
 </div>

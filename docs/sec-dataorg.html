@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2022-04-21" />
+<meta name="date" content="2022-09-22" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -67,7 +67,7 @@ function reset_tooltip(id) {
 </script>
 <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.22/datatables.js"></script>
+<script src="libs/datatables-binding-0.25/datatables.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
@@ -116,7 +116,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -129,7 +129,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -183,8 +183,8 @@ div.csl-indent {
 <li class="dropdown" style="float:right">
 <a href="javascript:void(0)" class="dropbtn">&#x25BE; Chapters</a>
 <div class="dropdown-content">
-<a href="index.html">Preamble</a>
-<a id="active-page" href="sec-dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a><ul class="toc-sections">
+<a href="index.html" id="toc-preamble">Preamble</a>
+<a id="active-page" href="sec-dataorg.html" id="toc-sec-dataorg"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a><ul class="toc-sections">
 <li class="toc"><a href="#spreadsheet-programs"> Spreadsheet programs</a></li>
 <li class="toc"><a href="#formatting-data-tables-in-spreadsheets"> Formatting data tables in spreadsheets</a></li>
 <li class="toc"><a href="#common-spreadsheet-errors"> Common Spreadsheet Errors</a></li>
@@ -192,18 +192,18 @@ div.csl-indent {
 <li class="toc"><a href="#summary"> Summary</a></li>
 <li class="toc"><a href="#additional-exercises"> Additional exercises</a></li>
 </ul>
-<a href="sec-rrstudio.html"><span class="toc-section-number">2</span> R and RStudio</a>
-<a href="sec-startr.html"><span class="toc-section-number">3</span> Introduction to R</a>
-<a href="sec-startdata.html"><span class="toc-section-number">4</span> Starting with data</a>
-<a href="sec-dplyr.html"><span class="toc-section-number">5</span> Manipulating and analyzing data with dplyr</a>
-<a href="sec-vis.html"><span class="toc-section-number">6</span> Data visualization</a>
-<a href="sec-join.html"><span class="toc-section-number">7</span> Joining tables</a>
-<a href="sec-rr.html"><span class="toc-section-number">8</span> Reproducible research</a>
-<a href="sec-bioinfo.html"><span class="toc-section-number">9</span> Bioinformatics</a>
-<a href="sec-prog.html"><span class="toc-section-number">10</span> Additional programming concepts</a>
-<a href="sec-ccl.html"><span class="toc-section-number">11</span> Conclusions</a>
-<a href="sec-anx.html"><span class="toc-section-number">12</span> Annex</a>
-<a href="session-information.html"><span class="toc-section-number">13</span> Session information</a>
+<a href="sec-rrstudio.html" id="toc-sec-rrstudio"><span class="toc-section-number">2</span> R and RStudio</a>
+<a href="sec-startr.html" id="toc-sec-startr"><span class="toc-section-number">3</span> Introduction to R</a>
+<a href="sec-startdata.html" id="toc-sec-startdata"><span class="toc-section-number">4</span> Starting with data</a>
+<a href="sec-dplyr.html" id="toc-sec-dplyr"><span class="toc-section-number">5</span> Manipulating and analyzing data with dplyr</a>
+<a href="sec-vis.html" id="toc-sec-vis"><span class="toc-section-number">6</span> Data visualization</a>
+<a href="sec-join.html" id="toc-sec-join"><span class="toc-section-number">7</span> Joining tables</a>
+<a href="sec-rr.html" id="toc-sec-rr"><span class="toc-section-number">8</span> Reproducible research</a>
+<a href="sec-bioinfo.html" id="toc-sec-bioinfo"><span class="toc-section-number">9</span> Bioinformatics</a>
+<a href="sec-prog.html" id="toc-sec-prog"><span class="toc-section-number">10</span> Additional programming concepts</a>
+<a href="sec-ccl.html" id="toc-sec-ccl"><span class="toc-section-number">11</span> Conclusions</a>
+<a href="sec-anx.html" id="toc-sec-anx"><span class="toc-section-number">12</span> Annex</a>
+<a href="session-information.html" id="toc-session-information"><span class="toc-section-number">13</span> Session information</a>
 </div>
 </li>
 </ul>
@@ -1132,9 +1132,9 @@ systematically quoted.<a href="sec-dataorg.html#fnref3" class="footnote-back">â†
 <a href="sec-rrstudio.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2022-04-21
+2022-09-22
  using 
-R version 4.1.2 Patched (2021-12-10 r81360)
+R version 4.2.0 Patched (2022-05-13 r82357)
 </p>
 </div>
 </div>
