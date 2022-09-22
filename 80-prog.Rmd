@@ -5,7 +5,7 @@
 Learn programming concepts, including
 
 - how to handle conditions
-- iterate of data structures
+- iteration of data structures
 - good coding practice
 - code re-use through functions
 
@@ -31,9 +31,9 @@ data.
 
 
 Writing clean code means writing easily readable code, hence easily
-understable code and, eventually code with less bugs. One easy way to
+understandable code and, eventually code with less bugs. One easy way to
 achieve this is through consistency, i.e. stick to a **style
-guide**. This issue is that there are several style guides available,
+guide**. The issue is that there are several style guides available,
 often with conflicting suggestions. Two widely used ones are the
 [Bioconductor style
 guide](http://bioconductor.org/developers/how-to/coding-style/) and
@@ -73,7 +73,7 @@ repeatedly (at the first of adding bugs and to miss some updates).
 When writing code, **keep it simple and short**[^KISS]. Ideally, the
 code should be evident. But when the questions tackled are not
 trivial, is becomes essential to add **comments** to clarify aspects
-of the script/programme. Make sure to use them to describe why
+of the script/program. Make sure to use them to describe why
 something is done, rather than explaining how things are done (which
 is tyically best done by the code itself).
 
@@ -86,13 +86,13 @@ programming**:
 
 - making the code work in a predicable manner
 - writing code that fails in a well-defined manner
-- if something weird happens, either properly deal with it, of fail
+- if something weird happens, either properly deal with it, or it fail
   quickly and loudly
 
 Here are some examples of how to do this:
 
 - use functions like `is.numeric(x)`, `is.character(x)`,
-  `is.data.frame(x)`, ... for make sure that the variable you are
+  `is.data.frame(x)`, ... but make sure that the variable you are
   going to use is of the expected type.
 
 - Make sure the length or dimensions of what you are going to use are
@@ -136,7 +136,7 @@ log(3)
 log(10)
 ```
 
-The concept of iteration allows us to programme the following command:
+The concept of iteration allows us to program the following command:
 
 > Repeat `log` for each value of my input `x`.
 
@@ -541,7 +541,7 @@ head(gsub("A", "X", peptides))
 ## Analysing data from multiple files
 
 This exercise recapitulates the most important material that we have
-seem in the course. We are going to analyse the student tests A and B
+seen in this course. We are going to analyse the student tests A and B
 results using functionality from the `dplyr` package (seen in chapter
 \@ref(sec-dplyr)). The student test files are available in the
 `rWSBIM1207` package (the `interroA.csv` and `interroB.csv` functions
