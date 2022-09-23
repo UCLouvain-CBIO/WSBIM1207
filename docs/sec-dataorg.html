@@ -8,13 +8,12 @@
 <meta property="og:title" content="Chapter 1 Data organisation with Spreadsheets | Introduction to bioinformatics" />
 <meta property="og:type" content="book" />
 
-
 <meta property="og:description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain." />
 
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2022-04-11" />
+<meta name="date" content="2022-09-23" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -27,7 +26,6 @@ MathJax.Hub.Config({
 
 <title>Chapter 1 Data organisation with Spreadsheets | Introduction to bioinformatics</title>
 
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -69,7 +67,7 @@ function reset_tooltip(id) {
 </script>
 <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.20/datatables.js"></script>
+<script src="libs/datatables-binding-0.25/datatables.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
@@ -219,10 +217,10 @@ div.csl-indent {
 <span class="header-section-number">Chapter 1</span> Data organisation with Spreadsheets</h1>
 <p><strong>Learning Objectives</strong></p>
 <ul>
-<li>Learn about spreadsheets, their strenghts and weaknesses</li>
+<li>Learn about spreadsheets, their strengths and weaknesses</li>
 <li>How do we format data in spreadsheets for effective data use?</li>
 <li>Learn about common spreadsheet errors and how to correct them.</li>
-<li>Organize your data according to tidy data principles.</li>
+<li>Organise your data according to tidy data principles.</li>
 <li>Learn about text-based spreadsheet formats such as the
 comma-separated (CSV) or tab-separated formats.</li>
 </ul>
@@ -233,18 +231,18 @@ comma-separated (CSV) or tab-separated formats.</li>
 <p><strong>Question</strong></p>
 <ul>
 <li>What are basic principles for using spreadsheets for good data
-organization?</li>
+organisation?</li>
 </ul>
 <p><strong>Objective</strong></p>
 <ul>
-<li>Describe best practices for organizing data so computers can make
+<li>Describe best practices for organising data so computers can make
 the best use of data sets.</li>
 </ul>
 <p><strong>Keypoint</strong></p>
 <ul>
-<li>Good data organization is the foundation of any research project.</li>
+<li>Good data organisation is the foundation of any research project.</li>
 </ul>
-<p>Good data organization is the foundation of your research
+<p>Good data organisation is the foundation of your research
 project. Most researchers have data or do data entry in
 spreadsheets. Spreadsheet programs are very useful graphical
 interfaces for designing data tables and handling very basic data
@@ -255,7 +253,7 @@ quality control functions. See also <span class="citation"><label for="tufte-mn-
 <p>Spreadsheets are good for data entry. Therefore we have a lot of data
 in spreadsheets. Much of your time as a researcher will be spent in
 this ‘data wrangling’ stage. It’s not the most fun, but it’s
-necessary. We’ll teach you how to think about data organization and
+necessary. We’ll teach you how to think about data organisation and
 some practices for more effective data wrangling.</p>
 </div>
 <div id="what-this-lesson-will-not-teach-you" class="section level3 unnumbered">
@@ -291,7 +289,7 @@ but the general idea is the same.</p>
 to do as researchers. We can use them for:</p>
 <ul>
 <li>Data entry</li>
-<li>Organizing data</li>
+<li>Organising data</li>
 <li>Subsetting and sorting data</li>
 <li>Statistics</li>
 <li>Plotting</li>
@@ -402,7 +400,7 @@ spreadsheet.</p></li>
 changes.</p></li>
 <li><p>Keep track of all of the steps you take to clean your data in a
 plain text file.</p></li>
-<li><p>Organize your data according to tidy data principles.</p></li>
+<li><p>Organise your data according to tidy data principles.</p></li>
 </ul>
 <p>The most common mistake made is treating spreadsheet programs like lab
 notebooks, that is, relying on context, notes in the margin, spatial
@@ -411,13 +409,13 @@ layout of data and fields to convey information. As humans, we can
 the same way, and unless we explain to the computer what every single
 thing means (and that can be hard!), it will not be able to see how
 our data fits together.</p>
-<p>Using the power of computers, we can manage and analyze data in much
+<p>Using the power of computers, we can manage and analyse data in much
 more effective and faster ways, but to use that power, we have to set
 up our data for the computer to be able to understand it (and
 computers are very literal).</p>
 <p>This is why it’s extremely important to set up well-formatted tables
 from the outset - before you even start entering data from your very
-first preliminary experiment. Data organization is the foundation of
+first preliminary experiment. Data organisation is the foundation of
 your research project. It can make it easier or harder to work with
 your data throughout your analysis, so it’s worth thinking about when
 you’re doing your data entry or setting up your experiment. You can
@@ -439,7 +437,7 @@ different from the one you started with. In order to be able to
 reproduce your analyses or figure out what you did when a reviewer or
 instructor asks for a different analysis, you should</p>
 <ul>
-<li><p>create a new file with your cleaned or analyzed data. Don’t modify
+<li><p>create a new file with your cleaned or analysed data. Don’t modify
 the original dataset, or you will never know where you started!</p></li>
 <li><p>keep track of the steps you took in your clean up or analysis. You
 should track these steps as you would any step in an experiment. We
@@ -505,9 +503,9 @@ up.</p>
 <li><p>You can see that there are two tabs. The data contains various
 clinical variables recorded in various hospitals in Brussels during
 the first and second COVID-19 waves in 2020. As you can see, the
-data have been recorded differently during the march and november
+data have been recorded differently during the march and November
 waves. Now you’re the person in charge of this project and you want
-to be able to start analyzing the data.</p></li>
+to be able to start analysing the data.</p></li>
 <li><p>With the person next to you, identify what is wrong with this
 spreadsheet. Also discuss the steps you would need to take to clean
 up first and second wave tabs, and to put them all together in one
@@ -567,7 +565,7 @@ and how can we avoid them?</li>
 </ul>
 <p><strong>Objectives</strong></p>
 <ul>
-<li>Recognize and resolve common spreadsheet formatting problems.</li>
+<li>Recognise and resolve common spreadsheet formatting problems.</li>
 </ul>
 <p><strong>Keypoints</strong></p>
 <ul>
@@ -625,7 +623,7 @@ as well as some calculated summary statistics (an average (avr) and standard err
 <h3>
 <span class="header-section-number">1.3.2</span> Using multiple tabs<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('tabs')" onmouseout="reset_tooltip('tabs-tooltip')"><span class="tooltiptext" id="tabs-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
-<p>But what about workbook tabs? That seems like an easy way to organize
+<p>But what about workbook tabs? That seems like an easy way to organise
 data, right? Well, yes and no. When you create extra tabs, you fail to
 allow the computer to see connections in the data that are there (you
 have to introduce spreadsheet application-specific functions or
@@ -637,7 +635,7 @@ separate tab for each day you take a measurement.</p>
 data if each time you take a measurement, you start recording data
 in a new tab, and</p></li>
 <li><p>even if you manage to prevent all inconsistencies from creeping in,
-you will add an extra step for yourself before you analyze the data
+you will add an extra step for yourself before you analyse the data
 because you will have to combine these data into a single
 datatable. You will have to explicitly tell the computer how to
 combine tabs - and if the tabs are inconsistently formatted, you
@@ -647,7 +645,7 @@ might even have to do it manually.</p></li>
 or table, ask yourself if you could avoid adding this tab by adding
 another column to your original spreadsheet. We used multiple tabs in
 our example of a messy data file, but now you’ve seen how you can
-reorganize your data to consolidate across tabs.</p>
+reorganise your data to consolidate across tabs.</p>
 <p>Your data sheet might get very long over the course of the
 experiment. This makes it harder to enter data if you can’t see your
 headers at the top of the spreadsheet. But don’t repeat your header
@@ -701,9 +699,9 @@ column like ‘data_missing’ and use that column to capture the
 different reasons.</p>
 <p>Whatever the reason, it’s a problem if unknown or missing data is
 recorded as -999, 999, or 0.</p>
-<p>Many statistical programs will not recognize that these are intended
+<p>Many statistical programs will not recognise that these are intended
 to represent missing (null) values. How these values are interpreted
-will depend on the software you use to analyze your data. It is
+will depend on the software you use to analyse your data. It is
 essential to use a clearly defined and consistent null indicator.</p>
 <p>Blanks (most applications) and NA (for R) are good
 choices. <span class="citation"><label for="tufte-mn-17" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-17" class="margin-toggle">White et al. (2013)<span class="marginnote">White, Ethan P., Elita Baldridge, Zachary T. Brym, Kenneth J. Locey, Daniel J. McGlinn, and Sarah R. Supp. 2013. <span>“Nine Simple Ways to Make It Easier to (re)use Your Data.”</span> <em>PeerJ PrePrints</em> 1 (July): e7v2. <a href="https://doi.org/10.7287/peerj.preprints.7v2">https://doi.org/10.7287/peerj.preprints.7v2</a>.</span></span> explain good choices for indicating null values
@@ -731,7 +729,7 @@ excluded.</p>
 aesthetically pleasing can compromise your computer’s ability to see
 associations in the data. Merged cells will make your data unreadable
 by statistics software. Consider restructuring your data in such a way
-that you will not need to merge cells to organize your data.</p>
+that you will not need to merge cells to organise your data.</p>
 </div>
 <div id="units" class="section level3" number="1.3.7">
 <h3>
@@ -752,7 +750,7 @@ specify the units the cell is in.</p>
 <p><strong>Example</strong>: Recording ABO and Rhesus groups in one cell, such as A+,
 B+, A-, …</p>
 <p><strong>Solution</strong>: Don’t include more than one piece of information in a
-cell. This will limit the ways in which you can analyze your data. If
+cell. This will limit the ways in which you can analyse your data. If
 you need both these measurements, design your data sheet to include
 this information. For example, include one column the ABO group and
 one for the Rhesus group.</p>
@@ -1049,10 +1047,10 @@ build relevant scripts.</p>
 <!--</div>--></span>
 </p>
 <p>A typical data analysis worflow is illustrated in figure
-<a href="sec-dataorg.html#fig:analysis">1.3</a>, where data is repeatedly tranformed, visualised,
+<a href="sec-dataorg.html#fig:analysis">1.3</a>, where data is repeatedly transformed, visualised,
 modelled. This iteration is repeated multiple times until the data is
 understood. In many real-life cases, however, most time is spend in
-clearning up and preparing the data, rather than actually analysing
+cleaning up and preparing the data, rather than actually analysing
 and understanding it.</p>
 <p>An agile data analysis workflow, with several fast iteration of the
 transform/visualise/model cycle are only feasible is the data is
@@ -1125,9 +1123,9 @@ measurements were repeated.</p>
 <a href="sec-rrstudio.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2022-04-11
+2022-09-23
  using 
-R version 4.1.3 (2022-03-10)
+R version 4.2.1 (2022-06-23)
 </p>
 </div>
 </div>

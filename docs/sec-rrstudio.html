@@ -8,13 +8,12 @@
 <meta property="og:title" content="Chapter 2 R and RStudio | Introduction to bioinformatics" />
 <meta property="og:type" content="book" />
 
-
 <meta property="og:description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain." />
 
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2022-04-11" />
+<meta name="date" content="2022-09-23" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -27,7 +26,6 @@ MathJax.Hub.Config({
 
 <title>Chapter 2 R and RStudio | Introduction to bioinformatics</title>
 
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
 <link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
@@ -69,7 +67,7 @@ function reset_tooltip(id) {
 </script>
 <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.20/datatables.js"></script>
+<script src="libs/datatables-binding-0.25/datatables.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
@@ -354,7 +352,7 @@ Public License (AGPL) v3</a>.
 The RStudio IDE is also available with a commercial license and
 priority email support from RStudio, Inc.</p>
 <p>We will use RStudio IDE to write code, navigate the files on our
-computer, inspect the variables we are going to create, and visualize
+computer, inspect the variables we are going to create, and visualise
 the plots we will generate. RStudio can also be used for other things
 (e.g., version control, developing packages, writing Shiny apps) that
 we will not cover during the workshop.</p>
@@ -373,7 +371,7 @@ default layout)</li>
 <li>your <strong>Files/Plots/Packages/Help/Viewer</strong> (bottom-right), and</li>
 <li>the R <strong>Console</strong> (bottom-left).</li>
 </ul>
-<p>The placement of these panes and their content can be customized (see
+<p>The placement of these panes and their content can be customised (see
 menu, <code>Tools -&gt; Global Options -&gt; Pane Layout</code>).</p>
 <p>One of the advantages of using RStudio is that all the information you
 need to write code is available in a single window. Additionally, with
@@ -431,12 +429,12 @@ Figure 2.4: Set the default text encoding to UTF-8 to save us headache in the co
 </p>
 <img src="figs/utf8.png" alt="Set the default text encoding to UTF-8 to save us headache in the coming future. (Figure from the link above)." width="70%">
 </div>
-<div id="organizing-your-working-directory" class="section level3" number="2.4.1">
+<div id="organising-your-working-directory" class="section level3" number="2.4.1">
 <h3>
-<span class="header-section-number">2.4.1</span> Organizing your working directory<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('organizing-your-working-directory')" onmouseout="reset_tooltip('organizing-your-working-directory-tooltip')"><span class="tooltiptext" id="organizing-your-working-directory-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">2.4.1</span> Organising your working directory<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('organising-your-working-directory')" onmouseout="reset_tooltip('organising-your-working-directory-tooltip')"><span class="tooltiptext" id="organising-your-working-directory-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h3>
 <p>Using a consistent folder structure across your projects will help keep things
-organized, and will also make it easy to find/file things in the future. This
+organised, and will also make it easy to find/file things in the future. This
 can be especially helpful when you have multiple projects. In general, you may
 create directories (folders) for <strong>scripts</strong>, <strong>data</strong>, and <strong>documents</strong>.</p>
 <ul>
@@ -460,7 +458,7 @@ and other text.</li>
 scripts for different analyses or plotting, and potentially a
 separate folder for your functions (more on that later).</li>
 </ul>
-<p>You may want additional directories or subdirectories depending on
+<p>You may want additional directories or sub-directories depending on
 your project needs, but these should form the backbone of your working
 directory.</p>
 <div class="figure" style="text-align: center">
@@ -512,7 +510,7 @@ is compiled to create <code>bin/ms-analysis</code> and is documented in
 <code>doc/ms-analysis.html</code>. The <code>README</code> files in the data directories
 specify who downloaded the data files from what URL on what
 date. The driver script <code>results/2009-01-15/runall</code> automatically
-generates the three subdirectories split1, split2, and split3,
+generates the three sub-directories split1, split2, and split3,
 corresponding to three cross-validation splits. The
 <code>bin/parse-sqt.py</code> script is called by both of the <code>runall</code> driver
 scripts.</p>
@@ -720,7 +718,7 @@ possible when describing your problem.</p>
 example</em>. If you can reproduce the problem using a very small data
 frame instead of your 50000 rows and 10000 columns one, provide the
 small one with the description of your problem. When appropriate, try
-to generalize what you are doing so even people who are not in your
+to generalise what you are doing so even people who are not in your
 field can understand the question. For instance instead of using a
 subset of your real dataset, create a small (3 columns, 5 rows)
 generic one. For more information on how to write a reproducible
@@ -736,7 +734,7 @@ to recreate the exact same object as the one in memory:</p>
 ##     Sepal.Width = c(3.5, 3, 3.2, 3.1, 3.6, 3.9), Petal.Length = c(1.4, 
 ##     1.4, 1.3, 1.5, 1.4, 1.7), Petal.Width = c(0.2, 0.2, 0.2, 
 ##     0.2, 0.2, 0.4), Species = structure(c(1L, 1L, 1L, 1L, 1L, 
-##     1L), .Label = c("setosa", "versicolor", "virginica"), class = "factor")), row.names = c(NA, 
+##     1L), levels = c("setosa", "versicolor", "virginica"), class = "factor")), row.names = c(NA, 
 ## 6L), class = "data.frame")</code></pre>
 <p>If the object is larger, provide either the raw file (i.e., your CSV
 file) with your script up to the point of the error (and after
@@ -756,9 +754,9 @@ as it provides critical information about your platform, the versions of R and
 the packages that you are using, and other information that can be very helpful
 to understand your problem.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="sec-rrstudio.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
-<pre><code>## R version 4.1.3 (2022-03-10)
+<pre><code>## R version 4.2.1 (2022-06-23)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Ubuntu 20.04.4 LTS
+## Running under: Ubuntu 22.04.1 LTS
 ## 
 ## Matrix products: default
 ## BLAS:   /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3
@@ -776,13 +774,13 @@ to understand your problem.</p>
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] bookdown_0.24    msmbstyle_0.0.19 png_0.1-7        digest_0.6.29   
-##  [5] R6_2.5.1         jsonlite_1.7.3   magrittr_2.0.2   evaluate_0.14   
-##  [9] highr_0.9        rlang_1.0.0      stringi_1.7.6    cli_3.1.1       
-## [13] rstudioapi_0.13  jquerylib_0.1.4  bslib_0.3.1      xml2_1.3.3      
-## [17] rmarkdown_2.11   tools_4.1.3      stringr_1.4.0    xfun_0.29       
-## [21] yaml_2.2.2       fastmap_1.1.0    compiler_4.1.3   htmltools_0.5.2 
-## [25] knitr_1.37       sass_0.4.0</code></pre>
+##  [1] bookdown_0.29    msmbstyle_0.0.19 png_0.1-7        digest_0.6.29   
+##  [5] R6_2.5.1         jsonlite_1.8.0   magrittr_2.0.3   evaluate_0.16   
+##  [9] highr_0.9        cachem_1.0.6     rlang_1.0.5      stringi_1.7.8   
+## [13] cli_3.4.0        rstudioapi_0.14  jquerylib_0.1.4  bslib_0.4.0     
+## [17] xml2_1.3.3       rmarkdown_2.16   tools_4.2.1      stringr_1.4.1   
+## [21] xfun_0.33        yaml_2.3.5       fastmap_1.1.0    compiler_4.2.1  
+## [25] htmltools_0.5.3  knitr_1.40       sass_0.4.2</code></pre>
 </div>
 <div id="where-to-ask-for-help" class="section level3 unnumbered">
 <h3>Where to ask for help?<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('where-to-ask-for-help')" onmouseout="reset_tooltip('where-to-ask-for-help-tooltip')"><span class="tooltiptext" id="where-to-ask-for-help-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
@@ -836,7 +834,7 @@ has quite comprehensive advice on how to ask programming questions.</p></li>
 <li><p>The <a href="https://cran.rstudio.com/web/packages/reprex/">reprex</a> package
 is very helpful to create reproducible examples when asking for
 help. The rOpenSci community call “How to ask questions so they get
-answered” (<a href="https://github.com/ropensci/commcalls/issues/14">Github
+answered” (<a href="https://github.com/ropensci/commcalls/issues/14">GitHub
 link</a> and <a href="https://vimeo.com/208749032">video
 recording</a>) includes a presentation of
 the reprex package and of its philosophy.</p></li>
@@ -869,12 +867,12 @@ we install the <code>dplyr</code> package that we will learn about late.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="sec-rrstudio.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span></code></pre></div>
 <p>This command will install the <code>dplyr</code> package as well as all its
 dependencies, i.e. all the packages that it relies on to function.</p>
-<p><a href="https://github.com/">Github</a> is a general-purpose online software
+<p><a href="https://github.com/">GitHub</a> is a general-purpose online software
 project repository and is well suited for R package development. To
-install a package from Gtihub, one can use the <code>install_github()</code>
+install a package from GitHub, one can use the <code>install_github()</code>
 function from the <code>devtools</code> package. Below we first install the
 latter from CRAN (as show above), then we install <code>rWSBIM1207</code>
-directly from the user <code>UCLouvain-CBIO</code> github repository.</p>
+directly from the user <code>UCLouvain-CBIO</code> GitHub repository.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="sec-rrstudio.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
 <span id="cb17-2"><a href="sec-rrstudio.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"devtools"</span>)</span>
 <span id="cb17-3"><a href="sec-rrstudio.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
@@ -891,9 +889,9 @@ bioinformatics and omics packages.</p>
 <a href="sec-startr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2022-04-11
+2022-09-23
  using 
-R version 4.1.3 (2022-03-10)
+R version 4.2.1 (2022-06-23)
 </p>
 </div>
 </div>

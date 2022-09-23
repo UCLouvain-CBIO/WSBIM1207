@@ -63,7 +63,7 @@ what-is-r-what-is-rstudio
 why-learn-r
 knowing-your-way-around-rstudio
 getting-set-up
-organizing-your-working-directory
+organising-your-working-directory
 the-working-directory
 interacting-with-r
 how-to-learn-more-during-and-after-the-course
