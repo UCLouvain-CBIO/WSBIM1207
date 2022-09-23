@@ -29,7 +29,7 @@ application domains. The technologies that focus on DNA, and the
 genome in particular (either whole or parts thereof) are termed
 **genomics**, and are currently based on sequencing, in particular
 high throughput sequencing (HTS). The domain focusing on the study of
-any DNA (or assiciated proteins) modification (such as for example
+any DNA (or associated proteins) modification (such as for example
 methylation) is termed **epigenetics**. The study of RNA, and more
 specifically the quantitation of RNA levels in biological samples is
 termed **transcriptomics**, as it assays the transcription of DNA into
@@ -98,7 +98,7 @@ more serious hardware, including disk space, computer clusters with
 (RAM).
 
 Processed data themselves often need to be further transformed to
-account for a variety of noise that is inheritent to sample
+account for a variety of noise that is inherent to sample
 collection, preparation and measurement acquisition. Data processing
 and transformation will be explored in detail in subsequent course
 such as *Omics data analysis*
@@ -111,7 +111,7 @@ such as *Omics data analysis*
 The acquired data, even once processed, is still of very little use
 when it comes to understanding biology. Before samples are collected
 and data are generated, it is essential to carefully design a question
-of interest (research hypothesis) and the experiement that will allow
+of interest (research hypothesis) and the experiment that will allow
 to answer it. For example, if we want to understand the effect of a
 particular drug on cancer cells, and more specifically understand the
 effect on the transcription of all the expressed genes, on would need
@@ -131,7 +131,7 @@ expd <- data.frame(sample = paste0("S", 1:12),
 knitr::kable(expd)
 ```
 
-We have seen a much more complex experimental desing, involving many
+We have seen a much more complex experimental design, involving many
 more samples with the `clinical1` data.
 
 ```{r, echo = FALSE, message = FALSE}
