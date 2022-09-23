@@ -11,7 +11,7 @@
 - Call functions and use arguments to change their default options.
 - Inspect the content of vectors and manipulate their content.
 - Subset and extract values from vectors.
-- Analyze vectors with missing data.
+- Analyse vectors with missing data.
 
 ## Creating objects in R
 
@@ -458,9 +458,9 @@ fruits <- c("apple", "orange", "grape")
 ```
 
 * add the elements *melon* and *pineapple* to this vector
-* sort them in alphabetic order 
-    + manually by using their index position, 
-    + and by using `sort()` (see `?sort`).  
+* sort them in alphabetic order
+    + manually by using their index position,
+    + and by using `sort()` (see `?sort`).
 
 `r msmbstyle::question_end()`
 
@@ -646,7 +646,7 @@ heights[complete.cases(heights)]
 
 1. Using this vector of heights in inches, create a new vector with the NAs removed.
 ```{r}
-heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 
+heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63,
              63, NA, 72, 65, 64, 70, 63, 65)
 ```
 2. Use the function `median()` to calculate the median of the `heights` vector.
