@@ -58,7 +58,7 @@ Today, it is difficult to overestimate the very broad importance and
 impact of *data*. Given the abundance of data around us, and the
 sophistication of tools for their analysis and interpretation that are
 readily available, data has become a tool of profound social
-change. Resarch in general, and biomedical research in particular, is
+change. Research in general, and biomedical research in particular, is
 at the centre of this evolution. And while bioinformatics has been
 playing a central role in bio-medical research for many years now,
 bioinformatics skills aren't well integrated in life science
@@ -107,7 +107,7 @@ Another reason why the focus of the course ought to be on data skills
 is that a notable difficulty in modern, multidisciplinary research is
 communication. Wetlab biomedical scientists aren't required to become
 bioinformaticians, statisticians, programmers, ... to be outstanding
-researchers, but they will need to communicate efficiency with these
+researchers, but they will need to communicate efficiently with these
 experts (and vice versa). What most often unites all these experts is
 data, and communication around data is critical. The importance of
 critical thinking and communication around data becomes more evident

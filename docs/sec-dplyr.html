@@ -274,7 +274,7 @@ data frame, the columns that contain characters (i.e., text) are
 coerced (=converted) into the <code>factor</code> data type. We had to set
 <strong><code>stringsAsFactors</code></strong> to <strong><code>FALSE</code></strong> to avoid this hidden argument to
 convert our data type.</p>
-<p>This time will use the <strong><code>tidyverse</code></strong> package to read the data and
+<p>This time we will use the <strong><code>tidyverse</code></strong> package to read the data and
 avoid having to set <strong><code>stringsAsFactors</code></strong> to <strong><code>FALSE</code></strong></p>
 <p>To load the package type:</p>
 <div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="sec-dplyr.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load the tidyverse packages, incl. dplyr</span></span>
@@ -283,7 +283,7 @@ avoid having to set <strong><code>stringsAsFactors</code></strong> to <strong><c
 Sheet</a>
 provides an overview of the <code>dplyr</code> grammar, offering more details and
 functions that we will see in this chapter. The <a href="https://tidydatatutor.com/">Tidy Data
-Tutor</a> is a wonderful tool to do visually
+Tutor</a> is a wonderful tool to visually
 describe what the tidy data operations do.</p>
 </div>
 <div id="what-are-dplyr-and-tidyr" class="section level2" number="5.2">
@@ -1268,7 +1268,7 @@ directly pipe the data into the <code>pivot_wider()</code>, as illustrated below
 <p>We can now easily compare the gene expression levels in different
 samples.</p>
 <p>Note that the <code>pivot_wider()</code> function comes with an optional
-<code>values_fill</code> argument that can be usefull when dealing with missing
+<code>values_fill</code> argument that can be useful when dealing with missing
 values. Let’s imagine that for some reason, we had some missing
 expression values for some genes in certain samples. In the following
 example, the gene Cyp2d22 has only one expression value, in GSM2545338

@@ -4,7 +4,7 @@
     <title>Cursus SBIM en bio-informatique</title>
     <meta charset="utf-8" />
     <meta name="author" content="Laurent Gatto" />
-    <script src="slides_files/header-attrs-2.11/header-attrs.js"></script>
+    <script src="slides_files/header-attrs-2.16/header-attrs.js"></script>
     <script src="slides_files/xaringanExtra-webcam-0.0.1/webcam.js"></script>
     <script id="xaringanExtra-webcam-options" type="application/json">{"width":"200","height":"200","margin":"1em"}</script>
     <link href="slides_files/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
@@ -20,9 +20,15 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Cursus SBIM en bio-informatique
+]
+.author[
 ### Laurent Gatto
-### Fri Jan 21 15:00:09 2022
+]
+.date[
+### Thu Sep 22 10:05:54 2022
+]
 
 ---
 
@@ -39,7 +45,7 @@ class: center, middle, inverse, title-slide
 
 Prof: Laurent Gatto
 
-Assistant(e)s: Jean Fain, Valentine Robaux, Axelle Loriot (M1)
+Assistant(e)s: Jean Fain, Valentine Robaux, Julie Devis, Axelle Loriot (M1)
 
 ---
 
@@ -95,12 +101,12 @@ Etudiant(e)s de BAC3, 2021-2022
   - https://bit.ly/WSBIM1207
   - https://bit.ly/WSBIM1322
   - https://bit.ly/WSBIM2122
-- Le notes de cours sont en anglais, mais le cours se donnera en
-  français.
+- Le notes de cours sont en anglais, mais les cours de Bac se
+  donneront en français.
 - Cours structurés en chapitres correspondant +/- aux séances
   hebdomadaires. Exercices avec réponses + exercices supplémentaires
   (sans réponses!)
-- Pas de séances de théorie et de TPs séparés.
+- Pas de séances de théorie et de TPs séparées.
 
 Etudiant(e) de BAC2, 2018 - 2019
 
@@ -109,12 +115,16 @@ Etudiant(e) de BAC2, 2018 - 2019
 &gt; explique). Je pense que cela nous permet à la fois de visualiser, de
 &gt; comprendre et d'appliquer directement les concepts expliqués.
 
-- Interrogations régulières avec possibilité de
-  dispense. Interrogations et examen à livre ouvert.
+---
 
-- Présence au cours obligatoire. En case de trois absences non
-  justifiées, l'étudiant(e) pourra se voir refuser la participation
-  **aux examens** de fin de cours.
+# En pratique
+
+- Présence au cours obligatoire. Pourquoi? Comment?
+
+- Interrogations régulières ~~avec possibilité de dispense~~. Comment?
+  Pourquoi?
+
+- Interrogations et examen à resources ouvertes.
 
 ---
 
@@ -161,7 +171,8 @@ Etudiant(e)s de BAC3, 2021-2022
   et réponses) et en fin de session (post-its - cf plus loin).
 
 - Travaillez regulièrement, en particulier en participant activement
-  au cours. N'attendez pas la fin du cours pour vous y mettre!
+  au cours (cf interrogations). N'attendez pas la fin du cours pour
+  vous y mettre!
 
 ---
 class: middle
@@ -254,6 +265,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

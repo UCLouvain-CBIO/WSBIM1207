@@ -1442,7 +1442,7 @@ directly in the global environment.</p>
 objects to binary files (using the <code>rds</code> extension here) and read
 these back into R. From a user’s perspective, main different is that,
 <code>load</code> loads an object in the global environment while <code>readRDS</code> reads
-the data from disk and returns it. It is this necessary to store the
+the data from disk and returns it. It is thus necessary to store the
 output of <code>readRDS</code> in a variable:</p>
 <div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="sec-startdata.html#cb298-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(rna, <span class="at">file =</span> <span class="st">"data_output/rnaseq.rds"</span>)</span>
 <span id="cb298-2"><a href="sec-startdata.html#cb298-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(rna)</span>

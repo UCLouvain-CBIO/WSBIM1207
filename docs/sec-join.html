@@ -220,7 +220,7 @@ div.csl-indent {
 <p>At the end of this section, students should understand</p>
 <ul>
 <li>the need and concept of table joins,</li>
-<li>different between different types of joins,</li>
+<li>differences between the different types of joins,</li>
 <li>the importance of keys in joins,</li>
 <li>circumstances leading to the appearance of missing values,</li>
 <li>the implications of using non-unique keys.</li>
@@ -735,7 +735,7 @@ and this is crucial, do not have the same column names:</p>
 <pre><code>##   a b
 ## 1 4 4
 ## 2 5 5</code></pre>
-<p>While de number of columns match, the names don’t, which results in an
+<p>While the number of columns match, the names don’t, which results in an
 error<label for="tufte-sn-13" class="margin-toggle sidenote-number">13</label><input type="checkbox" id="tufte-sn-13" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">13</span> The failing call to <code>rbind</code> is wrapped into a <code>try</code> call here
 to stop the error from aborting the document compilation.</span> when we use <code>rbind</code>:</p>
 <div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="sec-join.html#cb553-1" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">rbind</span>(d1, d2))</span></code></pre></div>
@@ -753,7 +753,11 @@ rownames match exactly:</p>
 ## 5 5 5</code></pre>
 <p>If we want to bind to dataframes along their columns, we must make
 sure that their number of rows match; rownames not hinder here:</p>
-<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="sec-join.html#cb557-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(d2, d3)</span></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="sec-join.html#cb557-1" aria-hidden="true" tabindex="-1"></a>d3</span></code></pre></div>
+<pre><code>##   v1 v2 v3
+## 1  1  3  5
+## 2  2  4  6</code></pre>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="sec-join.html#cb559-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(d2, d3)</span></code></pre></div>
 <pre><code>##   x y v1 v2 v3
 ## 1 4 4  1  3  5
 ## 2 5 5  2  4  6</code></pre>
@@ -763,13 +767,13 @@ observations for the same set of variables - there is more than only
 the column names. Below, we <code>rbind</code> dataframes with identical column
 names but different variables, which end up all being coerced into
 characters.</p>
-<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="sec-join.html#cb559-1" aria-hidden="true" tabindex="-1"></a>d1</span></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="sec-join.html#cb561-1" aria-hidden="true" tabindex="-1"></a>d1</span></code></pre></div>
 <pre><code>##   x y
 ## 1 1 1
 ## 2 2 2
 ## 3 3 3</code></pre>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="sec-join.html#cb561-1" aria-hidden="true" tabindex="-1"></a>d4 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">y =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
-<span id="cb561-2"><a href="sec-join.html#cb561-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">rbind</span>(d1, d4))</span></code></pre></div>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="sec-join.html#cb563-1" aria-hidden="true" tabindex="-1"></a>d4 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">y =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb563-2"><a href="sec-join.html#cb563-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">rbind</span>(d1, d4))</span></code></pre></div>
 <pre><code>## 'data.frame':    5 obs. of  2 variables:
 ##  $ x: chr  "1" "2" "3" "a" ...
 ##  $ y: chr  "1" "2" "3" "a" ...</code></pre>
