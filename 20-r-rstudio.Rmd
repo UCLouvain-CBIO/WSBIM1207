@@ -142,7 +142,7 @@ The RStudio IDE is also available with a commercial license and
 priority email support from RStudio, Inc.
 
 We will use RStudio IDE to write code, navigate the files on our
-computer, inspect the variables we are going to create, and visualize
+computer, inspect the variables we are going to create, and visualise
 the plots we will generate. RStudio can also be used for other things
 (e.g., version control, developing packages, writing Shiny apps) that
 we will not cover during the workshop.
@@ -160,7 +160,7 @@ RStudio is divided into 4 "Panes":
 - your **Files/Plots/Packages/Help/Viewer** (bottom-right), and
 - the R **Console** (bottom-left).
 
-The placement of these panes and their content can be customized (see
+The placement of these panes and their content can be customised (see
 menu, `Tools -> Global Options -> Pane Layout`).
 
 One of the advantages of using RStudio is that all the information you
@@ -215,10 +215,10 @@ going to set UTF-8 by default:
 knitr::include_graphics("./figs/utf8.png")
 ```
 
-### Organizing your working directory
+### Organising your working directory
 
 Using a consistent folder structure across your projects will help keep things
-organized, and will also make it easy to find/file things in the future. This
+organised, and will also make it easy to find/file things in the future. This
 can be especially helpful when you have multiple projects. In general, you may
 create directories (folders) for **scripts**, **data**, and **documents**.
 
@@ -239,7 +239,7 @@ create directories (folders) for **scripts**, **data**, and **documents**.
    scripts for different analyses or plotting, and potentially a
    separate folder for your functions (more on that later).
 
-You may want additional directories or subdirectories depending on
+You may want additional directories or sub-directories depending on
 your project needs, but these should form the backbone of your working
 directory.
 
@@ -287,7 +287,7 @@ following directory structure:
 > `doc/ms-analysis.html`. The `README` files in the data directories
 > specify who downloaded the data files from what URL on what
 > date. The driver script `results/2009-01-15/runall` automatically
-> generates the three subdirectories split1, split2, and split3,
+> generates the three sub-directories split1, split2, and split3,
 > corresponding to three cross-validation splits. The
 > `bin/parse-sqt.py` script is called by both of the `runall` driver
 > scripts.
@@ -518,7 +518,7 @@ If possible, try to reduce what doesn't work to a simple *reproducible
 example*. If you can reproduce the problem using a very small data
 frame instead of your 50000 rows and 10000 columns one, provide the
 small one with the description of your problem. When appropriate, try
-to generalize what you are doing so even people who are not in your
+to generalise what you are doing so even people who are not in your
 field can understand the question. For instance instead of using a
 subset of your real dataset, create a small (3 columns, 5 rows)
 generic one. For more information on how to write a reproducible
@@ -616,7 +616,7 @@ sessionInfo()
 - The [reprex](https://cran.rstudio.com/web/packages/reprex/) package
   is very helpful to create reproducible examples when asking for
   help. The rOpenSci community call "How to ask questions so they get
-  answered" ([Github
+  answered" ([GitHub
   link](https://github.com/ropensci/commcalls/issues/14) and [video
   recording](https://vimeo.com/208749032)) includes a presentation of
   the reprex package and of its philosophy.
@@ -650,12 +650,12 @@ install.packages("dplyr")
 This command will install the `dplyr` package as well as all its
 dependencies, i.e. all the packages that it relies on to function.
 
-[Github](https://github.com/) is a general-purpose online software
+[GitHub](https://github.com/) is a general-purpose online software
 project repository and is well suited for R package development. To
-install a package from Gtihub, one can use the `install_github()`
+install a package from GitHub, one can use the `install_github()`
 function from the `devtools` package. Below we first install the
 latter from CRAN (as show above), then we install `rWSBIM1207`
-directly from the user `UCLouvain-CBIO` github repository.
+directly from the user `UCLouvain-CBIO` GitHub repository.
 
 ```{r ghinstall, eval=FALSE, purl=FALSE}
 install.packages("devtools")
