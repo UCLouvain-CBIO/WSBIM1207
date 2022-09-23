@@ -2,10 +2,10 @@
 
 **Learning Objectives**
 
-- Learn about spreadsheets, their strenghts and weaknesses
+- Learn about spreadsheets, their strengths and weaknesses
 - How do we format data in spreadsheets for effective data use?
 - Learn about common spreadsheet errors and how to correct them.
-- Organize your data according to tidy data principles.
+- Organise your data according to tidy data principles.
 - Learn about text-based spreadsheet formats such as the
   comma-separated (CSV) or tab-separated formats.
 
@@ -14,18 +14,18 @@
 **Question**
 
 - What are basic principles for using spreadsheets for good data
-  organization?
+  organisation?
 
 **Objective**
 
-- Describe best practices for organizing data so computers can make
+- Describe best practices for organising data so computers can make
   the best use of data sets.
 
 **Keypoint**
 
-- Good data organization is the foundation of any research project.
+- Good data organisation is the foundation of any research project.
 
-Good data organization is the foundation of your research
+Good data organisation is the foundation of your research
 project. Most researchers have data or do data entry in
 spreadsheets. Spreadsheet programs are very useful graphical
 interfaces for designing data tables and handling very basic data
@@ -36,7 +36,7 @@ quality control functions. See also @Broman:2018.
 Spreadsheets are good for data entry. Therefore we have a lot of data
 in spreadsheets.  Much of your time as a researcher will be spent in
 this 'data wrangling' stage.  It's not the most fun, but it's
-necessary. We'll teach you how to think about data organization and
+necessary. We'll teach you how to think about data organisation and
 some practices for more effective data wrangling.
 
 ### What this lesson will not teach you {-}
@@ -71,7 +71,7 @@ Spreadsheet programs encompass a lot of the things we need to be able
 to do as researchers. We can use them for:
 
 - Data entry
-- Organizing data
+- Organising data
 - Subsetting and sorting data
 - Statistics
 - Plotting
@@ -104,6 +104,7 @@ ensure efficient downstream analysis.
 
 
 `r msmbstyle::question_begin()`
+
 Discuss the following points with your neighbour
 
 - How many people have used spreadsheets, in their research, courses,
@@ -184,7 +185,7 @@ In this lesson we're going to talk about:
 - Keep track of all of the steps you take to clean your data in a
   plain text file.
 
-- Organize your data according to tidy data principles.
+- Organise your data according to tidy data principles.
 
 The most common mistake made is treating spreadsheet programs like lab
 notebooks, that is, relying on context, notes in the margin, spatial
@@ -194,14 +195,14 @@ the same way, and unless we explain to the computer what every single
 thing means (and that can be hard!), it will not be able to see how
 our data fits together.
 
-Using the power of computers, we can manage and analyze data in much
+Using the power of computers, we can manage and analyse data in much
 more effective and faster ways, but to use that power, we have to set
 up our data for the computer to be able to understand it (and
 computers are very literal).
 
 This is why it’s extremely important to set up well-formatted tables
 from the outset - before you even start entering data from your very
-first preliminary experiment. Data organization is the foundation of
+first preliminary experiment. Data organisation is the foundation of
 your research project. It can make it easier or harder to work with
 your data throughout your analysis, so it's worth thinking about when
 you're doing your data entry or setting up your experiment. You can
@@ -223,7 +224,7 @@ different from the one you started with. In order to be able to
 reproduce your analyses or figure out what you did when a reviewer or
 instructor asks for a different analysis, you should
 
-- create a new file with your cleaned or analyzed data. Don't modify
+- create a new file with your cleaned or analysed data. Don't modify
   the original dataset, or you will never know where you started!
 
 - keep track of the steps you took in your clean up or analysis. You
@@ -297,9 +298,9 @@ up.
 3. You can see that there are two tabs. The data contains various
    clinical variables recorded in various hospitals in Brussels during
    the first and second COVID-19 waves in 2020. As you can see, the
-   data have been recorded differently during the march and november
+   data have been recorded differently during the march and November
    waves. Now you're the person in charge of this project and you want
-   to be able to start analyzing the data.
+   to be able to start analysing the data.
 
 4. With the person next to you, identify what is wrong with this
    spreadsheet. Also discuss the steps you would need to take to clean
@@ -351,7 +352,7 @@ is the *Tidy Data* paper @Wickham:2014.
 
 **Objectives**
 
-- Recognize and resolve common spreadsheet formatting problems.
+- Recognise and resolve common spreadsheet formatting problems.
 
 **Keypoints**
 
@@ -412,7 +413,7 @@ as well as some calculated summary statistics (an average (avr) and standard err
 
 ### Using multiple tabs {#tabs}
 
-But what about workbook tabs? That seems like an easy way to organize
+But what about workbook tabs? That seems like an easy way to organise
 data, right? Well, yes and no. When you create extra tabs, you fail to
 allow the computer to see connections in the data that are there (you
 have to introduce spreadsheet application-specific functions or
@@ -426,7 +427,7 @@ This isn't good practice for two reasons:
    in a new tab, and
 
 2. even if you manage to prevent all inconsistencies from creeping in,
-   you will add an extra step for yourself before you analyze the data
+   you will add an extra step for yourself before you analyse the data
    because you will have to combine these data into a single
    datatable. You will have to explicitly tell the computer how to
    combine tabs - and if the tabs are inconsistently formatted, you
@@ -436,7 +437,7 @@ The next time you’re entering data, and you go to create another tab
 or table, ask yourself if you could avoid adding this tab by adding
 another column to your original spreadsheet. We used multiple tabs in
 our example of a messy data file, but now you've seen how you can
-reorganize your data to consolidate across tabs.
+reorganise your data to consolidate across tabs.
 
 Your data sheet might get very long over the course of the
 experiment. This makes it harder to enter data if you can’t see your
@@ -495,9 +496,9 @@ different reasons.
 Whatever the reason, it's a problem if unknown or missing data is
 recorded as -999, 999, or 0.
 
-Many statistical programs will not recognize that these are intended
+Many statistical programs will not recognise that these are intended
 to represent missing (null) values. How these values are interpreted
-will depend on the software you use to analyze your data. It is
+will depend on the software you use to analyse your data. It is
 essential to use a clearly defined and consistent null indicator.
 
 Blanks (most applications) and NA (for R) are good
@@ -528,7 +529,7 @@ for different software applications in their article:
 aesthetically pleasing can compromise your computer’s ability to see
 associations in the data. Merged cells will make your data unreadable
 by statistics software. Consider restructuring your data in such a way
-that you will not need to merge cells to organize your data.
+that you will not need to merge cells to organise your data.
 
 
 ### Placing comments or units in cells {#units}
@@ -548,7 +549,7 @@ specify the units the cell is in.
 B+, A-, ...
 
 **Solution**: Don't include more than one piece of information in a
-cell. This will limit the ways in which you can analyze your data.  If
+cell. This will limit the ways in which you can analyse your data.  If
 you need both these measurements, design your data sheet to include
 this information. For example, include one column the ABO group and
 one for the Rhesus group.
@@ -828,10 +829,10 @@ knitr::include_graphics("./figs/analysis.png")
 ```
 
 A typical data analysis worflow is illustrated in figure
-\@ref(fig:analysis), where data is repeatedly tranformed, visualised,
+\@ref(fig:analysis), where data is repeatedly transformed, visualised,
 modelled. This iteration is repeated multiple times until the data is
 understood. In many real-life cases, however, most time is spend in
-clearning up and preparing the data, rather than actually analysing
+cleaning up and preparing the data, rather than actually analysing
 and understanding it.
 
 An agile data analysis workflow, with several fast iteration of the
