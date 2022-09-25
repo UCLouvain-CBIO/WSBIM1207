@@ -127,8 +127,8 @@ knitr::include_graphics('https://upload.wikimedia.org/wikipedia/en/a/a9/Ungradin
 
 .pull-left[
 
-- Interrogations régulières ~~avec possibilité de dispense~~. Comment?
-  Pourquoi?
+- Interrogations régulières ~~avec possibilité de
+  dispense~~. Pourquoi? Comment?
 
 - Présence au cours obligatoire. Pourquoi? Comment?
 
