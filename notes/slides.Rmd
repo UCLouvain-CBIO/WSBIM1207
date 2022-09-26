@@ -127,6 +127,26 @@ knitr::include_graphics('https://upload.wikimedia.org/wikipedia/en/a/a9/Ungradin
 
 .pull-left[
 
+1. Grades do not track learning (or anything else of importance).
+2. Grading reduces student learning.
+3. Only receiving feedback (and no grades) increases student learning.
+4. Self-evaluation and self-reflection improve student learning.
+
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+knitr::include_graphics('https://upload.wikimedia.org/wikipedia/en/a/a9/Ungrading_book.jpg')
+```
+]
+
+---
+
+# En pratique
+
+.pull-left[
+
 - Interrogations régulières ~~avec possibilité de
   dispense~~. Pourquoi? Comment?
 
