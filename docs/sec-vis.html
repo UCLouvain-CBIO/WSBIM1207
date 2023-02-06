@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2022-09-23" />
+<meta name="date" content="2023-02-06" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -65,13 +65,13 @@ function reset_tooltip(id) {
   tooltip.innerHTML = 'Copy link';
 }
 </script>
-<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.25/datatables.js"></script>
+<script src="libs/datatables-binding-0.27/datatables.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
@@ -81,6 +81,7 @@ function reset_tooltip(id) {
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -115,7 +116,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -128,7 +129,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -182,13 +183,13 @@ div.csl-indent {
 <li class="dropdown" style="float:right">
 <a href="javascript:void(0)" class="dropbtn">&#x25BE; Chapters</a>
 <div class="dropdown-content">
-<a href="index.html">Preamble</a>
-<a href="sec-dataorg.html"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
-<a href="sec-rrstudio.html"><span class="toc-section-number">2</span> R and RStudio</a>
-<a href="sec-startr.html"><span class="toc-section-number">3</span> Introduction to R</a>
-<a href="sec-startdata.html"><span class="toc-section-number">4</span> Starting with data</a>
-<a href="sec-dplyr.html"><span class="toc-section-number">5</span> Manipulating and analyzing data with dplyr</a>
-<a id="active-page" href="sec-vis.html"><span class="toc-section-number">6</span> Data visualization</a><ul class="toc-sections">
+<a href="index.html" id="toc-preamble">Preamble</a>
+<a href="sec-dataorg.html" id="toc-sec-dataorg"><span class="toc-section-number">1</span> Data organisation with Spreadsheets</a>
+<a href="sec-rrstudio.html" id="toc-sec-rrstudio"><span class="toc-section-number">2</span> R and RStudio</a>
+<a href="sec-startr.html" id="toc-sec-startr"><span class="toc-section-number">3</span> Introduction to R</a>
+<a href="sec-startdata.html" id="toc-sec-startdata"><span class="toc-section-number">4</span> Starting with data</a>
+<a href="sec-dplyr.html" id="toc-sec-dplyr"><span class="toc-section-number">5</span> Manipulating and analyzing data with dplyr</a>
+<a id="active-page" href="sec-vis.html" id="toc-sec-vis"><span class="toc-section-number">6</span> Data visualization</a><ul class="toc-sections">
 <li class="toc"><a href="#plotting-with-ggplot2"> Plotting with <strong><code>ggplot2</code></strong></a></li>
 <li class="toc"><a href="#building-your-plots-iteratively"> Building your plots iteratively</a></li>
 <li class="toc"><a href="#boxplot"> Boxplot</a></li>
@@ -201,13 +202,13 @@ div.csl-indent {
 <li class="toc"><a href="#other-packages-for-visualisation"> Other packages for visualisation</a></li>
 <li class="toc"><a href="#additional-exercises-4"> Additional exercises</a></li>
 </ul>
-<a href="sec-join.html"><span class="toc-section-number">7</span> Joining tables</a>
-<a href="sec-rr.html"><span class="toc-section-number">8</span> Reproducible research</a>
-<a href="sec-bioinfo.html"><span class="toc-section-number">9</span> Bioinformatics</a>
-<a href="sec-prog.html"><span class="toc-section-number">10</span> Additional programming concepts</a>
-<a href="sec-ccl.html"><span class="toc-section-number">11</span> Conclusions</a>
-<a href="sec-anx.html"><span class="toc-section-number">12</span> Annex</a>
-<a href="session-information.html"><span class="toc-section-number">13</span> Session information</a>
+<a href="sec-join.html" id="toc-sec-join"><span class="toc-section-number">7</span> Joining tables</a>
+<a href="sec-rr.html" id="toc-sec-rr"><span class="toc-section-number">8</span> Reproducible research</a>
+<a href="sec-bioinfo.html" id="toc-sec-bioinfo"><span class="toc-section-number">9</span> Bioinformatics</a>
+<a href="sec-prog.html" id="toc-sec-prog"><span class="toc-section-number">10</span> Additional programming concepts</a>
+<a href="sec-ccl.html" id="toc-sec-ccl"><span class="toc-section-number">11</span> Conclusions</a>
+<a href="sec-anx.html" id="toc-sec-anx"><span class="toc-section-number">12</span> Annex</a>
+<a href="session-information.html" id="toc-session-information"><span class="toc-section-number">13</span> Session information</a>
 </div>
 </li>
 </ul>
@@ -217,7 +218,8 @@ div.csl-indent {
 <div class="row">
 <div class="col-sm-12">
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html><body><div id="sec-vis" class="section level1" number="6">
+<html><body>
+<div id="sec-vis" class="section level1" number="6">
 <h1>
 <span class="header-section-number">Chapter 6</span> Data visualization</h1>
 <p><strong>Learning Objectives</strong></p>
@@ -252,11 +254,11 @@ complex plots from data in a data frame. It provides a more
 programmatic interface for specifying what variables to plot, how they
 are displayed, and general visual properties. The theoretical
 foundation that supports the <code>ggplot2</code> is the <em>Grammar of Graphics</em>
-(<span class="citation"><label for="tufte-mn-20" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-20" class="margin-toggle">Wilkinson (2005)<span class="marginnote">Wilkinson, Leland. 2005. <em>The Grammar of Graphics (statistics and Computing)</em>. Berlin, Heidelberg: Springer-Verlag.</span></span>). Using this approach, we only need minimal changes
+(<span class="citation">Wilkinson (<label for="tufte-mn-20" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-20" class="margin-toggle">2005<span class="marginnote">Wilkinson, Leland. 2005. <em>The Grammar of Graphics (Statistics and Computing)</em>. Berlin, Heidelberg: Springer-Verlag.</span>)</span>). Using this approach, we only need minimal changes
 if the underlying data change or if we decide to change from a bar
 plot to a scatterplot. This helps in creating publication quality
 plots with minimal amounts of adjustments and tweaking.</p>
-<p>There is a book about <code>ggplot2</code> (<span class="citation"><label for="tufte-mn-21" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-21" class="margin-toggle">Wickham (2016)<span class="marginnote">Wickham, Hadley. 2016. <em><span class="nocase">ggplot2</span>: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="http://ggplot2.org">http://ggplot2.org</a>.</span></span>) that provides a good
+<p>There is a book about <code>ggplot2</code> (<span class="citation">Wickham (<label for="tufte-mn-21" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-21" class="margin-toggle">2016<span class="marginnote">Wickham, Hadley. 2016. <em><span class="nocase">ggplot2</span>: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="http://ggplot2.org">http://ggplot2.org</a>.</span>)</span>) that provides a good
 overview, but it is outdated. The 3rd edition is in preparation and
 will be <a href="https://ggplot2-book.org/">freely available online</a>. The
 <code>ggplot2</code> webpage
@@ -271,8 +273,7 @@ customization of plots.</p>
 <blockquote>
 <p>The idea behind the Grammar of Graphics it is that you can build every
 graph from the same 3 components: (1) a data set, (2) a coordinate system,
-and (3) geoms — i.e. visual marks that represent data points.<label for="tufte-sn-11" class="margin-toggle sidenote-number">11</label><input type="checkbox" id="tufte-sn-11" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">11</span> Source: <a href="https://github.com/rstudio/cheatsheets/raw/main/data-visualization-2.1.pdf">Data Visualization Cheat
-Sheet</a>.</span></p>
+and (3) geoms — i.e. visual marks that represent data points <a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>.</p>
 </blockquote>
 <p>To build a ggplot, we will use the following basic template that can
 be used for different types of plots:</p>
@@ -391,7 +392,7 @@ now have warning messages appearing?</li>
 <span id="cb447-3"><a href="sec-vis.html#cb447-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div>
 <pre><code>## Warning: Transformation introduced infinite values in continuous x-axis</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<pre><code>## Warning: Removed 507 rows containing non-finite values (stat_bin).</code></pre>
+<pre><code>## Warning: Removed 507 rows containing non-finite values (`stat_bin()`).</code></pre>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-193-1.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -438,8 +439,8 @@ biotype that we will use later on to represent the genes. We will save the fold 
 <span id="cb452-5"><a href="sec-vis.html#cb452-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> time,</span>
 <span id="cb452-6"><a href="sec-vis.html#cb452-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> mean_exp) <span class="sc">%&gt;%</span></span>
 <span id="cb452-7"><a href="sec-vis.html#cb452-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_8_vs_0 =</span> <span class="st">`</span><span class="at">8</span><span class="st">`</span> <span class="sc">-</span> <span class="st">`</span><span class="at">0</span><span class="st">`</span>, <span class="at">time_4_vs_0 =</span> <span class="st">`</span><span class="at">4</span><span class="st">`</span> <span class="sc">-</span> <span class="st">`</span><span class="at">0</span><span class="st">`</span>)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'time'. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'time'. You can override using the
+## `.groups` argument.</code></pre>
 <p>We can then build a ggplot with the newly created dataset
 <code>rna_fc</code>. Building plots with <code>ggplot2</code> is typically an iterative
 process. We start by defining the dataset we’ll use, lay out the axes,
@@ -757,8 +758,8 @@ genes:</p>
 <div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="sec-vis.html#cb473-1" aria-hidden="true" tabindex="-1"></a>mean_exp_by_time <span class="ot">&lt;-</span> sub_rna <span class="sc">%&gt;%</span></span>
 <span id="cb473-2"><a href="sec-vis.html#cb473-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(gene,time) <span class="sc">%&gt;%</span></span>
 <span id="cb473-3"><a href="sec-vis.html#cb473-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">mean_exp =</span> <span class="fu">mean</span>(expression_log))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the
+## `.groups` argument.</code></pre>
 <p>We can build the line plot with duration of the infection on the
 x-axis and the mean expression on the y-axis:</p>
 <div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="sec-vis.html#cb475-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_time,</span>
@@ -811,8 +812,8 @@ grouped by <code>gene</code>, <code>time</code>, and <code>sex</code>:</p>
 <div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="sec-vis.html#cb480-1" aria-hidden="true" tabindex="-1"></a>mean_exp_by_time_sex <span class="ot">&lt;-</span> sub_rna <span class="sc">%&gt;%</span></span>
 <span id="cb480-2"><a href="sec-vis.html#cb480-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gene, time, sex) <span class="sc">%&gt;%</span></span>
 <span id="cb480-3"><a href="sec-vis.html#cb480-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_exp =</span> <span class="fu">mean</span>(expression_log))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'time'. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'time'. You can override using the
+## `.groups` argument.</code></pre>
 <p>We can now make the faceted plot by splitting further by sex using
 <code>color</code> (within a single plot):</p>
 <div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="sec-vis.html#cb482-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_time_sex,</span>
@@ -855,8 +856,8 @@ infection.</p>
 <div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="sec-vis.html#cb484-1" aria-hidden="true" tabindex="-1"></a>mean_exp_by_chromosome <span class="ot">&lt;-</span> rna <span class="sc">%&gt;%</span></span>
 <span id="cb484-2"><a href="sec-vis.html#cb484-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(chromosome_name, time) <span class="sc">%&gt;%</span></span>
 <span id="cb484-3"><a href="sec-vis.html#cb484-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_exp =</span> <span class="fu">mean</span>(expression_log))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'chromosome_name'. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'chromosome_name'. You can override using
+## the `.groups` argument.</code></pre>
 <div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="sec-vis.html#cb486-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_chromosome,</span>
 <span id="cb486-2"><a href="sec-vis.html#cb486-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> time,</span>
 <span id="cb486-3"><a href="sec-vis.html#cb486-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> mean_exp)) <span class="sc">+</span></span>
@@ -919,7 +920,7 @@ themes.</p>
 sheet</a>
 and think of ways you could improve the plot.</p>
 <p>Now, we can change names of axes to something more informative than ‘time’
-and ‘mean_exp,’ and add a title to the figure:</p>
+and ‘mean_exp’, and add a title to the figure:</p>
 <div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="sec-vis.html#cb489-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_time_sex,</span>
 <span id="cb489-2"><a href="sec-vis.html#cb489-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> time,</span>
 <span id="cb489-3"><a href="sec-vis.html#cb489-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> mean_exp,</span>
@@ -1028,34 +1029,36 @@ for inspiration. Here are some ideas:</p>
 <span id="cb494-5"><a href="sec-vis.html#cb494-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> gene, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
 <span id="cb494-6"><a href="sec-vis.html#cb494-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb494-7"><a href="sec-vis.html#cb494-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## ℹ Please use `linewidth` instead.</code></pre>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-202-1.png" width="672"></p>
-<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="sec-vis.html#cb495-1" aria-hidden="true" tabindex="-1"></a><span class="co"># change the name of the legend and the labels</span></span>
-<span id="cb495-2"><a href="sec-vis.html#cb495-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_time_sex,</span>
-<span id="cb495-3"><a href="sec-vis.html#cb495-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> mean_exp, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
-<span id="cb495-4"><a href="sec-vis.html#cb495-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb495-5"><a href="sec-vis.html#cb495-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> gene, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
-<span id="cb495-6"><a href="sec-vis.html#cb495-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb495-7"><a href="sec-vis.html#cb495-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
-<span id="cb495-8"><a href="sec-vis.html#cb495-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">name =</span> <span class="st">"Gender"</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"M"</span>))</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-202-2.png" width="672"></p>
-<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="sec-vis.html#cb496-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using a different color palette</span></span>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="sec-vis.html#cb496-1" aria-hidden="true" tabindex="-1"></a><span class="co"># change the name of the legend and the labels</span></span>
 <span id="cb496-2"><a href="sec-vis.html#cb496-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_time_sex,</span>
 <span id="cb496-3"><a href="sec-vis.html#cb496-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> mean_exp, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
 <span id="cb496-4"><a href="sec-vis.html#cb496-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb496-5"><a href="sec-vis.html#cb496-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> gene, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
 <span id="cb496-6"><a href="sec-vis.html#cb496-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb496-7"><a href="sec-vis.html#cb496-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
-<span id="cb496-8"><a href="sec-vis.html#cb496-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">name =</span> <span class="st">"Gender"</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"M"</span>), <span class="at">palette =</span> <span class="st">"Dark2"</span>)</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-202-3.png" width="672"></p>
-<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="sec-vis.html#cb497-1" aria-hidden="true" tabindex="-1"></a><span class="co"># manually specifying the colors</span></span>
+<span id="cb496-8"><a href="sec-vis.html#cb496-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">name =</span> <span class="st">"Gender"</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"M"</span>))</span></code></pre></div>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-202-2.png" width="672"></p>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="sec-vis.html#cb497-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using a different color palette</span></span>
 <span id="cb497-2"><a href="sec-vis.html#cb497-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_time_sex,</span>
 <span id="cb497-3"><a href="sec-vis.html#cb497-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> mean_exp, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
 <span id="cb497-4"><a href="sec-vis.html#cb497-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb497-5"><a href="sec-vis.html#cb497-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> gene, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
 <span id="cb497-6"><a href="sec-vis.html#cb497-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb497-7"><a href="sec-vis.html#cb497-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
-<span id="cb497-8"><a href="sec-vis.html#cb497-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Gender"</span>,  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"M"</span>),</span>
-<span id="cb497-9"><a href="sec-vis.html#cb497-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"royalblue"</span>, <span class="st">"deeppink"</span>))</span></code></pre></div>
+<span id="cb497-8"><a href="sec-vis.html#cb497-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">name =</span> <span class="st">"Gender"</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"M"</span>), <span class="at">palette =</span> <span class="st">"Dark2"</span>)</span></code></pre></div>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-202-3.png" width="672"></p>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="sec-vis.html#cb498-1" aria-hidden="true" tabindex="-1"></a><span class="co"># manually specifying the colors</span></span>
+<span id="cb498-2"><a href="sec-vis.html#cb498-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_time_sex,</span>
+<span id="cb498-3"><a href="sec-vis.html#cb498-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> mean_exp, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
+<span id="cb498-4"><a href="sec-vis.html#cb498-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb498-5"><a href="sec-vis.html#cb498-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> gene, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb498-6"><a href="sec-vis.html#cb498-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb498-7"><a href="sec-vis.html#cb498-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb498-8"><a href="sec-vis.html#cb498-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Gender"</span>,  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"M"</span>),</span>
+<span id="cb498-9"><a href="sec-vis.html#cb498-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"royalblue"</span>, <span class="st">"deeppink"</span>))</span></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-202-4.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1077,69 +1080,69 @@ each other:</p>
 first need to reorder the levels of <code>chromosome_name</code> and filter the
 unique genes per chromosome. We also change the scale of the y-axis to
 a log10 scale for better readability.</p>
-<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="sec-vis.html#cb498-1" aria-hidden="true" tabindex="-1"></a>rna<span class="sc">$</span>chromosome_name <span class="ot">&lt;-</span> <span class="fu">factor</span>(rna<span class="sc">$</span>chromosome_name,</span>
-<span id="cb498-2"><a href="sec-vis.html#cb498-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">19</span>,<span class="st">"X"</span>,<span class="st">"Y"</span>))</span>
-<span id="cb498-3"><a href="sec-vis.html#cb498-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb498-4"><a href="sec-vis.html#cb498-4" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome <span class="ot">&lt;-</span> rna <span class="sc">%&gt;%</span></span>
-<span id="cb498-5"><a href="sec-vis.html#cb498-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(chromosome_name, gene) <span class="sc">%&gt;%</span></span>
-<span id="cb498-6"><a href="sec-vis.html#cb498-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">distinct</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb498-7"><a href="sec-vis.html#cb498-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb498-8"><a href="sec-vis.html#cb498-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> chromosome_name),</span>
-<span id="cb498-9"><a href="sec-vis.html#cb498-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="st">"seagreen"</span>,</span>
-<span id="cb498-10"><a href="sec-vis.html#cb498-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="st">"dodge"</span>,</span>
-<span id="cb498-11"><a href="sec-vis.html#cb498-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">stat =</span> <span class="st">"count"</span>) <span class="sc">+</span></span>
-<span id="cb498-12"><a href="sec-vis.html#cb498-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"log10(n genes)"</span>,</span>
-<span id="cb498-13"><a href="sec-vis.html#cb498-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"chromosome"</span>) <span class="sc">+</span></span>
-<span id="cb498-14"><a href="sec-vis.html#cb498-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_log10</span>()</span>
-<span id="cb498-15"><a href="sec-vis.html#cb498-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb498-16"><a href="sec-vis.html#cb498-16" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome</span></code></pre></div>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="sec-vis.html#cb499-1" aria-hidden="true" tabindex="-1"></a>rna<span class="sc">$</span>chromosome_name <span class="ot">&lt;-</span> <span class="fu">factor</span>(rna<span class="sc">$</span>chromosome_name,</span>
+<span id="cb499-2"><a href="sec-vis.html#cb499-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">19</span>,<span class="st">"X"</span>,<span class="st">"Y"</span>))</span>
+<span id="cb499-3"><a href="sec-vis.html#cb499-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb499-4"><a href="sec-vis.html#cb499-4" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome <span class="ot">&lt;-</span> rna <span class="sc">%&gt;%</span></span>
+<span id="cb499-5"><a href="sec-vis.html#cb499-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(chromosome_name, gene) <span class="sc">%&gt;%</span></span>
+<span id="cb499-6"><a href="sec-vis.html#cb499-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">distinct</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb499-7"><a href="sec-vis.html#cb499-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb499-8"><a href="sec-vis.html#cb499-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> chromosome_name),</span>
+<span id="cb499-9"><a href="sec-vis.html#cb499-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="st">"seagreen"</span>,</span>
+<span id="cb499-10"><a href="sec-vis.html#cb499-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="st">"dodge"</span>,</span>
+<span id="cb499-11"><a href="sec-vis.html#cb499-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">stat =</span> <span class="st">"count"</span>) <span class="sc">+</span></span>
+<span id="cb499-12"><a href="sec-vis.html#cb499-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"log10(n genes)"</span>,</span>
+<span id="cb499-13"><a href="sec-vis.html#cb499-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"chromosome"</span>) <span class="sc">+</span></span>
+<span id="cb499-14"><a href="sec-vis.html#cb499-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_log10</span>()</span>
+<span id="cb499-15"><a href="sec-vis.html#cb499-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb499-16"><a href="sec-vis.html#cb499-16" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome</span></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/sub1-1.png" width="672"></p>
 <p>Below, we also remove the legend altogether by setting the
 <code>legend.position</code> to <code>"none"</code>.</p>
-<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="sec-vis.html#cb499-1" aria-hidden="true" tabindex="-1"></a>exp_boxplot_sex <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(rna,</span>
-<span id="cb499-2"><a href="sec-vis.html#cb499-2" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">aes</span>(<span class="at">y =</span> expression_log,</span>
-<span id="cb499-3"><a href="sec-vis.html#cb499-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">x =</span> <span class="fu">as.factor</span>(time),</span>
-<span id="cb499-4"><a href="sec-vis.html#cb499-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">color =</span> sex)) <span class="sc">+</span></span>
-<span id="cb499-5"><a href="sec-vis.html#cb499-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb499-6"><a href="sec-vis.html#cb499-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Mean gene exp"</span>,</span>
-<span id="cb499-7"><a href="sec-vis.html#cb499-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"time"</span>) <span class="sc">+</span></span>
-<span id="cb499-8"><a href="sec-vis.html#cb499-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb499-9"><a href="sec-vis.html#cb499-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb499-10"><a href="sec-vis.html#cb499-10" aria-hidden="true" tabindex="-1"></a>exp_boxplot_sex</span></code></pre></div>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="sec-vis.html#cb500-1" aria-hidden="true" tabindex="-1"></a>exp_boxplot_sex <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(rna,</span>
+<span id="cb500-2"><a href="sec-vis.html#cb500-2" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">aes</span>(<span class="at">y =</span> expression_log,</span>
+<span id="cb500-3"><a href="sec-vis.html#cb500-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">x =</span> <span class="fu">as.factor</span>(time),</span>
+<span id="cb500-4"><a href="sec-vis.html#cb500-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">color =</span> sex)) <span class="sc">+</span></span>
+<span id="cb500-5"><a href="sec-vis.html#cb500-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb500-6"><a href="sec-vis.html#cb500-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Mean gene exp"</span>,</span>
+<span id="cb500-7"><a href="sec-vis.html#cb500-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"time"</span>) <span class="sc">+</span></span>
+<span id="cb500-8"><a href="sec-vis.html#cb500-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb500-9"><a href="sec-vis.html#cb500-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb500-10"><a href="sec-vis.html#cb500-10" aria-hidden="true" tabindex="-1"></a>exp_boxplot_sex</span></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/sub2-1.png" width="672"></p>
 <p>The <a href="https://github.com/thomasp85/patchwork"><strong>patchwork</strong></a> package
 provides an elegant approach to combining figures using the <code>+</code> to
 arrange figures (typically side by side). More specifically the <code>|</code>
 explicitly arranges them side by side and <code>/</code> stacks them on top of
 each other.</p>
-<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="sec-vis.html#cb500-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"patchwork"</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="sec-vis.html#cb501-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"patchwork"</span>)</span>
-<span id="cb501-2"><a href="sec-vis.html#cb501-2" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome <span class="sc">+</span> exp_boxplot_sex <span class="do">## or use | instead of +</span></span></code></pre></div>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="sec-vis.html#cb501-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"patchwork"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="sec-vis.html#cb502-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"patchwork"</span>)</span>
+<span id="cb502-2"><a href="sec-vis.html#cb502-2" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome <span class="sc">+</span> exp_boxplot_sex <span class="do">## or use | instead of +</span></span></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-203-1.png" width="672"></p>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="sec-vis.html#cb502-1" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome <span class="sc">/</span> exp_boxplot_sex</span></code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="sec-vis.html#cb503-1" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome <span class="sc">/</span> exp_boxplot_sex</span></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-204-1.png" width="672"></p>
 <p>We can combine further control the layout of the final composition
 with <code>plot_layout</code> to create more complex layouts:</p>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="sec-vis.html#cb503-1" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome <span class="sc">+</span> exp_boxplot_sex <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="sec-vis.html#cb504-1" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome <span class="sc">+</span> exp_boxplot_sex <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-205-1.png" width="672"></p>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="sec-vis.html#cb504-1" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome <span class="sc">+</span></span>
-<span id="cb504-2"><a href="sec-vis.html#cb504-2" aria-hidden="true" tabindex="-1"></a>    (count_gene_chromosome <span class="sc">+</span> exp_boxplot_sex) <span class="sc">+</span></span>
-<span id="cb504-3"><a href="sec-vis.html#cb504-3" aria-hidden="true" tabindex="-1"></a>    exp_boxplot_sex <span class="sc">+</span></span>
-<span id="cb504-4"><a href="sec-vis.html#cb504-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="sec-vis.html#cb505-1" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome <span class="sc">+</span></span>
+<span id="cb505-2"><a href="sec-vis.html#cb505-2" aria-hidden="true" tabindex="-1"></a>    (count_gene_chromosome <span class="sc">+</span> exp_boxplot_sex) <span class="sc">+</span></span>
+<span id="cb505-3"><a href="sec-vis.html#cb505-3" aria-hidden="true" tabindex="-1"></a>    exp_boxplot_sex <span class="sc">+</span></span>
+<span id="cb505-4"><a href="sec-vis.html#cb505-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-206-1.png" width="672"></p>
 <p>The last plot can also be created using the <code>|</code> and <code>/</code> composers:</p>
-<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="sec-vis.html#cb505-1" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome <span class="sc">/</span></span>
-<span id="cb505-2"><a href="sec-vis.html#cb505-2" aria-hidden="true" tabindex="-1"></a>    (count_gene_chromosome <span class="sc">|</span> exp_boxplot_sex) <span class="sc">/</span></span>
-<span id="cb505-3"><a href="sec-vis.html#cb505-3" aria-hidden="true" tabindex="-1"></a>    exp_boxplot_sex</span></code></pre></div>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="sec-vis.html#cb506-1" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome <span class="sc">/</span></span>
+<span id="cb506-2"><a href="sec-vis.html#cb506-2" aria-hidden="true" tabindex="-1"></a>    (count_gene_chromosome <span class="sc">|</span> exp_boxplot_sex) <span class="sc">/</span></span>
+<span id="cb506-3"><a href="sec-vis.html#cb506-3" aria-hidden="true" tabindex="-1"></a>    exp_boxplot_sex</span></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-207-1.png" width="672"></p>
 <p>Learn more about <code>patchwork</code> on its
 <a href="https://patchwork.data-imaginist.com/">webpage</a> or in this
 <a href="https://www.youtube.com/watch?v=0m4yywqNPVY">video</a>.</p>
 <p>Another option is the <strong><code>gridExtra</code></strong> package that allows to combine
 separate ggplots into a single figure using <code>grid.arrange()</code>:</p>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="sec-vis.html#cb506-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"gridExtra"</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="sec-vis.html#cb507-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
-<span id="cb507-2"><a href="sec-vis.html#cb507-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(count_gene_chromosome, exp_boxplot_sex, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="sec-vis.html#cb507-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"gridExtra"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="sec-vis.html#cb508-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb508-2"><a href="sec-vis.html#cb508-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(count_gene_chromosome, exp_boxplot_sex, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="WSBIM1207_files/figure-html/gridarrange-example-1.png" width="960"></p>
 <p>In addition to the <code>ncol</code> and <code>nrow</code> arguments, used to make simple
 arrangements, there are tools for <a href="https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html">constructing more complex
@@ -1157,30 +1160,30 @@ and will not scale well for posters.</p>
 the dimension and resolution of your plot by adjusting the appropriate
 arguments (<code>width</code>, <code>height</code> and <code>dpi</code>).</p>
 <p>Make sure you have the <code>fig_output/</code> folder in your working directory.</p>
-<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="sec-vis.html#cb508-1" aria-hidden="true" tabindex="-1"></a>my_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_time_sex,</span>
-<span id="cb508-2"><a href="sec-vis.html#cb508-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> time,</span>
-<span id="cb508-3"><a href="sec-vis.html#cb508-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">y =</span> mean_exp,</span>
-<span id="cb508-4"><a href="sec-vis.html#cb508-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">color =</span> sex)) <span class="sc">+</span></span>
-<span id="cb508-5"><a href="sec-vis.html#cb508-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb508-6"><a href="sec-vis.html#cb508-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> gene, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
-<span id="cb508-7"><a href="sec-vis.html#cb508-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean gene expression by duration of the infection"</span>,</span>
-<span id="cb508-8"><a href="sec-vis.html#cb508-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Duration of the infection (in days)"</span>,</span>
-<span id="cb508-9"><a href="sec-vis.html#cb508-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Mean gene expression"</span>) <span class="sc">+</span></span>
-<span id="cb508-10"><a href="sec-vis.html#cb508-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">color=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="st">"Gender"</span>)) <span class="sc">+</span></span>
-<span id="cb508-11"><a href="sec-vis.html#cb508-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb508-12"><a href="sec-vis.html#cb508-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"royalblue4"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb508-13"><a href="sec-vis.html#cb508-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"royalblue4"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb508-14"><a href="sec-vis.html#cb508-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb508-15"><a href="sec-vis.html#cb508-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.grid =</span> <span class="fu">element_line</span>(<span class="at">colour=</span><span class="st">"lightsteelblue1"</span>),</span>
-<span id="cb508-16"><a href="sec-vis.html#cb508-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">"top"</span>)</span>
-<span id="cb508-17"><a href="sec-vis.html#cb508-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"fig_output/mean_exp_by_time_sex.png"</span>, my_plot, <span class="at">width =</span> <span class="dv">15</span>,</span>
-<span id="cb508-18"><a href="sec-vis.html#cb508-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">10</span>)</span>
-<span id="cb508-19"><a href="sec-vis.html#cb508-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb508-20"><a href="sec-vis.html#cb508-20" aria-hidden="true" tabindex="-1"></a><span class="co"># This also works for grid.arrange() plots</span></span>
-<span id="cb508-21"><a href="sec-vis.html#cb508-21" aria-hidden="true" tabindex="-1"></a>combo_plot <span class="ot">&lt;-</span> <span class="fu">grid.arrange</span>(count_gene_chromosome, exp_boxplot_sex,</span>
-<span id="cb508-22"><a href="sec-vis.html#cb508-22" aria-hidden="true" tabindex="-1"></a>                           <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">widths =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">6</span>))</span>
-<span id="cb508-23"><a href="sec-vis.html#cb508-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"fig_output/combo_plot_chromosome_sex.png"</span>, combo_plot,</span>
-<span id="cb508-24"><a href="sec-vis.html#cb508-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">10</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="sec-vis.html#cb509-1" aria-hidden="true" tabindex="-1"></a>my_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_time_sex,</span>
+<span id="cb509-2"><a href="sec-vis.html#cb509-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> time,</span>
+<span id="cb509-3"><a href="sec-vis.html#cb509-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">y =</span> mean_exp,</span>
+<span id="cb509-4"><a href="sec-vis.html#cb509-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">color =</span> sex)) <span class="sc">+</span></span>
+<span id="cb509-5"><a href="sec-vis.html#cb509-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb509-6"><a href="sec-vis.html#cb509-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> gene, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb509-7"><a href="sec-vis.html#cb509-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean gene expression by duration of the infection"</span>,</span>
+<span id="cb509-8"><a href="sec-vis.html#cb509-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Duration of the infection (in days)"</span>,</span>
+<span id="cb509-9"><a href="sec-vis.html#cb509-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Mean gene expression"</span>) <span class="sc">+</span></span>
+<span id="cb509-10"><a href="sec-vis.html#cb509-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">color=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="st">"Gender"</span>)) <span class="sc">+</span></span>
+<span id="cb509-11"><a href="sec-vis.html#cb509-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb509-12"><a href="sec-vis.html#cb509-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"royalblue4"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb509-13"><a href="sec-vis.html#cb509-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"royalblue4"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb509-14"><a href="sec-vis.html#cb509-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb509-15"><a href="sec-vis.html#cb509-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.grid =</span> <span class="fu">element_line</span>(<span class="at">colour=</span><span class="st">"lightsteelblue1"</span>),</span>
+<span id="cb509-16"><a href="sec-vis.html#cb509-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">"top"</span>)</span>
+<span id="cb509-17"><a href="sec-vis.html#cb509-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"fig_output/mean_exp_by_time_sex.png"</span>, my_plot, <span class="at">width =</span> <span class="dv">15</span>,</span>
+<span id="cb509-18"><a href="sec-vis.html#cb509-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">10</span>)</span>
+<span id="cb509-19"><a href="sec-vis.html#cb509-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb509-20"><a href="sec-vis.html#cb509-20" aria-hidden="true" tabindex="-1"></a><span class="co"># This also works for grid.arrange() plots</span></span>
+<span id="cb509-21"><a href="sec-vis.html#cb509-21" aria-hidden="true" tabindex="-1"></a>combo_plot <span class="ot">&lt;-</span> <span class="fu">grid.arrange</span>(count_gene_chromosome, exp_boxplot_sex,</span>
+<span id="cb509-22"><a href="sec-vis.html#cb509-22" aria-hidden="true" tabindex="-1"></a>                           <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">widths =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">6</span>))</span>
+<span id="cb509-23"><a href="sec-vis.html#cb509-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"fig_output/combo_plot_chromosome_sex.png"</span>, combo_plot,</span>
+<span id="cb509-24"><a href="sec-vis.html#cb509-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">10</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div>
 <p>Note: The parameters <code>width</code> and <code>height</code> also determine the font size
 in the saved plot.</p>
 </div>
@@ -1201,13 +1204,13 @@ other (see figure <a href="sec-vis.html#fig:paintermodel">6.1</a>). This is a fu
 difference with <code>ggplot2</code> (and with <code>lattice</code>, described below), that
 returns dedicated objects, that are rendered on screen or in a file,
 and that can even be updated.</p>
-<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="sec-vis.html#cb509-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
-<span id="cb509-2"><a href="sec-vis.html#cb509-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">main =</span> <span class="st">"First layer, produced with plot(1:20)"</span>)</span>
-<span id="cb509-3"><a href="sec-vis.html#cb509-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">main =</span> <span class="st">"A horizontal red line, added with abline(h = 10)"</span>)</span>
-<span id="cb509-4"><a href="sec-vis.html#cb509-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">10</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
-<span id="cb509-5"><a href="sec-vis.html#cb509-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">main =</span> <span class="st">"A rectangle, added with rect(5, 5, 15, 15)"</span>)</span>
-<span id="cb509-6"><a href="sec-vis.html#cb509-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">10</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
-<span id="cb509-7"><a href="sec-vis.html#cb509-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rect</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">15</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="sec-vis.html#cb510-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb510-2"><a href="sec-vis.html#cb510-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">main =</span> <span class="st">"First layer, produced with plot(1:20)"</span>)</span>
+<span id="cb510-3"><a href="sec-vis.html#cb510-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">main =</span> <span class="st">"A horizontal red line, added with abline(h = 10)"</span>)</span>
+<span id="cb510-4"><a href="sec-vis.html#cb510-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">10</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb510-5"><a href="sec-vis.html#cb510-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">main =</span> <span class="st">"A rectangle, added with rect(5, 5, 15, 15)"</span>)</span>
+<span id="cb510-6"><a href="sec-vis.html#cb510-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">10</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb510-7"><a href="sec-vis.html#cb510-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rect</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">15</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:paintermodel"></span>
 <p class="caption marginnote shownote">
@@ -1221,13 +1224,13 @@ adapt their behaviour based on the class of their input. This is again
 very different from what we have in <code>ggplot2</code>, that only accepts
 dataframes as input, and that requires plots to be constructed bit by
 bit.</p>
-<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="sec-vis.html#cb510-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb510-2"><a href="sec-vis.html#cb510-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>),</span>
-<span id="cb510-3"><a href="sec-vis.html#cb510-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Boxplot of rnorm(100)"</span>)</span>
-<span id="cb510-4"><a href="sec-vis.html#cb510-4" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>), <span class="at">ncol =</span> <span class="dv">10</span>),</span>
-<span id="cb510-5"><a href="sec-vis.html#cb510-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Boxplot of matrix(rnorm(100), ncol = 10)"</span>)</span>
-<span id="cb510-6"><a href="sec-vis.html#cb510-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span>
-<span id="cb510-7"><a href="sec-vis.html#cb510-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>), <span class="at">ncol =</span> <span class="dv">10</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="sec-vis.html#cb511-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb511-2"><a href="sec-vis.html#cb511-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>),</span>
+<span id="cb511-3"><a href="sec-vis.html#cb511-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Boxplot of rnorm(100)"</span>)</span>
+<span id="cb511-4"><a href="sec-vis.html#cb511-4" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>), <span class="at">ncol =</span> <span class="dv">10</span>),</span>
+<span id="cb511-5"><a href="sec-vis.html#cb511-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Boxplot of matrix(rnorm(100), ncol = 10)"</span>)</span>
+<span id="cb511-6"><a href="sec-vis.html#cb511-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span>
+<span id="cb511-7"><a href="sec-vis.html#cb511-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>), <span class="at">ncol =</span> <span class="dv">10</span>))</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:plotmethod"></span>
 <p class="caption marginnote shownote">
@@ -1250,7 +1253,7 @@ cumbersome.</p>
 dataframes as input, returns graphical objects and supports
 faceting. <code>lattice</code> however isn’t based on the grammar of graphics
 and has a more convoluted interface.</p>
-<p>A good reference for the <code>lattice</code> package is <span class="citation"><label for="tufte-mn-22" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-22" class="margin-toggle">Deepayan (2008)<span class="marginnote">Deepayan, Sarkar. 2008. <em>Lattice: Multivariate Data Visualization with r</em>. New York: Springer. <a href="http://lmdvr.r-forge.r-project.org">http://lmdvr.r-forge.r-project.org</a>.</span></span>.</p>
+<p>A good reference for the <code>lattice</code> package is <span class="citation">Deepayan (<label for="tufte-mn-22" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-22" class="margin-toggle">2008<span class="marginnote">Deepayan, Sarkar. 2008. <em>Lattice: Multivariate Data Visualization with r</em>. New York: Springer. <a href="http://lmdvr.r-forge.r-project.org">http://lmdvr.r-forge.r-project.org</a>.</span>)</span>.</p>
 </div>
 </div>
 <div id="additional-exercises-4" class="section level2" number="6.11">
@@ -1263,8 +1266,8 @@ and has a more convoluted interface.</p>
 </p>
 <div class="question-body">
 <p>Load the beer consuption data with</p>
-<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="sec-vis.html#cb511-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rWSBIM1207"</span>)</span>
-<span id="cb511-2"><a href="sec-vis.html#cb511-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(beers)</span></code></pre></div>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="sec-vis.html#cb512-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rWSBIM1207"</span>)</span>
+<span id="cb512-2"><a href="sec-vis.html#cb512-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(beers)</span></code></pre></div>
 <p>Analyse the data to answer the question <em>Do men drink more than women
 according to age and working status?</em> Now reproduce the figure below.</p>
 <div class="figure" style="text-align: center">
@@ -1310,7 +1313,7 @@ samples.</p></li>
 representation is more appropriate? Why?</p></li>
 <li><p>Colour the samples according to the tissue type.</p></li>
 <li><p>Colour the samples according to their expression level in A2ML1.</p></li>
-<li><p>Highlight the points corresponding to patient “TCGA-73-4676.”</p></li>
+<li><p>Highlight the points corresponding to patient “TCGA-73-4676”.</p></li>
 <li><p>Add a transparent boxplot to the graph.</p></li>
 <li><p>Change the y scale to log10 scale.</p></li>
 <li><p>Visualise the expression of A1BG against that of A2LD1 setting the x
@@ -1339,16 +1342,24 @@ students group.</p>
 </div>
 
 </div>
-</div></body></html>
+</div>
+<div class="footnotes">
+<hr>
+<ol start="11">
+<li id="fn11"><p>Source: <a href="https://github.com/rstudio/cheatsheets/raw/main/data-visualization-2.1.pdf">Data Visualization Cheat
+Sheet</a>.<a href="sec-vis.html#fnref11" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+</body></html>
 
 <p style="text-align: center;">
 <a href="sec-dplyr.html"><button class="btn btn-default">Previous</button></a>
 <a href="sec-join.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2022-09-23
+2023-02-06
  using 
-R version 4.2.1 (2022-06-23)
+R version 4.2.2 Patched (2022-11-02 r83238)
 </p>
 </div>
 </div>

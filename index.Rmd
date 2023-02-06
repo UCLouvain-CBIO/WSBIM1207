@@ -136,6 +136,25 @@ bioinformatics point of view:
 
 - ...
 
+In addition, here are three short videos (in French, with subtitles in
+multiple languages) by PhD students that assist in the teaching of
+this course. The videos illustrate real-work applications of some of
+the concepts taught in the two bachelor bioinformatics course (this
+one and [WSBIM1322](https://github.com/UCLouvain-CBIO/WSBIM1322)):
+
+- [Julie Devis](https://youtu.be/MOa9fCHqKko) is pursuing a PhD in the
+  Computational Biology and Bioinformatics Unit with Prof Laurent
+  Gatto. She uses R and Bioconductor to study the methylation in
+  cancer germ-line genes.
+- [Valentine Robaux](https://youtu.be/XUiOQ0LRKxc) is pursuing a PhD
+  in the Cardiovascular Research Unit with Profs Sandrine Horman and
+  Christophe Beauloye. She uses R and Bioconductor to investigate
+  platelet function.
+- [Jean Fain](https://youtu.be/XC6HDdPzPac) is pursuing a PhD in the
+  Epigenetics Unit with Prof Charles De Smet. He uses R and
+  Bioconductor to study DNA methylation and its role in cancer.
+
+
 And more generally, at Google, Pfizer, Merck, GSK, Bank of America,
 the InterContinental Hotels Group, Shell, ...
 
@@ -181,9 +200,9 @@ respective chapters.
 
 This course is being taught by Prof Laurent Gatto with invaluable
 assistance from Mr Jean Fain (since 2019), Ms Valetine Robaux (since
-2020), Dr Axelle Loriot (2018 - 2021) and Mr Kevin Missault (2018 -
-2020) at the Faculty of Pharmacy and Biomedical Sciences (FASB) at the
-UCLouvain, Belgium.
+2020), Ms Julie Devis (since 2022), Dr Axelle Loriot (2018 - 2021) and
+Mr Kevin Missault (2018 - 2020) at the Faculty of Pharmacy and
+Biomedical Sciences (FASB) at the UCLouvain, Belgium.
 
 ## Pre-requisites {-}
 
