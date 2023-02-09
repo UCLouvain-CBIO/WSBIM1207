@@ -59,8 +59,8 @@ Etudiant(e) de BAC2, 2018 - 2019
   biomédicales
 - Compétences recherchées dans l'industrie, notamment biotech et
   pharmaceutique
-- Doctorants suivent ces cours systématiquement depuis leur
-  instauration
+- Doctorants suivent ces cours systématiquement depuis l'instauration
+  des cours
 
 ---
 class: middle
@@ -80,7 +80,7 @@ Etudiant(e)s de BAC3, 2021-2022
 > s'est produit vers la fin du cours de 3e bac. Là je suis prêt à dire
 > que c'est même plus qu'important, que c'est le futur et que je me
 > sens bête car j'utilise seulement le code déjà créé par quelqu'un
-> donc respect à celui qui le crée. Cela suscite de plus e plus mon
+> donc respect à celui qui le crée. Cela suscite de plus en plus mon
 > attention.
 
 ---
@@ -169,7 +169,7 @@ knitr::include_graphics('https://upload.wikimedia.org/wikipedia/en/a/a9/Ungradin
 # En pratique: moodle
 
 - Toutes les communications et questions/réponses liées au cours se
-  ferong via **`moodle`** exclusivement: forum, annonces,
+  feront via **`moodle`** exclusivement: forum, annonces,
   interrogations, ... inscrivez-vous.
 
 - Forum: quand vous poser vos questions sur moodle, il vous est
@@ -209,8 +209,8 @@ Etudiant(e)s de BAC3, 2021-2022
   et réponses) et en fin de session (post-its - cf plus loin).
 
 - Travaillez regulièrement, en particulier en participant activement
-  au cours (cf interrogations). N'attendez pas la fin du cours pour
-  vous y mettre!
+  au cours (cf interrogations). Inscrivez-vous aux sessions
+  individuelles. N'attendez pas la fin du cours pour vous y mettre!
 
 ---
 class: middle
