@@ -471,11 +471,11 @@ the result back into <code>weight_g</code>.</p>
 <p>We can do this over and over again to grow a vector, or assemble a
 dataset. As we program, this may be useful to add results that we are
 collecting or calculating.</p>
-<p>An <strong>atomic vector</strong> is the simplest R <strong>data type</strong> and is a linear
-vector of a single type. Above, we saw 2 of the 6 main <strong>atomic
-vector</strong> types that R uses: <code>"character"</code> and <code>"numeric"</code> (or
-<code>"double"</code>). These are the basic building blocks that all R objects
-are built from. The other 4 <strong>atomic vector</strong> types are:</p>
+<p>A <strong>vector</strong> is the simplest R <strong>data type</strong> and is a linear vector of
+a single type. Above, we saw 2 of the 6 main <strong>vector</strong> types that R
+uses: <code>"character"</code> and <code>"numeric"</code> (or <code>"double"</code>). These are the
+basic building blocks that all R objects are built from. The other 4
+<strong>vector</strong> types are:</p>
 <ul>
 <li>
 <code>"logical"</code> for <code>TRUE</code> and <code>FALSE</code> (the boolean data type)</li>
@@ -499,7 +499,7 @@ important ones are lists (<code>list</code>), matrices (<code>matrix</code>), da
 </p>
 <div class="question-body">
 <p>
-We’ve seen that atomic vectors can be of type character, numeric (or double), integer, and logical. But what happens if we try to mix these types in a single vector?
+We’ve seen that vectors can be of type character, numeric (or double), integer, and logical. But what happens if we try to mix these types in a single vector?
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -883,19 +883,17 @@ below for examples.</p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="sec-startr.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract those elements which are not missing values.</span></span>
 <span id="cb139-2"><a href="sec-startr.html#cb139-2" aria-hidden="true" tabindex="-1"></a>heights[<span class="sc">!</span><span class="fu">is.na</span>(heights)]</span></code></pre></div>
 <pre><code>## [1] 2 4 4 6</code></pre>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="sec-startr.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Returns the object with incomplete cases removed.</span></span>
-<span id="cb141-2"><a href="sec-startr.html#cb141-2" aria-hidden="true" tabindex="-1"></a><span class="do">## The returned object is an atomic vector of type `"numeric"`</span></span>
-<span id="cb141-3"><a href="sec-startr.html#cb141-3" aria-hidden="true" tabindex="-1"></a><span class="do">## (or `"double"`).</span></span>
-<span id="cb141-4"><a href="sec-startr.html#cb141-4" aria-hidden="true" tabindex="-1"></a><span class="fu">na.omit</span>(heights)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="sec-startr.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Returns the object with incomplete cases removed.  The returned</span></span>
+<span id="cb141-2"><a href="sec-startr.html#cb141-2" aria-hidden="true" tabindex="-1"></a><span class="do">## object is a vector of type `"numeric"` (or `"double"`).</span></span>
+<span id="cb141-3"><a href="sec-startr.html#cb141-3" aria-hidden="true" tabindex="-1"></a><span class="fu">na.omit</span>(heights)</span></code></pre></div>
 <pre><code>## [1] 2 4 4 6
 ## attr(,"na.action")
 ## [1] 4
 ## attr(,"class")
 ## [1] "omit"</code></pre>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="sec-startr.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract those elements which are complete cases.</span></span>
-<span id="cb143-2"><a href="sec-startr.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="do">## The returned object is an atomic vector of type `"numeric"`</span></span>
-<span id="cb143-3"><a href="sec-startr.html#cb143-3" aria-hidden="true" tabindex="-1"></a><span class="do">## (or `"double"`).</span></span>
-<span id="cb143-4"><a href="sec-startr.html#cb143-4" aria-hidden="true" tabindex="-1"></a>heights[<span class="fu">complete.cases</span>(heights)]</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="sec-startr.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract those elements which are complete cases.  The returned</span></span>
+<span id="cb143-2"><a href="sec-startr.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="do">## object is a vector of type `"numeric"` (or `"double"`).</span></span>
+<span id="cb143-3"><a href="sec-startr.html#cb143-3" aria-hidden="true" tabindex="-1"></a>heights[<span class="fu">complete.cases</span>(heights)]</span></code></pre></div>
 <pre><code>## [1] 2 4 4 6</code></pre>
 <div class="question">
 <p class="question-begin">
