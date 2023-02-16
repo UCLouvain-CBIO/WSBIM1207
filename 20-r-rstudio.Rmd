@@ -312,8 +312,6 @@ project[^futureself] to
     future self, a couple of months or years after the analyses were
     run.
 
-
-
 ### The working directory
 
 The working directory is an important concept to understand. It is the
@@ -343,13 +341,13 @@ wsbim1207/data/
          /fig_output/fig2.png
 ```
 
-If we were in the working directory (`bioinfo_training_intro`), we could refer to the `fig1.pdf`
-file using the relative path `fig_output/fig1.pdf` or the
-absolute path `/home/user/wsbim1207/fig_output/fig1.pdf`.
+- From the working directory (`wsbi1207`), we refer to the
+  `fig1`. file using the **relative path** `fig_output/fig1.pdf` or
+  the **absolute path** `/home/user/wsbim1207/fig_output/fig1.pdf`.
 
-If we were in the `data` directory, we would use the relative path
-`../fig_output/fig1.pdf` or the same absolute path
-`/home/user/wsbim1207/fig_output/fig1.pdf`.
+- From the `data` directory, we use the **relative path**
+  `../fig_output/fig1.pdf` or the same **absolute path**
+  `/home/user/wsbim1207/fig_output/fig1.pdf`.
 
 ## Interacting with R
 
