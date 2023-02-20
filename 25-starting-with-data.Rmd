@@ -944,7 +944,8 @@ to gender and employment.
   observations with `Gender` equal to `Male`. Then do the same for
   observations with `Gender` equal to `Female`.
 
-- Calculate a two-way table of gender and employment status.
+- Using the `table()` function, generate a two-way table of gender and
+  employment status.
 
 - Remove observations with missing values and export the data into a
   new `csv` file called `beers_no_na.csv`.
@@ -964,7 +965,7 @@ We are going to analyse clinical data from The Cancer Genome Atlas
   functions. If you use a recent Renku enironment, the package is
   already available.
 
-- Obtain the path to th csv file containing the clinical data need for
+- Obtain the path to the csv file containing the clinical data need for
   this exercise using the `clinical1.csv` function and read it into R
   as a `data.frame` called `clinical`.
 
