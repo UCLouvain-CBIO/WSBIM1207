@@ -339,7 +339,7 @@ rna_last <- rna[n_rows, ]
 rna_middle <- rna[n_rows / 2, ]
 ## 4.
 rna_head <- rna[-(7:n_rows), ]
- ```
+```
 
 `r msmbstyle::solution_end()`
 
