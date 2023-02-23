@@ -212,7 +212,8 @@ questions?
 `r msmbstyle::solution_begin()`
 
 - class: data frame
-- how many rows: 32428, how many columns: 21
+- how many rows: `r nrow(rna)`
+- how many columns: `r ncol(rna)`
 `r msmbstyle::solution_end()`
 
 
