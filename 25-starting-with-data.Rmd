@@ -627,15 +627,10 @@ about pitfalls of dates with spreadsheets.
 
 
 We are going to use the `ymd()` function from the package
-**`lubridate`** (which belongs to the **`tidyverse`**; learn more
-[here](https://www.tidyverse.org/)). . **`lubridate`** gets installed
-as part as the **`tidyverse`** installation. When you load the
-**`tidyverse`** (`library(tidyverse)`), the core packages (the
-packages used in most data analyses) get loaded. **`lubridate`**
-however does not belong to the core tidyverse, so you have to load it
-explicitly with `library(lubridate)`
+**`lubridate`** (which belongs to the **`tidyverse`**, which we'll
+focus on in the next chapter). **`lubridate`** gets installed as part
+as the **`tidyverse`** installation. Let's load it with
 
-Start by loading the required package:
 
 ```{r loadlibridate, message=FALSE}
 library("lubridate")
@@ -648,7 +643,7 @@ function requires is flexible, but, as a best practice, is a character
 vector formatted as "YYYY-MM-DD".
 
 
-Let's create a date object and inspect the structure:
+Let's create a date object and inspect its structure:
 
 ```{r}
 my_date <- ymd("2015-01-01")

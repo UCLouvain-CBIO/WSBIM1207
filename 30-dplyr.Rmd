@@ -52,30 +52,21 @@ several packages useful for data analysis which work together well
 such as **`tidyr`**, **`dplyr`**, **`ggplot2`**, **`tibble`**, etc.
 
 
-The **`tidyverse`** package tries to address 3 common issues that
-arise when doing data analysis with some of functions that come with
-R:
+The [**`tidyverse`** packages](https://www.tidyverse.org/) address 3
+common issues that arise when doing data analysis with some of
+functions that come with R:
 
-1. The results from a base R function sometimes depend on the type of data.
-2. Using R expressions in a non standard way, which can be confusing for new
-   learners.
-3. Hidden arguments, having default operations that new learners are not aware
-   of.
+1. The results from a base R function sometimes depend on the type of
+   data.
+2. Using R expressions in a non standard way, which can be confusing
+   for new learners.
+3. Hidden arguments, having default operations that new learners are
+   not aware of.
 
-We have seen in our previous lesson that when building or importing a
-data frame, the columns that contain characters (i.e., text) are
-coerced (=converted) into the `factor` data type. We had to set
-**`stringsAsFactors`** to **`FALSE`** to avoid this hidden argument to
-convert our data type.
-
-This time we will use the **`tidyverse`** package to read the data and
-avoid having to set **`stringsAsFactors`** to **`FALSE`**
-
-To load the package type:
+Let's start by loading several of the **tidyverse** packages with:
 
 
 ```{r, message = FALSE, purl = FALSE}
-## load the tidyverse packages, incl. dplyr
 library("tidyverse")
 ```
 
@@ -89,19 +80,21 @@ describe what the tidy data operations do.
 
 ## What are **`dplyr`** and **`tidyr`**?
 
-The package **`dplyr`** provides easy tools for the most common data manipulation
-tasks. It is built to work directly with data frames, with many common tasks
-optimized by being written in a compiled language (C++). An additional feature is the
-ability to work directly with data stored in an external database. The benefits of
-doing this are that the data can be managed natively in a relational database,
-queries can be conducted on that database, and only the results of the query are
-returned.
+The package **`dplyr`** provides easy tools for the most common data
+manipulation tasks. It is built to work directly with data frames,
+with many common tasks optimized by being written in a compiled
+language (C++). An additional feature is the ability to work directly
+with data stored in an external database. The benefits of doing this
+are that the data can be managed natively in a relational database,
+queries can be conducted on that database, and only the results of the
+query are returned.
 
-This addresses a common problem with R in that all operations are conducted
-in-memory and thus the amount of data you can work with is limited by available
-memory. The database connections essentially remove that limitation in that you
-can connect to a database of many hundreds of GB, conduct queries on it directly, and pull
-back into R only what you need for analysis.
+This addresses a common problem with R in that all operations are
+conducted in-memory and thus the amount of data you can work with is
+limited by available memory. The database connections essentially
+remove that limitation in that you can connect to a database of many
+hundreds of GB, conduct queries on it directly, and pull back into R
+only what you need for analysis.
 
 The package **`tidyr`** addresses the common problem of wanting to
 reshape your data for plotting and use by different R
@@ -121,7 +114,6 @@ and this [one about
 
 We'll read in our data using the `read_csv()` function, from the
 tidyverse package **`readr`**, instead of `read.csv()`.
-
 
 ```{r dplyr_setp, results = 'hide', purl = FALSE}
 rna <- read_csv("data/rnaseq.csv")
