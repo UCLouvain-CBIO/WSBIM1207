@@ -627,7 +627,7 @@ about pitfalls of dates with spreadsheets.
 
 
 We are going to use the `ymd()` function from the package
-**`lubridate`** (which belongs to the **`tidyverse`**, which we'll
+**`lubridate`** (that belongs to the **`tidyverse`**, which we'll
 focus on in the next chapter). **`lubridate`** gets installed as part
 as the **`tidyverse`** installation. Let's load it with
 
