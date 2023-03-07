@@ -749,8 +749,12 @@ l[1:2] ## a list of length 2
 l[1]   ## a list of length 1
 ```
 
-r msmbstyle::question_begin()`
-You can also attribute a name to each element of a list. Give the following names (in that order) to the list elements with the function `names()`: numbers, alphabet, installed_packages, cars, random. Check if the names were correctly attributed.
+`r msmbstyle::question_begin()`
+
+You can also attribute a name to each element of a list. Give the
+following names (in that order) to the list elements with the function
+`names()`: `"numbers"`, `"alphabet"`, `"installed_packages"`, `"cars"`
+and `"random"`. Check if the names were correctly attributed.
 
 `r msmbstyle::question_end()`
 
@@ -767,17 +771,25 @@ names(l)
 
 Subset the previously defined list `l`, to keep:
 
-* a list with all but the matrix of installed packages
-* only the `cars` data.frame
+- a list with all but the matrix of installed packages
+- a list containing only the `cars` data.frame
+- the `cars` data.frame
+
 `r msmbstyle::question_end()`
 
 `r msmbstyle::solution_begin()`
 ```{r}
-# list with all but the matrix of installed packages
+## list with all but the matrix of installed packages
 l[-3]
-# only the `cars` data.frame
+
+## a list containing only the `cars` data.frame
+l["cars"]
+# equivalent to
+l[4]
+
+## the `cars` data.frame
 l[["cars"]]
-# equivalent to:
+# equivalent to
 l[[4]]
 ```
 
