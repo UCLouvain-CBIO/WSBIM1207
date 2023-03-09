@@ -327,6 +327,57 @@ colData(small_se)$new_var  <- c("new_val1", "new_val2")
 colData(small_se)
 ```
 
+### Saving objects
+
+Exporting data to a spreadsheet using `write.csv()` or `write_csv()`
+has several limitations, such as possible inconsistencies with `,` and
+`.` for decimal separators and lack of variable type
+definitions. Furthermore, exporting data to a spreadsheet is only
+relevant for rectangular data such as data.frames and matrices and
+isn't applicable to more complex variables such as
+`SummarizedExperiment` objects, that are themselves composed of
+mulitple parts.
+
+A more general way to save data, that is specific to R and is
+guaranteed to work on any operating system, is to use the `save()`
+function. Saving objects will generate a binary representation of the
+object on disk, a *R Data* file (`rda` extension) that guarantees to
+produce the same object once loaded back into R using the `load()`
+function.
+
+```{r, eval = TRUE}
+save(GSE96870_intro, file = "data_output/se.rda")
+rm(GSE96870_intro)
+load("data_output/se.rda")
+GSE96870_intro
+```
+
+Note how the `load()` function directly loads the object in the file
+directly in the global environment using its original name.
+
+The `saveRDS()` and `readRDS()` functions save R objects to binary
+files (using the `rds` extension here) and read these back into
+R. From a user's perspective, the main difference is that, `load()`
+loads an object in the global environment while `readRDS()` reads the
+data from disk and returns it. It is thus necessary to store the
+output of `readRDS()` in a variable:
+
+```{r, eval = TRUE}
+saveRDS(GSE96870_intro, file = "data_output/se.rds")
+rm(GSE96870_intro)
+se <- readRDS("data_output/se.rds")
+se
+```
+
+```{r echo=FALSE}
+unlink("data_output/se.rda")
+unlink("data_output/se.rds")
+```
+When it comes to saving data from R that will be loaded again in R,
+saving and loading is the preferred approach. If tabular data need to
+be shared with somebody who is not using R, then exporting to a
+text-based spreadsheet is a good alternative.
+
 ## Bioconductor data infrastructure
 
 An essential aspect that is central to Bioconductor and its success is

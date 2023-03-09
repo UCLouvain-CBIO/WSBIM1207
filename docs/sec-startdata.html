@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2023-03-07" />
+<meta name="date" content="2023-03-09" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -196,7 +196,7 @@ div.csl-indent {
 <li class="toc"><a href="#formatting-dates"> Formatting Dates</a></li>
 <li class="toc"><a href="#summary-of-r-objects"> Summary of R objects</a></li>
 <li class="toc"><a href="#lists"> Lists</a></li>
-<li class="toc"><a href="#sec-exportandsave"> Exporting and saving data</a></li>
+<li class="toc"><a href="#sec-exportandsave"> Exporting tabular data</a></li>
 <li class="toc"><a href="#additional-exercises-2"> Additional exercises</a></li>
 </ul>
 <a href="sec-dplyr.html"><span class="toc-section-number">5</span> Manipulating and analyzing data with dplyr</a>
@@ -1514,11 +1514,8 @@ and <code>"random"</code>. Check if the names were correctly attributed.</p>
 </div>
 <div id="sec-exportandsave" class="section level2" number="4.10">
 <h2>
-<span class="header-section-number">4.10</span> Exporting and saving data<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('sec-exportandsave')" onmouseout="reset_tooltip('sec-exportandsave-tooltip')"><span class="tooltiptext" id="sec-exportandsave-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+<span class="header-section-number">4.10</span> Exporting tabular data<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('sec-exportandsave')" onmouseout="reset_tooltip('sec-exportandsave-tooltip')"><span class="tooltiptext" id="sec-exportandsave-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h2>
-<div id="exporting-tabular-data" class="section level3 unnumbered">
-<h3>Exporting tabular data<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('exporting-tabular-data')" onmouseout="reset_tooltip('exporting-tabular-data-tooltip')"><span class="tooltiptext" id="exporting-tabular-data-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h3>
 <p>We have seen how to read a text-based spreadsheet into R using the
 <code>read.table</code> family of functions. To export a <code>data.frame</code> to a
 text-based spreadsheet, we can use the <code>write.table</code> set of functions
@@ -1529,79 +1526,6 @@ directory, we would execute:</p>
 <div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="sec-startdata.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(rna, <span class="at">file =</span> <span class="st">"data_output/my_rnaseq.csv"</span>)</span></code></pre></div>
 <p>This new csv file can now be shared with other collaborators who
 aren’t familiar with R.</p>
-</div>
-<div id="saving-data" class="section level3 unnumbered">
-<h3>Saving data<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('saving-data')" onmouseout="reset_tooltip('saving-data-tooltip')"><span class="tooltiptext" id="saving-data-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
-</h3>
-<p>Exporting data to a spreadsheet has several limitations, such as those
-described in the first chapter such as possible inconsistencies with
-<code>,</code> and <code>.</code> for decimal separators and lack of variable type
-definitions. Furthermore, exporting data to a spreadsheet is only
-relevant for rectangular data such as dataframes and matrices.</p>
-<p>A more general way to save data, that is specific to R and is
-guaranteed to work on any operating system, is to use the <code>save</code>
-function. Saving objects will generate a binary representation of the
-object on disk, a <em>R Data</em> file (<code>rda</code> extension) that guarantees to
-produce the same object once loaded back into R using the <code>load</code>
-function.</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="sec-startdata.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(rna, <span class="at">file =</span> <span class="st">"data_output/rnaseq.rda"</span>)</span>
-<span id="cb301-2"><a href="sec-startdata.html#cb301-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(rna)</span>
-<span id="cb301-3"><a href="sec-startdata.html#cb301-3" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data_output/rnaseq.rda"</span>)</span>
-<span id="cb301-4"><a href="sec-startdata.html#cb301-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rna)</span></code></pre></div>
-<p>Note about how the function <code>load</code> loads the object in the file
-directly in the global environment.</p>
-<p>There is also the <code>saveRDS</code> and <code>readRDS</code> functions that save R
-objects to binary files (using the <code>rds</code> extension here) and read
-these back into R. From a user’s perspective, main different is that,
-<code>load</code> loads an object in the global environment while <code>readRDS</code> reads
-the data from disk and returns it. It is thus necessary to store the
-output of <code>readRDS</code> in a variable:</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="sec-startdata.html#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(rna, <span class="at">file =</span> <span class="st">"data_output/rnaseq.rds"</span>)</span>
-<span id="cb302-2"><a href="sec-startdata.html#cb302-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(rna)</span>
-<span id="cb302-3"><a href="sec-startdata.html#cb302-3" aria-hidden="true" tabindex="-1"></a>rna <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data_output/rnaseq.rds"</span>)</span>
-<span id="cb302-4"><a href="sec-startdata.html#cb302-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rna)</span></code></pre></div>
-<pre><code>##      gene     sample expression     organism age    sex  infection  strain time
-## 1     Asl GSM2545336       1170 Mus musculus   8 Female InfluenzaA C57BL/6    8
-## 2    Apod GSM2545336      36194 Mus musculus   8 Female InfluenzaA C57BL/6    8
-## 3 Cyp2d22 GSM2545336       4060 Mus musculus   8 Female InfluenzaA C57BL/6    8
-## 4    Klk6 GSM2545336        287 Mus musculus   8 Female InfluenzaA C57BL/6    8
-## 5   Fcrls GSM2545336         85 Mus musculus   8 Female InfluenzaA C57BL/6    8
-##       tissue mouse ENTREZID
-## 1 Cerebellum    14   109900
-## 2 Cerebellum    14    11815
-## 3 Cerebellum    14    56448
-## 4 Cerebellum    14    19144
-## 5 Cerebellum    14    80891
-##                                                                        product
-## 1                               argininosuccinate lyase, transcript variant X1
-## 2                                       apolipoprotein D, transcript variant 3
-## 3 cytochrome P450, family 2, subfamily d, polypeptide 22, transcript variant 2
-## 4                         kallikrein related-peptidase 6, transcript variant 2
-## 5                Fc receptor-like S, scavenger receptor, transcript variant X1
-##      ensembl_gene_id external_synonym chromosome_name   gene_biotype
-## 1 ENSMUSG00000025533    2510006M18Rik               5 protein_coding
-## 2 ENSMUSG00000022548             &lt;NA&gt;              16 protein_coding
-## 3 ENSMUSG00000061740             2D22              15 protein_coding
-## 4 ENSMUSG00000050063             Bssp               7 protein_coding
-## 5 ENSMUSG00000015852    2810439C17Rik               3 protein_coding
-##                             phenotype_description
-## 1           abnormal circulating amino acid level
-## 2                      abnormal lipid homeostasis
-## 3                        abnormal skin morphology
-## 4                         abnormal cytokine level
-## 5 decreased CD8-positive alpha-beta T cell number
-##   hsapiens_homolog_associated_gene_name
-## 1                                   ASL
-## 2                                  APOD
-## 3                                CYP2D6
-## 4                                  KLK6
-## 5                                 FCRL2
-##  [ reached 'max' / getOption("max.print") -- omitted 1 rows ]</code></pre>
-<p>To conclude, when it comes to saving data from R that will be loaded
-again in R, saving and loading is the preferred approach. If tabular
-data need to be shared with somebody that is not using R, then
-exporting to a text-based spreadsheet is a good alternative.</p>
-</div>
 </div>
 <div id="additional-exercises-2" class="section level2" number="4.11">
 <h2>
@@ -1788,7 +1712,7 @@ to use the <code>quantile</code> function.</p></li>
 <a href="sec-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2023-03-07
+2023-03-09
  using 
 R version 4.2.2 Patched (2022-11-10 r83330)
 </p>
