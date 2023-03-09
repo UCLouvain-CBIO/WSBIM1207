@@ -327,7 +327,7 @@ colData(small_se)$new_var  <- c("new_val1", "new_val2")
 colData(small_se)
 ```
 
-### Saving objects
+### Saving objects {#sec-save}
 
 Exporting data to a spreadsheet using `write.csv()` or `write_csv()`
 has several limitations, such as possible inconsistencies with `,` and

@@ -84,15 +84,16 @@ sec-genvec
 additional-exercises-1
 sec-startdata
 presentation-of-the-gene-expression-data
+reading-tabular-data
 what-are-data-frames
 inspecting-data.frame-objects
 indexing-and-subsetting-data-frames
+sec-export
 factors
 matrices
 formatting-dates
-summary-of-r-objects
 lists
-sec-exportandsave
+summary-of-r-objects
 additional-exercises-2
 sec-dplyr
 data-manipulation-using-dplyr-and-tidyr
@@ -138,7 +139,7 @@ omics-data
 metadata-and-experimental-design
 sec-bioconductor
 omics-data-containers
-saving-objects
+sec-save
 bioconductor-data-infrastructure
 navigating-the-bioconductor-project
 biocviews

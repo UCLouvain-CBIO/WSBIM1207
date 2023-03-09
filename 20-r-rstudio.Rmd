@@ -537,14 +537,14 @@ If the object is larger, provide either the raw file (i.e., your CSV
 file) with your script up to the point of the error (and after
 removing everything that is not relevant to your
 issue). Alternatively, in particular if your question is not related
-to a data frame, you can save any R object to a file[^export]:
+to a data frame, you can save any R object to a file[^save]:
 
 ```{r, eval=FALSE, purl=FALSE}
 saveRDS(iris, file="/tmp/iris.rds")
 ```
 
-[^export]: See section \@ref(sec-exportandsave) for a better
-    introduction about exporting and saving data.
+[^save]: See sections \@ref(sec-export) and \@ref(sec-save) for more
+    details and examplesabout exporting and saving data.
 
 The content of this file is however not human readable and cannot be
 posted directly on Stack Overflow. Instead, it can be sent to someone
