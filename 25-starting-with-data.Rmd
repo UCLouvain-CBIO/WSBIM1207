@@ -10,7 +10,7 @@
 - Reorder and rename factors.
 - Format dates.
 - Other R objects: matrices and lists
-- Export and save data.
+- Export tabular data.
 
 ## Presentation of the gene expression data
 
