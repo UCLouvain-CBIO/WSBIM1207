@@ -362,6 +362,35 @@ rna %>%
 `r msmbstyle::solution_end()`
 
 
+## Pulling a variable
+
+The tidy functions that we have seen (and will see below) always take
+a tidy table (typically a `tibble`) as input, and return a new,
+transformed one, possibly composed of a single column/variables. This
+is an important feature that enables the piping of commands one into
+another. Sometimes however, one needs to extract the variable that
+composes the column of a table. This can be done with the `pull()`
+function.
+
+Below, note the difference between `select()`, that here returns a
+one-column `tibble` ...
+
+```{r}
+mini_rna <- head(rna)
+
+mini_rna %>% select(gene)
+```
+
+... and `pull()`, that returns a vector:
+
+```{r}
+mini_rna %>% pull(gene)
+```
+
+After using `pull()`, on can't pipe the output into any of the
+functions that expect to get a `tibble`.
+
+
 ## Split-apply-combine data analysis
 
 Many data analysis tasks can be approached using the
@@ -380,7 +409,16 @@ groups the data into subsets: in the example above, our initial
 `r length(unique(rna$gene))` groups based on the `gene` variable.
 
 Once the data have been combined, subsequent operations will be
-applied on each group independently.
+applied on each group independently. To remove this grouping, simply
+use the `ungroup()` function.
+
+```{r}
+grouped_rna <- rna %>%
+    group_by(gene)
+grouped_rna
+ungroup(rna)
+```
+
 
 
 ### The `summarize()` function
@@ -587,8 +625,6 @@ work, rather that randomly try things
 out](https://lgatto.github.io/exam-qst/). The [Tidy Data
 Tutor](https://tidydatatutor.com/) is a wonderful tool to do exactly
 that.
-
-
 
 ## Reshaping data
 
