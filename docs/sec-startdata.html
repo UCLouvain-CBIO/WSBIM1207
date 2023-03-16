@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2023-03-14" />
+<meta name="date" content="2023-03-16" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -354,10 +354,10 @@ local machine. You’ll need to have a folder on your machine called
 <code>"data"</code> where you’ll download the file. So this command downloads the
 remote file, names it <code>"rnaseq.csv"</code> and adds it to a preexisting
 folder named <code>"data"</code>.</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="sec-startdata.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url =</span> <span class="st">"https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv"</span>,</span>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="sec-startdata.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url =</span> <span class="st">"https://raw.githubusercontent.com/UCLouvain-CBIO/WSBIM1207/master/data/rnaseq.csv"</span>,</span>
 <span id="cb209-2"><a href="sec-startdata.html#cb209-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">destfile =</span> <span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
 <p>Alternatively, you can download the
-<a href="https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv">file</a>
+<a href="https://raw.githubusercontent.com/UCLouvain-CBIO/WSBIM1207/master/data/rnaseq.csv">file</a>
 manually and move it in the data directory in your RStudio
 project. This approach however has the drawback of loosing the
 provenance of the data.</p>
@@ -847,7 +847,7 @@ levels:</p>
 <pre><code>## [1] M F F M F
 ## Levels: M F</code></pre>
 <div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="sec-startdata.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sex)</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-110-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-109-1.png" width="672"></p>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -1720,7 +1720,7 @@ to use the <code>quantile</code> function.</p></li>
 <a href="sec-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2023-03-14
+2023-03-16
  using 
 R version 4.2.2 Patched (2022-11-10 r83330)
 </p>

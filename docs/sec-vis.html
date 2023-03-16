@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2023-03-14" />
+<meta name="date" content="2023-03-16" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -338,11 +338,11 @@ change the number or width of the bins.</p>
 <div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="sec-vis.html#cb451-1" aria-hidden="true" tabindex="-1"></a><span class="co"># change bins</span></span>
 <span id="cb451-2"><a href="sec-vis.html#cb451-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rna, <span class="fu">aes</span>(<span class="at">x =</span> expression)) <span class="sc">+</span></span>
 <span id="cb451-3"><a href="sec-vis.html#cb451-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>)</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-192-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-191-1.png" width="672"></p>
 <div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="sec-vis.html#cb452-1" aria-hidden="true" tabindex="-1"></a><span class="co"># change binwidth</span></span>
 <span id="cb452-2"><a href="sec-vis.html#cb452-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rna, <span class="fu">aes</span>(<span class="at">x =</span> expression)) <span class="sc">+</span></span>
 <span id="cb452-3"><a href="sec-vis.html#cb452-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2000</span>)</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-192-2.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-191-2.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -392,7 +392,7 @@ now have warning messages appearing?</li>
 <pre><code>## Warning: Transformation introduced infinite values in continuous x-axis</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <pre><code>## Warning: Removed 507 rows containing non-finite values (`stat_bin()`).</code></pre>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-193-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-192-1.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -538,7 +538,7 @@ compare it with the hexagonal bin plot that you created.</p></li>
 <span id="cb471-5"><a href="sec-vis.html#cb471-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> time_8_vs_0)) <span class="sc">+</span></span>
 <span id="cb471-6"><a href="sec-vis.html#cb471-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hex</span>() <span class="sc">+</span></span>
 <span id="cb471-7"><a href="sec-vis.html#cb471-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>)</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-195-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-194-1.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -566,7 +566,7 @@ different colors. Is this a good way to show this type of data?</p>
 <span id="cb472-2"><a href="sec-vis.html#cb472-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> expression_log,</span>
 <span id="cb472-3"><a href="sec-vis.html#cb472-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">x =</span> sample)) <span class="sc">+</span></span>
 <span id="cb472-4"><a href="sec-vis.html#cb472-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> time))</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-196-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-195-1.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -699,7 +699,7 @@ the violins according to the time with the argument <code>fill</code> in <code>g
 <span id="cb479-3"><a href="sec-vis.html#cb479-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">x =</span> sample)) <span class="sc">+</span></span>
 <span id="cb479-4"><a href="sec-vis.html#cb479-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="fu">as.factor</span>(time))) <span class="sc">+</span></span>
 <span id="cb479-5"><a href="sec-vis.html#cb479-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>,  <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-197-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-196-1.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -728,7 +728,7 @@ the violins according to the time with the argument <code>fill</code> in <code>g
 <span id="cb480-3"><a href="sec-vis.html#cb480-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">x =</span> sample)) <span class="sc">+</span></span>
 <span id="cb480-4"><a href="sec-vis.html#cb480-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> sex)) <span class="sc">+</span></span>
 <span id="cb480-5"><a href="sec-vis.html#cb480-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-198-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-197-1.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1019,7 +1019,7 @@ for inspiration. Here are some ideas:</p>
 <span id="cb502-4"><a href="sec-vis.html#cb502-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> gene, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
 <span id="cb502-5"><a href="sec-vis.html#cb502-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb502-6"><a href="sec-vis.html#cb502-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-201-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-200-1.png" width="672"></p>
 <p>We can customize it the following ways:</p>
 <div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="sec-vis.html#cb503-1" aria-hidden="true" tabindex="-1"></a><span class="co"># change the thickness of the lines</span></span>
 <span id="cb503-2"><a href="sec-vis.html#cb503-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_time_sex,</span>
@@ -1030,7 +1030,7 @@ for inspiration. Here are some ideas:</p>
 <span id="cb503-7"><a href="sec-vis.html#cb503-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
 <pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ## ℹ Please use `linewidth` instead.</code></pre>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-202-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-201-1.png" width="672"></p>
 <div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="sec-vis.html#cb505-1" aria-hidden="true" tabindex="-1"></a><span class="co"># change the name of the legend and the labels</span></span>
 <span id="cb505-2"><a href="sec-vis.html#cb505-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_time_sex,</span>
 <span id="cb505-3"><a href="sec-vis.html#cb505-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> mean_exp, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
@@ -1039,7 +1039,7 @@ for inspiration. Here are some ideas:</p>
 <span id="cb505-6"><a href="sec-vis.html#cb505-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb505-7"><a href="sec-vis.html#cb505-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
 <span id="cb505-8"><a href="sec-vis.html#cb505-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">name =</span> <span class="st">"Gender"</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"M"</span>))</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-202-2.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-201-2.png" width="672"></p>
 <div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="sec-vis.html#cb506-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using a different color palette</span></span>
 <span id="cb506-2"><a href="sec-vis.html#cb506-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_time_sex,</span>
 <span id="cb506-3"><a href="sec-vis.html#cb506-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> mean_exp, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
@@ -1048,7 +1048,7 @@ for inspiration. Here are some ideas:</p>
 <span id="cb506-6"><a href="sec-vis.html#cb506-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb506-7"><a href="sec-vis.html#cb506-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
 <span id="cb506-8"><a href="sec-vis.html#cb506-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">name =</span> <span class="st">"Gender"</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"M"</span>), <span class="at">palette =</span> <span class="st">"Dark2"</span>)</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-202-3.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-201-3.png" width="672"></p>
 <div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="sec-vis.html#cb507-1" aria-hidden="true" tabindex="-1"></a><span class="co"># manually specifying the colors</span></span>
 <span id="cb507-2"><a href="sec-vis.html#cb507-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_time_sex,</span>
 <span id="cb507-3"><a href="sec-vis.html#cb507-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> mean_exp, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
@@ -1058,7 +1058,7 @@ for inspiration. Here are some ideas:</p>
 <span id="cb507-7"><a href="sec-vis.html#cb507-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
 <span id="cb507-8"><a href="sec-vis.html#cb507-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Gender"</span>,  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"M"</span>),</span>
 <span id="cb507-9"><a href="sec-vis.html#cb507-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"royalblue"</span>, <span class="st">"deeppink"</span>))</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-202-4.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-201-4.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1117,23 +1117,23 @@ each other.</p>
 <div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="sec-vis.html#cb510-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"patchwork"</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="sec-vis.html#cb511-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"patchwork"</span>)</span>
 <span id="cb511-2"><a href="sec-vis.html#cb511-2" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome <span class="sc">+</span> exp_boxplot_sex <span class="do">## or use | instead of +</span></span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-203-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-202-1.png" width="672"></p>
 <div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="sec-vis.html#cb512-1" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome <span class="sc">/</span> exp_boxplot_sex</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-204-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-203-1.png" width="672"></p>
 <p>We can combine further control the layout of the final composition
 with <code>plot_layout</code> to create more complex layouts:</p>
 <div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="sec-vis.html#cb513-1" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome <span class="sc">+</span> exp_boxplot_sex <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-205-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-204-1.png" width="672"></p>
 <div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="sec-vis.html#cb514-1" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome <span class="sc">+</span></span>
 <span id="cb514-2"><a href="sec-vis.html#cb514-2" aria-hidden="true" tabindex="-1"></a>    (count_gene_chromosome <span class="sc">+</span> exp_boxplot_sex) <span class="sc">+</span></span>
 <span id="cb514-3"><a href="sec-vis.html#cb514-3" aria-hidden="true" tabindex="-1"></a>    exp_boxplot_sex <span class="sc">+</span></span>
 <span id="cb514-4"><a href="sec-vis.html#cb514-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-206-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-205-1.png" width="672"></p>
 <p>The last plot can also be created using the <code>|</code> and <code>/</code> composers:</p>
 <div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="sec-vis.html#cb515-1" aria-hidden="true" tabindex="-1"></a>count_gene_chromosome <span class="sc">/</span></span>
 <span id="cb515-2"><a href="sec-vis.html#cb515-2" aria-hidden="true" tabindex="-1"></a>    (count_gene_chromosome <span class="sc">|</span> exp_boxplot_sex) <span class="sc">/</span></span>
 <span id="cb515-3"><a href="sec-vis.html#cb515-3" aria-hidden="true" tabindex="-1"></a>    exp_boxplot_sex</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-207-1.png" width="672"></p>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-206-1.png" width="672"></p>
 <p>Learn more about <code>patchwork</code> on its
 <a href="https://patchwork.data-imaginist.com/">webpage</a> or in this
 <a href="https://www.youtube.com/watch?v=0m4yywqNPVY">video</a>.</p>
@@ -1270,7 +1270,7 @@ and has a more convoluted interface.</p>
 <p>Analyse the data to answer the question <em>Do men drink more than women
 according to age and working status?</em> Now reproduce the figure below.</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-209"></span>
+<span style="display:block;" id="fig:unnamed-chunk-208"></span>
 <p class="caption marginnote shownote">
 Figure 6.3: Visualisation of beer consumption, highlighting different patterns of beer consumption in employed and unemployed males and females.
 </p>
@@ -1348,7 +1348,7 @@ students group.</p>
 <a href="sec-join.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2023-03-14
+2023-03-16
  using 
 R version 4.2.2 Patched (2022-11-10 r83330)
 </p>
