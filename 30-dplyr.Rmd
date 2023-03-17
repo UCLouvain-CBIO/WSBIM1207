@@ -566,7 +566,7 @@ rna %>%
 
 `r msmbstyle::solution_begin()`
 
-1. How many genes were analysed in each sample?
+1. How many genes/observations were analysed in each sample?
 
 ```{r, purl=FALSE}
 rna %>%
