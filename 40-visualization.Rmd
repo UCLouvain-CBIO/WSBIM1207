@@ -1138,7 +1138,8 @@ We are now going to analyse transcriptomics data from the TCGA
 project.
 
 - Using the file returned by the `expression.csv()` function from the
-  `rWSBIM1207` package, create a table called `expression`.
+  `rWSBIM1207` package, load the data to create a tibble called
+  `expression`.
 
 - Inspect the data.
 
