@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2023-04-03" />
+<meta name="date" content="2023-04-19" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -555,9 +555,11 @@ duplicated keys exist in both tables. Below, we create an inner join
 between <code>jdf6</code> and <code>jdf7</code>, both having duplicated <code>Q99PL5</code> entries.</p>
 <div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="sec-join.html#cb551-1" tabindex="-1"></a><span class="fu">inner_join</span>(jdf6, jdf7)</span></code></pre></div>
 <pre><code>## Joining with `by = join_by(uniprot)`</code></pre>
-<pre><code>## Warning in inner_join(jdf6, jdf7): Each row in `x` is expected to match at most 1 row in `y`.
-## ℹ Row 2 of `x` matches multiple rows.
-## ℹ If multiple matches are expected, set `multiple = "all"` to silence this warning.</code></pre>
+<pre><code>## Warning in inner_join(jdf6, jdf7): Detected an unexpected many-to-many relationship between `x` and `y`.
+## ℹ Row 2 of `x` matches multiple rows in `y`.
+## ℹ Row 1 of `y` matches multiple rows in `x`.
+## ℹ If a many-to-many relationship is expected, set `relationship = "many-to-many"` to silence this
+##   warning.</code></pre>
 <pre><code>## # A tibble: 4 × 9
 ##   uniprot organelle     entry isoform gene_name description organism isoform_num
 ##   &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;
@@ -833,7 +835,7 @@ to stop the error from aborting the document compilation.<a href="sec-join.html#
 <a href="sec-rr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2023-04-03
+2023-04-19
  using 
 R version 4.2.2 Patched (2022-11-02 r83238)
 </p>
