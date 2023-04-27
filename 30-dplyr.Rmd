@@ -1029,7 +1029,7 @@ data(beers)
 
 - Remove observations with missing values.
 
-- Using the `Year`, `Month` and `Year` columns, create a new column
+- Using the `Year`, `Month` and `Day` columns, create a new column
   `Date` using `dplyr::mutate` and `lubridate::ymd`. What is the class
   of `Date` ?
 

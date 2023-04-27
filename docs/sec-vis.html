@@ -417,8 +417,8 @@ biotype that we will use later on to represent the genes. We will save the fold 
 <span id="cb461-5"><a href="sec-vis.html#cb461-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> time,</span>
 <span id="cb461-6"><a href="sec-vis.html#cb461-6" aria-hidden="true"></a>              <span class="dt">values_from =</span> mean_exp) <span class="op">%&gt;%</span></span>
 <span id="cb461-7"><a href="sec-vis.html#cb461-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">time_8_vs_0 =</span> <span class="st">`</span><span class="dt">8</span><span class="st">`</span> <span class="op">-</span><span class="st"> `</span><span class="dt">0</span><span class="st">`</span>, <span class="dt">time_4_vs_0 =</span> <span class="st">`</span><span class="dt">4</span><span class="st">`</span> <span class="op">-</span><span class="st"> `</span><span class="dt">0</span><span class="st">`</span>)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'time'. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'time'. You can override using the
+## `.groups` argument.</code></pre>
 <p>We can then build a ggplot with the newly created dataset
 <code>rna_fc</code>. Building plots with <code>ggplot2</code> is typically an iterative
 process. We start by defining the dataset we’ll use, lay out the axes,
@@ -1321,7 +1321,48 @@ students group.</p>
 </p>
 </div>
 </div>
-
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<ul>
+<li><p>Use the <code>covid19_cases.csv()</code> function from the <code>rWSBIM1207</code> package
+to get the path to a file containing the evolution of COVID19 cases
+in a number of regions/countries around the world. Load the data
+using <code>read_csv()</code> and familiarise yourself with the data and
+variables.</p></li>
+<li><p>Note that some countries are subdivided into regions. Extract and
+display the case for France. Verify if any regions are provided for
+Belgium.</p></li>
+<li><p>To visualise these data, start by transforming the data into a long
+format and convert the dates into properly encoded dates with the
+<code>lubridate</code> package.</p></li>
+<li><p>Summarize the COVID19 cases into countries by counting the
+cumulative number of cases over time and display the first results
+for France, Belgium and Italy.</p></li>
+<li><p>Visualise the evolution of COVID19 cases for Belgium, France,
+Germany, Netherlands, Italy and Luxembourg over time. To do so,
+using the <code>geom_point()</code> and <code>geom_line()</code> geoms and use a log10
+scale to display the cases, as shown below. Briefly describe
+and interpret your figure.</p></li>
+</ul>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-212"></span>
+<p class="caption marginnote shownote">
+Figure 6.4: Evolution of COVID19 cases.
+</p>
+<img src="figs/covid_fig_ex.png" alt="Evolution of COVID19 cases." width="100%">
+</div>
+<ul>
+<li>Generate a second figure, similar to the one above, for the
+different regions in France.</li>
+</ul>
 </div>
 </div></body></html>
 

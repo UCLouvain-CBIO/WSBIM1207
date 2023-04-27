@@ -1261,3 +1261,84 @@ ggplot(x, aes(x = gender, y = result)) +
     geom_boxplot() +
     facet_grid(. ~ interro)
 ```
+
+
+`r msmbstyle::question_begin()`
+
+- Use the `covid19_cases.csv()` function from the `rWSBIM1207` package
+  to get the path to a file containing the evolution of COVID19 cases
+  in a number of regions/countries around the world. Load the data
+  using `read_csv()` and familiarise yourself with the data and
+  variables.
+
+- Note that some countries are subdivided into regions. Extract and
+  display the case for France. Verify if any regions are provided for
+  Belgium.
+
+- To visualise these data, start by transforming the data into a long
+  format and convert the dates into properly encoded dates with the
+  `lubridate` package.
+
+- Summarize the COVID19 cases into countries by counting the
+  cumulative number of cases over time and display the first results
+  for France, Belgium and Italy.
+
+- Visualise the evolution of COVID19 cases for Belgium, France,
+  Germany, Netherlands, Italy and Luxembourg over time. To do so,
+  using the `geom_point()` and `geom_line()` geoms and use a log10
+  scale to display the cases, as shown below. Briefly describe
+  and interpret your figure.
+
+`r msmbstyle::question_end()`
+
+```{r, results='markup', fig.cap="Evolution of COVID19 cases.", echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("./figs/covid_fig_ex.png")
+```
+
+- Generate a second figure, similar to the one above, for the
+  different regions in France.
+
+```{r covidsln, include=FALSE, message=FALSE}
+library(tidyverse)
+library(rWSBIM1207)
+library(lubridate)
+
+## import data
+covid19 <- covid19_cases.csv() %>%
+    read_csv()
+covid19
+
+## check countries/regions
+filter(covid19,
+       Country_Region %in% c("France", "Belgium")) %>%
+    select(1:2)
+
+## long format
+covid19 <-
+    covid19 %>%
+    pivot_longer(
+        names_to = "date",
+        values_to = "cases",
+        -(1:4)) %>%
+    mutate(date = lubridate::mdy(date))
+
+## cumulative cases by country
+covid19 <-
+    covid19 %>%
+    group_by(Country_Region, date) %>%
+    summarise(sum_cases = sum(cases))
+
+filter(covid19, Country_Region == "France")
+filter(covid19, Country_Region == "Belgium")
+
+## visualisation
+covid19 %>%
+    filter(Country_Region %in% c("Belgium", "France", "Germany",
+                                 "Netherlands", "Italy", "Luxembourg")) %>%
+    ggplot(aes(x = date, y = sum_cases,
+               colour = Country_Region)) +
+    geom_line() +
+    geom_point() +
+    scale_y_log10()
+
+```

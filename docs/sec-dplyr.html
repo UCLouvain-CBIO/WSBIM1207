@@ -295,7 +295,7 @@ and this <a href="https://github.com/rstudio/cheatsheets/raw/main/data-import.pd
 tidyverse package <strong><code>readr</code></strong>, instead of <code>read.csv()</code>.</p>
 <div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="sec-dplyr.html#cb302-1" aria-hidden="true"></a>rna &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
 <pre><code>## Rows: 32428 Columns: 19
-## ── Column specification ─────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (14): gene, sample, organism, sex, infection, strain, tissue, product, e...
 ## dbl  (5): expression, age, time, mouse, ENTREZID
@@ -1837,7 +1837,7 @@ version is older than 0.1.1, install it from the
 <div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="sec-dplyr.html#cb440-1" aria-hidden="true"></a><span class="kw">data</span>(beers)</span></code></pre></div>
 <ul>
 <li><p>Remove observations with missing values.</p></li>
-<li><p>Using the <code>Year</code>, <code>Month</code> and <code>Year</code> columns, create a new column
+<li><p>Using the <code>Year</code>, <code>Month</code> and <code>Day</code> columns, create a new column
 <code>Date</code> using <code>dplyr::mutate</code> and <code>lubridate::ymd</code>. What is the class
 of <code>Date</code> ?</p></li>
 <li><p>Create a new table, containing observations for women older than 35
