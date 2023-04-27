@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2023-03-26" />
+<meta name="date" content="2023-04-27" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -432,24 +432,24 @@ measured by the same operator in 4 replicate.</p>
 <p>We have seen a much more complex experimental design, involving many
 more samples with the <code>clinical1</code> data.</p>
 <pre><code>## # A tibble: 516 × 15
-##    patientID    tumor_t…¹ gender age_a…² vital…³ days_…⁴ days_…⁵ patho…⁶ patho…⁷
-##    &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;    &lt;int&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;  
-##  1 TCGA-05-4249 lung      male     24532       0      NA    1523 stage … t2     
-##  2 TCGA-05-4382 lung      male     24868       0      NA     607 stage … t2     
-##  3 TCGA-05-4384 lung      male     24411       0      NA     426 stage … t2     
-##  4 TCGA-05-4389 lung      male     25660       0      NA    1369 stage … t1     
-##  5 TCGA-05-4390 lung      female   21430       0      NA    1126 stage … t2     
-##  6 TCGA-05-4395 lung      male     27971       1       0      NA stage … t4     
-##  7 TCGA-05-4396 lung      male     28094       1     303      NA stage … t4     
-##  8 TCGA-05-4398 lung      female   17471       0      NA    1431 stage … t4     
-##  9 TCGA-05-4402 lung      female   20819       1     244      NA stage … t2     
-## 10 TCGA-05-4403 lung      male     27881       0      NA     578 stage … t2     
-## # … with 506 more rows, 6 more variables: pathology_N_stage &lt;chr&gt;,
+##    patientID    tumor_tissue_site gender age_at_diagnosis vital_status
+##    &lt;chr&gt;        &lt;chr&gt;             &lt;chr&gt;             &lt;int&gt;        &lt;int&gt;
+##  1 TCGA-05-4249 lung              male              24532            0
+##  2 TCGA-05-4382 lung              male              24868            0
+##  3 TCGA-05-4384 lung              male              24411            0
+##  4 TCGA-05-4389 lung              male              25660            0
+##  5 TCGA-05-4390 lung              female            21430            0
+##  6 TCGA-05-4395 lung              male              27971            1
+##  7 TCGA-05-4396 lung              male              28094            1
+##  8 TCGA-05-4398 lung              female            17471            0
+##  9 TCGA-05-4402 lung              female            20819            1
+## 10 TCGA-05-4403 lung              male              27881            0
+## # ℹ 506 more rows
+## # ℹ 10 more variables: days_to_death &lt;int&gt;, days_to_last_followup &lt;int&gt;,
+## #   pathologic_stage &lt;chr&gt;, pathology_T_stage &lt;chr&gt;, pathology_N_stage &lt;chr&gt;,
 ## #   pathology_M_stage &lt;chr&gt;, smoking_history &lt;chr&gt;,
 ## #   number_pack_years_smoked &lt;dbl&gt;, year_of_tobacco_smoking_onset &lt;int&gt;,
-## #   stopped_smoking_year &lt;int&gt;, and abbreviated variable names
-## #   ¹​tumor_tissue_site, ²​age_at_diagnosis, ³​vital_status, ⁴​days_to_death,
-## #   ⁵​days_to_last_followup, ⁶​pathologic_stage, ⁷​pathology_T_stage</code></pre>
+## #   stopped_smoking_year &lt;int&gt;</code></pre>
 <p>When performing experiments, measurements should also be repeated
 several times (typically at least three), to quantify the overall
 variability (technical and biological) in the measured variables and,
@@ -1125,9 +1125,9 @@ sample data based on the groups.</p></li>
 <a href="sec-prog.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2023-03-26
+2023-04-27
  using 
-R version 4.2.2 Patched (2022-11-10 r83330)
+R version 4.2.3 (2023-03-15)
 </p>
 </div>
 </div>

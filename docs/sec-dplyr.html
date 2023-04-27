@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2023-03-26" />
+<meta name="date" content="2023-04-27" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -295,7 +295,7 @@ and this <a href="https://github.com/rstudio/cheatsheets/raw/main/data-import.pd
 tidyverse package <strong><code>readr</code></strong>, instead of <code>read.csv()</code>.</p>
 <div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="sec-dplyr.html#cb302-1" aria-hidden="true"></a>rna &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
 <pre><code>## Rows: 32428 Columns: 19
-## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ─────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (14): gene, sample, organism, sex, infection, strain, tissue, product, e...
 ## dbl  (5): expression, age, time, mouse, ENTREZID
@@ -354,68 +354,68 @@ arguments are the columns to keep.</p>
 ##  8 Gjc2    GSM2545336 Cerebellum        288
 ##  9 Plp1    GSM2545336 Cerebellum      43217
 ## 10 Gnb4    GSM2545336 Cerebellum       1071
-## # … with 32,418 more rows</code></pre>
+## # ℹ 32,418 more rows</code></pre>
 <p>To select all columns <em>except</em> certain ones, put a “-” in front of
 the variable to exclude it.</p>
 <div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="sec-dplyr.html#cb307-1" aria-hidden="true"></a><span class="kw">select</span>(rna, <span class="op">-</span>organism, <span class="op">-</span>strain)</span></code></pre></div>
 <pre><code>## # A tibble: 32,428 × 17
-##    gene    sample expre…¹   age sex   infec…²  time tissue mouse ENTRE…³ product
-##    &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;  
-##  1 Asl     GSM25…    1170     8 Fema… Influe…     8 Cereb…    14  109900 argini…
-##  2 Apod    GSM25…   36194     8 Fema… Influe…     8 Cereb…    14   11815 apolip…
-##  3 Cyp2d22 GSM25…    4060     8 Fema… Influe…     8 Cereb…    14   56448 cytoch…
-##  4 Klk6    GSM25…     287     8 Fema… Influe…     8 Cereb…    14   19144 kallik…
-##  5 Fcrls   GSM25…      85     8 Fema… Influe…     8 Cereb…    14   80891 Fc rec…
-##  6 Slc2a4  GSM25…     782     8 Fema… Influe…     8 Cereb…    14   20528 solute…
-##  7 Exd2    GSM25…    1619     8 Fema… Influe…     8 Cereb…    14   97827 exonuc…
-##  8 Gjc2    GSM25…     288     8 Fema… Influe…     8 Cereb…    14  118454 gap ju…
-##  9 Plp1    GSM25…   43217     8 Fema… Influe…     8 Cereb…    14   18823 proteo…
-## 10 Gnb4    GSM25…    1071     8 Fema… Influe…     8 Cereb…    14   14696 guanin…
-## # … with 32,418 more rows, 6 more variables: ensembl_gene_id &lt;chr&gt;,
+##    gene    sample   expression   age sex   infection  time tissue mouse ENTREZID
+##    &lt;chr&gt;   &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+##  1 Asl     GSM2545…       1170     8 Fema… Influenz…     8 Cereb…    14   109900
+##  2 Apod    GSM2545…      36194     8 Fema… Influenz…     8 Cereb…    14    11815
+##  3 Cyp2d22 GSM2545…       4060     8 Fema… Influenz…     8 Cereb…    14    56448
+##  4 Klk6    GSM2545…        287     8 Fema… Influenz…     8 Cereb…    14    19144
+##  5 Fcrls   GSM2545…         85     8 Fema… Influenz…     8 Cereb…    14    80891
+##  6 Slc2a4  GSM2545…        782     8 Fema… Influenz…     8 Cereb…    14    20528
+##  7 Exd2    GSM2545…       1619     8 Fema… Influenz…     8 Cereb…    14    97827
+##  8 Gjc2    GSM2545…        288     8 Fema… Influenz…     8 Cereb…    14   118454
+##  9 Plp1    GSM2545…      43217     8 Fema… Influenz…     8 Cereb…    14    18823
+## 10 Gnb4    GSM2545…       1071     8 Fema… Influenz…     8 Cereb…    14    14696
+## # ℹ 32,418 more rows
+## # ℹ 7 more variables: product &lt;chr&gt;, ensembl_gene_id &lt;chr&gt;,
 ## #   external_synonym &lt;chr&gt;, chromosome_name &lt;chr&gt;, gene_biotype &lt;chr&gt;,
-## #   phenotype_description &lt;chr&gt;, hsapiens_homolog_associated_gene_name &lt;chr&gt;,
-## #   and abbreviated variable names ¹​expression, ²​infection, ³​ENTREZID</code></pre>
+## #   phenotype_description &lt;chr&gt;, hsapiens_homolog_associated_gene_name &lt;chr&gt;</code></pre>
 <p>This will select all the variables in <code>rna</code> except <code>organism</code>
 and <code>strain</code>.</p>
 <p>To choose rows based on a specific criteria, use <code>filter()</code>:</p>
 <div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="sec-dplyr.html#cb309-1" aria-hidden="true"></a><span class="kw">filter</span>(rna, sex <span class="op">==</span><span class="st"> "Male"</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 14,740 × 19
-##    gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
-##    &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
-##  1 Asl     GSM254…     626 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
-##  2 Apod    GSM254…   13021 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
-##  3 Cyp2d22 GSM254…    2171 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
-##  4 Klk6    GSM254…     448 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
-##  5 Fcrls   GSM254…     180 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
-##  6 Slc2a4  GSM254…     313 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
-##  7 Exd2    GSM254…    2366 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
-##  8 Gjc2    GSM254…     310 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
-##  9 Plp1    GSM254…   53126 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
-## 10 Gnb4    GSM254…    1355 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
-## # … with 14,730 more rows, 8 more variables: ENTREZID &lt;dbl&gt;, product &lt;chr&gt;,
+##    gene    sample  expression organism   age sex   infection strain  time tissue
+##    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; 
+##  1 Asl     GSM254…        626 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+##  2 Apod    GSM254…      13021 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+##  3 Cyp2d22 GSM254…       2171 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+##  4 Klk6    GSM254…        448 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+##  5 Fcrls   GSM254…        180 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+##  6 Slc2a4  GSM254…        313 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+##  7 Exd2    GSM254…       2366 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+##  8 Gjc2    GSM254…        310 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+##  9 Plp1    GSM254…      53126 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+## 10 Gnb4    GSM254…       1355 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+## # ℹ 14,730 more rows
+## # ℹ 9 more variables: mouse &lt;dbl&gt;, ENTREZID &lt;dbl&gt;, product &lt;chr&gt;,
 ## #   ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;, chromosome_name &lt;chr&gt;,
 ## #   gene_biotype &lt;chr&gt;, phenotype_description &lt;chr&gt;,
-## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;, and abbreviated variable names
-## #   ¹​expression, ²​organism, ³​infection</code></pre>
+## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;</code></pre>
 <div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="sec-dplyr.html#cb311-1" aria-hidden="true"></a><span class="kw">filter</span>(rna, sex <span class="op">==</span><span class="st"> "Male"</span> <span class="op">&amp;</span><span class="st"> </span>infection <span class="op">==</span><span class="st"> "NonInfected"</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 4,422 × 19
-##    gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
-##    &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
-##  1 Asl     GSM254…     535 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
-##  2 Apod    GSM254…   13668 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
-##  3 Cyp2d22 GSM254…    2008 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
-##  4 Klk6    GSM254…    1101 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
-##  5 Fcrls   GSM254…     375 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
-##  6 Slc2a4  GSM254…     249 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
-##  7 Exd2    GSM254…    3126 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
-##  8 Gjc2    GSM254…     791 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
-##  9 Plp1    GSM254…   98658 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
-## 10 Gnb4    GSM254…    2437 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
-## # … with 4,412 more rows, 8 more variables: ENTREZID &lt;dbl&gt;, product &lt;chr&gt;,
+##    gene    sample  expression organism   age sex   infection strain  time tissue
+##    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; 
+##  1 Asl     GSM254…        535 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+##  2 Apod    GSM254…      13668 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+##  3 Cyp2d22 GSM254…       2008 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+##  4 Klk6    GSM254…       1101 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+##  5 Fcrls   GSM254…        375 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+##  6 Slc2a4  GSM254…        249 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+##  7 Exd2    GSM254…       3126 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+##  8 Gjc2    GSM254…        791 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+##  9 Plp1    GSM254…      98658 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+## 10 Gnb4    GSM254…       2437 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+## # ℹ 4,412 more rows
+## # ℹ 9 more variables: mouse &lt;dbl&gt;, ENTREZID &lt;dbl&gt;, product &lt;chr&gt;,
 ## #   ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;, chromosome_name &lt;chr&gt;,
 ## #   gene_biotype &lt;chr&gt;, phenotype_description &lt;chr&gt;,
-## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;, and abbreviated variable names
-## #   ¹​expression, ²​organism, ³​infection</code></pre>
+## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;</code></pre>
 </div>
 <div id="pipes" class="section level2" number="5.4">
 <h2>
@@ -442,7 +442,7 @@ that as input to the next function, like this:</p>
 ##  8 Gjc2    GSM2545340 Cerebellum        310
 ##  9 Plp1    GSM2545340 Cerebellum      53126
 ## 10 Gnb4    GSM2545340 Cerebellum       1355
-## # … with 14,730 more rows</code></pre>
+## # ℹ 14,730 more rows</code></pre>
 <p>This is readable, but can clutter up your workspace with lots of
 objects that you have to name individually. With multiple steps, that
 can be hard to keep track of.</p>
@@ -463,7 +463,7 @@ like this:</p>
 ##  8 Gjc2    GSM2545340 Cerebellum        310
 ##  9 Plp1    GSM2545340 Cerebellum      53126
 ## 10 Gnb4    GSM2545340 Cerebellum       1355
-## # … with 14,730 more rows</code></pre>
+## # ℹ 14,730 more rows</code></pre>
 <p>This is handy, but can be difficult to read if too many functions are
 nested, as R evaluates the expression from the inside out (in this
 case, filtering, then selecting).</p>
@@ -491,7 +491,7 @@ available in base R). If you use RStudio, you can type the pipe with
 ##  8 Gjc2    GSM2545340 Cerebellum        310
 ##  9 Plp1    GSM2545340 Cerebellum      53126
 ## 10 Gnb4    GSM2545340 Cerebellum       1355
-## # … with 14,730 more rows</code></pre>
+## # ℹ 14,730 more rows</code></pre>
 <p>Or</p>
 <div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="sec-dplyr.html#cb319-1" aria-hidden="true"></a>rna  <span class="op">|</span><span class="er">&gt;</span></span>
 <span id="cb319-2"><a href="sec-dplyr.html#cb319-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">filter</span>(sex <span class="op">==</span><span class="st"> "Male"</span>) <span class="op">|</span><span class="er">&gt;</span></span>
@@ -509,7 +509,7 @@ available in base R). If you use RStudio, you can type the pipe with
 ##  8 Gjc2    GSM2545340 Cerebellum        310
 ##  9 Plp1    GSM2545340 Cerebellum      53126
 ## 10 Gnb4    GSM2545340 Cerebellum       1355
-## # … with 14,730 more rows</code></pre>
+## # ℹ 14,730 more rows</code></pre>
 <p>In the above code, we use the pipe to send the <code>rna</code> dataset first
 through <code>filter()</code> to keep rows where <code>sex</code> is Male, then through
 <code>select()</code> to keep only the <code>gene</code>, <code>sample</code>, <code>tissue</code>, and
@@ -544,7 +544,7 @@ data, we can assign it a new name:</p>
 ##  8 Gjc2    GSM2545340 Cerebellum        310
 ##  9 Plp1    GSM2545340 Cerebellum      53126
 ## 10 Gnb4    GSM2545340 Cerebellum       1355
-## # … with 14,730 more rows</code></pre>
+## # ℹ 14,730 more rows</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -607,7 +607,7 @@ columns. For this we’ll use <code>mutate()</code>.</p>
 ##  8     8        192
 ##  9     8        192
 ## 10     8        192
-## # … with 32,418 more rows</code></pre>
+## # ℹ 32,418 more rows</code></pre>
 <p>You can also create a second new column based on the first new column within the same call of <code>mutate()</code>:</p>
 <div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="sec-dplyr.html#cb327-1" aria-hidden="true"></a>rna <span class="op">%&gt;%</span></span>
 <span id="cb327-2"><a href="sec-dplyr.html#cb327-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">time_hours =</span> time <span class="op">*</span><span class="st"> </span><span class="dv">24</span>, <span class="dt">time_mn =</span> time_hours <span class="op">*</span><span class="st"> </span><span class="dv">60</span>) <span class="op">%&gt;%</span></span>
@@ -625,7 +625,7 @@ columns. For this we’ll use <code>mutate()</code>.</p>
 ##  8     8        192   11520
 ##  9     8        192   11520
 ## 10     8        192   11520
-## # … with 32,418 more rows</code></pre>
+## # ℹ 32,418 more rows</code></pre>
 <p>If this runs off your screen and you just want to see the first few rows, you
 can use a pipe to view the <code>head()</code> of the data. (Pipes work with non-<code>dplyr</code>
 functions, too, as long as the <strong><code>dplyr</code></strong> or <code>magrittr</code> package is loaded).</p>
@@ -660,7 +660,7 @@ last column of the <code>rna</code> tibble, named <code>hsapiens_homolog_associa
 ##  8 Gjc2    GJC2                                 
 ##  9 Plp1    PLP1                                 
 ## 10 Gnb4    GNB4                                 
-## # … with 32,418 more rows</code></pre>
+## # ℹ 32,418 more rows</code></pre>
 <p>Some mouse gene have no human homologs. These can be retrieved using a <code>filter()</code>
 in the chain, and the <code>is.na()</code> function that determines whether something is an <code>NA</code>.</p>
 <div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="sec-dplyr.html#cb333-1" aria-hidden="true"></a>rna <span class="op">%&gt;%</span></span>
@@ -679,7 +679,7 @@ in the chain, and the <code>is.na()</code> function that determines whether some
 ##  8 Tmem198b &lt;NA&gt;                                 
 ##  9 Adam1a   &lt;NA&gt;                                 
 ## 10 Ebp      &lt;NA&gt;                                 
-## # … with 4,280 more rows</code></pre>
+## # ℹ 4,280 more rows</code></pre>
 <p>If we want to keep only mouse gene that have a human homolog, we can
 insert a <code>!</code> symbol that negates the result, so we’re asking for
 every row where <code>hsapiens_homolog_associated_gene_name</code> <em>is not</em> an
@@ -702,7 +702,7 @@ those we could insert a <code>filter()</code> in the chain:</p>
 ##  8 Gjc2    GJC2                                 
 ##  9 Plp1    PLP1                                 
 ## 10 Gnb4    GNB4                                 
-## # … with 28,128 more rows</code></pre>
+## # ℹ 28,128 more rows</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -732,19 +732,19 @@ this data frame!</p>
 <span id="cb337-4"><a href="sec-dplyr.html#cb337-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span>(gene, chromosome_name, phenotype_description, sample, log_expression) <span class="op">%&gt;%</span></span>
 <span id="cb337-5"><a href="sec-dplyr.html#cb337-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(phenotype_description))</span></code></pre></div>
 <pre><code>## # A tibble: 21,054 × 5
-##    gene    chromosome_name phenotype_description                  sample log_e…¹
-##    &lt;chr&gt;   &lt;chr&gt;           &lt;chr&gt;                                  &lt;chr&gt;    &lt;dbl&gt;
-##  1 Asl     5               abnormal circulating amino acid level  GSM25…    7.06
-##  2 Apod    16              abnormal lipid homeostasis             GSM25…   10.5 
-##  3 Cyp2d22 15              abnormal skin morphology               GSM25…    8.31
-##  4 Klk6    7               abnormal cytokine level                GSM25…    5.66
-##  5 Fcrls   3               decreased CD8-positive alpha-beta T c… GSM25…    4.44
-##  6 Slc2a4  11              abnormal circulating glucose level     GSM25…    6.66
-##  7 Gjc2    11              Purkinje cell degeneration             GSM25…    5.66
-##  8 Gnb4    3               decreased anxiety-related response     GSM25…    6.98
-##  9 Tnc     4               abnormal CNS synaptic transmission     GSM25…    5.39
-## 10 Trf     9               abnormal circulating phosphate level   GSM25…    9.18
-## # … with 21,044 more rows, and abbreviated variable name ¹​log_expression</code></pre>
+##    gene    chromosome_name phenotype_description           sample log_expression
+##    &lt;chr&gt;   &lt;chr&gt;           &lt;chr&gt;                           &lt;chr&gt;           &lt;dbl&gt;
+##  1 Asl     5               abnormal circulating amino aci… GSM25…           7.06
+##  2 Apod    16              abnormal lipid homeostasis      GSM25…          10.5 
+##  3 Cyp2d22 15              abnormal skin morphology        GSM25…           8.31
+##  4 Klk6    7               abnormal cytokine level         GSM25…           5.66
+##  5 Fcrls   3               decreased CD8-positive alpha-b… GSM25…           4.44
+##  6 Slc2a4  11              abnormal circulating glucose l… GSM25…           6.66
+##  7 Gjc2    11              Purkinje cell degeneration      GSM25…           5.66
+##  8 Gnb4    3               decreased anxiety-related resp… GSM25…           6.98
+##  9 Tnc     4               abnormal CNS synaptic transmis… GSM25…           5.39
+## 10 Trf     9               abnormal circulating phosphate… GSM25…           9.18
+## # ℹ 21,044 more rows</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -794,23 +794,23 @@ makes this very easy through the use of the <code>group_by()</code> function.</p
 <span id="cb343-2"><a href="sec-dplyr.html#cb343-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">group_by</span>(gene)</span></code></pre></div>
 <pre><code>## # A tibble: 32,428 × 19
 ## # Groups:   gene [1,474]
-##    gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
-##    &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
-##  1 Asl     GSM254…    1170 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  2 Apod    GSM254…   36194 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  3 Cyp2d22 GSM254…    4060 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  4 Klk6    GSM254…     287 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  5 Fcrls   GSM254…      85 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  6 Slc2a4  GSM254…     782 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  7 Exd2    GSM254…    1619 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  8 Gjc2    GSM254…     288 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  9 Plp1    GSM254…   43217 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-## 10 Gnb4    GSM254…    1071 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-## # … with 32,418 more rows, 8 more variables: ENTREZID &lt;dbl&gt;, product &lt;chr&gt;,
+##    gene    sample  expression organism   age sex   infection strain  time tissue
+##    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; 
+##  1 Asl     GSM254…       1170 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  2 Apod    GSM254…      36194 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  3 Cyp2d22 GSM254…       4060 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  4 Klk6    GSM254…        287 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  5 Fcrls   GSM254…         85 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  6 Slc2a4  GSM254…        782 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  7 Exd2    GSM254…       1619 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  8 Gjc2    GSM254…        288 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  9 Plp1    GSM254…      43217 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+## 10 Gnb4    GSM254…       1071 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+## # ℹ 32,418 more rows
+## # ℹ 9 more variables: mouse &lt;dbl&gt;, ENTREZID &lt;dbl&gt;, product &lt;chr&gt;,
 ## #   ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;, chromosome_name &lt;chr&gt;,
 ## #   gene_biotype &lt;chr&gt;, phenotype_description &lt;chr&gt;,
-## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;, and abbreviated variable names
-## #   ¹​expression, ²​organism, ³​infection</code></pre>
+## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;</code></pre>
 <p>The <code>group_by()</code> function doesn’t perform any data processing, it
 groups the data into subsets: in the example above, our initial
 <code>tibble</code> of 32428 observations is split into
@@ -823,42 +823,42 @@ use the <code>ungroup()</code> function.</p>
 <span id="cb345-3"><a href="sec-dplyr.html#cb345-3" aria-hidden="true"></a>grouped_rna</span></code></pre></div>
 <pre><code>## # A tibble: 32,428 × 19
 ## # Groups:   gene [1,474]
-##    gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
-##    &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
-##  1 Asl     GSM254…    1170 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  2 Apod    GSM254…   36194 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  3 Cyp2d22 GSM254…    4060 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  4 Klk6    GSM254…     287 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  5 Fcrls   GSM254…      85 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  6 Slc2a4  GSM254…     782 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  7 Exd2    GSM254…    1619 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  8 Gjc2    GSM254…     288 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  9 Plp1    GSM254…   43217 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-## 10 Gnb4    GSM254…    1071 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-## # … with 32,418 more rows, 8 more variables: ENTREZID &lt;dbl&gt;, product &lt;chr&gt;,
+##    gene    sample  expression organism   age sex   infection strain  time tissue
+##    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; 
+##  1 Asl     GSM254…       1170 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  2 Apod    GSM254…      36194 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  3 Cyp2d22 GSM254…       4060 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  4 Klk6    GSM254…        287 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  5 Fcrls   GSM254…         85 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  6 Slc2a4  GSM254…        782 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  7 Exd2    GSM254…       1619 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  8 Gjc2    GSM254…        288 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  9 Plp1    GSM254…      43217 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+## 10 Gnb4    GSM254…       1071 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+## # ℹ 32,418 more rows
+## # ℹ 9 more variables: mouse &lt;dbl&gt;, ENTREZID &lt;dbl&gt;, product &lt;chr&gt;,
 ## #   ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;, chromosome_name &lt;chr&gt;,
 ## #   gene_biotype &lt;chr&gt;, phenotype_description &lt;chr&gt;,
-## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;, and abbreviated variable names
-## #   ¹​expression, ²​organism, ³​infection</code></pre>
+## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;</code></pre>
 <div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="sec-dplyr.html#cb347-1" aria-hidden="true"></a><span class="kw">ungroup</span>(rna)</span></code></pre></div>
 <pre><code>## # A tibble: 32,428 × 19
-##    gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
-##    &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
-##  1 Asl     GSM254…    1170 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  2 Apod    GSM254…   36194 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  3 Cyp2d22 GSM254…    4060 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  4 Klk6    GSM254…     287 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  5 Fcrls   GSM254…      85 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  6 Slc2a4  GSM254…     782 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  7 Exd2    GSM254…    1619 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  8 Gjc2    GSM254…     288 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-##  9 Plp1    GSM254…   43217 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-## 10 Gnb4    GSM254…    1071 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-## # … with 32,418 more rows, 8 more variables: ENTREZID &lt;dbl&gt;, product &lt;chr&gt;,
+##    gene    sample  expression organism   age sex   infection strain  time tissue
+##    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; 
+##  1 Asl     GSM254…       1170 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  2 Apod    GSM254…      36194 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  3 Cyp2d22 GSM254…       4060 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  4 Klk6    GSM254…        287 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  5 Fcrls   GSM254…         85 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  6 Slc2a4  GSM254…        782 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  7 Exd2    GSM254…       1619 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  8 Gjc2    GSM254…        288 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+##  9 Plp1    GSM254…      43217 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+## 10 Gnb4    GSM254…       1071 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+## # ℹ 32,418 more rows
+## # ℹ 9 more variables: mouse &lt;dbl&gt;, ENTREZID &lt;dbl&gt;, product &lt;chr&gt;,
 ## #   ensembl_gene_id &lt;chr&gt;, external_synonym &lt;chr&gt;, chromosome_name &lt;chr&gt;,
 ## #   gene_biotype &lt;chr&gt;, phenotype_description &lt;chr&gt;,
-## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;, and abbreviated variable names
-## #   ¹​expression, ²​organism, ³​infection</code></pre>
+## #   hsapiens_homolog_associated_gene_name &lt;chr&gt;</code></pre>
 <div id="the-summarize-function" class="section level3" number="5.7.1">
 <h3>
 <span class="header-section-number">5.7.1</span> The <code>summarize()</code> function<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('the-summarize-function')" onmouseout="reset_tooltip('the-summarize-function-tooltip')"><span class="tooltiptext" id="the-summarize-function-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
@@ -884,15 +884,15 @@ statistics. So to compute the mean <code>expression</code> by gene:</p>
 ##  8 Abi2             4909.  
 ##  9 Abi3bp           1002.  
 ## 10 Abl2             2124.  
-## # … with 1,464 more rows</code></pre>
+## # ℹ 1,464 more rows</code></pre>
 <p>You may also have noticed that the output from these calls doesn’t run off the
 screen anymore. It’s one of the advantages of <code>tbl_df</code> over data frame.</p>
 <p>You can also group by multiple columns:</p>
 <div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="sec-dplyr.html#cb351-1" aria-hidden="true"></a>rna <span class="op">%&gt;%</span></span>
 <span id="cb351-2"><a href="sec-dplyr.html#cb351-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">group_by</span>(gene, infection, time) <span class="op">%&gt;%</span></span>
 <span id="cb351-3"><a href="sec-dplyr.html#cb351-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_expression =</span> <span class="kw">mean</span>(expression))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
-## the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 4,422 × 4
 ## # Groups:   gene, infection [2,948]
 ##    gene     infection    time mean_expression
@@ -907,7 +907,7 @@ screen anymore. It’s one of the advantages of <code>tbl_df</code> over data fr
 ##  8 AW551984 InfluenzaA      8            342.
 ##  9 AW551984 NonInfected     0            238 
 ## 10 Aamp     InfluenzaA      4           4870 
-## # … with 4,412 more rows</code></pre>
+## # ℹ 4,412 more rows</code></pre>
 <p>Here, again, the output from these calls doesn’t run off the screen
 anymore. If you want to display more data, you can use the <code>print()</code> function
 at the end of your chain with the argument <code>n</code> specifying the number of rows to
@@ -916,8 +916,8 @@ display:</p>
 <span id="cb354-2"><a href="sec-dplyr.html#cb354-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">group_by</span>(gene, infection, time) <span class="op">%&gt;%</span></span>
 <span id="cb354-3"><a href="sec-dplyr.html#cb354-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_expression =</span> <span class="kw">mean</span>(expression)) <span class="op">%&gt;%</span></span>
 <span id="cb354-4"><a href="sec-dplyr.html#cb354-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">print</span>(<span class="dt">n =</span> <span class="dv">15</span>)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
-## the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 4,422 × 4
 ## # Groups:   gene, infection [2,948]
 ##    gene     infection    time mean_expression
@@ -937,7 +937,7 @@ display:</p>
 ## 13 Abca12   InfluenzaA      4            4.25
 ## 14 Abca12   InfluenzaA      8            4.14
 ## 15 Abca12   NonInfected     0            5.29
-## # … with 4,407 more rows</code></pre>
+## # ℹ 4,407 more rows</code></pre>
 <p>Once the data is grouped, you can also summarize multiple variables at the same
 time (and not necessarily on the same variable). For instance, we could add
 columns indicating the median <code>expression</code> by gene and by condition:</p>
@@ -945,8 +945,8 @@ columns indicating the median <code>expression</code> by gene and by condition:<
 <span id="cb357-2"><a href="sec-dplyr.html#cb357-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">group_by</span>(gene, infection, time) <span class="op">%&gt;%</span></span>
 <span id="cb357-3"><a href="sec-dplyr.html#cb357-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_expression =</span> <span class="kw">mean</span>(expression),</span>
 <span id="cb357-4"><a href="sec-dplyr.html#cb357-4" aria-hidden="true"></a>            <span class="dt">median_expression =</span> <span class="kw">median</span>(expression))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
-## the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 4,422 × 5
 ## # Groups:   gene, infection [2,948]
 ##    gene     infection    time mean_expression median_expression
@@ -961,7 +961,7 @@ columns indicating the median <code>expression</code> by gene and by condition:<
 ##  8 AW551984 InfluenzaA      8            342.              287 
 ##  9 AW551984 NonInfected     0            238               265 
 ## 10 Aamp     InfluenzaA      4           4870              4708 
-## # … with 4,412 more rows</code></pre>
+## # ℹ 4,412 more rows</code></pre>
 <p>It is sometimes useful to rearrange the result of a query to inspect the values.
 For instance, we can sort on <code>mean_expression</code> to put the genes lowly expressed first:</p>
 <div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="sec-dplyr.html#cb360-1" aria-hidden="true"></a>rna <span class="op">%&gt;%</span></span>
@@ -969,8 +969,8 @@ For instance, we can sort on <code>mean_expression</code> to put the genes lowly
 <span id="cb360-3"><a href="sec-dplyr.html#cb360-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_expression =</span> <span class="kw">mean</span>(expression),</span>
 <span id="cb360-4"><a href="sec-dplyr.html#cb360-4" aria-hidden="true"></a>            <span class="dt">median_expression =</span> <span class="kw">median</span>(expression)) <span class="op">%&gt;%</span></span>
 <span id="cb360-5"><a href="sec-dplyr.html#cb360-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">arrange</span>(mean_expression)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
-## the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 4,422 × 5
 ## # Groups:   gene, infection [2,948]
 ##    gene    infection    time mean_expression median_expression
@@ -985,15 +985,15 @@ For instance, we can sort on <code>mean_expression</code> to put the genes lowly
 ##  8 Gm19637 InfluenzaA      4           0.625               0.5
 ##  9 Gm6177  InfluenzaA      4           0.625               1  
 ## 10 Gm7241  InfluenzaA      4           0.625               0.5
-## # … with 4,412 more rows</code></pre>
+## # ℹ 4,412 more rows</code></pre>
 <p>To sort in descending order, we need to add the <code>desc()</code> function:</p>
 <div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="sec-dplyr.html#cb363-1" aria-hidden="true"></a>rna <span class="op">%&gt;%</span></span>
 <span id="cb363-2"><a href="sec-dplyr.html#cb363-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">group_by</span>(gene, infection, time) <span class="op">%&gt;%</span></span>
 <span id="cb363-3"><a href="sec-dplyr.html#cb363-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_expression =</span> <span class="kw">mean</span>(expression),</span>
 <span id="cb363-4"><a href="sec-dplyr.html#cb363-4" aria-hidden="true"></a>            <span class="dt">median_expression =</span> <span class="kw">median</span>(expression)) <span class="op">%&gt;%</span></span>
 <span id="cb363-5"><a href="sec-dplyr.html#cb363-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(mean_expression))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
-## the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 4,422 × 5
 ## # Groups:   gene, infection [2,948]
 ##    gene   infection    time mean_expression median_expression
@@ -1008,7 +1008,7 @@ For instance, we can sort on <code>mean_expression</code> to put the genes lowly
 ##  8 Glul   InfluenzaA      4          55358.            52836.
 ##  9 Glul   NonInfected     0          48123.            49099 
 ## 10 Nrep   NonInfected     0          40060.            37493 
-## # … with 4,412 more rows</code></pre>
+## # ℹ 4,412 more rows</code></pre>
 </div>
 <div id="counting" class="section level3" number="5.7.2">
 <h3>
@@ -1118,7 +1118,7 @@ and calculate their mean expression (in log) at time 0, time 4 and time 8.</p></
 ##  8 GSM2545343  1474
 ##  9 GSM2545344  1474
 ## 10 GSM2545345  1474
-## # … with 12 more rows</code></pre>
+## # ℹ 12 more rows</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Use <code>group_by()</code> and <code>summarize()</code> to evaluate the sequencing depth
 (the sum of all counts) in each sample. Which sample has the highest sequencing depth?</li>
@@ -1140,7 +1140,7 @@ and calculate their mean expression (in log) at time 0, time 4 and time 8.</p></
 ##  8 GSM2545362   2913517
 ##  9 GSM2545351   2782464
 ## 10 GSM2545349   2758006
-## # … with 12 more rows</code></pre>
+## # ℹ 12 more rows</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Calculate the mean expression level of gene “Dok3” by timepoints.</li>
 </ol>
@@ -1276,7 +1276,7 @@ use <code>pivot_wider()</code> to transform data in a wide-format.</p>
 ##  8 Gjc2    GSM2545336        288
 ##  9 Plp1    GSM2545336      43217
 ## 10 Gnb4    GSM2545336       1071
-## # … with 32,418 more rows</code></pre>
+## # ℹ 32,418 more rows</code></pre>
 <p><code>pivot_wider</code> takes the following three main arguments:</p>
 <ol style="list-style-type: decimal">
 <li>the data to be transformed;</li>
@@ -1294,25 +1294,24 @@ directly pipe the data into the <code>pivot_wider()</code>, as illustrated below
 <span id="cb391-3"><a href="sec-dplyr.html#cb391-3" aria-hidden="true"></a>              <span class="dt">values_from =</span> expression)</span>
 <span id="cb391-4"><a href="sec-dplyr.html#cb391-4" aria-hidden="true"></a>rna_wide</span></code></pre></div>
 <pre><code>## # A tibble: 1,474 × 23
-##    gene  GSM25…¹ GSM25…² GSM25…³ GSM25…⁴ GSM25…⁵ GSM25…⁶ GSM25…⁷ GSM25…⁸ GSM25…⁹
-##    &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-##  1 Asl      1170     361     400     586     626     988     836     535     586
-##  2 Apod    36194   10347    9173   10620   13021   29594   24959   13668   13230
-##  3 Cyp2…    4060    1616    1603    1901    2171    3349    3122    2008    2254
-##  4 Klk6      287     629     641     578     448     195     186    1101     537
-##  5 Fcrls      85     233     244     237     180      38      68     375     199
-##  6 Slc2…     782     231     248     265     313     786     528     249     266
-##  7 Exd2     1619    2288    2235    2513    2366    1359    1474    3126    2379
-##  8 Gjc2      288     595     568     551     310     146     186     791     454
-##  9 Plp1    43217  101241   96534   58354   53126   27173   28728   98658   61356
-## 10 Gnb4     1071    1791    1867    1430    1355     798     806    2437    1394
-## # … with 1,464 more rows, 13 more variables: GSM2545345 &lt;dbl&gt;,
-## #   GSM2545346 &lt;dbl&gt;, GSM2545347 &lt;dbl&gt;, GSM2545348 &lt;dbl&gt;, GSM2545349 &lt;dbl&gt;,
-## #   GSM2545350 &lt;dbl&gt;, GSM2545351 &lt;dbl&gt;, GSM2545352 &lt;dbl&gt;, GSM2545353 &lt;dbl&gt;,
-## #   GSM2545354 &lt;dbl&gt;, GSM2545362 &lt;dbl&gt;, GSM2545363 &lt;dbl&gt;, GSM2545380 &lt;dbl&gt;, and
-## #   abbreviated variable names ¹​GSM2545336, ²​GSM2545337, ³​GSM2545338,
-## #   ⁴​GSM2545339, ⁵​GSM2545340, ⁶​GSM2545341, ⁷​GSM2545342, ⁸​GSM2545343,
-## #   ⁹​GSM2545344</code></pre>
+##    gene    GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340 GSM2545341
+##    &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+##  1 Asl           1170        361        400        586        626        988
+##  2 Apod         36194      10347       9173      10620      13021      29594
+##  3 Cyp2d22       4060       1616       1603       1901       2171       3349
+##  4 Klk6           287        629        641        578        448        195
+##  5 Fcrls           85        233        244        237        180         38
+##  6 Slc2a4         782        231        248        265        313        786
+##  7 Exd2          1619       2288       2235       2513       2366       1359
+##  8 Gjc2           288        595        568        551        310        146
+##  9 Plp1         43217     101241      96534      58354      53126      27173
+## 10 Gnb4          1071       1791       1867       1430       1355        798
+## # ℹ 1,464 more rows
+## # ℹ 16 more variables: GSM2545342 &lt;dbl&gt;, GSM2545343 &lt;dbl&gt;, GSM2545344 &lt;dbl&gt;,
+## #   GSM2545345 &lt;dbl&gt;, GSM2545346 &lt;dbl&gt;, GSM2545347 &lt;dbl&gt;, GSM2545348 &lt;dbl&gt;,
+## #   GSM2545349 &lt;dbl&gt;, GSM2545350 &lt;dbl&gt;, GSM2545351 &lt;dbl&gt;, GSM2545352 &lt;dbl&gt;,
+## #   GSM2545353 &lt;dbl&gt;, GSM2545354 &lt;dbl&gt;, GSM2545362 &lt;dbl&gt;, GSM2545363 &lt;dbl&gt;,
+## #   GSM2545380 &lt;dbl&gt;</code></pre>
 <p>We can now easily compare the gene expression levels in different
 samples.</p>
 <p>Note that the <code>pivot_wider()</code> function comes with an optional
@@ -1405,7 +1404,7 @@ with a minus sign.</p>
 ##  8 Asl   GSM2545343        535
 ##  9 Asl   GSM2545344        586
 ## 10 Asl   GSM2545345        597
-## # … with 32,418 more rows</code></pre>
+## # ℹ 32,418 more rows</code></pre>
 <p><img src="figs/pivot_longer.png"></p>
 <p>Note that if we had missing values in the wide-format, the <code>NA</code> would be
 included in the new wide format. Pivoting to wider and longer formats can
@@ -1459,7 +1458,7 @@ Another possibility would be to use the <code>:</code> operator!</p>
 ##  8 Asl   GSM2545343        535
 ##  9 Asl   GSM2545344        586
 ## 10 Asl   GSM2545345        597
-## # … with 32,418 more rows</code></pre>
+## # ℹ 32,418 more rows</code></pre>
 <div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="sec-dplyr.html#cb407-1" aria-hidden="true"></a>rna_wide <span class="op">%&gt;%</span></span>
 <span id="cb407-2"><a href="sec-dplyr.html#cb407-2" aria-hidden="true"></a><span class="st">    </span><span class="kw">pivot_longer</span>(<span class="dt">names_to =</span> <span class="st">"sample"</span>,</span>
 <span id="cb407-3"><a href="sec-dplyr.html#cb407-3" aria-hidden="true"></a>                 <span class="dt">values_to =</span> <span class="st">"expression"</span>,</span>
@@ -1477,7 +1476,7 @@ Another possibility would be to use the <code>:</code> operator!</p>
 ##  8 Asl   GSM2545343        535
 ##  9 Asl   GSM2545344        586
 ## 10 Asl   GSM2545345        597
-## # … with 32,418 more rows</code></pre>
+## # ℹ 32,418 more rows</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -1517,7 +1516,7 @@ located in each chromosome as the values, as shown below.</p>
 ##  8 Armcx5 GSM2545343 Male          559 X              
 ##  9 Armcx5 GSM2545344 Female        570 X              
 ## 10 Armcx5 GSM2545345 Male          545 X              
-## # … with 1,288 more rows</code></pre>
+## # ℹ 1,288 more rows</code></pre>
 <div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="sec-dplyr.html#cb411-1" aria-hidden="true"></a>rna_<span class="dv">1</span> &lt;-<span class="st"> </span>rna <span class="op">%&gt;%</span></span>
 <span id="cb411-2"><a href="sec-dplyr.html#cb411-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">filter</span>(chromosome_name <span class="op">==</span><span class="st"> "Y"</span> <span class="op">|</span><span class="st"> </span>chromosome_name <span class="op">==</span><span class="st"> "X"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb411-3"><a href="sec-dplyr.html#cb411-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">group_by</span>(sex, chromosome_name) <span class="op">%&gt;%</span></span>
@@ -1609,7 +1608,7 @@ the different timepoints.</p>
 ##  8 Abi2     4881.   4903.   4945.  
 ##  9 Abi3bp   1175.   1061.    762.  
 ## 10 Abl2     2170.   2078.   2131.  
-## # … with 1,464 more rows</code></pre>
+## # ℹ 1,464 more rows</code></pre>
 <p>Notice that this generates a tibble with some column names starting by a number.
 If we wanted to select the column corresponding to the timepoints,
 we could not use the column names directly… What happens when we select the colum 4?</p>
@@ -1635,7 +1634,7 @@ we could not use the column names directly… What happens when we select the co
 ##  8 Abi2     4945.  
 ##  9 Abi3bp    762.  
 ## 10 Abl2     2131.  
-## # … with 1,464 more rows</code></pre>
+## # ℹ 1,464 more rows</code></pre>
 <p>To select the timepoint 4, we would have to quote the column name, with backticks “`”</p>
 <div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="sec-dplyr.html#cb423-1" aria-hidden="true"></a>rna <span class="op">%&gt;%</span></span>
 <span id="cb423-2"><a href="sec-dplyr.html#cb423-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">group_by</span>(gene, time) <span class="op">%&gt;%</span></span>
@@ -1659,7 +1658,7 @@ we could not use the column names directly… What happens when we select the co
 ##  8 Abi2     4903.  
 ##  9 Abi3bp   1061.  
 ## 10 Abl2     2078.  
-## # … with 1,464 more rows</code></pre>
+## # ℹ 1,464 more rows</code></pre>
 <p>Another possibility would be to rename the column,
 choosing a name that doesn’t start by a number :</p>
 <div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="sec-dplyr.html#cb426-1" aria-hidden="true"></a>rna <span class="op">%&gt;%</span></span>
@@ -1685,7 +1684,7 @@ choosing a name that doesn’t start by a number :</p>
 ##  8 Abi2     4903.  
 ##  9 Abi3bp   1061.  
 ## 10 Abl2     2078.  
-## # … with 1,464 more rows</code></pre>
+## # ℹ 1,464 more rows</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1734,7 +1733,7 @@ foldchanges calculated.</p>
 ##  8 Abi2     4881.   4903.   4945.         1.01        1.01 
 ##  9 Abi3bp   1175.   1061.    762.         0.649       0.719
 ## 10 Abl2     2170.   2078.   2131.         0.982       1.03 
-## # … with 1,464 more rows</code></pre>
+## # ℹ 1,464 more rows</code></pre>
 <div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="sec-dplyr.html#cb433-1" aria-hidden="true"></a>rna_fc <span class="op">%&gt;%</span></span>
 <span id="cb433-2"><a href="sec-dplyr.html#cb433-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">names_to =</span> <span class="st">"comparisons"</span>,</span>
 <span id="cb433-3"><a href="sec-dplyr.html#cb433-3" aria-hidden="true"></a>               <span class="dt">values_to =</span> <span class="st">"Fold_changes"</span>,</span>
@@ -1753,7 +1752,7 @@ foldchanges calculated.</p>
 ##  8 Aamp     4603.   4870    4763.   time_8_vs_4        0.978
 ##  9 Abca12      5.29    4.25    4.14 time_8_vs_0        0.784
 ## 10 Abca12      5.29    4.25    4.14 time_8_vs_4        0.975
-## # … with 2,938 more rows</code></pre>
+## # ℹ 2,938 more rows</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1810,7 +1809,7 @@ between timepoint 8 and timepoint 0.</p>
 ##  8 Abi2          0.0110   -0.000894
 ##  9 Abi3bp       -0.432    -0.107   
 ## 10 Abl2         -0.0188   -0.0550  
-## # … with 1,464 more rows</code></pre>
+## # ℹ 1,464 more rows</code></pre>
 <p>We can save the table as a CSV file in our <code>data_output</code>
 folder.</p>
 <div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="sec-dplyr.html#cb439-1" aria-hidden="true"></a><span class="kw">write_csv</span>(rna_fc, <span class="dt">file =</span> <span class="st">"data_output/rna_fc.csv"</span>)</span></code></pre></div>
@@ -1959,9 +1958,9 @@ and a column <code>result</code> with the student’s mark.</p>
 <a href="sec-vis.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2023-03-26
+2023-04-27
  using 
-R version 4.2.2 Patched (2022-11-10 r83330)
+R version 4.2.3 (2023-03-15)
 </p>
 </div>
 </div>

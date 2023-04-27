@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2023-03-26" />
+<meta name="date" content="2023-04-27" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -251,7 +251,7 @@ well as the proteins identifier (<code>entry</code>).</p>
 ##  8 Q9JKF1   Plasma membrane                       IQGA1_MOUSE
 ##  9 Q9QZQ1-2 Plasma membrane                       AFAD_MOUSE 
 ## 10 Q6NS46   Nucleus - Non-chromatin               RRP5_MOUSE 
-## # … with 15 more rows</code></pre>
+## # ℹ 15 more rows</code></pre>
 <p>The second table contains the name of the gene that codes for the
 protein (<code>gene_name</code> variable), a description of the gene
 (<code>description</code> variable), the uniprot accession number (this is the
@@ -271,7 +271,7 @@ protein information comes from (<code>organism</code> variable).</p>
 ##  8 Lamc1     Laminin subunit gamma-1                          P02468  Mmus    
 ##  9 Hsp90b1   Endoplasmin                                      P08113  Mmus    
 ## 10 Mia3      Melanoma inhibitory activity protein 3           Q8BI84  Mmus    
-## # … with 15 more rows</code></pre>
+## # ℹ 15 more rows</code></pre>
 <p>We now want to join these two tables into a single one containing all
 variables. We are going to use <code>dplyr</code>’s <code>full_join</code> function to do
 so, that finds the common variable (in this case <code>uniprot</code>) to match
@@ -280,20 +280,19 @@ observations from the first and second table.</p>
 <span id="cb527-2"><a href="sec-join.html#cb527-2" aria-hidden="true"></a><span class="kw">full_join</span>(jdf1, jdf2)</span></code></pre></div>
 <pre><code>## Joining with `by = join_by(uniprot)`</code></pre>
 <pre><code>## # A tibble: 25 × 6
-##    uniprot  organelle                             entry  gene_…¹ descr…² organ…³
-##    &lt;chr&gt;    &lt;chr&gt;                                 &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
-##  1 P26039   Actin cytoskeleton                    TLN1_… Tln1    Talin-1 Mmus   
-##  2 Q99PL5   Endoplasmic reticulum/Golgi apparatus RRBP1… Rrbp1   Riboso… Mmus   
-##  3 Q6PB66   Mitochondrion                         LPPRC… Lrpprc  Leucin… Mmus   
-##  4 P11276   Extracellular matrix                  FINC_… Fn1     Fibron… Mmus   
-##  5 Q6PR54   Nucleus - Chromatin                   RIF1_… Rif1    Telome… Mmus   
-##  6 Q05793   Extracellular matrix                  PGBM_… Hspg2   Baseme… Mmus   
-##  7 P19096   Cytosol                               FAS_M… Fasn    Fatty … Mmus   
-##  8 Q9JKF1   Plasma membrane                       IQGA1… Iqgap1  Ras GT… Mmus   
-##  9 Q9QZQ1-2 Plasma membrane                       AFAD_… Mllt4   Isofor… Mmus   
-## 10 Q6NS46   Nucleus - Non-chromatin               RRP5_… Pdcd11  Protei… Mmus   
-## # … with 15 more rows, and abbreviated variable names ¹​gene_name, ²​description,
-## #   ³​organism</code></pre>
+##    uniprot  organelle                       entry gene_name description organism
+##    &lt;chr&gt;    &lt;chr&gt;                           &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;   
+##  1 P26039   Actin cytoskeleton              TLN1… Tln1      Talin-1     Mmus    
+##  2 Q99PL5   Endoplasmic reticulum/Golgi ap… RRBP… Rrbp1     Ribosome-b… Mmus    
+##  3 Q6PB66   Mitochondrion                   LPPR… Lrpprc    Leucine-ri… Mmus    
+##  4 P11276   Extracellular matrix            FINC… Fn1       Fibronectin Mmus    
+##  5 Q6PR54   Nucleus - Chromatin             RIF1… Rif1      Telomere-a… Mmus    
+##  6 Q05793   Extracellular matrix            PGBM… Hspg2     Basement m… Mmus    
+##  7 P19096   Cytosol                         FAS_… Fasn      Fatty acid… Mmus    
+##  8 Q9JKF1   Plasma membrane                 IQGA… Iqgap1    Ras GTPase… Mmus    
+##  9 Q9QZQ1-2 Plasma membrane                 AFAD… Mllt4     Isoform 1 … Mmus    
+## 10 Q6NS46   Nucleus - Non-chromatin         RRP5… Pdcd11    Protein RR… Mmus    
+## # ℹ 15 more rows</code></pre>
 <p>In the examples above, each observation of the <code>jdf1</code> and <code>jdf2</code>
 tables are uniquely identified by their UniProt accession number. Such
 variables are called <strong>keys</strong>. Keys are used to match observations
@@ -306,20 +305,19 @@ encoded using a different capitalisation.</p>
 <pre><code>## [1] "gene_name"   "description" "UniProt"     "organism"</code></pre>
 <div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="sec-join.html#cb532-1" aria-hidden="true"></a><span class="kw">full_join</span>(jdf1, jdf3, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">"uniprot"</span> =<span class="st"> "UniProt"</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 25 × 6
-##    uniprot  organelle                             entry  gene_…¹ descr…² organ…³
-##    &lt;chr&gt;    &lt;chr&gt;                                 &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
-##  1 P26039   Actin cytoskeleton                    TLN1_… Tln1    Talin-1 Mmus   
-##  2 Q99PL5   Endoplasmic reticulum/Golgi apparatus RRBP1… Rrbp1   Riboso… Mmus   
-##  3 Q6PB66   Mitochondrion                         LPPRC… Lrpprc  Leucin… Mmus   
-##  4 P11276   Extracellular matrix                  FINC_… Fn1     Fibron… Mmus   
-##  5 Q6PR54   Nucleus - Chromatin                   RIF1_… Rif1    Telome… Mmus   
-##  6 Q05793   Extracellular matrix                  PGBM_… Hspg2   Baseme… Mmus   
-##  7 P19096   Cytosol                               FAS_M… Fasn    Fatty … Mmus   
-##  8 Q9JKF1   Plasma membrane                       IQGA1… Iqgap1  Ras GT… Mmus   
-##  9 Q9QZQ1-2 Plasma membrane                       AFAD_… Mllt4   Isofor… Mmus   
-## 10 Q6NS46   Nucleus - Non-chromatin               RRP5_… Pdcd11  Protei… Mmus   
-## # … with 15 more rows, and abbreviated variable names ¹​gene_name, ²​description,
-## #   ³​organism</code></pre>
+##    uniprot  organelle                       entry gene_name description organism
+##    &lt;chr&gt;    &lt;chr&gt;                           &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;   
+##  1 P26039   Actin cytoskeleton              TLN1… Tln1      Talin-1     Mmus    
+##  2 Q99PL5   Endoplasmic reticulum/Golgi ap… RRBP… Rrbp1     Ribosome-b… Mmus    
+##  3 Q6PB66   Mitochondrion                   LPPR… Lrpprc    Leucine-ri… Mmus    
+##  4 P11276   Extracellular matrix            FINC… Fn1       Fibronectin Mmus    
+##  5 Q6PR54   Nucleus - Chromatin             RIF1… Rif1      Telomere-a… Mmus    
+##  6 Q05793   Extracellular matrix            PGBM… Hspg2     Basement m… Mmus    
+##  7 P19096   Cytosol                         FAS_… Fasn      Fatty acid… Mmus    
+##  8 Q9JKF1   Plasma membrane                 IQGA… Iqgap1    Ras GTPase… Mmus    
+##  9 Q9QZQ1-2 Plasma membrane                 AFAD… Mllt4     Isoform 1 … Mmus    
+## 10 Q6NS46   Nucleus - Non-chromatin         RRP5… Pdcd11    Protein RR… Mmus    
+## # ℹ 15 more rows</code></pre>
 <p>As can be seen above, the variable name of the first table is retained
 in the joined one.</p>
 <div class="question">
@@ -342,23 +340,22 @@ and <code>jdf5</code>. What has happened for observations <code>P26039</code> an
 <div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="sec-join.html#cb534-1" aria-hidden="true"></a><span class="kw">full_join</span>(jdf4, jdf5)</span></code></pre></div>
 <pre><code>## Joining with `by = join_by(uniprot)`</code></pre>
 <pre><code>## # A tibble: 14 × 6
-##    uniprot  organelle                             entry  gene_…¹ descr…² organ…³
-##    &lt;chr&gt;    &lt;chr&gt;                                 &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
-##  1 P26039   Actin cytoskeleton                    TLN1_… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   
-##  2 Q99PL5   Endoplasmic reticulum/Golgi apparatus RRBP1… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   
-##  3 Q6PB66   Mitochondrion                         LPPRC… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   
-##  4 P11276   Extracellular matrix                  FINC_… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   
-##  5 Q6PR54   Nucleus - Chromatin                   RIF1_… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   
-##  6 Q05793   Extracellular matrix                  PGBM_… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   
-##  7 P19096   Cytosol                               FAS_M… Fasn    Fatty … Mmus   
-##  8 Q9JKF1   Plasma membrane                       IQGA1… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   
-##  9 Q9QZQ1-2 Plasma membrane                       AFAD_… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   
-## 10 Q6NS46   Nucleus - Non-chromatin               RRP5_… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   
-## 11 P02468   &lt;NA&gt;                                  &lt;NA&gt;   Lamc1   Lamini… Mmus   
-## 12 P08113   &lt;NA&gt;                                  &lt;NA&gt;   Hsp90b1 Endopl… Mmus   
-## 13 Q8BI84   &lt;NA&gt;                                  &lt;NA&gt;   Mia3    Melano… Mmus   
-## 14 Q6P5D8   &lt;NA&gt;                                  &lt;NA&gt;   Smchd1  Struct… Mmus   
-## # … with abbreviated variable names ¹​gene_name, ²​description, ³​organism</code></pre>
+##    uniprot  organelle                       entry gene_name description organism
+##    &lt;chr&gt;    &lt;chr&gt;                           &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;   
+##  1 P26039   Actin cytoskeleton              TLN1… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  2 Q99PL5   Endoplasmic reticulum/Golgi ap… RRBP… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  3 Q6PB66   Mitochondrion                   LPPR… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  4 P11276   Extracellular matrix            FINC… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  5 Q6PR54   Nucleus - Chromatin             RIF1… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  6 Q05793   Extracellular matrix            PGBM… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  7 P19096   Cytosol                         FAS_… Fasn      Fatty acid… Mmus    
+##  8 Q9JKF1   Plasma membrane                 IQGA… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  9 Q9QZQ1-2 Plasma membrane                 AFAD… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+## 10 Q6NS46   Nucleus - Non-chromatin         RRP5… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+## 11 P02468   &lt;NA&gt;                            &lt;NA&gt;  Lamc1     Laminin su… Mmus    
+## 12 P08113   &lt;NA&gt;                            &lt;NA&gt;  Hsp90b1   Endoplasmin Mmus    
+## 13 Q8BI84   &lt;NA&gt;                            &lt;NA&gt;  Mia3      Melanoma i… Mmus    
+## 14 Q6P5D8   &lt;NA&gt;                            &lt;NA&gt;  Smchd1    Structural… Mmus</code></pre>
 <p><code>P02468</code> and <code>P02468</code> are only present in <code>jdf4</code> and <code>jdf5</code>
 respectively, and their respective values for the variables of the
 table have been encoded as missing.</p>
@@ -420,19 +417,18 @@ Figure 7.2: Outer joins match observations that appear in at least on table, fil
 <div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="sec-join.html#cb537-1" aria-hidden="true"></a><span class="kw">left_join</span>(jdf4, jdf5)</span></code></pre></div>
 <pre><code>## Joining with `by = join_by(uniprot)`</code></pre>
 <pre><code>## # A tibble: 10 × 6
-##    uniprot  organelle                             entry  gene_…¹ descr…² organ…³
-##    &lt;chr&gt;    &lt;chr&gt;                                 &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
-##  1 P26039   Actin cytoskeleton                    TLN1_… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   
-##  2 Q99PL5   Endoplasmic reticulum/Golgi apparatus RRBP1… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   
-##  3 Q6PB66   Mitochondrion                         LPPRC… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   
-##  4 P11276   Extracellular matrix                  FINC_… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   
-##  5 Q6PR54   Nucleus - Chromatin                   RIF1_… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   
-##  6 Q05793   Extracellular matrix                  PGBM_… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   
-##  7 P19096   Cytosol                               FAS_M… Fasn    Fatty … Mmus   
-##  8 Q9JKF1   Plasma membrane                       IQGA1… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   
-##  9 Q9QZQ1-2 Plasma membrane                       AFAD_… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   
-## 10 Q6NS46   Nucleus - Non-chromatin               RRP5_… &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   
-## # … with abbreviated variable names ¹​gene_name, ²​description, ³​organism</code></pre>
+##    uniprot  organelle                       entry gene_name description organism
+##    &lt;chr&gt;    &lt;chr&gt;                           &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;   
+##  1 P26039   Actin cytoskeleton              TLN1… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  2 Q99PL5   Endoplasmic reticulum/Golgi ap… RRBP… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  3 Q6PB66   Mitochondrion                   LPPR… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  4 P11276   Extracellular matrix            FINC… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  5 Q6PR54   Nucleus - Chromatin             RIF1… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  6 Q05793   Extracellular matrix            PGBM… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  7 P19096   Cytosol                         FAS_… Fasn      Fatty acid… Mmus    
+##  8 Q9JKF1   Plasma membrane                 IQGA… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+##  9 Q9QZQ1-2 Plasma membrane                 AFAD… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;    
+## 10 Q6NS46   Nucleus - Non-chromatin         RRP5… &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -457,14 +453,13 @@ Figure 7.2: Outer joins match observations that appear in at least on table, fil
 <div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="sec-join.html#cb540-1" aria-hidden="true"></a><span class="kw">right_join</span>(jdf4, jdf5)</span></code></pre></div>
 <pre><code>## Joining with `by = join_by(uniprot)`</code></pre>
 <pre><code>## # A tibble: 5 × 6
-##   uniprot organelle entry     gene_name description                      organ…¹
-##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;                            &lt;chr&gt;  
-## 1 P19096  Cytosol   FAS_MOUSE Fasn      Fatty acid synthase              Mmus   
-## 2 P02468  &lt;NA&gt;      &lt;NA&gt;      Lamc1     Laminin subunit gamma-1          Mmus   
-## 3 P08113  &lt;NA&gt;      &lt;NA&gt;      Hsp90b1   Endoplasmin                      Mmus   
-## 4 Q8BI84  &lt;NA&gt;      &lt;NA&gt;      Mia3      Melanoma inhibitory activity pr… Mmus   
-## 5 Q6P5D8  &lt;NA&gt;      &lt;NA&gt;      Smchd1    Structural maintenance of chrom… Mmus   
-## # … with abbreviated variable name ¹​organism</code></pre>
+##   uniprot organelle entry     gene_name description                     organism
+##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;                           &lt;chr&gt;   
+## 1 P19096  Cytosol   FAS_MOUSE Fasn      Fatty acid synthase             Mmus    
+## 2 P02468  &lt;NA&gt;      &lt;NA&gt;      Lamc1     Laminin subunit gamma-1         Mmus    
+## 3 P08113  &lt;NA&gt;      &lt;NA&gt;      Hsp90b1   Endoplasmin                     Mmus    
+## 4 Q8BI84  &lt;NA&gt;      &lt;NA&gt;      Mia3      Melanoma inhibitory activity p… Mmus    
+## 5 Q6P5D8  &lt;NA&gt;      &lt;NA&gt;      Smchd1    Structural maintenance of chro… Mmus</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -524,32 +519,32 @@ will be duplicated.</p>
 <div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="sec-join.html#cb548-1" aria-hidden="true"></a><span class="kw">inner_join</span>(jdf6, jdf2)</span></code></pre></div>
 <pre><code>## Joining with `by = join_by(uniprot)`</code></pre>
 <pre><code>## # A tibble: 5 × 7
-##   uniprot organelle             entry       isoform gene_name descript…¹ organ…²
-##   &lt;chr&gt;   &lt;chr&gt;                 &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;  
-## 1 P26039  Actin cytoskeleton    TLN1_MOUSE        1 Tln1      Talin-1    Mmus   
-## 2 Q99PL5  Endoplasmic reticulum RRBP1_MOUSE       1 Rrbp1     Ribosome-… Mmus   
-## 3 Q99PL5  Golgi apparatus       RRBP1_MOUSE       2 Rrbp1     Ribosome-… Mmus   
-## 4 Q6PB66  Mitochondrion         LPPRC_MOUSE       1 Lrpprc    Leucine-r… Mmus   
-## 5 P11276  Extracellular matrix  FINC_MOUSE        1 Fn1       Fibronect… Mmus   
-## # … with abbreviated variable names ¹​description, ²​organism</code></pre>
+##   uniprot organelle             entry     isoform gene_name description organism
+##   &lt;chr&gt;   &lt;chr&gt;                 &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;   
+## 1 P26039  Actin cytoskeleton    TLN1_MOU…       1 Tln1      Talin-1     Mmus    
+## 2 Q99PL5  Endoplasmic reticulum RRBP1_MO…       1 Rrbp1     Ribosome-b… Mmus    
+## 3 Q99PL5  Golgi apparatus       RRBP1_MO…       2 Rrbp1     Ribosome-b… Mmus    
+## 4 Q6PB66  Mitochondrion         LPPRC_MO…       1 Lrpprc    Leucine-ri… Mmus    
+## 5 P11276  Extracellular matrix  FINC_MOU…       1 Fn1       Fibronectin Mmus</code></pre>
 <p>In the case above, repeating is useful, as it completes <code>jdf6</code> with
 correct information from <code>jdf2</code>. One needs however to be careful when
 duplicated keys exist in both tables. Below, we create an inner join
 between <code>jdf6</code> and <code>jdf7</code>, both having duplicated <code>Q99PL5</code> entries.</p>
 <div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="sec-join.html#cb551-1" aria-hidden="true"></a><span class="kw">inner_join</span>(jdf6, jdf7)</span></code></pre></div>
 <pre><code>## Joining with `by = join_by(uniprot)`</code></pre>
-<pre><code>## Warning in inner_join(jdf6, jdf7): Each row in `x` is expected to match at most 1 row in `y`.
-## ℹ Row 2 of `x` matches multiple rows.
-## ℹ If multiple matches are expected, set `multiple = "all"` to silence this warning.</code></pre>
+<pre><code>## Warning in inner_join(jdf6, jdf7): Detected an unexpected many-to-many relationship between `x` and `y`.
+## ℹ Row 2 of `x` matches multiple rows in `y`.
+## ℹ Row 1 of `y` matches multiple rows in `x`.
+## ℹ If a many-to-many relationship is expected, set `relationship = "many-to-many"` to silence this
+##   warning.</code></pre>
 <pre><code>## # A tibble: 4 × 9
-##   uniprot organelle        entry isoform gene_…¹ descr…² organ…³ isofo…⁴ measure
-##   &lt;chr&gt;   &lt;chr&gt;            &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-## 1 Q99PL5  Endoplasmic ret… RRBP…       1 Rrbp1   Riboso… Mmus          1     102
-## 2 Q99PL5  Endoplasmic ret… RRBP…       1 Rrbp1   Riboso… Mmus          2       3
-## 3 Q99PL5  Golgi apparatus  RRBP…       2 Rrbp1   Riboso… Mmus          1     102
-## 4 Q99PL5  Golgi apparatus  RRBP…       2 Rrbp1   Riboso… Mmus          2       3
-## # … with abbreviated variable names ¹​gene_name, ²​description, ³​organism,
-## #   ⁴​isoform_num</code></pre>
+##   uniprot organelle     entry isoform gene_name description organism isoform_num
+##   &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;
+## 1 Q99PL5  Endoplasmic … RRBP…       1 Rrbp1     Ribosome-b… Mmus               1
+## 2 Q99PL5  Endoplasmic … RRBP…       1 Rrbp1     Ribosome-b… Mmus               2
+## 3 Q99PL5  Golgi appara… RRBP…       2 Rrbp1     Ribosome-b… Mmus               1
+## 4 Q99PL5  Golgi appara… RRBP…       2 Rrbp1     Ribosome-b… Mmus               2
+## # ℹ 1 more variable: measure &lt;dbl&gt;</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -607,11 +602,10 @@ need to join using both keys and need to explicitly name the variables
 used for the join.</p>
 <div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="sec-join.html#cb555-1" aria-hidden="true"></a><span class="kw">inner_join</span>(jdf6, jdf7, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">"uniprot"</span> =<span class="st"> "uniprot"</span>, <span class="st">"isoform"</span> =<span class="st"> "isoform_num"</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 8
-##   uniprot organelle             entry    isoform gene_…¹ descr…² organ…³ measure
-##   &lt;chr&gt;   &lt;chr&gt;                 &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;
-## 1 Q99PL5  Endoplasmic reticulum RRBP1_M…       1 Rrbp1   Riboso… Mmus        102
-## 2 Q99PL5  Golgi apparatus       RRBP1_M…       2 Rrbp1   Riboso… Mmus          3
-## # … with abbreviated variable names ¹​gene_name, ²​description, ³​organism</code></pre>
+##   uniprot organelle         entry isoform gene_name description organism measure
+##   &lt;chr&gt;   &lt;chr&gt;             &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt;
+## 1 Q99PL5  Endoplasmic reti… RRBP…       1 Rrbp1     Ribosome-b… Mmus         102
+## 2 Q99PL5  Golgi apparatus   RRBP…       2 Rrbp1     Ribosome-b… Mmus           3</code></pre>
 <p>We now see that isoform 1 localised to the ER and has a measured value
 of 102, while isoform 2, that localised to the GA, has a measured
 value of 3.</p>
@@ -643,11 +637,10 @@ the two tables without having to specify the two keys explicitly.</p>
 <span id="cb557-3"><a href="sec-join.html#cb557-3" aria-hidden="true"></a><span class="kw">inner_join</span>(jdf6, jdf7)</span></code></pre></div>
 <pre><code>## Joining with `by = join_by(uniprot, isoform)`</code></pre>
 <pre><code>## # A tibble: 2 × 8
-##   uniprot organelle             entry    isoform gene_…¹ descr…² organ…³ measure
-##   &lt;chr&gt;   &lt;chr&gt;                 &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;
-## 1 Q99PL5  Endoplasmic reticulum RRBP1_M…       1 Rrbp1   Riboso… Mmus        102
-## 2 Q99PL5  Golgi apparatus       RRBP1_M…       2 Rrbp1   Riboso… Mmus          3
-## # … with abbreviated variable names ¹​gene_name, ²​description, ³​organism</code></pre>
+##   uniprot organelle         entry isoform gene_name description organism measure
+##   &lt;chr&gt;   &lt;chr&gt;             &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt;
+## 1 Q99PL5  Endoplasmic reti… RRBP…       1 Rrbp1     Ribosome-b… Mmus         102
+## 2 Q99PL5  Golgi apparatus   RRBP…       2 Rrbp1     Ribosome-b… Mmus           3</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -811,9 +804,9 @@ containing merged data exclusively for normal samples.</p></li>
 <a href="sec-rr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2023-03-26
+2023-04-27
  using 
-R version 4.2.2 Patched (2022-11-10 r83330)
+R version 4.2.3 (2023-03-15)
 </p>
 </div>
 </div>

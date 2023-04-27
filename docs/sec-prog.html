@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2023-03-26" />
+<meta name="date" content="2023-04-27" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -442,7 +442,7 @@ one currently processed (typically, if <code>i</code> is the counter, accessing
 get the path to 5 csv files containing gene expression data
 for a single gene and hundreds of patience. Read all data in and
 combine them into a single dataframe.</p>
-<p>Before starting, open at least two of these files them to familiarise
+<p>Before starting, open at least two of these files to familiarise
 yourself with their structure and identify how and with what function
 they need to be combined.</p>
 <p class="question-end">
@@ -462,7 +462,7 @@ will also use the <em>tidyverse</em> to work with the data.</p>
 <span id="cb637-3"><a href="sec-prog.html#cb637-3" aria-hidden="true"></a>fls &lt;-<span class="st"> </span><span class="kw">expressions.csv</span>()</span>
 <span id="cb637-4"><a href="sec-prog.html#cb637-4" aria-hidden="true"></a><span class="kw">read_csv</span>(fls[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## Rows: 570 Columns: 4
-## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (3): sampleID, patient, type
 ## dbl (1): A1BG
@@ -482,10 +482,10 @@ will also use the <em>tidyverse</em> to work with the data.</p>
 ##  8 TCGA-05-4395-01A TCGA-05-4395 tumor  22.0
 ##  9 TCGA-05-4396-01A TCGA-05-4396 tumor  17.4
 ## 10 TCGA-05-4397-01A TCGA-05-4397 tumor 127. 
-## # … with 560 more rows</code></pre>
+## # ℹ 560 more rows</code></pre>
 <div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="sec-prog.html#cb640-1" aria-hidden="true"></a><span class="kw">read_csv</span>(fls[<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## Rows: 570 Columns: 4
-## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (3): sampleID, patient, type
 ## dbl (1): A1CF
@@ -505,7 +505,7 @@ will also use the <em>tidyverse</em> to work with the data.</p>
 ##  8 TCGA-05-4395-01A TCGA-05-4395 tumor  0    
 ##  9 TCGA-05-4396-01A TCGA-05-4396 tumor 15.9  
 ## 10 TCGA-05-4397-01A TCGA-05-4397 tumor  0    
-## # … with 560 more rows</code></pre>
+## # ℹ 560 more rows</code></pre>
 <p>We see that the data will have to be combined column-wise. We could do
 it manually, adding news columns one by on to the first data, but this
 would require to check that the observations are in the same
@@ -532,7 +532,7 @@ order. Instead, we will use a <code>full_join</code>, as seen in chapter
 ##  8 TCGA-05-4395-01A TCGA-05-4395 tumor  22.0  0      0    181.  391.   
 ##  9 TCGA-05-4396-01A TCGA-05-4396 tumor  17.4 15.9    0    134.    0.758
 ## 10 TCGA-05-4397-01A TCGA-05-4397 tumor 127.   0      0    229.   19.2  
-## # … with 560 more rows</code></pre>
+## # ℹ 560 more rows</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -682,7 +682,7 @@ and you should get 4825.2778709 and 23.</p>
 ##     }
 ##     return(sum(res))
 ## }
-## &lt;bytecode: 0x560c0d814aa0&gt;</code></pre>
+## &lt;bytecode: 0x556d83ec6440&gt;</code></pre>
 <div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="sec-prog.html#cb672-1" aria-hidden="true"></a><span class="kw">set.seed</span>(1L)</span>
 <span id="cb672-2"><a href="sec-prog.html#cb672-2" aria-hidden="true"></a><span class="kw">fun</span>(<span class="dv">5</span>, <span class="dv">15</span>)</span></code></pre></div>
 <pre><code>## [1] 4825.278</code></pre>
@@ -818,7 +818,7 @@ dataframe containing all results.</li>
 <span id="cb699-2"><a href="sec-prog.html#cb699-2" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(fls))</span>
 <span id="cb699-3"><a href="sec-prog.html#cb699-3" aria-hidden="true"></a>    l[[i]] &lt;-<span class="st"> </span><span class="kw">read_csv</span>(fls[i])</span></code></pre></div>
 <pre><code>## Rows: 100 Columns: 8
-## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (2): id, gender
 ## dbl (6): height, X, interro1, interro2, interro3, interro4
@@ -826,7 +826,7 @@ dataframe containing all results.</li>
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ## Rows: 105 Columns: 8
-## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (2): id, gender
 ## dbl (6): height, X, interro1, interro2, interro3, interro4
@@ -848,13 +848,13 @@ dataframe containing all results.</li>
 ##  8 A31124    177 M      -0.485       19        4        8       20
 ##  9 A80471    187 F       0.231       19       16       16        8
 ## 10 A21783    195 F      -0.295       13       11        8       20
-## # … with 195 more rows</code></pre>
+## # ℹ 195 more rows</code></pre>
 <div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="sec-prog.html#cb703-1" aria-hidden="true"></a><span class="kw">dim</span>(interros)</span></code></pre></div>
 <pre><code>## [1] 205   8</code></pre>
 <p>or</p>
 <div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb705-1"><a href="sec-prog.html#cb705-1" aria-hidden="true"></a>l &lt;-<span class="st"> </span><span class="kw">lapply</span>(fls, read_csv)</span></code></pre></div>
 <pre><code>## Rows: 100 Columns: 8
-## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (2): id, gender
 ## dbl (6): height, X, interro1, interro2, interro3, interro4
@@ -862,7 +862,7 @@ dataframe containing all results.</li>
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ## Rows: 105 Columns: 8
-## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (2): id, gender
 ## dbl (6): height, X, interro1, interro2, interro3, interro4
@@ -939,7 +939,7 @@ variables.</p>
 ##  8 A31124    177 M      -0.485       19        4        8       20 A    
 ##  9 A80471    187 F       0.231       19       16       16        8 A    
 ## 10 A21783    195 F      -0.295       13       11        8       20 A    
-## # … with 195 more rows</code></pre>
+## # ℹ 195 more rows</code></pre>
 <p>The assumption here is that the order of the observations in the large
 dataframe hasn’t changed!</p>
 <p>An alternative is to add the group information before combining the
@@ -1008,7 +1008,7 @@ as a single new variable.</p>
 ##  8 A85494    167 M      1.05  A     interro4    NA
 ##  9 A51820    166 M      0.435 A     interro1     4
 ## 10 A51820    166 M      0.435 A     interro2    10
-## # … with 810 more rows</code></pre>
+## # ℹ 810 more rows</code></pre>
 <p>We can now map the new <code>test</code> and <code>score</code> variables to the <em>x</em> and <em>y</em>
 axes and construct the visualisation.</p>
 <div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="sec-prog.html#cb722-1" aria-hidden="true"></a><span class="kw">ggplot</span>(interros2, <span class="kw">aes</span>(<span class="dt">y =</span> score, <span class="dt">x =</span> test)) <span class="op">+</span></span>
@@ -1072,9 +1072,9 @@ that that 1 yard corresponds to 0.9144 meters</p>
 <a href="sec-ccl.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2023-03-26
+2023-04-27
  using 
-R version 4.2.2 Patched (2022-11-10 r83330)
+R version 4.2.3 (2023-03-15)
 </p>
 </div>
 </div>

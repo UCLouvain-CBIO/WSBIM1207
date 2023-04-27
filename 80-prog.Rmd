@@ -288,7 +288,7 @@ get the path to `r length(fs)` csv files containing gene expression data
 for a single gene and hundreds of patience. Read all data in and
 combine them into a single dataframe.
 
-Before starting, open at least two of these files them to familiarise
+Before starting, open at least two of these files to familiarise
 yourself with their structure and identify how and with what function
 they need to be combined.
 
