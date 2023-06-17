@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2023-04-27" />
+<meta name="date" content="2023-06-17" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -68,11 +68,11 @@ function reset_tooltip(id) {
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.27/datatables.js"></script>
+<script src="libs/datatables-binding-0.28/datatables.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
@@ -295,7 +295,7 @@ and this <a href="https://github.com/rstudio/cheatsheets/raw/main/data-import.pd
 tidyverse package <strong><code>readr</code></strong>, instead of <code>read.csv()</code>.</p>
 <div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="sec-dplyr.html#cb302-1" aria-hidden="true"></a>rna &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
 <pre><code>## Rows: 32428 Columns: 19
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────
+## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (14): gene, sample, organism, sex, infection, strain, tissue, product, e...
 ## dbl  (5): expression, age, time, mouse, ENTREZID
@@ -891,8 +891,8 @@ screen anymore. It’s one of the advantages of <code>tbl_df</code> over data fr
 <div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="sec-dplyr.html#cb351-1" aria-hidden="true"></a>rna <span class="op">%&gt;%</span></span>
 <span id="cb351-2"><a href="sec-dplyr.html#cb351-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">group_by</span>(gene, infection, time) <span class="op">%&gt;%</span></span>
 <span id="cb351-3"><a href="sec-dplyr.html#cb351-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_expression =</span> <span class="kw">mean</span>(expression))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
+## the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 4,422 × 4
 ## # Groups:   gene, infection [2,948]
 ##    gene     infection    time mean_expression
@@ -916,8 +916,8 @@ display:</p>
 <span id="cb354-2"><a href="sec-dplyr.html#cb354-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">group_by</span>(gene, infection, time) <span class="op">%&gt;%</span></span>
 <span id="cb354-3"><a href="sec-dplyr.html#cb354-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_expression =</span> <span class="kw">mean</span>(expression)) <span class="op">%&gt;%</span></span>
 <span id="cb354-4"><a href="sec-dplyr.html#cb354-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">print</span>(<span class="dt">n =</span> <span class="dv">15</span>)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
+## the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 4,422 × 4
 ## # Groups:   gene, infection [2,948]
 ##    gene     infection    time mean_expression
@@ -945,8 +945,8 @@ columns indicating the median <code>expression</code> by gene and by condition:<
 <span id="cb357-2"><a href="sec-dplyr.html#cb357-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">group_by</span>(gene, infection, time) <span class="op">%&gt;%</span></span>
 <span id="cb357-3"><a href="sec-dplyr.html#cb357-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_expression =</span> <span class="kw">mean</span>(expression),</span>
 <span id="cb357-4"><a href="sec-dplyr.html#cb357-4" aria-hidden="true"></a>            <span class="dt">median_expression =</span> <span class="kw">median</span>(expression))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
+## the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 4,422 × 5
 ## # Groups:   gene, infection [2,948]
 ##    gene     infection    time mean_expression median_expression
@@ -969,8 +969,8 @@ For instance, we can sort on <code>mean_expression</code> to put the genes lowly
 <span id="cb360-3"><a href="sec-dplyr.html#cb360-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_expression =</span> <span class="kw">mean</span>(expression),</span>
 <span id="cb360-4"><a href="sec-dplyr.html#cb360-4" aria-hidden="true"></a>            <span class="dt">median_expression =</span> <span class="kw">median</span>(expression)) <span class="op">%&gt;%</span></span>
 <span id="cb360-5"><a href="sec-dplyr.html#cb360-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">arrange</span>(mean_expression)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
+## the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 4,422 × 5
 ## # Groups:   gene, infection [2,948]
 ##    gene    infection    time mean_expression median_expression
@@ -992,8 +992,8 @@ For instance, we can sort on <code>mean_expression</code> to put the genes lowly
 <span id="cb363-3"><a href="sec-dplyr.html#cb363-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_expression =</span> <span class="kw">mean</span>(expression),</span>
 <span id="cb363-4"><a href="sec-dplyr.html#cb363-4" aria-hidden="true"></a>            <span class="dt">median_expression =</span> <span class="kw">median</span>(expression)) <span class="op">%&gt;%</span></span>
 <span id="cb363-5"><a href="sec-dplyr.html#cb363-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(mean_expression))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
+## the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 4,422 × 5
 ## # Groups:   gene, infection [2,948]
 ##    gene   infection    time mean_expression median_expression
@@ -1949,6 +1949,37 @@ and a column <code>result</code> with the student’s mark.</p>
 </p>
 </div>
 </div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Make sure you have <code>rWSBIM1207</code> version &gt;= 0.1.16 and load the 2022
+Belgian road accidents statistics and the associated metadata,
+describing the variables. The path to the former as an <code>rds</code> file is
+available with <code>road_accidents_be_2022.rds()</code>. The
+<code>road_accidents_be_meta.csv()</code> returns the path to the metadata csv
+file.</p>
+<p>The data provides the Number of killed, seriously injured, slightly
+injured and uninjured victims of road accidents, by age group, type of
+user, sex and various characteristics of the accident in Belgium in
+20222.</p>
+<ul>
+<li><p>Using the appropriate functions, load both files into R and
+familiarise yourself with the data.</p></li>
+<li><p>Compare the numbers for man and women over the hours of the day for
+all age classes. Ignore any unknown information.</p></li>
+<li><p>Compare the number of victims in the different provinces. Do this
+comparison for the different type of victims. Ignore any unknown
+information.</p></li>
+<li><p>Come up with additional question/comparisons that you could ask
+these data.</p></li>
+</ul>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 
 </div>
 </div></body></html>
@@ -1958,9 +1989,9 @@ and a column <code>result</code> with the student’s mark.</p>
 <a href="sec-vis.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2023-04-27
+2023-06-17
  using 
-R version 4.2.3 (2023-03-15)
+R version 4.3.0 (2023-04-21)
 </p>
 </div>
 </div>
