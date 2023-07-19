@@ -74,7 +74,7 @@ user, sex and various characteristics of the accident in Belgium in
 
 `r msmbstyle::question_end()`
 
-```{r, echo=FALSE, include=FALSE}
+```{r accidents, echo=FALSE, include=FALSE}
 library(rWSBIM1207)
 x <- readRDS(road_accidents_be_2022.rds())
 
@@ -102,9 +102,90 @@ dplyr::count(x, TX_VICT_TYPE_DESCR_FR, TX_PROV_DESCR_FR) |>
 
 `r msmbstyle::question_begin()`
 
-For this exercise, ,ake sure you have `rWSBIM1207` version >=
+For this exercise, make sure you have `rWSBIM1207` version >=
 0.1.17. Using the `population_be.csv()` function, get the path to
 `r length(rWSBIM1207::population_be.csv())` files with the population
 numbers across multiple regions of Belgium up to 2023.
 
+**Tip:** given that all files contain equivalent data (i.e. for the
+same variables), you can use `read_csv()` to load all files as once
+into a long table.
+
+- How many regions have been survey over the years?
+
+- What differences are there in terms of region?
+
+Focusing on Belgium and the Brussels, Walloon and Flemish regions, and
+from 1991 on, generate one figure (possibly with multiple facets) that
+allows to answer the following questions:
+
+- Has the population increased since 1991?
+
+- Are there more women or men living in these regions? Have this
+  changed since 1991?
+
+- Have the changes in population been driven by men, women or both
+  equally?
+
+- What region has the biggest (lowest) population?
+
 `r msmbstyle::question_end()`
+
+```{r pop, echo=FALSE, include=FALSE}
+library(tidyverse)
+library(rWSBIM1207)
+
+x <- read_csv(population_be.csv())
+
+
+## How many regions have been survey over the years?
+count(x, annee)
+
+## What differences are there in terms of region?
+count(x, annee) |>
+   pull(n) |>
+   unique()
+
+x2023 <- filter(x, annee == 2023) |>
+  select(lieu_de_residence, total) |>
+  rename("total2023" = "total")
+
+x2018 <- filter(x, annee == 2018) |>
+  select(lieu_de_residence, total) |>
+  rename("total2018" = "total")
+
+## unique 2023
+full_join(x2023, x2018) |> filter(is.na(total2018))
+
+## unique 2018
+full_join(x2023, x2018) |> filter(is.na(total2023))
+
+
+## Focusing on Belgium and the Brussels, Walloon and Flemish regions, and
+## from 1991 on, generate one figure (possibly with multiple facets) that
+## allows to answer the following questions:
+
+x |>
+    pivot_longer(names_to = "variable",
+                 values_to = "value",
+                 3:5) |>
+    filter(lieu_de_residence %in% lieux) |>
+    filter(annee > 1990) |>
+    ggplot(aes(x = annee, y = value,
+               colour = variable)) +
+    geom_line() +
+    geom_point() +
+    facet_grid(. ~ lieu_de_residence)
+
+x |>
+    pivot_longer(names_to = "variable",
+                 values_to = "value",
+                 3:5) |>
+    filter(lieu_de_residence %in% lieux) |>
+    filter(annee > 1990) |>
+    ggplot(aes(x = annee, y = value,
+               colour = variable)) +
+    geom_line() +
+    geom_point() +
+    facet_wrap(~ lieu_de_residence, scale = "free_y")
+```
