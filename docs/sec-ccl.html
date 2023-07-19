@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2023-06-17" />
+<meta name="date" content="2023-07-19" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -174,6 +174,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="sec-prog.html"><span class="toc-section-number">10</span> Additional programming concepts</a>
 <a id="active-page" href="sec-ccl.html"><span class="toc-section-number">11</span> Conclusions</a><ul class="toc-sections">
 <li class="toc"><a href="#next-steps"> Next steps</a></li>
+<li class="toc"><a href="#additional-exercises-8"> Additional exercises</a></li>
 </ul>
 <a href="sec-anx.html"><span class="toc-section-number">12</span> Annex</a>
 <a href="session-information.html"><span class="toc-section-number">13</span> Session information</a>
@@ -230,6 +231,78 @@ tutorial</a>.</li>
 <a href="https://github.com/UCLouvain-CBIO/WSBIM2122">WSBIM2122</a> course).</li>
 </ul>
 </div>
+<div id="additional-exercises-8" class="section level2" number="11.2">
+<h2>
+<span class="header-section-number">11.2</span> Additional exercises<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('additional-exercises-8')" onmouseout="reset_tooltip('additional-exercises-8-tooltip')"><span class="tooltiptext" id="additional-exercises-8-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
+</h2>
+<p>To answer the following exercises, you’ll need to resort to what you
+have learnt in various chapters.</p>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>Make sure you have <code>rWSBIM1207</code> version &gt;= 0.1.16 and load the 2022
+Belgian road accidents statistics and the associated metadata,
+describing the variables. The path to the former as an <code>rds</code> file is
+available with <code>road_accidents_be_2022.rds()</code>. The
+<code>road_accidents_be_meta.csv()</code> returns the path to the metadata csv
+file.</p>
+<p>The data provides the Number of killed, seriously injured, slightly
+injured and uninjured victims of road accidents, by age group, type of
+user, sex and various characteristics of the accident in Belgium in
+20222.</p>
+<ul>
+<li><p>Using the appropriate functions, load both files into R and
+familiarise yourself with the data.</p></li>
+<li><p>Visualise the numbers for man and women over the hours of the day
+for all age classes. Ignore any unknown information. Do you see a
+difference between man and women?</p></li>
+<li><p>Visualise the number of victims in the different provinces. Do this
+comparison for the different type of victims. Ignore any unknown
+information. Use lines and points for this visualisation.</p></li>
+<li><p>Come up with additional visualisations that you could produce with
+these data. Use bar plots for this visualisation.</p></li>
+</ul>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>For this exercise, make sure you have <code>rWSBIM1207</code> version &gt;=
+0.1.17. Using the <code>population_be.csv()</code> function, get the path to
+35 files with the population
+numbers across multiple regions of Belgium up to 2023.</p>
+<p><strong>Tip:</strong> given that all files contain equivalent data (i.e. for the
+same variables), you can use <code>read_csv()</code> to load all files as once
+into a long table.</p>
+<ul>
+<li><p>How many regions have been survey over the years?</p></li>
+<li><p>What differences are there in terms of region?</p></li>
+</ul>
+<p>Focusing on Belgium and the Brussels, Walloon and Flemish regions, and
+from 1991 on, generate one figure (possibly with multiple facets) that
+allows to answer the following questions:</p>
+<ul>
+<li><p>Has the population increased since 1991?</p></li>
+<li><p>Are there more women or men living in these regions? Have this
+changed since 1991?</p></li>
+<li><p>Have the changes in population been driven by men, women or both
+equally?</p></li>
+<li><p>What region has the biggest (lowest) population?</p></li>
+</ul>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+
+</div>
 </div></body></html>
 
 <p style="text-align: center;">
@@ -237,9 +310,9 @@ tutorial</a>.</li>
 <a href="sec-anx.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2023-06-17
+2023-07-19
  using 
-R version 4.3.0 (2023-04-21)
+R version 4.3.1 (2023-06-16)
 </p>
 </div>
 </div>
