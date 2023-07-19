@@ -148,11 +148,11 @@ dplyr::count(x, annee) |>
 
 x2023 <- filter(x, annee == 2023) |>
   select(lieu_de_residence, total) |>
-  rename("total2023" = "total")
+  dplyr::rename("total2023" = "total")
 
 x2018 <- filter(x, annee == 2018) |>
   select(lieu_de_residence, total) |>
-  rename("total2018" = "total")
+  dplyr::rename("total2018" = "total")
 
 ## unique 2023
 full_join(x2023, x2018) |> filter(is.na(total2018))
