@@ -164,6 +164,8 @@ full_join(x2023, x2018) |> filter(is.na(total2023))
 ## from 1991 on, generate one figure (possibly with multiple facets) that
 ## allows to answer the following questions:
 
+lieux <- x[[2]][1:4]
+
 x |>
     pivot_longer(names_to = "variable",
                  values_to = "value",
