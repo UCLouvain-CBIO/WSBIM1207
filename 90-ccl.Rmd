@@ -139,10 +139,10 @@ x <- read_csv(population_be.csv())
 
 
 ## How many regions have been survey over the years?
-count(x, annee)
+dplyr::count(x, annee)
 
 ## What differences are there in terms of region?
-count(x, annee) |>
+dplyr::count(x, annee) |>
    pull(n) |>
    unique()
 
@@ -159,7 +159,6 @@ full_join(x2023, x2018) |> filter(is.na(total2018))
 
 ## unique 2018
 full_join(x2023, x2018) |> filter(is.na(total2023))
-
 
 ## Focusing on Belgium and the Brussels, Walloon and Flemish regions, and
 ## from 1991 on, generate one figure (possibly with multiple facets) that
