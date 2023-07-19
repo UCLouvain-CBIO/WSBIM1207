@@ -37,3 +37,74 @@ the day, it's useful to remember that
   tutorial](https://lgatto.github.io/github-intro/).
 - Omics data analysis (see upcoming
   [WSBIM2122](https://github.com/UCLouvain-CBIO/WSBIM2122) course).
+
+
+## Additional exercises
+
+To answer the following exercises, you'll need to resort to what you
+have learnt in various chapters.
+
+`r msmbstyle::question_begin()`
+
+Make sure you have `rWSBIM1207` version >= 0.1.16 and load the 2022
+Belgian road accidents statistics and the associated metadata,
+describing the variables. The path to the former as an `rds` file is
+available with `road_accidents_be_2022.rds()`. The
+`road_accidents_be_meta.csv()` returns the path to the metadata csv
+file.
+
+The data provides the Number of killed, seriously injured, slightly
+injured and uninjured victims of road accidents, by age group, type of
+user, sex and various characteristics of the accident in Belgium in
+20222.
+
+- Using the appropriate functions, load both files into R and
+  familiarise yourself with the data.
+
+- Visualise the numbers for man and women over the hours of the day
+  for all age classes. Ignore any unknown information. Do you see a
+  difference between man and women?
+
+- Visualise the number of victims in the different provinces. Do this
+  comparison for the different type of victims. Ignore any unknown
+  information. Use lines and points for this visualisation.
+
+- Come up with additional visualisations that you could produce with
+  these data. Use bar plots for this visualisation.
+
+`r msmbstyle::question_end()`
+
+```{r, echo=FALSE, include=FALSE}
+library(rWSBIM1207)
+x <- readRDS(road_accidents_be_2022.rds())
+
+## Compare the numbers for man and women over the hours of the day for
+## all age classes.
+dplyr::count(x, TX_SEX_DESCR_FR, DT_HOUR, TX_AGE_CLS_DESCR_FR) |>
+    filter(TX_SEX_DESCR_FR != "Inconnu",
+           TX_AGE_CLS_DESCR_FR != "Inconnu") |>
+    ggplot(aes(x = DT_HOUR, y = n, colour = TX_SEX_DESCR_FR)) +
+    geom_point() +
+    geom_line() +
+    facet_wrap(~ TX_AGE_CLS_DESCR_FR)
+
+
+## Compare the number of victims in the different provinces. Do this
+## comparison for the different type of victims.
+dplyr::count(x, TX_VICT_TYPE_DESCR_FR, TX_PROV_DESCR_FR) |>
+    filter(TX_VICT_TYPE_DESCR_FR != "Inconnu",
+           TX_PROV_DESCR_FR != " ") |>
+    ggplot(aes(x = TX_VICT_TYPE_DESCR_FR, y = n)) +
+    geom_bar(stat = "identity") +
+    facet_wrap(~ TX_PROV_DESCR_FR) +
+    theme(axis.text.x = element_text(angle = 90, hjust = 0.5, vjust = 0.5))
+```
+
+`r msmbstyle::question_begin()`
+
+For this exercise, ,ake sure you have `rWSBIM1207` version >=
+0.1.17. Using the `population_be.csv()` function, get the path to
+`r length(rWSBIM1207::population_be.csv())` files with the population
+numbers across multiple regions of Belgium up to 2023.
+
+`r msmbstyle::question_end()`
