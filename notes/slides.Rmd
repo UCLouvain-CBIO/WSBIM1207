@@ -41,9 +41,12 @@ Assistant(e)s: Jean Fain, Valentine Robaux, Julie Devis, Axelle Loriot (M1)
 
 # Buts
 
-- Vous donnez les moyens d'analyser et de visualiser des données.
-- Portez un regard critique sur des données, et sur comment les
-  aborder.
+Ce qui est attendu de vous:
+
+- Vous donnez les moyens d'analyser et de visualiser des données
+  (i.e. écrire du code pour générer des résultats).
+- Portez un **regard critique** sur des données, vitre approche
+  analytique, et vos résultats (i.e. pouvoir les **interpréter**).
 
 ---
 
@@ -254,3 +257,13 @@ Etudiant(e)s de BAC2, 2018 - 2019
 > On a souvent des nouvelles du professeur par mail dès la fin du
 > cours ou nous donnant des informations pour le cours suivant
 > (interro, améliorations,...).
+
+---
+
+# Avant de commencer
+
+- Déroulement des apprentissages?
+- Déroulement des évaluations, formative et certificative?
+- Développer mes compétences techniques et scientifiques!
+- Qu'est-ce qu'on attend de moi?
+- De quoi avez-vous besoin pour maîtriser la matière?
