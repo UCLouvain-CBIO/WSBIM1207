@@ -45,7 +45,7 @@ Ce qui est attendu de vous:
 
 - Vous donnez les moyens d'analyser et de visualiser des données
   (i.e. écrire du code pour générer des résultats).
-- Portez un **regard critique** sur des données, vitre approche
+- Portez un **regard critique** sur des données, votre approche
   analytique, et vos résultats (i.e. pouvoir les **interpréter**).
 
 ---
@@ -57,13 +57,13 @@ Etudiant(e) de BAC2, 2018 - 2019
 > Je n’arrive personnellement pas à percevoir « l’interet » de cette
 > matière dans mon futur
 
-- Voir les préambules des cours
+- Voir les **préambules** (et capsules vidéo) des cours
 - Compétences essentielles pour des chercheurs en sciences
   biomédicales
 - Compétences recherchées dans l'industrie, notamment biotech et
   pharmaceutique
-- Doctorants suivent ces cours systématiquement depuis l'instauration
-  des cours
+- **Doctorant(e)s** suivent ces cours systématiquement depuis
+  l'instauration des cours
 
 ---
 class: middle
@@ -153,7 +153,8 @@ knitr::include_graphics('https://upload.wikimedia.org/wikipedia/en/a/a9/Ungradin
 - Interrogations régulières ~~avec possibilité de
   dispense~~. Pourquoi? Comment?
 
-- Présence au cours obligatoire. Pourquoi? Comment?
+- **Présence** et **participation** au cours
+  **obligatoire**. Pourquoi? Comment?
 
 - Interrogations et examen à resources ouvertes.
 
@@ -166,6 +167,16 @@ knitr::include_graphics('https://upload.wikimedia.org/wikipedia/en/a/a9/Ungradin
 ```
 ]
 
+???
+
+Interrogations non-cotées, mais corrigées:
+- Essayer vraiment de la faire
+- Correction en classe - poser des questions
+- Question: ou en êtes-vous dans votre apprentissage?
+
+Présence obligatoire:
+- Pourquoi: votre réussite
+- En cas d'absence: qu'allez-vous faire pour rattraper le retard?
 
 ---
 
@@ -259,8 +270,13 @@ Etudiant(e)s de BAC2, 2018 - 2019
 > (interro, améliorations,...).
 
 ---
+class: center middle inverse
 
-# Avant de commencer
+# Questions
+
+---
+
+# Questions
 
 - Déroulement des apprentissages?
 - Déroulement des évaluations, formative et certificative?
