@@ -41,29 +41,59 @@ Assistant(e)s: Jean Fain, Valentine Robaux, Julie Devis, Axelle Loriot (M1)
 
 # Buts
 
-Ce qui est attendu de vous:
+#### WSBIM1207
 
 - Vous donnez les moyens d'analyser et de visualiser des données
-  (i.e. écrire du code pour générer des résultats).
+  tabulaires (i.e. écrire du code pour générer des résultats) à l'aide
+  de l'environnement d'analyse R.
 - Portez un **regard critique** sur des données, votre approche
   analytique, et vos résultats (i.e. pouvoir les **interpréter**).
+
+#### WSBIM1322
+
+- Appliquer les compétences ci-dessus à des données bio-médicales, en
+  utilisant toujours R.
+- Comprendre comment manipuler et analyser des données biologiques
+  plus complexes.
+
+#### WSBIM2122
+
+- Appliquer les compétences ci-dessus à l'analyse de données de
+  RNA-Seq et de protéomique quantitative en utilisant des packages R
+  dédiés.
 
 ---
 
 # Mais pourquoi ?!?!?!
+
 
 Etudiant(e) de BAC2, 2018 - 2019
 
 > Je n’arrive personnellement pas à percevoir « l’interet » de cette
 > matière dans mon futur
 
+--
+
+### Biomed = science expérimentale + données/(bio)info/stats
+
+--
+
 - Voir les **préambules** (et capsules vidéo) des cours
 - Compétences essentielles pour des chercheurs en sciences
-  biomédicales
+  biomédicales.
+- Compétence transversales dans vos études (voir les préambules).
 - Compétences recherchées dans l'industrie, notamment biotech et
-  pharmaceutique
+  pharmaceutique (mais pas uniquement).
 - **Doctorant(e)s** suivent ces cours systématiquement depuis
-  l'instauration des cours
+  l'instauration des cours.
+
+
+???
+
+- Préambule: On regardera, ensemble, en classe, le préambule et une
+  capsule du cours.
+- A refaire en fin d'année.
+- Demander aux doctorant(e)s d'expliquer pourquoi ils/elles sont là.
 
 ---
 class: middle
@@ -107,6 +137,12 @@ Etudiant(e) de BAC2, 2018 - 2019
 > fonctionne bien (le prof écrit toutes les commandes qu'il
 > explique). Je pense que cela nous permet à la fois de visualiser, de
 > comprendre et d'appliquer directement les concepts expliqués.
+
+???
+
+- Expliquer pourquoi on ne fournit pas les réponses. Et préciser que
+  si ils/elles les ont, de ne pas succomber à la tentation de regarder
+  les réponses, mais d'essayer de les trouver par elles/ils mêmes.
 
 ---
 
@@ -156,6 +192,8 @@ knitr::include_graphics('https://upload.wikimedia.org/wikipedia/en/a/a9/Ungradin
 - **Présence** et **participation** au cours
   **obligatoire**. Pourquoi? Comment?
 
+- **TODO**: pour ceux qui ont un mode de travail différent.
+
 - Interrogations et examen à resources ouvertes.
 
 ]
@@ -191,6 +229,15 @@ Présence obligatoire:
   vous donnerai des indications pour progresser. N'hésitez pas à
   répondre aux questions vos collègues.
 
+- Vous pouvez poser vos questions sur tous les chapitres, mêmes ceux
+  vus *il y a longtemps*, et à n'importe quel moment (durant le
+  quadrimestre, durant les vacances, durant le blocus, juste avant
+  l'examen, même après l'examen).
+
+---
+
+# En pratique: moodle
+
 Etudiant(e)s de BAC3, 2021-2022
 
 > Le forum m'a vraiment permis d'approfondir mes connaissance. Le
@@ -212,19 +259,23 @@ Etudiant(e)s de BAC3, 2021-2022
 - **Interactions** entre étudiants et enseignants: posez des questions,
   n'hésitez pas à vous entraider durant les résolutions de problèmes.
 
+- Il est **toujours légitime de poser une question**. Il n'y a pas de
+  bête question. Si vous vous la posée, d'autres se la posent aussi.
+
 - Un **apprentissage actif**. Il ne vous sera pas possible de
   comprendre la matière en apprenant le cours par coeur. C'est la
   pratique qui vous permettra de la maîtriser: tentez donc les
   exercices et si vous n'y arrivez pas, posez des questions.
 
 - Donnez-nous un **feed-back approprié**, pour que nous puissions vous
-  aidez en proposant davantages d'exercices et/ou en clarifiant des
+  aidez en proposant d'avantages d'exercices et/ou en clarifiant des
   parties du cours. Ce feed-back se fera pendant les cours (questions
   et réponses) et en fin de session (post-its - cf plus loin).
 
 - Travaillez regulièrement, en particulier en participant activement
-  au cours (cf interrogations). Inscrivez-vous aux sessions
-  individuelles. N'attendez pas la fin du cours pour vous y mettre!
+  au cours (cf interrogations). Inscrivez-vous aux **séances de
+  questions/réponses individuelles** sur moodle (voir
+  canevas). N'attendez pas la fin du cours pour vous y mettre!
 
 ---
 class: middle
@@ -239,13 +290,21 @@ Etudiant(e)s de BAC2, 2018-2019
 > L’écoute de nos commentaire, la réponse aux questions, l’explication
 > de la matière
 
+???
+
+- Il est tjs légitime de poser des questions; pas de jugement
+
 ---
 
-# Comment réussir ?
+# Comment "réussir" ?
 
-<br> <br> <br> <br>
+<br> <br> <br>
 
-### Pratiquez, pratiquez, pratiquez
+### En maîtrisant la matière!
+
+<br> <br> <br>
+
+### Pratiquez, pratiquez, pratiquez!
 
 ---
 class: top
@@ -272,7 +331,11 @@ Etudiant(e)s de BAC2, 2018 - 2019
 ---
 class: center middle inverse
 
-# Questions
+# Questions?
+
+???
+
+Ont-ils/elles des questions?
 
 ---
 
@@ -283,3 +346,9 @@ class: center middle inverse
 - Développer mes compétences techniques et scientifiques!
 - Qu'est-ce qu'on attend de moi?
 - De quoi avez-vous besoin pour maîtriser la matière?
+- De quoi avez-vous besoin pour réussir le cours?
+
+
+???
+
+Questions qu'ils/elles devraient poser!
