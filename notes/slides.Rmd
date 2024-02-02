@@ -35,7 +35,8 @@ xaringanExtra::use_panelset()
 
 Prof: Laurent Gatto
 
-Assistant(e)s: Jean Fain, Valentine Robaux, Julie Devis, Axelle Loriot (M1)
+Assistant(e)s: Jean Fain, (Valentine Robaux), Margot Refuge, Julie
+Devis, Axelle Loriot (M1)
 
 ---
 
@@ -190,9 +191,9 @@ knitr::include_graphics('https://upload.wikimedia.org/wikipedia/en/a/a9/Ungradin
   dispense~~. Pourquoi? Comment?
 
 - **Présence** et **participation** au cours
-  **obligatoire**. Pourquoi? Comment?
+  **obligatoire**. Pourquoi? Comment? (mais voir plus loin!)
 
-- **TODO**: pour ceux qui ont un mode de travail différent.
+<!-- - **TODO**: pour ceux qui ont un mode de travail différent. -->
 
 - Interrogations et examen à resources ouvertes.
 
@@ -315,7 +316,7 @@ knitr::include_graphics("https://github.com/UCLouvain-CBIO/WSBIM1207/raw/master/
 
 ---
 
-# En pratique: sticky notes
+# En pratique: post-its
 
 Etudiant(e)s de BAC2, 2018 - 2019
 
@@ -327,6 +328,30 @@ Etudiant(e)s de BAC2, 2018 - 2019
 > On a souvent des nouvelles du professeur par mail dès la fin du
 > cours ou nous donnant des informations pour le cours suivant
 > (interro, améliorations,...).
+
+---
+class: center middle inverse
+
+# NEW: Travailler le cours de chez soi!
+
+---
+
+- Mode opératoire - réunion individuelle toutes les 2 semaines
+- 20 étudiant(e)s
+- inscription par email: motivation et confirmer que vous allez
+  travailler
+- pour quel type d'étudiant?
+- même quantité de travail, engagement différent
+- deux formules, un même objectif
+
+???
+
+- donner des exemples de motivation
+
+
+---
+
+Schéma récapitulatif
 
 ---
 class: center middle inverse
@@ -347,6 +372,7 @@ Ont-ils/elles des questions?
 - Qu'est-ce qu'on attend de moi?
 - De quoi avez-vous besoin pour maîtriser la matière?
 - De quoi avez-vous besoin pour réussir le cours?
+- Il est possible de travailler le cours à l'UCLouvain ou de chez soi!
 
 
 ???
