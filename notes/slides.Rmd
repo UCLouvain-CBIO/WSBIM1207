@@ -278,6 +278,15 @@ Etudiant(e)s de BAC3, 2021-2022
   questions/réponses individuelles** sur moodle (voir
   canevas). N'attendez pas la fin du cours pour vous y mettre!
 
+???
+
+Séances individuelles
+- Jeu: 8:00 - 8:30
+- Mer: 11:00 - 13:00
+- Ven: 14:00 - 16:00
+
+**Délégués**: merci de vérifier/confirmer/adapter.
+
 ---
 class: middle
 
