@@ -161,6 +161,15 @@ knitr::include_graphics('https://upload.wikimedia.org/wikipedia/en/a/a9/Ungradin
 ```
 ]
 
+???
+
+1. Vous n'êtes pas ici pour accumuler des points et réussir un examen
+   ou accumuler des crédits - vous êtes ici pour apprendre, pour vous
+   former!
+
+2. En tout cas, les points, ça ne peut pas être votre but principal -
+   ça doit être un effet secondaire de votre apprentissage.
+
 ---
 
 # En pratique
@@ -181,6 +190,15 @@ knitr::include_graphics('https://upload.wikimedia.org/wikipedia/en/a/a9/Ungradin
 ```
 ]
 
+???
+
+Notre rôle, c'est donc de
+- vous **donner ce feedback** (voir plus loin)
+- de créer un **environnement d'apprentissage** vous permettant de le valoriser
+- en prenant un **rôle actif** dans cet apprentissage.
+
+Ca vous demandra du travail!
+
 ---
 
 # En pratique
@@ -191,11 +209,16 @@ knitr::include_graphics('https://upload.wikimedia.org/wikipedia/en/a/a9/Ungradin
   dispense~~. Pourquoi? Comment?
 
 - **Présence** et **participation** au cours
-  **obligatoire**. Pourquoi? Comment? (mais voir plus loin!)
+  **obligatoire**. Pourquoi? Comment? (mais voir plus loin)
+
+- En cas d'absence: prévenez-moi par email (avant ou après votre
+  absence) en décrivant ce que vous allez mettre en place pour
+  récuérer le retard dans votre apprentissage. Pas besoin de justifier
+  votre absence, ni de certificat médical.
 
 <!-- - **TODO**: pour ceux qui ont un mode de travail différent. -->
 
-- Interrogations et examen à resources ouvertes.
+- Interrogations et examen à **ressources ouvertes**.
 
 ]
 
@@ -216,6 +239,8 @@ Interrogations non-cotées, mais corrigées:
 Présence obligatoire:
 - Pourquoi: votre réussite
 - En cas d'absence: qu'allez-vous faire pour rattraper le retard?
+
+En cas d'absence...
 
 ---
 
@@ -257,11 +282,13 @@ Etudiant(e)s de BAC3, 2021-2022
 
 # En pratique: participation active
 
-- **Interactions** entre étudiants et enseignants: posez des questions,
-  n'hésitez pas à vous entraider durant les résolutions de problèmes.
+- **Interactions** entre étudiants et enseignants: posez des
+  questions, répondez à des questions, et n'hésitez pas à vous
+  entraider durant les résolutions de problèmes et en dehors des
+  cours.
 
 - Il est **toujours légitime de poser une question**. Il n'y a pas de
-  bête question. Si vous vous la posée, d'autres se la posent aussi.
+  bête question. Si vous vous la posez, d'autres se la posent aussi.
 
 - Un **apprentissage actif**. Il ne vous sera pas possible de
   comprendre la matière en apprenant le cours par coeur. C'est la
@@ -271,7 +298,7 @@ Etudiant(e)s de BAC3, 2021-2022
 - Donnez-nous un **feed-back approprié**, pour que nous puissions vous
   aidez en proposant d'avantages d'exercices et/ou en clarifiant des
   parties du cours. Ce feed-back se fera pendant les cours (questions
-  et réponses) et en fin de session (post-its - cf plus loin).
+  et réponses) et en fin de session (sur les **post-its**).
 
 - Travaillez regulièrement, en particulier en participant activement
   au cours (cf interrogations). Inscrivez-vous aux **séances de
@@ -288,7 +315,8 @@ Séances individuelles
 **Délégués**: merci de vérifier/confirmer/adapter.
 
 ---
-class: middle
+
+# En pratique: participation active
 
 Etudiant(e)s de BAC2, 2018-2019
 
@@ -303,6 +331,22 @@ Etudiant(e)s de BAC2, 2018-2019
 ???
 
 - Il est tjs légitime de poser des questions; pas de jugement
+
+---
+
+# En pratique: post-its
+
+Etudiant(e)s de BAC2, 2018 - 2019
+
+> Le mécanisme des post-it nous permettant de faire des commentaires
+> et d'améliorer le cours dès la semaine suivante.
+
+<br>
+
+> On a souvent des nouvelles du professeur par mail dès la fin du
+> cours ou nous donnant des informations pour le cours suivant
+> (interro, améliorations,...).
+
 
 ---
 
@@ -323,20 +367,11 @@ class: top
 knitr::include_graphics("https://github.com/UCLouvain-CBIO/WSBIM1207/raw/master/figs/2019-06-corr-exam-interro.png")
 ```
 
----
+???
 
-# En pratique: post-its
-
-Etudiant(e)s de BAC2, 2018 - 2019
-
-> Le mécanisme des post-it nous permettant de faire des commentaires
-> et d'améliorer le cours dès la semaine suivante.
-
-<br>
-
-> On a souvent des nouvelles du professeur par mail dès la fin du
-> cours ou nous donnant des informations pour le cours suivant
-> (interro, améliorations,...).
+Ça ne veut pas dire qu'il faut abandonner si vous 'rater' les
+premières interrogations! Les interrogations sont un outil pour vous
+permettre de vérifier si vous avez acquis la matière.
 
 ---
 class: center middle inverse
@@ -347,11 +382,25 @@ class: center middle inverse
 
 ### Notre but est que vous _travailliez le cours_ et, à la fin du quadrimèstre, _maîtrisiez la matière_, ce qui est bien évidemment possible (_pour certains_) sans venir au cours!
 
+Notes de cours complètes, partage du code écrit pendant les cours,
+enregistrement des cours, questions/réponses sur moodle, séances
+individuelles, ...
+
+...
+
+---
+
+### Notre but est que vous _travailliez le cours_ et, à la fin du quadrimèstre, _maîtrisiez la matière_, ce qui est bien évidemment possible (_pour certains_) sans venir au cours!
+
+Notes de cours complètes, partage du code écrit pendant les cours,
+enregistrement des cours, questions/réponses sur moodle, séances
+individuelles, ...
+
 - Pour quel type d'étudiant est-ce que cette approche convient le
   mieux? Est-ce que ça vous correspond?
 - Réunions individuelles **obligatoires** au moins toutes les 2
-  semaines (les jeudis, pendant le cours): présentez-nous votre
-  avancée dans votre travail personnel et posez vos questions.
+  semaines (les jeudis, pendant le cours): présentez-nous les avancées
+  dans votre travail personnel et posez vos questions.
 
 - Deux formules, un même objectif. **Même quantité de travail,
   engagement différent**.
@@ -373,10 +422,10 @@ class: middle
 
 ### Qu'est-ce qui convient le mieux à votre travail et votre réussite?
 
-|            | Je préfère ...                                                                               | Questions et interrogations                                                                              | Séances individuelles                                                                                                                                               |
-|-----------:|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  En classe | Je préfère bénéficier de l'élan du groupe et de l'équipe pédagogique et du cours en direct.  | J'ai les réponses à mes question directement. Je fais les interrogations et leurs corrections en classe. | Je réserve des séances individuelles quand je veux.                                                                                                                 |
-| A domicile | Je préfère travailler au calme, chez moi, en utilisant les resources mises à ma disposition. | Je pose mes question sur moodle et fait les interrogations de manière asynchrone.                        | Je m'engage à réserver des séances individuelles au moins toutes les 2 semaines. Et si ça ne va pas, je n'abandonnerai pas et reviendrai suivre le cours en direct. |
+|                | Je préfère ...                                                                               | Questions et interrogations                                                                              | Séances individuelles                                                                                                                                               |
+|---------------:|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  **En classe** | Je préfère bénéficier de l'élan du groupe et de l'équipe pédagogique et du cours en direct.  | J'ai les réponses à mes question directement. Je fais les interrogations et leurs corrections en classe. | Je réserve des séances individuelles quand je veux.                                                                                                                 |
+| **A domicile** | Je préfère travailler au calme, chez moi, en utilisant les resources mises à ma disposition. | Je pose mes question sur moodle et fait les interrogations de manière asynchrone.                        | Je m'engage à réserver des séances individuelles au moins toutes les 2 semaines. Et si ça ne va pas, je n'abandonnerai pas et reviendrai suivre le cours en direct. |
 
 ---
 class: center middle inverse
