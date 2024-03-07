@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2024-02-22" />
+<meta name="date" content="2024-03-07" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -67,7 +67,7 @@ function reset_tooltip(id) {
 </script>
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.31/datatables.js"></script>
+<script src="libs/datatables-binding-0.32/datatables.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
@@ -318,7 +318,7 @@ and this <a href="https://github.com/rstudio/cheatsheets/raw/main/data-import.pd
 tidyverse package <strong><code>readr</code></strong>, instead of <code>read.csv()</code>.</p>
 <div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="sec-dplyr.html#cb300-1" tabindex="-1"></a>rna <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
 <pre><code>## Rows: 32428 Columns: 19
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (14): gene, sample, organism, sex, infection, strain, tissue, product, e...
 ## dbl  (5): expression, age, time, mouse, ENTREZID
@@ -1107,7 +1107,8 @@ For instance, we might want to arrange the table above by time:</p>
 <ol style="list-style-type: decimal">
 <li><p>How many genes were analysed in each sample?</p></li>
 <li><p>Use <code>group_by()</code> and <code>summarize()</code> to evaluate the sequencing depth
-(the sum of all counts) in each sample. Which sample has the highest sequencing depth?</p></li>
+(the sum of all expressions) in each sample. Which sample has the
+highest sequencing depth?</p></li>
 <li><p>Calculate the mean expression level of gene “Dok3” by timepoints.</p></li>
 <li><p>Pick one sample and evaluate the number of genes by biotype</p></li>
 <li><p>Identify genes associated with “abnormal DNA methylation” phenotype description,
@@ -2012,7 +2013,7 @@ these data.</p></li>
 <a href="sec-vis.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2024-02-22
+2024-03-07
  using 
 R version 4.3.2 Patched (2023-12-27 r85757)
 </p>
