@@ -552,7 +552,8 @@ rna %>%
 1. How many genes were analysed in each sample?
 
 2. Use `group_by()` and `summarize()` to evaluate the sequencing depth
-(the sum of all counts) in each sample. Which sample has the highest sequencing depth?
+   (the sum of all expressions) in each sample. Which sample has the
+   highest sequencing depth?
 
 3. Calculate the mean expression level of gene "Dok3" by timepoints.
 
