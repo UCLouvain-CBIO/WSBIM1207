@@ -874,9 +874,9 @@ rna_1 %>%
 
 `r msmbstyle::question_begin()`
 
-Use the `rna` dataset to create an expression matrix were each row
-represents the mean expression levels of genes and columns represent
-the different timepoints.
+Use the `rna` dataset to create an new table were each row represents
+the mean expression levels of genes and columns represent the
+different timepoints.
 
 `r msmbstyle::question_end()`
 
