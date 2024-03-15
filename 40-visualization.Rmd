@@ -29,7 +29,7 @@ rna <- read.csv("data/rnaseq.csv")
 ```
 
 The [Data Visualization Cheat
-Sheet](https://github.com/rstudio/cheatsheets/raw/main/data-visualization-2.1.pdf)
+Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
 will cover the basics and more advanced features of `ggplot2` and will
 help, in addition to serve as a reminder, getting an overview of the
 many data representations available in the package. The following
@@ -70,7 +70,7 @@ graph from the same 3 components: (1) a data set, (2) a coordinate system,
 and (3) geoms — i.e. visual marks that represent data points [^three_comp_ggplot2].
 
 [^three_comp_ggplot2]: Source: [Data Visualization Cheat
-Sheet](https://github.com/rstudio/cheatsheets/raw/main/data-visualization-2.1.pdf).
+Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf).
 
 
 To build a ggplot, we will use the following basic template that can
@@ -718,7 +718,7 @@ themes.
 Let's come back to the faceted plot of mean expression by time and gene, colored by sex.
 
 Take a look at the [**`ggplot2`** cheat
-sheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf)
+sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
 and think of ways you could improve the plot.
 
 Now, we can change names of axes to something more informative than 'time'
@@ -808,7 +808,7 @@ ggplot(rna, aes(x = expression_log)) +
 With all of this information in hand, please take another five minutes
 to either improve one of the plots generated in this exercise or
 create a beautiful graph of your own. Use the RStudio [`ggplot2` cheat
-sheet](https://github.com/rstudio/cheatsheets/raw/main/data-visualization-2.1.pdf)
+sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
 for inspiration. Here are some ideas:
 
 - See if you can change the thickness of the lines.
@@ -1025,16 +1025,6 @@ ggsave("fig_output/combo_plot_chromosome_sex.png", combo_plot,
 
 Note: The parameters `width` and `height` also determine the font size
 in the saved plot.
-
-
-```{r final-challenge, eval=FALSE, purl=TRUE, echo=FALSE}
-### Final plotting challenge:
-##  With all of this information in hand, please take another five
-##  minutes to either improve one of the plots generated in this
-##  exercise or create a beautiful graph of your own. Use the RStudio
-##  ggplot2 cheat sheet for inspiration:
-##  https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf
-```
 
 ## Other packages for visualisation
 

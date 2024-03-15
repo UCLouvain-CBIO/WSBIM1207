@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2024-03-13" />
+<meta name="date" content="2024-03-15" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -237,7 +237,7 @@ in the <strong><code>tidyverse</code></strong> package.</p>
 <div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="sec-vis.html#cb439-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div>
 <p>If not still in the workspace, load the data we saved in the previous lesson.</p>
 <div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="sec-vis.html#cb440-1" tabindex="-1"></a>rna <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
-<p>The <a href="https://github.com/rstudio/cheatsheets/raw/main/data-visualization-2.1.pdf">Data Visualization Cheat
+<p>The <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf">Data Visualization Cheat
 Sheet</a>
 will cover the basics and more advanced features of <code>ggplot2</code> and will
 help, in addition to serve as a reminder, getting an overview of the
@@ -441,8 +441,8 @@ biotype that we will use later on to represent the genes. We will save the fold 
 <span id="cb459-5"><a href="sec-vis.html#cb459-5" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> time,</span>
 <span id="cb459-6"><a href="sec-vis.html#cb459-6" tabindex="-1"></a>              <span class="at">values_from =</span> mean_exp) <span class="sc">%&gt;%</span></span>
 <span id="cb459-7"><a href="sec-vis.html#cb459-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_8_vs_0 =</span> <span class="st">`</span><span class="at">8</span><span class="st">`</span> <span class="sc">-</span> <span class="st">`</span><span class="at">0</span><span class="st">`</span>, <span class="at">time_4_vs_0 =</span> <span class="st">`</span><span class="at">4</span><span class="st">`</span> <span class="sc">-</span> <span class="st">`</span><span class="at">0</span><span class="st">`</span>)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'time'. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'time'. You can override using the `.groups`
+## argument.</code></pre>
 <p>We can then build a ggplot with the newly created dataset
 <code>rna_fc</code>. Building plots with <code>ggplot2</code> is typically an iterative
 process. We start by defining the dataset we’ll use, lay out the axes,
@@ -825,8 +825,8 @@ grouped by <code>gene</code>, <code>time</code>, and <code>sex</code>:</p>
 <div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="sec-vis.html#cb498-1" tabindex="-1"></a>mean_exp_by_time_sex <span class="ot">&lt;-</span> sub_rna <span class="sc">%&gt;%</span></span>
 <span id="cb498-2"><a href="sec-vis.html#cb498-2" tabindex="-1"></a>  <span class="fu">group_by</span>(gene, time, sex) <span class="sc">%&gt;%</span></span>
 <span id="cb498-3"><a href="sec-vis.html#cb498-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_exp =</span> <span class="fu">mean</span>(expression_log))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'time'. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'time'. You can override using the `.groups`
+## argument.</code></pre>
 <p>We can now make the faceted plot by splitting further by sex using
 <code>color</code> (within a single plot):</p>
 <div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="sec-vis.html#cb500-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_time_sex,</span>
@@ -871,8 +871,8 @@ infection.</p>
 <div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="sec-vis.html#cb504-1" tabindex="-1"></a>mean_exp_by_chromosome <span class="ot">&lt;-</span> rna <span class="sc">%&gt;%</span></span>
 <span id="cb504-2"><a href="sec-vis.html#cb504-2" tabindex="-1"></a>  <span class="fu">group_by</span>(chromosome_name, time) <span class="sc">%&gt;%</span></span>
 <span id="cb504-3"><a href="sec-vis.html#cb504-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_exp =</span> <span class="fu">mean</span>(expression_log))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'chromosome_name'. You can override using
-## the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'chromosome_name'. You can override using the `.groups`
+## argument.</code></pre>
 <div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="sec-vis.html#cb506-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_chromosome,</span>
 <span id="cb506-2"><a href="sec-vis.html#cb506-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> time,</span>
 <span id="cb506-3"><a href="sec-vis.html#cb506-3" tabindex="-1"></a>                     <span class="at">y =</span> mean_exp)) <span class="sc">+</span></span>
@@ -933,7 +933,7 @@ themes.</p>
 <span class="header-section-number">6.7</span> Customisation<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('customisation')" onmouseout="reset_tooltip('customisation-tooltip')"><span class="tooltiptext" id="customisation-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
 </h2>
 <p>Let’s come back to the faceted plot of mean expression by time and gene, colored by sex.</p>
-<p>Take a look at the <a href="https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf"><strong><code>ggplot2</code></strong> cheat
+<p>Take a look at the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf"><strong><code>ggplot2</code></strong> cheat
 sheet</a>
 and think of ways you could improve the plot.</p>
 <p>Now, we can change names of axes to something more informative than ‘time’
@@ -1014,7 +1014,7 @@ plots you may create. Here is an example with the histogram we have previously c
 <div class="question-body">
 <p>With all of this information in hand, please take another five minutes
 to either improve one of the plots generated in this exercise or
-create a beautiful graph of your own. Use the RStudio <a href="https://github.com/rstudio/cheatsheets/raw/main/data-visualization-2.1.pdf"><code>ggplot2</code> cheat
+create a beautiful graph of your own. Use the RStudio <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf"><code>ggplot2</code> cheat
 sheet</a>
 for inspiration. Here are some ideas:</p>
 <ul>
@@ -1415,7 +1415,7 @@ different regions in France.</li>
 <div class="footnotes">
 <hr>
 <ol start="10">
-<li id="fn10"><p>Source: <a href="https://github.com/rstudio/cheatsheets/raw/main/data-visualization-2.1.pdf">Data Visualization Cheat
+<li id="fn10"><p>Source: <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf">Data Visualization Cheat
 Sheet</a>.<a href="sec-vis.html#fnref10" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
@@ -1426,7 +1426,7 @@ Sheet</a>.<a href="sec-vis.html#fnref10" class="footnote-back">↩︎</a></p></l
 <a href="sec-join.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2024-03-13
+2024-03-15
  using 
 R version 4.3.2 Patched (2023-12-27 r85757)
 </p>
