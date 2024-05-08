@@ -175,7 +175,6 @@ x |>
     ggplot(aes(x = annee, y = value,
                colour = variable)) +
     geom_line() +
-    geom_point() +
     facet_grid(. ~ lieu_de_residence)
 
 x |>
@@ -187,6 +186,5 @@ x |>
     ggplot(aes(x = annee, y = value,
                colour = variable)) +
     geom_line() +
-    geom_point() +
     facet_wrap(~ lieu_de_residence, scale = "free_y")
 ```
