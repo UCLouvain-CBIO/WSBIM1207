@@ -75,8 +75,10 @@ Sheet](https://github.com/rstudio/cheatsheets/raw/main/data-transformation.pdf)
 provides an overview of the `dplyr` grammar, offering more details and
 functions that we will see in this chapter. The [Tidy Data
 Tutor](https://tidydatatutor.com/) is a wonderful tool to visually
-describe what the tidy data operations do.
-
+describe what the tidy data operations do. The following
+[tutorial](https://www.andrewheiss.com/blog/2024/04/04/group_by-summarize-ungroup-animations/)
+offers nice animations of `mutate()`, `summarize()`, `group_by()`, and
+`ungroup()`.
 
 ## What are **`dplyr`** and **`tidyr`**?
 
