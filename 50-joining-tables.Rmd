@@ -332,9 +332,9 @@ abline(h = seq(1, 6.5, 0.5), lty = "dotted", col = "grey")
 ```
 
 ```{r, echo = FALSE}
-d1 <- data.frame(x = 1:3, y = 1:3)
-d2 <- data.frame(a = 4:5, b = 4:5)
-d3 <- data.frame(v1 = 1:2, v2 = 3:4, v3 = 5:6)
+d1 <- data.frame(x = 1:3, y = 1:3, row.names = paste0("r", 1:3))
+d2 <- data.frame(a = 4:5, b = 4:5, row.names = paste0("r", 4:5))
+d3 <- data.frame(v1 = 1:2, v2 = 3:4, v3 = 5:6, row.names = LETTERS[1:2])
 ```
 
 We are going to illustrate binding by columns with dataframes `d1` and
@@ -357,8 +357,8 @@ try(rbind(d1, d2))
 [^try]: The failing call to `rbind` is wrapped into a `try` call here
     to stop the error from aborting the document compilation.
 
-Before `rbind`ing two dataframes, we must assure that their number of columns and
-rownames match exactly:
+Before `rbind`ing two dataframes, we must assure that their number of
+columns and colnames match exactly:
 
 ```{r}
 names(d2) <- names(d1)
@@ -366,9 +366,11 @@ rbind(d1, d2)
 ```
 
 If we want to bind to dataframes along their columns, we must make
-sure that their number of rows match; rownames not hinder here:
+sure that their number of rows match; neither rownames nor colnames
+hinder here:
 
 ```{r}
+d2
 d3
 cbind(d2, d3)
 ```
@@ -393,7 +395,6 @@ alternatives from the `dplyr` package are `bind_rows` and `bind_cols`
 and work similarly.
 
 ## Additional exercises
-
 
 `r msmbstyle::question_begin()`
 
