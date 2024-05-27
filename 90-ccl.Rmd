@@ -76,6 +76,7 @@ user, sex and various characteristics of the accident in Belgium in
 
 ```{r accidents, echo=FALSE, include=FALSE}
 library(rWSBIM1207)
+library(tidyverse)
 x <- readRDS(road_accidents_be_2022.rds())
 
 ## Compare the numbers for man and women over the hours of the day for
