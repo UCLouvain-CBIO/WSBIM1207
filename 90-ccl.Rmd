@@ -99,6 +99,36 @@ dplyr::count(x, TX_VICT_TYPE_DESCR_FR, TX_PROV_DESCR_FR) |>
     geom_bar(stat = "identity") +
     facet_wrap(~ TX_PROV_DESCR_FR) +
     theme(axis.text.x = element_text(angle = 90, hjust = 0.5, vjust = 0.5))
+
+
+
+res <- filter(x, TX_VICT_TYPE_DESCR_FR != "Inconnu", TX_PROV_DESCR_FR != " ") |>
+    group_by(TX_VICT_TYPE_DESCR_FR, TX_PROV_DESCR_FR) |>
+    summarise(m = sum(MS_VICT), n = n())
+
+## Dans mon code, j'ai réalisé un group_by et un summarize (sum())
+## parce que si on regarde le nombre de victimes, on peut observer
+## qu'il y a parfois 2 victimes pour le même "type de victime" pour la
+## même date.  Je suppose qu'avec un summarize(n()), on risque de
+## perdre ces informations? Ou alors, j'ai mal compris les données, ou
+## la question?
+
+pm <- res |>
+    ggplot(aes(x = TX_PROV_DESCR_FR, y = m)) +
+    geom_point() + geom_line(aes(group = TX_VICT_TYPE_DESCR_FR)) +
+    facet_wrap(~ TX_VICT_TYPE_DESCR_FR, scale = "free_y") +
+    ggtitle("sum()") +
+    theme(axis.text.x = element_text(angle = 90))
+
+pn <- res |>
+    ggplot(aes(x = TX_PROV_DESCR_FR, y = n)) +
+    geom_point() + geom_line(aes(group = TX_VICT_TYPE_DESCR_FR)) +
+    facet_wrap(~ TX_VICT_TYPE_DESCR_FR, scale = "free_y") +
+    ggtitle("sum()") +
+    theme(axis.text.x = element_text(angle = 90))
+
+pn + pm
+
 ```
 
 `r msmbstyle::question_begin()`
