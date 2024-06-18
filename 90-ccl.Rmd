@@ -219,3 +219,113 @@ x |>
     geom_line() +
     facet_wrap(~ lieu_de_residence, scale = "free_y")
 ```
+
+`r msmbstyle::question_begin()`
+
+Here, we are going to examining the evolution of bankruptcies in
+different region in Belgium between 2005 and 2023. The [original
+data](https://statbel.fgov.be/fr/open-data/evolution-mensuelle-des-faillites-par-nace)
+are available on the Belgian office for statistics, statbel, webpage.
+
+Two files are needed:
+
+-  The fill dataset, `TF_BANKRUPTCIES.zip`, contains over 175000
+   records and is relatively large. Instead, you can use
+   `TF_BANKRUPTCIES_subset.txt` that contains just over 10000 records,
+   and made available through the `rWSBIM1207` package (see below).
+
+- The `Method_BANKRUPTCIES.xlsx` file describes the variables in the
+   bankruptcies dataset. It can be either downloaded from the [statbel
+   page](https://statbel.fgov.be/fr/open-data/evolution-mensuelle-des-faillites-par-nace),
+   or read from the `rWSBIM1207` package (see below). Note that you
+   are not asked to load the xlsx file in R (although you can with
+   `readxl::read_xlsx()`); feel free to open it with your favourite
+   spreadsheet programme.
+
+You will see that there are some minor discrepancies between the
+metadata file and the data variables, such as the `CD_WEEK` variable,
+that is documented in the metadata file, but absent from the actual
+data. The other, non-documented, time-related variables are
+self-explanatory.
+
+The (compressed) `TF_BANKRUPTCIES_subset.txt` and
+`Method_BANKRUPTCIES.xlsx` are available in the `rWSBIM1207` package
+(version >= 0.1.19). Their paths is available with the
+`faillites_be()` function.
+
+You are asked to:
+
+- Visualise the number of bankruptcies over time in the different
+  regions. Make sure to remove observations that don't have any
+  region. Note that the dates are recorded in a different format as
+  what we have seen so far, but the usual conversion functions still
+  apply.
+
+- The improve the readability of these busy plots, computer the number
+  of bankruptcies per year and repeat the above visualisation.
+
+- We expect that bankruptcies of large companies will lead to more
+  (full-time) unemployment. Check this hypothesis by (1) compute and
+  display a table of average job losses by company size, and (2)
+  produce a figure that uses the distribution of job losses (as
+  opposed as only the averages). To facilitate the interpretation,
+  order the companies by their size, in the table and figure.
+
+
+`r msmbstyle::question_end()`
+
+```{r faillites, include=FALSE, echo=FALSE}
+suppressPackageStartupMessages({
+    library(tidyverse)
+    library(rWSBIM1207)
+})
+
+x <- read_delim(faillites_be()[1], delim = "|") |>
+    mutate(time = dmy(CD_WEEK_START))
+
+## Q1 fig
+filter(x, !is.na(TX_PROV_DESCR_FR)) |>
+    ggplot(aes(x = time,
+               y = MS_COUNTOF_BANKRUPTCIES)) +
+    geom_point() +
+    facet_wrap(~ TX_PROV_DESCR_FR)
+
+
+## Q2 fig
+filter(x, !is.na(TX_PROV_DESCR_FR)) |>
+    group_by(CD_YEAR, TX_PROV_DESCR_FR) |>
+    summarise(faillites = sum(MS_COUNTOF_BANKRUPTCIES)) |>
+    ggplot(aes(x = CD_YEAR,
+               y = faillites)) +
+    geom_point() +
+    facet_wrap(~ TX_PROV_DESCR_FR)
+
+## Q3 table
+group_by(x, TX_EMPLOYMENT_CLASS_DESCR_FR) |>
+    summarise(n = mean(MS_COUNTOF_FULL_TIME_WORKERS)) |>
+    arrange(n)
+
+## Q3 fig
+ggplot(x, aes(x = MS_COUNTOF_FULL_TIME_WORKERS,
+              y = TX_EMPLOYMENT_CLASS_DESCR_FR)) +
+    geom_boxplot()
+
+ggplot(x, aes(x = MS_COUNTOF_FULL_TIME_WORKERS,
+              y = factor(CD_EMPLOYMENT_CLASS))) +
+    geom_boxplot()
+
+k <- select(x, CD_EMPLOYMENT_CLASS,
+       TX_EMPLOYMENT_CLASS_DESCR_FR) |>
+    unique() |>
+    arrange(CD_EMPLOYMENT_CLASS)
+k
+
+
+x[["TX_EMPLOYMENT_CLASS_DESCR_FR"]] <-
+    factor(x[["TX_EMPLOYMENT_CLASS_DESCR_FR"]],
+       levels = k[[2]])
+
+ggplot(x, aes(y = TX_EMPLOYMENT_CLASS_DESCR_FR,
+              x = MS_COUNTOF_FULL_TIME_WORKERS)) +
+    geom_boxplot()
+```
