@@ -61,7 +61,7 @@ user, sex and various characteristics of the accident in Belgium in
 - Using the appropriate functions, load both files into R and
   familiarise yourself with the data.
 
-- Visualise the numbers for man and women over the hours of the day
+- Visualise the numbers for men and women over the hours of the day
   for all age classes. Ignore any unknown information. Do you see a
   difference between man and women?
 
