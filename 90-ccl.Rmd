@@ -332,10 +332,12 @@ ggplot(x, aes(y = TX_EMPLOYMENT_CLASS_DESCR_FR,
 
 `r msmbstyle::question_begin()`
 
+This question was contributed by Mr William Vanloo in August 2024.
+
 We will explore the road accidents that occurred in Belgium in 2023,
 as available from the
-[https://statbel.fgov.be/fr/open-data/accidents-de-la-circulation-2023](Statbel
-website): the `.txt` file contains the dataset and the `.xlsx` file
+[Statbel
+website](https://statbel.fgov.be/fr/open-data/accidents-de-la-circulation-2023): the `.txt` file contains the dataset and the `.xlsx` file
 contains the metadata describing the different variables.
 
 - Among this data set, visualise the number of accidents occurring in
@@ -346,9 +348,6 @@ contains the metadata describing the different variables.
 - Visualise the number of accidents in the different provinces during
   the month of January according to the different light conditions and
   only for fatal accidents.
-
-This question was contributed by a student taking the course, Mr
-William Vanloo, in August 2024.
 
 `r msmbstyle::question_end()`
 

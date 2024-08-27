@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2024-06-18" />
+<meta name="date" content="2024-08-27" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -80,7 +80,7 @@ function reset_tooltip(id) {
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -91,7 +91,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -150,7 +150,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -278,7 +277,7 @@ user, sex and various characteristics of the accident in Belgium in
 <ul>
 <li><p>Using the appropriate functions, load both files into R and
 familiarise yourself with the data.</p></li>
-<li><p>Visualise the numbers for man and women over the hours of the day
+<li><p>Visualise the numbers for men and women over the hours of the day
 for all age classes. Ignore any unknown information. Do you see a
 difference between man and women?</p></li>
 <li><p>Visualise the number of victims in the different provinces. Do this
@@ -377,6 +376,30 @@ order the companies by their size, in the table and figure.</p></li>
 </p>
 </div>
 </div>
+<div class="question">
+<p class="question-begin">
+► Question
+</p>
+<div class="question-body">
+<p>This question was contributed by Mr William Vanloo in August 2024.</p>
+<p>We will explore the road accidents that occurred in Belgium in 2023,
+as available from the
+<a href="https://statbel.fgov.be/fr/open-data/accidents-de-la-circulation-2023">Statbel
+website</a>: the <code>.txt</code> file contains the dataset and the <code>.xlsx</code> file
+contains the metadata describing the different variables.</p>
+<ul>
+<li><p>Among this data set, visualise the number of accidents occurring in
+different light conditions by severity of injury in the province of
+Liège over time. Be sure to remove the ‘not available’ data.</p></li>
+<li><p>Visualise the number of accidents in the different provinces during
+the month of January according to the different light conditions and
+only for fatal accidents.</p></li>
+</ul>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 
 </div>
 </div>
@@ -385,9 +408,9 @@ order the companies by their size, in the table and figure.</p></li>
 <a href="sec-anx.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2024-06-18
+2024-08-27
  using 
-R version 4.4.0 (2024-04-24)
+R version 4.4.1 (2024-06-14)
 </p>
 </div>
 </div>
