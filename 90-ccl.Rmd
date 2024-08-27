@@ -329,3 +329,70 @@ ggplot(x, aes(y = TX_EMPLOYMENT_CLASS_DESCR_FR,
               x = MS_COUNTOF_FULL_TIME_WORKERS)) +
     geom_boxplot()
 ```
+
+`r msmbstyle::question_begin()`
+
+We will explore the road accidents that occurred in Belgium in 2023,
+as available from the
+[https://statbel.fgov.be/fr/open-data/accidents-de-la-circulation-2023](Statbel
+website): the `.txt` file contains the dataset and the `.xlsx` file
+contains the metadata describing the different variables.
+
+- Among this data set, visualise the number of accidents occurring in
+  different light conditions by severity of injury in the province of
+  Liège over time. Be sure to remove the 'not available' data.
+
+
+- Visualise the number of accidents in the different provinces during
+  the month of January according to the different light conditions and
+  only for fatal accidents.
+
+This question was contributed by a student taking the course, Mr
+William Vanloo, in August 2024.
+
+`r msmbstyle::question_end()`
+
+
+```{r accidents2023, include=FALSE, echo=FALSE}
+tdir <- tempdir()
+url <- "https://statbel.fgov.be/sites/default/files/files/opendata/Verkeersongevallen/TF_ACCIDENTS_2023.zip"
+dest <- file.path(tdir, "TF_ACCIDENTS_2023.zip")
+download.file(url, dest)
+
+acc <- read_delim(dest)
+
+acc |>
+  select(DT_DAY,TX_LIGHT_COND_DESCR_FR,TX_PROV_DESCR_FR,MS_ACCT_WITH_MORY_INJ,
+                       MS_ACCT_WITH_SERLY_INJ,MS_ACCT_WITH_SLY_INJ) |>
+  filter(TX_PROV_DESCR_FR== "Province de Liège",
+         !TX_LIGHT_COND_DESCR_FR == "Non disponible" ) |>
+  pivot_longer(names_to = "injury_type",
+               values_to = "ncase",
+               -c(1:3)) |>
+  group_by(DT_DAY,TX_LIGHT_COND_DESCR_FR,injury_type) |>
+  summarise(sumcase=sum(ncase)) |>
+  arrange(sumcase) |>
+  ggplot(aes(x = DT_DAY,
+             y = sumcase,
+             color= injury_type)) +
+  geom_line() +
+  facet_wrap(~TX_LIGHT_COND_DESCR_FR, scales = "free_y") +
+  theme(axis.text.x = element_text(angle = 90,hjust = 0.5, vjust = 0.5))
+
+
+
+acc |>
+  select(DT_DAY,TX_LIGHT_COND_DESCR_FR,TX_PROV_DESCR_FR,
+         MS_ACCT_WITH_DEAD) |>
+  filter(!TX_LIGHT_COND_DESCR_FR == "Non disponible") |>
+  group_by(DT_DAY,TX_LIGHT_COND_DESCR_FR,TX_PROV_DESCR_FR) |>
+  summarise(sumcase=sum(MS_ACCT_WITH_DEAD)) |>
+  arrange(sumcase) |>
+  filter(grepl("2023-01",DT_DAY)) |>
+  ggplot(aes( x= DT_DAY,
+             y = sumcase,
+             color = TX_LIGHT_COND_DESCR_FR)) +
+  geom_line()+
+  facet_wrap(~TX_PROV_DESCR_FR, scales = "free_y") +
+    theme(axis.text.x = element_text(angle = 90,hjust = 0.5, vjust = 0.5))
+```
