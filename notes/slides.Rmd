@@ -35,8 +35,7 @@ xaringanExtra::use_panelset()
 
 Prof: Laurent Gatto
 
-Assistant(e)s: Jean Fain, (Valentine Robaux), Margot Refuge, Julie
-Devis, Axelle Loriot (M1)
+Assistant(e)s: Valentine Robaux, Julie Devis, Mathilde Akue, Axelle Loriot (M1)
 
 ---
 
