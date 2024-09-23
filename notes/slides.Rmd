@@ -85,7 +85,7 @@ Etudiant(e) de BAC2, 2018 - 2019
 - Compétences recherchées dans l'industrie, notamment biotech et
   pharmaceutique (mais pas uniquement).
 - **Doctorant(e)s** suivent ces cours systématiquement depuis
-  l'instauration des cours.
+  l'instauration du cursus.
 
 
 ???
@@ -349,7 +349,7 @@ Etudiant(e)s de BAC2, 2018 - 2019
 
 ---
 
-# Comment "réussir" ?
+# Comment 'réussir' ?
 
 <br> <br> <br>
 
@@ -410,7 +410,7 @@ Inscription par email
 
 - Expliquez pourquoi cette formule vous convient mieux et confirmer
   que vous allez travailler chez vous.
-- Maximum de 20 étudiant(e)s.
+- Maximum de 10 étudiant(e)s.
 
 ???
 
