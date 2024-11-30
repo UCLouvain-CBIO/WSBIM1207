@@ -13,14 +13,14 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2024-08-27" />
+<meta name="date" content="2024-11-30" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" } }
 });
 </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="/usr/share/javascript/mathjax/MathJax.js" type="text/javascript"></script>
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
@@ -80,7 +80,7 @@ function reset_tooltip(id) {
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -392,7 +392,8 @@ now have warning messages appearing?</li>
 <span id="cb454-3"><a href="sec-vis.html#cb454-3" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div>
 <pre><code>## Warning in scale_x_log10(): log-10 transformation introduced infinite values.</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<pre><code>## Warning: Removed 507 rows containing non-finite outside the scale range (`stat_bin()`).</code></pre>
+<pre><code>## Warning: Removed 507 rows containing non-finite outside the scale range
+## (`stat_bin()`).</code></pre>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-193-1.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -439,7 +440,8 @@ biotype that we will use later on to represent the genes. We will save the fold 
 <span id="cb459-5"><a href="sec-vis.html#cb459-5" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> time,</span>
 <span id="cb459-6"><a href="sec-vis.html#cb459-6" tabindex="-1"></a>              <span class="at">values_from =</span> mean_exp) <span class="sc">%&gt;%</span></span>
 <span id="cb459-7"><a href="sec-vis.html#cb459-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_8_vs_0 =</span> <span class="st">`</span><span class="at">8</span><span class="st">`</span> <span class="sc">-</span> <span class="st">`</span><span class="at">0</span><span class="st">`</span>, <span class="at">time_4_vs_0 =</span> <span class="st">`</span><span class="at">4</span><span class="st">`</span> <span class="sc">-</span> <span class="st">`</span><span class="at">0</span><span class="st">`</span>)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'time'. You can override using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'time'. You can override using the
+## `.groups` argument.</code></pre>
 <p>We can then build a ggplot with the newly created dataset
 <code>rna_fc</code>. Building plots with <code>ggplot2</code> is typically an iterative
 process. We start by defining the dataset we’ll use, lay out the axes,
@@ -456,16 +458,16 @@ overplotting:</p>
 <span id="cb462-2"><a href="sec-vis.html#cb462-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> time_4_vs_0,</span>
 <span id="cb462-3"><a href="sec-vis.html#cb462-3" tabindex="-1"></a>                     <span class="at">y =</span> time_8_vs_0)) <span class="sc">+</span></span>
 <span id="cb462-4"><a href="sec-vis.html#cb462-4" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>)</span></code></pre></div>
-<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size): semi-transparency is not supported on
-## this device: reported only once per page</code></pre>
+<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size):
+## semi-transparency is not supported on this device: reported only once per page</code></pre>
 <p><img src="WSBIM1207_files/figure-html/adding-transparency-1.png" width="672"></p>
 <p>We can also add colors for all the points:</p>
 <div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="sec-vis.html#cb464-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rna_fc,</span>
 <span id="cb464-2"><a href="sec-vis.html#cb464-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> time_4_vs_0,</span>
 <span id="cb464-3"><a href="sec-vis.html#cb464-3" tabindex="-1"></a>                     <span class="at">y =</span> time_8_vs_0)) <span class="sc">+</span></span>
 <span id="cb464-4"><a href="sec-vis.html#cb464-4" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">color =</span> <span class="st">"blue"</span>)</span></code></pre></div>
-<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size): semi-transparency is not supported on
-## this device: reported only once per page</code></pre>
+<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size):
+## semi-transparency is not supported on this device: reported only once per page</code></pre>
 <p><img src="WSBIM1207_files/figure-html/adding-colors-1.png" width="672"></p>
 <p>Or to color each gene in the plot differently, you could use a vector
 as an input to the argument <strong>color</strong>. <strong><code>ggplot2</code></strong> will provide a
@@ -476,8 +478,8 @@ is an example where we color with <strong><code>gene_biotype</code></strong>:</p
 <span id="cb466-3"><a href="sec-vis.html#cb466-3" tabindex="-1"></a>                     <span class="at">y =</span> time_8_vs_0)) <span class="sc">+</span></span>
 <span id="cb466-4"><a href="sec-vis.html#cb466-4" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>,</span>
 <span id="cb466-5"><a href="sec-vis.html#cb466-5" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">color =</span> gene_biotype))</span></code></pre></div>
-<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size): semi-transparency is not supported on
-## this device: reported only once per page</code></pre>
+<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size):
+## semi-transparency is not supported on this device: reported only once per page</code></pre>
 <p><img src="WSBIM1207_files/figure-html/color-by-gene_biotype1-1.png" width="672"></p>
 <p>We can also specify the colors directly inside the mapping provided in
 the <code>ggplot()</code> function. This will be seen by any geom layers and the
@@ -487,8 +489,8 @@ mapping will be determined by the x- and y-axis set up in <code>aes()</code>.</p
 <span id="cb468-3"><a href="sec-vis.html#cb468-3" tabindex="-1"></a>                     <span class="at">y =</span> time_8_vs_0,</span>
 <span id="cb468-4"><a href="sec-vis.html#cb468-4" tabindex="-1"></a>                     <span class="at">color =</span> gene_biotype)) <span class="sc">+</span></span>
 <span id="cb468-5"><a href="sec-vis.html#cb468-5" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>)</span></code></pre></div>
-<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size): semi-transparency is not supported on
-## this device: reported only once per page</code></pre>
+<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size):
+## semi-transparency is not supported on this device: reported only once per page</code></pre>
 <p><img src="WSBIM1207_files/figure-html/color-by-gene_biotype2-1.png" width="672"></p>
 <p>Finally, we could also add a diagonal line with the <code>geom_abline()</code>
 function:</p>
@@ -498,8 +500,8 @@ function:</p>
 <span id="cb470-4"><a href="sec-vis.html#cb470-4" tabindex="-1"></a>                     <span class="at">color =</span> gene_biotype)) <span class="sc">+</span></span>
 <span id="cb470-5"><a href="sec-vis.html#cb470-5" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
 <span id="cb470-6"><a href="sec-vis.html#cb470-6" tabindex="-1"></a>    <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>)</span></code></pre></div>
-<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size): semi-transparency is not supported on
-## this device: reported only once per page</code></pre>
+<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size):
+## semi-transparency is not supported on this device: reported only once per page</code></pre>
 <p><img src="WSBIM1207_files/figure-html/adding-diag-1.png" width="672"></p>
 <p>Notice that we can change the geom layer and colors will be still
 determined by <strong><code>gene_biotype</code></strong></p>
@@ -509,8 +511,8 @@ determined by <strong><code>gene_biotype</code></strong></p>
 <span id="cb472-4"><a href="sec-vis.html#cb472-4" tabindex="-1"></a>                     <span class="at">color =</span> gene_biotype)) <span class="sc">+</span></span>
 <span id="cb472-5"><a href="sec-vis.html#cb472-5" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
 <span id="cb472-6"><a href="sec-vis.html#cb472-6" tabindex="-1"></a>    <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>)</span></code></pre></div>
-<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size): semi-transparency is not supported on
-## this device: reported only once per page</code></pre>
+<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size):
+## semi-transparency is not supported on this device: reported only once per page</code></pre>
 <p><img src="WSBIM1207_files/figure-html/color-by-gene_biotype3-1.png" width="672"></p>
 <div class="question">
 <p class="question-begin">
@@ -602,8 +604,8 @@ measurements and of their distribution:</p>
 <span id="cb478-3"><a href="sec-vis.html#cb478-3" tabindex="-1"></a>                     <span class="at">x =</span> sample)) <span class="sc">+</span></span>
 <span id="cb478-4"><a href="sec-vis.html#cb478-4" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">color =</span> <span class="st">"tomato"</span>) <span class="sc">+</span></span>
 <span id="cb478-5"><a href="sec-vis.html#cb478-5" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="dv">0</span>)</span></code></pre></div>
-<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size): semi-transparency is not supported on
-## this device: reported only once per page</code></pre>
+<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size):
+## semi-transparency is not supported on this device: reported only once per page</code></pre>
 <p><img src="WSBIM1207_files/figure-html/boxplot-with-points-1.png" width="672"></p>
 <div class="question">
 <p class="question-begin">
@@ -627,8 +629,8 @@ you need to change in the code to put the boxplot below the points?</p>
 <span id="cb480-2"><a href="sec-vis.html#cb480-2" tabindex="-1"></a>         <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> expression_log, <span class="at">x =</span> sample)) <span class="sc">+</span></span>
 <span id="cb480-3"><a href="sec-vis.html#cb480-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
 <span id="cb480-4"><a href="sec-vis.html#cb480-4" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">color =</span> <span class="st">"tomato"</span>)</span></code></pre></div>
-<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size): semi-transparency is not supported on
-## this device: reported only once per page</code></pre>
+<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size):
+## semi-transparency is not supported on this device: reported only once per page</code></pre>
 <p><img src="WSBIM1207_files/figure-html/boxplot-with-points2-1.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -646,8 +648,8 @@ diagonally oriented labels:</p>
 <span id="cb482-4"><a href="sec-vis.html#cb482-4" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">color =</span> <span class="st">"tomato"</span>) <span class="sc">+</span></span>
 <span id="cb482-5"><a href="sec-vis.html#cb482-5" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
 <span id="cb482-6"><a href="sec-vis.html#cb482-6" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
-<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size): semi-transparency is not supported on
-## this device: reported only once per page</code></pre>
+<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size):
+## semi-transparency is not supported on this device: reported only once per page</code></pre>
 <p><img src="WSBIM1207_files/figure-html/boxplot-xaxis-rotated-1.png" width="672"></p>
 <div class="question">
 <p class="question-begin">
@@ -675,8 +677,8 @@ of the infection (<code>time</code>).</p>
 <span id="cb484-5"><a href="sec-vis.html#cb484-5" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="fu">aes</span>(<span class="at">color =</span> time)) <span class="sc">+</span></span>
 <span id="cb484-6"><a href="sec-vis.html#cb484-6" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
 <span id="cb484-7"><a href="sec-vis.html#cb484-7" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
-<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size): semi-transparency is not supported on
-## this device: reported only once per page</code></pre>
+<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size):
+## semi-transparency is not supported on this device: reported only once per page</code></pre>
 <p><img src="WSBIM1207_files/figure-html/boxplot-color-time-1.png" width="672"></p>
 <div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="sec-vis.html#cb486-1" tabindex="-1"></a><span class="co"># time as factor</span></span>
 <span id="cb486-2"><a href="sec-vis.html#cb486-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rna,</span>
@@ -685,8 +687,8 @@ of the infection (<code>time</code>).</p>
 <span id="cb486-5"><a href="sec-vis.html#cb486-5" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="fu">aes</span>(<span class="at">color =</span> <span class="fu">as.factor</span>(time))) <span class="sc">+</span></span>
 <span id="cb486-6"><a href="sec-vis.html#cb486-6" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
 <span id="cb486-7"><a href="sec-vis.html#cb486-7" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
-<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size): semi-transparency is not supported on
-## this device: reported only once per page</code></pre>
+<pre><code>## Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size):
+## semi-transparency is not supported on this device: reported only once per page</code></pre>
 <p><img src="WSBIM1207_files/figure-html/boxplot-color-time-2.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -779,7 +781,8 @@ genes:</p>
 <div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="sec-vis.html#cb491-1" tabindex="-1"></a>mean_exp_by_time <span class="ot">&lt;-</span> sub_rna <span class="sc">%&gt;%</span></span>
 <span id="cb491-2"><a href="sec-vis.html#cb491-2" tabindex="-1"></a>    <span class="fu">group_by</span>(gene,time) <span class="sc">%&gt;%</span></span>
 <span id="cb491-3"><a href="sec-vis.html#cb491-3" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">mean_exp =</span> <span class="fu">mean</span>(expression_log))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the
+## `.groups` argument.</code></pre>
 <p>We can build the line plot with duration of the infection on the
 x-axis and the mean expression on the y-axis:</p>
 <div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="sec-vis.html#cb493-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_time,</span>
@@ -832,7 +835,8 @@ grouped by <code>gene</code>, <code>time</code>, and <code>sex</code>:</p>
 <div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="sec-vis.html#cb498-1" tabindex="-1"></a>mean_exp_by_time_sex <span class="ot">&lt;-</span> sub_rna <span class="sc">%&gt;%</span></span>
 <span id="cb498-2"><a href="sec-vis.html#cb498-2" tabindex="-1"></a>  <span class="fu">group_by</span>(gene, time, sex) <span class="sc">%&gt;%</span></span>
 <span id="cb498-3"><a href="sec-vis.html#cb498-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_exp =</span> <span class="fu">mean</span>(expression_log))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'time'. You can override using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'time'. You can override using the
+## `.groups` argument.</code></pre>
 <p>We can now make the faceted plot by splitting further by sex using
 <code>color</code> (within a single plot):</p>
 <div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="sec-vis.html#cb500-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_time_sex,</span>
@@ -875,7 +879,8 @@ infection.</p>
 <div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="sec-vis.html#cb502-1" tabindex="-1"></a>mean_exp_by_chromosome <span class="ot">&lt;-</span> rna <span class="sc">%&gt;%</span></span>
 <span id="cb502-2"><a href="sec-vis.html#cb502-2" tabindex="-1"></a>  <span class="fu">group_by</span>(chromosome_name, time) <span class="sc">%&gt;%</span></span>
 <span id="cb502-3"><a href="sec-vis.html#cb502-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_exp =</span> <span class="fu">mean</span>(expression_log))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'chromosome_name'. You can override using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'chromosome_name'. You can override using
+## the `.groups` argument.</code></pre>
 <div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="sec-vis.html#cb504-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_chromosome,</span>
 <span id="cb504-2"><a href="sec-vis.html#cb504-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> time,</span>
 <span id="cb504-3"><a href="sec-vis.html#cb504-3" tabindex="-1"></a>                     <span class="at">y =</span> mean_exp)) <span class="sc">+</span></span>
@@ -1410,7 +1415,7 @@ different regions in France.</li>
 <a href="sec-join.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2024-08-27
+2024-11-30
  using 
 R version 4.4.1 (2024-06-14)
 </p>

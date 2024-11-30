@@ -13,14 +13,14 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2024-08-27" />
+<meta name="date" content="2024-11-30" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" } }
 });
 </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="/usr/share/javascript/mathjax/MathJax.js" type="text/javascript"></script>
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
@@ -80,7 +80,7 @@ function reset_tooltip(id) {
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -454,22 +454,24 @@ measured by the same operator in 4 replicate.</p>
 <p>We have seen a much more complex experimental design, involving many
 more samples with the <code>clinical1</code> data.</p>
 <pre><code>## # A tibble: 516 × 15
-##    patientID  tumor_tissue_site gender age_at_diagnosis vital_status days_to_death days_to_last_followup
-##    &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;             &lt;int&gt;        &lt;int&gt;         &lt;int&gt;                 &lt;int&gt;
-##  1 TCGA-05-4… lung              male              24532            0            NA                  1523
-##  2 TCGA-05-4… lung              male              24868            0            NA                   607
-##  3 TCGA-05-4… lung              male              24411            0            NA                   426
-##  4 TCGA-05-4… lung              male              25660            0            NA                  1369
-##  5 TCGA-05-4… lung              female            21430            0            NA                  1126
-##  6 TCGA-05-4… lung              male              27971            1             0                    NA
-##  7 TCGA-05-4… lung              male              28094            1           303                    NA
-##  8 TCGA-05-4… lung              female            17471            0            NA                  1431
-##  9 TCGA-05-4… lung              female            20819            1           244                    NA
-## 10 TCGA-05-4… lung              male              27881            0            NA                   578
+##    patientID    tumor_tissue_site gender age_at_diagnosis vital_status
+##    &lt;chr&gt;        &lt;chr&gt;             &lt;chr&gt;             &lt;int&gt;        &lt;int&gt;
+##  1 TCGA-05-4249 lung              male              24532            0
+##  2 TCGA-05-4382 lung              male              24868            0
+##  3 TCGA-05-4384 lung              male              24411            0
+##  4 TCGA-05-4389 lung              male              25660            0
+##  5 TCGA-05-4390 lung              female            21430            0
+##  6 TCGA-05-4395 lung              male              27971            1
+##  7 TCGA-05-4396 lung              male              28094            1
+##  8 TCGA-05-4398 lung              female            17471            0
+##  9 TCGA-05-4402 lung              female            20819            1
+## 10 TCGA-05-4403 lung              male              27881            0
 ## # ℹ 506 more rows
-## # ℹ 8 more variables: pathologic_stage &lt;chr&gt;, pathology_T_stage &lt;chr&gt;, pathology_N_stage &lt;chr&gt;,
-## #   pathology_M_stage &lt;chr&gt;, smoking_history &lt;chr&gt;, number_pack_years_smoked &lt;dbl&gt;,
-## #   year_of_tobacco_smoking_onset &lt;int&gt;, stopped_smoking_year &lt;int&gt;</code></pre>
+## # ℹ 10 more variables: days_to_death &lt;int&gt;, days_to_last_followup &lt;int&gt;,
+## #   pathologic_stage &lt;chr&gt;, pathology_T_stage &lt;chr&gt;, pathology_N_stage &lt;chr&gt;,
+## #   pathology_M_stage &lt;chr&gt;, smoking_history &lt;chr&gt;,
+## #   number_pack_years_smoked &lt;dbl&gt;, year_of_tobacco_smoking_onset &lt;int&gt;,
+## #   stopped_smoking_year &lt;int&gt;</code></pre>
 <p>When performing experiments, measurements should also be repeated
 several times (typically at least three), to quantify the overall
 variability (technical and biological) in the measured variables and,
@@ -595,10 +597,11 @@ objects a lot in the
 <pre><code>## [1] 22</code></pre>
 <p>The samples (columns) and rows (protein features) are named:</p>
 <div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="sec-bioinfo.html#cb603-1" tabindex="-1"></a><span class="fu">colnames</span>(GSE96870_intro)</span></code></pre></div>
-<pre><code>##  [1] "GSM2545336" "GSM2545337" "GSM2545338" "GSM2545339" "GSM2545340" "GSM2545341" "GSM2545342"
-##  [8] "GSM2545343" "GSM2545344" "GSM2545345" "GSM2545346" "GSM2545347" "GSM2545348" "GSM2545349"
-## [15] "GSM2545350" "GSM2545351" "GSM2545352" "GSM2545353" "GSM2545354" "GSM2545362" "GSM2545363"
-## [22] "GSM2545380"</code></pre>
+<pre><code>##  [1] "GSM2545336" "GSM2545337" "GSM2545338" "GSM2545339" "GSM2545340"
+##  [6] "GSM2545341" "GSM2545342" "GSM2545343" "GSM2545344" "GSM2545345"
+## [11] "GSM2545346" "GSM2545347" "GSM2545348" "GSM2545349" "GSM2545350"
+## [16] "GSM2545351" "GSM2545352" "GSM2545353" "GSM2545354" "GSM2545362"
+## [21] "GSM2545363" "GSM2545380"</code></pre>
 <div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="sec-bioinfo.html#cb605-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rownames</span>(GSE96870_intro))</span></code></pre></div>
 <pre><code>## [1] "Asl"     "Apod"    "Cyp2d22" "Klk6"    "Fcrls"   "Slc2a4"</code></pre>
 <div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="sec-bioinfo.html#cb607-1" tabindex="-1"></a><span class="fu">tail</span>(<span class="fu">rownames</span>(GSE96870_intro))</span></code></pre></div>
@@ -607,40 +610,53 @@ objects a lot in the
 the <code>assay</code> function, the feature metadata with the <code>rowData</code> function,
 and the sample metadata with the <code>colData</code> function:</p>
 <div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="sec-bioinfo.html#cb609-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">assay</span>(GSE96870_intro))</span></code></pre></div>
-<pre><code>##         GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340 GSM2545341 GSM2545342 GSM2545343
-## Asl           1170        361        400        586        626        988        836        535
-## Apod         36194      10347       9173      10620      13021      29594      24959      13668
-## Cyp2d22       4060       1616       1603       1901       2171       3349       3122       2008
-## Klk6           287        629        641        578        448        195        186       1101
-##         GSM2545344 GSM2545345 GSM2545346 GSM2545347 GSM2545348 GSM2545349 GSM2545350 GSM2545351
-## Asl            586        597        938       1035        494        481        666        937
-## Apod         13230      15868      27769      34301      11258      11812      15816      29242
-## Cyp2d22       2254       2277       2985       3452       1883       2014       2417       3678
-## Klk6           537        567        327        233        742        881        828        250
-##         GSM2545352 GSM2545353 GSM2545354 GSM2545362 GSM2545363 GSM2545380
-## Asl            803        541        473        748        576       1192
-## Apod         20415      13682      11088      15916      11166      38148
-## Cyp2d22       2920       2216       1821       2842       2011       4019
-## Klk6           798        710        894        501        598        259
+<pre><code>##         GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340 GSM2545341
+## Asl           1170        361        400        586        626        988
+## Apod         36194      10347       9173      10620      13021      29594
+## Cyp2d22       4060       1616       1603       1901       2171       3349
+## Klk6           287        629        641        578        448        195
+##         GSM2545342 GSM2545343 GSM2545344 GSM2545345 GSM2545346 GSM2545347
+## Asl            836        535        586        597        938       1035
+## Apod         24959      13668      13230      15868      27769      34301
+## Cyp2d22       3122       2008       2254       2277       2985       3452
+## Klk6           186       1101        537        567        327        233
+##         GSM2545348 GSM2545349 GSM2545350 GSM2545351 GSM2545352 GSM2545353
+## Asl            494        481        666        937        803        541
+## Apod         11258      11812      15816      29242      20415      13682
+## Cyp2d22       1883       2014       2417       3678       2920       2216
+## Klk6           742        881        828        250        798        710
+##         GSM2545354 GSM2545362 GSM2545363 GSM2545380
+## Asl            473        748        576       1192
+## Apod         11088      15916      11166      38148
+## Cyp2d22       1821       2842       2011       4019
+## Klk6           894        501        598        259
 ##  [ reached getOption("max.print") -- omitted 2 rows ]</code></pre>
 <div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="sec-bioinfo.html#cb611-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rowData</span>(GSE96870_intro))</span></code></pre></div>
 <pre><code>## DataFrame with 6 rows and 11 columns
-##                gene    ENTREZID                product       gbkey external_gene_name
-##         &lt;character&gt; &lt;character&gt;            &lt;character&gt; &lt;character&gt;        &lt;character&gt;
-## Asl             Asl      109900 argininosuccinate ly..        mRNA                Asl
-## Apod           Apod       11815 apolipoprotein D, tr..        mRNA               Apod
-## Cyp2d22     Cyp2d22       56448 cytochrome P450, fam..        mRNA            Cyp2d22
-## Klk6           Klk6       19144 kallikrein related-p..        mRNA               Klk6
-## Fcrls         Fcrls       80891 Fc receptor-like S, ..        mRNA              Fcrls
-## Slc2a4       Slc2a4       20528 solute carrier famil..        mRNA             Slc2a4
-##            ensembl_gene_id external_synonym chromosome_name   gene_biotype  phenotype_description
-##                &lt;character&gt;      &lt;character&gt;     &lt;character&gt;    &lt;character&gt;            &lt;character&gt;
-## Asl     ENSMUSG00000025533    2510006M18Rik               5 protein_coding abnormal circulating..
-## Apod    ENSMUSG00000022548               NA              16 protein_coding abnormal lipid homeo..
-## Cyp2d22 ENSMUSG00000061740             2D22              15 protein_coding abnormal skin morpho..
-## Klk6    ENSMUSG00000050063             Bssp               7 protein_coding abnormal cytokine le..
-## Fcrls   ENSMUSG00000015852    2810439C17Rik               3 protein_coding decreased CD8-positi..
-## Slc2a4  ENSMUSG00000018566           Glut-4              11 protein_coding abnormal circulating..
+##                gene    ENTREZID                product       gbkey
+##         &lt;character&gt; &lt;character&gt;            &lt;character&gt; &lt;character&gt;
+## Asl             Asl      109900 argininosuccinate ly..        mRNA
+## Apod           Apod       11815 apolipoprotein D, tr..        mRNA
+## Cyp2d22     Cyp2d22       56448 cytochrome P450, fam..        mRNA
+## Klk6           Klk6       19144 kallikrein related-p..        mRNA
+## Fcrls         Fcrls       80891 Fc receptor-like S, ..        mRNA
+## Slc2a4       Slc2a4       20528 solute carrier famil..        mRNA
+##         external_gene_name    ensembl_gene_id external_synonym chromosome_name
+##                &lt;character&gt;        &lt;character&gt;      &lt;character&gt;     &lt;character&gt;
+## Asl                    Asl ENSMUSG00000025533    2510006M18Rik               5
+## Apod                  Apod ENSMUSG00000022548               NA              16
+## Cyp2d22            Cyp2d22 ENSMUSG00000061740             2D22              15
+## Klk6                  Klk6 ENSMUSG00000050063             Bssp               7
+## Fcrls                Fcrls ENSMUSG00000015852    2810439C17Rik               3
+## Slc2a4              Slc2a4 ENSMUSG00000018566           Glut-4              11
+##           gene_biotype  phenotype_description
+##            &lt;character&gt;            &lt;character&gt;
+## Asl     protein_coding abnormal circulating..
+## Apod    protein_coding abnormal lipid homeo..
+## Cyp2d22 protein_coding abnormal skin morpho..
+## Klk6    protein_coding abnormal cytokine le..
+## Fcrls   protein_coding decreased CD8-positi..
+## Slc2a4  protein_coding abnormal circulating..
 ##         hsapiens_homolog_associated_gene_name
 ##                                   &lt;character&gt;
 ## Asl                                       ASL
@@ -651,28 +667,28 @@ and the sample metadata with the <code>colData</code> function:</p>
 ## Slc2a4                                 SLC2A4</code></pre>
 <div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="sec-bioinfo.html#cb613-1" tabindex="-1"></a><span class="fu">colData</span>(GSE96870_intro)</span></code></pre></div>
 <pre><code>## DataFrame with 22 rows and 10 columns
-##                      title geo_accession     organism         age      sex   infection      strain
-##                &lt;character&gt;   &lt;character&gt;  &lt;character&gt; &lt;character&gt; &lt;factor&gt;    &lt;factor&gt; &lt;character&gt;
-## GSM2545336 CNS_RNA-seq_10C    GSM2545336 Mus musculus     8 weeks   Female InfluenzaA      C57BL/6
-## GSM2545337 CNS_RNA-seq_11C    GSM2545337 Mus musculus     8 weeks   Female NonInfected     C57BL/6
-## GSM2545338 CNS_RNA-seq_12C    GSM2545338 Mus musculus     8 weeks   Female NonInfected     C57BL/6
-## GSM2545339 CNS_RNA-seq_13C    GSM2545339 Mus musculus     8 weeks   Female InfluenzaA      C57BL/6
-## GSM2545340 CNS_RNA-seq_14C    GSM2545340 Mus musculus     8 weeks   Male   InfluenzaA      C57BL/6
-## ...                    ...           ...          ...         ...      ...         ...         ...
-## GSM2545353  CNS_RNA-seq_3C    GSM2545353 Mus musculus     8 weeks   Female NonInfected     C57BL/6
-## GSM2545354  CNS_RNA-seq_4C    GSM2545354 Mus musculus     8 weeks   Male   NonInfected     C57BL/6
-## GSM2545362  CNS_RNA-seq_5C    GSM2545362 Mus musculus     8 weeks   Female InfluenzaA      C57BL/6
-##                time     tissue    mouse
-##            &lt;factor&gt;   &lt;factor&gt; &lt;factor&gt;
-## GSM2545336     Day8 Cerebellum       14
-## GSM2545337     Day0 Cerebellum       9 
-## GSM2545338     Day0 Cerebellum       10
-## GSM2545339     Day4 Cerebellum       15
-## GSM2545340     Day4 Cerebellum       18
-## ...             ...        ...      ...
-## GSM2545353     Day0 Cerebellum       4 
-## GSM2545354     Day0 Cerebellum       2 
-## GSM2545362     Day4 Cerebellum       20
+##                      title geo_accession     organism         age      sex
+##                &lt;character&gt;   &lt;character&gt;  &lt;character&gt; &lt;character&gt; &lt;factor&gt;
+## GSM2545336 CNS_RNA-seq_10C    GSM2545336 Mus musculus     8 weeks   Female
+## GSM2545337 CNS_RNA-seq_11C    GSM2545337 Mus musculus     8 weeks   Female
+## GSM2545338 CNS_RNA-seq_12C    GSM2545338 Mus musculus     8 weeks   Female
+## GSM2545339 CNS_RNA-seq_13C    GSM2545339 Mus musculus     8 weeks   Female
+## GSM2545340 CNS_RNA-seq_14C    GSM2545340 Mus musculus     8 weeks   Male  
+## ...                    ...           ...          ...         ...      ...
+## GSM2545353  CNS_RNA-seq_3C    GSM2545353 Mus musculus     8 weeks   Female
+## GSM2545354  CNS_RNA-seq_4C    GSM2545354 Mus musculus     8 weeks   Male  
+## GSM2545362  CNS_RNA-seq_5C    GSM2545362 Mus musculus     8 weeks   Female
+##              infection      strain     time     tissue    mouse
+##               &lt;factor&gt; &lt;character&gt; &lt;factor&gt;   &lt;factor&gt; &lt;factor&gt;
+## GSM2545336 InfluenzaA      C57BL/6     Day8 Cerebellum       14
+## GSM2545337 NonInfected     C57BL/6     Day0 Cerebellum       9 
+## GSM2545338 NonInfected     C57BL/6     Day0 Cerebellum       10
+## GSM2545339 InfluenzaA      C57BL/6     Day4 Cerebellum       15
+## GSM2545340 InfluenzaA      C57BL/6     Day4 Cerebellum       18
+## ...                ...         ...      ...        ...      ...
+## GSM2545353 NonInfected     C57BL/6     Day0 Cerebellum       4 
+## GSM2545354 NonInfected     C57BL/6     Day0 Cerebellum       2 
+## GSM2545362 InfluenzaA      C57BL/6     Day4 Cerebellum       20
 ##  [ reached getOption("max.print") -- omitted 2 rows ]</code></pre>
 <div class="question">
 <p class="question-begin">
@@ -714,14 +730,14 @@ thereof will be subset correctly.</p>
 <div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="sec-bioinfo.html#cb623-1" tabindex="-1"></a><span class="fu">colData</span>(small_se)<span class="sc">$</span>new_var  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"new_val1"</span>, <span class="st">"new_val2"</span>)</span>
 <span id="cb623-2"><a href="sec-bioinfo.html#cb623-2" tabindex="-1"></a><span class="fu">colData</span>(small_se)</span></code></pre></div>
 <pre><code>## DataFrame with 2 rows and 11 columns
-##                      title geo_accession     organism         age      sex   infection      strain
-##                &lt;character&gt;   &lt;character&gt;  &lt;character&gt; &lt;character&gt; &lt;factor&gt;    &lt;factor&gt; &lt;character&gt;
-## GSM2545337 CNS_RNA-seq_11C    GSM2545337 Mus musculus     8 weeks   Female NonInfected     C57BL/6
-## GSM2545339 CNS_RNA-seq_13C    GSM2545339 Mus musculus     8 weeks   Female InfluenzaA      C57BL/6
-##                time     tissue    mouse     new_var
-##            &lt;factor&gt;   &lt;factor&gt; &lt;factor&gt; &lt;character&gt;
-## GSM2545337     Day0 Cerebellum       9     new_val1
-## GSM2545339     Day4 Cerebellum       15    new_val2</code></pre>
+##                      title geo_accession     organism         age      sex
+##                &lt;character&gt;   &lt;character&gt;  &lt;character&gt; &lt;character&gt; &lt;factor&gt;
+## GSM2545337 CNS_RNA-seq_11C    GSM2545337 Mus musculus     8 weeks   Female
+## GSM2545339 CNS_RNA-seq_13C    GSM2545339 Mus musculus     8 weeks   Female
+##              infection      strain     time     tissue    mouse     new_var
+##               &lt;factor&gt; &lt;character&gt; &lt;factor&gt;   &lt;factor&gt; &lt;factor&gt; &lt;character&gt;
+## GSM2545337 NonInfected     C57BL/6     Day0 Cerebellum       9     new_val1
+## GSM2545339 InfluenzaA      C57BL/6     Day4 Cerebellum       15    new_val2</code></pre>
 <div id="sec-save" class="section level3" number="9.4.1">
 <h3>
 <span class="header-section-number">9.4.1</span> Saving objects<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('sec-save')" onmouseout="reset_tooltip('sec-save-tooltip')"><span class="tooltiptext" id="sec-save-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
@@ -796,34 +812,34 @@ page:</p>
 <div id="importing" class="section level4 unnumbered">
 <h4>Importing</h4>
 <ul>
-<li>GTF, GFF, BED, BigWig, etc., - <em><a href="https://bioconductor.org/packages/3.19/rtracklayer">rtracklayer</a></em><code>::import()</code>
+<li>GTF, GFF, BED, BigWig, etc., - <em><a href="https://bioconductor.org/packages/3.20/rtracklayer">rtracklayer</a></em><code>::import()</code>
 </li>
-<li>VCF – <em><a href="https://bioconductor.org/packages/3.19/VariantAnnotation">VariantAnnotation</a></em><code>::readVcf()</code>
+<li>VCF – <em><a href="https://bioconductor.org/packages/3.20/VariantAnnotation">VariantAnnotation</a></em><code>::readVcf()</code>
 </li>
-<li>SAM / BAM – <em><a href="https://bioconductor.org/packages/3.19/Rsamtools">Rsamtools</a></em><code>::scanBam()</code>, <em><a href="https://bioconductor.org/packages/3.19/GenomicAlignments">GenomicAlignments</a></em><code>:readGAlignment*()</code>
+<li>SAM / BAM – <em><a href="https://bioconductor.org/packages/3.20/Rsamtools">Rsamtools</a></em><code>::scanBam()</code>, <em><a href="https://bioconductor.org/packages/3.20/GenomicAlignments">GenomicAlignments</a></em><code>:readGAlignment*()</code>
 </li>
-<li>FASTA – <em><a href="https://bioconductor.org/packages/3.19/Biostrings">Biostrings</a></em><code>::readDNAStringSet()</code>
+<li>FASTA – <em><a href="https://bioconductor.org/packages/3.20/Biostrings">Biostrings</a></em><code>::readDNAStringSet()</code>
 </li>
-<li>FASTQ – <em><a href="https://bioconductor.org/packages/3.19/ShortRead">ShortRead</a></em><code>::readFastq()</code>
+<li>FASTQ – <em><a href="https://bioconductor.org/packages/3.20/ShortRead">ShortRead</a></em><code>::readFastq()</code>
 </li>
-<li>Mass spectrometry data (XML-based and peaklist formats) – <em><a href="https://bioconductor.org/packages/3.19/Spectra">Spectra</a></em><code>::Spectra()</code>
+<li>Mass spectrometry data (XML-based and peaklist formats) – <em><a href="https://bioconductor.org/packages/3.20/Spectra">Spectra</a></em><code>::Spectra()</code>
 </li>
 </ul>
 </div>
 <div id="common-classes" class="section level4 unnumbered">
 <h4>Common Classes</h4>
 <ul>
-<li>Rectangular feature x sample data – <em><a href="https://bioconductor.org/packages/3.19/SummarizedExperiment">SummarizedExperiment</a></em><code>::SummarizedExperiment()</code> (RNAseq count matrix, microarray, proteomics, …)</li>
-<li>Genomic coordinates – <em><a href="https://bioconductor.org/packages/3.19/GenomicRanges">GenomicRanges</a></em><code>::GRanges()</code> (1-based, closed interval)</li>
-<li>DNA / RNA / AA sequences – <em><a href="https://bioconductor.org/packages/3.19/Biostrings">Biostrings</a></em><code>::*StringSet()</code>
+<li>Rectangular feature x sample data – <em><a href="https://bioconductor.org/packages/3.20/SummarizedExperiment">SummarizedExperiment</a></em><code>::SummarizedExperiment()</code> (RNAseq count matrix, microarray, proteomics, …)</li>
+<li>Genomic coordinates – <em><a href="https://bioconductor.org/packages/3.20/GenomicRanges">GenomicRanges</a></em><code>::GRanges()</code> (1-based, closed interval)</li>
+<li>DNA / RNA / AA sequences – <em><a href="https://bioconductor.org/packages/3.20/Biostrings">Biostrings</a></em><code>::*StringSet()</code>
 </li>
-<li>Gene sets – <em><a href="https://bioconductor.org/packages/3.19/GSEABase">GSEABase</a></em><code>::GeneSet()</code> <em><a href="https://bioconductor.org/packages/3.19/GSEABase">GSEABase</a></em><code>::GeneSetCollection()</code>
+<li>Gene sets – <em><a href="https://bioconductor.org/packages/3.20/GSEABase">GSEABase</a></em><code>::GeneSet()</code> <em><a href="https://bioconductor.org/packages/3.20/GSEABase">GSEABase</a></em><code>::GeneSetCollection()</code>
 </li>
-<li>Multi-omics data – <em><a href="https://bioconductor.org/packages/3.19/MultiAssayExperiment">MultiAssayExperiment</a></em><code>::MultiAssayExperiment()</code>
+<li>Multi-omics data – <em><a href="https://bioconductor.org/packages/3.20/MultiAssayExperiment">MultiAssayExperiment</a></em><code>::MultiAssayExperiment()</code>
 </li>
-<li>Single cell data – <em><a href="https://bioconductor.org/packages/3.19/SingleCellExperiment">SingleCellExperiment</a></em><code>::SingleCellExperiment()</code>
+<li>Single cell data – <em><a href="https://bioconductor.org/packages/3.20/SingleCellExperiment">SingleCellExperiment</a></em><code>::SingleCellExperiment()</code>
 </li>
-<li>Mass spectrometry data – <em><a href="https://bioconductor.org/packages/3.19/Spectra">Spectra</a></em><code>::Spectra()</code>
+<li>Mass spectrometry data – <em><a href="https://bioconductor.org/packages/3.20/Spectra">Spectra</a></em><code>::Spectra()</code>
 </li>
 </ul>
 </div>
@@ -901,7 +917,7 @@ URL like</p>
 <li><a href="https://bioconductor.org/packages/packagename" class="uri">https://bioconductor.org/packages/packagename</a></li>
 </ul>
 <p>This works for any type of package (software, annotation or data). For
-example, the pages for packages <em><a href="https://bioconductor.org/packages/3.19/DESeq2">DESeq2</a></em> or <em><a href="https://bioconductor.org/packages/3.19/QFeatures">QFeatures</a></em>
+example, the pages for packages <em><a href="https://bioconductor.org/packages/3.20/DESeq2">DESeq2</a></em> or <em><a href="https://bioconductor.org/packages/3.20/QFeatures">QFeatures</a></em>
 would be</p>
 <ul>
 <li><a href="https://bioconductor.org/packages/DESeq2" class="uri">https://bioconductor.org/packages/DESeq2</a></li>
@@ -1130,7 +1146,7 @@ sample data based on the groups.</p></li>
 <a href="sec-prog.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2024-08-27
+2024-11-30
  using 
 R version 4.4.1 (2024-06-14)
 </p>

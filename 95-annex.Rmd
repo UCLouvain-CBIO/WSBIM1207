@@ -228,6 +228,7 @@ Here are a set of introductory videos (in French) prepared by
 ## Universal Desktop Service at UCLouvain
 
 Students at the UCLouvain can use the [Universal Desktop
-Service](https://intranet.uclouvain.be/fr/myucl/services-informatiques/uds-universal-desktop-service.html)
+Service](https://intranet.uclouvain.be/en/myucl/it-services/uds-universal-desktop-service.html)
 (UDS) to access the software and files installed on the university
-network through a virtual working environment.
+network through a virtual working environment ([connection
+link](https://uds.siws.ucl.ac.be/)).

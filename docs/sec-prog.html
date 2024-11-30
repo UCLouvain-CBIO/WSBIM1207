@@ -13,14 +13,14 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2024-08-27" />
+<meta name="date" content="2024-11-30" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" } }
 });
 </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="/usr/share/javascript/mathjax/MathJax.js" type="text/javascript"></script>
 
 <meta name="description" content="Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain.">
 
@@ -80,7 +80,7 @@ function reset_tooltip(id) {
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -370,7 +370,8 @@ indices to save the results in the output vector.</p>
 <span id="cb638-3"><a href="sec-prog.html#cb638-3" tabindex="-1"></a>    res_loop[i] <span class="ot">&lt;-</span> <span class="fu">log</span>(x[i])</span>
 <span id="cb638-4"><a href="sec-prog.html#cb638-4" tabindex="-1"></a>}</span>
 <span id="cb638-5"><a href="sec-prog.html#cb638-5" tabindex="-1"></a>res_loop</span></code></pre></div>
-<pre><code>##  [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101 2.0794415 2.1972246 2.3025851</code></pre>
+<pre><code>##  [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
+##  [8] 2.0794415 2.1972246 2.3025851</code></pre>
 </div>
 <div id="using-the-apply-function" class="section level3 unnumbered">
 <h3>Using the <code>apply</code> function<div class="tooltip"><button class="internal-link-btn" onclick="copy_link('using-the-apply-function')" onmouseout="reset_tooltip('using-the-apply-function-tooltip')"><span class="tooltiptext" id="using-the-apply-function-tooltip">Copy link</span><i class="fa fa-link"></i></button></div>
@@ -387,7 +388,8 @@ quite literally</p>
 <p>and coded as</p>
 <div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="sec-prog.html#cb640-1" tabindex="-1"></a>res_apply <span class="ot">&lt;-</span> <span class="fu">sapply</span>(x, log)</span>
 <span id="cb640-2"><a href="sec-prog.html#cb640-2" tabindex="-1"></a>res_apply</span></code></pre></div>
-<pre><code>##  [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101 2.0794415 2.1972246 2.3025851</code></pre>
+<pre><code>##  [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
+##  [8] 2.0794415 2.1972246 2.3025851</code></pre>
 <p>There are three such function that <em>apply</em> a function iteratively:</p>
 <ul>
 <li><p><code>sapply</code> iterates over a vector and returns a new vector of the same
@@ -423,7 +425,8 @@ i.e. they work irrespectively whether the vector is of length
 programming languages.</span> or longer.</p>
 <div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="sec-prog.html#cb644-1" tabindex="-1"></a>res_vec <span class="ot">&lt;-</span> <span class="fu">log</span>(x)</span>
 <span id="cb644-2"><a href="sec-prog.html#cb644-2" tabindex="-1"></a>res_vec</span></code></pre></div>
-<pre><code>##  [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101 2.0794415 2.1972246 2.3025851</code></pre>
+<pre><code>##  [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
+##  [8] 2.0794415 2.1972246 2.3025851</code></pre>
 <p>And, as before, we check that we obtain identical results:</p>
 <div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="sec-prog.html#cb646-1" tabindex="-1"></a><span class="fu">identical</span>(res_loop, res_vec)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
@@ -481,7 +484,7 @@ will also use the <em>tidyverse</em> to work with the data.</p>
 <span id="cb648-3"><a href="sec-prog.html#cb648-3" tabindex="-1"></a>fls <span class="ot">&lt;-</span> <span class="fu">expressions.csv</span>()</span>
 <span id="cb648-4"><a href="sec-prog.html#cb648-4" tabindex="-1"></a><span class="fu">read_csv</span>(fls[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## Rows: 570 Columns: 4
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (3): sampleID, patient, type
 ## dbl (1): A1BG
@@ -504,7 +507,7 @@ will also use the <em>tidyverse</em> to work with the data.</p>
 ## # ℹ 560 more rows</code></pre>
 <div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb651-1"><a href="sec-prog.html#cb651-1" tabindex="-1"></a><span class="fu">read_csv</span>(fls[<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## Rows: 570 Columns: 4
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (3): sampleID, patient, type
 ## dbl (1): A1CF
@@ -589,8 +592,8 @@ values …</p>
 <p>… and works for vectors of any length thanks to vectorisation.</p>
 <div class="sourceCode" id="cb663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb663-1"><a href="sec-prog.html#cb663-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
 <span id="cb663-2"><a href="sec-prog.html#cb663-2" tabindex="-1"></a><span class="fu">log</span>(<span class="fu">abs</span>(x))</span></code></pre></div>
-<pre><code>##  [1] -1.6947599 -0.1795710  0.4670498 -1.1101553 -0.1978799 -0.7186105 -0.3033716 -0.5520273 -1.1861709
-## [10]  0.4132885</code></pre>
+<pre><code>##  [1] -1.6947599 -0.1795710  0.4670498 -1.1101553 -0.1978799 -0.7186105
+##  [7] -0.3033716 -0.5520273 -1.1861709  0.4132885</code></pre>
 <p>There are also in-line, vectorised versions of the <code>if/else</code>
 statements seen above: the <code>ifelse</code> function that ships with the
 <code>base</code> package, and <code>if_else</code> from <code>dplyr</code>. Both work similarly (the
@@ -615,8 +618,8 @@ and 0 otherwise:</p>
 greater than 1:</p>
 <div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="sec-prog.html#cb668-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
 <span id="cb668-2"><a href="sec-prog.html#cb668-2" tabindex="-1"></a>x</span></code></pre></div>
-<pre><code>##  [1]  0.38984324 -0.62124058 -2.21469989  1.12493092 -0.04493361 -0.01619026  0.94383621  0.82122120
-##  [9]  0.59390132  0.91897737</code></pre>
+<pre><code>##  [1]  0.38984324 -0.62124058 -2.21469989  1.12493092 -0.04493361 -0.01619026
+##  [7]  0.94383621  0.82122120  0.59390132  0.91897737</code></pre>
 <div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="sec-prog.html#cb670-1" tabindex="-1"></a><span class="fu">if_else</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div>
 <pre><code>##  [1] 1 0 0 1 0 0 1 1 1 1</code></pre>
 <p>The vectorised conditional functions can directly be used in a
@@ -692,20 +695,22 @@ and you should get 4825.2778709 and 23.</p>
 </p>
 <div id="sol-body-50" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb681-1"><a href="sec-prog.html#cb681-1" tabindex="-1"></a>fun</span></code></pre></div>
-<pre><code>## function(x, y) {
+<pre><code>## function (x, y) 
+## {
 ##     res &lt;- NA
 ##     if (x &gt; y) {
 ##         res &lt;- sample(x, y)
-##     } else { ## here x &lt;= y
+##     }
+##     else {
 ##         res &lt;- rnorm(1000, x, y)
 ##     }
 ##     return(sum(res))
 ## }
-## &lt;bytecode: 0x644a4cb5a818&gt;</code></pre>
-<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb683-1"><a href="sec-prog.html#cb683-1" tabindex="-1"></a><span class="fu">set.seed</span>(1L)</span>
+## &lt;bytecode: 0x5e8728d96328&gt;</code></pre>
+<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb683-1"><a href="sec-prog.html#cb683-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span><span class="dt">L</span>)</span>
 <span id="cb683-2"><a href="sec-prog.html#cb683-2" tabindex="-1"></a><span class="fu">fun</span>(<span class="dv">5</span>, <span class="dv">15</span>)</span></code></pre></div>
 <pre><code>## [1] 4825.278</code></pre>
-<div class="sourceCode" id="cb685"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb685-1"><a href="sec-prog.html#cb685-1" tabindex="-1"></a><span class="fu">set.seed</span>(1L)</span>
+<div class="sourceCode" id="cb685"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb685-1"><a href="sec-prog.html#cb685-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span><span class="dt">L</span>)</span>
 <span id="cb685-2"><a href="sec-prog.html#cb685-2" tabindex="-1"></a><span class="fu">fun</span>(<span class="dv">15</span>, <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] 23</code></pre>
 <p class="solution-end">
@@ -738,8 +743,9 @@ can be loaded from the <code>rWSBIM1207</code> data:</p>
 <pre><code>## [1]     1  7026 17140 21912 23423 24947 25257 26658</code></pre>
 <div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="sec-prog.html#cb693-1" tabindex="-1"></a><span class="do">## matching peptides</span></span>
 <span id="cb693-2"><a href="sec-prog.html#cb693-2" tabindex="-1"></a><span class="fu">grep</span>(pattern, peptides, <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## [1] "aAAGEAk"              "aFHGAAGEAGAAFGNHGANR" "eAIDAAGEGGR"          "sAAGEFADDPcSSVkR"    
-## [5] "eAAGEGPVLYEDPPDQk"    "eIEAAGEk"             "dVQELYAAGENR"         "sAAGEFADDPcSSVk"</code></pre>
+<pre><code>## [1] "aAAGEAk"              "aFHGAAGEAGAAFGNHGANR" "eAIDAAGEGGR"         
+## [4] "sAAGEFADDPcSSVkR"     "eAAGEGPVLYEDPPDQk"    "eIEAAGEk"            
+## [7] "dVQELYAAGENR"         "sAAGEFADDPcSSVk"</code></pre>
 <div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb695-1"><a href="sec-prog.html#cb695-1" tabindex="-1"></a><span class="do">## position of matching peptides</span></span>
 <span id="cb695-2"><a href="sec-prog.html#cb695-2" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">grepl</span>(pattern, peptides))</span></code></pre></div>
 <pre><code>## [1]  TRUE FALSE FALSE FALSE FALSE FALSE</code></pre>
@@ -815,8 +821,8 @@ names.</li>
 <div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb708-1"><a href="sec-prog.html#cb708-1" tabindex="-1"></a>fls <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">interroA.csv</span>(),</span>
 <span id="cb708-2"><a href="sec-prog.html#cb708-2" tabindex="-1"></a>         <span class="fu">interroB.csv</span>())</span>
 <span id="cb708-3"><a href="sec-prog.html#cb708-3" tabindex="-1"></a>fls</span></code></pre></div>
-<pre><code>## [1] "/home/lgatto/R/x86_64-pc-linux-gnu-library/4.4/rWSBIM1207/extdata/interroA.csv"
-## [2] "/home/lgatto/R/x86_64-pc-linux-gnu-library/4.4/rWSBIM1207/extdata/interroB.csv"</code></pre>
+<pre><code>## [1] "/home/lgatto/R/x86_64-pc-linux-gnu-library/Bioc3.20/rWSBIM1207/extdata/interroA.csv"
+## [2] "/home/lgatto/R/x86_64-pc-linux-gnu-library/Bioc3.20/rWSBIM1207/extdata/interroB.csv"</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -836,7 +842,7 @@ dataframe containing all results.</li>
 <span id="cb710-2"><a href="sec-prog.html#cb710-2" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(fls))</span>
 <span id="cb710-3"><a href="sec-prog.html#cb710-3" tabindex="-1"></a>    l[[i]] <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fls[i])</span></code></pre></div>
 <pre><code>## Rows: 100 Columns: 8
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (2): id, gender
 ## dbl (6): height, X, interro1, interro2, interro3, interro4
@@ -844,7 +850,7 @@ dataframe containing all results.</li>
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ## Rows: 105 Columns: 8
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (2): id, gender
 ## dbl (6): height, X, interro1, interro2, interro3, interro4
@@ -872,7 +878,7 @@ dataframe containing all results.</li>
 <p>or</p>
 <div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="sec-prog.html#cb716-1" tabindex="-1"></a>l <span class="ot">&lt;-</span> <span class="fu">lapply</span>(fls, read_csv)</span></code></pre></div>
 <pre><code>## Rows: 100 Columns: 8
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (2): id, gender
 ## dbl (6): height, X, interro1, interro2, interro3, interro4
@@ -880,7 +886,7 @@ dataframe containing all results.</li>
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ## Rows: 105 Columns: 8
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (2): id, gender
 ## dbl (6): height, X, interro1, interro2, interro3, interro4
@@ -975,7 +981,8 @@ calculations:</p>
 <span id="cb728-4"><a href="sec-prog.html#cb728-4" tabindex="-1"></a>              <span class="at">m2 =</span> <span class="fu">mean</span>(interro2, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb728-5"><a href="sec-prog.html#cb728-5" tabindex="-1"></a>              <span class="at">m3 =</span> <span class="fu">mean</span>(interro3, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb728-6"><a href="sec-prog.html#cb728-6" tabindex="-1"></a>              <span class="at">m4 =</span> <span class="fu">mean</span>(interro4, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gender'. You can override using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gender'. You can override using the
+## `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 4 × 6
 ## # Groups:   gender [2]
 ##   gender group    m1    m2    m3    m4
@@ -1032,8 +1039,10 @@ axes and construct the visualisation.</p>
 <span id="cb733-2"><a href="sec-prog.html#cb733-2" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb733-3"><a href="sec-prog.html#cb733-3" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">colour =</span> height)) <span class="sc">+</span></span>
 <span id="cb733-4"><a href="sec-prog.html#cb733-4" tabindex="-1"></a>    <span class="fu">facet_grid</span>(gender <span class="sc">~</span> group)</span></code></pre></div>
-<pre><code>## Warning: Removed 36 rows containing non-finite outside the scale range (`stat_boxplot()`).</code></pre>
-<pre><code>## Warning: Removed 36 rows containing missing values or values outside the scale range (`geom_point()`).</code></pre>
+<pre><code>## Warning: Removed 36 rows containing non-finite outside the scale range
+## (`stat_boxplot()`).</code></pre>
+<pre><code>## Warning: Removed 36 rows containing missing values or values outside the scale
+## range (`geom_point()`).</code></pre>
 <p><img src="WSBIM1207_files/figure-html/unnamed-chunk-283-1.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1088,7 +1097,7 @@ that that 1 yard corresponds to 0.9144 meters</p>
 <a href="sec-ccl.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2024-08-27
+2024-11-30
  using 
 R version 4.4.1 (2024-06-14)
 </p>
