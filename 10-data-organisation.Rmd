@@ -29,7 +29,7 @@ Good data organisation is the foundation of your research
 project. Most researchers have data or do data entry in
 spreadsheets. Spreadsheet programs are very useful graphical
 interfaces for designing data tables and handling very basic data
-quality control functions. See also @Broman:2018.
+quality control functions. See also @Broman:2018 and @Hertz:2024.
 
 ### Spreadsheet outline {-}
 
@@ -341,7 +341,7 @@ Once you have tidied up the data, answer the following questions:
 `r msmbstyle::question_end()`
 
 An **excellent reference**, in particular with regard to R scripting
-is the *Tidy Data* paper @Wickham:2014.
+is the *Tidy Data* paper (@Wickham:2014).
 
 ## Common Spreadsheet Errors
 
@@ -406,10 +406,13 @@ into a usable form. The example below depicts the problem:
 
 ![](./figs/2_datasheet_example.jpg)
 
-In the example above, the computer will see (for example) row 4 and assume that all columns A-AF
-refer to the same sample. This row actually represents four distinct samples
-(sample 1 for each of four different collection dates - May 29th, June 12th, June 19th, and June 26th),
-as well as some calculated summary statistics (an average (avr) and standard error of measurement (SEM)) for two of those samples. Other rows are similarly problematic.
+In the example above, the computer will see (for example) row 4 and
+assume that all columns A-AF refer to the same sample. This row
+actually represents four distinct samples (sample 1 for each of four
+different collection dates - May 29th, June 12th, June 19th, and June
+26th), as well as some calculated summary statistics (an average (avr)
+and standard error of measurement (SEM)) for two of those
+samples. Other rows are similarly problematic.
 
 ### Using multiple tabs {#tabs}
 
@@ -840,6 +843,11 @@ transform/visualise/model cycle are only feasible is the data is
 formatted in a predictable way and one can reason on the data without
 having to look at it and/or fix it.
 
+## Further reading
+
+
+
+
 
 ## Additional exercises
 
@@ -871,7 +879,6 @@ columns of the plate.
 
 Imagine the following experiment, and produce a data table, making up
 values for a dozen of observations.
-
 > Rodents, mice and rats, where collected on various days by operators
 > A and B. Their weight and tail length were measured and assigned to
 > either a control group (and administered water) or a condition group

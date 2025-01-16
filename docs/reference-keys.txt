@@ -58,6 +58,7 @@ special
 metadata
 exporting-data
 summary
+further-reading
 additional-exercises
 sec-rrstudio
 what-is-r-what-is-rstudio
