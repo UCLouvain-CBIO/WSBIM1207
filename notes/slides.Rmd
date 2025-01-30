@@ -12,6 +12,7 @@ output:
       ratio: 16:9
       countIncrementalSlides: true
 ---
+class: center middle inverse
 
 ```{r theme, echo=FALSE}
 xaringanthemer::style_mono_light(base_color = "#23395b")
@@ -26,6 +27,37 @@ xaringanExtra::use_extra_styles(
   )
 xaringanExtra::use_panelset()
 ```
+
+
+# Alignement pédagogique
+
+???
+
+Avant de commencer... savez-vous ce qu'est l'alignement pédagogique?
+
+---
+class: center middle
+
+```{r echo=FALSE}
+knitr::include_graphics('../figs/alignement-pedagogique.png')
+```
+
+???
+
+- Chaque activité/dispositif d'apprentissage a pour but d'amener les
+  étudiant(e)s vers la maîtrise des acquis d'apprentissage.
+- L'évaluation mesure l'atteignement des acquis d'apprentissage.
+- Les activités d'apprentissage préparent les étudiant(e)s pour
+  l'évaluation.
+
+---
+class: middle
+
+### SI les étudiant(e)s exécutent les activités d'apprentissage
+### ALORS les enseignant(e)s guarantissent qu'ils/elle atteigneront les acquis attendus,
+### ET qu'ils/elles seront en mesure de démontrer cette maîtrise lors de l'évaluation et donc de la réussir.
+
+---
 
 # Cours
 
@@ -368,9 +400,11 @@ knitr::include_graphics("https://github.com/UCLouvain-CBIO/WSBIM1207/raw/master/
 
 ???
 
-Ça ne veut pas dire qu'il faut abandonner si vous 'rater' les
-premières interrogations! Les interrogations sont un outil pour vous
-permettre de vérifier si vous avez acquis la matière.
+- Exemple de figure que vous serez en mesure de générer en fin
+  d'année.
+- Ça ne veut pas dire qu'il faut abandonner si vous 'rater' les
+  premières interrogations! Les interrogations sont un outil pour vous
+  permettre de vérifier si vous avez acquis la matière.
 
 ---
 class: center middle inverse
