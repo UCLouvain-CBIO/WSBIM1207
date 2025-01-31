@@ -1,4 +1,4 @@
----
+--
 title: "Cursus SBIM en bio-informatique"
 subtitle: ""
 author: "Laurent Gatto"
@@ -53,9 +53,9 @@ knitr::include_graphics('../figs/alignement-pedagogique.png')
 ---
 class: middle
 
-### SI les étudiant(e)s exécutent les activités d'apprentissage
-### ALORS les enseignant(e)s guarantissent qu'ils/elle atteigneront les acquis attendus,
-### ET qu'ils/elles seront en mesure de démontrer cette maîtrise lors de l'évaluation et donc de la réussir.
+### _SI_ les étudiant(e)s exécutent les activités d'apprentissage
+### _ALORS_ les enseignant(e)s guarantissent qu'ils/elle atteigneront les acquis attendus,
+### _ET_ qu'ils/elles seront en mesure de démontrer cette maîtrise lors de l'évaluation et donc de la réussir.
 
 ---
 
