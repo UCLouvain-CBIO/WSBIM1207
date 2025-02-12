@@ -67,7 +67,8 @@ class: middle
 
 Prof: Laurent Gatto
 
-Assistant(e)s: Valentine Robaux, Julie Devis, Mathilde Akue, Axelle Loriot (M1)
+Assistant(e)s: Valentine Robaux, Julie Devis, Mathilde Akue, Axelle
+Loriot (M1), Cédric Dewaerheijd (moniteur).
 
 ---
 
