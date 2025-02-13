@@ -237,8 +237,8 @@ Ca vous demandra du travail!
 
 .pull-left[
 
-- Interrogations régulières ~~avec possibilité de
-  dispense~~. Pourquoi? Comment?
+- Interrogations régulières ~~avec possibilité de  dispense~~.
+  Pourquoi? Comment?
 
 - **Présence** et **participation** au cours
   **obligatoire**. Pourquoi? Comment? (mais voir plus loin)
