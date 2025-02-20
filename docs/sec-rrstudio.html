@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2025-01-16" />
+<meta name="date" content="2025-02-20" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -759,7 +759,7 @@ to understand your problem.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="sec-rrstudio.html#cb11-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>## R version 4.4.1 (2024-06-14)
 ## Platform: x86_64-pc-linux-gnu
-## Running under: Ubuntu 24.04.1 LTS
+## Running under: Ubuntu 24.04.2 LTS
 ## 
 ## Matrix products: default
 ## BLAS:   /opt/Rpatched/lib/R/lib/libRblas.so 
@@ -780,7 +780,7 @@ to understand your problem.</p>
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] cli_3.6.3         knitr_1.49        rlang_1.1.4       xfun_0.50        
+##  [1] cli_3.6.3         knitr_1.49        rlang_1.1.5       xfun_0.50        
 ##  [5] stringi_1.8.4     png_0.1-8         jsonlite_1.8.9    glue_1.8.0       
 ##  [9] htmltools_0.5.8.1 sass_0.4.9        msmbstyle_0.0.22  rmarkdown_2.29   
 ## [13] evaluate_1.0.3    jquerylib_0.1.4   fastmap_1.2.0     yaml_2.3.10      
@@ -876,15 +876,18 @@ dependencies, i.e. all the packages that it relies on to function.</p>
 <p><a href="https://github.com/">GitHub</a> is a general-purpose online software
 project repository and is well suited for R package development. To
 install a package from GitHub, one can use the <code>install_github()</code>
-function from the <code>devtools</code> package. Below we first install the
-latter from CRAN (as show above), then we install <code>rWSBIM1207</code>
-directly from the user <code>UCLouvain-CBIO</code> GitHub repository.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="sec-rrstudio.html#cb15-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb15-2"><a href="sec-rrstudio.html#cb15-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb15-3"><a href="sec-rrstudio.html#cb15-3" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
-<p>In section <a href="sec-bioinfo.html#sec-bioconductor">9.3</a>, we will see how to install
-<a href="http://www.bioconductor.org">Bioconductor</a>, a project dedicated to
-bioinformatics and omics packages.</p>
+function from the <code>remotes</code> package or <code>install()</code> the <code>BiocManager</code>
+package. We will use the latter, as it is also the function that
+allows to install packages from the
+<a href="https://bioconductor.org/">Bioconductor</a> project, that we will
+discuss in section <a href="sec-bioinfo.html#sec-bioconductor">9.3</a>. Below we first install
+<code>remotes</code> and <code>BiocManager</code> from CRAN (as show above), then we install
+<code>rWSBIM1207</code> directly from the <code>UCLouvain-CBIO/rWSBIM1207</code> GitHub
+repository.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="sec-rrstudio.html#cb15-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
+<span id="cb15-2"><a href="sec-rrstudio.html#cb15-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
+<span id="cb15-3"><a href="sec-rrstudio.html#cb15-3" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"BiocManager"</span>)</span>
+<span id="cb15-4"><a href="sec-rrstudio.html#cb15-4" tabindex="-1"></a><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/rWSBIM1207"</span>)</span></code></pre></div>
 
 </div>
 </div>
@@ -894,7 +897,7 @@ bioinformatics and omics packages.</p>
 <a href="sec-startr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2025-01-16
+2025-02-20
  using 
 R version 4.4.1 (2024-06-14)
 </p>

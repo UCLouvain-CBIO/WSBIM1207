@@ -651,16 +651,18 @@ dependencies, i.e. all the packages that it relies on to function.
 [GitHub](https://github.com/) is a general-purpose online software
 project repository and is well suited for R package development. To
 install a package from GitHub, one can use the `install_github()`
-function from the `devtools` package. Below we first install the
-latter from CRAN (as show above), then we install `rWSBIM1207`
-directly from the user `UCLouvain-CBIO` GitHub repository.
+function from the `remotes` package or `install()` the `BiocManager`
+package. We will use the latter, as it is also the function that
+allows to install packages from the
+[Bioconductor](https://bioconductor.org/) project, that we will
+discuss in section \@ref(sec-bioconductor). Below we first install
+`remotes` and `BiocManager` from CRAN (as show above), then we install
+`rWSBIM1207` directly from the `UCLouvain-CBIO/rWSBIM1207` GitHub
+repository.
 
 ```{r ghinstall, eval=FALSE, purl=FALSE}
-install.packages("devtools")
-library("devtools")
-install_github("UCLouvain-CBIO/rWSBIM1207")
+install.packages("remotes")
+install.packages("BiocManager")
+library("BiocManager")
+install("UCLouvain-CBIO/rWSBIM1207")
 ```
-
-In section \@ref(sec-bioconductor), we will see how to install
-[Bioconductor](http://www.bioconductor.org), a project dedicated to
-bioinformatics and omics packages.
