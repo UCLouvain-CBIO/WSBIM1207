@@ -22,9 +22,9 @@ The term [R](https://www.r-project.org/) is used to refer to both the
 *programming language*, the *environment for statistical computing*
 and *the software* that interprets the scripts written using it.
 
-[RStudio](https://rstudio.com) is currently a very popular way to not
-only write your R scripts but also to interact with the R
-software[^plainr]. To function correctly, RStudio needs R and
+[RStudio](https://posit.co/products/open-source/rstudio/) is a very
+popular way to not only write your R scripts but also to interact with
+the R software[^plainr]. To function correctly, RStudio needs R and
 therefore both need to be installed on your computer.
 
 [^plainr]: As opposed to using R directly from the command line
