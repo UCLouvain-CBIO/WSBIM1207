@@ -636,7 +636,7 @@ OCT4. So if you're avoiding the date format overall, it's easier to
 identify these issues.
 
 The [Dates as
-data](https://datacarpentry.org/spreadsheet-ecology-lesson/03-dates-as-data/index.html)
+data](https://datacarpentry.github.io/spreadsheet-ecology-lesson/03-dates-as-data.html)
 section of the Data Carpentry lesson provides additional insights
 about pitfalls of dates with spreadsheets.
 
