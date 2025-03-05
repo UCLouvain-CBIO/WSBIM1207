@@ -283,7 +283,7 @@ anyNA(rna_hsapiens_homolog$hsapiens_homolog_associated_gene_name)
 
 
 `r msmbstyle::question_begin()`
-How many mouse genes do not have a human homologous?
+How many observations do not have a human homologous?
 `r msmbstyle::question_end()`
 
 
@@ -398,6 +398,13 @@ nlevels(sex)
 ```{r}
 nlevels(factor(rna$gene))
 ```
+
+Or, without using factors:
+
+```{r}
+length(unique(rna$gene))
+```
+
 
 `r msmbstyle::solution_end()`
 

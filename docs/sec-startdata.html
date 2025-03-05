@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2025-02-26" />
+<meta name="date" content="2025-03-05" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -641,7 +641,7 @@ we could combine <code>is.na()</code> and data frames subsetting:</p>
 ► Question
 </p>
 <div class="question-body">
-<p>How many mouse genes do not have a human homologous?</p>
+<p>How many observations do not have a human homologous?</p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -771,6 +771,9 @@ in this vector is <code>"male"</code>). You can see this by using the function
 <div id="sol-body-17" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="sec-startdata.html#cb235-1" tabindex="-1"></a><span class="fu">nlevels</span>(<span class="fu">factor</span>(rna<span class="sc">$</span>gene))</span></code></pre></div>
 <pre><code>## [1] 1474</code></pre>
+<p>Or, without using factors:</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="sec-startdata.html#cb237-1" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(rna<span class="sc">$</span>gene))</span></code></pre></div>
+<pre><code>## [1] 1474</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -781,11 +784,11 @@ might want to specify the order because it is meaningful (e.g., “low”,
 “medium”, “high”), it improves your visualization, or it is required
 by a particular type of analysis. Here, one way to reorder our levels
 in the <code>sex</code> vector would be:</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="sec-startdata.html#cb237-1" tabindex="-1"></a>sex <span class="do">## current order</span></span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="sec-startdata.html#cb239-1" tabindex="-1"></a>sex <span class="do">## current order</span></span></code></pre></div>
 <pre><code>## [1] male   female female male   female
 ## Levels: female male</code></pre>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="sec-startdata.html#cb239-1" tabindex="-1"></a>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(sex, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>))</span>
-<span id="cb239-2"><a href="sec-startdata.html#cb239-2" tabindex="-1"></a>sex <span class="do">## after re-ordering</span></span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="sec-startdata.html#cb241-1" tabindex="-1"></a>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(sex, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>))</span>
+<span id="cb241-2"><a href="sec-startdata.html#cb241-2" tabindex="-1"></a>sex <span class="do">## after re-ordering</span></span></code></pre></div>
 <pre><code>## [1] male   female female male   female
 ## Levels: male female</code></pre>
 <p>In R’s memory, these factors are represented by integers (1, 2, 3),
@@ -800,9 +803,9 @@ species names in our example dataset).</p>
 </h3>
 <p>If you need to convert a factor to a character vector, you use
 <code>as.character(x)</code>.</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="sec-startdata.html#cb241-1" tabindex="-1"></a><span class="fu">as.character</span>(sex)</span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="sec-startdata.html#cb243-1" tabindex="-1"></a><span class="fu">as.character</span>(sex)</span></code></pre></div>
 <pre><code>## [1] "male"   "female" "female" "male"   "female"</code></pre>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="sec-startdata.html#cb243-1" tabindex="-1"></a><span class="co"># try also: as.numeric(sex)</span></span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="sec-startdata.html#cb245-1" tabindex="-1"></a><span class="co"># try also: as.numeric(sex)</span></span></code></pre></div>
 <!-- ### Numeric factors {-} -->
 <!-- Converting factors where the levels appear as numbers (such as -->
 <!-- concentration levels, or years) to a numeric vector is a little -->
@@ -831,7 +834,7 @@ species names in our example dataset).</p>
 function to get a quick glance at the number of observations
 represented by each factor level. Let’s look at the number of males
 and females in our data.</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="sec-startdata.html#cb244-1" tabindex="-1"></a><span class="fu">plot</span>(sex)</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="sec-startdata.html#cb246-1" tabindex="-1"></a><span class="fu">plot</span>(sex)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:firstfactorplot"></span>
 <p class="caption marginnote shownote">
@@ -841,14 +844,14 @@ Figure 4.1: Bar plot of the number of females and males.
 </div>
 <p>If we want to rename these factor, it is sufficient to change its
 levels:</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="sec-startdata.html#cb245-1" tabindex="-1"></a><span class="fu">levels</span>(sex)</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="sec-startdata.html#cb247-1" tabindex="-1"></a><span class="fu">levels</span>(sex)</span></code></pre></div>
 <pre><code>## [1] "male"   "female"</code></pre>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="sec-startdata.html#cb247-1" tabindex="-1"></a><span class="fu">levels</span>(sex) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>)</span>
-<span id="cb247-2"><a href="sec-startdata.html#cb247-2" tabindex="-1"></a>sex</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="sec-startdata.html#cb249-1" tabindex="-1"></a><span class="fu">levels</span>(sex) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>)</span>
+<span id="cb249-2"><a href="sec-startdata.html#cb249-2" tabindex="-1"></a>sex</span></code></pre></div>
 <pre><code>## [1] M F F M F
 ## Levels: M F</code></pre>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="sec-startdata.html#cb249-1" tabindex="-1"></a><span class="fu">plot</span>(sex)</span></code></pre></div>
-<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-109-1.png" width="672"></p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="sec-startdata.html#cb251-1" tabindex="-1"></a><span class="fu">plot</span>(sex)</span></code></pre></div>
+<p><img src="WSBIM1207_files/figure-html/unnamed-chunk-110-1.png" width="672"></p>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -871,10 +874,10 @@ levels:</p>
 they can also be created by hand with the <code>data.frame()</code> function.
 There are a few mistakes in this hand-crafted <code>data.frame</code>. Can you
 spot and fix them? Don’t hesitate to experiment!</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="sec-startdata.html#cb250-1" tabindex="-1"></a>animal_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb250-2"><a href="sec-startdata.html#cb250-2" tabindex="-1"></a>       <span class="at">animal =</span> <span class="fu">c</span>(dog, cat, sea cucumber, sea urchin),</span>
-<span id="cb250-3"><a href="sec-startdata.html#cb250-3" tabindex="-1"></a>       <span class="at">feel =</span> <span class="fu">c</span>(<span class="st">"furry"</span>, <span class="st">"squishy"</span>, <span class="st">"spiny"</span>),</span>
-<span id="cb250-4"><a href="sec-startdata.html#cb250-4" tabindex="-1"></a>       <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">8</span> <span class="fl">1.1</span>, <span class="fl">0.8</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="sec-startdata.html#cb252-1" tabindex="-1"></a>animal_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb252-2"><a href="sec-startdata.html#cb252-2" tabindex="-1"></a>       <span class="at">animal =</span> <span class="fu">c</span>(dog, cat, sea cucumber, sea urchin),</span>
+<span id="cb252-3"><a href="sec-startdata.html#cb252-3" tabindex="-1"></a>       <span class="at">feel =</span> <span class="fu">c</span>(<span class="st">"furry"</span>, <span class="st">"squishy"</span>, <span class="st">"spiny"</span>),</span>
+<span id="cb252-4"><a href="sec-startdata.html#cb252-4" tabindex="-1"></a>       <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">8</span> <span class="fl">1.1</span>, <span class="fl">0.8</span>))</span></code></pre></div>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -910,13 +913,13 @@ variable when creating the data frame? What is happening now?
 <code>stringsAsFactors</code> can also be set when reading text-based
 spreadsheets into R using <code>read.csv()</code>.</p></li>
 </ul>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="sec-startdata.html#cb251-1" tabindex="-1"></a>country_climate <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb251-2"><a href="sec-startdata.html#cb251-2" tabindex="-1"></a>       <span class="at">country =</span> <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"Panama"</span>, <span class="st">"South Africa"</span>, <span class="st">"Australia"</span>),</span>
-<span id="cb251-3"><a href="sec-startdata.html#cb251-3" tabindex="-1"></a>       <span class="at">climate =</span> <span class="fu">c</span>(<span class="st">"cold"</span>, <span class="st">"hot"</span>, <span class="st">"temperate"</span>, <span class="st">"hot/temperate"</span>),</span>
-<span id="cb251-4"><a href="sec-startdata.html#cb251-4" tabindex="-1"></a>       <span class="at">temperature =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">18</span>, <span class="st">"15"</span>),</span>
-<span id="cb251-5"><a href="sec-startdata.html#cb251-5" tabindex="-1"></a>       <span class="at">northern_hemisphere =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="st">"FALSE"</span>),</span>
-<span id="cb251-6"><a href="sec-startdata.html#cb251-6" tabindex="-1"></a>       <span class="at">has_kangaroo =</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="dv">1</span>)</span>
-<span id="cb251-7"><a href="sec-startdata.html#cb251-7" tabindex="-1"></a>       )</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="sec-startdata.html#cb253-1" tabindex="-1"></a>country_climate <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb253-2"><a href="sec-startdata.html#cb253-2" tabindex="-1"></a>       <span class="at">country =</span> <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"Panama"</span>, <span class="st">"South Africa"</span>, <span class="st">"Australia"</span>),</span>
+<span id="cb253-3"><a href="sec-startdata.html#cb253-3" tabindex="-1"></a>       <span class="at">climate =</span> <span class="fu">c</span>(<span class="st">"cold"</span>, <span class="st">"hot"</span>, <span class="st">"temperate"</span>, <span class="st">"hot/temperate"</span>),</span>
+<span id="cb253-4"><a href="sec-startdata.html#cb253-4" tabindex="-1"></a>       <span class="at">temperature =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">18</span>, <span class="st">"15"</span>),</span>
+<span id="cb253-5"><a href="sec-startdata.html#cb253-5" tabindex="-1"></a>       <span class="at">northern_hemisphere =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="st">"FALSE"</span>),</span>
+<span id="cb253-6"><a href="sec-startdata.html#cb253-6" tabindex="-1"></a>       <span class="at">has_kangaroo =</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="dv">1</span>)</span>
+<span id="cb253-7"><a href="sec-startdata.html#cb253-7" tabindex="-1"></a>       )</span></code></pre></div>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -947,13 +950,13 @@ columns<label for="tufte-sn-9" class="margin-toggle sidenote-number">9</label><i
 one can be deduced from the length of the values. Try out what happens
 if the values and number of rows/columns don’t add up.</span>. The values are sorted along the columns, as illustrated
 below but you can also sort them along the row with the argument <code>byrow = TRUE</code>.</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="sec-startdata.html#cb252-1" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
-<span id="cb252-2"><a href="sec-startdata.html#cb252-2" tabindex="-1"></a>m</span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="sec-startdata.html#cb254-1" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb254-2"><a href="sec-startdata.html#cb254-2" tabindex="-1"></a>m</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    4    7
 ## [2,]    2    5    8
 ## [3,]    3    6    9</code></pre>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="sec-startdata.html#cb254-1" tabindex="-1"></a><span class="co"># try now with byrow = TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="sec-startdata.html#cb256-1" tabindex="-1"></a><span class="co"># try now with byrow = TRUE</span></span></code></pre></div>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -972,16 +975,16 @@ Using the function <code>installed.packages()</code>, create a <code>character</
 ► Solution<span id="sol-start-19" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-19', 'sol-start-19')"></span>
 </p>
 <div id="sol-body-19" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="sec-startdata.html#cb255-1" tabindex="-1"></a><span class="do">## create the matrix</span></span>
-<span id="cb255-2"><a href="sec-startdata.html#cb255-2" tabindex="-1"></a>ip <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()</span>
-<span id="cb255-3"><a href="sec-startdata.html#cb255-3" tabindex="-1"></a><span class="fu">head</span>(ip)</span>
-<span id="cb255-4"><a href="sec-startdata.html#cb255-4" tabindex="-1"></a><span class="do">## try also View(ip)</span></span>
-<span id="cb255-5"><a href="sec-startdata.html#cb255-5" tabindex="-1"></a><span class="do">## number of package</span></span>
-<span id="cb255-6"><a href="sec-startdata.html#cb255-6" tabindex="-1"></a><span class="fu">nrow</span>(ip)</span>
-<span id="cb255-7"><a href="sec-startdata.html#cb255-7" tabindex="-1"></a><span class="do">## names of all installed packages</span></span>
-<span id="cb255-8"><a href="sec-startdata.html#cb255-8" tabindex="-1"></a><span class="fu">rownames</span>(ip)</span>
-<span id="cb255-9"><a href="sec-startdata.html#cb255-9" tabindex="-1"></a><span class="do">## type of information we have about each package</span></span>
-<span id="cb255-10"><a href="sec-startdata.html#cb255-10" tabindex="-1"></a><span class="fu">colnames</span>(ip)</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="sec-startdata.html#cb257-1" tabindex="-1"></a><span class="do">## create the matrix</span></span>
+<span id="cb257-2"><a href="sec-startdata.html#cb257-2" tabindex="-1"></a>ip <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()</span>
+<span id="cb257-3"><a href="sec-startdata.html#cb257-3" tabindex="-1"></a><span class="fu">head</span>(ip)</span>
+<span id="cb257-4"><a href="sec-startdata.html#cb257-4" tabindex="-1"></a><span class="do">## try also View(ip)</span></span>
+<span id="cb257-5"><a href="sec-startdata.html#cb257-5" tabindex="-1"></a><span class="do">## number of package</span></span>
+<span id="cb257-6"><a href="sec-startdata.html#cb257-6" tabindex="-1"></a><span class="fu">nrow</span>(ip)</span>
+<span id="cb257-7"><a href="sec-startdata.html#cb257-7" tabindex="-1"></a><span class="do">## names of all installed packages</span></span>
+<span id="cb257-8"><a href="sec-startdata.html#cb257-8" tabindex="-1"></a><span class="fu">rownames</span>(ip)</span>
+<span id="cb257-9"><a href="sec-startdata.html#cb257-9" tabindex="-1"></a><span class="do">## type of information we have about each package</span></span>
+<span id="cb257-10"><a href="sec-startdata.html#cb257-10" tabindex="-1"></a><span class="fu">colnames</span>(ip)</span></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1009,11 +1012,11 @@ Construct a matrix of dimension 1000 by 3 of normally distributed data (mean 0, 
 ► Solution<span id="sol-start-20" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-20', 'sol-start-20')"></span>
 </p>
 <div id="sol-body-20" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="sec-startdata.html#cb256-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb256-2"><a href="sec-startdata.html#cb256-2" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">3000</span>), <span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb256-3"><a href="sec-startdata.html#cb256-3" tabindex="-1"></a><span class="fu">dim</span>(m)</span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="sec-startdata.html#cb258-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb258-2"><a href="sec-startdata.html#cb258-2" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">3000</span>), <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb258-3"><a href="sec-startdata.html#cb258-3" tabindex="-1"></a><span class="fu">dim</span>(m)</span></code></pre></div>
 <pre><code>## [1] 1000    3</code></pre>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="sec-startdata.html#cb258-1" tabindex="-1"></a><span class="fu">head</span>(m)</span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="sec-startdata.html#cb260-1" tabindex="-1"></a><span class="fu">head</span>(m)</span></code></pre></div>
 <pre><code>##             [,1]        [,2]       [,3]
 ## [1,] -0.56047565 -0.99579872 -0.5116037
 ## [2,] -0.23017749 -1.03995504  0.2369379
@@ -1060,29 +1063,29 @@ about pitfalls of dates with spreadsheets.</p>
 <strong><code>lubridate</code></strong> (that belongs to the <strong><code>tidyverse</code></strong>, which we’ll
 focus on in the next chapter). <strong><code>lubridate</code></strong> gets installed as part
 as the <strong><code>tidyverse</code></strong> installation. Let’s load it with</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="sec-startdata.html#cb260-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"lubridate"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="sec-startdata.html#cb262-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"lubridate"</span>)</span></code></pre></div>
 <p><code>ymd()</code> takes a vector representing year, month, and day, and converts
 it to a <code>Date</code> vector. <code>Date</code> is a class of data recognized by R as
 being a date and can be manipulated as such. The argument that the
 function requires is flexible, but, as a best practice, is a character
 vector formatted as “YYYY-MM-DD”.</p>
 <p>Let’s create a date object and inspect its structure:</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="sec-startdata.html#cb261-1" tabindex="-1"></a>my_date <span class="ot">&lt;-</span> <span class="fu">ymd</span>(<span class="st">"2015-01-01"</span>)</span>
-<span id="cb261-2"><a href="sec-startdata.html#cb261-2" tabindex="-1"></a><span class="fu">str</span>(my_date)</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="sec-startdata.html#cb263-1" tabindex="-1"></a>my_date <span class="ot">&lt;-</span> <span class="fu">ymd</span>(<span class="st">"2015-01-01"</span>)</span>
+<span id="cb263-2"><a href="sec-startdata.html#cb263-2" tabindex="-1"></a><span class="fu">str</span>(my_date)</span></code></pre></div>
 <pre><code>##  Date[1:1], format: "2015-01-01"</code></pre>
 <p>Now let’s paste the year, month, and day separately - we get the same result:</p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="sec-startdata.html#cb263-1" tabindex="-1"></a><span class="co"># sep indicates the character to use to separate each component</span></span>
-<span id="cb263-2"><a href="sec-startdata.html#cb263-2" tabindex="-1"></a>my_date <span class="ot">&lt;-</span> <span class="fu">ymd</span>(<span class="fu">paste</span>(<span class="st">"2015"</span>, <span class="st">"1"</span>, <span class="st">"1"</span>, <span class="at">sep =</span> <span class="st">"-"</span>))</span>
-<span id="cb263-3"><a href="sec-startdata.html#cb263-3" tabindex="-1"></a><span class="fu">str</span>(my_date)</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="sec-startdata.html#cb265-1" tabindex="-1"></a><span class="co"># sep indicates the character to use to separate each component</span></span>
+<span id="cb265-2"><a href="sec-startdata.html#cb265-2" tabindex="-1"></a>my_date <span class="ot">&lt;-</span> <span class="fu">ymd</span>(<span class="fu">paste</span>(<span class="st">"2015"</span>, <span class="st">"1"</span>, <span class="st">"1"</span>, <span class="at">sep =</span> <span class="st">"-"</span>))</span>
+<span id="cb265-3"><a href="sec-startdata.html#cb265-3" tabindex="-1"></a><span class="fu">str</span>(my_date)</span></code></pre></div>
 <pre><code>##  Date[1:1], format: "2015-01-01"</code></pre>
 <p>Let’s now familiarise ourselves with a typical date manipulation
 pipeline. The small data below has stored dates in different <code>year</code>,
 <code>month</code> and <code>day</code> columns.</p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="sec-startdata.html#cb265-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">year =</span> <span class="fu">c</span>(<span class="dv">1996</span>, <span class="dv">1992</span>, <span class="dv">1987</span>, <span class="dv">1986</span>, <span class="dv">2000</span>, <span class="dv">1990</span>, <span class="dv">2002</span>, <span class="dv">1994</span>, <span class="dv">1997</span>, <span class="dv">1985</span>),</span>
-<span id="cb265-2"><a href="sec-startdata.html#cb265-2" tabindex="-1"></a>                <span class="at">month =</span> <span class="fu">c</span>(<span class="dv">2</span>,  <span class="dv">3</span>,  <span class="dv">3</span>, <span class="dv">10</span>,  <span class="dv">1</span>,  <span class="dv">8</span>,  <span class="dv">3</span>,  <span class="dv">4</span>,  <span class="dv">5</span>,  <span class="dv">5</span>),</span>
-<span id="cb265-3"><a href="sec-startdata.html#cb265-3" tabindex="-1"></a>                <span class="at">day =</span> <span class="fu">c</span>(<span class="dv">24</span>,  <span class="dv">8</span>,  <span class="dv">1</span>,  <span class="dv">5</span>,  <span class="dv">8</span>, <span class="dv">17</span>, <span class="dv">13</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">24</span>),</span>
-<span id="cb265-4"><a href="sec-startdata.html#cb265-4" tabindex="-1"></a>                <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">4</span>,  <span class="dv">5</span>,  <span class="dv">1</span>,  <span class="dv">9</span>,  <span class="dv">3</span>,  <span class="dv">8</span>, <span class="dv">10</span>,  <span class="dv">2</span>,  <span class="dv">6</span>,  <span class="dv">7</span>))</span>
-<span id="cb265-5"><a href="sec-startdata.html#cb265-5" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="sec-startdata.html#cb267-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">year =</span> <span class="fu">c</span>(<span class="dv">1996</span>, <span class="dv">1992</span>, <span class="dv">1987</span>, <span class="dv">1986</span>, <span class="dv">2000</span>, <span class="dv">1990</span>, <span class="dv">2002</span>, <span class="dv">1994</span>, <span class="dv">1997</span>, <span class="dv">1985</span>),</span>
+<span id="cb267-2"><a href="sec-startdata.html#cb267-2" tabindex="-1"></a>                <span class="at">month =</span> <span class="fu">c</span>(<span class="dv">2</span>,  <span class="dv">3</span>,  <span class="dv">3</span>, <span class="dv">10</span>,  <span class="dv">1</span>,  <span class="dv">8</span>,  <span class="dv">3</span>,  <span class="dv">4</span>,  <span class="dv">5</span>,  <span class="dv">5</span>),</span>
+<span id="cb267-3"><a href="sec-startdata.html#cb267-3" tabindex="-1"></a>                <span class="at">day =</span> <span class="fu">c</span>(<span class="dv">24</span>,  <span class="dv">8</span>,  <span class="dv">1</span>,  <span class="dv">5</span>,  <span class="dv">8</span>, <span class="dv">17</span>, <span class="dv">13</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">24</span>),</span>
+<span id="cb267-4"><a href="sec-startdata.html#cb267-4" tabindex="-1"></a>                <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">4</span>,  <span class="dv">5</span>,  <span class="dv">1</span>,  <span class="dv">9</span>,  <span class="dv">3</span>,  <span class="dv">8</span>, <span class="dv">10</span>,  <span class="dv">2</span>,  <span class="dv">6</span>,  <span class="dv">7</span>))</span>
+<span id="cb267-5"><a href="sec-startdata.html#cb267-5" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>##    year month day value
 ## 1  1996     2  24     4
 ## 2  1992     3   8     5
@@ -1097,16 +1100,16 @@ pipeline. The small data below has stored dates in different <code>year</code>,
 <p>Now we apply this function to the <code>x</code> dataset. We first dreate a
 character vector from the <code>year</code>, <code>month</code>, and <code>day</code> columns of <code>x</code>
 using <code>paste()</code>:</p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="sec-startdata.html#cb267-1" tabindex="-1"></a><span class="fu">paste</span>(x<span class="sc">$</span>year, x<span class="sc">$</span>month, x<span class="sc">$</span>day, <span class="at">sep =</span> <span class="st">"-"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="sec-startdata.html#cb269-1" tabindex="-1"></a><span class="fu">paste</span>(x<span class="sc">$</span>year, x<span class="sc">$</span>month, x<span class="sc">$</span>day, <span class="at">sep =</span> <span class="st">"-"</span>)</span></code></pre></div>
 <pre><code>##  [1] "1996-2-24" "1992-3-8"  "1987-3-1"  "1986-10-5" "2000-1-8"  "1990-8-17"
 ##  [7] "2002-3-13" "1994-4-10" "1997-5-11" "1985-5-24"</code></pre>
 <p>This character vector can be used as the argument for <code>ymd()</code>:</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="sec-startdata.html#cb269-1" tabindex="-1"></a><span class="fu">ymd</span>(<span class="fu">paste</span>(x<span class="sc">$</span>year, x<span class="sc">$</span>month, x<span class="sc">$</span>day, <span class="at">sep =</span> <span class="st">"-"</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="sec-startdata.html#cb271-1" tabindex="-1"></a><span class="fu">ymd</span>(<span class="fu">paste</span>(x<span class="sc">$</span>year, x<span class="sc">$</span>month, x<span class="sc">$</span>day, <span class="at">sep =</span> <span class="st">"-"</span>))</span></code></pre></div>
 <pre><code>##  [1] "1996-02-24" "1992-03-08" "1987-03-01" "1986-10-05" "2000-01-08"
 ##  [6] "1990-08-17" "2002-03-13" "1994-04-10" "1997-05-11" "1985-05-24"</code></pre>
 <p>The resulting <code>Date</code> vector can be added to <code>x</code> as a new column called <code>date</code>:</p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="sec-startdata.html#cb271-1" tabindex="-1"></a>x<span class="sc">$</span>date <span class="ot">&lt;-</span> <span class="fu">ymd</span>(<span class="fu">paste</span>(x<span class="sc">$</span>year, x<span class="sc">$</span>month, x<span class="sc">$</span>day, <span class="at">sep =</span> <span class="st">"-"</span>))</span>
-<span id="cb271-2"><a href="sec-startdata.html#cb271-2" tabindex="-1"></a><span class="fu">str</span>(x) <span class="co"># notice the new column, with 'date' as the class</span></span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="sec-startdata.html#cb273-1" tabindex="-1"></a>x<span class="sc">$</span>date <span class="ot">&lt;-</span> <span class="fu">ymd</span>(<span class="fu">paste</span>(x<span class="sc">$</span>year, x<span class="sc">$</span>month, x<span class="sc">$</span>day, <span class="at">sep =</span> <span class="st">"-"</span>))</span>
+<span id="cb273-2"><a href="sec-startdata.html#cb273-2" tabindex="-1"></a><span class="fu">str</span>(x) <span class="co"># notice the new column, with 'date' as the class</span></span></code></pre></div>
 <pre><code>## 'data.frame':    10 obs. of  5 variables:
 ##  $ year : num  1996 1992 1987 1986 2000 ...
 ##  $ month: num  2 3 3 10 1 8 3 4 5 5
@@ -1115,13 +1118,13 @@ using <code>paste()</code>:</p>
 ##  $ date : Date, format: "1996-02-24" "1992-03-08" ...</code></pre>
 <p>Let’s make sure everything worked correctly. One way to inspect the
 new column is to use <code>summary()</code>:</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="sec-startdata.html#cb273-1" tabindex="-1"></a><span class="fu">summary</span>(x<span class="sc">$</span>date)</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="sec-startdata.html#cb275-1" tabindex="-1"></a><span class="fu">summary</span>(x<span class="sc">$</span>date)</span></code></pre></div>
 <pre><code>##         Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
 ## "1985-05-24" "1988-01-11" "1993-03-24" "1993-03-18" "1997-01-20" "2002-03-13"</code></pre>
 <p>Note that <code>ymd()</code> expects to have the year, month and day, in that
 order. If you have for instance day, month and year, you would need
 <code>dmy()</code>.</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="sec-startdata.html#cb275-1" tabindex="-1"></a><span class="fu">dmy</span>(<span class="fu">paste</span>(x<span class="sc">$</span>day, x<span class="sc">$</span>month, x<span class="sc">$</span>month, <span class="at">sep =</span> <span class="st">"-"</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="sec-startdata.html#cb277-1" tabindex="-1"></a><span class="fu">dmy</span>(<span class="fu">paste</span>(x<span class="sc">$</span>day, x<span class="sc">$</span>month, x<span class="sc">$</span>month, <span class="at">sep =</span> <span class="st">"-"</span>))</span></code></pre></div>
 <pre><code>##  [1] "2002-02-24" "2003-03-08" "2003-03-01" "2010-10-05" "2001-01-08"
 ##  [6] "2008-08-17" "2003-03-13" "2004-04-10" "2005-05-11" "2005-05-24"</code></pre>
 <p><code>lubdridate</code> has many functions to address all date variations.</p>
@@ -1140,20 +1143,20 @@ type.</li>
 </ul>
 <p>Below, let’s create a list containing a vector of numbers, characters,
 a matrix, a dataframe and another list:</p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="sec-startdata.html#cb277-1" tabindex="-1"></a>l <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="do">## numeric</span></span>
-<span id="cb277-2"><a href="sec-startdata.html#cb277-2" tabindex="-1"></a>          letters, <span class="do">## character</span></span>
-<span id="cb277-3"><a href="sec-startdata.html#cb277-3" tabindex="-1"></a>          <span class="fu">installed.packages</span>(), <span class="do">## a matrix</span></span>
-<span id="cb277-4"><a href="sec-startdata.html#cb277-4" tabindex="-1"></a>          cars, <span class="do">## a data.frame</span></span>
-<span id="cb277-5"><a href="sec-startdata.html#cb277-5" tabindex="-1"></a>          <span class="fu">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)) <span class="do">## a list</span></span>
-<span id="cb277-6"><a href="sec-startdata.html#cb277-6" tabindex="-1"></a><span class="fu">length</span>(l)</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="sec-startdata.html#cb279-1" tabindex="-1"></a>l <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="do">## numeric</span></span>
+<span id="cb279-2"><a href="sec-startdata.html#cb279-2" tabindex="-1"></a>          letters, <span class="do">## character</span></span>
+<span id="cb279-3"><a href="sec-startdata.html#cb279-3" tabindex="-1"></a>          <span class="fu">installed.packages</span>(), <span class="do">## a matrix</span></span>
+<span id="cb279-4"><a href="sec-startdata.html#cb279-4" tabindex="-1"></a>          cars, <span class="do">## a data.frame</span></span>
+<span id="cb279-5"><a href="sec-startdata.html#cb279-5" tabindex="-1"></a>          <span class="fu">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)) <span class="do">## a list</span></span>
+<span id="cb279-6"><a href="sec-startdata.html#cb279-6" tabindex="-1"></a><span class="fu">length</span>(l)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="sec-startdata.html#cb279-1" tabindex="-1"></a><span class="fu">str</span>(l)</span></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="sec-startdata.html#cb281-1" tabindex="-1"></a><span class="fu">str</span>(l)</span></code></pre></div>
 <pre><code>## List of 5
 ##  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##  $ : chr [1:26] "a" "b" "c" "d" ...
-##  $ : chr [1:715, 1:16] "abind" "affy" "affyio" "airway" ...
+##  $ : chr [1:723, 1:16] "abind" "affy" "affyio" "airway" ...
 ##   ..- attr(*, "dimnames")=List of 2
-##   .. ..$ : chr [1:715] "abind" "affy" "affyio" "airway" ...
+##   .. ..$ : chr [1:723] "abind" "affy" "affyio" "airway" ...
 ##   .. ..$ : chr [1:16] "Package" "LibPath" "Version" "Priority" ...
 ##  $ :'data.frame':    50 obs. of  2 variables:
 ##   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...
@@ -1165,16 +1168,16 @@ a matrix, a dataframe and another list:</p>
 <p>List subsetting is done using <code>[]</code> to subset a new sub-list or <code>[[]]</code>
 to extract a single element of that list (using indices or names, of
 the list is named).</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="sec-startdata.html#cb281-1" tabindex="-1"></a>l[[<span class="dv">1</span>]] <span class="do">## first element</span></span></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="sec-startdata.html#cb283-1" tabindex="-1"></a>l[[<span class="dv">1</span>]] <span class="do">## first element</span></span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="sec-startdata.html#cb283-1" tabindex="-1"></a>l[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="do">## a list of length 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="sec-startdata.html#cb285-1" tabindex="-1"></a>l[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="do">## a list of length 2</span></span></code></pre></div>
 <pre><code>## [[1]]
 ##  [1]  1  2  3  4  5  6  7  8  9 10
 ## 
 ## [[2]]
 ##  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s"
 ## [20] "t" "u" "v" "w" "x" "y" "z"</code></pre>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="sec-startdata.html#cb285-1" tabindex="-1"></a>l[<span class="dv">1</span>]   <span class="do">## a list of length 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="sec-startdata.html#cb287-1" tabindex="-1"></a>l[<span class="dv">1</span>]   <span class="do">## a list of length 1</span></span></code></pre></div>
 <pre><code>## [[1]]
 ##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <div class="question">
@@ -1196,9 +1199,9 @@ and <code>"random"</code>. Check if the names were correctly attributed.</p>
 ► Solution<span id="sol-start-21" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-21', 'sol-start-21')"></span>
 </p>
 <div id="sol-body-21" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="sec-startdata.html#cb287-1" tabindex="-1"></a><span class="fu">names</span>(l) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"numbers"</span>, <span class="st">"alphabet"</span>, <span class="st">"installed_packages"</span>,</span>
-<span id="cb287-2"><a href="sec-startdata.html#cb287-2" tabindex="-1"></a>              <span class="st">"cars"</span>, <span class="st">"random"</span>)</span>
-<span id="cb287-3"><a href="sec-startdata.html#cb287-3" tabindex="-1"></a><span class="fu">names</span>(l)</span></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="sec-startdata.html#cb289-1" tabindex="-1"></a><span class="fu">names</span>(l) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"numbers"</span>, <span class="st">"alphabet"</span>, <span class="st">"installed_packages"</span>,</span>
+<span id="cb289-2"><a href="sec-startdata.html#cb289-2" tabindex="-1"></a>              <span class="st">"cars"</span>, <span class="st">"random"</span>)</span>
+<span id="cb289-3"><a href="sec-startdata.html#cb289-3" tabindex="-1"></a><span class="fu">names</span>(l)</span></code></pre></div>
 <pre><code>## [1] "numbers"            "alphabet"           "installed_packages"
 ## [4] "cars"               "random"</code></pre>
 <p class="solution-end">
@@ -1227,8 +1230,8 @@ and <code>"random"</code>. Check if the names were correctly attributed.</p>
 ► Solution<span id="sol-start-22" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-22', 'sol-start-22')"></span>
 </p>
 <div id="sol-body-22" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="sec-startdata.html#cb289-1" tabindex="-1"></a><span class="do">## list with all but the matrix of installed packages</span></span>
-<span id="cb289-2"><a href="sec-startdata.html#cb289-2" tabindex="-1"></a>l[<span class="sc">-</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="sec-startdata.html#cb291-1" tabindex="-1"></a><span class="do">## list with all but the matrix of installed packages</span></span>
+<span id="cb291-2"><a href="sec-startdata.html#cb291-2" tabindex="-1"></a>l[<span class="sc">-</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## $numbers
 ##  [1]  1  2  3  4  5  6  7  8  9 10
 ## 
@@ -1298,8 +1301,8 @@ and <code>"random"</code>. Check if the names were correctly attributed.</p>
 ## 
 ## $random[[3]]
 ## [1] 3</code></pre>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="sec-startdata.html#cb291-1" tabindex="-1"></a><span class="do">## a list containing only the `cars` data.frame</span></span>
-<span id="cb291-2"><a href="sec-startdata.html#cb291-2" tabindex="-1"></a>l[<span class="st">"cars"</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="sec-startdata.html#cb293-1" tabindex="-1"></a><span class="do">## a list containing only the `cars` data.frame</span></span>
+<span id="cb293-2"><a href="sec-startdata.html#cb293-2" tabindex="-1"></a>l[<span class="st">"cars"</span>]</span></code></pre></div>
 <pre><code>## $cars
 ##    speed dist
 ## 1      4    2
@@ -1352,8 +1355,8 @@ and <code>"random"</code>. Check if the names were correctly attributed.</p>
 ## 48    24   93
 ## 49    24  120
 ## 50    25   85</code></pre>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="sec-startdata.html#cb293-1" tabindex="-1"></a><span class="co"># equivalent to</span></span>
-<span id="cb293-2"><a href="sec-startdata.html#cb293-2" tabindex="-1"></a>l[<span class="dv">4</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="sec-startdata.html#cb295-1" tabindex="-1"></a><span class="co"># equivalent to</span></span>
+<span id="cb295-2"><a href="sec-startdata.html#cb295-2" tabindex="-1"></a>l[<span class="dv">4</span>]</span></code></pre></div>
 <pre><code>## $cars
 ##    speed dist
 ## 1      4    2
@@ -1406,8 +1409,8 @@ and <code>"random"</code>. Check if the names were correctly attributed.</p>
 ## 48    24   93
 ## 49    24  120
 ## 50    25   85</code></pre>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="sec-startdata.html#cb295-1" tabindex="-1"></a><span class="do">## the `cars` data.frame</span></span>
-<span id="cb295-2"><a href="sec-startdata.html#cb295-2" tabindex="-1"></a>l[[<span class="st">"cars"</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="sec-startdata.html#cb297-1" tabindex="-1"></a><span class="do">## the `cars` data.frame</span></span>
+<span id="cb297-2"><a href="sec-startdata.html#cb297-2" tabindex="-1"></a>l[[<span class="st">"cars"</span>]]</span></code></pre></div>
 <pre><code>##    speed dist
 ## 1      4    2
 ## 2      4   10
@@ -1459,8 +1462,8 @@ and <code>"random"</code>. Check if the names were correctly attributed.</p>
 ## 48    24   93
 ## 49    24  120
 ## 50    25   85</code></pre>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="sec-startdata.html#cb297-1" tabindex="-1"></a><span class="co"># equivalent to</span></span>
-<span id="cb297-2"><a href="sec-startdata.html#cb297-2" tabindex="-1"></a>l[[<span class="dv">4</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="sec-startdata.html#cb299-1" tabindex="-1"></a><span class="co"># equivalent to</span></span>
+<span id="cb299-2"><a href="sec-startdata.html#cb299-2" tabindex="-1"></a>l[[<span class="dv">4</span>]]</span></code></pre></div>
 <pre><code>##    speed dist
 ## 1      4    2
 ## 2      4   10
@@ -1720,7 +1723,7 @@ to use the <code>quantile</code> function.</p></li>
 <a href="sec-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2025-02-26
+2025-03-05
  using 
 R version 4.4.1 (2024-06-14)
 </p>
