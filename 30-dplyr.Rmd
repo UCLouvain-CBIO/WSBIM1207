@@ -486,10 +486,10 @@ rna |>
 To sort in descending order, we need to add the `desc()` function:
 
 ```{r, purl = FALSE}
-rna |> 
-  group_by(gene, infection, time) |> 
+rna |>
+  group_by(gene, infection, time) |>
   summarize(mean_expression = mean(expression),
-            median_expression = median(expression)) |> 
+            median_expression = median(expression)) |>
   arrange(desc(mean_expression))
 ```
 
@@ -502,22 +502,22 @@ for each factor or combination of factors. For this task, **`dplyr`** provides
 each infected and non infected, we would do:
 
 ```{r, purl = FALSE}
-rna |> 
+rna |>
     count(infection)
 ```
 
 The `count()` function is shorthand for something we've already seen: grouping by a variable, and summarizing it by counting the number of observations in that group. In other words, `rna |> count()` is equivalent to:
 
 ```{r, purl = FALSE}
-rna |> 
-    group_by(infection) |> 
+rna |>
+    group_by(infection) |>
     summarise(count = n())
 ```
 
 For convenience, `count()` provides the `sort` argument:
 
 ```{r, purl = FALSE}
-rna |> 
+rna |>
     count(infection, sort = TRUE)
 ```
 
@@ -527,7 +527,7 @@ If we wanted to count *combination of factors*, such as `infection` and `time`,
 we would specify the first and the second factor as the arguments of `count()`:
 
 ```{r purl = FALSE}
-rna |> 
+rna |>
     count(infection, time)
 ```
 
@@ -536,8 +536,8 @@ according to a number of criteria so that we have a better comparison.
 For instance, we might want to arrange the table above by time:
 
 ```{r purl = FALSE}
-rna |> 
-  count(infection, time) |> 
+rna |>
+  count(infection, time) |>
   arrange(time)
 ```
 
@@ -551,7 +551,7 @@ rna |>
 
 `r msmbstyle::question_begin()`
 
-1. How many genes were analysed in each sample?
+1. How many genes/observations were analysed in each sample?
 
 2. Use `group_by()` and `summarize()` to evaluate the sequencing depth
    (the sum of all expressions) in each sample. Which sample has the
@@ -572,6 +572,10 @@ rna |>
 1. How many genes/observations were analysed in each sample?
 
 ```{r, purl=FALSE}
+rna |>
+    group_by(sample) |>
+    summarise(n = n())
+
 rna |>
   count(sample)
 ```
@@ -601,7 +605,6 @@ rna |>
 ```{r, purl=FALSE}
 rna |>
   filter(sample == "GSM2545336") |>
-  group_by(gene_biotype) |>
   count(gene_biotype) |>
   arrange(desc(n))
 ```
