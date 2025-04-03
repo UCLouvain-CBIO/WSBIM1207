@@ -110,7 +110,7 @@ and `jdf5`. What has happened for observations `P26039` and `P02468`?
 full_join(jdf4, jdf5)
 ```
 
-`P02468` and `P02468` are only present in `jdf4` and `jdf5`
+`P26039` and `P02468` are only present in `jdf4` and `jdf5`
 respectively, and their respective values for the variables of the
 table have been encoded as missing.
 
