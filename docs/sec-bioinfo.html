@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2025-04-03" />
+<meta name="date" content="2025-06-16" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -630,7 +630,7 @@ and the sample metadata with the <code>colData</code> function:</p>
 ## Apod         11088      15916      11166      38148
 ## Cyp2d22       1821       2842       2011       4019
 ## Klk6           894        501        598        259
-##  [ reached getOption("max.print") -- omitted 2 rows ]</code></pre>
+##  [ reached 'max' / getOption("max.print") -- omitted 2 rows ]</code></pre>
 <div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="sec-bioinfo.html#cb604-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">rowData</span>(GSE96870_intro))</span></code></pre></div>
 <pre><code>## DataFrame with 6 rows and 11 columns
 ##                gene    ENTREZID                product       gbkey
@@ -689,7 +689,7 @@ and the sample metadata with the <code>colData</code> function:</p>
 ## GSM2545353 NonInfected     C57BL/6     Day0 Cerebellum       4 
 ## GSM2545354 NonInfected     C57BL/6     Day0 Cerebellum       2 
 ## GSM2545362 InfluenzaA      C57BL/6     Day4 Cerebellum       20
-##  [ reached getOption("max.print") -- omitted 2 rows ]</code></pre>
+##  [ reached 'max' / getOption("max.print") -- omitted 2 rows ]</code></pre>
 <div class="question">
 <p class="question-begin">
 ► Question
@@ -812,34 +812,34 @@ page:</p>
 <div id="importing" class="section level4 unnumbered">
 <h4>Importing</h4>
 <ul>
-<li>GTF, GFF, BED, BigWig, etc., - <em><a href="https://bioconductor.org/packages/3.20/rtracklayer">rtracklayer</a></em><code>::import()</code>
+<li>GTF, GFF, BED, BigWig, etc., - <em><a href="https://bioconductor.org/packages/3.21/rtracklayer">rtracklayer</a></em><code>::import()</code>
 </li>
-<li>VCF – <em><a href="https://bioconductor.org/packages/3.20/VariantAnnotation">VariantAnnotation</a></em><code>::readVcf()</code>
+<li>VCF – <em><a href="https://bioconductor.org/packages/3.21/VariantAnnotation">VariantAnnotation</a></em><code>::readVcf()</code>
 </li>
-<li>SAM / BAM – <em><a href="https://bioconductor.org/packages/3.20/Rsamtools">Rsamtools</a></em><code>::scanBam()</code>, <em><a href="https://bioconductor.org/packages/3.20/GenomicAlignments">GenomicAlignments</a></em><code>:readGAlignment*()</code>
+<li>SAM / BAM – <em><a href="https://bioconductor.org/packages/3.21/Rsamtools">Rsamtools</a></em><code>::scanBam()</code>, <em><a href="https://bioconductor.org/packages/3.21/GenomicAlignments">GenomicAlignments</a></em><code>:readGAlignment*()</code>
 </li>
-<li>FASTA – <em><a href="https://bioconductor.org/packages/3.20/Biostrings">Biostrings</a></em><code>::readDNAStringSet()</code>
+<li>FASTA – <em><a href="https://bioconductor.org/packages/3.21/Biostrings">Biostrings</a></em><code>::readDNAStringSet()</code>
 </li>
-<li>FASTQ – <em><a href="https://bioconductor.org/packages/3.20/ShortRead">ShortRead</a></em><code>::readFastq()</code>
+<li>FASTQ – <em><a href="https://bioconductor.org/packages/3.21/ShortRead">ShortRead</a></em><code>::readFastq()</code>
 </li>
-<li>Mass spectrometry data (XML-based and peaklist formats) – <em><a href="https://bioconductor.org/packages/3.20/Spectra">Spectra</a></em><code>::Spectra()</code>
+<li>Mass spectrometry data (XML-based and peaklist formats) – <em><a href="https://bioconductor.org/packages/3.21/Spectra">Spectra</a></em><code>::Spectra()</code>
 </li>
 </ul>
 </div>
 <div id="common-classes" class="section level4 unnumbered">
 <h4>Common Classes</h4>
 <ul>
-<li>Rectangular feature x sample data – <em><a href="https://bioconductor.org/packages/3.20/SummarizedExperiment">SummarizedExperiment</a></em><code>::SummarizedExperiment()</code> (RNAseq count matrix, microarray, proteomics, …)</li>
-<li>Genomic coordinates – <em><a href="https://bioconductor.org/packages/3.20/GenomicRanges">GenomicRanges</a></em><code>::GRanges()</code> (1-based, closed interval)</li>
-<li>DNA / RNA / AA sequences – <em><a href="https://bioconductor.org/packages/3.20/Biostrings">Biostrings</a></em><code>::*StringSet()</code>
+<li>Rectangular feature x sample data – <em><a href="https://bioconductor.org/packages/3.21/SummarizedExperiment">SummarizedExperiment</a></em><code>::SummarizedExperiment()</code> (RNAseq count matrix, microarray, proteomics, …)</li>
+<li>Genomic coordinates – <em><a href="https://bioconductor.org/packages/3.21/GenomicRanges">GenomicRanges</a></em><code>::GRanges()</code> (1-based, closed interval)</li>
+<li>DNA / RNA / AA sequences – <em><a href="https://bioconductor.org/packages/3.21/Biostrings">Biostrings</a></em><code>::*StringSet()</code>
 </li>
-<li>Gene sets – <em><a href="https://bioconductor.org/packages/3.20/GSEABase">GSEABase</a></em><code>::GeneSet()</code> <em><a href="https://bioconductor.org/packages/3.20/GSEABase">GSEABase</a></em><code>::GeneSetCollection()</code>
+<li>Gene sets – <em><a href="https://bioconductor.org/packages/3.21/GSEABase">GSEABase</a></em><code>::GeneSet()</code> <em><a href="https://bioconductor.org/packages/3.21/GSEABase">GSEABase</a></em><code>::GeneSetCollection()</code>
 </li>
-<li>Multi-omics data – <em><a href="https://bioconductor.org/packages/3.20/MultiAssayExperiment">MultiAssayExperiment</a></em><code>::MultiAssayExperiment()</code>
+<li>Multi-omics data – <em><a href="https://bioconductor.org/packages/3.21/MultiAssayExperiment">MultiAssayExperiment</a></em><code>::MultiAssayExperiment()</code>
 </li>
-<li>Single cell data – <em><a href="https://bioconductor.org/packages/3.20/SingleCellExperiment">SingleCellExperiment</a></em><code>::SingleCellExperiment()</code>
+<li>Single cell data – <em><a href="https://bioconductor.org/packages/3.21/SingleCellExperiment">SingleCellExperiment</a></em><code>::SingleCellExperiment()</code>
 </li>
-<li>Mass spectrometry data – <em><a href="https://bioconductor.org/packages/3.20/Spectra">Spectra</a></em><code>::Spectra()</code>
+<li>Mass spectrometry data – <em><a href="https://bioconductor.org/packages/3.21/Spectra">Spectra</a></em><code>::Spectra()</code>
 </li>
 </ul>
 </div>
@@ -917,7 +917,7 @@ URL like</p>
 <li><a href="https://bioconductor.org/packages/packagename" class="uri">https://bioconductor.org/packages/packagename</a></li>
 </ul>
 <p>This works for any type of package (software, annotation or data). For
-example, the pages for packages <em><a href="https://bioconductor.org/packages/3.20/DESeq2">DESeq2</a></em> or <em><a href="https://bioconductor.org/packages/3.20/QFeatures">QFeatures</a></em>
+example, the pages for packages <em><a href="https://bioconductor.org/packages/3.21/DESeq2">DESeq2</a></em> or <em><a href="https://bioconductor.org/packages/3.21/QFeatures">QFeatures</a></em>
 would be</p>
 <ul>
 <li><a href="https://bioconductor.org/packages/DESeq2" class="uri">https://bioconductor.org/packages/DESeq2</a></li>
@@ -1146,9 +1146,9 @@ sample data based on the groups.</p></li>
 <a href="sec-prog.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2025-04-03
+2025-06-16
  using 
-R version 4.4.1 (2024-06-14)
+R version 4.5.0 (2025-04-11)
 </p>
 </div>
 </div>
