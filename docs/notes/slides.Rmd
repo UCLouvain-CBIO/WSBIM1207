@@ -39,7 +39,7 @@ Avant de commencer... savez-vous ce qu'est l'alignement pédagogique?
 class: center middle
 
 ```{r echo=FALSE}
-knitr::include_graphics("alignement-pedagogique.png")
+knitr::include_graphics("https://github.com/UCLouvain-CBIO/WSBIM1207/raw/refs/heads/main/docs/figs/alignement-pedagogique.png")
 ```
 
 ???
