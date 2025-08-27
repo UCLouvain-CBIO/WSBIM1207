@@ -1,0 +1,821 @@
+# Bioinformatics {#sec-bioinfo}
+
+As already alluded to earlier, [Wikipedia
+defines](https://en.wikipedia.org/wiki/Bioinformatics) bioinformatics
+as
+
+> Bioinformatics is an interdisciplinary field that develops methods
+  and software tools for understanding biological data.
+
+Bioinformatics is as varied as biology itself, and ranges from data
+analysis, to software development, computational or statistical
+methodological development, more theoretical work, as well as any
+combination of these.
+
+## Omics data
+
+So far, we have explored broad data science techniques in R. A
+widespread and successful area of bioinformatics, and one that you, as
+a biology or biomedical science student are likely to be confronted
+with, is the analysis and interpretation of omics data.
+
+```{r infoflow, results='markup', fig.margin=TRUE, fig.cap="Information flow in biological systems (Source [Wikipedia](https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology)).", fig.width=7, fig.height=7, echo=FALSE, purl=FALSE}
+knitr::include_graphics("./figs/Centraldogma_nodetails.png")
+```
+
+It is useful to define these omics data along the flow of information
+in biology (Figure \@ref(fig:infoflow)), and define the different
+application domains. The technologies that focus on DNA, and the
+genome in particular (either whole or parts thereof) are termed
+**genomics**, and are currently based on sequencing, in particular
+high throughput sequencing (HTS). The domain focusing on the study of
+any DNA (or associated proteins) modification (such as for example
+methylation) is termed **epigenetics**. The study of RNA, and more
+specifically the quantitation of RNA levels in biological samples is
+termed **transcriptomics**, as it assays the transcription of DNA into
+RNA molecules. Without further specification, transcriptomics refers
+to the quantitation of message RNA, although one could also focus on
+non-coding RNAs such as micro RNAs. HTS is currently the technology of
+choice for any transcriptomics study, while a decade ago, prior to the
+development of RNA sequencing (called **RNA-Seq**), microarrays were
+widely used. **Proteomics** focuses on the identification and
+quantitation of proteins, and can also expand into the study of
+protein interactions, post-translational modifications or sub-cellular
+localisation of proteins. Further downstream of proteins, small
+molecules or lipids can also be assayed under the umbrella terms of
+**metabolomics** and **lipidomics**. The technology of choice for
+protein, lipids or smaller metabolites is mass spectrometry.
+
+In the next couple of sections, some important concepts related to
+omics data and their analysis are repeated and emphasised.
+
+### High throughput {-}
+
+By it very nature, omics data is high throughput. The goal is to
+measure all, or as many as possible molecules of an omics-domain as
+possible: sequence the whole genome or all exomes; identify all
+epigenetic histone modifications (defining the compactness of DNA and
+hence it's accessibility by the transcription machinery); identify and
+quantify as much as possible from the complete proteomics; etc. As a
+result, omics data is both large in size and complex in nature, and
+requires dedicated software and analysis methods to be processed,
+analysed to infer biologically relevant patterns.
+
+### Raw and processed data {-}
+
+The omics data that are produced by the instruments are called raw
+data, and their size (generally large), the types of file, and
+structure will depend on the technology that is used. Raw data need to
+be processed using dedicated software before obtaining data that can
+be mapped to the biology that is measured. Below we illustrate two
+such examples using Sanger sequencing and mass spectrometry.
+
+In Sanger sequencing (Figure \@ref(fig:sangerseq)), DNA is labelled
+using fluorophores, and different nucleotides are marked with
+different colours. Upon acquisition, light signal is acquired and
+recording of the different colours can be used to reconstruct the DNA
+sequence.
+
+```{r sangerseq, out.width = '70%', fig.cap="Processing Sanger sequencing data to a string. (Source [BiteSizeBio](https://bitesizebio.com/27985/sanger-sequencing-genome-won/)).", echo = FALSE}
+knitr::include_graphics("./figs/sanger-sequencing.jpg")
+```
+
+In mass spectrometry, charged molecules are separated based on their
+mass-to-charge (M/Z) ratio and their intensities recorded to produce a
+spectrum. In proteomics, the molecules that are assayed are protein
+fragments called peptides. Upon fragmentation of peptides, the
+different between the M/Z peaks of the peptide fragment ions can be
+used to reconstruct the peptide sequence (Figure \@ref(fig:pepseq)).
+
+```{r pepseq, out.width = '100%', fig.cap="De novo peptide sequencing using mass spectrometry. (Source [Creative Proteomics](https://www.creative-proteomics.com/services/de-novo-peptides-proteins-sequencing-service.htm)).", echo = FALSE}
+knitr::include_graphics("./figs/de-novo-pep-sequencing.jpg")
+```
+
+
+The size and computational cost of processing raw data often require
+more serious hardware, including disk space, computer clusters with
+100s or more of compute nodes and/or access to high amounts of memory
+(RAM).
+
+Processed data themselves often need to be further transformed to
+account for a variety of noise that is inherent to sample
+collection, preparation and measurement acquisition. Data processing
+and transformation will be explored in detail in subsequent course
+such as *Omics data analysis*
+([WSBIM2122](https://github.com/UCLouvain-CBIO/WSBIM2122)).
+
+
+## Metadata and experimental design
+
+
+The acquired data, even once processed, is still of very little use
+when it comes to understanding biology. Before samples are collected
+and data are generated, it is essential to carefully design a question
+of interest (research hypothesis) and the experiment that will allow
+to answer it. For example, if we want to understand the effect of a
+particular drug on cancer cells, and more specifically understand the
+effect on the transcription of all the expressed genes, on would need
+to measure gene expression (using for example RNA-Seq) in cancer cells
+in presence and absence of that drug. The table below describes a
+simple experimental design where 3 conditions (control, drug at a
+concentrations of 1 and 5) have been simultaneously processed and
+measured by the same operator in 4 replicate.
+
+```{r, echo = FALSE}
+expd <- data.frame(sample = paste0("S", 1:12),
+                   operator = "Kevin", date = '2019-03-02',
+                   group = rep(c("CTRL", "DRUG", "DRUG"), each = 4),
+                   concentration = factor(rep(c(0, 1, 5), each = 4)),
+                   replicate = rep(1:4, 3),
+                   stringsAsFactors = FALSE)
+knitr::kable(expd)
+```
+
+We have seen a much more complex experimental design, involving many
+more samples with the `clinical1` data.
+
+```{r, echo = FALSE, message = FALSE}
+library("rWSBIM1207")
+data(clinical1)
+clinical1
+```
+
+When performing experiments, measurements should also be repeated
+several times (typically at least three), to quantify the overall
+variability (technical and biological) in the measured variables and,
+eventually, identify changes that relate to the conditions of interest
+(for example differences in genes expression in the presence or
+absence of the drug).
+
+```{r, echo = FALSE, fig.cap = "Distribution of the expression of the genes A1CF, BRCA1 and TP53 under the control (no drug) and drug at concentrations 1 and 5."}
+set.seed(1)
+ge <- expd
+ge$A1CF <- rnorm(12, 6, 2)
+ge$BRCA1 <- c(abs(rnorm(4, 2, 1)), rnorm(4, 8, 2), rnorm(4, 13, 2))
+ge$TP53 <-  c(rnorm(4, 10, 5), rnorm(4, 10, 3), rnorm(4, 10, 2))
+ge <- pivot_longer(ge,
+                   names_to = "gene",
+                   values_to = "expression",
+                   c(A1CF, BRCA1, TP53))
+ggplot(ge, aes(x = gene, y = expression, colour = concentration)) +
+    geom_boxplot()
+```
+
+## The Bioconductor project {#sec-bioconductor}
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+library("SummarizedExperiment")
+library("BiocStyle")
+```
+
+The [Bioconductor](http://www.bioconductor.org) was initiated by
+Robert Gentleman (@Gentleman:2004;@Huber:2015), one of the two
+creators of the R language, and centrally offers dedicated R packages
+for bioinformatics.
+
+> Bioconductor provides tools for the analysis and comprehension of
+> high-throughput genomic data. Bioconductor uses the R statistical
+> programming language, and is open source and open development. It
+> has two releases each year, and an active user community.
+
+```{r biocwww, fig.cap="The Bioconductor web page.", echo=FALSE, out.width = '100%'}
+knitr::include_graphics("./figs/bioc-screenshot.png")
+```
+
+This [video](https://www.youtube.com/watch?v=nzY7bPQOXUs) provides a
+great overview of the project at large.
+
+Bioconductor packages are managed installed using a dedicated package,
+namely `BiocManager`, that can be installed from CRAN with
+
+```{r, eval = FALSE}
+install.packages("BiocManager")
+```
+
+Individuals package such as `SummarizedExperiment` (see below for
+details), `DESeq2` (for transcriptomics), `Spectra` (for mass
+spectrometry), `xcms` (metabolomics), ... can then be installed with
+`BiocManager::install`.
+
+```{r, eval = FALSE}
+BiocManager::install("SummarizedExperiment")
+BiocManager::install("DESeq2")
+BiocManager::install("Spectra")
+BiocManager::install("xcms")
+```
+
+Note that we can also use that same function to install packages from GitHub:
+
+```{r, eval = FALSE}
+BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
+```
+
+## Omics data containers
+
+Data in bioinformatics is often more complex than the basic data types
+we have seen so far. In such situations, developers define specialised
+data containers (termed classes that) that match the properties of the
+data they need to handle.
+
+An example of general data architecture, that is used across many
+omics domains in Bioconductor is represented below:
+
+```{r msnset, fig.cap="A data structure to store quantitative data, features (rows) annotation, and samples (column) annotations..", echo=FALSE, out.width = '80%'}
+knitr::include_graphics("./figs/msnset.png")
+```
+
+- An assay data slot containing the quantitative omics data
+  (expression data), stored as a `matrix`. Features (genes,
+  transcripts, proteins, ...) are defined along the rows and samples
+  along the columns.
+
+- A sample metadata slot containing sample co-variates, stored as a
+  table (`data.frame` or `DataFrame`). This dataframe is stored with
+  rows representing samples and sample covariate along the columns,
+  and its rows match the expression data columns exactly.
+
+- A feature metadata slot containing feature co-variates, stored as
+  table annotated (`data.frame` or `DataFrame`). This dataframe's rows
+  match the expression data rows exactly.
+
+The coordinated nature of the high throughput data guarantees that the
+dimensions of the different slots will always match (i.e the columns
+in the expression data and then rows in the sample metadata, as well
+as the rows in the expression data and feature metadata) during data
+manipulation. The metadata slots can grow additional co-variates
+(columns) without affecting the other structures.
+
+To illustrate such an omics data container, we'll use a variable of
+class `SummarizedExperiment`. Below, we load the `GSE96870_intro`
+dataset from the `rWSBIM1207` package (version >= 0.1.15).
+
+
+```{r, message = FALSE}
+library("SummarizedExperiment")
+library("rWSBIM1207")
+data(GSE96870_intro)
+class(GSE96870_intro)
+GSE96870_intro
+```
+
+This data contains the same RNA-sequencing data as we have seen in
+chapter \@ref(sec-startdata). It is however formatted as a special
+type of data, a `SummarizedExperiment`, that is specialised for
+quantitative omics data (as opposed to the more general `data.frame`
+data structure). We will be learning and using `SummarizedExperiment`
+objects a lot in the
+[WSBIM1322](https://github.com/UCLouvain-CBIO/WSBIM1322) and
+[WSBIM2122](https://github.com/UCLouvain-CBIO/WSBIM2122) courses.
+
+
+The object contains data for `r nrow(GSE96870_intro)` features
+(peptides in this case) and `r ncol(GSE96870_intro)` samples.
+
+```{r}
+dim(GSE96870_intro)
+nrow(GSE96870_intro)
+ncol(GSE96870_intro)
+```
+
+The samples (columns) and rows (protein features) are named:
+
+```{r}
+colnames(GSE96870_intro)
+head(rownames(GSE96870_intro))
+tail(rownames(GSE96870_intro))
+```
+
+Using this data structure, we can access the expression matrix with
+the `assay` function, the feature metadata with the `rowData` function,
+and the sample metadata with the `colData` function:
+
+```{r}
+head(assay(GSE96870_intro))
+head(rowData(GSE96870_intro))
+colData(GSE96870_intro)
+```
+
+`r msmbstyle::question_begin()`
+
+Verify that the expression data dimensions match with number of rows
+and columns in the feature and sample data.
+
+`r msmbstyle::question_end()`
+
+
+`r msmbstyle::solution_begin()`
+```{r}
+nrow(assay(GSE96870_intro)) == nrow(rowData(GSE96870_intro))
+ncol(assay(GSE96870_intro)) == nrow(colData(GSE96870_intro))
+```
+`r msmbstyle::solution_end()`
+
+
+We can use the `[` operator to subset the whole object: all parts
+thereof will be subset correctly.
+
+```{r}
+small_se <- GSE96870_intro[c(1, 3, 5), c(2, 4)]
+dim(small_se)
+head(assay(small_se))
+```
+
+We can also add information with:
+
+```{r}
+colData(small_se)$new_var  <- c("new_val1", "new_val2")
+colData(small_se)
+```
+
+### Saving objects {#sec-save}
+
+Exporting data to a spreadsheet using `write.csv()` or `write_csv()`
+has several limitations, such as possible inconsistencies with `,` and
+`.` for decimal separators and lack of variable type
+definitions. Furthermore, exporting data to a spreadsheet is only
+relevant for rectangular data such as data.frames and matrices and
+isn't applicable to more complex variables such as
+`SummarizedExperiment` objects, that are themselves composed of
+mulitple parts.
+
+A more general way to save data, that is specific to R and is
+guaranteed to work on any operating system, is to use the `save()`
+function. Saving objects will generate a binary representation of the
+object on disk, a *R Data* file (`rda` extension) that guarantees to
+produce the same object once loaded back into R using the `load()`
+function.
+
+```{r, eval = TRUE}
+save(GSE96870_intro, file = "data_output/se.rda")
+rm(GSE96870_intro)
+load("data_output/se.rda")
+GSE96870_intro
+```
+
+Note how the `load()` function directly loads the object in the file
+directly in the global environment using its original name.
+
+The `saveRDS()` and `readRDS()` functions save R objects to binary
+files (using the `rds` extension here) and read these back into
+R. From a user's perspective, the main difference is that, `load()`
+loads an object in the global environment while `readRDS()` reads the
+data from disk and returns it. It is thus necessary to store the
+output of `readRDS()` in a variable:
+
+```{r, eval = TRUE}
+saveRDS(GSE96870_intro, file = "data_output/se.rds")
+rm(GSE96870_intro)
+se <- readRDS("data_output/se.rds")
+se
+```
+
+```{r echo=FALSE}
+unlink("data_output/se.rda")
+unlink("data_output/se.rds")
+```
+When it comes to saving data from R that will be loaded again in R,
+saving and loading is the preferred approach. If tabular data need to
+be shared with somebody who is not using R, then exporting to a
+text-based spreadsheet is a good alternative.
+
+## Bioconductor data infrastructure
+
+An essential aspect that is central to Bioconductor and its success is
+the availability of core data infrastructure that is used across
+packages. Package developers are advised to make use of existing
+infrastructure to provide coherence, interoperability and stability to
+the project as a whole.
+
+Here are some core classes, taken from the [Common Bioconductor
+Methods and
+Classes](https://bioconductor.org/developers/how-to/commonMethodsAndClasses/)
+page:
+
+#### Importing  {-}
+
+- GTF, GFF, BED, BigWig, etc., - `r Biocpkg("rtracklayer")``::import()`
+- VCF – `r Biocpkg("VariantAnnotation")``::readVcf()`
+- SAM / BAM – `r Biocpkg("Rsamtools")``::scanBam()`, `r Biocpkg("GenomicAlignments")``:readGAlignment*()`
+- FASTA – `r Biocpkg("Biostrings")``::readDNAStringSet()`
+- FASTQ – `r Biocpkg("ShortRead")``::readFastq()`
+- Mass spectrometry data (XML-based and peaklist formats) – `r Biocpkg("Spectra")``::Spectra()`
+
+#### Common Classes {-}
+
+- Rectangular feature x sample data – `r Biocpkg("SummarizedExperiment")``::SummarizedExperiment()` (RNAseq count matrix, microarray, proteomics, ...)
+- Genomic coordinates – `r Biocpkg("GenomicRanges")``::GRanges()` (1-based, closed interval)
+- DNA / RNA / AA sequences – `r Biocpkg("Biostrings")``::*StringSet()`
+- Gene sets – `r Biocpkg("GSEABase")``::GeneSet()` `r Biocpkg("GSEABase")``::GeneSetCollection()`
+- Multi-omics data – `r Biocpkg("MultiAssayExperiment")``::MultiAssayExperiment()`
+- Single cell data – `r Biocpkg("SingleCellExperiment")``::SingleCellExperiment()`
+- Mass spectrometry data – `r Biocpkg("Spectra")``::Spectra()`
+
+
+## Navigating the Bioconductor project
+
+Bioconductor has become a large project proposing many packages across
+many domains of high throughput biology. It continues to grow, at an
+increasing rate, and it can be difficult to get started.
+
+### *biocViews*
+
+One way to find packages of interest is to navigate the *biocViews*
+hierarchy. Every package is tagged with a set of *biocViews*
+labels. The highest level defines 3 types of packages:
+
+- Software: packages providing a specific functionality.
+- AnnotationData: packages providing annotations, such as various
+  ontologies, species annotations, microarray annotations, ...
+- ExperimentData: packages distributing experiments.
+
+The *biocViews* page is available here
+
+- https://bioconductor.org/packages/release/BiocViews.html#___Software
+
+It is most easily accessed by clicking on the *software packages* link
+on the homepage, under *About Bioconductor* (see screenshot above).
+
+See also this
+[page](https://bioconductor.org/developers/how-to/biocViews/) for
+additional information.
+
+### Workflows
+
+On the other hand, people generally don't approach the Bioconductor
+project to learn the whole project, but are interested by a specific
+analysis from a Bioconductor package, that they have read in a paper
+of interest. In my opinion, it is more effective to restrict ones
+attention to a problem or analysis of interest to first immerse
+oneself into Bioconductor, then broaden up ones experience to other
+topics and packages.
+
+To to that, the project offers workflows that provide a general
+introduction to topics such as sequence analysis, annotation
+resources, RNA-Seq data analyis, Mass spectrometry and proteomics,
+CyTOF analysis, ....
+
+- https://bioconductor.org/help/workflows/
+
+A similar set of resources are published
+in [F1000Research](https://f1000research.com/) under the Bioconductor
+gateway
+
+- https://f1000research.com/gateways/bioconductor
+
+These peer-reviewed papers describe more complete pipelines involving
+one or several packages.
+
+### Learning about specific packages
+
+Each Bioconductor package has it's own *landing pages* that provides
+all necessary information about a package, including a short summary,
+its current version, the authors, how the cite the package,
+installation instructions, and links to all package vignettes.
+
+Any Bioconductor package page can be constructed by appending the
+package's name to `https://bioconductor.org/packages/` to produce an
+URL like
+
+- https://bioconductor.org/packages/packagename
+
+This works for any type of package (software, annotation or data). For
+example, the pages for packages `r Biocpkg("DESeq2")` or `r Biocpkg("QFeatures")`
+would be
+
+- https://bioconductor.org/packages/DESeq2
+
+and
+
+- https://bioconductor.org/packages/QFeatures
+
+These short URLs are then resolved to their longer form to redirect to
+the longer package URL leading the user to the current release version
+of the packge.
+
+### Package vignettes
+
+An important quality of every Bioconductor package is the availability
+of a dedicated *vignette*. Vignettes are documentations (generally
+provided as pdf or html files) that provide a generic overview of the
+package, without necessarily going in detail for every function of the
+package.
+
+Below, we show how to list all vignettes available in the `MSnbase`
+package and how to open one in particular.
+
+```{r, eval = FALSE}
+vignette(package = "QFeatures")
+vignette("QFeatures")
+```
+
+Vignettes are special in that respect as they are produced as part of
+the package building process. The code in a vignette is executed and
+its output, whether in the form of simple text, tables and figures,
+are inserted in the vignette before the final file (in pdf or html) is
+produced. Hence, all the code and outputs are guaranteed to be correct
+and reproduced.
+
+Given a vignette, it is thus possible to re-generate all the
+results. To make reproducing a long vignette as easy as possible
+without copying and pasting all code chunks one by one, it is possible to
+extract the code into an R script running the `Stangle` (from the
+`utils` package -
+see [here](https://bioconductor.org/help/package-vignettes/) for
+details) or `knitr::purl` functions on the vignette source document.
+
+### Getting help
+
+The best way to get help with regards to a Bioconductor package is to
+post the question on the *Bioconductor support forum* at
+https://support.bioconductor.org/. Package developers generally follow
+the support site for questions related to their packages. See this
+page for [more details](https://bioconductor.org/help/support/).
+
+To maximise the chances of obtaining an answer promptly, it is important
+to provide details for others to understand the question and, if
+possible, reproduce the observed errors. The Bioconductor project has
+a dedicated
+[posting guide](https://bioconductor.org/help/support/posting-guide/). Here's
+another useful guide on
+[how to write a reproducible question](http://adv-r.had.co.nz/Reproducibility.html).
+
+
+Packages come with a lot of documentation built in, that users are
+advised to read to familiarise themselves with the package and how to
+use it. In addition to the package vignettes as describe above, every
+function of class in a package is documented in great detail in their
+respective *main* page, that can be accessed with `?function`.
+
+There is also a
+dedicated
+[*developer mailing list*](https://bioconductor.org/help/support/posting-guide/) that
+is dedicated for questions and discussions related to package
+development.
+
+### Versions
+
+It is also useful to know that at any given time, there are two
+Bioconductor versions - there is always a release (stable) and a
+development (devel) versions. For example, in October 2017, the
+release version is 3.6 and the development is 3.7.
+
+The individual packages have a similar scheme. Every package is
+available for the release and the development versions of
+Bioconductor. These two versions of the package also have different
+version numbers, where the last digit is even for the former and odd
+for the later. Currently, the `MSnbase` has versions `2.8.2` and
+`2.9.3`, respectively.
+
+Finally, every Bioconductor version is tied to an R version. To
+access the current Bioconductor release, one needs to use the latest R
+version. Hence, it is important to have an up-to-date R installation
+to keep up with the latest developments in Bioconductor. More details
+[here](https://bioconductor.org/developers/how-to/version-numbering/).
+
+
+## Exercises
+
+`r msmbstyle::question_begin()`
+
+1. Install a Bioconductor package of your choice, discover the
+   vignette(s) it offers, open one, and extract the R code out of it.
+
+2. Find a package that allows reading raw mass spectrometry data and
+   identify the specific function. Either use the biocViews tree, look
+   for a possible workflow, or look in the common methods and classes
+   page on the Bioconductor page.
+
+`r msmbstyle::question_end()`
+
+
+`r msmbstyle::question_begin()`
+
+3. Load the `cptac_se` data from the `rWSBIM1322` package. Verify it
+   is of class `SummarizedExperiment`.
+
+4. Extract the quantitative information for the peptides `AIGVLPQLIIDR`,
+   `NLDAAPTLR` and `YGLNHVVSLIENKK` for samples `6A_7` and
+   `6B_8`. Subsetting works as we have seen for `data.frames` in
+   chapter 3.
+
+5. Look and interpret the experimental design stored in the sample
+   metadata of this experiment. To help you out, you can also read its
+   documentation.
+
+6. What is the average expression of `LSAAQAELAYAETGAHDK` in the
+   groups `6A` and `6B`?
+
+7. Calculate the average expression of all peptides belonging to
+   protein `P02753ups|RETBP_HUMAN_UPS` for each sample. You can
+   indentify which peptides to use by looking for that protein in the
+   object's rowData slot.
+
+`r msmbstyle::question_end()`
+
+
+```{r, echo=FALSE, include=FALSE}
+library("rWSBIM1322")
+data(cptac_se)
+class(cptac_se)
+
+peps <- c("AIGVLPQLIIDR", "NLDAAPTLR", "YGLNHVVSLIENKK")
+smpl <- c("6A_7", "6B_8")
+assay(cptac_se[peps, smpl])
+
+colData(cptac_se)
+
+mean(assay(cptac_se["LSAAQAELAYAETGAHDK", 1:3]))
+mean(assay(cptac_se["LSAAQAELAYAETGAHDK", 4:6]))
+
+peps <- rowData(cptac_se)$Proteins == "P02753ups|RETBP_HUMAN_UPS"
+colMeans(assay(cptac_se[peps, ]))
+```
+
+`r msmbstyle::question_begin()`
+
+1. To be able to access the data for this exercise, make sure you have
+   `rWSBIM1207` version 0.1.5 or later. If needed, install a more
+   recent version with
+
+```{r, eval = FALSE}
+BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
+```
+
+2. Import the data from two tab-separated files into R. The full paths
+   to the two files can be accessed with `kem.tsv()`. Read `?kem` for
+   details on the content of the two files. In brief, the
+   `kem_counts.tsv` file contains RNA-Seq expression counts for 13
+   genes and 18 samples and `kem_annot.tsv` contains annotation about
+   each sample. Read the data into two `tibbles` names `kem` and
+   `annot` respectively and familiarise yourself with the content of
+   the two new tables.
+
+3. Convert the counts data into a long table format and annotate
+   each sample using the experimental design.
+
+4. Identify the three transcript identifiers that have the highest
+   expression count over all samples.
+
+5. Visualise the distribution of the expression for the three
+   transcripts selected above in cell types A and B under both
+   treatments.
+
+6. For all genes, calculate the mean intensities in each experimental
+   group (as defined by the `cell_type` and `treatment` variables).
+
+7. Focusing only on the three most expressed transcripts and cell type
+   A, calculate the fold-change induced by the treatment. The
+   fold-change is the ratio between the average expressions in two
+   conditions.
+
+`r msmbstyle::question_end()`
+
+```{r, echo=FALSE, include=FALSE}
+library("rWSBIM1207")
+library("tidyverse")
+fls <- kem.tsv()
+annot <- read_tsv(fls[2])
+
+kem <- read_tsv(fls[1]) %>%
+    pivot_longer(
+        names_to = "sample_id",
+        values_to = "expression",
+        -ref) %>%
+    left_join(annot)
+
+k <- kem %>%
+    group_by(ref) %>%
+    summarise(tot_exprs = sum(expression)) %>%
+    arrange(desc(tot_exprs)) %>%
+    select(ref) %>%
+    head(3)
+
+kem3 <- right_join(kem, k)
+
+ggplot(kem3, aes(x = treatment, y = expression)) +
+    geom_boxplot() +
+    geom_jitter() +
+    facet_grid(ref ~ cell_type)
+
+kem %>%
+    group_by(ref, cell_type, treatment) %>%
+    summarise(mean_expression = mean(expression))
+
+kem3 %>%
+    filter(cell_type == "A") %>%
+    group_by(ref, cell_type, treatment) %>%
+    summarise(mean_expression = mean(expression)) %>%
+    pivot_wider(names_from = "treatment",
+                values_from = "mean_expression") %>%
+    mutate(fold_change = stimulated/none)
+```
+
+
+
+```{r, echo=FALSE, message=FALSE}
+library(SummarizedExperiment)
+se <- readRDS("./data/se.rds")
+```
+
+`r msmbstyle::question_begin()`
+
+Download the following [file](./data/se.rds) and load its data. The
+data is of class `SummarizedExperiment` and contains `r nrow(se)`
+genes for `r ncol(se)` samples.
+
+- Explore the object's `colData` and interprete it as the data's
+  experimental design.
+
+- Generate a figure similar to the one below for your data own data.
+
+```{r results='markup', fig.margin=FALSE, fig.cap="Distribution of the gene expression in each group.", fig.width=9, fig.height=4, echo=FALSE, purl=FALSE}
+knitr::include_graphics("./figs/gene_exp_se.png")
+```
+
+- Calculate the average expression for each gene in each group.
+
+- Calculate the log2 fold-change (i.e. the difference of expression
+  between two groups) for groups CTRL0 and DRUG5. Which gene shows the
+  highest fold-change (i.e. where the expression increases most in
+  DRUG5)? Can you recognise this on the figure?
+
+- Use the `var()` function to calculate the variance for each
+  gene. Which gene has the largest variance. Can you recognise this on
+  the figure?
+
+- Calculate the [coefficient of
+  variation](https://en.wikipedia.org/wiki/Coefficient_of_variation)
+  of each gene. The coefficient of variation is defined as the ratio
+  between a gene's standard deviation (that you can compute using the
+  `sd()` function) and it's mean. Which gene has the largest
+  variance. Can you recognise this on the figure?
+
+- Visualise the distribution of the gene expression in each
+  sample. You can use either a boxplot, a violin plot or plot the
+  density of these distributions with `geom_density()`. Colour the
+  sample data based on the groups.
+
+`r msmbstyle::question_end()`
+
+
+```{r, include=FALSE, eval=FALSE}
+se <- readRDS("./data/se.rds")
+
+se_long <-
+    cbind(assay(se), rowData(se)) %>%
+    as_tibble() %>%
+    pivot_longer(names_to = "samples",
+                 values_to = "gene_expression",
+                 -c("gene", "location")) %>%
+    full_join(as_tibble(colData(se)))
+
+ggplot(se_long,
+       aes(x = group,
+           y = gene_expression)) +
+    geom_boxplot() +
+    facet_wrap(~ gene)
+
+
+avg_exp <-
+    se_long %>%
+    group_by(gene, group) %>%
+    summarise(avg_exp = mean(gene_expression))
+
+avg_exp %>%
+    filter(group %in% c("CTRL0", "DRUG5")) %>%
+    pivot_wider(names_from = "group",
+                values_from = "avg_exp") %>%
+    mutate(fc = DRUG5 - CTRL0) %>%
+    arrange(desc(fc))
+
+se_long %>%
+    group_by(gene) %>%
+    summarise(var = var(gene_expression)) %>%
+    arrange(desc(var))
+
+se_long %>%
+    group_by(gene) %>%
+    summarise(sd = sd(gene_expression),
+              mn = mean(gene_expression)) %>%
+    mutate(cv = sd/mn) %>%
+    arrange(desc(cv))
+
+ggplot(se_long,
+       aes(x = samples,
+           y = gene_expression,
+           fill = group)) +
+    geom_boxplot()
+
+ggplot(se_long,
+       aes(x = samples,
+           y = gene_expression,
+           fill = group)) +
+    geom_violin()
+
+ggplot(se_long,
+       aes(x = gene_expression,
+           group = samples,
+           colour = group)) +
+    geom_density()
+
+```

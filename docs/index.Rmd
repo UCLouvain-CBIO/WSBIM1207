@@ -1,0 +1,293 @@
+---
+title: "Introduction to bioinformatics"
+author: "Laurent Gatto"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+knit: bookdown::preview_chapter
+description: "Course material for the Introduction to bioinformatics (WSBIM1207) course at UCLouvain."
+output:
+  msmbstyle::msmb_html_book:
+    toc: TRUE
+    toc_depth: 1
+    split_by: chapter
+    split_bib: no
+    css: style.css
+link-citations: yes
+bibliography: [refs.bib, packages.bib]
+---
+
+
+# Preamble {-}
+
+The [WSBIM1207](https://uclouvain.be/cours-2022-wsbim1207.html) course
+is an introduction to bioinformatics (and data science) for biology
+and biomedical students. It introduces bioinformatics methodology and
+technologies without relying on any prerequisites. The aim of this
+course is for students to be in a position to understand important
+notions of bioinformatics and tackle simple bioinformatics-related
+problems in R, in particular to develop simple R analysis scripts and
+reproducible analysis reports to interrogate, visualise and understand
+data in a tidy tabular format.
+
+The course is followed by *Bioinformatics*
+([WSBIM1322](https://github.com/UCLouvain-CBIO/WSBIM1322)) and *Omics
+data analysis*
+([WSBIM2122](https://github.com/UCLouvain-CBIO/WSBIM2122)).
+
+It is interesting to start this course by asking the students, who
+have likely not yet been exposed to bioinformatics
+
+> What is bioinformatics?
+
+
+While [Wikipedia
+defines](https://en.wikipedia.org/wiki/Bioinformatics) it as
+
+> Bioinformatics is an interdisciplinary field that develops methods
+  and software tools for understanding biological data.
+
+this course won't try to answer that question by providing an overview
+of the many context where methods and software tools are developed in
+the frame of biological data. We will focus on the getting hands-on
+experience in data manipulation. Hence, the material and how it is
+taught will be focused on practice.
+
+## Motivation {-}
+
+Today, it is difficult to overestimate the very broad importance and
+impact of *data*. Given the abundance of data around us, and the
+sophistication of tools for their analysis and interpretation that are
+readily available, data has become a tool of profound social
+change. Research in general, and biomedical research in particular, is
+at the centre of this evolution. And while bioinformatics has been
+playing a central role in bio-medical research for many years now,
+bioinformatics skills aren't well integrated in life science
+curricula, limiting students in their career prospects and research
+horizon [@WilsonSayres:2018]. It is important for young researchers to
+acquire quantitative, computational and data skills to address the
+challenges that lie ahead.
+
+
+This first course will focus on the data skills. It will not teach to
+use any specific piece of bioinformatics software. Once one has
+identified a relevant piece of software, running it shouldn't be a
+major problem[^runningsw]. The important part will be to understand
+what it does, why it does it and how to assess if the output can be
+trusted. The latter requires to explore and understand the data and
+the results, i.e. data skills. As described by @Buffalo:2015, equating
+learning a piece of bioinformatics software to learning bioinformatics
+is like learning pipetting as a means to learn molecular biology.
+
+[^runningsw]: Although, in all fairness, some bioinformatics software
+are notoriously difficult to install and run.
+
+Critical thinking is essential in any aspect of research, and
+bioinformatics and data analysis doesn't escape that rule. Teaching
+critical thinking is however very difficult, and arguably impossible
+without first possessing the skills and master the tools to be
+critical about data. Rather than teaching a limited set of software
+tools, this course aims at teaching a set of hands-on skills and
+methodologies that allow to interrogate and visualise data, and hence
+be in a position to be critical with respect to new data. In addition,
+while specific software become obsolete and are replaced, or are
+specific to one specific field of research, critical investigation of
+data will always be required and will never be replaced.
+
+We will be using the [R](https://www.R-project.org/) language and
+environment [@R] and the [RStudio integrated development
+environment](https://www.rstudio.com/products/RStudio/) to acquire
+these data skills. Other interactive language such as
+[Python](https://www.R-project.org/) and the interactive [jupyer
+notebooks](https://jupyter.org/) would also have been a good fit. One
+motivation of this choice is the availability of numerous
+R/[Bionductor](https://www.bioconductor.org/) packages [@Huber:2015]
+for the analysis of high throughput biology data.
+
+Another reason why the focus of the course ought to be on data skills
+is that a notable difficulty in modern, multidisciplinary research is
+communication. Wetlab biomedical scientists aren't required to become
+bioinformaticians, statisticians, programmers, ... to be outstanding
+researchers, but they will need to communicate efficiently with these
+experts (and vice versa). What most often unites all these experts is
+data, and communication around data is critical. The importance of
+critical thinking and communication around data becomes more evident
+when one realises that, when tracking work in bioinformatics core
+facilities, only a minority of projects were purely routine and that
+most researchers came to the bioinformatics core seeking customized
+analysis, rather than a standardized package [@Chang:2015].
+
+To illustrate the reasons why R in general (and in the case of
+biomedical sciences, Bioconductor in particular) are worth learning, I
+provide here some examples where these software are used. From a
+bioinformatics point of view:
+
+- Single cell transcriptomics data: [Bioconductor workflow for
+  single-cell RNA sequencing: Normalization, dimensionality reduction,
+  clustering, and lineage
+  inference](https://f1000research.com/articles/6-1158/v1)
+
+- Quantitative proteomics data: [A Bioconductor workflow for
+  processing and analysing spatial proteomics
+  data](https://f1000research.com/articles/5-2926/v2).
+
+- Epigenetic data: [Differential methylation analysis of reduced
+  representation bisulfite sequencing experiments using
+  edgeR](https://f1000research.com/articles/6-2055/v2)
+
+- ...
+
+In addition, here are three short videos (in French, with subtitles in
+multiple languages) by PhD students that assist in the teaching of
+this course. The videos illustrate real-work applications of some of
+the concepts taught in the two bachelor bioinformatics course (this
+one and [WSBIM1322](https://github.com/UCLouvain-CBIO/WSBIM1322)):
+
+- [Julie Devis](https://youtu.be/MOa9fCHqKko) is pursuing a PhD in the
+  Computational Biology and Bioinformatics Unit with Prof Laurent
+  Gatto. She uses R and Bioconductor to study the methylation in
+  cancer germ-line genes.
+- [Valentine Robaux](https://youtu.be/XUiOQ0LRKxc) is pursuing a PhD
+  in the Cardiovascular Research Unit with Profs Sandrine Horman and
+  Christophe Beauloye. She uses R and Bioconductor to investigate
+  platelet function.
+- [Jean Fain](https://youtu.be/XC6HDdPzPac) is pursuing a PhD in the
+  Epigenetics Unit with Prof Charles De Smet. He uses R and
+  Bioconductor to study DNA methylation and its role in cancer.
+
+
+And more generally, at Google, Pfizer, Merck, GSK, Bank of America,
+the InterContinental Hotels Group, Shell, ...
+
+- [Data Analysts Captivated by R's
+  Power](https://www.nytimes.com/2009/01/07/technology/business-computing/07program.html)
+
+In summary, the overall learning objectives of this course are:
+
+- for students to apply and adapt the general data analysis techniques
+  and principles that are presented to new data and new contexts;
+
+- establish links between different concepts seen in the course such
+  as, for example, the importance of tidy data in general, how it
+  applies to dataframes in R, and how it enables reasoning on the
+  data;
+
+- become autonomous when being presented with new data and be in a
+  position to explore and understand them.
+
+## References and credits {-}
+
+References are provided throughout the course. Several stand out
+however, as they cover large parts of the material or provide
+complementary resources.
+
+The material for the first chapters, covering the *Introduction to
+data science with R*, was originally based on the [**Data Carpentry**
+Ecology
+curiculum](https://datacarpentry.org/lessons/#ecology-workshop)
+[@DCRecol]. The main dataset by [Blackmore *et al.*
+(2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5544260/),
+introduced in 2021, was prepared by the [Bioconductor education
+group](https://github.com/Bioconductor/bioconductor-teaching/blob/master/README.md)
+as part of their lesson development.
+
+General references for this course are *R for Data Science*
+[@r4ds:2017] and *Bioinformatics Data Skills* [@Buffalo:2015].
+
+The [RStudio Cheat
+Sheets](https://www.rstudio.com/resources/cheatsheets/) are also a
+handy resource and readers will be pointed to specific sheets in the
+respective chapters.
+
+This course is being taught by Prof Laurent Gatto with invaluable
+assistance from Mr Jean Fain (since 2019), Ms Valetine Robaux (since
+2020), Ms Julie Devis (since 2022), Dr Axelle Loriot (2018 - 2021) and
+Mr Kevin Missault (2018 - 2020) at the Faculty of Pharmacy and
+Biomedical Sciences (FASB) at the UCLouvain, Belgium.
+
+## Pre-requisites {-}
+
+There are no programming or technical pre-requisities for this course,
+other than basic computer usage, such as general knowledge about files
+(binary and text files) and folders and as well as downloading
+files. Familiarity with a spreadsheet editor is helpful for the first
+chapter.
+
+Software requirements are documented in the *Setup* section below.
+
+## About this course material {-}
+
+This material is written in R markdown [@R-rmarkdown] and compiled as
+a book using `knitr` [@R-knitr] `bookdown` [@R-bookdown]. The rendered
+material is available at [http://bit.ly/WSBIM1207](http://bit.ly/WSBIM1207).
+
+Contributions to this material are welcome. The best way to contribute
+or contact the maintainers with a GitHub
+[issue](https://github.com/uclouvain-cbio/WSBIM1207/issues) or by
+email. Please familiarise yourself with the code of conduct (see
+below). By participating in this project you agree to abide by its
+terms.
+
+## Code of conduct {-}
+
+As contributors and maintainers of this project, we pledge to respect
+all people who contribute through reporting issues, posting feature
+requests, updating documentation, submitting pull requests or patches,
+and other activities.
+
+We are committed to making participation in this project a
+harassment-free experience for everyone, regardless of level of
+experience, gender, gender identity and expression, sexual
+orientation, disability, personal appearance, body size, race,
+ethnicity, age, or religion.
+
+Examples of unacceptable behavior by participants include the use of
+sexual language or imagery, derogatory comments or personal attacks,
+trolling, public or private harassment, insults, or other
+unprofessional conduct.
+
+Project maintainers have the right and responsibility to remove, edit,
+or reject comments, commits, code, wiki edits, issues, and other
+contributions that are not aligned to this Code of Conduct. Project
+maintainers who do not follow the Code of Conduct may be removed from
+the project team.
+
+Instances of abusive, harassing, or otherwise unacceptable behavior
+may be reported by opening an issue or contacting one or more of the
+project maintainers.
+
+This Code of Conduct is adapted from the Contributor Covenant, version
+1.0.0, available from http://contributor-covenant.org/version/1/0/0/
+
+## Citation {-}
+
+If you use this course, please cite it as
+
+> Laurent Gatto, Kevin Missault, Manon Martin & Axelle Loriot. (2021,
+> September 24). UCLouvain-CBIO/WSBIM1207: Introduction to
+> bioinformatics (Version
+> v2.0.0). Zenodo. DOI: 10.5281/zenodo.5532658
+
+[![DOI](https://zenodo.org/badge/147494586.svg)](https://zenodo.org/badge/latestdoi/147494586)
+
+
+## License {-}
+
+This material is licensed under the [Creative Commons
+Attribution-ShareAlike 4.0
+License](https://creativecommons.org/licenses/by-sa/4.0/).
+
+
+## Setup {-}
+
+For chapter \@ref(sec-dataorg) about *Data organisation with
+Spreadsheets*, a spreadsheet programme is necessary.
+
+We will be using the [R environment for statistical
+computing](https://www.r-project.org/) as main data science language.
+We will also use the
+[RStudio](https://www.rstudio.com/products/RStudio/) interface to
+interact with R and write scripts and reports. Both R and RStudio are
+easy to install and works on all major operating systems.
+
+Once R and RStudio are installed, a set of packages will need to be
+installed. See section \@ref(sec-setup2) for details.
