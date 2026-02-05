@@ -67,8 +67,8 @@ class: middle
 
 Prof: Laurent Gatto
 
-Assistant(e)s: Valentine Robaux, Julie Devis, Mathilde Akue, Axelle
-Loriot (M1), Cédric Dewaerheijd (moniteur).
+Assistant(e)s: Mathilde Akue, Léopold Guyot, Dr Axelle Loriot (M1),
+Youssef Salem (moniteur).
 
 ---
 
@@ -92,8 +92,8 @@ Loriot (M1), Cédric Dewaerheijd (moniteur).
 #### WSBIM2122
 
 - Appliquer les compétences ci-dessus à l'analyse de données de
-  RNA-Seq et de protéomique quantitative en utilisant des packages R
-  dédiés.
+  RNA-Seq et de protéomique quantitative en utilisant des packages
+  R/Bioconductor dédiés.
 
 ---
 
@@ -154,9 +154,9 @@ Etudiant(e)s de BAC3, 2021-2022
 # En pratique
 
 - **Notes du cours** en ligne:
-  - https://bit.ly/WSBIM1207
-  - https://bit.ly/WSBIM1322
-  - https://bit.ly/WSBIM2122
+  - https://uclouvain-cbio.github.io/WSBIM1207
+  - https://uclouvain-cbio.github.io/WSBIM1322
+  - https://uclouvain-cbio.github.io/WSBIM2122
 - Le notes de cours sont en anglais, mais les cours de Bac se
   donneront en français.
 - Cours structurés en chapitres correspondant +/- aux séances
@@ -177,12 +177,12 @@ Etudiant(e) de BAC2, 2018 - 2019
   si ils/elles les ont, de ne pas succomber à la tentation de regarder
   les réponses, mais d'essayer de les trouver par elles/ils mêmes.
 
+- Word of caution about AI!
 ---
 
 # En pratique
 
 .pull-left[
-
 
 ]
 
@@ -207,6 +207,32 @@ knitr::include_graphics('https://upload.wikimedia.org/wikipedia/en/a/a9/Ungradin
 # En pratique
 
 .pull-left[
+
+Interrogations hebdomadaires non cotées. Correction en classe.
+
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+knitr::include_graphics('https://upload.wikimedia.org/wikipedia/en/a/a9/Ungrading_book.jpg')
+```
+]
+
+???
+
+Interrogations non-cotées, mais corrigées:
+- Essayer vraiment de la faire
+- Correction en classe - poser des questions
+- Question: ou en êtes-vous dans votre apprentissage?
+
+
+---
+
+# En pratique
+
+.pull-left[
+Interrogations hebdomadaires non cotées. Correction en classe.
 
 1. Grades do not track learning (or anything else of importance).
 2. Grading reduces student learning.
@@ -237,9 +263,6 @@ Ca vous demandra du travail!
 
 .pull-left[
 
-- Interrogations régulières ~~avec possibilité de  dispense~~.
-  Pourquoi? Comment?
-
 - **Présence** et **participation** au cours
   **obligatoire**. Pourquoi? Comment? (mais voir plus loin)
 
@@ -250,7 +273,8 @@ Ca vous demandra du travail!
 
 <!-- - **TODO**: pour ceux qui ont un mode de travail différent. -->
 
-- Interrogations et examen à **ressources ouvertes**.
+- Interrogations et examen à **ressources ouvertes** (notes de cours,
+  scripts et cheat sheets).
 
 ]
 
@@ -262,11 +286,6 @@ knitr::include_graphics('https://upload.wikimedia.org/wikipedia/en/a/a9/Ungradin
 ]
 
 ???
-
-Interrogations non-cotées, mais corrigées:
-- Essayer vraiment de la faire
-- Correction en classe - poser des questions
-- Question: ou en êtes-vous dans votre apprentissage?
 
 Présence obligatoire:
 - Pourquoi: votre réussite
@@ -396,7 +415,7 @@ Etudiant(e)s de BAC2, 2018 - 2019
 class: top
 
 ```{r, echo = FALSE, fig.cap = "Correlation entre les résultats des interrogations et de l'examen (WSBIM1207 2018-2019).", out.width='55%', fig.align = 'center'}
-knitr::include_graphics("https://github.com/UCLouvain-CBIO/WSBIM1207/raw/master/figs/2019-06-corr-exam-interro.png")
+knitr::include_graphics("https://github.com/UCLouvain-CBIO/WSBIM1207/raw/refs/heads/main/docs/figs/2019-06-corr-exam-interro.png")
 ```
 
 ???
@@ -459,7 +478,7 @@ class: middle
 |                | Je préfère ...                                                                               | Questions et interrogations                                                                              | Séances individuelles                                                                                                                                               |
 |---------------:|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  **En classe** | Je préfère bénéficier de l'élan du groupe et de l'équipe pédagogique et du cours en direct.  | J'ai les réponses à mes question directement. Je fais les interrogations et leurs corrections en classe. | Je réserve des séances individuelles quand je veux.                                                                                                                 |
-| **A domicile** | Je préfère travailler au calme, chez moi, en utilisant les resources mises à ma disposition. | Je pose mes question sur moodle et fait les interrogations de manière asynchrone.                        | Je m'engage à réserver des séances individuelles au moins toutes les 2 semaines. Et si ça ne va pas, je n'abandonnerai pas et reviendrai suivre le cours en direct. |
+| **A domicile** | Je préfère travailler au calme, chez moi, en utilisant les ressources mises à ma disposition. | Je pose mes question sur moodle et fait les interrogations de manière asynchrone.                        | Je m'engage à réserver des séances individuelles au moins toutes les 2 semaines. Et si ça ne va pas, je n'abandonnerai pas et reviendrai suivre le cours en direct. |
 
 
 ---
