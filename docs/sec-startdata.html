@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2026-02-05" />
+<meta name="date" content="2026-02-19" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -355,7 +355,6 @@ local machine. You’ll need to have a folder on your machine called
 <code>"data"</code> where you’ll download the file. So this command downloads the
 remote file, names it <code>"rnaseq.csv"</code> and adds it to a preexisting
 folder named <code>"data"</code>.</p>
-<p><a href="https://uclouvain-cbio.github.io/WSBIM1207/data/" class="uri">https://uclouvain-cbio.github.io/WSBIM1207/data/</a></p>
 <div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="sec-startdata.html#cb207-1" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url =</span> <span class="st">"https://uclouvain-cbio.github.io/WSBIM1207/data/rnaseq.csv"</span>,</span>
 <span id="cb207-2"><a href="sec-startdata.html#cb207-2" tabindex="-1"></a>              <span class="at">destfile =</span> <span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
 <p>Alternatively, you can download the <a href="./data/rnaseq.csv">file</a> manually
@@ -1154,9 +1153,9 @@ a matrix, a dataframe and another list:</p>
 <pre><code>## List of 5
 ##  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##  $ : chr [1:26] "a" "b" "c" "d" ...
-##  $ : chr [1:513, 1:16] "abind" "affy" "affyio" "airway" ...
+##  $ : chr [1:528, 1:16] "abind" "affy" "affyio" "airway" ...
 ##   ..- attr(*, "dimnames")=List of 2
-##   .. ..$ : chr [1:513] "abind" "affy" "affyio" "airway" ...
+##   .. ..$ : chr [1:528] "abind" "affy" "affyio" "airway" ...
 ##   .. ..$ : chr [1:16] "Package" "LibPath" "Version" "Priority" ...
 ##  $ :'data.frame':    50 obs. of  2 variables:
 ##   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...
@@ -1723,7 +1722,7 @@ to use the <code>quantile</code> function.</p></li>
 <a href="sec-dplyr.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2026-02-05
+2026-02-19
  using 
 R version 4.5.0 (2025-04-11)
 </p>
