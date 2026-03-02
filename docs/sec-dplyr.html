@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2026-03-01" />
+<meta name="date" content="2026-03-02" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -320,7 +320,7 @@ and this <a href="https://github.com/rstudio/cheatsheets/raw/main/data-import.pd
 tidyverse package <strong><code>readr</code></strong>, instead of <code>read.csv()</code>.</p>
 <div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="sec-dplyr.html#cb302-1" tabindex="-1"></a>rna <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
 <pre><code>## Rows: 32428 Columns: 19
-## ── Column specification ────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (14): gene, sample, organism, sex, infection, strain, tissue, product, e...
 ## dbl  (5): expression, age, time, mouse, ENTREZID
@@ -518,8 +518,8 @@ available in base R). If you use RStudio, you can type the pipe with
 ## 10 Gnb4    GSM2545340 Cerebellum       1355
 ## # ℹ 14,730 more rows</code></pre>
 <p>Or</p>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="sec-dplyr.html#cb319-1" tabindex="-1"></a>rna  <span class="sc">|&gt;</span></span>
-<span id="cb319-2"><a href="sec-dplyr.html#cb319-2" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"Male"</span>) <span class="sc">|&gt;</span></span>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="sec-dplyr.html#cb319-1" tabindex="-1"></a>rna  <span class="sc">%&gt;%</span></span>
+<span id="cb319-2"><a href="sec-dplyr.html#cb319-2" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"Male"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb319-3"><a href="sec-dplyr.html#cb319-3" tabindex="-1"></a>  <span class="fu">select</span>(gene, sample, tissue, expression)</span></code></pre></div>
 <pre><code>## # A tibble: 14,740 × 4
 ##    gene    sample     tissue     expression
@@ -916,8 +916,8 @@ screen anymore. It’s one of the advantages of <code>tbl_df</code> over data fr
 <div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="sec-dplyr.html#cb351-1" tabindex="-1"></a>rna <span class="sc">|&gt;</span></span>
 <span id="cb351-2"><a href="sec-dplyr.html#cb351-2" tabindex="-1"></a>  <span class="fu">group_by</span>(gene, infection, time) <span class="sc">|&gt;</span></span>
 <span id="cb351-3"><a href="sec-dplyr.html#cb351-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_expression =</span> <span class="fu">mean</span>(expression))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
+## the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 4,422 × 4
 ## # Groups:   gene, infection [2,948]
 ##    gene     infection    time mean_expression
@@ -941,8 +941,8 @@ display:</p>
 <span id="cb354-2"><a href="sec-dplyr.html#cb354-2" tabindex="-1"></a>  <span class="fu">group_by</span>(gene, infection, time) <span class="sc">|&gt;</span></span>
 <span id="cb354-3"><a href="sec-dplyr.html#cb354-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_expression =</span> <span class="fu">mean</span>(expression)) <span class="sc">|&gt;</span></span>
 <span id="cb354-4"><a href="sec-dplyr.html#cb354-4" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">15</span>)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
+## the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 4,422 × 4
 ## # Groups:   gene, infection [2,948]
 ##    gene     infection    time mean_expression
@@ -970,8 +970,8 @@ columns indicating the median <code>expression</code> by gene and by condition:<
 <span id="cb357-2"><a href="sec-dplyr.html#cb357-2" tabindex="-1"></a>  <span class="fu">group_by</span>(gene, infection, time) <span class="sc">|&gt;</span></span>
 <span id="cb357-3"><a href="sec-dplyr.html#cb357-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_expression =</span> <span class="fu">mean</span>(expression),</span>
 <span id="cb357-4"><a href="sec-dplyr.html#cb357-4" tabindex="-1"></a>            <span class="at">median_expression =</span> <span class="fu">median</span>(expression))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
+## the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 4,422 × 5
 ## # Groups:   gene, infection [2,948]
 ##    gene     infection    time mean_expression median_expression
@@ -994,8 +994,8 @@ For instance, we can sort on <code>mean_expression</code> to put the genes lowly
 <span id="cb360-3"><a href="sec-dplyr.html#cb360-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_expression =</span> <span class="fu">mean</span>(expression),</span>
 <span id="cb360-4"><a href="sec-dplyr.html#cb360-4" tabindex="-1"></a>            <span class="at">median_expression =</span> <span class="fu">median</span>(expression)) <span class="sc">|&gt;</span></span>
 <span id="cb360-5"><a href="sec-dplyr.html#cb360-5" tabindex="-1"></a>  <span class="fu">arrange</span>(mean_expression)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
+## the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 4,422 × 5
 ## # Groups:   gene, infection [2,948]
 ##    gene    infection    time mean_expression median_expression
@@ -1017,8 +1017,8 @@ For instance, we can sort on <code>mean_expression</code> to put the genes lowly
 <span id="cb363-3"><a href="sec-dplyr.html#cb363-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_expression =</span> <span class="fu">mean</span>(expression),</span>
 <span id="cb363-4"><a href="sec-dplyr.html#cb363-4" tabindex="-1"></a>            <span class="at">median_expression =</span> <span class="fu">median</span>(expression)) <span class="sc">|&gt;</span></span>
 <span id="cb363-5"><a href="sec-dplyr.html#cb363-5" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_expression))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
+## the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 4,422 × 5
 ## # Groups:   gene, infection [2,948]
 ##    gene   infection    time mean_expression median_expression
@@ -2029,7 +2029,7 @@ these data.</p></li>
 <a href="sec-vis.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2026-03-01
+2026-03-02
  using 
 R version 4.5.0 (2025-04-11)
 </p>

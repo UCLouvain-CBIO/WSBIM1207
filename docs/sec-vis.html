@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2026-03-01" />
+<meta name="date" content="2026-03-02" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -857,8 +857,8 @@ infection.</p>
 <div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="sec-vis.html#cb495-1" tabindex="-1"></a>mean_exp_by_chromosome <span class="ot">&lt;-</span> rna <span class="sc">%&gt;%</span></span>
 <span id="cb495-2"><a href="sec-vis.html#cb495-2" tabindex="-1"></a>  <span class="fu">group_by</span>(chromosome_name, time) <span class="sc">%&gt;%</span></span>
 <span id="cb495-3"><a href="sec-vis.html#cb495-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_exp =</span> <span class="fu">mean</span>(expression_log))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'chromosome_name'. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by 'chromosome_name'. You can override using
+## the `.groups` argument.</code></pre>
 <div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="sec-vis.html#cb497-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mean_exp_by_chromosome,</span>
 <span id="cb497-2"><a href="sec-vis.html#cb497-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> time,</span>
 <span id="cb497-3"><a href="sec-vis.html#cb497-3" tabindex="-1"></a>                     <span class="at">y =</span> mean_exp)) <span class="sc">+</span></span>
@@ -1393,7 +1393,7 @@ different regions in France.</li>
 <a href="sec-join.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2026-03-01
+2026-03-02
  using 
 R version 4.5.0 (2025-04-11)
 </p>
