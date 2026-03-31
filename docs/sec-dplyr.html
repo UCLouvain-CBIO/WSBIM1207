@@ -13,7 +13,7 @@
 
 <meta name="author" content="Laurent Gatto" />
 
-<meta name="date" content="2026-03-02" />
+<meta name="date" content="2026-03-31" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -320,7 +320,7 @@ and this <a href="https://github.com/rstudio/cheatsheets/raw/main/data-import.pd
 tidyverse package <strong><code>readr</code></strong>, instead of <code>read.csv()</code>.</p>
 <div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="sec-dplyr.html#cb302-1" tabindex="-1"></a>rna <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/rnaseq.csv"</span>)</span></code></pre></div>
 <pre><code>## Rows: 32428 Columns: 19
-## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (14): gene, sample, organism, sex, infection, strain, tissue, product, e...
 ## dbl  (5): expression, age, time, mouse, ENTREZID
@@ -916,8 +916,11 @@ screen anymore. It’s one of the advantages of <code>tbl_df</code> over data fr
 <div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="sec-dplyr.html#cb351-1" tabindex="-1"></a>rna <span class="sc">|&gt;</span></span>
 <span id="cb351-2"><a href="sec-dplyr.html#cb351-2" tabindex="-1"></a>  <span class="fu">group_by</span>(gene, infection, time) <span class="sc">|&gt;</span></span>
 <span id="cb351-3"><a href="sec-dplyr.html#cb351-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_expression =</span> <span class="fu">mean</span>(expression))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
-## the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by gene, infection, and time.
+## ℹ Output is grouped by gene and infection.
+## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+## ℹ Use `summarise(.by = c(gene, infection, time))` for per-operation grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 <pre><code>## # A tibble: 4,422 × 4
 ## # Groups:   gene, infection [2,948]
 ##    gene     infection    time mean_expression
@@ -941,8 +944,11 @@ display:</p>
 <span id="cb354-2"><a href="sec-dplyr.html#cb354-2" tabindex="-1"></a>  <span class="fu">group_by</span>(gene, infection, time) <span class="sc">|&gt;</span></span>
 <span id="cb354-3"><a href="sec-dplyr.html#cb354-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_expression =</span> <span class="fu">mean</span>(expression)) <span class="sc">|&gt;</span></span>
 <span id="cb354-4"><a href="sec-dplyr.html#cb354-4" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">15</span>)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
-## the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by gene, infection, and time.
+## ℹ Output is grouped by gene and infection.
+## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+## ℹ Use `summarise(.by = c(gene, infection, time))` for per-operation grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 <pre><code>## # A tibble: 4,422 × 4
 ## # Groups:   gene, infection [2,948]
 ##    gene     infection    time mean_expression
@@ -970,8 +976,11 @@ columns indicating the median <code>expression</code> by gene and by condition:<
 <span id="cb357-2"><a href="sec-dplyr.html#cb357-2" tabindex="-1"></a>  <span class="fu">group_by</span>(gene, infection, time) <span class="sc">|&gt;</span></span>
 <span id="cb357-3"><a href="sec-dplyr.html#cb357-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_expression =</span> <span class="fu">mean</span>(expression),</span>
 <span id="cb357-4"><a href="sec-dplyr.html#cb357-4" tabindex="-1"></a>            <span class="at">median_expression =</span> <span class="fu">median</span>(expression))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
-## the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by gene, infection, and time.
+## ℹ Output is grouped by gene and infection.
+## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+## ℹ Use `summarise(.by = c(gene, infection, time))` for per-operation grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 <pre><code>## # A tibble: 4,422 × 5
 ## # Groups:   gene, infection [2,948]
 ##    gene     infection    time mean_expression median_expression
@@ -994,8 +1003,11 @@ For instance, we can sort on <code>mean_expression</code> to put the genes lowly
 <span id="cb360-3"><a href="sec-dplyr.html#cb360-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_expression =</span> <span class="fu">mean</span>(expression),</span>
 <span id="cb360-4"><a href="sec-dplyr.html#cb360-4" tabindex="-1"></a>            <span class="at">median_expression =</span> <span class="fu">median</span>(expression)) <span class="sc">|&gt;</span></span>
 <span id="cb360-5"><a href="sec-dplyr.html#cb360-5" tabindex="-1"></a>  <span class="fu">arrange</span>(mean_expression)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
-## the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by gene, infection, and time.
+## ℹ Output is grouped by gene and infection.
+## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+## ℹ Use `summarise(.by = c(gene, infection, time))` for per-operation grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 <pre><code>## # A tibble: 4,422 × 5
 ## # Groups:   gene, infection [2,948]
 ##    gene    infection    time mean_expression median_expression
@@ -1017,8 +1029,11 @@ For instance, we can sort on <code>mean_expression</code> to put the genes lowly
 <span id="cb363-3"><a href="sec-dplyr.html#cb363-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_expression =</span> <span class="fu">mean</span>(expression),</span>
 <span id="cb363-4"><a href="sec-dplyr.html#cb363-4" tabindex="-1"></a>            <span class="at">median_expression =</span> <span class="fu">median</span>(expression)) <span class="sc">|&gt;</span></span>
 <span id="cb363-5"><a href="sec-dplyr.html#cb363-5" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_expression))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene', 'infection'. You can override using
-## the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by gene, infection, and time.
+## ℹ Output is grouped by gene and infection.
+## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+## ℹ Use `summarise(.by = c(gene, infection, time))` for per-operation grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 <pre><code>## # A tibble: 4,422 × 5
 ## # Groups:   gene, infection [2,948]
 ##    gene   infection    time mean_expression median_expression
@@ -1230,8 +1245,11 @@ and calculate their mean expression (in log) at time 0, time 4 and time 8.</li>
 <span id="cb388-3"><a href="sec-dplyr.html#cb388-3" tabindex="-1"></a>  <span class="fu">group_by</span>(gene, time) <span class="sc">|&gt;</span></span>
 <span id="cb388-4"><a href="sec-dplyr.html#cb388-4" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_expression =</span> <span class="fu">mean</span>(<span class="fu">log</span>(expression))) <span class="sc">|&gt;</span></span>
 <span id="cb388-5"><a href="sec-dplyr.html#cb388-5" tabindex="-1"></a>  <span class="fu">arrange</span>()</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by gene and time.
+## ℹ Output is grouped by gene.
+## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+## ℹ Use `summarise(.by = c(gene, time))` for per-operation grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 <pre><code>## # A tibble: 6 × 3
 ## # Groups:   gene [2]
 ##   gene   time mean_expression
@@ -1564,8 +1582,11 @@ located in each chromosome as the values, as shown below.</p>
 <span id="cb413-4"><a href="sec-dplyr.html#cb413-4" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(expression)) <span class="sc">|&gt;</span></span>
 <span id="cb413-5"><a href="sec-dplyr.html#cb413-5" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> sex,</span>
 <span id="cb413-6"><a href="sec-dplyr.html#cb413-6" tabindex="-1"></a>              <span class="at">values_from =</span> mean)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'sex'. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by sex and chromosome_name.
+## ℹ Output is grouped by sex.
+## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+## ℹ Use `summarise(.by = c(sex, chromosome_name))` for per-operation grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 <div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="sec-dplyr.html#cb415-1" tabindex="-1"></a>rna_1</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 3
 ##   chromosome_name Female  Male
@@ -1633,8 +1654,11 @@ different timepoints.</p>
 <span id="cb419-3"><a href="sec-dplyr.html#cb419-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_exp =</span> <span class="fu">mean</span>(expression)) <span class="sc">|&gt;</span></span>
 <span id="cb419-4"><a href="sec-dplyr.html#cb419-4" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> time,</span>
 <span id="cb419-5"><a href="sec-dplyr.html#cb419-5" tabindex="-1"></a>              <span class="at">values_from =</span> mean_exp)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by gene and time.
+## ℹ Output is grouped by gene.
+## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+## ℹ Use `summarise(.by = c(gene, time))` for per-operation grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 <pre><code>## # A tibble: 1,474 × 4
 ## # Groups:   gene [1,474]
 ##    gene         `0`     `4`     `8`
@@ -1659,8 +1683,11 @@ we could not use the column names directly… What happens when we select the co
 <span id="cb422-4"><a href="sec-dplyr.html#cb422-4" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> time,</span>
 <span id="cb422-5"><a href="sec-dplyr.html#cb422-5" tabindex="-1"></a>              <span class="at">values_from =</span> mean_exp) <span class="sc">|&gt;</span></span>
 <span id="cb422-6"><a href="sec-dplyr.html#cb422-6" tabindex="-1"></a>  <span class="fu">select</span>(gene, <span class="dv">4</span>)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by gene and time.
+## ℹ Output is grouped by gene.
+## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+## ℹ Use `summarise(.by = c(gene, time))` for per-operation grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 <pre><code>## # A tibble: 1,474 × 2
 ## # Groups:   gene [1,474]
 ##    gene         `8`
@@ -1683,8 +1710,11 @@ we could not use the column names directly… What happens when we select the co
 <span id="cb425-4"><a href="sec-dplyr.html#cb425-4" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> time,</span>
 <span id="cb425-5"><a href="sec-dplyr.html#cb425-5" tabindex="-1"></a>              <span class="at">values_from =</span> mean_exp) <span class="sc">|&gt;</span></span>
 <span id="cb425-6"><a href="sec-dplyr.html#cb425-6" tabindex="-1"></a>  <span class="fu">select</span>(gene, <span class="st">`</span><span class="at">4</span><span class="st">`</span>)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by gene and time.
+## ℹ Output is grouped by gene.
+## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+## ℹ Use `summarise(.by = c(gene, time))` for per-operation grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 <pre><code>## # A tibble: 1,474 × 2
 ## # Groups:   gene [1,474]
 ##    gene         `4`
@@ -1709,8 +1739,11 @@ choosing a name that doesn’t start by a number :</p>
 <span id="cb428-5"><a href="sec-dplyr.html#cb428-5" tabindex="-1"></a>              <span class="at">values_from =</span> mean_exp) <span class="sc">|&gt;</span></span>
 <span id="cb428-6"><a href="sec-dplyr.html#cb428-6" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"time0"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">0</span><span class="st">`</span>, <span class="st">"time4"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">4</span><span class="st">`</span>, <span class="st">"time8"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">8</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
 <span id="cb428-7"><a href="sec-dplyr.html#cb428-7" tabindex="-1"></a>  <span class="fu">select</span>(gene, time4)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by gene and time.
+## ℹ Output is grouped by gene.
+## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+## ℹ Use `summarise(.by = c(gene, time))` for per-operation grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 <pre><code>## # A tibble: 1,474 × 2
 ## # Groups:   gene [1,474]
 ##    gene       time4
@@ -1757,8 +1790,11 @@ foldchanges calculated.</p>
 <span id="cb431-4"><a href="sec-dplyr.html#cb431-4" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> time,</span>
 <span id="cb431-5"><a href="sec-dplyr.html#cb431-5" tabindex="-1"></a>              <span class="at">values_from =</span> mean_exp) <span class="sc">|&gt;</span></span>
 <span id="cb431-6"><a href="sec-dplyr.html#cb431-6" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">time_8_vs_0 =</span> <span class="st">`</span><span class="at">8</span><span class="st">`</span> <span class="sc">/</span> <span class="st">`</span><span class="at">0</span><span class="st">`</span>, <span class="at">time_8_vs_4 =</span> <span class="st">`</span><span class="at">8</span><span class="st">`</span> <span class="sc">/</span> <span class="st">`</span><span class="at">4</span><span class="st">`</span>)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by gene and time.
+## ℹ Output is grouped by gene.
+## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+## ℹ Use `summarise(.by = c(gene, time))` for per-operation grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 <div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="sec-dplyr.html#cb433-1" tabindex="-1"></a>rna_fc</span></code></pre></div>
 <pre><code>## # A tibble: 1,474 × 6
 ## # Groups:   gene [1,474]
@@ -1833,8 +1869,11 @@ between timepoint 8 and timepoint 0.</p>
 <span id="cb437-6"><a href="sec-dplyr.html#cb437-6" tabindex="-1"></a>              <span class="at">values_from =</span> mean_exp) <span class="sc">|&gt;</span></span>
 <span id="cb437-7"><a href="sec-dplyr.html#cb437-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_8_vs_0 =</span> <span class="st">`</span><span class="at">8</span><span class="st">`</span> <span class="sc">-</span> <span class="st">`</span><span class="at">0</span><span class="st">`</span>, <span class="at">time_4_vs_0 =</span> <span class="st">`</span><span class="at">4</span><span class="st">`</span> <span class="sc">-</span> <span class="st">`</span><span class="at">0</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
 <span id="cb437-8"><a href="sec-dplyr.html#cb437-8" tabindex="-1"></a>  <span class="fu">select</span>(gene, time_8_vs_0, time_4_vs_0)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'gene'. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by gene and time.
+## ℹ Output is grouped by gene.
+## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+## ℹ Use `summarise(.by = c(gene, time))` for per-operation grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 <div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="sec-dplyr.html#cb439-1" tabindex="-1"></a>rna_fc</span></code></pre></div>
 <pre><code>## # A tibble: 1,474 × 3
 ## # Groups:   gene [1,474]
@@ -2029,7 +2068,7 @@ these data.</p></li>
 <a href="sec-vis.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2026-03-02
+2026-03-31
  using 
 R version 4.5.0 (2025-04-11)
 </p>
